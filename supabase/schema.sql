@@ -434,6 +434,12 @@ create policy "admin delete media" on storage.objects for delete using (bucket_i
 -- ============================================================================
 alter table closing_section add column if not exists subline text default '';
 
+-- projects.id를 바꾸기 전에, 그 컬럼을 참조하는 FK부터 먼저 끊어야 한다.
+-- (참조가 살아있는 상태로 부모 컬럼(projects.id) 타입을 바꾸면 Postgres가
+--  그 자리에서 기존 FK의 타입 정합성을 검사하다가 "uuid and text incompatible"
+--  오류를 낸다. 그래서 drop constraint를 가장 먼저 실행한다.)
+alter table collaborations drop constraint if exists collaborations_related_project_id_fkey;
+
 alter table timeline_entries alter column id type text;
 alter table timeline_entries alter column id set default uuid_generate_v4()::text;
 
@@ -452,7 +458,6 @@ alter table contribution_items alter column id set default uuid_generate_v4()::t
 alter table achievements alter column id type text;
 alter table achievements alter column id set default uuid_generate_v4()::text;
 
-alter table collaborations drop constraint if exists collaborations_related_project_id_fkey;
 alter table collaborations alter column id type text;
 alter table collaborations alter column id set default uuid_generate_v4()::text;
 alter table collaborations alter column related_project_id type text;
