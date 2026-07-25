@@ -16,7 +16,16 @@ function client() {
       "Supabase 환경변수가 설정되지 않았습니다. .env 의 NEXT_PUBLIC_SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY 를 확인하세요."
     );
   }
-  return createClient(url, key);
+  return createClient(url, key, {
+    // supabase-js는 내부적으로 fetch()를 사용하는데, Next.js는 프로덕션
+    // 빌드에서 fetch 요청을 기본적으로 캐싱한다. 그대로 두면 관리자에서
+    // 저장(삭제 포함)해도 다음 조회가 캐시된 이전 데이터를 계속 돌려줘서
+    // "저장은 됐는데 반영이 안 되는" 것처럼 보인다. 항상 최신 데이터를
+    // 가져오도록 캐시를 명시적으로 끈다.
+    global: {
+      fetch: (input, init) => fetch(input, { ...init, cache: "no-store" }),
+    },
+  });
 }
 
 function camel<T = any>(row: Record<string, any> | null): T {

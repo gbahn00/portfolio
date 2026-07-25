@@ -1,5 +1,175 @@
 [
   {
+    "id": "14b8fcf7-5d95-4a55-b3c5-18faeccadb0b",
+    "entity": "hero",
+    "field": "전체",
+    "before": {
+      "headline": "콘텐츠,\n다르게\n설계합니다.",
+      "subline": "촬영과 보정에서 시작해\n광고, 유튜브, 생성형 AI와\n제작 관리까지 역할을 넓혀왔습니다.",
+      "name": "이지은",
+      "role": "영상 크리에이터",
+      "department": "미디어팀",
+      "joinYear": "2024년 입사",
+      "badge": "2026년 특별진급 포트폴리오",
+      "highlightClips": [],
+      "visible": true,
+      "status": "draft"
+    },
+    "after": {
+      "headline": "콘텐츠,\n다르게\n설계합니다.",
+      "subline": "촬영과 보정에서 시작해\n광고, 유튜브, 생성형 AI와\n제작 관리까지 역할을 넓혀왔습니다.",
+      "name": "이지은",
+      "role": "영상 크리에이터",
+      "department": "미디어팀",
+      "joinYear": "2024년 입사",
+      "badge": "2026년 특별진급 포트폴리오",
+      "highlightClips": [],
+      "visible": true,
+      "status": "draft"
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-25T17:25:48.594Z"
+  },
+  {
+    "id": "ba51f296-fbe2-412a-bc9e-a38b75dae462",
+    "entity": "hero",
+    "field": "전체",
+    "before": {
+      "headline": "콘텐츠,\n다르게\n설계합니다.",
+      "subline": "촬영과 보정에서 시작해\n광고, 유튜브, 생성형 AI와\n제작 관리까지 역할을 넓혀왔습니다.",
+      "name": "이지은",
+      "role": "영상 크리에이터",
+      "department": "미디어팀",
+      "joinYear": "2024년 입사",
+      "badge": "2026년 특별진급 포트폴리오",
+      "highlightClips": [],
+      "visible": true,
+      "status": "draft"
+    },
+    "after": {
+      "headline": "콘텐츠,\n다르게\n설계합니다.",
+      "subline": "촬영과 보정에서 시작해\n광고, 유튜브, 생성형 AI와\n제작 관리까지 역할을 넓혀왔습니다.",
+      "name": "이지은",
+      "role": "영상 크리에이터",
+      "department": "미디어팀",
+      "joinYear": "2024년 입사",
+      "badge": "2026년 특별진급 포트폴리오",
+      "highlightClips": [],
+      "visible": true,
+      "status": "draft"
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-25T17:21:50.174Z"
+  },
+  {
+    "id": "a2c58402-86a7-4da1-9067-17cba96b3138",
+    "entity": "hero",
+    "field": "전체",
+    "before": {
+      "headline": "콘텐츠,\n다르게\n설계합니다.",
+      "subline": "촬영과 보정에서 시작해\n광고, 유튜브, 생성형 AI와\n제작 관리까지 역할을 넓혀왔습니다.",
+      "name": "이지은",
+      "role": "영상 크리에이터",
+      "department": "미디어팀",
+      "joinYear": "2024년 입사",
+      "badge": "2026년 특별진급 포트폴리오",
+      "highlightClips": [],
+      "visible": true,
+      "status": "draft",
+      "backgroundImage": {
+        "url": "/uploads/0a1d26ff-4af0-4201-9f38-ce5e42e19711.png",
+        "kind": "image",
+        "alt": ""
+      }
+    },
+    "after": {
+      "headline": "콘텐츠,\n다르게\n설계합니다.",
+      "subline": "촬영과 보정에서 시작해\n광고, 유튜브, 생성형 AI와\n제작 관리까지 역할을 넓혀왔습니다.",
+      "name": "이지은",
+      "role": "영상 크리에이터",
+      "department": "미디어팀",
+      "joinYear": "2024년 입사",
+      "badge": "2026년 특별진급 포트폴리오",
+      "highlightClips": [],
+      "visible": true,
+      "status": "draft"
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-25T17:10:43.562Z"
+  },
+  {
+    "id": "8645c7cd-498a-4cc1-a0f1-6a6d76fb6728",
+    "entity": "hero",
+    "field": "전체",
+    "before": {
+      "headline": "콘텐츠,\n다르게\n설계합니다.",
+      "subline": "촬영과 보정에서 시작해\n광고, 유튜브, 생성형 AI와\n제작 관리까지 역할을 넓혀왔습니다.",
+      "name": "이지은",
+      "role": "영상 크리에이터",
+      "department": "미디어팀",
+      "joinYear": "2024년 입사",
+      "badge": "2026년 특별진급 포트폴리오",
+      "highlightClips": [],
+      "visible": true,
+      "status": "draft"
+    },
+    "after": {
+      "headline": "콘텐츠,\n다르게\n설계합니다.",
+      "subline": "촬영과 보정에서 시작해\n광고, 유튜브, 생성형 AI와\n제작 관리까지 역할을 넓혀왔습니다.",
+      "name": "이지은",
+      "role": "영상 크리에이터",
+      "department": "미디어팀",
+      "joinYear": "2024년 입사",
+      "badge": "2026년 특별진급 포트폴리오",
+      "highlightClips": [],
+      "visible": true,
+      "status": "draft",
+      "backgroundImage": {
+        "url": "/uploads/0a1d26ff-4af0-4201-9f38-ce5e42e19711.png",
+        "kind": "image",
+        "alt": ""
+      }
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-25T17:10:36.101Z"
+  },
+  {
+    "id": "0d4a375f-e093-4cfc-9902-4af6ae3b441c",
+    "entity": "hero",
+    "field": "전체",
+    "before": {
+      "headline": "콘텐츠,\n다르게\n설계합니다.",
+      "subline": "촬영과 보정에서 시작해\n광고, 유튜브, 생성형 AI와\n제작 관리까지 역할을 넓혀왔습니다.",
+      "name": "이지은",
+      "role": "영상 크리에이터",
+      "department": "미디어팀",
+      "joinYear": "2024년 입사",
+      "badge": "2026년 특별진급 포트폴리오",
+      "highlightClips": [],
+      "visible": true,
+      "status": "draft",
+      "backgroundImage": {
+        "url": "/uploads/4f7850c7-3a18-421d-8aaa-4e43cc1d6245.png",
+        "kind": "image",
+        "alt": ""
+      }
+    },
+    "after": {
+      "headline": "콘텐츠,\n다르게\n설계합니다.",
+      "subline": "촬영과 보정에서 시작해\n광고, 유튜브, 생성형 AI와\n제작 관리까지 역할을 넓혀왔습니다.",
+      "name": "이지은",
+      "role": "영상 크리에이터",
+      "department": "미디어팀",
+      "joinYear": "2024년 입사",
+      "badge": "2026년 특별진급 포트폴리오",
+      "highlightClips": [],
+      "visible": true,
+      "status": "draft"
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-25T17:09:58.713Z"
+  },
+  {
     "id": "302cebde-5788-41e7-95e3-78fe833da2d0",
     "entity": "hero",
     "field": "전체",
