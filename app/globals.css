@@ -266,33 +266,55 @@ body {
   justify-content: center;
 }
 
-/* 인터랙션 수정 요청서(2차) §24-33 — 우측 페이지 목록 바는 개별 점을
-   하나씩 Hover하는 방식이 아니라, 목록 바 "전체 영역"에 커서가 올라가거나
-   내부 항목에 포커스가 들어오면(focus-within) 6개 목차 전체가 한 번에
-   왼쪽으로 펼쳐진다. 화면 오른쪽 끝에 붙어 있으므로 항상 왼쪽으로만
-   펼쳐야 화면 밖으로 잘리지 않는다. */
+/* 인터랙션 수정 요청서(3차) — 우측 페이지 목록 바.
+   기본 40~48px(→44px) 아주 작은 상태, Hover/Focus 시에만 210~260px(→232px)
+   로 왼쪽으로 펼쳐진다. 패널 자체 높이는 항목 개수(gap 8px × 7줄)로만
+   정해지고 별도 최소 높이를 주지 않는다 — 화면을 크게 가리지 않도록. */
 .page-nav-panel {
-  width: 52px;
+  width: 44px;
+  padding: 12px 8px;
+  gap: 8px;
   background: transparent;
   border: 1px solid transparent;
+  border-radius: 14px;
   overflow: hidden;
-  transition: width 200ms ease, background-color 200ms ease, border-color 200ms ease;
+  box-shadow: none;
+  transition: width 200ms ease, background-color 200ms ease, border-color 200ms ease, padding 200ms ease, box-shadow 200ms ease;
 }
 .page-nav-panel:hover,
 .page-nav-panel:focus-within {
-  width: 220px;
-  background: var(--color-bg-secondary);
-  border-color: var(--color-border);
+  width: 232px;
+  padding: 16px 14px;
+  background: rgba(22, 22, 22, 0.9);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+.page-nav-item {
+  height: 34px;
+  font-size: 13px;
+}
+.page-nav-num {
+  font-size: 13px;
 }
 .page-nav-label {
+  font-size: 13px;
   opacity: 0;
-  transform: translateX(8px);
-  transition: opacity 160ms ease, transform 160ms ease;
+  transform: translateX(6px);
+  transition: opacity 160ms ease, transform 160ms ease, color 160ms ease;
 }
 .page-nav-panel:hover .page-nav-label,
 .page-nav-panel:focus-within .page-nav-label {
   opacity: 1;
   transform: translateX(0);
+}
+.page-nav-item:hover .page-nav-label,
+.page-nav-item:focus-visible .page-nav-label {
+  color: var(--color-text-primary) !important;
+}
+/* 모바일 오버레이 메뉴는 항상 펼쳐진 상태로 보여준다(터치 기기에는 hover가 없음). */
+.page-nav-panel--expanded .page-nav-label {
+  opacity: 1;
+  transform: none;
 }
 
 /* 커스텀 스크롤바 */

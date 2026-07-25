@@ -6,6 +6,7 @@ import { ProfileSection } from "@/components/sections/ProfileSection";
 import { Timeline } from "@/components/sections/Timeline";
 import { SelectedWork } from "@/components/sections/SelectedWork";
 import { FuturePlans } from "@/components/sections/FuturePlans";
+import { Faq } from "@/components/sections/Faq";
 import { Closing } from "@/components/sections/Closing";
 import { FullPageScroll } from "@/components/motion/FullPageScroll";
 import { PageIndicator } from "@/components/motion/PageIndicator";
@@ -14,12 +15,13 @@ export const dynamic = "force-dynamic";
 
 const PROJECT_FIELD_COUNT = 7; // 의류·카페및음식·인테리어·인물프로필·치과및병원광고·유튜브·생성형AI콘텐츠
 
-// 전체 구조 개편 명세서 §1~§7 — 메인 페이지를 정확히 6개 섹션으로 고정한다.
-// 01.대표 페이지 → 02.프로필 → 03.업무 성장과정 → 04.대표 프로젝트 →
-// 05.향후 추진 계획 → 06.마지막 페이지. 예전의 개별 About/Profile Key
-// Numbers/업무역량/Working Process/Collaboration/FAQ/Contributions 섹션은
-// 물리적으로 제거했다(About·KeyNumbers·역량·일하는 방식은 02.프로필 안의
-// 탭으로 통합됨). 순서는 더 이상 관리자 화면에서 바꿀 수 없는 고정 구조다.
+// 전체 구조 개편 명세서 §1~§7 + 인터랙션 수정 요청서(3차) — 메인 페이지를
+// 정확히 7개 섹션으로 고정한다. 01.대표 페이지 → 02.프로필 → 03.업무
+// 성장과정 → 04.대표 프로젝트 → 05.향후 추진 계획 → 06.FAQ → 07.마지막
+// 페이지. 예전의 개별 About/Profile Key Numbers/업무역량/Working Process/
+// Collaboration/Contributions 섹션은 물리적으로 제거했다(About·KeyNumbers·
+// 역량은 02.프로필 안의 탭으로 통합됨). FAQ는 06번으로 다시 도입했다.
+// 순서는 더 이상 관리자 화면에서 바꿀 수 없는 고정 구조다.
 export default async function HomePage() {
   const content = await getContent();
 
@@ -61,6 +63,9 @@ export default async function HomePage() {
         </div>
         <div data-fp-section data-fp-id="future">
           <FuturePlans items={content.futurePlans} />
+        </div>
+        <div data-fp-section data-fp-id="faq">
+          <Faq items={content.faq ?? []} />
         </div>
         <div data-fp-section data-fp-id="closing">
           <Closing data={content.closing} />

@@ -18,6 +18,7 @@ const NAV_ITEMS: { id: SectionId; label: string }[] = [
   { id: "growth", label: "Growth" },
   { id: "projects", label: "Works" },
   { id: "future", label: "Plan" },
+  { id: "faq", label: "FAQ" },
 ];
 
 export function Header({ name }: { name: string }) {

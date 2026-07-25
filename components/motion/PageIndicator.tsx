@@ -4,17 +4,18 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { SECTION_IDS, SECTION_LABELS, SectionId, goToSection } from "@/lib/fullpage";
 
-// 전체 구조 개편 명세서 §4, 인터랙션 수정 요청서(2차) §24-33 — 고정 페이지
-// 번호 인디케이터("01/06"). 기본 상태에서는 번호/점만 간결하게 표시하고,
-// 목록 바 "전체 영역"에 마우스를 올리거나 포커스가 들어오면(개별 점 단위가
-// 아니라) 6개 목차 전체가 한 번에 왼쪽으로 펼쳐진다.
-// 현재 섹션을 강조하고 클릭하면 해당 섹션으로 이동한다. 프로젝트 상세
-// 페이지에는 6개 섹션 구조가 없으므로 숨긴다. 프로필 내부 탭/업무 역량
-// 단계가 바뀌어도 여기서 관찰하는 건 최상위 [data-fp-id] 섹션 경계뿐이라
-// 활성 표시는 계속 02(프로필)로 유지된다 — 별도 처리가 필요 없다.
+// 인터랙션 수정 요청서(3차) — 우측 페이지 목록 바.
+// 기본 상태는 40~48px 폭의 아주 작은 번호/점 목록이고, Hover 또는
+// Focus(패널 전체 영역 기준)일 때만 210~260px로 왼쪽으로 펼쳐지며 7개
+// 목차(번호|제목|점 3열 정렬)를 모두 보여준다. 패널 높이는 항목 개수만큼
+// 자동으로 결정되고, 상/하단에 중복되는 "01/07" 같은 별도 페이지 번호
+// 표시는 두지 않는다(각 항목 자체에 이미 번호가 있음).
+// 프로필 내부 탭/업무 역량 단계가 바뀌어도 여기서 관찰하는 건 최상위
+// [data-fp-id] 섹션 경계뿐이라 활성 표시는 계속 02(프로필)로 유지된다.
 export function PageIndicator() {
   const pathname = usePathname();
   const [active, setActive] = useState<SectionId>("hero");
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     if (pathname !== "/") return;
@@ -42,40 +43,88 @@ export function PageIndicator() {
 
   const activeIndex = SECTION_IDS.indexOf(active);
 
+  const items = SECTION_IDS.map((id, i) => (
+    <button
+      key={id}
+      type="button"
+      aria-label={`${SECTION_LABELS[id]} 페이지로 이동`}
+      aria-current={i === activeIndex ? "page" : undefined}
+      onClick={() => {
+        goToSection(id);
+        setMobileOpen(false);
+      }}
+      className="page-nav-item grid w-full items-center gap-1"
+      style={{ gridTemplateColumns: "20px 1fr 8px" }}
+    >
+      <span
+        className="page-nav-num font-en tabular-nums transition-colors duration-200"
+        style={{ color: i === activeIndex ? "var(--accent)" : "var(--color-text-muted)" }}
+      >
+        {String(i + 1).padStart(2, "0")}
+      </span>
+      <span
+        className="page-nav-label text-korean text-left truncate transition-colors duration-200"
+        style={{
+          color: i === activeIndex ? "var(--accent)" : "var(--color-text-muted)",
+          fontWeight: i === activeIndex ? 600 : 400,
+        }}
+      >
+        {SECTION_LABELS[id]}
+      </span>
+      <span
+        className="block rounded-full justify-self-end shrink-0 transition-all duration-200"
+        style={{
+          width: i === activeIndex ? 7 : 5,
+          height: i === activeIndex ? 7 : 5,
+          backgroundColor: i === activeIndex ? "var(--accent)" : "var(--color-text-muted)",
+          opacity: i === activeIndex ? 1 : 0.6,
+        }}
+      />
+    </button>
+  ));
+
   return (
-    <div className="fixed z-40 right-0 top-1/2 -translate-y-1/2 hidden md:block">
-      <div className="page-nav-panel flex flex-col items-end gap-3 py-4 pl-4 pr-4 rounded-l-md">
-        <span className="font-en text-xs text-ink-secondary tabular-nums pr-1">{String(activeIndex + 1).padStart(2, "0")}</span>
-        <div className="flex flex-col gap-2.5 w-full">
-          {SECTION_IDS.map((id, i) => (
-            <button
-              key={id}
-              type="button"
-              aria-label={`${SECTION_LABELS[id]} 페이지로 이동`}
-              aria-current={i === activeIndex ? "true" : undefined}
-              onClick={() => goToSection(id)}
-              className="flex items-center justify-end gap-2 w-full"
-            >
-              <span
-                className="page-nav-label text-xs whitespace-nowrap text-korean"
-                style={{ color: i === activeIndex ? "var(--accent)" : "var(--color-text-secondary)" }}
-              >
-                {String(i + 1).padStart(2, "0")}. {SECTION_LABELS[id]}
-              </span>
-              <span
-                className="block rounded-full shrink-0 transition-all duration-300"
-                style={{
-                  width: i === activeIndex ? 6 : 4,
-                  height: i === activeIndex ? 6 : 4,
-                  backgroundColor: i === activeIndex ? "var(--accent)" : "var(--color-text-muted)",
-                  opacity: i === activeIndex ? 1 : 0.5,
-                }}
-              />
-            </button>
-          ))}
-        </div>
-        <span className="font-en text-xs text-ink-muted tabular-nums pr-1">{String(SECTION_IDS.length).padStart(2, "0")}</span>
+    <>
+      {/* 데스크톱: Hover/Focus로 펼쳐지는 작은 목록 바 */}
+      <div className="page-nav-panel fixed z-40 right-4 md:right-6 top-1/2 -translate-y-1/2 hidden md:flex flex-col rounded-[14px]">
+        {items}
       </div>
-    </div>
+
+      {/* 모바일: 작은 토글 버튼 + 오버레이 메뉴 (Hover가 없으므로 터치로 열고 닫는다) */}
+      <div className="md:hidden">
+        <button
+          type="button"
+          aria-label="전체 목차 열기"
+          aria-expanded={mobileOpen}
+          onClick={() => setMobileOpen((v) => !v)}
+          className="fixed z-40 right-4 bottom-4 h-9 px-3 rounded-full flex items-center gap-1.5"
+          style={{ background: "rgba(22,22,22,0.9)", border: "1px solid rgba(255,255,255,0.08)" }}
+        >
+          <span className="font-en text-xs tabular-nums" style={{ color: "var(--accent)" }}>
+            {String(activeIndex + 1).padStart(2, "0")}
+          </span>
+          <span className="text-xs" style={{ color: "var(--color-text-muted)" }}>
+            / {String(SECTION_IDS.length).padStart(2, "0")}
+          </span>
+        </button>
+
+        {mobileOpen && (
+          <>
+            <button
+              aria-label="목차 닫기"
+              onClick={() => setMobileOpen(false)}
+              className="fixed inset-0 z-30"
+              style={{ background: "rgba(0,0,0,0.4)" }}
+            />
+            <div
+              className="page-nav-panel--expanded fixed z-40 right-4 bottom-16 flex flex-col gap-1.5 rounded-[14px] p-3"
+              style={{ background: "rgba(22,22,22,0.96)", border: "1px solid rgba(255,255,255,0.08)", width: "min(78vw, 260px)" }}
+            >
+              {items}
+            </div>
+          </>
+        )}
+      </div>
+    </>
   );
 }

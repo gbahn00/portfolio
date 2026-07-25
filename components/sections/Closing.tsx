@@ -67,7 +67,7 @@ export function Closing({ data }: { data: ClosingSection }) {
     <section
       id="closing"
       ref={sectionRef}
-      className="relative h-[100dvh] flex flex-col justify-between overflow-hidden bg-bg-soft"
+      className="relative h-[100dvh] flex flex-col justify-between overflow-hidden bg-bg"
     >
       <div className="absolute inset-0">
         <div ref={bgRef} className="absolute inset-0">
@@ -102,6 +102,7 @@ export function Closing({ data }: { data: ClosingSection }) {
             <Link href="/#profile" className="hover:text-ink transition-colors duration-300">Profile</Link>
             <Link href="/#growth" className="hover:text-ink transition-colors duration-300">Growth</Link>
             <Link href="/#projects" className="hover:text-ink transition-colors duration-300">Works</Link>
+            <Link href="/#faq" className="hover:text-ink transition-colors duration-300">FAQ</Link>
             {links.map((l) => (
               <a
                 key={l.id}

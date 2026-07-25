@@ -13,7 +13,9 @@
 // 섹션 이동 로직을 쓸 수 있도록 커스텀 이벤트로 노출한다.
 // ============================================================================
 
-export const SECTION_IDS = ["hero", "profile", "growth", "projects", "future", "closing"] as const;
+// 인터랙션 수정 요청서(3차) — FAQ를 06번으로 다시 추가해 총 7개 섹션으로
+// 구성한다(마지막 페이지는 07번으로 밀림).
+export const SECTION_IDS = ["hero", "profile", "growth", "projects", "future", "faq", "closing"] as const;
 export type SectionId = (typeof SECTION_IDS)[number];
 
 export const SECTION_LABELS: Record<SectionId, string> = {
@@ -21,7 +23,8 @@ export const SECTION_LABELS: Record<SectionId, string> = {
   profile: "프로필",
   growth: "업무 성장과정",
   projects: "대표 프로젝트",
-  future: "향후 추진 계획",
+  future: "특별진급 이후 실행 계획",
+  faq: "FAQ",
   closing: "마지막 페이지",
 };
 
