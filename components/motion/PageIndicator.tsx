@@ -49,9 +49,15 @@ export function PageIndicator() {
       type="button"
       aria-label={`${SECTION_LABELS[id]} 페이지로 이동`}
       aria-current={i === activeIndex ? "page" : undefined}
-      onClick={() => {
+      onClick={(e) => {
         goToSection(id);
         setMobileOpen(false);
+        // 클릭한 버튼에 포커스가 남아있으면 :focus-within 때문에 커서가
+        // 패널 밖으로 나가도 펼쳐진 상태가 계속 유지된다. 클릭 직후 포커스를
+        // 풀어서, 이제부터는 순수하게 마우스가 패널 위에 있는지(:hover)로만
+        // 펼침/숨김이 결정되게 한다. Tab 키로 이동하는 동안의 포커스는 그대로
+        // 유지되므로 키보드 접근성에는 영향이 없다.
+        e.currentTarget.blur();
       }}
       className="page-nav-item grid w-full items-center gap-1"
       style={{ gridTemplateColumns: "20px 1fr 8px" }}
