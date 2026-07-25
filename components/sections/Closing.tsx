@@ -67,7 +67,7 @@ export function Closing({ data }: { data: ClosingSection }) {
     <section
       id="closing"
       ref={sectionRef}
-      className="relative min-h-[100svh] flex flex-col justify-between overflow-hidden bg-bg"
+      className="relative h-[100dvh] flex flex-col justify-between overflow-hidden bg-bg"
     >
       <div className="absolute inset-0">
         <div ref={bgRef} className="absolute inset-0">
@@ -77,14 +77,14 @@ export function Closing({ data }: { data: ClosingSection }) {
         <div className="absolute inset-0 bg-bg/45" />
       </div>
 
-      <Container className="relative z-10 flex-1 flex flex-col justify-center py-20 md:py-24">
-        <div ref={messageRef} className="mb-8">
+      <Container className="relative z-10 flex-1 flex flex-col justify-center py-6 md:py-8">
+        <div ref={messageRef} className="mb-5">
           <MaskLines text={data.message} className="hero-title font-bold" accentLines={[0]} />
         </div>
         {data.subline && (
-          <p className="text-korean text-ink-secondary body-large max-w-xl mb-10 whitespace-pre-line">{data.subline}</p>
+          <p className="text-korean text-ink-secondary body-large max-w-xl mb-6 whitespace-pre-line">{data.subline}</p>
         )}
-        <div ref={metaRef} className="flex flex-wrap items-center gap-x-4 gap-y-1 text-ink-secondary text-sm md:text-base mb-10">
+        <div ref={metaRef} className="flex flex-wrap items-center gap-x-4 gap-y-1 text-ink-secondary text-sm md:text-base mb-6">
           <span className="text-ink font-medium">{data.name}</span>
           <span>{data.department}</span>
           <span>{data.role}</span>
@@ -96,7 +96,7 @@ export function Closing({ data }: { data: ClosingSection }) {
         </div>
       </Container>
 
-      <Container className="relative z-10 pb-8 md:pb-10">
+      <Container className="relative z-10 pb-5 md:pb-6">
         <div className="pt-8 border-t border-line/60 flex flex-wrap items-center justify-between gap-4">
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs md:text-sm text-ink-secondary">
             <Link href="/#profile" className="hover:text-ink transition-colors duration-300">Profile</Link>

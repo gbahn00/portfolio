@@ -117,70 +117,71 @@ body {
 }
 
 /* ============================================================
-   타이포그래피 스케일 (HeyNesh 비교 최종 수정 §5.3-5.4 기준)
-   Hero 최대 148px / Statement 최대 96px / Section 최대 110px
-   화면 너비뿐 아니라 높이가 낮은 노트북에서도 잘리지 않도록
-   vw와 vh를 함께 고려한 min() 기반 상한을 사용한다.
+   타이포그래피 스케일 (전체 UI/UX 최종 수정 §5-6 기준)
+   기존 대비 제목류는 약 15~20%, 본문/캡션은 약 10% 축소했다.
+   모든 페이지가 100dvh 한 화면에 내부 스크롤 없이 들어와야 하므로,
+   화면 높이가 낮은 노트북(1366×768 등)에서도 잘리지 않도록
+   vw와 vh를 함께 고려한 min() 기반 상한은 그대로 유지한다.
    ============================================================ */
 .hero-title {
   max-width: 1400px;
-  font-size: clamp(56px, min(8.5vw, 14vh), 148px);
+  font-size: clamp(46px, min(7.2vw, 11.5vh), 124px);
   line-height: 0.92;
   letter-spacing: -0.06em;
   font-weight: 500;
   word-break: keep-all;
 }
 .section-title {
-  font-size: clamp(44px, min(6.8vw, 11vh), 110px);
+  font-size: clamp(38px, min(5.8vw, 9.3vh), 94px);
   line-height: 1;
   letter-spacing: -0.05em;
   font-weight: 500;
   word-break: keep-all;
 }
 .statement-title {
-  font-size: clamp(36px, min(6vw, 10vh), 96px);
+  font-size: clamp(31px, min(5.1vw, 8.5vh), 82px);
   line-height: 1.05;
   letter-spacing: -0.045em;
   font-weight: 500;
   word-break: keep-all;
 }
 .project-title {
-  font-size: clamp(40px, min(6.5vw, 10.5vh), 104px);
+  font-size: clamp(34px, min(5.5vw, 8.9vh), 88px);
   line-height: 1;
   letter-spacing: -0.035em;
   word-break: keep-all;
 }
 .body-large {
-  font-size: clamp(18px, 1.35vw, 23px);
-  line-height: 1.65;
+  font-size: clamp(16px, 1.2vw, 21px);
+  line-height: 1.6;
   letter-spacing: -0.02em;
   color: var(--color-text-secondary);
   word-break: keep-all;
 }
 .body {
-  font-size: clamp(16px, 1.1vw, 19px);
-  line-height: 1.7;
+  font-size: clamp(14px, 1vw, 17px);
+  line-height: 1.65;
   letter-spacing: -0.02em;
   color: var(--color-text-body);
   word-break: keep-all;
 }
 .caption {
-  font-size: clamp(13px, 0.85vw, 15px);
+  font-size: clamp(12px, 0.76vw, 14px);
   line-height: 1.5;
   color: var(--color-text-muted);
 }
 
 @media (max-width: 480px) {
   .hero-title {
-    font-size: clamp(44px, 18vw, 68px);
+    font-size: clamp(38px, 16vw, 58px);
     line-height: 0.96;
   }
   .section-title {
-    font-size: clamp(36px, 14vw, 56px);
+    font-size: clamp(31px, 12vw, 48px);
     line-height: 1.02;
   }
   .statement-title {
-    font-size: clamp(30px, 15vw, 48px);
+    font-size: clamp(26px, 13vw, 41px);
     line-height: 1.1;
   }
 }
@@ -192,36 +193,38 @@ body {
    고정 단계 대신 clamp(24px, 6vw, 80px)로 유연하게 만들어, 화면 크기가
    조금만 바뀌어도 계단식으로 끊기지 않고 부드럽게 늘어나도록 한다.
    최대 폭(1600px)은 지금까지 검증된 값을 그대로 유지한다. */
+/* 전체 UI/UX 최종 수정 §7 — 좌우 여백 약 15% 축소 */
 .page-container {
-  --page-pad: clamp(24px, 6vw, 80px);
+  --page-pad: clamp(20px, 5.1vw, 68px);
   width: min(100% - (var(--page-pad) * 2), 1600px);
   margin-inline: auto;
 }
 
 /* 대형 제목 전용 안전 여백 (§4.2) — 일반 Container보다 살짝 더 넓게 확보 */
 .title-container {
-  width: min(100% - 48px, 1600px);
+  width: min(100% - 40px, 1600px);
   margin-inline: auto;
 }
 @media (min-width: 1024px) {
   .title-container {
-    width: min(100% - 160px, 1540px);
+    width: min(100% - 136px, 1540px);
   }
 }
 
+/* 전체 UI/UX 최종 수정 §7 — 상단 약 20%, 하단 약 15% 축소 */
 .section-pad {
-  padding-top: clamp(96px, 14vh, 200px);
-  padding-bottom: clamp(96px, 14vh, 200px);
+  padding-top: clamp(77px, 11vh, 160px);
+  padding-bottom: clamp(82px, 12vh, 170px);
 }
 
 /* §5.7 — 전체 화면 섹션 상단·하단 안전 여백 (대형 문장이 화면 경계에서 잘리지 않도록) */
 .fullscreen-section {
-  min-height: 100svh;
-  padding-top: clamp(110px, 12vh, 160px);
-  padding-bottom: clamp(80px, 10vh, 140px);
+  min-height: 100dvh;
+  padding-top: clamp(88px, 9.6vh, 128px);
+  padding-bottom: clamp(68px, 8.5vh, 119px);
 }
 .intro-section {
-  min-height: 70svh;
+  min-height: 70dvh;
 }
 .statement-inner {
   max-width: 1500px;
@@ -230,13 +233,28 @@ body {
 }
 
 .container-px {
-  padding-left: clamp(20px, 6vw, 96px);
-  padding-right: clamp(20px, 6vw, 96px);
+  padding-left: clamp(17px, 5.1vw, 82px);
+  padding-right: clamp(17px, 5.1vw, 82px);
 }
 
 .min-screen-section {
   position: relative;
-  min-height: 100svh;
+  min-height: 100dvh;
+}
+
+/* ============================================================
+   전체 UI/UX 최종 수정 — Full Page Scroll 대상 6개 메인 섹션 전용.
+   원칙: "브라우저 화면 = 페이지 1개". min-height가 아니라 고정 height로
+   두고, 화면보다 큰 100dvh를 넘지 않도록 overflow는 hidden으로 막는다
+   (내부 콘텐츠는 타이포그래피/여백 축소로 실제로 한 화면에 들어오도록
+   맞추는 것이 원칙이고, overflow:hidden은 혹시 남는 경우를 위한 안전장치).
+   ============================================================ */
+.fp-section {
+  height: 100dvh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* 커스텀 스크롤바 */

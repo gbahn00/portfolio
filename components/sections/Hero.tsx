@@ -93,7 +93,7 @@ export function Hero({
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative h-[100svh] w-full overflow-hidden bg-bg">
+    <section ref={sectionRef} className="relative h-[100dvh] w-full overflow-hidden bg-bg">
       {/* 전체 화면 배경: 영상 우선, 없으면 이미지 */}
       <div ref={bgWrapRef} className="absolute inset-0">
         {video ? (
@@ -123,19 +123,19 @@ export function Hero({
       {/* 하단은 조금 더 어둡게 — 텍스트가 몰려 있는 영역의 대비를 보강 */}
       <div className="absolute inset-0 bg-gradient-to-t from-bg/70 via-transparent to-transparent pointer-events-none" />
 
-      <Container className="relative z-10 flex h-full flex-col justify-center py-24 md:py-28">
-        <p ref={badgeRef} className="accent-text text-sm md:text-base font-medium mb-6 tracking-wide">
+      <Container className="relative z-10 flex h-full flex-col justify-center py-14 md:py-16">
+        <p ref={badgeRef} className="accent-text text-sm md:text-base font-medium mb-4 tracking-wide">
           {hero.badge}
         </p>
 
         <div ref={headlineRef} className="max-w-3xl" style={{ transformOrigin: "left top" }}>
           <MaskLines text={hero.headline} className="hero-title font-bold" accentLines={HERO_ACCENT_LINES} />
-          <p ref={sublineRef} className="text-korean text-ink-secondary body-large max-w-md mt-8 whitespace-pre-line">
+          <p ref={sublineRef} className="text-korean text-ink-secondary body-large max-w-md mt-6 whitespace-pre-line">
             {hero.subline}
           </p>
         </div>
 
-        <div ref={bottomRowRef} className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-4 items-end mt-16 md:mt-24">
+        <div ref={bottomRowRef} className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-4 items-end mt-10 md:mt-14">
           <p ref={introRef} className="text-sm md:text-base text-ink-secondary text-korean max-w-xs">
             {hero.name} · {hero.role} · {hero.department}
           </p>

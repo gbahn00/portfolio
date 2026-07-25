@@ -28,11 +28,11 @@ function YearContent({ entry }: { entry: TimelineEntry }) {
   }, [entry.id]);
 
   return (
-    <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
+    <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
       <div>
-        <h3 className="statement-title font-bold mb-4 text-korean">{entry.title}</h3>
-        <p className="body text-ink-secondary mb-6 max-w-md">{entry.description}</p>
-        <p className="body-large font-medium border-l-2 accent-border pl-4 text-korean mb-6">{entry.message}</p>
+        <h3 className="statement-title font-bold mb-3 text-korean">{entry.title}</h3>
+        <p className="body text-ink-secondary mb-4 max-w-md">{entry.description}</p>
+        <p className="body-large font-medium border-l-2 accent-border pl-4 text-korean mb-4">{entry.message}</p>
         {experiences.length > 0 && (
           <div className="flex flex-wrap gap-x-4 gap-y-1 font-en caption">
             {experiences.slice(0, 3).map((t) => (
@@ -41,7 +41,7 @@ function YearContent({ entry }: { entry: TimelineEntry }) {
           </div>
         )}
       </div>
-      <div className="relative aspect-[4/3] w-full overflow-hidden rounded-sm">
+      <div className="relative aspect-[4/3] w-full max-h-[45dvh] overflow-hidden rounded-sm">
         <MediaFrame media={entry.heroImage} className="h-full w-full" />
       </div>
     </div>
@@ -54,20 +54,20 @@ export function Timeline({ entries }: { entries: TimelineEntry[] }) {
   const current = sorted[Math.min(active, Math.max(sorted.length - 1, 0))];
 
   return (
-    <section id="growth" className="section-pad bg-bg min-h-[100svh] flex flex-col justify-center overflow-hidden">
+    <section id="growth" className="fp-section bg-bg py-6 md:py-8">
       <Container className="w-full">
         <Reveal>
-          <p className="accent-text text-sm font-medium mb-4 tracking-wide">업무 성장과정</p>
+          <p className="accent-text text-sm font-medium mb-3 tracking-wide">업무 성장과정</p>
         </Reveal>
         <Reveal delay={0.05}>
-          <h2 className="section-title font-bold mb-10 md:mb-14 text-korean">
+          <h2 className="section-title font-bold mb-6 md:mb-8 text-korean">
             입사 이후, 역할은 이렇게 확장되었습니다.
           </h2>
         </Reveal>
 
         {sorted.length > 0 && (
           <>
-            <div className="flex flex-wrap gap-2 mb-10 md:mb-14 border-b border-line pb-6">
+            <div className="flex flex-wrap gap-2 mb-6 md:mb-8 border-b border-line pb-4">
               {sorted.map((entry, i) => (
                 <button
                   key={entry.id}

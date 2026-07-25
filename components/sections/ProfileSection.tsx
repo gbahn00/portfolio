@@ -42,13 +42,13 @@ function IdentityPanel({ profile, philosophy }: { profile: Profile; philosophy: 
   const paragraphs = [...philosophy.paragraphs].sort((a, b) => a.order - b.order);
   const keywords = [...philosophy.keywords].sort((a, b) => a.order - b.order);
   return (
-    <div className="grid grid-cols-1 md:grid-cols-[0.9fr_1.4fr] gap-10 md:gap-16 items-center">
-      <div className="relative aspect-[4/5] w-full max-w-xs overflow-hidden rounded-sm">
+    <div className="grid grid-cols-1 md:grid-cols-[0.9fr_1.4fr] gap-8 md:gap-12 items-center">
+      <div className="relative aspect-[4/5] w-full max-w-[220px] max-h-[45dvh] overflow-hidden rounded-sm">
         <MediaFrame media={profile.profilePhoto} className="h-full w-full" />
       </div>
       <div>
-        <p className="statement-title font-medium text-korean mb-8 max-w-2xl">{profile.representativePhrase}</p>
-        <div className="space-y-4 mb-8">
+        <p className="statement-title font-medium text-korean mb-5 max-w-2xl">{profile.representativePhrase}</p>
+        <div className="space-y-3 mb-5">
           {paragraphs.map((p) => (
             <p key={p.id} className="body-large text-ink-secondary text-korean max-w-xl">
               {p.text}
@@ -72,7 +72,7 @@ function IdentityPanel({ profile, philosophy }: { profile: Profile; philosophy: 
 function NumbersPanel({ profile }: { profile: Profile }) {
   const facts = [...profile.keyFacts].sort((a, b) => a.order - b.order);
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-8 max-w-3xl">
+    <div className="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-6 max-w-3xl">
       {facts.map((f) => (
         <div key={f.label}>
           <p className="text-korean text-sm text-ink-muted mb-1">{f.label}</p>
@@ -92,8 +92,8 @@ function SkillsPanel({ items }: { items: Competency[] }) {
   if (sorted.length === 0) return <p className="text-ink-muted text-sm">등록된 업무 역량이 아직 없습니다.</p>;
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-[1fr_1.2fr] gap-10 md:gap-16 items-start">
-      <div className="space-y-3">
+    <div className="grid grid-cols-1 md:grid-cols-[1fr_1.2fr] gap-8 md:gap-12 items-start">
+      <div className="space-y-2">
         {sorted.map((c, i) => (
           <button
             key={c.id}
@@ -178,18 +178,18 @@ export function ProfileSection({
   const sortedCompetencies = [...competencies].sort((a, b) => a.order - b.order);
 
   return (
-    <section id="profile" className="section-pad bg-bg-soft min-h-[100svh] flex flex-col justify-center">
+    <section id="profile" className="fp-section bg-bg-soft py-6 md:py-8">
       <Container className="w-full">
         <Reveal>
-          <p className="accent-text text-sm font-medium mb-4 tracking-wide">PROFILE</p>
+          <p className="accent-text text-sm font-medium mb-3 tracking-wide">PROFILE</p>
         </Reveal>
         <Reveal delay={0.05} strength="strong" holdAfterEnter>
-          <h2 className="section-title font-bold mb-10 md:mb-14 text-korean">
+          <h2 className="section-title font-bold mb-6 md:mb-8 text-korean">
             {profile.name} · {profile.role}
           </h2>
         </Reveal>
 
-        <div className="flex flex-wrap gap-2 mb-10 md:mb-14 border-b border-line pb-6">
+        <div className="flex flex-wrap gap-2 mb-6 md:mb-8 border-b border-line pb-4">
           {TABS.map((t) => (
             <button
               key={t.key}

@@ -36,12 +36,12 @@ export function SelectedWork({ projects }: { projects: Project[] }) {
   }
 
   return (
-    <section id="projects" className="section-pad bg-bg-soft min-h-[100svh] flex flex-col justify-center">
+    <section id="projects" className="fp-section bg-bg-soft py-6 md:py-8">
       <Container className="w-full">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 md:mb-14">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6 md:mb-8">
           <div>
             <Reveal>
-              <p className="accent-text text-sm font-medium mb-4 tracking-wide">대표 프로젝트</p>
+              <p className="accent-text text-sm font-medium mb-3 tracking-wide">대표 프로젝트</p>
             </Reveal>
             <Reveal delay={0.05} strength="strong" holdAfterEnter>
               <h2 className="section-title font-bold text-korean max-w-2xl">
@@ -75,17 +75,17 @@ export function SelectedWork({ projects }: { projects: Project[] }) {
         </div>
 
         {current && (
-          <div ref={stageRef} className="grid grid-cols-1 md:grid-cols-[1.2fr_1fr] gap-8 md:gap-14 items-center">
-            <Link href={`/projects/${current.id}`} className="group relative aspect-[16/10] w-full overflow-hidden rounded-sm block">
+          <div ref={stageRef} className="grid grid-cols-1 md:grid-cols-[1.2fr_1fr] gap-6 md:gap-10 items-center">
+            <Link href={`/projects/${current.id}`} className="group relative aspect-[16/10] w-full max-h-[45dvh] overflow-hidden rounded-sm block">
               <MediaFrame media={current.heroImage} className="h-full w-full transition-transform duration-[0.5s] ease-out group-hover:scale-[1.03]" />
               <div className="absolute inset-0 bg-gradient-to-t from-bg/70 via-transparent to-transparent" />
             </Link>
             <div>
-              <p className="accent-text font-en text-xs tracking-wide mb-3">{current.field}</p>
-              <h3 className="hero-title font-bold mb-4 text-korean">{current.title}</h3>
-              <p className="body text-ink-secondary mb-8 max-w-md line-clamp-3">{current.purpose}</p>
+              <p className="accent-text font-en text-xs tracking-wide mb-2">{current.field}</p>
+              <h3 className="project-title font-bold mb-3 text-korean">{current.title}</h3>
+              <p className="body text-ink-secondary mb-5 max-w-md line-clamp-3">{current.purpose}</p>
               {!isPlaceholder(current.role) && (
-                <p className="text-sm text-ink-muted mb-8">
+                <p className="text-sm text-ink-muted mb-5">
                   <strong className="text-ink font-medium">ROLE</strong> · {current.role}
                 </p>
               )}

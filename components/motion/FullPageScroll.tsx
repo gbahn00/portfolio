@@ -20,8 +20,14 @@ import { onGoToSection, SectionId } from "@/lib/fullpage";
 // 달라 강제 스냅이 오히려 사용성을 해치므로 기존처럼 자유 스크롤 그대로 둔다.
 // ============================================================================
 
-const TRANSITION_DURATION = 0.85;
-const COOLDOWN_MS = 120;
+// 전체 UI/UX 최종 수정 §11-12 — "스크롤 입력 즉시 전환 시작, 전환 시간 약
+// 700ms". 이전 값(0.85s + power3.inOut)은 이징 시작부가 느려서 입력 직후
+// 한 박자 늦게 움직이는 느낌이 있었다. duration을 0.7s로 줄이고, 시작이
+// 빠르고 끝에서 부드럽게 멈추는 power2.out으로 바꿔 "즉시 반응"하는
+// 느낌을 준다.
+const TRANSITION_DURATION = 0.7;
+const TRANSITION_EASE = "power2.out";
+const COOLDOWN_MS = 90;
 const WHEEL_THRESHOLD = 4;
 const TOUCH_THRESHOLD = 40;
 
@@ -62,7 +68,7 @@ export function FullPageScroll({ children }: { children: ReactNode }) {
         gsap.to(proxy, {
           y: target.offsetTop,
           duration: TRANSITION_DURATION,
-          ease: "power3.inOut",
+          ease: TRANSITION_EASE,
           onUpdate: () => window.scrollTo(0, proxy.y),
           onComplete: () => {
             window.setTimeout(() => {
