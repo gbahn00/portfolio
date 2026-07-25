@@ -2,27 +2,46 @@
 
 import { useRef, useState } from "react";
 import Link from "next/link";
-import { Project } from "@/lib/types";
+import { MediaRef, Project } from "@/lib/types";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/motion/Reveal";
-import { MediaFrame } from "@/components/ui/MediaFrame";
-import { isPlaceholder } from "@/lib/utils";
+import { isPlaceholder, mediaSrc } from "@/lib/utils";
 
 // ============================================================================
 // 전체 구조 개편 명세서 §4 — "04.대표 프로젝트"
 //
 // §26 — 스포트라이트 슬라이더 대신 목록(리스트업) 방식으로 바꿨다.
 // §27 — 항상 떠 있는 오른쪽 미리보기 칼럼 대신, 목록 행 위에 커서를 올릴
-// 때만 커서 옆에 작은 미리보기 창이 나타나는 방식으로 다시 바꿨다. 목록은
-// 이제 폭 전체를 쓰고, 미리보기는 마우스 위치를 따라다니는 작은(220x140)
-// 썸네일로 opacity 전환만 사용해 나타나고/사라진다(호버 아닐 땐 완전히
-// 숨김 + pointer-events:none이라 클릭/커서 흐름을 방해하지 않는다).
-// 클릭하면 상세 페이지(/projects/[id])로 이동하고, 상세 페이지의
-// "← 목록으로" 링크(/#projects, ProjectCover.tsx)로 다시 이 목록에 돌아온다.
+// 때만 커서 옆에 작은 미리보기 창이 나타나는 방식으로 바꿨다.
+// §28 — 그 미리보기를 고정 220x140 박스에 object-cover로 잘라 넣는 대신,
+// 첨부된 사진/영상의 원본 비율 그대로 보이도록 바꿨다. MediaFrame(Next
+// Image + fill + object-cover)을 쓰지 않고, 일반 <img>/<video> 태그에
+// width/height를 지정하지 않은 채 max-width/max-height만 주었다 — 이러면
+// 브라우저가 원본 가로세로 비율을 유지한 채로 그 한도 안에 맞춰 자동으로
+// 크기를 정해준다(가로로 긴 사진은 옆으로 넓게, 세로로 긴 사진은 위아래로
+// 길게 보인다). 위치 계산(clamp)은 실제 크기를 몰라도 되도록 "이 한도
+// 안에서 가장 클 때"를 기준으로 넉넉하게 잡아둔다.
 // ============================================================================
 
-const PREVIEW_W = 220;
-const PREVIEW_H = 140;
+const PREVIEW_MAX_W = 260;
+const PREVIEW_MAX_H = 180;
+
+function PreviewMedia({ media }: { media?: MediaRef }) {
+  if (!media) return null;
+  const src = mediaSrc(media.url);
+  const style: React.CSSProperties = {
+    display: "block",
+    width: "auto",
+    height: "auto",
+    maxWidth: PREVIEW_MAX_W,
+    maxHeight: PREVIEW_MAX_H,
+  };
+  if (media.kind === "video-file") {
+    return <video src={src} poster={media.poster} muted playsInline style={style} />;
+  }
+  // eslint-disable-next-line @next/next/no-img-element
+  return <img src={src} alt={media.alt || ""} style={style} />;
+}
 
 export function SelectedWork({ projects }: { projects: Project[] }) {
   const sorted = [...projects].sort((a, b) => a.order - b.order);
@@ -40,10 +59,11 @@ export function SelectedWork({ projects }: { projects: Project[] }) {
     if (!wrap || !preview) return;
     const rect = wrap.getBoundingClientRect();
     let x = e.clientX - rect.left + 24;
-    let y = e.clientY - rect.top - PREVIEW_H / 2;
-    // 컨테이너 경계를 넘어가지 않도록 살짝 보정한다.
-    x = Math.min(Math.max(x, 0), Math.max(rect.width - PREVIEW_W, 0));
-    y = Math.min(Math.max(y, 0), Math.max(rect.height - PREVIEW_H, 0));
+    let y = e.clientY - rect.top - PREVIEW_MAX_H / 2;
+    // 실제 이미지 크기는 원본 비율에 따라 다르지만, 계산은 "한도 안에서
+    // 가장 클 때" 기준으로 여유 있게 잡아 컨테이너 밖으로 튀지 않게 한다.
+    x = Math.min(Math.max(x, 0), Math.max(rect.width - PREVIEW_MAX_W, 0));
+    y = Math.min(Math.max(y, 0), Math.max(rect.height - PREVIEW_MAX_H, 0));
     preview.style.transform = `translate3d(${x}px, ${y}px, 0)`;
   }
 
@@ -103,20 +123,15 @@ export function SelectedWork({ projects }: { projects: Project[] }) {
               ))}
             </div>
 
-            {/* 커서를 따라다니는 작은 미리보기(호버 중일 때만 보임) */}
+            {/* 커서를 따라다니는 작은 미리보기(호버 중일 때만 보임, 원본 비율 유지) */}
             <div
               ref={previewRef}
-              className="pointer-events-none absolute left-0 top-0 overflow-hidden rounded-sm shadow-lg transition-opacity duration-200"
-              style={{
-                width: PREVIEW_W,
-                height: PREVIEW_H,
-                opacity: current ? 1 : 0,
-                background: "var(--color-bg-secondary)",
-              }}
+              className="pointer-events-none absolute left-0 top-0 transition-opacity duration-200"
+              style={{ opacity: current ? 1 : 0 }}
             >
               {current && (
-                <>
-                  <MediaFrame media={current.heroImage} className="h-full w-full" />
+                <div className="relative inline-block overflow-hidden rounded-sm shadow-lg" style={{ background: "var(--color-bg-secondary)" }}>
+                  <PreviewMedia media={current.heroImage} />
                   <div className="absolute inset-0 bg-gradient-to-t from-bg/75 via-transparent to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-2.5">
                     <p className="text-xs font-semibold text-white line-clamp-1 text-korean">{current.title}</p>
@@ -124,7 +139,7 @@ export function SelectedWork({ projects }: { projects: Project[] }) {
                       <p className="text-[10px] text-white/70 line-clamp-1">{current.field}</p>
                     )}
                   </div>
-                </>
+                </div>
               )}
             </div>
           </div>
