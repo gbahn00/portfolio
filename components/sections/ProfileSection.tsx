@@ -186,44 +186,58 @@ export function ProfileSection({
   const activeIndex = TABS.findIndex((t) => t.key === tab);
 
   return (
-    <section id="profile" className="fp-section bg-bg-soft py-6 md:py-8">
-      <Container className="w-full">
-        <Reveal>
-          <p className="accent-text text-sm font-medium mb-3 tracking-wide">PROFILE</p>
-        </Reveal>
-        <Reveal delay={0.05} strength="strong" holdAfterEnter>
-          <h2 className="section-title font-bold mb-6 md:mb-8 text-korean">
-            {profile.name} · {profile.role}
-          </h2>
-        </Reveal>
+    // §24 — 보조창(탭 콘텐츠 박스)이 작아 보인다는 피드백에 따라 구조를 바꿨다.
+    // 기존에는 fp-section의 justify-content:center가 콘텐츠를 세로로 가운데
+    // 정렬만 하고, 박스는 clamp() 고정 높이(최대 460px)로 작게 묶여 있었다.
+    // 이제는 이 섹션만 justify-content를 stretch로 덮어써서 Container가
+    // 섹션 높이(100dvh - padding) 전체를 세로 flex로 채우게 하고, 그 안에서
+    // 제목/탭 메뉴는 원래 크기 그대로(shrink-0), 박스는 flex-1로 "남는
+    // 공간을 전부" 차지한다. 즉 화면이 크면 박스도 그만큼 커지고, 화면이
+    // 작으면 자동으로 줄어들되 최소/최대 높이로 안전선을 둔다 — 이전처럼
+    // 임의의 vh 비율을 추측해서 넣는 방식보다 실제 남는 공간에 맞춰 항상
+    // 최대한 크게 나온다.
+    <section id="profile" className="fp-section bg-bg-soft py-6 md:py-8" style={{ justifyContent: "stretch" }}>
+      <Container className="w-full h-full flex flex-col">
+        <div className="shrink-0">
+          <Reveal>
+            <p className="accent-text text-sm font-medium mb-3 tracking-wide">PROFILE</p>
+          </Reveal>
+          <Reveal delay={0.05} strength="strong" holdAfterEnter>
+            <h2 className="section-title font-bold mb-4 md:mb-6 text-korean">
+              {profile.name} · {profile.role}
+            </h2>
+          </Reveal>
 
-        <div className="flex flex-wrap gap-2 mb-6 md:mb-8 border-b border-line pb-4">
-          {TABS.map((t, i) => (
-            <button
-              key={t.key}
-              type="button"
-              onClick={() => {
-                // §19 — 업무 역량 탭을 직접 클릭하면 항상 1번부터 시작한다.
-                if (t.key === "skills") setSkillIndex(0);
-                setTab(t.key);
-              }}
-              className="text-sm md:text-base font-medium px-1 pb-2 border-b-2 transition-colors duration-300 text-korean"
-              style={{
-                borderColor: i === activeIndex ? "var(--accent)" : "transparent",
-                color: i === activeIndex ? "var(--color-text-primary)" : "var(--color-text-muted)",
-              }}
-            >
-              {t.label}
-            </button>
-          ))}
+          <div className="flex flex-wrap gap-2 mb-4 md:mb-6 border-b border-line pb-4">
+            {TABS.map((t, i) => (
+              <button
+                key={t.key}
+                type="button"
+                onClick={() => {
+                  // §19 — 업무 역량 탭을 직접 클릭하면 항상 1번부터 시작한다.
+                  if (t.key === "skills") setSkillIndex(0);
+                  setTab(t.key);
+                }}
+                className="text-sm md:text-base font-medium px-1 pb-2 border-b-2 transition-colors duration-300 text-korean"
+                style={{
+                  borderColor: i === activeIndex ? "var(--accent)" : "transparent",
+                  color: i === activeIndex ? "var(--color-text-primary)" : "var(--color-text-muted)",
+                }}
+              >
+                {t.label}
+              </button>
+            ))}
+          </div>
         </div>
 
-        {/* §22-23 — 탭/스텝 콘텐츠 길이가 달라도 화면이 흔들리지 않도록
-            프레임 높이를 고정하고, 페이지 배경(secondary)과 구분되도록
-            반대 톤(primary)의 배경을 준다. */}
+        {/* §22-24 — 탭/스텝 콘텐츠 길이가 달라도 화면이 흔들리지 않도록
+            프레임 자체는 고정(내부만 Fade 전환)하고, 페이지 배경(secondary)과
+            구분되도록 반대 톤(primary)의 배경을 준다. 높이는 더 이상 고정
+            px/dvh 값이 아니라 flex-1로 남는 세로 공간을 전부 채우고,
+            아주 크거나 작은 화면을 위한 안전선만 min/max로 둔다. */}
         <div
-          className="relative w-full overflow-hidden rounded-sm bg-bg p-5 md:p-8"
-          style={{ height: "clamp(260px, 38dvh, 460px)" }}
+          className="relative w-full overflow-hidden rounded-sm bg-bg p-5 md:p-8 flex-1 min-h-0"
+          style={{ minHeight: "260px", maxHeight: "640px" }}
         >
           <div ref={stageRef} className="absolute inset-5 md:inset-8">
             {tab === "identity" && <IdentityPanel profile={profile} philosophy={philosophy} />}

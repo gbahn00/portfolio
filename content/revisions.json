@@ -1,5 +1,77 @@
 [
   {
+    "id": "d8e510b4-614a-42b2-ba8d-beb7efbf8b29",
+    "entity": "hero",
+    "field": "전체",
+    "before": {
+      "headline": "콘텐츠,\n다르게\n설계합니다.",
+      "subline": "촬영과 보정에서 시작해\n광고, 유튜브, 생성형 AI와\n제작 관리까지 역할을 넓혀왔습니다.",
+      "name": "이지은",
+      "role": "영상 크리에이터",
+      "department": "미디어팀",
+      "joinYear": "2024년 입사",
+      "badge": "2026년 특별진급 포트폴리오",
+      "highlightClips": [],
+      "visible": true,
+      "status": "draft",
+      "backgroundImage": {
+        "url": "/uploads/f52bfef7-a6a5-4f40-9cc4-f1ed22741226.png",
+        "kind": "image",
+        "alt": ""
+      }
+    },
+    "after": {
+      "headline": "콘텐츠,\n다르게\n설계합니다.",
+      "subline": "촬영과 보정에서 시작해\n광고, 유튜브, 생성형 AI와\n제작 관리까지 역할을 넓혀왔습니다.",
+      "name": "이지은",
+      "role": "영상 크리에이터",
+      "department": "미디어팀",
+      "joinYear": "2024년 입사",
+      "badge": "2026년 특별진급 포트폴리오",
+      "highlightClips": [],
+      "visible": true,
+      "status": "draft"
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-25T17:32:35.704Z"
+  },
+  {
+    "id": "bec65377-0f1a-4c8c-b614-7b1ae0ca45fc",
+    "entity": "hero",
+    "field": "전체",
+    "before": {
+      "headline": "콘텐츠,\n다르게\n설계합니다.",
+      "subline": "촬영과 보정에서 시작해\n광고, 유튜브, 생성형 AI와\n제작 관리까지 역할을 넓혀왔습니다.",
+      "name": "이지은",
+      "role": "영상 크리에이터",
+      "department": "미디어팀",
+      "joinYear": "2024년 입사",
+      "badge": "2026년 특별진급 포트폴리오",
+      "highlightClips": [],
+      "visible": true,
+      "status": "draft"
+    },
+    "after": {
+      "headline": "콘텐츠,\n다르게\n설계합니다.",
+      "subline": "촬영과 보정에서 시작해\n광고, 유튜브, 생성형 AI와\n제작 관리까지 역할을 넓혀왔습니다.",
+      "name": "이지은",
+      "role": "영상 크리에이터",
+      "department": "미디어팀",
+      "joinYear": "2024년 입사",
+      "badge": "2026년 특별진급 포트폴리오",
+      "highlightClips": [],
+      "visible": true,
+      "status": "draft",
+      "backgroundImage": {
+        "url": "/uploads/f52bfef7-a6a5-4f40-9cc4-f1ed22741226.png",
+        "kind": "image",
+        "alt": ""
+      }
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-25T17:32:07.009Z"
+  },
+  {
     "id": "14b8fcf7-5d95-4a55-b3c5-18faeccadb0b",
     "entity": "hero",
     "field": "전체",
