@@ -33,11 +33,13 @@ const config: Config = {
         },
       },
       fontFamily: {
-        // 10라운드 명세서 §3 — 폰트 이름을 여기 직접 적지 않고 CSS 변수를
-        // 참조한다. 실제 폰트 교체는 lib/fonts.ts의 ACTIVE_FONT 값만 바꾸면
-        // 된다(app/layout.tsx가 그 값을 --font-main/--font-title로 주입).
-        kr: ["var(--font-main)", "sans-serif"],
+        // 전체 구조 개편 명세서 §8 — 폰트 이름을 여기 직접 적지 않고 CSS
+        // 변수를 참조한다. 실제 폰트 교체는 lib/fonts.ts의 ACTIVE_TITLE_FONT/
+        // ACTIVE_BODY_FONT/ACTIVE_POINT_FONT 값만 바꾸면 된다(app/layout.tsx가
+        // 그 값을 --font-title/--font-body/--font-point로 주입).
+        kr: ["var(--font-body)", "sans-serif"],
         title: ["var(--font-title)", "sans-serif"],
+        point: ["var(--font-point)", "sans-serif"],
         en: ["Inter", "Manrope", "sans-serif"],
       },
       maxWidth: {

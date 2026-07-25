@@ -5,7 +5,7 @@ import { HeroSection, MediaRef } from "@/lib/types";
 import { mediaSrc } from "@/lib/utils";
 import { Container } from "@/components/ui/Container";
 import { MaskLines } from "@/components/motion/MaskLines";
-import { gsap, prefersReducedMotion, FAST_SCROLL_SAFE } from "@/lib/gsap";
+import { gsap, prefersReducedMotion } from "@/lib/gsap";
 import { CountUp } from "@/components/motion/CountUp";
 
 // 헤드라인에서 강조색을 적용할 줄 (0부터 시작) — "다르게" 줄
@@ -81,27 +81,12 @@ export function Hero({
         .to(statsRef.current, { autoAlpha: 1, y: 0, duration: 0.6 }, "-=0.3")
         .to(hintRef.current, { autoAlpha: 1, y: 0, duration: 0.6 }, "-=0.2");
 
-      // ============================================================
-      // Hero 스크롤 모션 — 제목이 살짝 축소/이동, 배경은 천천히 확대되는
-      // Ken Burns 효과, 하단 정보는 Fade Out 되며 다음 장면과 연결된다.
-      // ============================================================
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: section,
-          start: "top top",
-          end: "+=1800",
-          pin: true,
-          scrub: 0.6,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-          ...FAST_SCROLL_SAFE,
-        },
-      })
-        .to(headlineRef.current, { scale: 0.9, yPercent: -10, duration: 1, ease: "none", transformOrigin: "left top" }, 0)
-        .to(bgWrapRef.current, { scale: 1.12, duration: 1, ease: "none" }, 0)
-        .to([badgeRef.current, sublineRef.current], { autoAlpha: 0, y: -24, duration: 0.8, ease: "none" }, 0.05)
-        .to(bottomRowRef.current, { autoAlpha: 0, y: 24, duration: 0.8, ease: "none" }, 0.1)
-        .to(hintRef.current, { autoAlpha: 0, duration: 0.3, ease: "none" }, 0);
+      // 전체 구조 개편 명세서 §1 — Full Page Scroll(스크롤 1회=섹션 1개)
+      // 도입으로, Hero가 pin+scrub으로 화면 여러 개 분량(+=1800px)을 추가로
+      // 차지하던 예전 Ken Burns 스크롤 모션은 제거했다. 섹션 하나가 정확히
+      // 한 화면(100svh)만 차지해야 다음 섹션으로의 전환이 "스크롤 1회"에
+      // 맞아떨어진다. 배경 확대/제목 축소 같은 스크롤 연동 효과 대신,
+      // 진입 시 등장 애니메이션만으로 임팩트를 준다.
     }, section);
 
     return () => ctx.revert();

@@ -1,126 +1,218 @@
 "use client";
 
-import { useLayoutEffect, useRef } from "react";
-import { Profile } from "@/lib/types";
+import { useLayoutEffect, useRef, useState } from "react";
+import { Profile, PhilosophySection, Competency } from "@/lib/types";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/motion/Reveal";
 import { MediaFrame } from "@/components/ui/MediaFrame";
-import { MaskLines } from "@/components/motion/MaskLines";
-import { gsap, BIDIRECTIONAL_TOGGLE, prefersReducedMotion } from "@/lib/gsap";
+import { gsap, prefersReducedMotion } from "@/lib/gsap";
 
-export function ProfileSection({ data }: { data: Profile }) {
-  const facts = [...data.keyFacts].sort((a, b) => a.order - b.order);
-  const photoWrapRef = useRef<HTMLDivElement>(null);
-  const gateRef = useRef<HTMLDivElement>(null);
-  const imgRef = useRef<HTMLDivElement>(null);
-  const nameRef = useRef<HTMLDivElement>(null);
-  const galleryRef = useRef<HTMLDivElement>(null);
+// ============================================================================
+// 전체 구조 개편 명세서 §2 — "02.프로필"
+// 기존에 따로 있던 About(정체성 문장), Profile Key Numbers(핵심 수치),
+// Competencies(업무 역량), Working Process(일하는 방식) 4개 섹션을
+// 물리적으로 하나의 섹션으로 합쳤다. 시각적으로만 겹쳐 보이게 한 것이 아니라
+// 아래 4개 섹션 컴포넌트 자체를 메인 페이지에서 제거하고 이 컴포넌트
+// 하나로 대체했다.
+//
+// Full Page Scroll(한 번의 스크롤 = 한 섹션)과 맞물리기 위해, 예전처럼
+// "여러 화면 분량을 스크롤해야 다음 문장이 나오는" pin+scrub 방식 대신
+// 탭을 클릭해 하위 콘텐츠를 전환하는 방식으로 새로 만들었다. 탭 전환은
+// GSAP crossfade로 부드럽게 처리한다.
+// ============================================================================
 
-  useLayoutEffect(() => {
-    const wrap = photoWrapRef.current;
-    if (!wrap) return;
+type TabKey = "identity" | "numbers" | "skills" | "process";
 
-    if (prefersReducedMotion()) {
-      gsap.set(gateRef.current, { xPercent: 100 });
-      return;
-    }
+const TABS: { key: TabKey; label: string }[] = [
+  { key: "identity", label: "소개" },
+  { key: "numbers", label: "핵심 수치" },
+  { key: "skills", label: "업무 역량" },
+  { key: "process", label: "일하는 방식" },
+];
 
-    const ctx = gsap.context(() => {
-      // 사각형 가림막이 옆으로 열리며 사진이 나타난다
-      gsap.set(gateRef.current, { xPercent: 0 });
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: wrap,
-          start: "top 78%",
-          end: "top 30%",
-          toggleActions: BIDIRECTIONAL_TOGGLE,
-        },
-      }).to(gateRef.current, { xPercent: 100, duration: 1.1, ease: "power4.inOut" });
+const PROCESS_STEPS = [
+  { title: "목적과 대상 파악", desc: "콘텐츠가 어디에 쓰이고 누구에게 전달되는지 먼저 확인합니다." },
+  { title: "콘텐츠 방향 설계", desc: "목적에 맞춰 색감, 구도, 정보 전달 방식과 톤을 설계합니다." },
+  { title: "촬영·제작·AI 활용", desc: "촬영과 편집, 필요한 경우 생성형 AI 도구를 함께 활용해 제작합니다." },
+  { title: "검수와 수정", desc: "결과물을 검수하고 담당자·클라이언트 피드백을 반영해 수정합니다." },
+  { title: "성과 확인과 개선", desc: "결과를 확인하고 다음 콘텐츠 제작 방식 개선에 반영합니다." },
+];
 
-      // 사진 패럴랙스 — 스크롤에 따라 살짝 위로 이동 (scrub, 자동 역재생)
-      gsap.to(imgRef.current, {
-        yPercent: -8,
-        ease: "none",
-        scrollTrigger: { trigger: wrap, start: "top bottom", end: "bottom top", scrub: 0.6 },
-      });
+function IdentityPanel({ profile, philosophy }: { profile: Profile; philosophy: PhilosophySection }) {
+  const paragraphs = [...philosophy.paragraphs].sort((a, b) => a.order - b.order);
+  const keywords = [...philosophy.keywords].sort((a, b) => a.order - b.order);
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-[0.9fr_1.4fr] gap-10 md:gap-16 items-center">
+      <div className="relative aspect-[4/5] w-full max-w-xs overflow-hidden rounded-sm">
+        <MediaFrame media={profile.profilePhoto} className="h-full w-full" />
+      </div>
+      <div>
+        <p className="statement-title font-medium text-korean mb-8 max-w-2xl">{profile.representativePhrase}</p>
+        <div className="space-y-4 mb-8">
+          {paragraphs.map((p) => (
+            <p key={p.id} className="body-large text-ink-secondary text-korean max-w-xl">
+              {p.text}
+            </p>
+          ))}
+        </div>
+        {keywords.length > 0 && (
+          <div className="flex flex-wrap gap-2">
+            {keywords.map((k) => (
+              <span key={k.id} className="text-xs rounded-full border border-line px-3 py-1 text-ink-muted text-korean">
+                #{k.text}
+              </span>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
 
-      // 이름 라인 마스크 등장
-      const lines = nameRef.current?.querySelectorAll<HTMLElement>("[data-mask-line]") ?? [];
-      gsap.set(lines, { yPercent: 110 });
-      gsap.to(lines, {
-        yPercent: 0,
-        duration: 0.8,
-        stagger: 0.08,
-        ease: "power3.out",
-        scrollTrigger: { trigger: nameRef.current, start: "top 85%", end: "top 40%", toggleActions: BIDIRECTIONAL_TOGGLE },
-      });
+function NumbersPanel({ profile }: { profile: Profile }) {
+  const facts = [...profile.keyFacts].sort((a, b) => a.order - b.order);
+  return (
+    <div className="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-8 max-w-3xl">
+      {facts.map((f) => (
+        <div key={f.label}>
+          <p className="text-korean text-sm text-ink-muted mb-1">{f.label}</p>
+          <p className="text-korean text-2xl md:text-3xl text-ink font-bold">{f.value}</p>
+        </div>
+      ))}
+      {facts.length === 0 && <p className="text-ink-muted text-sm">등록된 핵심 수치가 아직 없습니다.</p>}
+    </div>
+  );
+}
 
-      // 촬영 현장 사진 — 좌우에서 번갈아 등장
-      if (galleryRef.current) {
-        const photos = Array.from(galleryRef.current.children) as HTMLElement[];
-        photos.forEach((el, i) => {
-          gsap.fromTo(
-            el,
-            { opacity: 0, x: i % 2 === 0 ? -40 : 40 },
-            {
-              opacity: 1, x: 0, duration: 0.8, ease: "power3.out",
-              scrollTrigger: { trigger: el, start: "top 88%", end: "top 40%", toggleActions: BIDIRECTIONAL_TOGGLE },
-            }
-          );
-        });
-      }
-    }, wrap);
+function SkillsPanel({ items }: { items: Competency[] }) {
+  const [active, setActive] = useState(0);
+  const sorted = [...items].sort((a, b) => a.order - b.order);
+  const current = sorted[active];
 
-    return () => ctx.revert();
-  }, []);
+  if (sorted.length === 0) return <p className="text-ink-muted text-sm">등록된 업무 역량이 아직 없습니다.</p>;
 
   return (
-    <section className="section-pad bg-bg-soft">
-      <Container className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
-        <div ref={photoWrapRef} className="relative aspect-[4/5] w-full overflow-hidden rounded-sm">
-          <div ref={imgRef} className="absolute inset-0 scale-110">
-            <MediaFrame media={data.profilePhoto} className="h-full w-full" priority />
-          </div>
-          <div ref={gateRef} className="absolute inset-0 bg-bg-soft z-10" />
+    <div className="grid grid-cols-1 md:grid-cols-[1fr_1.2fr] gap-10 md:gap-16 items-start">
+      <div className="space-y-3">
+        {sorted.map((c, i) => (
+          <button
+            key={c.id}
+            type="button"
+            onClick={() => setActive(i)}
+            className="grid grid-cols-[36px_minmax(0,1fr)] items-baseline gap-4 text-left w-full"
+          >
+            <span className="font-en text-sm text-ink-muted">{String(i + 1).padStart(2, "0")}</span>
+            <span
+              className="text-xl md:text-2xl font-bold transition-colors duration-300"
+              style={{ color: i === active ? "var(--accent)" : "var(--color-text-muted)" }}
+            >
+              {c.title}
+            </span>
+          </button>
+        ))}
+      </div>
+      <div key={current.id} className="max-w-[560px]">
+        <p className="text-ink-secondary body-large leading-relaxed text-korean mb-6">{current.description}</p>
+        {(current.cases || []).length > 0 && (
+          <ul className="space-y-2">
+            {[...current.cases].sort((a, b) => a.order - b.order).map((cs) => (
+              <li key={cs.id} className="text-sm text-ink/80 flex gap-2 text-korean">
+                <span className="accent-text">·</span>
+                {cs.text}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function ProcessPanel() {
+  const [active, setActive] = useState(0);
+  const step = PROCESS_STEPS[active];
+  return (
+    <div className="max-w-3xl">
+      <div className="flex flex-wrap gap-2 mb-10">
+        {PROCESS_STEPS.map((s, i) => (
+          <button
+            key={s.title}
+            type="button"
+            onClick={() => setActive(i)}
+            className="text-xs md:text-sm rounded-full border px-4 py-2 transition-colors duration-300 text-korean"
+            style={{
+              borderColor: i === active ? "var(--accent)" : "var(--color-border)",
+              color: i === active ? "var(--accent)" : "var(--color-text-secondary)",
+            }}
+          >
+            {String(i + 1).padStart(2, "0")}
+          </button>
+        ))}
+      </div>
+      <div key={active}>
+        <h3 className="project-title font-bold mb-4 text-korean">{step.title}</h3>
+        <p className="body-large text-ink-secondary text-korean max-w-xl">{step.desc}</p>
+      </div>
+    </div>
+  );
+}
+
+export function ProfileSection({
+  profile,
+  philosophy,
+  competencies,
+}: {
+  profile: Profile;
+  philosophy: PhilosophySection;
+  competencies: Competency[];
+}) {
+  const [tab, setTab] = useState<TabKey>("identity");
+  const stageRef = useRef<HTMLDivElement>(null);
+
+  useLayoutEffect(() => {
+    const stage = stageRef.current;
+    if (!stage || prefersReducedMotion()) return;
+    gsap.fromTo(stage, { autoAlpha: 0, y: 12 }, { autoAlpha: 1, y: 0, duration: 0.45, ease: "power2.out", overwrite: "auto" });
+  }, [tab]);
+
+  const sortedCompetencies = [...competencies].sort((a, b) => a.order - b.order);
+
+  return (
+    <section id="profile" className="section-pad bg-bg-soft min-h-[100svh] flex flex-col justify-center">
+      <Container className="w-full">
+        <Reveal>
+          <p className="accent-text text-sm font-medium mb-4 tracking-wide">PROFILE</p>
+        </Reveal>
+        <Reveal delay={0.05} strength="strong" holdAfterEnter>
+          <h2 className="section-title font-bold mb-10 md:mb-14 text-korean">
+            {profile.name} · {profile.role}
+          </h2>
+        </Reveal>
+
+        <div className="flex flex-wrap gap-2 mb-10 md:mb-14 border-b border-line pb-6">
+          {TABS.map((t) => (
+            <button
+              key={t.key}
+              type="button"
+              onClick={() => setTab(t.key)}
+              className="text-sm md:text-base font-medium px-1 pb-2 border-b-2 transition-colors duration-300 text-korean"
+              style={{
+                borderColor: tab === t.key ? "var(--accent)" : "transparent",
+                color: tab === t.key ? "var(--color-text-primary)" : "var(--color-text-muted)",
+              }}
+            >
+              {t.label}
+            </button>
+          ))}
         </div>
 
-        <div>
-          <p className="accent-text text-sm font-medium mb-4 tracking-wide">프로필</p>
-          <div ref={nameRef} className="mb-4">
-            <MaskLines
-              text={`${data.name}`}
-              className="text-2xl md:text-3xl font-bold"
-            />
-          </div>
-          <p className="text-ink-muted text-lg md:text-xl mb-6">{data.affiliation} · {data.rank}</p>
-          <Reveal delay={0.05}>
-            <p className="text-korean text-xl md:text-2xl leading-relaxed mb-10 whitespace-pre-line">{data.introLong}</p>
-          </Reveal>
-
-          <div className="space-y-4">
-            {facts.map((f, i) => (
-              <Reveal key={f.label} delay={i * 0.03}>
-                <div className="flex items-baseline justify-between border-b border-white/10 pb-3">
-                  <span className="text-ink-muted text-sm md:text-base">{f.label}</span>
-                  <span className="text-ink text-sm md:text-base font-medium text-right">{f.value}</span>
-                </div>
-              </Reveal>
-            ))}
-          </div>
+        <div ref={stageRef}>
+          {tab === "identity" && <IdentityPanel profile={profile} philosophy={philosophy} />}
+          {tab === "numbers" && <NumbersPanel profile={profile} />}
+          {tab === "skills" && <SkillsPanel items={sortedCompetencies} />}
+          {tab === "process" && <ProcessPanel />}
         </div>
       </Container>
-
-      {data.onSitePhotos?.length > 0 && (
-        <Container className="mt-16 md:mt-20">
-          <div ref={galleryRef} className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {data.onSitePhotos.map((photo, i) => (
-              <div key={i} style={{ opacity: 0 }}>
-                <MediaFrame media={photo} className="aspect-[4/3] rounded-sm" />
-              </div>
-            ))}
-          </div>
-        </Container>
-      )}
     </section>
   );
 }

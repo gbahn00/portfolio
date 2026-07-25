@@ -1,18 +1,23 @@
 "use client";
 
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import { gsap, ScrollTrigger, prefersReducedMotion } from "@/lib/gsap";
+import { goToSection, SectionId } from "@/lib/fullpage";
 
-// NAV_ITEMS의 id는 각 섹션의 실제 id 속성과 일치해야 한다.
+// 전체 구조 개편 명세서 §7 — 6개 섹션 고정 구조에 맞춰 nav 항목을 갱신했다.
+// id는 app/page.tsx의 data-fp-id 및 각 섹션 <section id="..."> 값과 일치한다.
 // href는 항상 "/#id" 절대경로를 사용한다 — 상대 "#id"만 쓰면 프로젝트 상세
 // 페이지(/projects/[id])처럼 홈이 아닌 곳에서 클릭했을 때 현재 페이지 안에서
 // 존재하지 않는 앵커를 찾다가 아무 동작도 하지 않는 문제가 있었다.
-const NAV_ITEMS = [
-  { id: "about", label: "About" },
-  { id: "journey", label: "Journey" },
-  { id: "selected-works", label: "Works" },
-  { id: "skills", label: "Skills" },
-  { id: "plan", label: "Plan" },
+// 홈에서 클릭하면 Full Page Scroll 컨트롤러가 해당 섹션까지 부드럽게
+// 이동시키고(goToSection), 홈이 아닌 곳에서는 href의 "/#id" 이동으로
+// 자연스럽게 대체된다.
+const NAV_ITEMS: { id: SectionId; label: string }[] = [
+  { id: "profile", label: "Profile" },
+  { id: "growth", label: "Growth" },
+  { id: "projects", label: "Works" },
+  { id: "future", label: "Plan" },
 ];
 
 export function Header({ name }: { name: string }) {
@@ -68,11 +73,13 @@ export function Header({ name }: { name: string }) {
     return () => ctx.revert();
   }, []);
 
+  const pathname = usePathname();
+
   // 현재 보이는 섹션에 맞춰 활성 메뉴를 강조 (§9.2 활성 메뉴 강조색)
   useEffect(() => {
     // 프로젝트 상세 페이지 등 홈이 아닌 곳에서는 대응하는 섹션이 없으므로
     // 활성 메뉴 강조 로직 자체를 건너뛴다 (에러 방지 + 불필요한 관찰 방지).
-    if (typeof document === "undefined" || !document.getElementById("about")) return;
+    if (typeof document === "undefined" || !document.getElementById("profile")) return;
     const sections = NAV_ITEMS.map((item) => document.getElementById(item.id)).filter(Boolean) as HTMLElement[];
     if (sections.length === 0) return;
     const observer = new IntersectionObserver(
@@ -106,6 +113,12 @@ export function Header({ name }: { name: string }) {
               key={item.id}
               data-nav-item
               href={`/#${item.id}`}
+              onClick={(e) => {
+                if (pathname === "/") {
+                  e.preventDefault();
+                  goToSection(item.id);
+                }
+              }}
               className="text-xs md:text-sm font-medium transition-colors duration-300"
               style={{ color: active === item.id ? "var(--accent)" : "var(--color-text-secondary)" }}
             >

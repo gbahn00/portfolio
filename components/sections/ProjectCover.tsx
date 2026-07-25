@@ -64,7 +64,7 @@ export function ProjectCover({ project }: { project: Project }) {
 
       <Container className="relative z-10 flex h-full flex-col justify-between py-10 md:py-14">
         <div className="flex items-start justify-between">
-          <Link href="/#selected-works" className="text-sm text-ink-secondary hover:text-ink transition-colors">
+          <Link href="/#projects" className="text-sm text-ink-secondary hover:text-ink transition-colors">
             ← 목록으로
           </Link>
           <span className="font-en text-sm text-ink-secondary">

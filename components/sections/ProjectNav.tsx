@@ -32,7 +32,7 @@ export function ProjectNav({ prev, next }: { prev: Project | null; next: Project
     <div className="border-t border-line">
       <div className="pt-10 pb-6">
         <Link
-          href="/#selected-works"
+          href="/#projects"
           className="inline-flex items-center gap-2 text-sm text-ink-secondary transition-colors duration-[0.35s] ease-out hover:text-ink"
         >
           ← Back to Projects

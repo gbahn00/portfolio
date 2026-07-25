@@ -9,7 +9,19 @@ import Link from "next/link";
 import { mediaSrc } from "@/lib/utils";
 import { gsap, prefersReducedMotion, ENTER_ONLY_TOGGLE } from "@/lib/gsap";
 
-// §18.4 — 배경 Fade → 첫 줄 Reveal → 둘째 줄 Reveal → 강조 단어 색상 전환 → 하단 정보 → 버튼
+// ============================================================================
+// 전체 구조 개편 명세서 §6 — "06.마지막 페이지"
+// 예전에는 마무리 문구 섹션(약 1화면) 아래에 별도의 Footer 블록이 이어져서
+// 실제로는 화면 1.x~2개 분량이었다. 이제는 "진짜 풀스크린 마지막 페이지"
+// 요구에 맞춰 문구와 최소한의 정보(메뉴/연락처/프로필/저작권)를 한 화면
+// 안에 전부 담았다.
+//
+// Footer 메뉴에서 FAQ 링크는 제거했다 — 이번 개편으로 FAQ 섹션 자체를
+// 6개 섹션 구조에서 완전히 뺐기 때문이다(전체 구조 개편 요청 시 확정).
+// Contact(SNS/이메일)는 관리자 페이지에서 값이 채워지기 전까지 비어 있으면
+// 그대로 숨긴다 — 임의로 GitHub 링크나 이력서 다운로드를 채워 넣지 않는다
+// (앞선 라운드에서 사용자가 명시적으로 제외를 재확인함).
+// ============================================================================
 export function Closing({ data }: { data: ClosingSection }) {
   const bg = data.backgroundImage ? mediaSrc(data.backgroundImage.url) : "/placeholders/closing-bg.svg";
   const sectionRef = useRef<HTMLElement>(null);
@@ -21,7 +33,6 @@ export function Closing({ data }: { data: ClosingSection }) {
   useLayoutEffect(() => {
     const section = sectionRef.current;
     if (!section) return;
-
     if (prefersReducedMotion()) return;
 
     const ctx = gsap.context(() => {
@@ -30,13 +41,6 @@ export function Closing({ data }: { data: ClosingSection }) {
       gsap.set(bgRef.current, { autoAlpha: 0, scale: 1.1 });
       gsap.set([metaRef.current, btnRef.current], { autoAlpha: 0, y: 16 });
 
-      // 마지막 섹션의 마무리 문구는 한 번 등장한 뒤 계속 유지되어야 한다.
-      // 기존 end: "top 20%" 는 섹션의 "윗변"이 화면 상단 20% 지점을 지나기만
-      // 하면 바로 onLeave(reverse)가 실행되는 값이었는데, 섹션 자체는
-      // min-h-[100svh]로 훨씬 더 아래까지 이어지기 때문에, 사용자가 아직
-      // 섹션 안에서 읽고 있는 도중에도 문구 전체가 사라져 버리는 문제가
-      // 있었다. onLeave를 "none"으로 바꿔 스크롤이 더 내려가도 유지되게
-      // 한다(§3.3 핵심 문구 Exit Animation 최소화 원칙).
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: section,
@@ -60,8 +64,11 @@ export function Closing({ data }: { data: ClosingSection }) {
   const year = new Date().getFullYear();
 
   return (
-    <>
-    <section ref={sectionRef} className="relative min-h-[100svh] flex items-center overflow-hidden bg-bg">
+    <section
+      id="closing"
+      ref={sectionRef}
+      className="relative min-h-[100svh] flex flex-col justify-between overflow-hidden bg-bg"
+    >
       <div className="absolute inset-0">
         <div ref={bgRef} className="absolute inset-0">
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -69,14 +76,13 @@ export function Closing({ data }: { data: ClosingSection }) {
         </div>
         <div className="absolute inset-0 bg-bg/45" />
       </div>
-      <Container className="relative z-10 py-32">
+
+      <Container className="relative z-10 flex-1 flex flex-col justify-center py-20 md:py-24">
         <div ref={messageRef} className="mb-8">
           <MaskLines text={data.message} className="hero-title font-bold" accentLines={[0]} />
         </div>
         {data.subline && (
-          <p className="text-korean text-ink-secondary body-large max-w-xl mb-10 whitespace-pre-line">
-            {data.subline}
-          </p>
+          <p className="text-korean text-ink-secondary body-large max-w-xl mb-10 whitespace-pre-line">{data.subline}</p>
         )}
         <div ref={metaRef} className="flex flex-wrap items-center gap-x-4 gap-y-1 text-ink-secondary text-sm md:text-base mb-10">
           <span className="text-ink font-medium">{data.name}</span>
@@ -86,59 +92,31 @@ export function Closing({ data }: { data: ClosingSection }) {
         </div>
         <div ref={btnRef} className="flex flex-wrap gap-4">
           <ScrollTopButton label="Back to Top" />
-          <ScrollTopButton label="View Works" href="/#selected-works" />
+          <ScrollTopButton label="View Works" href="/#projects" />
+        </div>
+      </Container>
+
+      <Container className="relative z-10 pb-8 md:pb-10">
+        <div className="pt-8 border-t border-line/60 flex flex-wrap items-center justify-between gap-4">
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs md:text-sm text-ink-secondary">
+            <Link href="/#profile" className="hover:text-ink transition-colors duration-300">Profile</Link>
+            <Link href="/#growth" className="hover:text-ink transition-colors duration-300">Growth</Link>
+            <Link href="/#projects" className="hover:text-ink transition-colors duration-300">Works</Link>
+            {links.map((l) => (
+              <a
+                key={l.id}
+                href={l.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-ink transition-colors duration-300"
+              >
+                {l.label}
+              </a>
+            ))}
+          </div>
+          <p className="font-en text-xs text-ink-muted">© {year} {data.name}</p>
         </div>
       </Container>
     </section>
-
-    {/* 9라운드 명세서 §14 — Contact/FAQ/SNS를 하나의 Grid로 구성한 Footer.
-        SNS/이메일(externalLinks)은 관리자 페이지에서 채워 넣기 전까지는
-        실제 값이 없으므로, 비어 있으면 해당 열을 그냥 숨긴다(임의 채움 금지). */}
-    <footer className="relative bg-bg-soft border-t border-line">
-      <Container className="py-16 md:py-20">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-10 mb-12 md:mb-16">
-          <div>
-            <p className="font-en caption text-ink-muted tracking-wide mb-4">MENU</p>
-            <ul className="space-y-2.5">
-              <li><Link href="/#about" className="text-sm text-ink-secondary transition-colors duration-[0.35s] ease-out hover:text-ink">About</Link></li>
-              <li><Link href="/#selected-works" className="text-sm text-ink-secondary transition-colors duration-[0.35s] ease-out hover:text-ink">Works</Link></li>
-              <li><Link href="/#faq" className="text-sm text-ink-secondary transition-colors duration-[0.35s] ease-out hover:text-ink">FAQ</Link></li>
-            </ul>
-          </div>
-
-          {links.length > 0 && (
-            <div>
-              <p className="font-en caption text-ink-muted tracking-wide mb-4">CONTACT</p>
-              <ul className="space-y-2.5">
-                {links.map((l) => (
-                  <li key={l.id}>
-                    <a
-                      href={l.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm text-ink-secondary transition-colors duration-[0.35s] ease-out hover:text-ink"
-                    >
-                      {l.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-
-          <div className="col-span-2 md:col-span-2">
-            <p className="font-en caption text-ink-muted tracking-wide mb-4">PROFILE</p>
-            <p className="text-sm text-ink font-medium mb-1">{data.name}</p>
-            <p className="text-sm text-ink-secondary">{data.department} · {data.role}</p>
-          </div>
-        </div>
-
-        <div className="pt-8 border-t border-line flex flex-wrap items-center justify-between gap-4">
-          <p className="font-en text-xs text-ink-muted">© {year} {data.name}</p>
-          <p className="font-en text-xs text-ink-muted">{data.badge}</p>
-        </div>
-      </Container>
-    </footer>
-    </>
   );
 }

@@ -16,17 +16,25 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const content = await getContent();
   const accent = content.settings?.accentColor === "blue" ? "blue" : "orange";
-  // 10라운드 명세서 §3 — 폰트를 lib/fonts.ts 한 곳에서만 관리한다.
-  // ACTIVE_FONT 값을 바꾸면 이 stylesheet 링크와 --font-main/--font-title
-  // CSS 변수가 함께 바뀌어 사이트 전체에 즉시 반영된다.
-  const { main: mainFont, title: titleFont } = getActiveFontConfig();
-  const fontStyleVars = { "--font-main": mainFont.family, "--font-title": titleFont.family } as React.CSSProperties;
+  // 전체 구조 개편 명세서 §8 — 폰트를 lib/fonts.ts 한 곳에서만 관리한다.
+  // ACTIVE_TITLE_FONT/ACTIVE_BODY_FONT/ACTIVE_POINT_FONT 값을 바꾸면
+  // --font-title/--font-body/--font-point CSS 변수가 함께 바뀌어 사이트
+  // 전체에 즉시 반영된다. --font-main은 이전 코드와의 호환을 위해 본문
+  // 폰트와 같은 값으로 유지한다.
+  const { title: titleFont, body: bodyFont, point: pointFont, cssUrls } = getActiveFontConfig();
+  const fontStyleVars = {
+    "--font-main": bodyFont.family,
+    "--font-title": titleFont.family,
+    "--font-body": bodyFont.family,
+    "--font-point": pointFont.family,
+  } as React.CSSProperties;
 
   return (
     <html lang="ko" data-accent={accent} style={fontStyleVars}>
       <head>
-        <link rel="stylesheet" href={mainFont.cssUrl} />
-        {titleFont.cssUrl !== mainFont.cssUrl && <link rel="stylesheet" href={titleFont.cssUrl} />}
+        {cssUrls.map((url) => (
+          <link key={url} rel="stylesheet" href={url} />
+        ))}
       </head>
       <body className="font-kr antialiased">
         <GsapProvider />

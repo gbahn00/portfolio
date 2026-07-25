@@ -4,9 +4,12 @@
 
 :root {
   /* 폰트 — app/layout.tsx가 lib/fonts.ts 값으로 덮어쓴다. 아래는 혹시
-     인라인 style이 적용되지 않는 예외 상황을 위한 안전한 기본값. */
+     인라인 style이 적용되지 않는 예외 상황을 위한 안전한 기본값.
+     전체 구조 개편 명세서 §8 — 제목/본문/포인트 3가지 역할로 확장. */
   --font-main: "Pretendard", "SUIT", sans-serif;
   --font-title: "Pretendard", "SUIT", sans-serif;
+  --font-body: "Pretendard", "SUIT", sans-serif;
+  --font-point: "Pretendard", "SUIT", sans-serif;
   /* Background */
   --color-bg-primary: #0A0A0A;
   --color-bg-secondary: #11100F;
@@ -36,19 +39,10 @@ html {
   scroll-behavior: smooth;
 }
 
-/* 10라운드 명세서 §1/§7 — 가벼운 scroll-snap. "proximity"는 스크롤이 자연스럽게
-   멈추려는 지점이 섹션 경계 근처일 때만 부드럽게 끌어당기고, mandatory처럼
-   모든 스크롤 제스처를 강제로 다음 섹션까지 가로채지 않는다. 그래서 About/
-   Journey/업무역량 안의 GSAP 핀+스크럽 모션과 부딪히지 않는다.
-   모바일(터치 스크롤 관성)에서 어색하게 튕기지 않도록 데스크톱에서만 켠다. */
-@media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
-  main.snap-page {
-    scroll-snap-type: y proximity;
-  }
-  .snap-section {
-    scroll-snap-align: start;
-  }
-}
+/* 전체 구조 개편 명세서 §1 — 10라운드에서 썼던 CSS scroll-snap(가벼운 버전)은
+   components/motion/FullPageScroll.tsx의 진짜 Full Page Scroll 컨트롤러로
+   대체되었다. scroll-snap-type을 계속 켜 두면 컨트롤러가 애니메이션으로
+   옮기는 스크롤 위치와 브라우저의 자체 snap 보정이 서로 다투게 되므로 제거한다. */
 
 @media (prefers-reduced-motion: reduce) {
   html {
