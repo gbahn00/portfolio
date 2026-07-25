@@ -64,7 +64,7 @@ export function Faq({ items }: { items: FaqItem[] }) {
             <Reveal>
               <p className="accent-text text-sm font-medium mb-4 tracking-wide">추가 설명</p>
             </Reveal>
-            <Reveal delay={0.05}>
+            <Reveal delay={0.05} strength="strong" holdAfterEnter>
               <h2 className="section-title font-bold text-korean">
                 궁금할 수 있는
                 <br />
@@ -73,7 +73,7 @@ export function Faq({ items }: { items: FaqItem[] }) {
             </Reveal>
           </div>
 
-          <Reveal delay={0.1}>
+          <Reveal delay={0.1} holdAfterEnter>
             <div className="border-t border-line">
               {visible.map((item, i) => (
                 <FaqRow

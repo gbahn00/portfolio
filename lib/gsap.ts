@@ -26,6 +26,15 @@ export function prefersReducedMotion(): boolean {
  */
 export const BIDIRECTIONAL_TOGGLE = "play reverse play reverse";
 
+/**
+ * 섹션 제목, 연도, 프로젝트명, 핵심 성과 수치처럼 "한 번 보이면 계속 읽혀야
+ * 하는" 핵심 문구용 toggleActions. 아래로 스크롤해서 지나칠 때는 사라지지
+ * 않고(onLeave: none) 그대로 유지되며, 스크롤을 완전히 되돌려 섹션 시작
+ * 지점보다 위로 올라갔을 때만(onLeaveBack: reverse) 다시 숨겨져 재진입 시
+ * 자연스럽게 등장한다.
+ */
+export const ENTER_ONLY_TOGGLE = "play none play reverse";
+
 /** 스크롤 연동(scrub) 모션의 표준 반응 속도. 0.3~1.0 권장, 기본 0.6. */
 export const STANDARD_SCRUB = 0.6;
 

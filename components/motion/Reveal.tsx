@@ -1,7 +1,7 @@
 "use client";
 
 import { ReactNode, useLayoutEffect, useRef } from "react";
-import { gsap, ScrollTrigger, BIDIRECTIONAL_TOGGLE, FAST_SCROLL_SAFE, prefersReducedMotion } from "@/lib/gsap";
+import { gsap, ScrollTrigger, BIDIRECTIONAL_TOGGLE, ENTER_ONLY_TOGGLE, FAST_SCROLL_SAFE, prefersReducedMotion } from "@/lib/gsap";
 
 interface RevealProps {
   children: ReactNode;
@@ -10,6 +10,13 @@ interface RevealProps {
   className?: string;
   /** "weak"(기본, 본문/보조 정보) | "strong"(제목류, 더 크게 이동) */
   strength?: "weak" | "strong";
+  /**
+   * true면 섹션 제목·연도·핵심 수치처럼 한 번 등장한 뒤 스크롤이 더 내려가도
+   * 사라지지 않고 유지되는 핵심 문구용 동작으로 전환한다(§3.3, 명세서 기준
+   * "중요한 문구의 Exit Animation 최소화"). 섹션을 완전히 벗어나 위로
+   * 스크롤을 되돌렸을 때만 다시 숨겨진다.
+   */
+  holdAfterEnter?: boolean;
 }
 
 /**
@@ -18,7 +25,7 @@ interface RevealProps {
  * `autoAlpha`(opacity+visibility)를 사용해 비활성 상태에서 글자가 흐리게
  * 남거나 클릭 영역을 차지하는 잔상 문제를 방지합니다.
  */
-export function Reveal({ children, delay = 0, y, className, strength = "weak" }: RevealProps) {
+export function Reveal({ children, delay = 0, y, className, strength = "weak", holdAfterEnter = false }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
@@ -49,7 +56,7 @@ export function Reveal({ children, delay = 0, y, className, strength = "weak" }:
             // 애니메이션이 내용보다 먼저 실행되는 문제를 방지한다.
             start: strength === "strong" ? "top 70%" : "top 80%",
             end: "bottom 15%",
-            toggleActions: BIDIRECTIONAL_TOGGLE,
+            toggleActions: holdAfterEnter ? ENTER_ONLY_TOGGLE : BIDIRECTIONAL_TOGGLE,
             ...FAST_SCROLL_SAFE,
           },
         }
@@ -57,7 +64,7 @@ export function Reveal({ children, delay = 0, y, className, strength = "weak" }:
     }, ref);
 
     return () => ctx.revert();
-  }, [delay, y, strength]);
+  }, [delay, y, strength, holdAfterEnter]);
 
   return (
     <div ref={ref} className={className} style={{ visibility: "hidden", opacity: 0 }}>

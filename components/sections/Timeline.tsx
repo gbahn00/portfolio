@@ -159,6 +159,7 @@ export function Timeline({ entries }: { entries: TimelineEntry[] }) {
         gsap.to(track, {
           x: () => -distance(),
           ease: "none",
+          force3D: true,
           scrollTrigger: {
             trigger: pin,
             start: "top top",
@@ -192,7 +193,10 @@ export function Timeline({ entries }: { entries: TimelineEntry[] }) {
       </Container>
 
       <div ref={pinRef} className="relative">
-        <div ref={trackRef} className="flex flex-col md:flex-row md:w-max">
+        {/* 가로로 이동하는 트랙에만 will-change를 지정해 브라우저가 스크롤
+            시작 전에 GPU 레이어로 미리 승격해 두도록 한다(§3.1). 다른
+            요소에는 적용하지 않는다. */}
+        <div ref={trackRef} className="flex flex-col md:flex-row md:w-max" style={{ willChange: "transform" }}>
           {sorted.map((entry, i) => (
             <YearPanel key={entry.id} entry={entry} index={i} />
           ))}

@@ -2,7 +2,7 @@
   "settings": {
     "siteTitle": "이지은 영상 크리에이터 포트폴리오",
     "accentColor": "orange",
-    "reduceMotionRespect": true,
+    "reduceMotionRespect": false,
     "sectionVisibility": {
       "hero": true,
       "about": true,

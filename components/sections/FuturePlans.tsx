@@ -11,17 +11,17 @@ function PlanBlock({ plan, index, total }: { plan: FuturePlan; index: number; to
 
   return (
     <div className="min-h-[80svh] md:min-h-[90svh] flex flex-col justify-center border-t border-line py-16 md:py-0">
-      <Reveal>
+      <Reveal holdAfterEnter>
         <p className="font-en text-xs text-ink-muted tracking-wide mb-6">
           PROMOTION PLAN / {String(index + 1).padStart(2, "0")} · {String(total).padStart(2, "0")}
         </p>
       </Reveal>
-      <Reveal delay={0.05} strength="strong">
+      <Reveal delay={0.05} strength="strong" holdAfterEnter>
         <span className="accent-text font-en project-title font-bold block mb-2" style={{ opacity: 0.4 }}>
           {String(index + 1).padStart(2, "0")}
         </span>
       </Reveal>
-      <Reveal delay={0.1} strength="strong">
+      <Reveal delay={0.1} strength="strong" holdAfterEnter>
         <h3 className="hero-title font-bold mb-14 text-korean max-w-4xl">{plan.title}</h3>
       </Reveal>
 
@@ -84,7 +84,7 @@ export function FuturePlans({ items }: { items: FuturePlan[] }) {
             <Reveal>
               <p className="accent-text text-sm font-medium mb-4 tracking-wide">특별진급 이후 실행 계획</p>
             </Reveal>
-            <Reveal delay={0.05}>
+            <Reveal delay={0.05} strength="strong" holdAfterEnter>
               <h2 className="section-title font-bold mb-6 text-korean">다음 역할을 위한 준비</h2>
             </Reveal>
             <Reveal delay={0.1}>

@@ -114,7 +114,7 @@ export function SelectedWork({ projects }: { projects: Project[] }) {
               <Reveal>
                 <p className="accent-text text-sm font-medium mb-4 tracking-wide">SELECTED WORKS</p>
               </Reveal>
-              <Reveal delay={0.05}>
+              <Reveal delay={0.05} strength="strong" holdAfterEnter>
                 <h2 className="section-title font-bold text-korean max-w-2xl">
                   촬영부터 영상, 생성형 AI와<br />업무 체계까지.
                 </h2>
@@ -125,7 +125,7 @@ export function SelectedWork({ projects }: { projects: Project[] }) {
                 </p>
               </Reveal>
             </div>
-            <Reveal delay={0.1}>
+            <Reveal delay={0.1} holdAfterEnter>
               <div className="text-right shrink-0">
                 <p className="font-en section-title font-bold accent-text leading-none">
                   {String(featured.length).padStart(2, "0")}

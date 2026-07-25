@@ -36,16 +36,26 @@ export function Header({ name }: { name: string }) {
   }, []);
 
   // 아래로 스크롤하면 약하게 숨기고, 위로 스크롤하면 다시 표시한다 (§16)
+  //
+  // 이전에는 스크롤이 일어날 때마다(초당 수십 번) onUpdate가 호출될 때마다
+  // 매번 새 gsap.to() 트윈을 생성했다. overwrite:"auto"로 이전 트윈을
+  // 정리하긴 했지만, hide 상태가 바뀌지 않았는데도 계속 트윈을 새로 만드는
+  // 건 불필요한 작업이며, 다른 섹션(예: 약력 가로 스크롤)의 pin+scrub와
+  // 동시에 실행되면서 전체적인 스크롤 렉의 한 원인이 된다. hide 상태가
+  // 실제로 바뀔 때만 트윈을 실행하도록 이전 상태를 기억해 비교한다.
   useLayoutEffect(() => {
     if (prefersReducedMotion()) return;
     const wrap = wrapRef.current;
     if (!wrap) return;
+    let lastHide: boolean | null = null;
     const ctx = gsap.context(() => {
       ScrollTrigger.create({
         start: 80,
         end: 99999,
         onUpdate: (self) => {
           const hide = self.direction === 1 && self.scroll() > 120;
+          if (hide === lastHide) return;
+          lastHide = hide;
           gsap.to(wrap, {
             yPercent: hide ? -100 : 0,
             duration: 0.35,

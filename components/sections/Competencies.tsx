@@ -120,40 +120,46 @@ function SequentialSkills({ items }: { items: Competency[] }) {
     return () => ctx.revert();
   }, [items.length]);
 
+  // 이전에는 이 pin 섹션이 <Container> 없이 뷰포트 전체 폭을 그대로 썼기
+  // 때문에, 번호·목차가 화면 맨 가장자리에 붙고 넓은 화면에서는 좌우 grid가
+  // 무한정 늘어나 목차와 설명 사이 공백이 과도하게 벌어지는 문제가 있었다.
+  // 다른 섹션과 동일하게 Container로 감싸 공통 여백 기준선에 맞춘다.
   return (
     <div ref={pinRef} className="relative min-h-[100svh] w-full flex items-center">
-      <div className="grid grid-cols-1 md:grid-cols-[1fr_1.2fr] gap-10 md:gap-20 w-full items-center">
-        <div ref={listRef} className="space-y-3 md:space-y-5">
-          {items.map((c, i) => (
-            <div key={c.id} data-skill-title className="flex items-baseline gap-4 text-korean">
-              <span className="font-en text-sm w-8 shrink-0">{String(i + 1).padStart(2, "0")}</span>
-              <span className="text-xl md:text-3xl font-bold">{c.title}</span>
-            </div>
-          ))}
-        </div>
-
-        <div ref={descStageRef} className="relative min-h-[200px]">
-          {items.map((c, i) => {
-            const cases = [...(c.cases || [])].sort((a, b) => a.order - b.order);
-            return (
-              <div key={c.id} data-skill-desc className="absolute inset-0" style={{ visibility: "hidden" }}>
-                <p className="text-ink-secondary body-large leading-relaxed text-korean mb-6">{c.description}</p>
-                {cases.length > 0 && (
-                  <ul className="space-y-2">
-                    {cases.map((cs) => (
-                      <li key={cs.id} className="text-sm text-ink/80 flex gap-2 text-korean">
-                        <span className="accent-text">·</span>
-                        {cs.text}
-                      </li>
-                    ))}
-                  </ul>
-                )}
-                {!cases.length && c.media && <MediaFrame media={c.media} className="aspect-[4/3] rounded-sm mt-4" />}
+      <Container className="w-full">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_1.2fr] gap-10 md:gap-20 items-center">
+          <div ref={listRef} className="space-y-3 md:space-y-5">
+            {items.map((c, i) => (
+              <div key={c.id} data-skill-title className="grid grid-cols-[36px_minmax(0,1fr)] items-baseline gap-4 text-korean">
+                <span className="font-en text-sm">{String(i + 1).padStart(2, "0")}</span>
+                <span className="text-xl md:text-3xl font-bold">{c.title}</span>
               </div>
-            );
-          })}
+            ))}
+          </div>
+
+          <div ref={descStageRef} className="relative min-h-[200px] max-w-[880px]">
+            {items.map((c, i) => {
+              const cases = [...(c.cases || [])].sort((a, b) => a.order - b.order);
+              return (
+                <div key={c.id} data-skill-desc className="absolute inset-0" style={{ visibility: "hidden" }}>
+                  <p className="text-ink-secondary body-large leading-relaxed text-korean mb-6 max-w-[780px]">{c.description}</p>
+                  {cases.length > 0 && (
+                    <ul className="space-y-2">
+                      {cases.map((cs) => (
+                        <li key={cs.id} className="text-sm text-ink/80 flex gap-2 text-korean">
+                          <span className="accent-text">·</span>
+                          {cs.text}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  {!cases.length && c.media && <MediaFrame media={c.media} className="aspect-[4/3] rounded-sm mt-4" />}
+                </div>
+              );
+            })}
+          </div>
         </div>
-      </div>
+      </Container>
     </div>
   );
 }

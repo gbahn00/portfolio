@@ -5,7 +5,7 @@ import { ContributionSection } from "@/lib/types";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/motion/Reveal";
 import { MaskLines } from "@/components/motion/MaskLines";
-import { gsap, prefersReducedMotion } from "@/lib/gsap";
+import { gsap, prefersReducedMotion, ENTER_ONLY_TOGGLE } from "@/lib/gsap";
 
 export function Contributions({ data }: { data: ContributionSection }) {
   const items = [...data.items].filter((i) => i.visible !== false).sort((a, b) => a.order - b.order);
@@ -37,7 +37,7 @@ export function Contributions({ data }: { data: ContributionSection }) {
         stagger: 0.1,
         ease: "power3.out",
         overwrite: "auto",
-        scrollTrigger: { trigger: titleRef.current, start: "top 82%", end: "top 40%", toggleActions: "play reverse play reverse" },
+        scrollTrigger: { trigger: titleRef.current, start: "top 82%", end: "top 40%", toggleActions: ENTER_ONLY_TOGGLE },
       });
 
       // 관리 항목은 좌우에서 들어온다
@@ -49,7 +49,7 @@ export function Contributions({ data }: { data: ContributionSection }) {
             { autoAlpha: 0, x: i % 2 === 0 ? -32 : 32 },
             {
               autoAlpha: 1, x: 0, duration: 0.7, ease: "power3.out", overwrite: "auto",
-              scrollTrigger: { trigger: el, start: "top 90%", end: "top 50%", toggleActions: "play reverse play reverse" },
+              scrollTrigger: { trigger: el, start: "top 90%", end: "top 50%", toggleActions: ENTER_ONLY_TOGGLE },
             }
           );
         });

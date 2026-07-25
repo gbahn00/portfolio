@@ -39,7 +39,7 @@ export function Collaboration({ items, projects }: { items: CollaborationType[];
         <Reveal>
           <p className="accent-text text-sm font-medium mb-4 tracking-wide">협업 평가</p>
         </Reveal>
-        <Reveal delay={0.05}>
+        <Reveal delay={0.05} strength="strong" holdAfterEnter>
           <h2 className="section-title font-bold mb-16 text-korean max-w-3xl">
             함께 일하는 방식을<br />결과로 증명했습니다.
           </h2>

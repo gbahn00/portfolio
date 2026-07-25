@@ -23,7 +23,7 @@ export function ProfileKeyNumbers({ profile }: { profile: Profile }) {
             <Reveal>
               <p className="accent-text text-sm font-medium mb-4 tracking-wide">PROFILE</p>
             </Reveal>
-            <Reveal delay={0.05}>
+            <Reveal delay={0.05} strength="strong" holdAfterEnter>
               <p className="statement-title font-medium text-korean mb-8 max-w-2xl">{profile.representativePhrase}</p>
             </Reveal>
 
