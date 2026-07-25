@@ -131,7 +131,13 @@ export function ProjectEditor({ initial }: { initial: Project }) {
         />
       </div>
 
-      <MediaUpload label="대표 이미지" value={data.heroImage} onChange={(m) => set("heroImage", m)} />
+      <MediaUpload label="대표 이미지 (상세 페이지용)" value={data.heroImage} onChange={(m) => set("heroImage", m)} />
+      <MediaUpload
+        label="목록 미리보기 이미지/영상 (선택, 비워두면 대표 이미지 사용)"
+        value={data.listPreviewMedia}
+        onChange={(m) => set("listPreviewMedia", m)}
+        accept="image/*,video/*"
+      />
       <MediaUpload label="미리보기 영상 (선택)" value={data.previewVideo} onChange={(m) => set("previewVideo", m)} accept="video/*" />
       <MediaUpload label="최종 영상 (선택)" value={data.finalVideo} onChange={(m) => set("finalVideo", m)} accept="video/*" />
 

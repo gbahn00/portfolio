@@ -105,6 +105,7 @@ create table if not exists projects (
   tools jsonb not null default '[]',
   description text not null default '',
   hero_image jsonb,
+  list_preview_media jsonb,
   preview_video jsonb,
   final_video jsonb,
   gallery jsonb not null default '[]',
@@ -469,6 +470,11 @@ alter table future_plans alter column id set default uuid_generate_v4()::text;
 
 alter table faq_items alter column id type text;
 alter table faq_items alter column id set default uuid_generate_v4()::text;
+
+-- projects에 "목록 미리보기 전용 미디어" 컬럼을 추가한다(위 CREATE TABLE
+-- 정의에는 이미 추가했지만, 이미 만들어진 테이블에는 반영되지 않으므로
+-- ALTER로 보정한다). 비워두면 앱이 hero_image로 대신 보여준다.
+alter table projects add column if not exists list_preview_media jsonb;
 
 -- ============================================================================
 -- 참고: 마이그레이션 스크립트를 SUPABASE_SERVICE_ROLE_KEY로 실행했는데도

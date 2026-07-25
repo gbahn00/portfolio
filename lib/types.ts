@@ -131,6 +131,10 @@ export interface Project {
   tools: string[];
   description: string;
   heroImage?: MediaRef;
+  // 대표 프로젝트 "목록"에서 커서를 올렸을 때 보이는 미리보기 전용 미디어.
+  // 비워두면 상세 페이지 대표 이미지(heroImage)를 그대로 재사용한다 —
+  // 두 화면에 서로 다른 사진/영상을 쓰고 싶을 때만 따로 지정하면 된다.
+  listPreviewMedia?: MediaRef;
   previewVideo?: MediaRef;
   finalVideo?: MediaRef;
   gallery: MediaRef[];

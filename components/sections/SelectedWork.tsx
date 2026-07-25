@@ -131,7 +131,9 @@ export function SelectedWork({ projects }: { projects: Project[] }) {
             >
               {current && (
                 <div className="relative inline-block overflow-hidden rounded-sm shadow-lg" style={{ background: "var(--color-bg-secondary)" }}>
-                  <PreviewMedia media={current.heroImage} />
+                  {/* 목록 미리보기 전용 미디어가 따로 지정돼 있으면 그걸 쓰고,
+                      없으면 상세 페이지 대표 이미지(heroImage)로 대신한다. */}
+                  <PreviewMedia media={current.listPreviewMedia ?? current.heroImage} />
                   <div className="absolute inset-0 bg-gradient-to-t from-bg/75 via-transparent to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-2.5">
                     <p className="text-xs font-semibold text-white line-clamp-1 text-korean">{current.title}</p>
