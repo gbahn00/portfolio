@@ -2,7 +2,7 @@
 
 import { ReactNode, useLayoutEffect, useRef } from "react";
 import { gsap, prefersReducedMotion } from "@/lib/gsap";
-import { onGoToSection, SectionId } from "@/lib/fullpage";
+import { onGoToSection, SectionId, getSubSteps } from "@/lib/fullpage";
 
 // ============================================================================
 // 전체 구조 개편 명세서 §1(가장 중요) — 진짜 Full Page Scroll.
@@ -20,34 +20,34 @@ import { onGoToSection, SectionId } from "@/lib/fullpage";
 // 달라 강제 스냅이 오히려 사용성을 해치므로 기존처럼 자유 스크롤 그대로 둔다.
 // ============================================================================
 
-// 스크롤 최종 수정 요청서 §2/§14 — 전환 시간 700ms → 600ms, 이징은 시작이
-// 빠르고 끝에서 자연스럽게 멈추는 power2.out(요청서의 "easeOut" 대안) 유지.
-const TRANSITION_DURATION = 0.6;
+// 인터랙션 수정 요청서 §3-4 — 페이지 전환 시간은 700ms로 되돌린다(직전
+// 라운드에서 600ms로 줄였던 것을 요청서에 맞춰 복귀). "노트북에서 느리게
+// 체감되는 문제"는 전환 시간 자체가 아니라 입력~애니메이션 시작 사이의
+// 지연이 원인이므로, 시작 지연(setTimeout, 델타 누적 등)을 두지 않는
+// 것으로 대응한다 — 아래 로직에는 애초에 그런 지연이 없다.
+const TRANSITION_DURATION = 0.7;
 const TRANSITION_EASE = "power2.out";
 const COOLDOWN_MS = 90;
+// §17 — 탭 전환(약 350ms)은 메인 페이지 전환(700ms)과 별도로 잠금 관리한다.
+const TAB_TRANSITION_MS = 380;
 const WHEEL_THRESHOLD = 4;
 const TOUCH_THRESHOLD = 40;
+// 프로필 섹션 내부에 스크롤로 넘어가는 하위 탭이 있다(§6-11).
+const SUB_STEP_SECTIONS: SectionId[] = ["profile"];
 
 export function FullPageScroll({ children }: { children: ReactNode }) {
   const rootRef = useRef<HTMLDivElement>(null);
   const lockRef = useRef(false);
+  const tabLockRef = useRef(false);
   const touchStartY = useRef<number | null>(null);
   // 스크롤 최종 수정 요청서 §5-6 — "6 → 4로 건너뛰는" 페이지 건너뛰기 버그의
   // 실제 원인은 매 프레임 window.scrollTo(0, y)를 "레거시 2-인자 형태"로
   // 호출한 것이었다. globals.css의 html { scroll-behavior: smooth }가 이
   // 형태의 호출에도 적용되어, GSAP가 이미 매 프레임 계산해 둔 값 위에
   // 브라우저가 또 한 번 자체적으로 부드럽게 보간하면서 실제 scrollY가
-  // GSAP의 목표값보다 뒤처지게 된다. 다음 휠 입력이 들어왔을 때
-  // "현재 섹션"을 scrollY로부터 역산하면 이 지연 때문에 한 섹션 이전 값을
-  // 읽어버려 5번을 건너뛰고 4번으로 이동한 것처럼 보인 것이다.
-  //
-  // 근본적으로 고치기 위해 두 가지를 함께 적용한다.
-  // 1) scrollTo를 { behavior: "instant" } 옵션 객체로 호출해 CSS
-  //    scroll-behavior의 영향을 받지 않게 한다(진짜 즉시 이동).
-  // 2) "현재 섹션"을 scrollY로부터 매번 역산하지 않고, activeIndexRef라는
-  //    단일 기준값으로 직접 관리한다. 한 번의 입력은 반드시 activeIndexRef
-  //    ± 1 만큼만 바꾸고, 그 값을 기준으로 다음 목표를 계산하므로 스크롤
-  //    위치의 오차/지연과 완전히 무관하게 "항상 이웃 섹션으로만" 이동한다.
+  // GSAP의 목표값보다 뒤처지게 된다. "현재 섹션"을 scrollY로부터 역산하지
+  // 않고, activeIndexRef라는 단일 기준값으로 직접 관리해 이 문제를 원천
+  // 차단한다. 한 번의 입력은 반드시 activeIndexRef ± 1 만큼만 바뀐다.
   const activeIndexRef = useRef(0);
 
   useLayoutEffect(() => {
@@ -68,13 +68,22 @@ export function FullPageScroll({ children }: { children: ReactNode }) {
         else window.history.pushState({ fpIndex: activeIndexRef.current }, "", url);
       }
 
-      function animateTo(index: number, opts: { fromHistory?: boolean } = {}) {
+      function animateTo(index: number, opts: { fromHistory?: boolean; enterSub?: 1 | -1 } = {}) {
         const sections = getSections();
         const clamped = Math.max(0, Math.min(sections.length - 1, index));
         const target = sections[clamped];
         if (!target) return;
         activeIndexRef.current = clamped;
         lockRef.current = true;
+        const targetId = target.dataset.fpId as SectionId | undefined;
+
+        // §10 — 프로필로 진입하는 방향에 따라 시작 탭을 정한다: 위(대표
+        // 페이지)에서 내려오면 첫 탭(소개), 아래(업무 성장과정)에서
+        // 올라오면 마지막 탭(업무 역량)을 표시한다.
+        if (targetId && SUB_STEP_SECTIONS.includes(targetId) && opts.enterSub) {
+          getSubSteps(targetId)?.enter(opts.enterSub);
+        }
+
         const proxy = { y: window.scrollY };
         gsap.to(proxy, {
           y: target.offsetTop,
@@ -89,19 +98,42 @@ export function FullPageScroll({ children }: { children: ReactNode }) {
         });
         // 뒤로가기/앞으로가기로 인한 이동은 history를 다시 건드리지 않는다
         // (안 그러면 popstate ↔ pushState가 서로를 계속 트리거하는 무한 루프가 생김).
-        if (!opts.fromHistory && target.dataset.fpId) {
-          syncHash(target.dataset.fpId, false);
+        if (!opts.fromHistory && targetId) {
+          syncHash(targetId, false);
         }
       }
 
-      // 한 번의 입력은 반드시 activeIndexRef ±1 만큼만 이동한다. 그 이외의
-      // 어떤 계산도 하지 않는다(§6).
+      // 한 번의 입력은 반드시 activeIndexRef ±1(메인 페이지) 또는 탭 ±1
+      // 만큼만 이동한다. 그 이외의 어떤 계산도 하지 않는다(§6, §8-9).
       function goDelta(dir: 1 | -1) {
         if (lockRef.current) return;
-        const next = activeIndexRef.current + dir;
+
         const sections = getSections();
+        const currentSection = sections[activeIndexRef.current];
+        const currentId = currentSection?.dataset.fpId as SectionId | undefined;
+
+        // 현재 메인 섹션에 하위 탭이 있으면(프로필), 탭을 먼저 다 돌고
+        // 나서야 다음/이전 메인 섹션으로 넘어간다(§9).
+        if (currentId && SUB_STEP_SECTIONS.includes(currentId)) {
+          const sub = getSubSteps(currentId);
+          if (sub) {
+            if (tabLockRef.current) return;
+            const nextSub = sub.getActive() + dir;
+            if (nextSub >= 0 && nextSub <= sub.count - 1) {
+              tabLockRef.current = true;
+              sub.setActive(nextSub);
+              window.setTimeout(() => {
+                tabLockRef.current = false;
+              }, TAB_TRANSITION_MS);
+              return;
+            }
+            // 탭의 끝(처음/마지막)에 도달했으면 다음/이전 메인 섹션으로.
+          }
+        }
+
+        const next = activeIndexRef.current + dir;
         if (next < 0 || next > sections.length - 1) return;
-        animateTo(next);
+        animateTo(next, { enterSub: dir });
       }
 
       function onWheel(e: WheelEvent) {
@@ -142,7 +174,7 @@ export function FullPageScroll({ children }: { children: ReactNode }) {
       }
 
       // 브라우저 뒤로가기/앞으로가기 시에도 현재 섹션 Index와 동기화한다(§12).
-      function onPopState(e: PopStateEvent) {
+      function onPopState() {
         const id = window.location.hash.slice(1);
         const sections = getSections();
         const idx = sections.findIndex((el) => el.dataset.fpId === id);

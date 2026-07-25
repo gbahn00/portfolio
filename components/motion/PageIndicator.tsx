@@ -2,11 +2,15 @@
 
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { SECTION_IDS, SectionId, goToSection } from "@/lib/fullpage";
+import { SECTION_IDS, SECTION_LABELS, SectionId, goToSection } from "@/lib/fullpage";
 
-// 전체 구조 개편 명세서 §4 — 고정 페이지 번호 인디케이터 ("01/06").
-// 현재 섹션을 강조하고 클릭하면 해당 섹션으로 이동한다.
-// 프로젝트 상세 페이지에는 6개 섹션 구조가 없으므로 숨긴다.
+// 전체 구조 개편 명세서 §4, 인터랙션 수정 요청서 §18-23 — 고정 페이지 번호
+// 인디케이터("01/06"). 현재 섹션을 강조하고 클릭하면 해당 섹션으로 이동한다.
+// 각 점에 마우스를 올리거나 키보드로 포커스하면 목차 제목을 목록 바 왼쪽에
+// 표시한다(화면 오른쪽 끝에 붙어 있으므로 라벨은 반드시 왼쪽으로 펼쳐야
+// 화면 밖으로 잘리지 않는다). 프로젝트 상세 페이지에는 6개 섹션 구조가
+// 없으므로 숨긴다. 프로필 내부 탭이 바뀌어도 메인 섹션 경계 자체는 그대로라
+// 여기 표시되는 번호는 계속 02로 유지된다(§22) — 별도 처리가 필요 없다.
 export function PageIndicator() {
   const pathname = usePathname();
   const [active, setActive] = useState<SectionId>("hero");
@@ -45,10 +49,12 @@ export function PageIndicator() {
           <button
             key={id}
             type="button"
-            aria-label={`섹션 ${i + 1}로 이동`}
+            aria-label={`${SECTION_LABELS[id]} 페이지로 이동`}
+            aria-current={i === activeIndex ? "true" : undefined}
             onClick={() => goToSection(id)}
-            className="group relative flex items-center justify-center h-4 w-4"
+            className="page-indicator-item group relative flex items-center justify-center h-5 w-5"
           >
+            <span className="page-indicator-label">{SECTION_LABELS[id]}</span>
             <span
               className="block rounded-full transition-all duration-300"
               style={{

@@ -38,3 +38,32 @@ export function onGoToSection(handler: (id: SectionId) => void) {
   window.addEventListener(GOTO_EVENT, listener);
   return () => window.removeEventListener(GOTO_EVENT, listener);
 }
+
+// ============================================================================
+// 인터랙션 수정 요청서 §6-11 — 프로필(02) 섹션 내부의 탭(소개/핵심 수치/
+// 업무 역량)은 메인 페이지 전환(700ms)과는 별개로, 세로 스크롤 한 번에
+// 탭 하나씩 전환되어야 한다. 탭 상태는 ProfileSection이 직접 소유하고
+// (React state), FullPageScroll은 이 registry를 통해 "지금 몇 번째 탭인지
+// 읽고 / 다음 탭으로 바꿔 달라고 요청"만 한다 — 상태를 이중으로 들고
+// 있지 않아야 두 값이 어긋나는 버그를 피할 수 있다.
+// ============================================================================
+export interface SubStepController {
+  count: number;
+  getActive: () => number;
+  /** dir: 1이면 다음 탭 진입(보통 위→아래 스크롤), -1이면 마지막 탭 진입(아래→위 스크롤) */
+  enter: (dir: 1 | -1) => void;
+  setActive: (index: number) => void;
+}
+
+const subStepRegistry = new Map<SectionId, SubStepController>();
+
+export function registerSubSteps(id: SectionId, controller: SubStepController) {
+  subStepRegistry.set(id, controller);
+  return () => {
+    if (subStepRegistry.get(id) === controller) subStepRegistry.delete(id);
+  };
+}
+
+export function getSubSteps(id: SectionId): SubStepController | undefined {
+  return subStepRegistry.get(id);
+}

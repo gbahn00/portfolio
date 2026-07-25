@@ -257,6 +257,35 @@ body {
   justify-content: center;
 }
 
+/* 인터랙션 수정 요청서 §18-23 — 우측 페이지 목록 바 Hover/Focus 라벨.
+   목록 바가 화면 오른쪽 끝에 붙어 있으므로, 라벨은 반드시 버튼의 왼쪽으로
+   펼쳐야 화면 밖으로 잘리지 않는다. */
+.page-indicator-item {
+  position: relative;
+}
+.page-indicator-label {
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  transform: translate(8px, -50%);
+  margin-right: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+  font-size: 12px;
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+.page-indicator-item:hover .page-indicator-label,
+.page-indicator-item:focus-visible .page-indicator-label {
+  opacity: 1;
+  transform: translate(0, -50%);
+}
+
 /* 커스텀 스크롤바 */
 ::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: var(--color-bg-primary); }

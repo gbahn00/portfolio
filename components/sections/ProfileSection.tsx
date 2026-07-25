@@ -6,58 +6,49 @@ import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/motion/Reveal";
 import { MediaFrame } from "@/components/ui/MediaFrame";
 import { gsap, prefersReducedMotion } from "@/lib/gsap";
+import { registerSubSteps } from "@/lib/fullpage";
 
 // ============================================================================
-// 전체 구조 개편 명세서 §2 — "02.프로필"
-// 기존에 따로 있던 About(정체성 문장), Profile Key Numbers(핵심 수치),
-// Competencies(업무 역량), Working Process(일하는 방식) 4개 섹션을
-// 물리적으로 하나의 섹션으로 합쳤다. 시각적으로만 겹쳐 보이게 한 것이 아니라
-// 아래 4개 섹션 컴포넌트 자체를 메인 페이지에서 제거하고 이 컴포넌트
-// 하나로 대체했다.
+// 인터랙션 수정 요청서 §5-17 — "02.프로필" 섹션.
 //
-// Full Page Scroll(한 번의 스크롤 = 한 섹션)과 맞물리기 위해, 예전처럼
-// "여러 화면 분량을 스크롤해야 다음 문장이 나오는" pin+scrub 방식 대신
-// 탭을 클릭해 하위 콘텐츠를 전환하는 방식으로 새로 만들었다. 탭 전환은
-// GSAP crossfade로 부드럽게 처리한다.
+// - "일하는 방식" 탭은 완전히 제거했다(컴포넌트/데이터/상태값/스타일 전부).
+// - 남은 3개 탭(소개/핵심 수치/업무 역량)은 세로 스크롤 한 번에 하나씩
+//   전환된다. 이 로직은 FullPageScroll이 lib/fullpage.ts의 registerSubSteps
+//   를 통해 제어한다 — 탭 상태 자체는 이 컴포넌트가 useState로 소유하고,
+//   FullPageScroll에는 "지금 몇 번 탭인지 읽기 / 탭 바꾸기"만 노출한다.
+// - 탭이 바뀌어도 페이지 전체 비율(제목/이미지/탭 메뉴/구분선 위치)은
+//   그대로 유지되고, 고정 높이 프레임(.profile-tab-panel) 안에서 내용만
+//   Fade 전환된다(§14, §16).
 // ============================================================================
 
-type TabKey = "identity" | "numbers" | "skills" | "process";
+type TabKey = "identity" | "numbers" | "skills";
 
 const TABS: { key: TabKey; label: string }[] = [
   { key: "identity", label: "소개" },
   { key: "numbers", label: "핵심 수치" },
   { key: "skills", label: "업무 역량" },
-  { key: "process", label: "일하는 방식" },
-];
-
-const PROCESS_STEPS = [
-  { title: "목적과 대상 파악", desc: "콘텐츠가 어디에 쓰이고 누구에게 전달되는지 먼저 확인합니다." },
-  { title: "콘텐츠 방향 설계", desc: "목적에 맞춰 색감, 구도, 정보 전달 방식과 톤을 설계합니다." },
-  { title: "촬영·제작·AI 활용", desc: "촬영과 편집, 필요한 경우 생성형 AI 도구를 함께 활용해 제작합니다." },
-  { title: "검수와 수정", desc: "결과물을 검수하고 담당자·클라이언트 피드백을 반영해 수정합니다." },
-  { title: "성과 확인과 개선", desc: "결과를 확인하고 다음 콘텐츠 제작 방식 개선에 반영합니다." },
 ];
 
 function IdentityPanel({ profile, philosophy }: { profile: Profile; philosophy: PhilosophySection }) {
-  const paragraphs = [...philosophy.paragraphs].sort((a, b) => a.order - b.order);
+  const paragraphs = [...philosophy.paragraphs].sort((a, b) => a.order - b.order).slice(0, 2);
   const keywords = [...philosophy.keywords].sort((a, b) => a.order - b.order);
   return (
-    <div className="grid grid-cols-1 md:grid-cols-[0.9fr_1.4fr] gap-8 md:gap-12 items-center">
-      <div className="relative aspect-[4/5] w-full max-w-[220px] max-h-[45dvh] overflow-hidden rounded-sm">
+    <div className="grid grid-cols-1 md:grid-cols-[0.8fr_1.4fr] gap-6 md:gap-10 items-center h-full">
+      <div className="relative aspect-[4/5] w-full max-w-[180px] max-h-full overflow-hidden rounded-sm mx-auto md:mx-0">
         <MediaFrame media={profile.profilePhoto} className="h-full w-full" />
       </div>
-      <div>
-        <p className="statement-title font-medium text-korean mb-5 max-w-2xl">{profile.representativePhrase}</p>
-        <div className="space-y-3 mb-5">
+      <div className="min-w-0">
+        <p className="statement-title font-medium text-korean mb-3 max-w-2xl line-clamp-2">{profile.representativePhrase}</p>
+        <div className="space-y-2 mb-3">
           {paragraphs.map((p) => (
-            <p key={p.id} className="body-large text-ink-secondary text-korean max-w-xl">
+            <p key={p.id} className="body-large text-ink-secondary text-korean max-w-xl line-clamp-2">
               {p.text}
             </p>
           ))}
         </div>
         {keywords.length > 0 && (
           <div className="flex flex-wrap gap-2">
-            {keywords.map((k) => (
+            {keywords.slice(0, 5).map((k) => (
               <span key={k.id} className="text-xs rounded-full border border-line px-3 py-1 text-ink-muted text-korean">
                 #{k.text}
               </span>
@@ -72,38 +63,40 @@ function IdentityPanel({ profile, philosophy }: { profile: Profile; philosophy: 
 function NumbersPanel({ profile }: { profile: Profile }) {
   const facts = [...profile.keyFacts].sort((a, b) => a.order - b.order);
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-6 max-w-3xl">
-      {facts.map((f) => (
-        <div key={f.label}>
-          <p className="text-korean text-sm text-ink-muted mb-1">{f.label}</p>
-          <p className="text-korean text-2xl md:text-3xl text-ink font-bold">{f.value}</p>
-        </div>
-      ))}
-      {facts.length === 0 && <p className="text-ink-muted text-sm">등록된 핵심 수치가 아직 없습니다.</p>}
+    <div className="h-full flex items-center">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-6 max-w-3xl">
+        {facts.map((f) => (
+          <div key={f.label}>
+            <p className="text-korean text-sm text-ink-muted mb-1">{f.label}</p>
+            <p className="text-korean text-2xl md:text-3xl text-ink font-bold">{f.value}</p>
+          </div>
+        ))}
+        {facts.length === 0 && <p className="text-ink-muted text-sm">등록된 핵심 수치가 아직 없습니다.</p>}
+      </div>
     </div>
   );
 }
 
 function SkillsPanel({ items }: { items: Competency[] }) {
   const [active, setActive] = useState(0);
-  const sorted = [...items].sort((a, b) => a.order - b.order);
+  const sorted = items.slice(0, 6);
   const current = sorted[active];
 
   if (sorted.length === 0) return <p className="text-ink-muted text-sm">등록된 업무 역량이 아직 없습니다.</p>;
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-[1fr_1.2fr] gap-8 md:gap-12 items-start">
-      <div className="space-y-2">
+    <div className="grid grid-cols-1 md:grid-cols-[1fr_1.2fr] gap-6 md:gap-10 items-center h-full">
+      <div className="space-y-1.5 overflow-hidden">
         {sorted.map((c, i) => (
           <button
             key={c.id}
             type="button"
             onClick={() => setActive(i)}
-            className="grid grid-cols-[36px_minmax(0,1fr)] items-baseline gap-4 text-left w-full"
+            className="grid grid-cols-[32px_minmax(0,1fr)] items-baseline gap-3 text-left w-full"
           >
-            <span className="font-en text-sm text-ink-muted">{String(i + 1).padStart(2, "0")}</span>
+            <span className="font-en text-xs text-ink-muted">{String(i + 1).padStart(2, "0")}</span>
             <span
-              className="text-xl md:text-2xl font-bold transition-colors duration-300"
+              className="text-lg md:text-xl font-bold transition-colors duration-300 truncate"
               style={{ color: i === active ? "var(--accent)" : "var(--color-text-muted)" }}
             >
               {c.title}
@@ -111,47 +104,8 @@ function SkillsPanel({ items }: { items: Competency[] }) {
           </button>
         ))}
       </div>
-      <div key={current.id} className="max-w-[560px]">
-        <p className="text-ink-secondary body-large leading-relaxed text-korean mb-6">{current.description}</p>
-        {(current.cases || []).length > 0 && (
-          <ul className="space-y-2">
-            {[...current.cases].sort((a, b) => a.order - b.order).map((cs) => (
-              <li key={cs.id} className="text-sm text-ink/80 flex gap-2 text-korean">
-                <span className="accent-text">·</span>
-                {cs.text}
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
-    </div>
-  );
-}
-
-function ProcessPanel() {
-  const [active, setActive] = useState(0);
-  const step = PROCESS_STEPS[active];
-  return (
-    <div className="max-w-3xl">
-      <div className="flex flex-wrap gap-2 mb-10">
-        {PROCESS_STEPS.map((s, i) => (
-          <button
-            key={s.title}
-            type="button"
-            onClick={() => setActive(i)}
-            className="text-xs md:text-sm rounded-full border px-4 py-2 transition-colors duration-300 text-korean"
-            style={{
-              borderColor: i === active ? "var(--accent)" : "var(--color-border)",
-              color: i === active ? "var(--accent)" : "var(--color-text-secondary)",
-            }}
-          >
-            {String(i + 1).padStart(2, "0")}
-          </button>
-        ))}
-      </div>
-      <div key={active}>
-        <h3 className="project-title font-bold mb-4 text-korean">{step.title}</h3>
-        <p className="body-large text-ink-secondary text-korean max-w-xl">{step.desc}</p>
+      <div key={current.id} className="max-w-[520px] overflow-hidden">
+        <p className="text-ink-secondary body-large leading-relaxed text-korean line-clamp-4">{current.description}</p>
       </div>
     </div>
   );
@@ -167,15 +121,37 @@ export function ProfileSection({
   competencies: Competency[];
 }) {
   const [tab, setTab] = useState<TabKey>("identity");
+  const tabRef = useRef<TabKey>(tab);
   const stageRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
+    tabRef.current = tab;
+  }, [tab]);
+
+  // 인터랙션 수정 요청서 §6-11 — FullPageScroll에 탭 컨트롤을 등록한다.
+  useLayoutEffect(() => {
+    const unregister = registerSubSteps("profile", {
+      count: TABS.length,
+      getActive: () => TABS.findIndex((t) => t.key === tabRef.current),
+      enter: (dir) => setTab(dir === 1 ? TABS[0].key : TABS[TABS.length - 1].key),
+      setActive: (index) => {
+        const clamped = Math.max(0, Math.min(TABS.length - 1, index));
+        setTab(TABS[clamped].key);
+      },
+    });
+    return unregister;
+  }, []);
+
+  // §16 — 탭 변경은 페이지 전체가 아니라 고정 프레임 안의 내용만 Fade
+  // 전환한다(약 350ms). 프레임 높이/제목/이미지/탭 메뉴 위치는 그대로 둔다.
+  useLayoutEffect(() => {
     const stage = stageRef.current;
     if (!stage || prefersReducedMotion()) return;
-    gsap.fromTo(stage, { autoAlpha: 0, y: 12 }, { autoAlpha: 1, y: 0, duration: 0.45, ease: "power2.out", overwrite: "auto" });
+    gsap.fromTo(stage, { autoAlpha: 0, y: 10 }, { autoAlpha: 1, y: 0, duration: 0.2, delay: 0.12, ease: "power2.out", overwrite: "auto" });
   }, [tab]);
 
   const sortedCompetencies = [...competencies].sort((a, b) => a.order - b.order);
+  const activeIndex = TABS.findIndex((t) => t.key === tab);
 
   return (
     <section id="profile" className="fp-section bg-bg-soft py-6 md:py-8">
@@ -190,15 +166,15 @@ export function ProfileSection({
         </Reveal>
 
         <div className="flex flex-wrap gap-2 mb-6 md:mb-8 border-b border-line pb-4">
-          {TABS.map((t) => (
+          {TABS.map((t, i) => (
             <button
               key={t.key}
               type="button"
               onClick={() => setTab(t.key)}
               className="text-sm md:text-base font-medium px-1 pb-2 border-b-2 transition-colors duration-300 text-korean"
               style={{
-                borderColor: tab === t.key ? "var(--accent)" : "transparent",
-                color: tab === t.key ? "var(--color-text-primary)" : "var(--color-text-muted)",
+                borderColor: i === activeIndex ? "var(--accent)" : "transparent",
+                color: i === activeIndex ? "var(--color-text-primary)" : "var(--color-text-muted)",
               }}
             >
               {t.label}
@@ -206,11 +182,16 @@ export function ProfileSection({
           ))}
         </div>
 
-        <div ref={stageRef}>
-          {tab === "identity" && <IdentityPanel profile={profile} philosophy={philosophy} />}
-          {tab === "numbers" && <NumbersPanel profile={profile} />}
-          {tab === "skills" && <SkillsPanel items={sortedCompetencies} />}
-          {tab === "process" && <ProcessPanel />}
+        {/* §14 — 탭 콘텐츠 길이가 달라도 화면이 흔들리지 않도록 프레임 높이를 고정한다. */}
+        <div
+          className="relative w-full overflow-hidden"
+          style={{ height: "clamp(240px, 34dvh, 420px)" }}
+        >
+          <div ref={stageRef} className="absolute inset-0">
+            {tab === "identity" && <IdentityPanel profile={profile} philosophy={philosophy} />}
+            {tab === "numbers" && <NumbersPanel profile={profile} />}
+            {tab === "skills" && <SkillsPanel items={sortedCompetencies} />}
+          </div>
         </div>
       </Container>
     </section>
