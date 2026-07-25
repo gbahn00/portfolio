@@ -81,7 +81,16 @@ async function main() {
   await upsert("competencies", content.competencies?.map(snake), "competencies");
   await upsert("ai_tools", content.ai?.tools?.map(snake), "ai_tools");
   await upsert("contribution_items", content.contributions?.items?.map(snake), "contribution_items");
-  await upsert("achievements", content.achievements?.map(snake), "achievements");
+  await upsert(
+    "achievements",
+    content.achievements?.map((a) => {
+      const row = snake(a);
+      // as_of_date는 date 컬럼이라 빈 문자열("")을 받아들이지 못한다. null로 바꿔준다.
+      if (row.as_of_date === "") row.as_of_date = null;
+      return row;
+    }),
+    "achievements"
+  );
   await upsert("collaborations", content.collaborations?.map(snake), "collaborations");
   await upsert("future_plans", content.futurePlans?.map(snake), "future_plans");
   await upsert("faq_items", content.faq?.map(snake), "faq_items");

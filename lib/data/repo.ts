@@ -73,7 +73,14 @@ export async function updateSection<K extends keyof SiteContent>(
 ): Promise<SiteContent[K]> {
   const content = await getContent();
   const before = content[key];
-  const after = { ...(before as object), ...(patch as object) } as SiteContent[K];
+  // 관리자 화면의 각 섹션 편집기는 항상 "현재 화면에 있는 전체 상태"를 그대로
+  // 보낸다(부분 patch가 아니다). 그런데 이미지를 제거하면 그 필드 값이
+  // undefined가 되고, JSON.stringify는 undefined 값을 가진 키를 요청 본문에서
+  // 아예 빼버린다. 예전처럼 {...before, ...patch}로 얕은 병합을 하면 그렇게
+  // 빠진 키는 "값이 없다"가 아니라 "이전 값을 유지"로 해석되어 삭제가
+  // 저장되지 않았다. 편집기가 항상 전체 상태를 보낸다는 전제하에, patch를
+  // 부분 병합하지 않고 그대로 최종 값으로 사용해 이 문제를 근본적으로 없앤다.
+  const after = patch as SiteContent[K];
   content[key] = after;
   await saveContent(content);
   await logRevision(String(key), "전체", before, after, editor);
@@ -119,7 +126,11 @@ export async function listUpdate<T extends { id: string }>(
   const idx = list.findIndex((i) => i.id === id);
   if (idx === -1) return null;
   const before = list[idx];
-  const after = { ...before, ...patch };
+  // updateSection과 동일한 이유로 부분 병합 대신 patch를 그대로 사용한다.
+  // 목록 편집기(타임라인/프로젝트/역량/성과/협업/향후계획/FAQ)도 항상
+  // 해당 항목의 전체 상태를 보내므로, 이미지 등 제거된 필드가 undefined ->
+  // JSON 직렬화 시 키 자체가 사라지는 문제로 "이전 값 유지"가 되지 않게 한다.
+  const after = { id, ...patch } as T;
   list[idx] = after;
   (content as any)[key] = list;
   await saveContent(content);
