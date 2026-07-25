@@ -87,13 +87,20 @@ export function Header({ name }: { name: string }) {
     return () => observer.disconnect();
   }, []);
 
+  // 이전에는 이 안쪽 바 전체(로고~메뉴 사이 빈 공간 포함)가
+  // pointer-events-auto였다. Header는 fixed + z-50이라 항상 최상단에 있고,
+  // "page-container" 폭 전체를 덮기 때문에, 프로젝트 상세 페이지처럼 화면
+  // 맨 위쪽에 다른 클릭 요소(예: "← 목록으로" 링크)가 있는 페이지에서는
+  // 그 빈 공간이 클릭을 가로채 버튼이 눌리지 않는 문제가 있었다. 실제로
+  // 클릭이 필요한 건 nav 링크뿐이므로, pointer-events-auto를 nav에만 주고
+  // 나머지 영역(로고 포함)은 클릭이 그대로 통과하도록 한다.
   return (
     <div ref={wrapRef} className="fixed top-0 left-0 right-0 z-50 pointer-events-none">
-      <div className="page-container flex items-center justify-between py-6 md:py-8 min-h-[72px] pointer-events-auto">
-        <span ref={logoRef} className="text-sm md:text-base font-semibold text-korean">
+      <div className="page-container flex items-center justify-between py-6 md:py-8 min-h-[72px]">
+        <span ref={logoRef} className="text-sm md:text-base font-semibold text-korean pointer-events-none">
           {name || "Portfolio"}
         </span>
-        <nav ref={menuRef} className="flex items-center gap-5 md:gap-8">
+        <nav ref={menuRef} className="flex items-center gap-5 md:gap-8 pointer-events-auto">
           {NAV_ITEMS.map((item) => (
             <a
               key={item.id}

@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 :root {
+  /* 폰트 — app/layout.tsx가 lib/fonts.ts 값으로 덮어쓴다. 아래는 혹시
+     인라인 style이 적용되지 않는 예외 상황을 위한 안전한 기본값. */
+  --font-main: "Pretendard", "SUIT", sans-serif;
+  --font-title: "Pretendard", "SUIT", sans-serif;
   /* Background */
   --color-bg-primary: #0A0A0A;
   --color-bg-secondary: #11100F;
