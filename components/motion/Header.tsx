@@ -3,12 +3,16 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { gsap, ScrollTrigger, prefersReducedMotion } from "@/lib/gsap";
 
+// NAV_ITEMS의 id는 각 섹션의 실제 id 속성과 일치해야 한다.
+// href는 항상 "/#id" 절대경로를 사용한다 — 상대 "#id"만 쓰면 프로젝트 상세
+// 페이지(/projects/[id])처럼 홈이 아닌 곳에서 클릭했을 때 현재 페이지 안에서
+// 존재하지 않는 앵커를 찾다가 아무 동작도 하지 않는 문제가 있었다.
 const NAV_ITEMS = [
-  { href: "#about", label: "About" },
-  { href: "#journey", label: "Journey" },
-  { href: "#selected-works", label: "Works" },
-  { href: "#skills", label: "Skills" },
-  { href: "#plan", label: "Plan" },
+  { id: "about", label: "About" },
+  { id: "journey", label: "Journey" },
+  { id: "selected-works", label: "Works" },
+  { id: "skills", label: "Skills" },
+  { id: "plan", label: "Plan" },
 ];
 
 export function Header({ name }: { name: string }) {
@@ -56,12 +60,15 @@ export function Header({ name }: { name: string }) {
 
   // 현재 보이는 섹션에 맞춰 활성 메뉴를 강조 (§9.2 활성 메뉴 강조색)
   useEffect(() => {
-    const sections = NAV_ITEMS.map((item) => document.querySelector(item.href)).filter(Boolean) as HTMLElement[];
+    // 프로젝트 상세 페이지 등 홈이 아닌 곳에서는 대응하는 섹션이 없으므로
+    // 활성 메뉴 강조 로직 자체를 건너뛴다 (에러 방지 + 불필요한 관찰 방지).
+    if (typeof document === "undefined" || !document.getElementById("about")) return;
+    const sections = NAV_ITEMS.map((item) => document.getElementById(item.id)).filter(Boolean) as HTMLElement[];
     if (sections.length === 0) return;
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) setActive(`#${entry.target.id}`);
+          if (entry.isIntersecting) setActive(entry.target.id);
         });
       },
       { rootMargin: "-45% 0px -45% 0px" }
@@ -79,11 +86,11 @@ export function Header({ name }: { name: string }) {
         <nav ref={menuRef} className="flex items-center gap-5 md:gap-8">
           {NAV_ITEMS.map((item) => (
             <a
-              key={item.href}
+              key={item.id}
               data-nav-item
-              href={item.href}
+              href={`/#${item.id}`}
               className="text-xs md:text-sm font-medium transition-colors duration-300"
-              style={{ color: active === item.href ? "var(--accent)" : "var(--color-text-secondary)" }}
+              style={{ color: active === item.id ? "var(--accent)" : "var(--color-text-secondary)" }}
             >
               {item.label}
             </a>

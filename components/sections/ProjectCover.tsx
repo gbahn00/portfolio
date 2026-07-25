@@ -6,6 +6,7 @@ import { Project } from "@/lib/types";
 import { Container } from "@/components/ui/Container";
 import { MediaFrame } from "@/components/ui/MediaFrame";
 import { gsap, prefersReducedMotion, FAST_SCROLL_SAFE } from "@/lib/gsap";
+import { isPlaceholder } from "@/lib/utils";
 
 // §10.2 Project Cover — 스크롤 시 대표 이미지가 화면 전체로 확대되고
 // 제목은 Fade Out 되며 다음 Problem 문단으로 자연스럽게 이어진다.
@@ -76,13 +77,15 @@ export function ProjectCover({ project }: { project: Project }) {
         </div>
 
         <div ref={metaRef} className="flex flex-wrap gap-x-10 gap-y-2 text-sm text-ink-secondary">
-          <span>
-            <strong className="text-ink font-medium">ROLE</strong> · {project.role}
-          </span>
+          {!isPlaceholder(project.role) && (
+            <span>
+              <strong className="text-ink font-medium">ROLE</strong> · {project.role}
+            </span>
+          )}
           <span>
             <strong className="text-ink font-medium">YEAR</strong> · {project.year}
           </span>
-          {!project.brandHidden && project.brand && (
+          {!project.brandHidden && project.brand && !isPlaceholder(project.brand) && (
             <span>
               <strong className="text-ink font-medium">TYPE</strong> · {project.brand}
             </span>

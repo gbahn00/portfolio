@@ -7,6 +7,7 @@ import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/motion/Reveal";
 import { MediaFrame } from "@/components/ui/MediaFrame";
 import { gsap } from "@/lib/gsap";
+import { isPlaceholder } from "@/lib/utils";
 
 // §9.3-9.4 — 번호 / 제목 / 카테고리 / 짧은 설명을 세로로 쌓은 구조.
 // 프로젝트 행 min-height 150px, 제목 최소 30px.
@@ -182,7 +183,9 @@ export function SelectedWork({ projects }: { projects: Project[] }) {
               {activeProject && (
                 <div className="bg-bg-surface px-4 py-3">
                   <p className="text-xs text-ink-secondary text-korean">{activeProject.field}</p>
-                  <p className="text-xs text-ink-muted text-korean mt-0.5">{activeProject.role}</p>
+                  {!isPlaceholder(activeProject.role) && (
+                    <p className="text-xs text-ink-muted text-korean mt-0.5">{activeProject.role}</p>
+                  )}
                 </div>
               )}
             </div>

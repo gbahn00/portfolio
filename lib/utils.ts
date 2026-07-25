@@ -15,3 +15,18 @@ export function mediaSrc(url?: string): string {
   if (!url) return "/placeholders/hero-bg.svg";
   return url;
 }
+
+// [자료 필요] 마커가 붙은 값은 아직 사용자가 확정하지 않은 자리표시자다.
+// 관리자 화면에서는 그대로 보여 다음 작업을 알 수 있게 하되, 공개 화면에는
+// 노출하지 않는다.
+export function isPlaceholder(text?: string | null): boolean {
+  // "[자료 필요]" 뿐 아니라 "[자료 필요 - 세부 내용...]"처럼 대괄호 안에
+  // 추가 설명이 붙은 변형도 모두 잡아내야 하므로, 닫는 대괄호까지 정확히
+  // 일치시키지 않고 "자료 필요"라는 핵심 문구만 포함되어 있는지 확인한다.
+  return typeof text === "string" && text.includes("자료 필요");
+}
+
+/** 공개 화면 전용: 자리표시자면 빈 값으로 대체한다. */
+export function safeText(text?: string | null): string {
+  return isPlaceholder(text) ? "" : text ?? "";
+}

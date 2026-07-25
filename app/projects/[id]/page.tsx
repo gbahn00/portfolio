@@ -4,6 +4,7 @@ import { Container } from "@/components/ui/Container";
 import { MediaFrame } from "@/components/ui/MediaFrame";
 import { Reveal } from "@/components/motion/Reveal";
 import { ProjectCover } from "@/components/sections/ProjectCover";
+import { isPlaceholder } from "@/lib/utils";
 
 export const dynamic = "force-dynamic";
 
@@ -40,7 +41,9 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
               <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-korean">
                 {block.title || BLOCK_TITLE_FALLBACK[block.key]}
               </h2>
-              {block.body && <p className="text-ink-muted leading-relaxed whitespace-pre-line text-korean mb-6">{block.body}</p>}
+              {block.body && !isPlaceholder(block.body) && (
+                <p className="text-ink-muted leading-relaxed whitespace-pre-line text-korean mb-6">{block.body}</p>
+              )}
 
               {block.images?.length > 0 && (
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
@@ -72,14 +75,16 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
                   <video key={i} src={v.url} controls poster={v.poster} className="w-full rounded-sm mb-6" />
                 ))}
 
-              {block.metrics?.length > 0 && (
+              {block.metrics?.filter((m) => !isPlaceholder(m.value)).length > 0 && (
                 <div className="flex flex-wrap gap-6 mb-2">
-                  {block.metrics.map((m) => (
-                    <div key={m.id}>
-                      <p className="text-2xl font-bold accent-text">{m.value}</p>
-                      <p className="text-xs text-ink-muted">{m.label}</p>
-                    </div>
-                  ))}
+                  {block.metrics
+                    .filter((m) => !isPlaceholder(m.value))
+                    .map((m) => (
+                      <div key={m.id}>
+                        <p className="text-2xl font-bold accent-text">{m.value}</p>
+                        <p className="text-xs text-ink-muted">{m.label}</p>
+                      </div>
+                    ))}
                 </div>
               )}
             </Reveal>
