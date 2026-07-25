@@ -36,6 +36,20 @@ html {
   scroll-behavior: smooth;
 }
 
+/* 10라운드 명세서 §1/§7 — 가벼운 scroll-snap. "proximity"는 스크롤이 자연스럽게
+   멈추려는 지점이 섹션 경계 근처일 때만 부드럽게 끌어당기고, mandatory처럼
+   모든 스크롤 제스처를 강제로 다음 섹션까지 가로채지 않는다. 그래서 About/
+   Journey/업무역량 안의 GSAP 핀+스크럽 모션과 부딪히지 않는다.
+   모바일(터치 스크롤 관성)에서 어색하게 튕기지 않도록 데스크톱에서만 켠다. */
+@media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
+  main.snap-page {
+    scroll-snap-type: y proximity;
+  }
+  .snap-section {
+    scroll-snap-align: start;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
