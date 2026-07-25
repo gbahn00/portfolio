@@ -1,0 +1,252 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Background */
+  --color-bg-primary: #0A0A0A;
+  --color-bg-secondary: #11100F;
+  --color-bg-surface: #191715;
+  /* Accent */
+  --accent: #EB613B;
+  --color-accent-hover: #F27A59;
+  --color-accent-dark: #B8462B;
+  --color-accent-soft: rgba(235, 97, 59, 0.12);
+  /* Text — §5.5 가독성 기준: 본문에는 #847D76보다 어두운 회색을 사용하지 않는다 */
+  --color-text-primary: #F3F0EB;
+  --color-text-secondary: #C7C1BA;
+  --color-text-body: #AAA39B;
+  --color-text-muted: #847D76;
+  --color-text-disabled: #5D5853;
+  /* Border */
+  --color-border: #292623;
+  --color-border-strong: #51423B;
+  /* Overlay */
+  --color-overlay: rgba(10, 10, 10, 0.2);
+}
+[data-accent="blue"] {
+  --accent: #5B7CFF;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+.text-korean {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+.font-en {
+  word-break: normal;
+}
+
+/* GSAP ScrollTrigger가 pin 처리하는 영역의 기본 준비 상태 */
+.gsap-pin-section {
+  will-change: transform;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--color-bg-primary);
+}
+
+.accent-text {
+  color: var(--accent);
+}
+.accent-bg {
+  background-color: var(--accent);
+}
+.accent-border {
+  border-color: var(--accent);
+}
+.text-secondary {
+  color: var(--color-text-secondary);
+}
+.text-body-color {
+  color: var(--color-text-body);
+}
+.text-muted {
+  color: var(--color-text-muted);
+}
+.text-disabled {
+  color: var(--color-text-disabled);
+}
+.border-default {
+  border-color: var(--color-border);
+}
+.border-strong {
+  border-color: var(--color-border-strong);
+}
+.bg-surface {
+  background-color: var(--color-bg-surface);
+}
+.bg-secondary {
+  background-color: var(--color-bg-secondary);
+}
+
+/* ============================================================
+   타이포그래피 스케일 (HeyNesh 비교 최종 수정 §5.3-5.4 기준)
+   Hero 최대 148px / Statement 최대 96px / Section 최대 110px
+   화면 너비뿐 아니라 높이가 낮은 노트북에서도 잘리지 않도록
+   vw와 vh를 함께 고려한 min() 기반 상한을 사용한다.
+   ============================================================ */
+.hero-title {
+  max-width: 1400px;
+  font-size: clamp(56px, min(8.5vw, 14vh), 148px);
+  line-height: 0.92;
+  letter-spacing: -0.06em;
+  font-weight: 500;
+  word-break: keep-all;
+}
+.section-title {
+  font-size: clamp(44px, min(6.8vw, 11vh), 110px);
+  line-height: 1;
+  letter-spacing: -0.05em;
+  font-weight: 500;
+  word-break: keep-all;
+}
+.statement-title {
+  font-size: clamp(36px, min(6vw, 10vh), 96px);
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+  font-weight: 500;
+  word-break: keep-all;
+}
+.project-title {
+  font-size: clamp(40px, min(6.5vw, 10.5vh), 104px);
+  line-height: 1;
+  letter-spacing: -0.035em;
+  word-break: keep-all;
+}
+.body-large {
+  font-size: clamp(18px, 1.35vw, 23px);
+  line-height: 1.65;
+  letter-spacing: -0.02em;
+  color: var(--color-text-secondary);
+  word-break: keep-all;
+}
+.body {
+  font-size: clamp(16px, 1.1vw, 19px);
+  line-height: 1.7;
+  letter-spacing: -0.02em;
+  color: var(--color-text-body);
+  word-break: keep-all;
+}
+.caption {
+  font-size: clamp(13px, 0.85vw, 15px);
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: clamp(44px, 18vw, 68px);
+    line-height: 0.96;
+  }
+  .section-title {
+    font-size: clamp(36px, 14vw, 56px);
+    line-height: 1.02;
+  }
+  .statement-title {
+    font-size: clamp(30px, 15vw, 48px);
+    line-height: 1.1;
+  }
+}
+
+/* ============================================================
+   Grid / Layout / Spacing (§7-8)
+   ============================================================ */
+/* §4.1, §16 반응형 여백 기준: 모바일 20px / 태블릿 32px / 노트북 48px / 대형 데스크톱 64px (각 편) */
+.page-container {
+  width: min(100% - 40px, 1600px);
+  margin-inline: auto;
+}
+@media (min-width: 768px) {
+  .page-container {
+    width: min(100% - 64px, 1600px);
+  }
+}
+@media (min-width: 1024px) {
+  .page-container {
+    width: min(100% - 96px, 1600px);
+  }
+}
+@media (min-width: 1440px) {
+  .page-container {
+    width: min(100% - 128px, 1600px);
+  }
+}
+
+/* 대형 제목 전용 안전 여백 (§4.2) — 일반 Container보다 살짝 더 넓게 확보 */
+.title-container {
+  width: min(100% - 48px, 1600px);
+  margin-inline: auto;
+}
+@media (min-width: 1024px) {
+  .title-container {
+    width: min(100% - 160px, 1540px);
+  }
+}
+
+.section-pad {
+  padding-top: clamp(96px, 14vh, 200px);
+  padding-bottom: clamp(96px, 14vh, 200px);
+}
+
+/* §5.7 — 전체 화면 섹션 상단·하단 안전 여백 (대형 문장이 화면 경계에서 잘리지 않도록) */
+.fullscreen-section {
+  min-height: 100svh;
+  padding-top: clamp(110px, 12vh, 160px);
+  padding-bottom: clamp(80px, 10vh, 140px);
+}
+.intro-section {
+  min-height: 70svh;
+}
+.statement-inner {
+  max-width: 1500px;
+  margin: 0 auto;
+  overflow: visible;
+}
+
+.container-px {
+  padding-left: clamp(20px, 6vw, 96px);
+  padding-right: clamp(20px, 6vw, 96px);
+}
+
+.min-screen-section {
+  position: relative;
+  min-height: 100svh;
+}
+
+/* 커스텀 스크롤바 */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--color-bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--color-border-strong); border-radius: 8px; }
+
+/* 텍스트/이미지 잔상 방지 공통 클래스 (§20-22) */
+.is-inactive {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  filter: none;
+}

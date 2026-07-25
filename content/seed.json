@@ -1,0 +1,1849 @@
+{
+  "settings": {
+    "siteTitle": "이지은 영상 크리에이터 포트폴리오",
+    "accentColor": "orange",
+    "reduceMotionRespect": true,
+    "sectionVisibility": {
+      "hero": true,
+      "about": true,
+      "timeline": true,
+      "work": true,
+      "competencies": true,
+      "contributions": true,
+      "futurePlans": true,
+      "collaboration": true,
+      "faq": true,
+      "closing": true,
+      "philosophy": false,
+      "featuredCases": false,
+      "ai": false,
+      "achievements": false,
+      "fitness": false,
+      "workingProcess": true,
+      "profileNumbers": true
+    },
+    "sectionOrder": [
+      "hero",
+      "profileNumbers",
+      "about",
+      "timeline",
+      "work",
+      "competencies",
+      "workingProcess",
+      "contributions",
+      "futurePlans",
+      "collaboration",
+      "faq",
+      "closing"
+    ],
+    "updatedAt": "2026-07-25T00:00:00.000Z"
+  },
+  "profile": {
+    "name": "이지은",
+    "affiliation": "미디어팀",
+    "rank": "사원",
+    "role": "크리에이티브",
+    "joinedAt": "2024-07-01",
+    "introShort": "콘텐츠의 목적과 활용 매체를 먼저 파악하고 촬영, 보정, 영상 제작과 기획을 연결하는 영상 크리에이터입니다.",
+    "introLong": "의류, 음식, 공간, 인물, 치과 광고와 유튜브 콘텐츠까지 다양한 분야의 작업을 경험했습니다. 새로운 도구는 기능을 익히는 데서 멈추지 않고 실제 브랜드 콘텐츠와 업무 개선에 활용합니다.",
+    "profilePhoto": {
+      "url": "/placeholders/profile.svg",
+      "kind": "image",
+      "alt": "이지은 프로필 사진 [자료 필요]"
+    },
+    "onSitePhotos": [
+      {
+        "url": "/placeholders/onsite-1.svg",
+        "kind": "image",
+        "alt": "촬영 현장 사진 [자료 필요]"
+      },
+      {
+        "url": "/placeholders/onsite-2.svg",
+        "kind": "image",
+        "alt": "촬영 현장 사진 [자료 필요]"
+      }
+    ],
+    "representativePhrase": "촬영과 보정에서 시작해 업무의 범위를 넓혀왔습니다.",
+    "keyFacts": [
+      {
+        "label": "근무 시작",
+        "value": "2024년 7월",
+        "order": 0
+      },
+      {
+        "label": "주요 직무",
+        "value": "촬영·보정·영상 제작·콘텐츠 기획",
+        "order": 1
+      },
+      {
+        "label": "주요 분야",
+        "value": "의류·음식·인테리어·인물·메디컬·유튜브",
+        "order": 2
+      },
+      {
+        "label": "생성형 인공지능 활용 도구",
+        "value": "5개 이상",
+        "order": 3
+      },
+      {
+        "label": "조직 기여",
+        "value": "인공지능 크레딧 관리체계 구축",
+        "order": 4
+      }
+    ],
+    "updatedAt": "2026-07-25T00:00:00.000Z"
+  },
+  "hero": {
+    "headline": "콘텐츠,\n다르게\n설계합니다.",
+    "subline": "촬영과 보정에서 시작해\n광고, 유튜브, 생성형 AI와\n제작 관리까지 역할을 넓혀왔습니다.",
+    "name": "이지은",
+    "role": "영상 크리에이터",
+    "department": "미디어팀",
+    "joinYear": "2024년 입사",
+    "badge": "2026년 특별진급 포트폴리오",
+    "backgroundImage": {
+      "url": "/placeholders/hero-bg.svg",
+      "kind": "image",
+      "alt": "대표 영상 자리 표시자 [자료 필요]"
+    },
+    "highlightClips": [],
+    "visible": true,
+    "status": "draft"
+  },
+  "philosophy": {
+    "title": "핵심 업무 철학",
+    "paragraphs": [
+      {
+        "id": "ph-1",
+        "text": "결과물이 어디에, 누구에게 전달되는지 먼저 확인합니다.",
+        "order": 0
+      },
+      {
+        "id": "ph-2",
+        "text": "상품, 음식, 공간과 인물마다 살펴야 할 기준은 다릅니다.",
+        "order": 1
+      },
+      {
+        "id": "ph-3",
+        "text": "목적과 활용 매체에 맞춰 색감, 구도와 전달 방식을 조정합니다.",
+        "order": 2
+      }
+    ],
+    "keywords": [
+      {
+        "id": "kw-1",
+        "text": "목적 중심",
+        "order": 0
+      },
+      {
+        "id": "kw-2",
+        "text": "정확한 표현",
+        "order": 1
+      },
+      {
+        "id": "kw-3",
+        "text": "자연스러운 보정",
+        "order": 2
+      },
+      {
+        "id": "kw-4",
+        "text": "정보 전달",
+        "order": 3
+      },
+      {
+        "id": "kw-5",
+        "text": "새로운 기술 적용",
+        "order": 4
+      },
+      {
+        "id": "kw-6",
+        "text": "책임 있는 실행",
+        "order": 5
+      },
+      {
+        "id": "kw-7",
+        "text": "협업과 조율",
+        "order": 6
+      },
+      {
+        "id": "kw-8",
+        "text": "지속적인 개선",
+        "order": 7
+      }
+    ],
+    "visible": true,
+    "status": "draft"
+  },
+  "timeline": [
+    {
+      "id": "tl-2024",
+      "year": "2024",
+      "title": "촬영과 보정의 기본을 쌓다",
+      "description": "입사 초기에는 촬영과 보정 업무를 정확하고 안정적으로 처리하는 데 집중했다.",
+      "experiences": [
+        {
+          "id": "e1",
+          "text": "의류 디테일컷 촬영 및 보정",
+          "order": 0
+        },
+        {
+          "id": "e2",
+          "text": "의류 모델 촬영 및 보정",
+          "order": 1
+        },
+        {
+          "id": "e3",
+          "text": "카페 및 음식 메뉴 촬영 및 보정",
+          "order": 2
+        },
+        {
+          "id": "e4",
+          "text": "인테리어 촬영 보조 및 보정",
+          "order": 3
+        },
+        {
+          "id": "e5",
+          "text": "직원과 의료진 프로필 촬영 보조 및 보정",
+          "order": 4
+        },
+        {
+          "id": "e6",
+          "text": "트레이너 프로필 보정",
+          "order": 5
+        },
+        {
+          "id": "e7",
+          "text": "단체사진 촬영 보조 및 보정",
+          "order": 6
+        }
+      ],
+      "message": "상품, 음식, 공간과 인물마다 다른 표현 기준을 익혔습니다.",
+      "heroImage": {
+        "url": "/placeholders/year-2024.svg",
+        "kind": "image",
+        "alt": "2024년 대표 이미지 [자료 필요]"
+      },
+      "order": 0,
+      "visible": true,
+      "status": "draft"
+    },
+    {
+      "id": "tl-2025",
+      "year": "2025",
+      "title": "사진에서 영상과 콘텐츠 기획으로 역할을 넓히다",
+      "description": "사진과 보정 중심의 업무에서 벗어나 광고 영상과 유튜브 콘텐츠 제작까지 범위를 확대했다.",
+      "experiences": [
+        {
+          "id": "e1",
+          "text": "임플란트 및 치과 광고 영상 제작",
+          "order": 0
+        },
+        {
+          "id": "e2",
+          "text": "Meta 광고 영상 제작",
+          "order": 1
+        },
+        {
+          "id": "e3",
+          "text": "병원 사회관계망서비스 정보형 영상 제작",
+          "order": 2
+        },
+        {
+          "id": "e4",
+          "text": "변호사 유튜브 채널 콘텐츠 기획 및 제작",
+          "order": 3
+        },
+        {
+          "id": "e5",
+          "text": "갈바트 카페 유튜브 콘텐츠 제작",
+          "order": 4
+        },
+        {
+          "id": "e6",
+          "text": "갈바트 카페 콘텐츠 메인 진행자 참여",
+          "order": 5
+        }
+      ],
+      "message": "촬영된 내용을 편집하는 데 그치지 않고 무엇을 어떤 순서로 전달할지 고민하기 시작했습니다.",
+      "heroImage": {
+        "url": "/placeholders/year-2025.svg",
+        "kind": "image",
+        "alt": "2025년 대표 이미지 [자료 필요]"
+      },
+      "order": 1,
+      "visible": true,
+      "status": "draft"
+    },
+    {
+      "id": "tl-2026",
+      "year": "2026",
+      "title": "생성형 인공지능과 제작 관리로 업무 범위를 확장하다",
+      "description": "새로운 생성형 인공지능 도구를 실제 콘텐츠 제작에 적용하고, 팀이 함께 사용할 수 있는 관리체계를 구축했다.",
+      "experiences": [
+        {
+          "id": "e1",
+          "text": "Flow AI 활용",
+          "order": 0
+        },
+        {
+          "id": "e2",
+          "text": "Higgsfield AI 활용",
+          "order": 1
+        },
+        {
+          "id": "e3",
+          "text": "Sora AI 활용",
+          "order": 2
+        },
+        {
+          "id": "e4",
+          "text": "InVideo AI 활용",
+          "order": 3
+        },
+        {
+          "id": "e5",
+          "text": "Kling AI 활용",
+          "order": 4
+        },
+        {
+          "id": "e6",
+          "text": "인공지능 활용 브랜드 홍보 영상 제작",
+          "order": 5
+        },
+        {
+          "id": "e7",
+          "text": "Notion 기반 인공지능 크레딧 관리 데이터베이스 구축",
+          "order": 6
+        },
+        {
+          "id": "e8",
+          "text": "월별·사용자별·도구별 사용량 통계 구성",
+          "order": 7
+        },
+        {
+          "id": "e9",
+          "text": "팀장 보고용 사용현황 화면 구성",
+          "order": 8
+        }
+      ],
+      "message": "새로운 기술을 단순히 체험하지 않고 업무 결과와 팀 운영 개선으로 연결했습니다.",
+      "heroImage": {
+        "url": "/placeholders/year-2026.svg",
+        "kind": "image",
+        "alt": "2026년 대표 이미지 [자료 필요]"
+      },
+      "order": 2,
+      "visible": true,
+      "status": "draft"
+    }
+  ],
+  "projects": [
+    {
+      "id": "proj-clothing",
+      "number": "01",
+      "title": "의류 상세페이지 및 모델 촬영",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "의류",
+      "purpose": "온라인 판매 페이지에 사용할 상품 디테일컷과 모델 착용컷 제작",
+      "role": "촬영 및 보정",
+      "tools": [
+        "[자료 필요] 사용 장비 및 보정 프로그램 목록"
+      ],
+      "description": "상품의 소재와 색감이 실제와 다르게 보이지 않도록 정확한 색보정을 우선하고, 모델 촬영에서는 착용감이 드러나는 구도를 함께 고려했다.",
+      "heroImage": {
+        "url": "/placeholders/clothing.svg",
+        "kind": "image",
+        "alt": "의류 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [],
+      "beforeAfter": [],
+      "metrics": [],
+      "detailBlocks": [],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 0,
+      "createdAt": "2024-08-01T00:00:00.000Z",
+      "updatedAt": "2026-07-25T00:00:00.000Z"
+    },
+    {
+      "id": "proj-cafe",
+      "number": "02",
+      "title": "카페 및 음식 브랜드 촬영",
+      "brand": "갈바트 카페, 교타쿠",
+      "brandHidden": false,
+      "year": "2024",
+      "field": "카페 및 음식",
+      "purpose": "메뉴판 및 사회관계망서비스 홍보용 음식·음료 사진 제작",
+      "role": "촬영 및 보정",
+      "tools": [
+        "[자료 필요] 사용 장비 및 보정 프로그램 목록"
+      ],
+      "description": "갈바트 카페와 교타쿠 브랜드의 메뉴 콘텐츠에서 음식의 특징과 브랜드 분위기가 자연스럽게 드러나도록 촬영하고 보정했습니다.",
+      "heroImage": {
+        "url": "/placeholders/cafe.svg",
+        "kind": "image",
+        "alt": "카페 및 음식 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [],
+      "beforeAfter": [],
+      "metrics": [],
+      "detailBlocks": [],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 1,
+      "createdAt": "2024-09-01T00:00:00.000Z",
+      "updatedAt": "2026-07-25T00:00:00.000Z"
+    },
+    {
+      "id": "proj-interior",
+      "number": "03",
+      "title": "인테리어 촬영 보조",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "인테리어",
+      "purpose": "공간의 구조와 분위기를 전달하는 인테리어 사진 제작",
+      "role": "촬영 보조 및 보정",
+      "tools": [
+        "[자료 필요] 사용 장비 및 보정 프로그램 목록"
+      ],
+      "description": "카페 및 음식 브랜드, 병원, 회사 인테리어 촬영을 보조하고, 공간의 구조와 밝기, 전체 분위기가 왜곡되지 않도록 보정했습니다.",
+      "heroImage": {
+        "url": "/placeholders/interior.svg",
+        "kind": "image",
+        "alt": "인테리어 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [],
+      "beforeAfter": [],
+      "metrics": [],
+      "detailBlocks": [],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 2,
+      "createdAt": "2024-09-15T00:00:00.000Z",
+      "updatedAt": "2026-07-25T00:00:00.000Z"
+    },
+    {
+      "id": "proj-portrait",
+      "number": "04",
+      "title": "인물 프로필 촬영 보조",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "인물 프로필",
+      "purpose": "직원, 의료진과 트레이너의 프로필 사진 제작",
+      "role": "촬영 보조 및 보정",
+      "tools": [
+        "[자료 필요] 사용 장비 및 보정 프로그램 목록"
+      ],
+      "description": "회사 직원, 병원 의사, 헬스장 트레이너의 프로필과 단체사진을 촬영 보조하고 보정했습니다. 과도한 보정보다 대상자의 자연스러움과 직업적 신뢰감을 유지하는 데 집중했습니다.",
+      "heroImage": {
+        "url": "/placeholders/portrait.svg",
+        "kind": "image",
+        "alt": "인물 프로필 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [],
+      "beforeAfter": [],
+      "metrics": [],
+      "detailBlocks": [],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 3,
+      "createdAt": "2024-10-01T00:00:00.000Z",
+      "updatedAt": "2026-07-25T00:00:00.000Z"
+    },
+    {
+      "id": "proj-dental",
+      "number": "05",
+      "title": "치과 및 임플란트 광고 영상 제작",
+      "brand": "[자료 필요 - 병원명, 공개 가능 여부 확인 필요]",
+      "brandHidden": true,
+      "year": "2025",
+      "field": "치과 및 병원 광고",
+      "purpose": "임플란트 및 치과 시술을 알리는 Meta 광고 영상과 병원 사회관계망서비스 정보형 영상 제작",
+      "role": "기획 및 제작 [자료 필요 - 세부 역할 구분]",
+      "tools": [
+        "[자료 필요] 사용 장비 및 편집 프로그램 목록"
+      ],
+      "description": "의료 광고 특성상 과장된 표현을 피하고 시술 정보를 정확히 전달하는 데 집중했으며, 광고 채널의 노출 방식에 맞춰 영상 길이와 자막 구성을 조정했다.",
+      "heroImage": {
+        "url": "/placeholders/dental.svg",
+        "kind": "image",
+        "alt": "치과 광고 영상 대표 이미지 [자료 필요]"
+      },
+      "gallery": [],
+      "beforeAfter": [],
+      "metrics": [
+        {
+          "id": "m1",
+          "label": "광고 클릭률",
+          "value": "[자료 필요]"
+        },
+        {
+          "id": "m2",
+          "label": "광고 전환율",
+          "value": "[자료 필요]"
+        }
+      ],
+      "detailBlocks": [
+        {
+          "id": "b1",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "임플란트 및 치과 시술 관련 Meta 광고 영상과 병원 사회관계망서비스 정보형 영상을 기획하고 제작한 프로젝트입니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b2",
+          "key": "before",
+          "title": "기존 상황",
+          "body": "[자료 필요] 프로젝트 착수 전 병원 측이 겪고 있던 콘텐츠 운영 상황을 정리합니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b3",
+          "key": "purpose",
+          "title": "제작 목적",
+          "body": "시술에 대한 막연한 두려움을 줄이고, 정확한 정보 전달을 통해 상담 문의로 연결되는 콘텐츠를 만드는 것이 목적이었습니다.",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b4",
+          "key": "role",
+          "title": "담당 역할",
+          "body": "[자료 필요] 기획, 촬영, 편집 단계별 실제 담당 범위를 구체적으로 기록합니다.",
+          "order": 3,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b5",
+          "key": "process",
+          "title": "기획 및 제작 과정",
+          "body": "의료진 인터뷰와 시술 장면을 바탕으로 정보 전달형 구성안을 작성하고, 자막과 정보 노출 순서를 여러 차례 조정했습니다.",
+          "order": 4,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b6",
+          "key": "decisions",
+          "title": "주요 판단",
+          "body": "의료 광고 심의 기준을 고려해 과장된 표현을 배제하고, 사실에 기반한 정보 전달 방식을 선택했습니다.",
+          "order": 5,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b7",
+          "key": "tools",
+          "title": "사용 도구",
+          "body": "[자료 필요] 촬영 장비 및 편집 프로그램을 기재합니다.",
+          "order": 6,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b8",
+          "key": "result",
+          "title": "최종 결과물",
+          "body": "[자료 필요] 최종 영상을 연결합니다.",
+          "order": 7,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b9",
+          "key": "impact",
+          "title": "성과 및 의미",
+          "body": "[자료 필요] 확인된 성과 수치가 있다면 광고 대상, 예산, 집행 시기 등 조건과 함께 기재합니다.",
+          "order": 8,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b10",
+          "key": "future-use",
+          "title": "이후 활용 가능성",
+          "body": "이번 제작 과정에서 정리한 자막 양식과 구성 방식은 이후 메디컬 콘텐츠 제작 표준화에 활용할 수 있습니다.",
+          "order": 9,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": true,
+      "isDetailFeatured": true,
+      "publicOk": true,
+      "status": "draft",
+      "order": 4,
+      "createdAt": "2025-03-01T00:00:00.000Z",
+      "updatedAt": "2026-07-25T00:00:00.000Z"
+    },
+    {
+      "id": "proj-lawyer-youtube",
+      "number": "06",
+      "title": "변호사 유튜브 채널 콘텐츠 기획 및 제작",
+      "brand": "[자료 필요 - 채널명, 공개 가능 여부 확인 필요]",
+      "brandHidden": true,
+      "year": "2025",
+      "field": "유튜브",
+      "purpose": "법률 정보를 대중이 이해하기 쉬운 형태로 전달하는 유튜브 채널 콘텐츠 제작",
+      "role": "기획 및 제작",
+      "tools": [
+        "[자료 필요] 편집 프로그램 및 장비 목록"
+      ],
+      "description": "법률 콘텐츠는 정보의 정확성과 전문성을 유지해야 하지만, 전문 용어와 긴 설명이 많아 일반 시청자가 어렵게 느낄 수 있어 시청자가 실제로 궁금해하는 내용을 중심으로 정보를 다시 구성했습니다.",
+      "heroImage": {
+        "url": "/placeholders/youtube.svg",
+        "kind": "image",
+        "alt": "변호사 유튜브 대표 이미지 [자료 필요]"
+      },
+      "gallery": [],
+      "beforeAfter": [],
+      "metrics": [
+        {
+          "id": "m1",
+          "label": "콘텐츠 조회수",
+          "value": "[자료 필요]"
+        },
+        {
+          "id": "m2",
+          "label": "영상 시청 유지율",
+          "value": "[자료 필요]"
+        }
+      ],
+      "detailBlocks": [
+        {
+          "id": "b1",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "변호사 유튜브 채널의 콘텐츠를 기획부터 촬영 지원, 편집, 최종 확인까지 담당한 프로젝트입니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b2",
+          "key": "before",
+          "title": "기존 상황",
+          "body": "법률 콘텐츠는 정보의 정확성과 전문성을 유지해야 하지만, 전문 용어와 긴 설명이 많아 일반 시청자가 어렵게 느낄 수 있었습니다. 촬영된 내용을 순서대로 편집할 경우 핵심 메시지가 분산되고 영상의 흐름이 무거워질 가능성이 있었습니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b3",
+          "key": "purpose",
+          "title": "제작 목적",
+          "body": "시청자가 실제로 궁금해하는 내용을 중심으로 정보를 다시 정리하고, 영상 초반부터 주제가 명확하게 전달되도록 구성하는 것이 목적이었습니다.",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b4",
+          "key": "role",
+          "title": "담당 역할",
+          "body": "콘텐츠 기획, 촬영 지원, 편집, 수정, 최종 확인까지 제작 전 단계에 참여했습니다.",
+          "order": 3,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b5",
+          "key": "process",
+          "title": "기획 및 제작 과정",
+          "body": "시청자가 궁금해할 질문과 핵심 쟁점을 먼저 정리했습니다. 영상은 주제 제시, 핵심 설명, 사례, 최종 정리 순으로 재구성하고, 중요한 정보가 명확하게 보이도록 자막과 화면 요소를 배치했습니다.",
+          "order": 4,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b6",
+          "key": "decisions",
+          "title": "주요 판단",
+          "body": "반복되는 설명과 전달력이 낮은 구간은 정리해 영상의 흐름과 집중도를 높였습니다. 클라이언트(변호사)와 영상 방향, 일정, 수정사항을 공유하며 콘텐츠가 완성될 때까지 지속적으로 조율했습니다.",
+          "order": 5,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b7",
+          "key": "tools",
+          "title": "사용 도구",
+          "body": "[자료 필요] 촬영 장비 및 편집 프로그램을 기재합니다.",
+          "order": 6,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b8",
+          "key": "result",
+          "title": "최종 결과물",
+          "body": "[자료 필요] 최종 영상을 연결합니다.",
+          "order": 7,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b9",
+          "key": "impact",
+          "title": "성과 및 의미",
+          "body": "회사는 법률 분야의 전문 유튜브 콘텐츠 제작 사례를 새롭게 확보했습니다. 기존 브랜드·병원 중심의 제작 경험을 법률 분야까지 넓혔으며, 전문 정보를 일반 시청자의 관점에서 재구성하는 실무 경험도 축적했습니다.",
+          "order": 8,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b10",
+          "key": "future-use",
+          "title": "이후 활용 가능성",
+          "body": "이번 사례는 향후 의료·법률·교육처럼 정보의 정확성과 이해도를 함께 고려해야 하는 콘텐츠를 제작할 때 활용할 수 있는 기반이 됐습니다.",
+          "order": 9,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": true,
+      "isDetailFeatured": true,
+      "publicOk": true,
+      "status": "draft",
+      "order": 5,
+      "createdAt": "2025-05-01T00:00:00.000Z",
+      "updatedAt": "2026-07-25T00:00:00.000Z"
+    },
+    {
+      "id": "proj-ai-brand-video",
+      "number": "07",
+      "title": "생성형 인공지능 활용 브랜드 홍보 영상",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2026",
+      "field": "생성형 인공지능 콘텐츠",
+      "purpose": "촬영이 어렵거나 시간이 제한된 장면을 생성형 인공지능으로 보완해 브랜드 홍보 영상 완성",
+      "role": "기획, 생성형 인공지능 결과물 생성 및 비교, 편집",
+      "tools": [
+        "Flow AI",
+        "Higgsfield AI",
+        "Sora AI",
+        "InVideo AI",
+        "Kling AI"
+      ],
+      "description": "실제 촬영이 어려운 장면을 생성형 인공지능으로 대체하되, 브랜드 톤과 어긋나지 않도록 여러 도구의 결과물을 비교하고 재생성하는 과정을 거쳤다.",
+      "heroImage": {
+        "url": "/placeholders/ai-content.svg",
+        "kind": "image",
+        "alt": "생성형 인공지능 브랜드 영상 대표 이미지 [자료 필요]"
+      },
+      "gallery": [],
+      "beforeAfter": [],
+      "metrics": [
+        {
+          "id": "m1",
+          "label": "생성형 인공지능 영상 수",
+          "value": "[자료 필요]"
+        }
+      ],
+      "detailBlocks": [
+        {
+          "id": "b1",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "생성형 인공지능 도구를 활용해 브랜드 홍보 영상의 일부 장면을 제작한 프로젝트입니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b2",
+          "key": "before",
+          "title": "기존 상황",
+          "body": "촬영 일정과 장소 제약으로 원하는 장면을 실사로 확보하기 어려운 상황이었습니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b3",
+          "key": "purpose",
+          "title": "제작 목적",
+          "body": "제한된 촬영 여건 안에서도 브랜드가 전달하고자 하는 장면을 완성도 있게 구현하는 것이 목적이었습니다.",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b4",
+          "key": "role",
+          "title": "담당 역할",
+          "body": "장면별로 적합한 인공지능 도구를 선정하고, 지시문 작성과 결과 비교, 최종 편집까지 담당했습니다.",
+          "order": 3,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b5",
+          "key": "process",
+          "title": "기획 및 제작 과정",
+          "body": "장면별 표현 목표를 정한 뒤 Flow AI, Higgsfield AI, Sora AI, InVideo AI, Kling AI로 각각 결과물을 생성하고 비교했습니다.",
+          "order": 4,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b6",
+          "key": "decisions",
+          "title": "주요 판단",
+          "body": "도구마다 표현 가능한 움직임과 화질의 차이가 있어, 장면의 성격에 따라 사용할 도구를 다르게 선택했습니다.",
+          "order": 5,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b7",
+          "key": "tools",
+          "title": "사용 도구",
+          "body": "Flow AI, Higgsfield AI, Sora AI, InVideo AI, Kling AI",
+          "order": 6,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b8",
+          "key": "result",
+          "title": "최종 결과물",
+          "body": "[자료 필요] 최종 영상을 연결합니다.",
+          "order": 7,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b9",
+          "key": "impact",
+          "title": "성과 및 의미",
+          "body": "생성형 인공지능을 실제 브랜드 결과물 제작에 적용해 촬영 여건의 제약을 보완할 수 있음을 확인했습니다.",
+          "order": 8,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b10",
+          "key": "future-use",
+          "title": "이후 활용 가능성",
+          "body": "장면 성격별 적합한 도구 선택 기준을 이후 다른 브랜드 영상 제작에도 동일하게 적용할 수 있습니다.",
+          "order": 9,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": true,
+      "isDetailFeatured": true,
+      "publicOk": true,
+      "status": "draft",
+      "order": 6,
+      "createdAt": "2026-02-01T00:00:00.000Z",
+      "updatedAt": "2026-07-25T00:00:00.000Z"
+    },
+    {
+      "id": "proj-notion-credit",
+      "number": "08",
+      "title": "Notion 기반 Higgsfield AI 크레딧 관리체계 구축",
+      "brand": "미디어팀 내부 운영체계",
+      "brandHidden": false,
+      "year": "2026",
+      "field": "생성형 인공지능 콘텐츠",
+      "purpose": "공용 인공지능 계정의 크레딧 사용 현황을 팀이 함께 확인할 수 있는 관리 데이터베이스 구축",
+      "role": "설계 및 구축",
+      "tools": [
+        "Notion",
+        "Higgsfield AI"
+      ],
+      "description": "팀에서 공동으로 사용하는 힉스필드 AI 계정의 크레딧 소모 현황을 실시간으로 추적할 수 있는 노션 데이터베이스를 설계하고 구축했습니다.",
+      "heroImage": {
+        "url": "/placeholders/notion.svg",
+        "kind": "image",
+        "alt": "노션 관리체계 대표 이미지 [자료 필요]"
+      },
+      "gallery": [],
+      "beforeAfter": [],
+      "metrics": [
+        {
+          "id": "m1",
+          "label": "월별 크레딧 사용량",
+          "value": "[자료 필요]"
+        }
+      ],
+      "detailBlocks": [
+        {
+          "id": "b1",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "팀이 공용으로 사용하는 Higgsfield AI 계정의 크레딧 사용 현황을 관리하는 Notion 데이터베이스를 설계하고 구축한 프로젝트입니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b2",
+          "key": "before",
+          "title": "기존 상황",
+          "body": "팀원들이 하나의 힉스필드 AI 계정을 공동으로 사용하면서, 누가 어떤 도구를 사용했는지와 크레딧이 어떤 목적으로 소모됐는지를 정확히 파악하기 어려웠습니다. 공용 계정의 전체 크레딧 잔여량은 확인할 수 있었지만 사용자별 소모량과 작업 내용을 구분하기 어려웠고, 제작·수정·재생성·실패 등의 내역도 남지 않아 크레딧 사용 흐름을 분석하기 힘든 상태였습니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b3",
+          "key": "purpose",
+          "title": "제작 목적",
+          "body": "AI 사용량이 늘어날수록 특정 인원이나 도구에 사용이 집중되는지 확인하고, 추가 충전 시점을 판단할 수 있는 관리자료를 마련하는 것이 목적이었습니다.",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b4",
+          "key": "role",
+          "title": "담당 역할",
+          "body": "데이터베이스 구조 설계부터 월별·사용자별 통계 화면, 팀장 보고용 페이지 구성까지 전 과정을 직접 진행했습니다.",
+          "order": 3,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b5",
+          "key": "process",
+          "title": "기획 및 제작 과정",
+          "body": "날짜, 제작자, 게시글 번호, 사용한 AI 도구, 콘텐츠 유형, 제작·수정 구분, 소모 크레딧 등 세부 항목으로 나눠 노션 데이터베이스를 구성했습니다. 사용 건별 기록과 함께 월별·사용자별 크레딧 합계를 자동으로 확인할 수 있는 통계 화면을 만들었습니다.",
+          "order": 4,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b6",
+          "key": "decisions",
+          "title": "주요 판단",
+          "body": "개인의 편의를 위한 정리가 아니라 팀이 함께 확인하고 활용할 수 있는 방식으로 만드는 것을 우선 기준으로 삼았습니다. 현재는 팀별 데이터베이스를 구분해 운영하고 있습니다.",
+          "order": 5,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b7",
+          "key": "tools",
+          "title": "사용 도구",
+          "body": "Notion, Higgsfield AI",
+          "order": 6,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b8",
+          "key": "result",
+          "title": "최종 결과물",
+          "body": "월별·사용자별 크레딧 사용량을 확인할 수 있는 Notion 데이터베이스와 팀장 보고용 사용현황 페이지입니다.",
+          "order": 7,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b9",
+          "key": "impact",
+          "title": "성과 및 의미",
+          "body": "단순 합계만 확인하던 방식에서 벗어나 크레딧 소모의 원인을 추적할 수 있는 구조를 마련했습니다. 팀장은 월별 총사용량과 구성원별 소모 현황을 별도의 취합 과정 없이 확인할 수 있게 됐고, 향후 크레딧 추가 구매 시점을 판단할 수 있는 기초자료도 확보했습니다.",
+          "order": 8,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b10",
+          "key": "future-use",
+          "title": "이후 활용 가능성",
+          "body": "동일한 구조를 다른 공용 도구의 사용량 관리에도 확장 적용할 수 있습니다.",
+          "order": 9,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": true,
+      "isDetailFeatured": true,
+      "publicOk": true,
+      "status": "draft",
+      "order": 7,
+      "createdAt": "2026-03-01T00:00:00.000Z",
+      "updatedAt": "2026-07-25T00:00:00.000Z"
+    }
+  ],
+  "competencies": [
+    {
+      "id": "c1",
+      "title": "콘텐츠 목적에 따른 표현방식 조정",
+      "description": "결과물이 어디에 사용되고 누구에게 전달되는지를 먼저 파악한 뒤 촬영과 보정 방향을 정한다.",
+      "cases": [
+        {
+          "id": "6599bc68",
+          "text": "의류 상세페이지에서는 실제 색상과 소재, 형태, 세부 디테일이 정확하게 전달되도록 촬영과 보정을 진행했습니다.",
+          "order": 0
+        },
+        {
+          "id": "13444e19",
+          "text": "갈바트 카페와 교타쿠 브랜드의 메뉴 콘텐츠에서는 음식의 특징과 브랜드 분위기가 자연스럽게 드러나도록 작업했습니다.",
+          "order": 1
+        },
+        {
+          "id": "f13891e3",
+          "text": "카페·음식 브랜드·병원·회사 인테리어 작업에서는 공간의 구조와 밝기, 전체 분위기가 왜곡되지 않도록 보정했습니다.",
+          "order": 2
+        },
+        {
+          "id": "0b6a28a2",
+          "text": "회사 직원, 병원 의사, 헬스장 트레이너 프로필에서는 과도한 보정보다 대상자의 자연스러움과 직업적 신뢰감을 유지하는 데 집중했습니다.",
+          "order": 3
+        }
+      ],
+      "order": 0,
+      "visible": true,
+      "status": "draft"
+    },
+    {
+      "id": "c2",
+      "title": "사진과 영상의 통합 제작",
+      "description": "정지 이미지의 완성도뿐 아니라 영상 흐름, 장면 연결, 자막과 정보 전달 순서를 함께 고려한다.",
+      "cases": [
+        {
+          "id": "fbdbb5ed",
+          "text": "의류 디테일 컷과 모델 촬영·보정, 카페 및 음식 브랜드 메뉴 촬영·보정, 인테리어 촬영 보조와 보정 업무를 수행했습니다.",
+          "order": 0
+        },
+        {
+          "id": "586a9c32",
+          "text": "직원·의료진·트레이너 프로필과 단체사진 촬영 보조 및 보정에도 참여했습니다.",
+          "order": 1
+        },
+        {
+          "id": "8553ed47",
+          "text": "임플란트와 치과 광고 영상, 메타 광고 영상, 병원 SNS 정보 전달형 영상을 제작했습니다.",
+          "order": 2
+        }
+      ],
+      "order": 1,
+      "visible": true,
+      "status": "draft"
+    },
+    {
+      "id": "c3",
+      "title": "생성형 인공지능의 실무 적용",
+      "description": "각 도구의 특성과 결과물 차이를 비교하고 실제 업무에 활용할 수 있는 범위를 판단한다.",
+      "cases": [
+        {
+          "id": "51150013",
+          "text": "Flow AI, Higgsfield AI, Sora AI, InVideo AI, Kling AI 등 5개 이상 생성형 AI 도구를 활용했습니다.",
+          "order": 0
+        },
+        {
+          "id": "eb2c1cde",
+          "text": "각 도구의 영상 표현 방식과 결과물 차이를 비교하고, 치과 광고 영상과 유튜브 콘텐츠 제작에 적합한 활용범위를 찾았습니다.",
+          "order": 1
+        },
+        {
+          "id": "123c6df9",
+          "text": "결과물이 원하는 수준에 미치지 못할 경우 프롬프트와 장면 구성을 조정하고, 필요한 후반 편집을 거쳐 완성도를 높였습니다.",
+          "order": 2
+        }
+      ],
+      "order": 2,
+      "visible": true,
+      "status": "draft"
+    },
+    {
+      "id": "c4",
+      "title": "제작과 출연 전반에 대한 소통",
+      "description": "기획자, 촬영자, 출연자와 편집자가 필요로 하는 정보를 이해하고 전체 제작 흐름을 고려해 소통한다.",
+      "cases": [
+        {
+          "id": "f6594c9f",
+          "text": "갈바트 카페 유튜브 콘텐츠에서 메인 MC로 참여해 카메라 앞에서 직접 내용을 전달했습니다.",
+          "order": 0
+        },
+        {
+          "id": "a494c244",
+          "text": "촬영자의 요청을 받는 출연자의 입장과 촬영 이후 편집에 필요한 장면을 함께 경험했습니다.",
+          "order": 1
+        },
+        {
+          "id": "2822d391",
+          "text": "촬영 보조, 보정, 기획, 영상 제작, 출연 등 여러 역할을 수행하며 클라이언트와 일정 및 수정사항을 조율했습니다.",
+          "order": 2
+        }
+      ],
+      "order": 3,
+      "visible": true,
+      "status": "draft"
+    },
+    {
+      "id": "c5",
+      "title": "문제 발견 및 업무 개선",
+      "description": "반복되는 불편을 그대로 두지 않고 원인을 파악해 실행 가능한 방법으로 개선한다.",
+      "cases": [
+        {
+          "id": "880fa25d",
+          "text": "공용 AI 계정의 크레딧 사용 내역과 잔여량을 확인하기 어려운 문제를 발견했습니다.",
+          "order": 0
+        },
+        {
+          "id": "238bdfb8",
+          "text": "노션 기반 AI 크레딧 자산 관리 데이터베이스를 직접 설계하고 구축했습니다.",
+          "order": 1
+        },
+        {
+          "id": "c5fece42",
+          "text": "개인 편의가 아니라 팀이 함께 활용할 수 있는 방식으로 만들었습니다.",
+          "order": 2
+        }
+      ],
+      "order": 4,
+      "visible": true,
+      "status": "draft"
+    }
+  ],
+  "ai": {
+    "title": "생성형 인공지능을 업무에 적용하는 방식",
+    "processSteps": [
+      {
+        "id": "s1",
+        "order": 0,
+        "title": "콘텐츠 목적 확인"
+      },
+      {
+        "id": "s2",
+        "order": 1,
+        "title": "표현 가능한 장면 판단"
+      },
+      {
+        "id": "s3",
+        "order": 2,
+        "title": "생성형 인공지능 적용 필요성 검토"
+      },
+      {
+        "id": "s4",
+        "order": 3,
+        "title": "지시문 작성"
+      },
+      {
+        "id": "s5",
+        "order": 4,
+        "title": "결과 생성"
+      },
+      {
+        "id": "s6",
+        "order": 5,
+        "title": "결과 비교"
+      },
+      {
+        "id": "s7",
+        "order": 6,
+        "title": "재생성 및 수정"
+      },
+      {
+        "id": "s8",
+        "order": 7,
+        "title": "후반 보정"
+      },
+      {
+        "id": "s9",
+        "order": 8,
+        "title": "영상 편집"
+      },
+      {
+        "id": "s10",
+        "order": 9,
+        "title": "최종 결과물 적용"
+      }
+    ],
+    "tools": [
+      {
+        "id": "t1",
+        "name": "Flow AI",
+        "purpose": "[자료 필요] 실제 활용 목적을 기재합니다.",
+        "linkedProjectIds": [
+          "proj-ai-brand-video"
+        ],
+        "results": [],
+        "promptSamples": [],
+        "failureNotes": [],
+        "order": 0,
+        "visible": true
+      },
+      {
+        "id": "t2",
+        "name": "Higgsfield AI",
+        "purpose": "[자료 필요] 실제 활용 목적을 기재합니다.",
+        "linkedProjectIds": [
+          "proj-ai-brand-video",
+          "proj-notion-credit"
+        ],
+        "results": [],
+        "promptSamples": [],
+        "failureNotes": [],
+        "order": 1,
+        "visible": true
+      },
+      {
+        "id": "t3",
+        "name": "Sora AI",
+        "purpose": "[자료 필요] 실제 활용 목적을 기재합니다.",
+        "linkedProjectIds": [
+          "proj-ai-brand-video"
+        ],
+        "results": [],
+        "promptSamples": [],
+        "failureNotes": [],
+        "order": 2,
+        "visible": true
+      },
+      {
+        "id": "t4",
+        "name": "InVideo AI",
+        "purpose": "[자료 필요] 실제 활용 목적을 기재합니다.",
+        "linkedProjectIds": [
+          "proj-ai-brand-video"
+        ],
+        "results": [],
+        "promptSamples": [],
+        "failureNotes": [],
+        "order": 3,
+        "visible": true
+      },
+      {
+        "id": "t5",
+        "name": "Kling AI",
+        "purpose": "[자료 필요] 실제 활용 목적을 기재합니다.",
+        "linkedProjectIds": [
+          "proj-ai-brand-video"
+        ],
+        "results": [],
+        "promptSamples": [],
+        "failureNotes": [],
+        "order": 4,
+        "visible": true
+      }
+    ],
+    "status": "draft"
+  },
+  "contributions": {
+    "title": "제작을 넘어, 팀의 일하는 방식까지 개선합니다.",
+    "items": [
+      {
+        "id": "ci1",
+        "title": "공용 인공지능 계정의 사용현황 관리",
+        "description": "누가, 언제, 어떤 목적으로 크레딧을 사용했는지 기록할 수 있는 구조를 만들었습니다.",
+        "metrics": [],
+        "order": 0,
+        "visible": true
+      },
+      {
+        "id": "ci2",
+        "title": "크레딧 소모 원인 추적",
+        "description": "제작, 수정, 재생성, 실패 유형을 분류해 크레딧이 어디에서 소모되는지 확인할 수 있게 했습니다.",
+        "metrics": [],
+        "order": 1,
+        "visible": true
+      },
+      {
+        "id": "ci3",
+        "title": "월별·사용자별·도구별 사용량 확인",
+        "description": "월별 사용량, 사용자별 활용 현황, 도구별 사용량을 각각 확인할 수 있는 통계 화면을 구성했습니다.",
+        "metrics": [],
+        "order": 2,
+        "visible": true
+      },
+      {
+        "id": "ci4",
+        "title": "추가 구매 시점 판단 지원",
+        "description": "누적 사용량 추이를 기반으로 크레딧 추가 구매가 필요한 시점을 미리 판단할 수 있도록 지원했습니다.",
+        "metrics": [],
+        "order": 3,
+        "visible": true
+      },
+      {
+        "id": "ci5",
+        "title": "팀장 보고자료 자동화",
+        "description": "팀장이 별도로 취합하지 않아도 확인할 수 있는 보고용 사용현황 화면을 구성했습니다.",
+        "metrics": [],
+        "order": 4,
+        "visible": true
+      },
+      {
+        "id": "ci6",
+        "title": "팀별 데이터베이스 구분 운영",
+        "description": "팀별로 데이터베이스를 구분해 운영함으로써 정보가 섞이지 않도록 관리했습니다.",
+        "metrics": [],
+        "order": 5,
+        "visible": true
+      }
+    ],
+    "status": "draft"
+  },
+  "achievements": [
+    {
+      "id": "a1",
+      "name": "사용 중인 생성형 인공지능 도구 수",
+      "value": "5",
+      "unit": "개",
+      "description": "Flow AI, Higgsfield AI, Sora AI, InVideo AI, Kling AI",
+      "asOfDate": "2026-07-25",
+      "source": "업무 기록",
+      "countUpEnabled": true,
+      "order": 0,
+      "visible": true
+    },
+    {
+      "id": "a2",
+      "name": "총 제작 영상 수",
+      "value": "",
+      "unit": "",
+      "description": "[자료 필요]",
+      "asOfDate": "",
+      "source": "",
+      "countUpEnabled": true,
+      "order": 1,
+      "visible": false
+    },
+    {
+      "id": "a3",
+      "name": "치과 광고 영상 수",
+      "value": "",
+      "unit": "",
+      "description": "[자료 필요]",
+      "asOfDate": "",
+      "source": "",
+      "countUpEnabled": true,
+      "order": 2,
+      "visible": false
+    },
+    {
+      "id": "a4",
+      "name": "Meta 광고 영상 수",
+      "value": "",
+      "unit": "",
+      "description": "[자료 필요]",
+      "asOfDate": "",
+      "source": "",
+      "countUpEnabled": true,
+      "order": 3,
+      "visible": false
+    },
+    {
+      "id": "a5",
+      "name": "유튜브 콘텐츠 수",
+      "value": "",
+      "unit": "",
+      "description": "[자료 필요]",
+      "asOfDate": "",
+      "source": "",
+      "countUpEnabled": true,
+      "order": 4,
+      "visible": false
+    },
+    {
+      "id": "a6",
+      "name": "촬영 프로젝트 수",
+      "value": "",
+      "unit": "",
+      "description": "[자료 필요]",
+      "asOfDate": "",
+      "source": "",
+      "countUpEnabled": true,
+      "order": 5,
+      "visible": false
+    },
+    {
+      "id": "a7",
+      "name": "참여 브랜드 수",
+      "value": "",
+      "unit": "",
+      "description": "[자료 필요]",
+      "asOfDate": "",
+      "source": "",
+      "countUpEnabled": true,
+      "order": 6,
+      "visible": false
+    },
+    {
+      "id": "a8",
+      "name": "생성형 인공지능 영상 수",
+      "value": "",
+      "unit": "",
+      "description": "[자료 필요]",
+      "asOfDate": "",
+      "source": "",
+      "countUpEnabled": true,
+      "order": 7,
+      "visible": false
+    },
+    {
+      "id": "a9",
+      "name": "월별 크레딧 사용량",
+      "value": "",
+      "unit": "",
+      "description": "[자료 필요]",
+      "asOfDate": "",
+      "source": "",
+      "countUpEnabled": false,
+      "order": 8,
+      "visible": false
+    }
+  ],
+  "collaborations": [
+    {
+      "id": "col1",
+      "partner": "미디어팀",
+      "process": "프로젝트 목적을 함께 확인하고 촬영 전 준비사항과 일정을 공유합니다.",
+      "authorNameVisible": false,
+      "authorTitleVisible": false,
+      "order": 0,
+      "visible": true
+    },
+    {
+      "id": "col2",
+      "partner": "메디컬 마케팅팀",
+      "process": "영상 방향을 조율하고 중간 결과물을 공유해 검수를 받습니다.",
+      "authorNameVisible": false,
+      "authorTitleVisible": false,
+      "order": 1,
+      "visible": true
+    },
+    {
+      "id": "col3",
+      "partner": "병원 및 치과 담당자",
+      "process": "시술 정보의 정확성을 확인받고 수정사항을 기록해 결과에 반영합니다.",
+      "relatedProjectId": "proj-dental",
+      "authorNameVisible": false,
+      "authorTitleVisible": false,
+      "order": 2,
+      "visible": true
+    },
+    {
+      "id": "col4",
+      "partner": "변호사 유튜브 채널 담당자",
+      "process": "주제와 촬영 방향을 사전에 조율하고 최종 결과물을 함께 검수합니다.",
+      "relatedProjectId": "proj-lawyer-youtube",
+      "authorNameVisible": false,
+      "authorTitleVisible": false,
+      "order": 3,
+      "visible": true
+    }
+  ],
+  "fitness": {
+    "title": "다음 역할을 맡을 준비가 돼 있습니다.",
+    "points": [
+      {
+        "id": "f1",
+        "title": "업무 범위 확대",
+        "body": "촬영과 보정 중심의 업무에서 영상, 광고, 유튜브, 생성형 인공지능과 제작 관리까지 업무 범위를 넓혔다.",
+        "order": 0
+      },
+      {
+        "id": "f2",
+        "title": "책임 범위 확대",
+        "body": "정해진 작업만 수행하지 않고 콘텐츠의 목적과 활용 매체를 먼저 파악하며 결과까지 책임졌다.",
+        "order": 1
+      },
+      {
+        "id": "f3",
+        "title": "새로운 기술 적용",
+        "body": "생성형 인공지능 도구를 단순 체험하지 않고 브랜드 영상과 콘텐츠 제작에 적용했다.",
+        "order": 2
+      },
+      {
+        "id": "f4",
+        "title": "문제 개선",
+        "body": "공용 인공지능 계정의 크레딧 관리 문제를 발견하고 팀이 함께 사용하는 관리체계를 구축했다.",
+        "order": 3
+      },
+      {
+        "id": "f5",
+        "title": "협업 및 조율",
+        "body": "기획, 촬영, 편집, 출연과 클라이언트 조율까지 제작 전반을 경험했다.",
+        "order": 4
+      }
+    ],
+    "relatedProjectIds": [
+      "proj-notion-credit",
+      "proj-dental",
+      "proj-lawyer-youtube"
+    ],
+    "status": "draft"
+  },
+  "futurePlans": [
+    {
+      "id": "fp1",
+      "title": "메디컬 마케팅·미디어 커머스 전속 TF 신설 및 주도",
+      "summary": "메디컬 마케팅팀과 미디어팀이 기획 단계부터 협업하는 전속 TF 신설을 제안하고, 실무 운영을 주도하겠습니다.",
+      "details": [
+        {
+          "id": "d1",
+          "text": "주요 대상",
+          "order": 0
+        },
+        {
+          "id": "d2",
+          "text": "핵심 소구점",
+          "order": 1
+        },
+        {
+          "id": "d3",
+          "text": "활용 채널",
+          "order": 2
+        },
+        {
+          "id": "d4",
+          "text": "영상 길이",
+          "order": 3
+        },
+        {
+          "id": "d5",
+          "text": "납기",
+          "order": 4
+        },
+        {
+          "id": "d6",
+          "text": "필요한 촬영 자료",
+          "order": 5
+        },
+        {
+          "id": "d7",
+          "text": "상담 유도 방향",
+          "order": 6
+        },
+        {
+          "id": "d8",
+          "text": "검수 기준",
+          "order": 7
+        }
+      ],
+      "expectedEffect": "제작 과정의 혼선과 반복 수정을 줄이고, 마케팅 목적에 맞는 영상을 안정적으로 제작하겠습니다.",
+      "progress": "예정",
+      "order": 0,
+      "visible": true
+    },
+    {
+      "id": "fp2",
+      "title": "광고 결과를 반영한 영상 개선",
+      "summary": "영상의 완성도를 제작자의 판단에만 의존하지 않고, 실제 광고 반응을 다음 콘텐츠에 반영하겠습니다.",
+      "details": [
+        {
+          "id": "d1",
+          "text": "클릭률",
+          "order": 0
+        },
+        {
+          "id": "d2",
+          "text": "전환율",
+          "order": 1
+        },
+        {
+          "id": "d3",
+          "text": "시청 유지율",
+          "order": 2
+        },
+        {
+          "id": "d4",
+          "text": "초반 이탈",
+          "order": 3
+        },
+        {
+          "id": "d5",
+          "text": "영상 길이별 반응",
+          "order": 4
+        },
+        {
+          "id": "d6",
+          "text": "첫 장면별 반응",
+          "order": 5
+        },
+        {
+          "id": "d7",
+          "text": "문구별 반응",
+          "order": 6
+        },
+        {
+          "id": "d8",
+          "text": "상담 유도 문구 반응",
+          "order": 7
+        }
+      ],
+      "expectedEffect": "동일한 주제에 다른 첫 장면과 카피를 적용해 A/B 테스트를 진행하고, 반응이 좋은 구성을 다음 콘텐츠에 적용하겠습니다.",
+      "progress": "예정",
+      "order": 1,
+      "visible": true
+    },
+    {
+      "id": "fp3",
+      "title": "메디컬 영상 제작 과정 표준화",
+      "summary": "콘텐츠 유형별로 반복 활용할 수 있는 제작 자료를 구축한다.",
+      "details": [
+        {
+          "id": "d1",
+          "text": "콘텐츠 유형별 기획서",
+          "order": 0
+        },
+        {
+          "id": "d2",
+          "text": "촬영 전 점검표",
+          "order": 1
+        },
+        {
+          "id": "d3",
+          "text": "자막 양식",
+          "order": 2
+        },
+        {
+          "id": "d4",
+          "text": "화면 구성 양식",
+          "order": 3
+        },
+        {
+          "id": "d5",
+          "text": "광고 영상 기본 구성",
+          "order": 4
+        },
+        {
+          "id": "d6",
+          "text": "정보 영상 기본 구성",
+          "order": 5
+        },
+        {
+          "id": "d7",
+          "text": "최종 검수표",
+          "order": 6
+        }
+      ],
+      "expectedEffect": "제작자가 바뀌어도 일정 품질 이상의 결과물을 유지할 수 있는 가이드와 템플릿을 마련하겠습니다.",
+      "progress": "예정",
+      "order": 2,
+      "visible": true
+    }
+  ],
+  "closing": {
+    "message": "다음 역할을\n맡을 준비가 됐습니다.",
+    "name": "이지은",
+    "role": "영상 크리에이터",
+    "department": "미디어팀",
+    "badge": "2026년 특별진급 포트폴리오",
+    "backgroundImage": {
+      "url": "/placeholders/closing-bg.svg",
+      "kind": "image",
+      "alt": "마무리 화면 배경 [자료 필요]"
+    },
+    "externalLinks": [],
+    "status": "draft",
+    "subline": "맡은 작업을 수행하는 데서 그치지 않고\n필요한 역할을 먼저 찾고,\n실제 결과와 업무 개선으로 연결하겠습니다."
+  },
+  "faq": [
+    {
+      "id": "d858f191",
+      "question": "촬영과 보정 외에 어떤 업무를 수행했나요?",
+      "answer": "광고 영상, 유튜브 콘텐츠 기획과 제작, 생성형 AI 영상 제작과 AI 크레딧 관리체계 구축 업무를 수행했습니다.",
+      "order": 0,
+      "visible": true
+    },
+    {
+      "id": "0d7b33bb",
+      "question": "생성형 AI는 어떤 방식으로 활용했나요?",
+      "answer": "기존 촬영과 편집을 모두 대체하기보다 콘텐츠 목적과 활용 가능성을 판단한 뒤 필요한 장면에 적용했습니다.",
+      "order": 1,
+      "visible": true
+    },
+    {
+      "id": "21a09a37",
+      "question": "팀 업무 개선 사례는 무엇인가요?",
+      "answer": "공용 AI 계정의 사용자별·도구별·목적별 크레딧 사용량을 확인할 수 있는 Notion 관리체계를 구축했습니다.",
+      "order": 2,
+      "visible": true
+    },
+    {
+      "id": "b92a171b",
+      "question": "특별진급 이후 무엇을 실행할 계획인가요?",
+      "answer": "메디컬 마케팅 협업체계, 광고 데이터 기반 영상 개선과 메디컬 제작과정 표준화를 추진할 계획입니다.",
+      "order": 3,
+      "visible": true
+    }
+  ]
+}
