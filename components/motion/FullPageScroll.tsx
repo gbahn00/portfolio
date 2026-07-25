@@ -20,12 +20,9 @@ import { onGoToSection, SectionId } from "@/lib/fullpage";
 // 달라 강제 스냅이 오히려 사용성을 해치므로 기존처럼 자유 스크롤 그대로 둔다.
 // ============================================================================
 
-// 전체 UI/UX 최종 수정 §11-12 — "스크롤 입력 즉시 전환 시작, 전환 시간 약
-// 700ms". 이전 값(0.85s + power3.inOut)은 이징 시작부가 느려서 입력 직후
-// 한 박자 늦게 움직이는 느낌이 있었다. duration을 0.7s로 줄이고, 시작이
-// 빠르고 끝에서 부드럽게 멈추는 power2.out으로 바꿔 "즉시 반응"하는
-// 느낌을 준다.
-const TRANSITION_DURATION = 0.7;
+// 스크롤 최종 수정 요청서 §2/§14 — 전환 시간 700ms → 600ms, 이징은 시작이
+// 빠르고 끝에서 자연스럽게 멈추는 power2.out(요청서의 "easeOut" 대안) 유지.
+const TRANSITION_DURATION = 0.6;
 const TRANSITION_EASE = "power2.out";
 const COOLDOWN_MS = 90;
 const WHEEL_THRESHOLD = 4;
@@ -35,6 +32,23 @@ export function FullPageScroll({ children }: { children: ReactNode }) {
   const rootRef = useRef<HTMLDivElement>(null);
   const lockRef = useRef(false);
   const touchStartY = useRef<number | null>(null);
+  // 스크롤 최종 수정 요청서 §5-6 — "6 → 4로 건너뛰는" 페이지 건너뛰기 버그의
+  // 실제 원인은 매 프레임 window.scrollTo(0, y)를 "레거시 2-인자 형태"로
+  // 호출한 것이었다. globals.css의 html { scroll-behavior: smooth }가 이
+  // 형태의 호출에도 적용되어, GSAP가 이미 매 프레임 계산해 둔 값 위에
+  // 브라우저가 또 한 번 자체적으로 부드럽게 보간하면서 실제 scrollY가
+  // GSAP의 목표값보다 뒤처지게 된다. 다음 휠 입력이 들어왔을 때
+  // "현재 섹션"을 scrollY로부터 역산하면 이 지연 때문에 한 섹션 이전 값을
+  // 읽어버려 5번을 건너뛰고 4번으로 이동한 것처럼 보인 것이다.
+  //
+  // 근본적으로 고치기 위해 두 가지를 함께 적용한다.
+  // 1) scrollTo를 { behavior: "instant" } 옵션 객체로 호출해 CSS
+  //    scroll-behavior의 영향을 받지 않게 한다(진짜 즉시 이동).
+  // 2) "현재 섹션"을 scrollY로부터 매번 역산하지 않고, activeIndexRef라는
+  //    단일 기준값으로 직접 관리한다. 한 번의 입력은 반드시 activeIndexRef
+  //    ± 1 만큼만 바꾸고, 그 값을 기준으로 다음 목표를 계산하므로 스크롤
+  //    위치의 오차/지연과 완전히 무관하게 "항상 이웃 섹션으로만" 이동한다.
+  const activeIndexRef = useRef(0);
 
   useLayoutEffect(() => {
     const root = rootRef.current;
@@ -48,39 +62,46 @@ export function FullPageScroll({ children }: { children: ReactNode }) {
         return Array.from(root!.querySelectorAll<HTMLElement>("[data-fp-section]"));
       }
 
-      function currentIndex() {
-        const sections = getSections();
-        const y = window.scrollY;
-        let idx = 0;
-        sections.forEach((el, i) => {
-          if (el.offsetTop <= y + 2) idx = i;
-        });
-        return idx;
+      function syncHash(id: string, replace: boolean) {
+        const url = `${window.location.pathname}#${id}`;
+        if (replace) window.history.replaceState({ fpIndex: activeIndexRef.current }, "", url);
+        else window.history.pushState({ fpIndex: activeIndexRef.current }, "", url);
       }
 
-      function animateTo(index: number) {
+      function animateTo(index: number, opts: { fromHistory?: boolean } = {}) {
         const sections = getSections();
         const clamped = Math.max(0, Math.min(sections.length - 1, index));
         const target = sections[clamped];
         if (!target) return;
+        activeIndexRef.current = clamped;
         lockRef.current = true;
         const proxy = { y: window.scrollY };
         gsap.to(proxy, {
           y: target.offsetTop,
           duration: TRANSITION_DURATION,
           ease: TRANSITION_EASE,
-          onUpdate: () => window.scrollTo(0, proxy.y),
+          onUpdate: () => window.scrollTo({ top: proxy.y, left: 0, behavior: "instant" as ScrollBehavior }),
           onComplete: () => {
             window.setTimeout(() => {
               lockRef.current = false;
             }, COOLDOWN_MS);
           },
         });
+        // 뒤로가기/앞으로가기로 인한 이동은 history를 다시 건드리지 않는다
+        // (안 그러면 popstate ↔ pushState가 서로를 계속 트리거하는 무한 루프가 생김).
+        if (!opts.fromHistory && target.dataset.fpId) {
+          syncHash(target.dataset.fpId, false);
+        }
       }
 
+      // 한 번의 입력은 반드시 activeIndexRef ±1 만큼만 이동한다. 그 이외의
+      // 어떤 계산도 하지 않는다(§6).
       function goDelta(dir: 1 | -1) {
         if (lockRef.current) return;
-        animateTo(currentIndex() + dir);
+        const next = activeIndexRef.current + dir;
+        const sections = getSections();
+        if (next < 0 || next > sections.length - 1) return;
+        animateTo(next);
       }
 
       function onWheel(e: WheelEvent) {
@@ -120,27 +141,48 @@ export function FullPageScroll({ children }: { children: ReactNode }) {
         touchStartY.current = null;
       }
 
+      // 브라우저 뒤로가기/앞으로가기 시에도 현재 섹션 Index와 동기화한다(§12).
+      function onPopState(e: PopStateEvent) {
+        const id = window.location.hash.slice(1);
+        const sections = getSections();
+        const idx = sections.findIndex((el) => el.dataset.fpId === id);
+        if (idx >= 0) animateTo(idx, { fromHistory: true });
+      }
+
       const offGoTo = onGoToSection((id: SectionId) => {
         const sections = getSections();
         const idx = sections.findIndex((el) => el.dataset.fpId === id);
         if (idx >= 0) animateTo(idx);
       });
 
-      // 해시로 진입했을 때(예: /#projects) 해당 섹션으로 즉시 이동.
-      if (window.location.hash) {
-        const id = window.location.hash.slice(1);
-        requestAnimationFrame(() => {
-          const sections = getSections();
-          const target = sections.find((el) => el.dataset.fpId === id);
-          if (target) window.scrollTo(0, target.offsetTop);
-        });
-      }
+      // 초기 진입 위치 계산: 해시가 있으면 해당 섹션, 없으면 현재 scrollY
+      // 기준으로 가장 가까운 섹션을 activeIndexRef의 시작값으로 잡는다.
+      // 이후로는 이 값만 기준으로 ±1 이동하고, scrollY를 다시 역산하지 않는다.
+      requestAnimationFrame(() => {
+        const sections = getSections();
+        const hashId = window.location.hash.slice(1);
+        let initialIndex = sections.findIndex((el) => el.dataset.fpId === hashId);
+        if (initialIndex < 0) {
+          const y = window.scrollY;
+          initialIndex = 0;
+          sections.forEach((el, i) => {
+            if (el.offsetTop <= y + 2) initialIndex = i;
+          });
+        }
+        activeIndexRef.current = Math.max(0, initialIndex);
+        const target = sections[activeIndexRef.current];
+        if (target) {
+          window.scrollTo({ top: target.offsetTop, left: 0, behavior: "instant" as ScrollBehavior });
+          if (target.dataset.fpId) syncHash(target.dataset.fpId, true);
+        }
+      });
 
       window.addEventListener("wheel", onWheel, { passive: false });
       window.addEventListener("keydown", onKeyDown);
       window.addEventListener("touchstart", onTouchStart, { passive: true });
       window.addEventListener("touchmove", onTouchMove, { passive: false });
       window.addEventListener("touchend", onTouchEnd);
+      window.addEventListener("popstate", onPopState);
 
       return () => {
         window.removeEventListener("wheel", onWheel);
@@ -148,6 +190,7 @@ export function FullPageScroll({ children }: { children: ReactNode }) {
         window.removeEventListener("touchstart", onTouchStart);
         window.removeEventListener("touchmove", onTouchMove);
         window.removeEventListener("touchend", onTouchEnd);
+        window.removeEventListener("popstate", onPopState);
         offGoTo();
       };
     });
