@@ -472,7 +472,7 @@
       ],
       "description": "의료 광고 특성상 과장된 표현을 피하고 시술 정보를 정확히 전달하는 데 집중했으며, 광고 채널의 노출 방식에 맞춰 영상 길이와 자막 구성을 조정했다.",
       "heroImage": {
-        "url": "/placeholders/dental.svg",
+        "url": "/uploads/28266071-9626-411e-941a-0da0cb1986c3.png",
         "kind": "image",
         "alt": "치과 광고 영상 대표 이미지 [자료 필요]"
       },
@@ -628,7 +628,7 @@
       "status": "draft",
       "order": 4,
       "createdAt": "2025-03-01T00:00:00.000Z",
-      "updatedAt": "2026-07-25T00:00:00.000Z"
+      "updatedAt": "2026-07-25T18:22:05.026Z"
     },
     {
       "id": "proj-lawyer-youtube",
