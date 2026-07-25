@@ -242,6 +242,7 @@ create table if not exists future_plans (
 create table if not exists closing_section (
   id int primary key default 1 check (id = 1),
   message text not null default '',
+  subline text default '',
   name text not null default '',
   role text not null default '',
   department text not null default '',
@@ -312,43 +313,82 @@ alter table revisions enable row level security;
 alter table trash enable row level security;
 
 -- 공개 읽기 정책 (published 상태만)
+-- create policy에는 IF NOT EXISTS가 없어서, 이 파일을 두 번째 실행하면
+-- "policy already exists" 오류가 난다. 매번 먼저 지우고 다시 만들어
+-- 이 스크립트를 몇 번 다시 실행해도 안전하게(idempotent) 했다.
+drop policy if exists "public read published hero" on hero_section;
 create policy "public read published hero" on hero_section for select using (status = 'published' and visible = true);
+drop policy if exists "public read published philosophy" on philosophy_section;
 create policy "public read published philosophy" on philosophy_section for select using (status = 'published' and visible = true);
+drop policy if exists "public read published timeline" on timeline_entries;
 create policy "public read published timeline" on timeline_entries for select using (status = 'published' and visible = true);
+drop policy if exists "public read published projects" on projects;
 create policy "public read published projects" on projects for select using (status = 'published' and public_ok = true);
+drop policy if exists "public read published competencies" on competencies;
 create policy "public read published competencies" on competencies for select using (status = 'published' and visible = true);
+drop policy if exists "public read ai_section" on ai_section;
 create policy "public read ai_section" on ai_section for select using (status = 'published');
+drop policy if exists "public read ai_tools" on ai_tools;
 create policy "public read ai_tools" on ai_tools for select using (visible = true);
+drop policy if exists "public read contribution_section" on contribution_section;
 create policy "public read contribution_section" on contribution_section for select using (status = 'published');
+drop policy if exists "public read contribution_items" on contribution_items;
 create policy "public read contribution_items" on contribution_items for select using (visible = true);
+drop policy if exists "public read achievements" on achievements;
 create policy "public read achievements" on achievements for select using (visible = true);
+drop policy if exists "public read collaborations" on collaborations;
 create policy "public read collaborations" on collaborations for select using (visible = true);
+drop policy if exists "public read fitness_section" on fitness_section;
 create policy "public read fitness_section" on fitness_section for select using (status = 'published');
+drop policy if exists "public read future_plans" on future_plans;
 create policy "public read future_plans" on future_plans for select using (visible = true);
+drop policy if exists "public read closing_section" on closing_section;
 create policy "public read closing_section" on closing_section for select using (status = 'published');
+drop policy if exists "public read faq_items" on faq_items;
 create policy "public read faq_items" on faq_items for select using (visible = true);
+drop policy if exists "public read profile" on profile;
 create policy "public read profile" on profile for select using (true);
+drop policy if exists "public read settings" on site_settings;
 create policy "public read settings" on site_settings for select using (true);
 
 -- 관리자 전체 권한 (로그인 사용자)
+drop policy if exists "admin all hero" on hero_section;
 create policy "admin all hero" on hero_section for all using (auth.role() = 'authenticated');
+drop policy if exists "admin all philosophy" on philosophy_section;
 create policy "admin all philosophy" on philosophy_section for all using (auth.role() = 'authenticated');
+drop policy if exists "admin all timeline" on timeline_entries;
 create policy "admin all timeline" on timeline_entries for all using (auth.role() = 'authenticated');
+drop policy if exists "admin all projects" on projects;
 create policy "admin all projects" on projects for all using (auth.role() = 'authenticated');
+drop policy if exists "admin all competencies" on competencies;
 create policy "admin all competencies" on competencies for all using (auth.role() = 'authenticated');
+drop policy if exists "admin all ai_section" on ai_section;
 create policy "admin all ai_section" on ai_section for all using (auth.role() = 'authenticated');
+drop policy if exists "admin all ai_tools" on ai_tools;
 create policy "admin all ai_tools" on ai_tools for all using (auth.role() = 'authenticated');
+drop policy if exists "admin all contribution_section" on contribution_section;
 create policy "admin all contribution_section" on contribution_section for all using (auth.role() = 'authenticated');
+drop policy if exists "admin all contribution_items" on contribution_items;
 create policy "admin all contribution_items" on contribution_items for all using (auth.role() = 'authenticated');
+drop policy if exists "admin all achievements" on achievements;
 create policy "admin all achievements" on achievements for all using (auth.role() = 'authenticated');
+drop policy if exists "admin all collaborations" on collaborations;
 create policy "admin all collaborations" on collaborations for all using (auth.role() = 'authenticated');
+drop policy if exists "admin all fitness_section" on fitness_section;
 create policy "admin all fitness_section" on fitness_section for all using (auth.role() = 'authenticated');
+drop policy if exists "admin all future_plans" on future_plans;
 create policy "admin all future_plans" on future_plans for all using (auth.role() = 'authenticated');
+drop policy if exists "admin all closing_section" on closing_section;
 create policy "admin all closing_section" on closing_section for all using (auth.role() = 'authenticated');
+drop policy if exists "admin all faq_items" on faq_items;
 create policy "admin all faq_items" on faq_items for all using (auth.role() = 'authenticated');
+drop policy if exists "admin all profile" on profile;
 create policy "admin all profile" on profile for all using (auth.role() = 'authenticated');
+drop policy if exists "admin all settings" on site_settings;
 create policy "admin all settings" on site_settings for all using (auth.role() = 'authenticated');
+drop policy if exists "admin all revisions" on revisions;
 create policy "admin all revisions" on revisions for all using (auth.role() = 'authenticated');
+drop policy if exists "admin all trash" on trash;
 create policy "admin all trash" on trash for all using (auth.role() = 'authenticated');
 
 -- 초기 싱글턴 행 생성
@@ -368,7 +408,67 @@ insert into storage.buckets (id, name, public)
 values ('portfolio-media', 'portfolio-media', true)
 on conflict (id) do nothing;
 
+drop policy if exists "public read media" on storage.objects;
 create policy "public read media" on storage.objects for select using (bucket_id = 'portfolio-media');
+drop policy if exists "admin upload media" on storage.objects;
 create policy "admin upload media" on storage.objects for insert with check (bucket_id = 'portfolio-media' and auth.role() = 'authenticated');
+drop policy if exists "admin update media" on storage.objects;
 create policy "admin update media" on storage.objects for update using (bucket_id = 'portfolio-media' and auth.role() = 'authenticated');
+drop policy if exists "admin delete media" on storage.objects;
 create policy "admin delete media" on storage.objects for delete using (bucket_id = 'portfolio-media' and auth.role() = 'authenticated');
+
+-- ============================================================================
+-- 마이그레이션 보정 (실제 DB에 처음 연결했을 때 드러난 문제 수정)
+--
+-- 1) closing_section에 subline 컬럼이 빠져 있었다(위 CREATE TABLE 정의에는
+--    이미 추가했지만, 이미 테이블을 만든 프로젝트에는 반영되지 않으므로
+--    ALTER로 보정한다).
+-- 2) 목록형 엔티티(timeline_entries/projects/competencies/ai_tools/
+--    contribution_items/achievements/collaborations/future_plans/faq_items)
+--    의 id를 uuid로 선언했었는데, 지금까지 로컬 모드에서 실제로 쓰던 id는
+--    "tl-2024", "proj-clothing", "c1" 처럼 진짜 UUID 형식이 아닌 문자열이다.
+--    그대로 옮기면 "invalid input syntax for type uuid" 오류가 난다.
+--    앱 코드(lib/data/repo.ts)는 항상 자기가 만든 id 문자열을 그대로 쓰므로,
+--    컬럼 타입을 uuid 대신 text로 바꿔 어떤 문자열 id도 저장할 수 있게 한다.
+--    이 블록은 몇 번을 다시 실행해도 안전하다(text -> text는 그대로 통과됨).
+-- ============================================================================
+alter table closing_section add column if not exists subline text default '';
+
+alter table timeline_entries alter column id type text;
+alter table timeline_entries alter column id set default uuid_generate_v4()::text;
+
+alter table projects alter column id type text;
+alter table projects alter column id set default uuid_generate_v4()::text;
+
+alter table competencies alter column id type text;
+alter table competencies alter column id set default uuid_generate_v4()::text;
+
+alter table ai_tools alter column id type text;
+alter table ai_tools alter column id set default uuid_generate_v4()::text;
+
+alter table contribution_items alter column id type text;
+alter table contribution_items alter column id set default uuid_generate_v4()::text;
+
+alter table achievements alter column id type text;
+alter table achievements alter column id set default uuid_generate_v4()::text;
+
+alter table collaborations drop constraint if exists collaborations_related_project_id_fkey;
+alter table collaborations alter column id type text;
+alter table collaborations alter column id set default uuid_generate_v4()::text;
+alter table collaborations alter column related_project_id type text;
+alter table collaborations add constraint collaborations_related_project_id_fkey
+  foreign key (related_project_id) references projects(id) on delete set null;
+
+alter table future_plans alter column id type text;
+alter table future_plans alter column id set default uuid_generate_v4()::text;
+
+alter table faq_items alter column id type text;
+alter table faq_items alter column id set default uuid_generate_v4()::text;
+
+-- ============================================================================
+-- 참고: 마이그레이션 스크립트를 SUPABASE_SERVICE_ROLE_KEY로 실행했는데도
+-- "new row violates row-level security policy" 오류가 난다면, 대부분
+-- Project Settings > API 화면에서 "anon public" 키를 잘못 복사한 경우다.
+-- service_role 키는 "secret"이라고 표시된 키이며, 이 키를 쓰면 RLS를 아예
+-- 우회하므로 위 정책들과 무관하게 항상 통과해야 한다.
+-- ============================================================================
