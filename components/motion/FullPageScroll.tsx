@@ -32,8 +32,8 @@ const COOLDOWN_MS = 90;
 const TAB_TRANSITION_MS = 380;
 const WHEEL_THRESHOLD = 4;
 const TOUCH_THRESHOLD = 40;
-// 프로필 섹션 내부에 스크롤로 넘어가는 하위 탭이 있다(§6-11).
-const SUB_STEP_SECTIONS: SectionId[] = ["profile"];
+// 프로필/업무 성장과정 섹션 내부에 스크롤로 넘어가는 하위 탭이 있다(§6-11, §25).
+const SUB_STEP_SECTIONS: SectionId[] = ["profile", "growth"];
 
 export function FullPageScroll({ children }: { children: ReactNode }) {
   const rootRef = useRef<HTMLDivElement>(null);

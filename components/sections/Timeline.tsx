@@ -6,15 +6,19 @@ import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/motion/Reveal";
 import { MediaFrame } from "@/components/ui/MediaFrame";
 import { gsap, prefersReducedMotion } from "@/lib/gsap";
+import { registerSubSteps } from "@/lib/fullpage";
 
 // ============================================================================
 // 전체 구조 개편 명세서 §3 — "03.업무 성장과정"
 // 기존에는 연도별 패널을 세로 스크롤에 맞춰 가로로 파닝(pin+horizontal
 // scrub)하는 방식이었다. 이 방식은 화면 여러 개 분량의 스크롤이 필요해서
-// Full Page Scroll(스크롤 1회 = 섹션 1개)과 함께 쓸 수 없고, 명세서에서도
-// "클릭으로도 이동 가능하게" 명시적으로 요구했다.
-// 그래서 연도 탭을 클릭해 전환하는 방식으로 다시 만들었다 — 자동 스크롤에만
-// 의존하지 않고, 사용자가 원하는 연도를 바로 클릭해서 볼 수 있다.
+// Full Page Scroll(스크롤 1회 = 섹션 1개)과 함께 쓸 수 없어서, 연도 탭을
+// 클릭해 전환하는 방식으로 다시 만들었다.
+//
+// §25 — "탭은 클릭보다 스크롤로 넘어가는 방식으로" 요청에 따라, 프로필과
+// 동일한 패턴으로 연도 탭도 registerSubSteps에 등록했다. 스크롤 한 번에
+// 연도가 ±1씩 넘어가고, 마지막/처음 연도에서 한 번 더 스크롤하면 다음/이전
+// 메인 섹션(대표 프로젝트/프로필)으로 넘어간다. 클릭 이동도 그대로 유지한다.
 // ============================================================================
 
 function YearContent({ entry }: { entry: TimelineEntry }) {
@@ -51,7 +55,26 @@ function YearContent({ entry }: { entry: TimelineEntry }) {
 export function Timeline({ entries }: { entries: TimelineEntry[] }) {
   const sorted = [...entries].sort((a, b) => a.order - b.order);
   const [active, setActive] = useState(0);
+  const activeRef = useRef(active);
   const current = sorted[Math.min(active, Math.max(sorted.length - 1, 0))];
+
+  useLayoutEffect(() => {
+    activeRef.current = active;
+  }, [active]);
+
+  useLayoutEffect(() => {
+    const count = sorted.length;
+    if (count === 0) return;
+    const unregister = registerSubSteps("growth", {
+      count,
+      getActive: () => activeRef.current,
+      // 위(프로필)에서 내려오면 첫 연도, 아래(대표 프로젝트)에서 올라오면
+      // 마지막 연도부터 보여준다 — 프로필의 진입 방향 규칙과 동일하다.
+      enter: (dir) => setActive(dir === 1 ? 0 : count - 1),
+      setActive: (index) => setActive(Math.max(0, Math.min(count - 1, index))),
+    });
+    return unregister;
+  }, [sorted.length]);
 
   return (
     <section id="growth" className="fp-section bg-bg py-6 md:py-8">
