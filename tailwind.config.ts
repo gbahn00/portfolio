@@ -7,29 +7,32 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      // 색상 최종 수정 요청서 §2-3 — 색상값을 여기 직접 적지 않고 전부
+      // globals.css의 CSS 변수를 참조한다. 실제 색상 교체는 globals.css의
+      // :root 변수 값만 바꾸면 전체 사이트에 반영된다.
       colors: {
         bg: {
-          DEFAULT: "#0A0A0A",
-          soft: "#11100F",
-          surface: "#191715",
+          DEFAULT: "var(--color-bg-primary)", // #0A0A0A
+          soft: "var(--color-bg-secondary)", // #161616
+          surface: "var(--color-bg-secondary)",
         },
         ink: {
-          DEFAULT: "#F3F0EB",
-          secondary: "#C7C1BA",
-          body: "#AAA39B",
-          muted: "#847D76",
-          disabled: "#5D5853",
+          DEFAULT: "var(--color-text-primary)",
+          secondary: "var(--color-text-secondary)",
+          body: "var(--color-text-body)",
+          muted: "var(--color-text-muted)",
+          disabled: "var(--color-text-disabled)",
         },
         accent: {
-          orange: "#EB613B",
-          hover: "#F27A59",
-          dark: "#B8462B",
-          soft: "rgba(235, 97, 59, 0.12)",
-          blue: "#5B7CFF",
+          orange: "var(--accent)", // #EB613B
+          hover: "var(--color-accent-hover)",
+          dark: "var(--color-accent-dark)",
+          soft: "var(--color-accent-soft)",
+          blue: "var(--color-accent-blue)",
         },
         line: {
-          DEFAULT: "#292623",
-          strong: "#51423B",
+          DEFAULT: "var(--color-border)",
+          strong: "var(--color-border-strong)",
         },
       },
       fontFamily: {

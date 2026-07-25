@@ -35,7 +35,7 @@ export function FuturePlans({ items }: { items: FuturePlan[] }) {
           <RevealGroup className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6" stagger={0.12}>
             {visible.map((plan, i) => (
               <RevealItem key={plan.id}>
-                <div className="h-full rounded-sm border border-line p-5 md:p-6 flex flex-col">
+                <div className="h-full rounded-sm border border-line bg-bg-soft p-5 md:p-6 flex flex-col">
                   <p className="font-en text-xs tracking-wide accent-text mb-2">{STAGE_LABELS[i] || `STAGE ${i + 1}`}</p>
                   <h3 className="text-xl md:text-2xl font-bold mb-3 text-korean">{plan.title}</h3>
                   <p className="body text-ink-secondary text-korean mb-4 flex-1">{plan.summary}</p>

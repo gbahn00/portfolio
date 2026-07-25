@@ -67,7 +67,7 @@ export function Closing({ data }: { data: ClosingSection }) {
     <section
       id="closing"
       ref={sectionRef}
-      className="relative h-[100dvh] flex flex-col justify-between overflow-hidden bg-bg"
+      className="relative h-[100dvh] flex flex-col justify-between overflow-hidden bg-bg-soft"
     >
       <div className="absolute inset-0">
         <div ref={bgRef} className="absolute inset-0">
