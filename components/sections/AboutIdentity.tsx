@@ -50,7 +50,7 @@ export function AboutIdentity({ profile, philosophy }: { profile: Profile; philo
         scrollTrigger: {
           trigger: pinSection,
           start: "top top",
-          end: `+=${total * 700}`,
+          end: `+=${total * 820}`,
           pin: true,
           scrub: 0.6,
           anticipatePin: 1,

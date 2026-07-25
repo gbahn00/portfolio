@@ -93,7 +93,7 @@ function SequentialSkills({ items }: { items: Competency[] }) {
         scrollTrigger: {
           trigger: pin,
           start: "top top",
-          end: `+=${titles.length * 750}`,
+          end: `+=${titles.length * 880}`,
           pin: true,
           scrub: 0.6,
           anticipatePin: 1,

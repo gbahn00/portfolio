@@ -39,6 +39,20 @@ export const ENTER_ONLY_TOGGLE = "play none play reverse";
 export const STANDARD_SCRUB = 0.6;
 
 /**
+ * 공통 모션 토큰 (9라운드 명세서 §13 "Motion 통일" 기준) — 새로 추가하는
+ * UI 요소(호버, 버튼, 카드 등)는 이 값을 기본으로 사용해 사이트 전체의
+ * 움직임 속도/질감을 통일한다. 기존에 세밀하게 튜닝된 스크롤 연동 모션
+ * (Enter/Active/Exit 구간별 duration)은 그대로 유지하고, 이 토큰은 신규
+ * 요소에 한해 적용한다.
+ */
+export const MOTION = {
+  duration: 0.6,
+  /** GSAP에 기본 내장된 easeOutExpo에 가장 가까운 표준 이징. */
+  ease: "expo.out",
+  hoverDuration: 0.35,
+} as const;
+
+/**
  * 용도별 scrub 값 (특별진급 포트폴리오 최종 수정 명세서 §20.4 기준)
  * 일반 Reveal: 0.3~0.5 / Pin Section: 0.5~0.8 / Horizontal Scroll: 0.6~1.0
  */

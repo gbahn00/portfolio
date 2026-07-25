@@ -74,7 +74,10 @@ export function Reveal({ children, delay = 0, y, className, strength = "weak", h
 }
 
 /** 여러 항목을 순차적으로(스태거) 등장시키는 그룹. 자식은 RevealItem을 사용합니다. */
-export function RevealGroup({ children, className, stagger = 0.08 }: { children: ReactNode; className?: string; stagger?: number }) {
+// 9라운드 명세서 §5 "Card Stagger Animation" — 카드가 동시에 나타나지 않고
+// 한 장씩 순서대로 등장하는 느낌을 주기 위해 기본 stagger를 0.08 -> 0.13으로
+// 늘렸다(권장 범위 0.12~0.18초).
+export function RevealGroup({ children, className, stagger = 0.13 }: { children: ReactNode; className?: string; stagger?: number }) {
   const ref = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {

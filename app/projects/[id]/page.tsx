@@ -4,6 +4,7 @@ import { Container } from "@/components/ui/Container";
 import { MediaFrame } from "@/components/ui/MediaFrame";
 import { Reveal } from "@/components/motion/Reveal";
 import { ProjectCover } from "@/components/sections/ProjectCover";
+import { ProjectNav } from "@/components/sections/ProjectNav";
 import { isPlaceholder } from "@/lib/utils";
 
 export const dynamic = "force-dynamic";
@@ -27,6 +28,12 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
   const project = content.projects.find((p) => p.id === params.id);
 
   if (!project || !project.publicOk) notFound();
+
+  // Selected Works와 동일한 정렬 기준(order)으로 이전/다음 프로젝트를 찾는다.
+  const orderedPublic = content.projects.filter((p) => p.publicOk).sort((a, b) => a.order - b.order);
+  const currentIndex = orderedPublic.findIndex((p) => p.id === project.id);
+  const prevProject = currentIndex > 0 ? orderedPublic[currentIndex - 1] : null;
+  const nextProject = currentIndex >= 0 && currentIndex < orderedPublic.length - 1 ? orderedPublic[currentIndex + 1] : null;
 
   const blocks = [...project.detailBlocks].filter((b) => b.visible !== false).sort((a, b) => a.order - b.order);
 
@@ -101,6 +108,10 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
             </Reveal>
           )}
         </div>
+      </Container>
+
+      <Container className="pb-24 md:pb-32">
+        <ProjectNav prev={prevProject} next={nextProject} />
       </Container>
     </main>
   );

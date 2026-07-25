@@ -104,6 +104,16 @@ export function Hero({
 
   return (
     <section ref={sectionRef} className="relative h-[100svh] w-full overflow-hidden bg-bg">
+      {/* 9라운드 명세서 §7 — 아주 약한 배경 깊이감. 가독성에 영향 없도록
+          투명도를 매우 낮게(6%) 유지하고, 애니메이션 대상이 아닌 순수
+          정적 CSS 배경이라 성능 비용도 없다. */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 60% 50% at 15% 20%, rgba(235,97,59,0.06), transparent 60%)",
+        }}
+      />
       <div ref={overlayRef} className="absolute inset-0 z-30 bg-bg pointer-events-none" />
 
       <Container className="relative z-10 flex h-full flex-col justify-center py-24 md:py-28">

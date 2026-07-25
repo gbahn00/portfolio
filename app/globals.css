@@ -176,25 +176,14 @@ body {
 /* ============================================================
    Grid / Layout / Spacing (§7-8)
    ============================================================ */
-/* §4.1, §16 반응형 여백 기준: 모바일 20px / 태블릿 32px / 노트북 48px / 대형 데스크톱 64px (각 편) */
+/* §4.1, §16 반응형 여백 기준 + 9라운드 명세서 §1.1 -- 좌우 여백을 breakpoint별
+   고정 단계 대신 clamp(24px, 6vw, 80px)로 유연하게 만들어, 화면 크기가
+   조금만 바뀌어도 계단식으로 끊기지 않고 부드럽게 늘어나도록 한다.
+   최대 폭(1600px)은 지금까지 검증된 값을 그대로 유지한다. */
 .page-container {
-  width: min(100% - 40px, 1600px);
+  --page-pad: clamp(24px, 6vw, 80px);
+  width: min(100% - (var(--page-pad) * 2), 1600px);
   margin-inline: auto;
-}
-@media (min-width: 768px) {
-  .page-container {
-    width: min(100% - 64px, 1600px);
-  }
-}
-@media (min-width: 1024px) {
-  .page-container {
-    width: min(100% - 96px, 1600px);
-  }
-}
-@media (min-width: 1440px) {
-  .page-container {
-    width: min(100% - 128px, 1600px);
-  }
 }
 
 /* 대형 제목 전용 안전 여백 (§4.2) — 일반 Container보다 살짝 더 넓게 확보 */

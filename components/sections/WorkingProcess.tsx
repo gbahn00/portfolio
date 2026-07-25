@@ -33,7 +33,7 @@ export function WorkingProcess() {
         scrollTrigger: {
           trigger: pin,
           start: "top top",
-          end: `+=${STEPS.length * 650}`,
+          end: `+=${STEPS.length * 760}`,
           pin: true,
           scrub: 0.6,
           anticipatePin: 1,

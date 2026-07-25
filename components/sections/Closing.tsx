@@ -5,6 +5,7 @@ import { ClosingSection } from "@/lib/types";
 import { Container } from "@/components/ui/Container";
 import { MaskLines } from "@/components/motion/MaskLines";
 import { ScrollTopButton } from "@/components/motion/ScrollTopButton";
+import Link from "next/link";
 import { mediaSrc } from "@/lib/utils";
 import { gsap, prefersReducedMotion, ENTER_ONLY_TOGGLE } from "@/lib/gsap";
 
@@ -55,7 +56,11 @@ export function Closing({ data }: { data: ClosingSection }) {
     return () => ctx.revert();
   }, []);
 
+  const links = (data.externalLinks || []).filter((l) => l.label && l.url);
+  const year = new Date().getFullYear();
+
   return (
+    <>
     <section ref={sectionRef} className="relative min-h-[100svh] flex items-center overflow-hidden bg-bg">
       <div className="absolute inset-0">
         <div ref={bgRef} className="absolute inset-0">
@@ -85,5 +90,55 @@ export function Closing({ data }: { data: ClosingSection }) {
         </div>
       </Container>
     </section>
+
+    {/* 9라운드 명세서 §14 — Contact/FAQ/SNS를 하나의 Grid로 구성한 Footer.
+        SNS/이메일(externalLinks)은 관리자 페이지에서 채워 넣기 전까지는
+        실제 값이 없으므로, 비어 있으면 해당 열을 그냥 숨긴다(임의 채움 금지). */}
+    <footer className="relative bg-bg-soft border-t border-line">
+      <Container className="py-16 md:py-20">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-10 mb-12 md:mb-16">
+          <div>
+            <p className="font-en caption text-ink-muted tracking-wide mb-4">MENU</p>
+            <ul className="space-y-2.5">
+              <li><Link href="/#about" className="text-sm text-ink-secondary transition-colors duration-[0.35s] ease-out hover:text-ink">About</Link></li>
+              <li><Link href="/#selected-works" className="text-sm text-ink-secondary transition-colors duration-[0.35s] ease-out hover:text-ink">Works</Link></li>
+              <li><Link href="/#faq" className="text-sm text-ink-secondary transition-colors duration-[0.35s] ease-out hover:text-ink">FAQ</Link></li>
+            </ul>
+          </div>
+
+          {links.length > 0 && (
+            <div>
+              <p className="font-en caption text-ink-muted tracking-wide mb-4">CONTACT</p>
+              <ul className="space-y-2.5">
+                {links.map((l) => (
+                  <li key={l.id}>
+                    <a
+                      href={l.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-ink-secondary transition-colors duration-[0.35s] ease-out hover:text-ink"
+                    >
+                      {l.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          <div className="col-span-2 md:col-span-2">
+            <p className="font-en caption text-ink-muted tracking-wide mb-4">PROFILE</p>
+            <p className="text-sm text-ink font-medium mb-1">{data.name}</p>
+            <p className="text-sm text-ink-secondary">{data.department} · {data.role}</p>
+          </div>
+        </div>
+
+        <div className="pt-8 border-t border-line flex flex-wrap items-center justify-between gap-4">
+          <p className="font-en text-xs text-ink-muted">© {year} {data.name}</p>
+          <p className="font-en text-xs text-ink-muted">{data.badge}</p>
+        </div>
+      </Container>
+    </footer>
+    </>
   );
 }

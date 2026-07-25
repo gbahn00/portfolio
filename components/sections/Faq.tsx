@@ -57,7 +57,7 @@ export function Faq({ items }: { items: FaqItem[] }) {
   if (visible.length === 0) return null;
 
   return (
-    <section className="section-pad bg-bg">
+    <section id="faq" className="section-pad bg-bg">
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-[5fr_7fr] gap-10 md:gap-16">
           <div>
