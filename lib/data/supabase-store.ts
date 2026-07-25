@@ -8,7 +8,7 @@ import { SiteContent } from "../types";
 // 연결 직후 관리자 화면에서 각 섹션을 한 번씩 저장해보며 정상 동작을 확인하세요.
 // ============================================================================
 
-function client() {
+export function client() {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY ?? process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
   if (!url || !key) {
@@ -136,4 +136,29 @@ export async function saveContentSupabase(content: SiteContent): Promise<void> {
   if (content.collaborations.length) await sb.from("collaborations").upsert(content.collaborations.map(snake));
   if (content.futurePlans.length) await sb.from("future_plans").upsert(content.futurePlans.map(snake));
   if (content.faq?.length) await sb.from("faq_items").upsert(content.faq.map(snake));
+}
+
+const MEDIA_BUCKET = "portfolio-media";
+
+/**
+ * 이미지/영상 업로드(Supabase Storage 버전).
+ * app/api/admin/upload/route.ts가 로컬 파일시스템 대신 이 함수를 쓰면,
+ * Vercel의 읽기 전용 파일시스템과 무관하게 실제로 파일이 남는다.
+ * supabase/schema.sql의 portfolio-media 버킷(공개 읽기)에 업로드하고
+ * 공개 URL을 돌려준다.
+ */
+export async function uploadMediaSupabase(
+  filename: string,
+  bytes: Buffer,
+  contentType: string
+): Promise<string> {
+  const sb = client();
+  const path = `uploads/${filename}`;
+  const { error } = await sb.storage.from(MEDIA_BUCKET).upload(path, bytes, {
+    contentType,
+    upsert: false,
+  });
+  if (error) throw error;
+  const { data } = sb.storage.from(MEDIA_BUCKET).getPublicUrl(path);
+  return data.publicUrl;
 }
