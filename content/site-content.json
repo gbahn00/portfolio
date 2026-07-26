@@ -485,22 +485,6 @@
           },
           "caption": "",
           "order": 5
-        },
-        {
-          "id": "fbcac170-8459-436d-9851-806a1a428382",
-          "before": {
-            "url": "/uploads/154a9396-a791-44ff-aa57-c01c594cc480.jpg",
-            "kind": "image",
-            "alt": ""
-          },
-          "after": {
-            "url": "/uploads/cbd0d89e-e305-4b30-bd2d-61ad5f6b366b.jpg",
-            "kind": "image",
-            "alt": ""
-          },
-          "caption": "",
-          "order": 6,
-          "category": "model"
         }
       ],
       "metrics": [],
@@ -511,7 +495,7 @@
       "status": "draft",
       "order": 0,
       "createdAt": "2024-08-01T00:00:00.000Z",
-      "updatedAt": "2026-07-26T11:56:43.720Z"
+      "updatedAt": "2026-07-26T12:08:02.962Z"
     },
     {
       "id": "proj-cafe",

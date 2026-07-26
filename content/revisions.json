@@ -1,5 +1,272 @@
 [
   {
+    "id": "753f4241-4359-4806-8414-dbcf7cdd2e51",
+    "entity": "projects:proj-clothing",
+    "field": "수정",
+    "before": {
+      "id": "proj-clothing",
+      "number": "01",
+      "title": "상세페이지 디테일컷 및 모델 촬영 · 보정",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "의류",
+      "purpose": "제품의 실제 색감과 디테일을 정확하게 표현하고, 모델 착용 이미지를 통해 온라인에서도 상품의 특징과 착용감을 직관적으로 전달할 수 있는 이미지 제작",
+      "role": "촬영 · 색보정 · 리터칭",
+      "tools": [
+        "[자료 필요] 사용 장비 및 보정 프로그램 목록"
+      ],
+      "description": "온라인 판매용 의류 상세페이지에 활용되는 디테일컷과 모델 착용컷을 촬영하고 보정한 프로젝트입니다. 제품의 색감과 소재를 실제와 가깝게 표현하고, 모델 착용 이미지를 통해 상품의 실루엣과 착용감을 자연스럽게 전달하는 데 중점을 두었습니다.",
+      "heroImage": {
+        "url": "/placeholders/clothing.svg",
+        "kind": "image",
+        "alt": "의류 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [],
+      "beforeAfter": [
+        {
+          "id": "75331a83-1d99-4958-9620-389756ec918d",
+          "before": {
+            "url": "/uploads/560e8d0a-80f2-4ca2-ae88-9d9696377c39.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/ad742acf-2f00-4d4f-b6f1-b3cea56793e5.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 0
+        },
+        {
+          "id": "de27a56e-87b1-452f-ad26-880a38647ae8",
+          "before": {
+            "url": "/uploads/5ad2940b-8033-4784-bc39-8f35d29acb18.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/89a1375c-a17d-42b8-b0ad-f3fc4548de34.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 1
+        },
+        {
+          "id": "f8abfd28-b9c9-4565-bcd3-66d6a894807e",
+          "before": {
+            "url": "/uploads/3a07bb4b-d9a3-4560-b38a-dd7ab5cef6a0.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/b22bc817-8e49-4410-a10c-d2a57384a22e.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 2
+        },
+        {
+          "id": "6c76cf0f-6804-4c24-82ef-7e5330847840",
+          "before": {
+            "url": "/uploads/17f266d4-c19d-4436-9180-f7753d228997.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/a0caa908-cdde-4364-9212-b7d3c9e5ebbc.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 3
+        },
+        {
+          "id": "38ffbc85-9c75-4497-8fb1-768ce5b44f79",
+          "before": {
+            "url": "/uploads/b01a9f32-5489-4b45-8bbc-0b77f2e5c134.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/9756217f-6292-49d2-97e0-844f79c7ba35.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 4
+        },
+        {
+          "id": "ab85be1c-920e-4f60-bb7f-ee28afa45e25",
+          "before": {
+            "url": "/uploads/226bc039-2259-4bba-b5c8-6f99fb332a30.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/8f49b97c-b69b-4927-af57-cb838f0a3ed3.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 5
+        },
+        {
+          "id": "fbcac170-8459-436d-9851-806a1a428382",
+          "before": {
+            "url": "/uploads/154a9396-a791-44ff-aa57-c01c594cc480.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/cbd0d89e-e305-4b30-bd2d-61ad5f6b366b.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 6,
+          "category": "model"
+        }
+      ],
+      "metrics": [],
+      "detailBlocks": [],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 0,
+      "createdAt": "2024-08-01T00:00:00.000Z",
+      "updatedAt": "2026-07-26T11:56:43.720Z"
+    },
+    "after": {
+      "id": "proj-clothing",
+      "number": "01",
+      "title": "상세페이지 디테일컷 및 모델 촬영 · 보정",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "의류",
+      "purpose": "제품의 실제 색감과 디테일을 정확하게 표현하고, 모델 착용 이미지를 통해 온라인에서도 상품의 특징과 착용감을 직관적으로 전달할 수 있는 이미지 제작",
+      "role": "촬영 · 색보정 · 리터칭",
+      "tools": [
+        "[자료 필요] 사용 장비 및 보정 프로그램 목록"
+      ],
+      "description": "온라인 판매용 의류 상세페이지에 활용되는 디테일컷과 모델 착용컷을 촬영하고 보정한 프로젝트입니다. 제품의 색감과 소재를 실제와 가깝게 표현하고, 모델 착용 이미지를 통해 상품의 실루엣과 착용감을 자연스럽게 전달하는 데 중점을 두었습니다.",
+      "heroImage": {
+        "url": "/placeholders/clothing.svg",
+        "kind": "image",
+        "alt": "의류 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [],
+      "beforeAfter": [
+        {
+          "id": "75331a83-1d99-4958-9620-389756ec918d",
+          "before": {
+            "url": "/uploads/560e8d0a-80f2-4ca2-ae88-9d9696377c39.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/ad742acf-2f00-4d4f-b6f1-b3cea56793e5.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 0
+        },
+        {
+          "id": "de27a56e-87b1-452f-ad26-880a38647ae8",
+          "before": {
+            "url": "/uploads/5ad2940b-8033-4784-bc39-8f35d29acb18.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/89a1375c-a17d-42b8-b0ad-f3fc4548de34.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 1
+        },
+        {
+          "id": "f8abfd28-b9c9-4565-bcd3-66d6a894807e",
+          "before": {
+            "url": "/uploads/3a07bb4b-d9a3-4560-b38a-dd7ab5cef6a0.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/b22bc817-8e49-4410-a10c-d2a57384a22e.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 2
+        },
+        {
+          "id": "6c76cf0f-6804-4c24-82ef-7e5330847840",
+          "before": {
+            "url": "/uploads/17f266d4-c19d-4436-9180-f7753d228997.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/a0caa908-cdde-4364-9212-b7d3c9e5ebbc.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 3
+        },
+        {
+          "id": "38ffbc85-9c75-4497-8fb1-768ce5b44f79",
+          "before": {
+            "url": "/uploads/b01a9f32-5489-4b45-8bbc-0b77f2e5c134.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/9756217f-6292-49d2-97e0-844f79c7ba35.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 4
+        },
+        {
+          "id": "ab85be1c-920e-4f60-bb7f-ee28afa45e25",
+          "before": {
+            "url": "/uploads/226bc039-2259-4bba-b5c8-6f99fb332a30.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/8f49b97c-b69b-4927-af57-cb838f0a3ed3.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 5
+        }
+      ],
+      "metrics": [],
+      "detailBlocks": [],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 0,
+      "createdAt": "2024-08-01T00:00:00.000Z",
+      "updatedAt": "2026-07-26T12:08:02.962Z"
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-26T12:08:03.172Z"
+  },
+  {
     "id": "7976362c-5144-4ebc-96c6-e7fb8608dfcf",
     "entity": "projects:proj-clothing",
     "field": "수정",

@@ -13,33 +13,26 @@ import { useEffect, useRef, useState, ReactNode } from "react";
 //
 // §91 — 예전 방식(§69, 높이만 고정하고 폭은 원본 비율대로 옆으로 이어
 // 붙이는 자유 스크롤)으로 크기 자체는 되돌리되, 화살표 버튼으로 페이지
-// 단위 스크롤이 가능한 "슬라이드" 느낌은 유지했다. 즉:
-//   - 각 사진/영상은 높이만 고정(heightClassName)하고 폭은 원본 비율대로
-//     자동으로 정해진다 → 화면 크기에 따라 여러 장이 동시에 보인다.
-//   - 간격(gapClassName)을 좁혀 사진 사이 여백을 줄였다.
-//   - 화살표를 누르면 "한 화면 분량"만큼 옆으로 스크롤한다(스냅 포함).
-//   - 항목마다 폭이 달라 "몇 번째 슬라이드"가 명확하지 않으므로 점
-//     인디케이터는 없애고, 더 스크롤할 내용이 있을 때만 화살표를 보여준다.
+// 단위 스크롤이 가능한 "슬라이드" 느낌은 유지했다.
 //
 // §92 — "세로 슬라이드가 생겼다"는 신고. overflow-x-auto만 넣고
 // overflow-y를 따로 지정하지 않으면, CSS 스펙상 한쪽 축이라도 visible이
 // 아니게 지정되면 나머지 축의 계산값도 자동으로 visible→auto로 바뀐다
-// (브라우저 표준 동작). 그래서 캡션 등 내용이 세로로 살짝 넘칠 때마다
-// 의도치 않은 세로 스크롤(=세로 슬라이드)이 함께 생겼다. overflow-y를
-// 명시적으로 hidden으로 고정해 가로 슬라이드만 남기고, 내용이 넘치는
-// 경우는(§92, BeforeAfterSlider 캡션) 각 호출부에서 높이 예산을 미리
-// 맞춰 잘리지 않게 했다.
+// (브라우저 표준 동작). overflow-y를 명시적으로 hidden으로 고정했다.
 //
-// §93 — "사진 사이 간격이 너무 길다 / 한 장을 넘기면 빈 공간이 길게
-// 나오고서야 다음 사진이 나온다"는 신고. 각 슬라이드 항목을 감싸는 div가
-// (h-full shrink-0만 있고 폭을 지정하지 않아) flex 아이템의 기본 "auto"
-// 폭 계산에 의존하고 있었는데, 내부에 이미지 하나가 아니라 박스+캡션이
-// 함께 있는 겹겹이 중첩된 구조(예: BeforeAfterSlider)에서는 이 자동
-// 계산이 안정적으로 사진 폭만큼 줄어들지 않고 트랙 폭 전체로 늘어나는
-// 경우가 있었다 — 그 결과 사진은 왼쪽에 작게 보이고 나머지 빈 공간이
-// 함께 스크롤되어 "사이 간격이 매우 긴" 것처럼 보였다. 각 항목에
-// w-fit(내용 폭만큼만 차지)을 명시해 항상 사진 실제 폭만큼만 차지하도록
-// 고정했다.
+// §93-94 — "사진 사이 간격이 너무 길다 / 사진이 하나밖에 안 보인다"는
+// 신고가 반복됐다. flex 컨테이너 안에서 "폭을 지정하지 않은 항목"이 내용
+// 크기만큼 줄어드는(shrink-to-fit) 계산은, 항목 내부에 이미지 하나만
+// 있는 게 아니라 박스+캡션처럼 여러 레이어가 겹친 구조(예:
+// BeforeAfterSlider)에서 브라우저마다 안정적으로 동작하지 않았다 —
+// w-fit을 명시해도 여전히 항목이 트랙 전체 폭으로 늘어나 사진 하나만
+// 보이고 나머지는 스크롤해야 보이는 문제가 재현됐다.
+//
+// §94 — flex 기반 shrink-to-fit 대신, 이미지 갤러리에서 가장 오래
+// 검증된 안정적인 패턴인 "white-space: nowrap + inline-block"으로
+// 트랙 구조를 바꿨다. inline 요소는 flex 아이템과 달리 항상 자기 내용
+// 크기만큼만 차지하는 게 기본 동작이라 이런 폭 계산 문제 자체가 생기지
+// 않는다.
 // ============================================================================
 
 export function SlideCarousel<T>({
@@ -47,13 +40,16 @@ export function SlideCarousel<T>({
   renderItem,
   keyOf,
   heightClassName = "h-72 sm:h-80 md:h-96",
-  gapClassName = "gap-3 md:gap-4",
+  // §95 — "사진 사이 간격을 참고 이미지처럼 짧게" 요청. mr-3/mr-4(12~16px)에서
+  // mr-1.5/mr-2(6~8px)로 줄였다.
+  gapClassName = "mr-1.5 md:mr-2",
   className,
 }: {
   items: T[];
   renderItem: (item: T, index: number) => ReactNode;
   keyOf?: (item: T, index: number) => string | number;
   heightClassName?: string;
+  /** 항목 사이 간격. flex의 gap이 아니라 각 항목의 오른쪽 margin으로 준다. */
   gapClassName?: string;
   className?: string;
 }) {
@@ -100,10 +96,13 @@ export function SlideCarousel<T>({
         <div
           ref={trackRef}
           onScroll={updateArrows}
-          className={`flex items-start ${heightClassName} ${gapClassName} overflow-x-auto overflow-y-hidden snap-x snap-mandatory scroll-smooth -mx-1 px-1`}
+          className={`whitespace-nowrap ${heightClassName} overflow-x-auto overflow-y-hidden snap-x snap-mandatory scroll-smooth -mx-1 px-1`}
         >
           {items.map((item, i) => (
-            <div key={keyOf ? keyOf(item, i) : i} className="h-full w-fit shrink-0 snap-start">
+            <div
+              key={keyOf ? keyOf(item, i) : i}
+              className={`inline-block align-top h-full snap-start ${i < items.length - 1 ? gapClassName : ""}`}
+            >
               {renderItem(item, i)}
             </div>
           ))}
