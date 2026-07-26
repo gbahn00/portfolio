@@ -7,6 +7,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { MediaFrame } from "@/components/ui/MediaFrame";
 import { gsap, prefersReducedMotion } from "@/lib/gsap";
 import { registerSubSteps } from "@/lib/fullpage";
+import { mediaSrc } from "@/lib/utils";
 
 // ============================================================================
 // 인터랙션 수정 요청서 §5-23 (누적) — "02.프로필" 섹션.
@@ -320,8 +321,19 @@ export function ProfileSection({
               탭에 따라 Fade 전환된다. 그리드 비율(0.9fr/1.1fr)은 이전
               IdentityPanel과 동일하게 유지해 사진 크기/위치가 그대로다. */}
           <div className="grid grid-cols-1 md:grid-cols-[0.9fr_1.1fr] gap-6 md:gap-10 h-full items-stretch">
-            <div className="relative w-full max-w-[46%] md:max-w-none aspect-square mx-auto md:mx-0 overflow-hidden rounded-sm">
-              <MediaFrame media={profile.profilePhoto} className="h-full w-full" />
+            {/* §73 — 정사각형 강제 크롭 대신, 첨부한 사진의 원본 비율을
+                그대로 유지한 채 열 높이(h-full) 안에서 잘리지 않게
+                보여준다(가운데 정렬 + max-w/max-h로 비율 유지). */}
+            <div className="relative w-full max-w-[46%] md:max-w-none h-full mx-auto md:mx-0 overflow-hidden rounded-sm flex items-center justify-center">
+              {profile.profilePhoto?.url && (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={mediaSrc(profile.profilePhoto.url)}
+                  alt={profile.profilePhoto.alt || ""}
+                  className="max-w-full max-h-full w-auto h-auto object-contain"
+                  style={{ filter: "brightness(0.9) contrast(1.05)" }}
+                />
+              )}
             </div>
             <div ref={stageRef} className="relative h-full min-w-0">
               {tab === "identity" && <IdentityText profile={profile} philosophy={philosophy} />}

@@ -6,6 +6,7 @@ import { Container } from "@/components/ui/Container";
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/Reveal";
 import { MediaFrame } from "@/components/ui/MediaFrame";
 import { gsap, prefersReducedMotion, FAST_SCROLL_SAFE } from "@/lib/gsap";
+import { mediaSrc } from "@/lib/utils";
 
 // ============================================================
 // About Section (§11) — 섹션 전체를 Pin 처리한 뒤, 문장을 한 개씩
@@ -21,7 +22,7 @@ export function AboutIdentity({ profile, philosophy }: { profile: Profile; philo
   const pinSectionRef = useRef<HTMLDivElement>(null);
   const stageRef = useRef<HTMLDivElement>(null);
   const photoWrapRef = useRef<HTMLDivElement>(null);
-  const imgRef = useRef<HTMLDivElement>(null);
+  const imgRef = useRef<HTMLImageElement>(null);
   const counterRef = useRef<HTMLSpanElement>(null);
 
   useLayoutEffect(() => {
@@ -122,10 +123,21 @@ export function AboutIdentity({ profile, philosophy }: { profile: Profile; philo
               </p>
             </div>
 
-            <div ref={photoWrapRef} className="relative aspect-square w-full max-w-sm overflow-hidden rounded-sm justify-self-center md:justify-self-end">
-              <div ref={imgRef} className="absolute inset-0">
-                <MediaFrame media={profile.profilePhoto} className="h-full w-full" priority />
-              </div>
+            {/* §73 — 1:1 정사각형 박스 + object-cover로 채웠더니 세로/가로
+                사진이 잘려서 보인다는 피드백을 받았다. 강제로 자르는 대신
+                첨부한 사진의 원본 비율 그대로 자연스러운 크기로 보여주고,
+                폭(max-w-sm)만 제한한다 — 레터박스(빈 여백)도, 잘림도 없다. */}
+            <div ref={photoWrapRef} className="relative w-full max-w-sm overflow-hidden rounded-sm justify-self-center md:justify-self-end">
+              {profile.profilePhoto?.url && (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  ref={imgRef}
+                  src={mediaSrc(profile.profilePhoto.url)}
+                  alt={profile.profilePhoto.alt || ""}
+                  className="block w-full h-auto"
+                  style={{ filter: "brightness(0.9) contrast(1.05)" }}
+                />
+              )}
             </div>
           </div>
         </Container>
