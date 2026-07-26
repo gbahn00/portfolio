@@ -66,7 +66,13 @@ export function ProfileEditor({ initial }: { initial: Profile }) {
       <TextField label="입사일" value={data.joinedAt} onChange={(v) => set("joinedAt", v)} hint="예: 2024-07-01" />
       <TextAreaField label="짧은 자기소개" value={data.introShort} onChange={(v) => set("introShort", v)} rows={2} />
       <TextAreaField label="긴 자기소개" value={data.introLong} onChange={(v) => set("introLong", v)} rows={4} />
-      <TextField label="대표 문구" value={data.representativePhrase} onChange={(v) => set("representativePhrase", v)} />
+      <TextAreaField
+        label="대표 문구"
+        value={data.representativePhrase}
+        onChange={(v) => set("representativePhrase", v)}
+        rows={2}
+        hint="Enter로 줄바꿈을 입력하면 공개 화면에도 그대로 반영됩니다."
+      />
 
       <MediaUpload label="프로필 사진" value={data.profilePhoto} onChange={(m) => set("profilePhoto", m)} />
 

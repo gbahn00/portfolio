@@ -34,7 +34,13 @@ function Card({ item, onSaved, onDeleted, index }: { item: Competency; onSaved: 
         <span className="text-xs text-neutral-500">역량 {index + 1}</span>
         <ToggleField label="" value={draft.visible} onChange={(v) => set("visible", v)} />
       </div>
-      <TextField label="역량명" value={draft.title} onChange={(v) => set("title", v)} />
+      <TextAreaField
+        label="역량명"
+        value={draft.title}
+        onChange={(v) => set("title", v)}
+        rows={2}
+        hint="Enter로 줄바꿈을 입력하면 공개 화면에도 그대로 반영됩니다."
+      />
       <TextAreaField label="설명" value={draft.description} onChange={(v) => set("description", v)} rows={2} />
       <MediaUpload label="대표 이미지/영상 (선택)" value={draft.media} onChange={(m) => set("media", m)} />
       <div className="flex items-center justify-between mt-2">

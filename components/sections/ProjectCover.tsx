@@ -87,7 +87,7 @@ export function ProjectCover({ project }: { project: Project }) {
         <div className="flex-1" />
 
         <div ref={titleRef}>
-          <h1 className="hero-title font-bold text-korean max-w-4xl">{project.title}</h1>
+          <h1 className="hero-title font-bold text-korean max-w-4xl whitespace-pre-line">{project.title}</h1>
         </div>
 
         <div ref={metaRef} className="flex flex-wrap gap-x-10 gap-y-2 text-sm text-ink-secondary mt-5 md:mt-6">

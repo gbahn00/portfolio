@@ -65,7 +65,13 @@ function EntryCard({ entry, onSaved, onDeleted }: { entry: TimelineEntry; onSave
           />
           <TextAreaField label="설명" value={draft.description} onChange={(v) => set("description", v)} rows={2} />
           <TextListEditor label="주요 경험" items={draft.experiences} onChange={(v) => set("experiences", v as any)} />
-          <TextField label="전달 메시지" value={draft.message} onChange={(v) => set("message", v)} />
+          <TextAreaField
+            label="전달 메시지"
+            value={draft.message}
+            onChange={(v) => set("message", v)}
+            rows={2}
+            hint="Enter로 줄바꿈을 입력하면 공개 화면에도 그대로 반영됩니다."
+          />
           <MediaUpload label="대표 이미지" value={draft.heroImage} onChange={(m) => set("heroImage", m)} />
           <MediaUpload label="대표 영상 (선택)" value={draft.heroVideo} onChange={(m) => set("heroVideo", m)} accept="video/*" />
 

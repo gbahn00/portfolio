@@ -41,7 +41,7 @@ export function FuturePlans({ items }: { items: FuturePlan[] }) {
               <RevealItem key={plan.id}>
                 <div className="h-full rounded-sm border border-line bg-bg-soft p-5 md:p-6 flex flex-col">
                   <p className="font-en text-xs tracking-wide accent-text mb-2 tabular-nums">PLAN {String(i + 1).padStart(2, "0")}</p>
-                  <h3 className="text-xl md:text-2xl font-bold mb-3 text-korean">{plan.title}</h3>
+                  <h3 className="text-xl md:text-2xl font-bold mb-3 text-korean whitespace-pre-line">{plan.title}</h3>
                   <p className="body text-ink-secondary text-korean mb-4 flex-1 whitespace-pre-line">{plan.summary}</p>
                   {plan.details.length > 0 && (
                     <ul className="space-y-1 mb-4">

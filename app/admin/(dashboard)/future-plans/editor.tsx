@@ -30,7 +30,13 @@ function Card({ item, onSaved, onDeleted }: { item: FuturePlan; onSaved: (v: Fut
   }
   return (
     <div className="rounded-md border border-neutral-800 p-4 mb-3">
-      <TextField label="제목" value={draft.title} onChange={(v) => set("title", v)} />
+      <TextAreaField
+        label="제목"
+        value={draft.title}
+        onChange={(v) => set("title", v)}
+        rows={2}
+        hint="Enter로 줄바꿈을 입력하면 공개 화면에도 그대로 반영됩니다."
+      />
       <TextAreaField label="요약" value={draft.summary} onChange={(v) => set("summary", v)} rows={2} />
       <TextListEditor label="세부 계획" items={draft.details} onChange={(v) => set("details", v as any)} />
       <TextAreaField label="기대 효과" value={draft.expectedEffect} onChange={(v) => set("expectedEffect", v)} rows={2} />

@@ -145,7 +145,13 @@ export function ProjectEditor({ initial }: { initial: Project }) {
         <TextField label="프로젝트 번호" value={data.number} onChange={(v) => set("number", v)} />
         <TextField label="제작 연도" value={data.year} onChange={(v) => set("year", v)} />
       </div>
-      <TextField label="프로젝트명" value={data.title} onChange={(v) => set("title", v)} />
+      <TextAreaField
+        label="프로젝트명"
+        value={data.title}
+        onChange={(v) => set("title", v)}
+        rows={2}
+        hint="Enter로 줄바꿈을 입력하면 상세 페이지 제목에 그대로 반영됩니다(목록 등 한 줄로 표시되는 곳에서는 자동으로 한 줄로 보입니다)."
+      />
       <div className="grid grid-cols-2 gap-4 items-end">
         <TextField label="브랜드명" value={data.brand} onChange={(v) => set("brand", v)} />
         <ToggleField label="브랜드명 비공개 처리" value={data.brandHidden} onChange={(v) => set("brandHidden", v)} />
@@ -155,7 +161,13 @@ export function ProjectEditor({ initial }: { initial: Project }) {
         options={FIELD_OPTIONS.map((f) => ({ value: f, label: f }))}
       />
       <TextAreaField label="제작 의도" value={data.purpose} onChange={(v) => set("purpose", v)} rows={2} hint="상세 페이지의 '제작 의도' 섹션에 그대로 쓰입니다." />
-      <TextField label="기여도 (담당 역할)" value={data.role} onChange={(v) => set("role", v)} hint="촬영/보조촬영/보정/기획/편집 등 실제 역할을 구체적으로 기재하세요. 상세 페이지의 '기여도' 섹션에 쓰입니다." />
+      <TextAreaField
+        label="기여도 (담당 역할)"
+        value={data.role}
+        onChange={(v) => set("role", v)}
+        rows={2}
+        hint="촬영/보조촬영/보정/기획/편집 등 실제 역할을 구체적으로 기재하세요. 상세 페이지의 '기여도' 섹션에 쓰입니다. Enter로 줄바꿈하면 상세 페이지에 그대로 반영됩니다(대표 화면 상단의 짧은 요약줄에서는 자동으로 한 줄로 보입니다)."
+      />
       <TextAreaField label="상세 설명 (프로젝트 개요)" value={data.description} onChange={(v) => set("description", v)} rows={3} hint="상세 페이지의 '프로젝트 개요' 섹션에 그대로 쓰입니다." />
 
       <div className="mb-5">

@@ -1,5 +1,371 @@
 [
   {
+    "id": "3824268f-f0dd-45a9-91e6-3fe4aa1bb45a",
+    "entity": "profile",
+    "field": "전체",
+    "before": {
+      "name": "이지은",
+      "affiliation": "미디어팀",
+      "rank": "사원",
+      "role": "미디어팀",
+      "joinedAt": "2024-07-01",
+      "introShort": "콘텐츠의 목적과 활용 매체를 먼저 파악하고 촬영, 보정, 영상 제작과 기획을 연결하는 영상 크리에이터입니다.",
+      "introLong": "의류, 음식, 공간, 인물, 치과 광고와 유튜브 콘텐츠까지 다양한 분야의 작업을 경험했습니다.\n새로운 도구는 기능을 익히는 데서 멈추지 않고 실제 브랜드 콘텐츠와 업무 개선에 활용합니다.",
+      "profilePhoto": {
+        "url": "/uploads/74bc8792-2e35-449e-b9ea-8d05e3d9507b.jpeg",
+        "kind": "image",
+        "alt": "이지은 프로필 사진 [자료 필요]"
+      },
+      "onSitePhotos": [
+        {
+          "url": "/placeholders/onsite-1.svg",
+          "kind": "image",
+          "alt": "촬영 현장 사진 [자료 필요]"
+        },
+        {
+          "url": "/placeholders/onsite-2.svg",
+          "kind": "image",
+          "alt": "촬영 현장 사진 [자료 필요]"
+        }
+      ],
+      "representativePhrase": "목적을 이해하는 것에서 콘텐츠는 시작됩니다.",
+      "keyFacts": [
+        {
+          "label": "근무 시작",
+          "value": "2024년 7월",
+          "order": 0
+        },
+        {
+          "label": "주요 직무",
+          "value": "촬영·보정·영상 제작·콘텐츠 기획",
+          "order": 1
+        },
+        {
+          "label": "주요 분야",
+          "value": "의류·음식·인테리어·인물·메디컬·유튜브",
+          "order": 2
+        },
+        {
+          "label": "조직 기여",
+          "value": "인공지능 크레딧 관리체계 구축",
+          "order": 4
+        }
+      ],
+      "updatedAt": "2026-07-25T00:00:00.000Z",
+      "toolSkills": [
+        {
+          "id": "c8b8aa24-9c8a-4779-ab37-dbbc77a0dc8c",
+          "name": "Photoshop",
+          "percentage": 70,
+          "order": 0
+        },
+        {
+          "id": "03ce5f88-1d46-464a-b2c7-8cd7474b184d",
+          "name": "Premiere Pro",
+          "percentage": 90,
+          "order": 1
+        },
+        {
+          "id": "c620e829-53e4-40f0-9054-29909ab7d8a7",
+          "name": "CapCut",
+          "percentage": 70,
+          "order": 2
+        },
+        {
+          "id": "46900020-128e-4679-99fc-5ad3571fd532",
+          "name": "생성형 AI",
+          "percentage": 90,
+          "order": 3
+        },
+        {
+          "id": "06438e33-0871-4776-a1aa-0c1756b65e68",
+          "name": "Illustrator",
+          "percentage": 50,
+          "order": 4
+        },
+        {
+          "id": "473e96a7-e9f9-4032-9646-33a5959ffad3",
+          "name": "After Effects",
+          "percentage": 90,
+          "order": 5
+        }
+      ]
+    },
+    "after": {
+      "name": "이지은",
+      "affiliation": "미디어팀",
+      "rank": "사원",
+      "role": "미디어팀",
+      "joinedAt": "2024-07-01",
+      "introShort": "콘텐츠의 목적과 활용 매체를 먼저 파악하고 촬영, 보정, 영상 제작과 기획을 연결하는 영상 크리에이터입니다.",
+      "introLong": "의류, 음식, 공간, 인물, 치과 광고와 유튜브 콘텐츠까지 다양한 분야의 작업을 경험했습니다.\n새로운 도구는 기능을 익히는 데서 멈추지 않고 실제 브랜드 콘텐츠와 업무 개선에 활용합니다.",
+      "profilePhoto": {
+        "url": "/uploads/74bc8792-2e35-449e-b9ea-8d05e3d9507b.jpeg",
+        "kind": "image",
+        "alt": "이지은 프로필 사진 [자료 필요]"
+      },
+      "onSitePhotos": [
+        {
+          "url": "/placeholders/onsite-1.svg",
+          "kind": "image",
+          "alt": "촬영 현장 사진 [자료 필요]"
+        },
+        {
+          "url": "/placeholders/onsite-2.svg",
+          "kind": "image",
+          "alt": "촬영 현장 사진 [자료 필요]"
+        }
+      ],
+      "representativePhrase": "목적을 이해하는 것에서 \n콘텐츠는 시작됩니다.",
+      "keyFacts": [
+        {
+          "label": "근무 시작",
+          "value": "2024년 7월",
+          "order": 0
+        },
+        {
+          "label": "주요 직무",
+          "value": "촬영·보정·영상 제작·콘텐츠 기획",
+          "order": 1
+        },
+        {
+          "label": "주요 분야",
+          "value": "의류·음식·인테리어·인물·메디컬·유튜브",
+          "order": 2
+        },
+        {
+          "label": "조직 기여",
+          "value": "인공지능 크레딧 관리체계 구축",
+          "order": 4
+        }
+      ],
+      "updatedAt": "2026-07-25T00:00:00.000Z",
+      "toolSkills": [
+        {
+          "id": "c8b8aa24-9c8a-4779-ab37-dbbc77a0dc8c",
+          "name": "Photoshop",
+          "percentage": 70,
+          "order": 0
+        },
+        {
+          "id": "03ce5f88-1d46-464a-b2c7-8cd7474b184d",
+          "name": "Premiere Pro",
+          "percentage": 90,
+          "order": 1
+        },
+        {
+          "id": "c620e829-53e4-40f0-9054-29909ab7d8a7",
+          "name": "CapCut",
+          "percentage": 70,
+          "order": 2
+        },
+        {
+          "id": "46900020-128e-4679-99fc-5ad3571fd532",
+          "name": "생성형 AI",
+          "percentage": 90,
+          "order": 3
+        },
+        {
+          "id": "06438e33-0871-4776-a1aa-0c1756b65e68",
+          "name": "Illustrator",
+          "percentage": 50,
+          "order": 4
+        },
+        {
+          "id": "473e96a7-e9f9-4032-9646-33a5959ffad3",
+          "name": "After Effects",
+          "percentage": 90,
+          "order": 5
+        }
+      ]
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-26T10:37:00.552Z"
+  },
+  {
+    "id": "2398d55c-d424-43c7-aec8-3927a46c50f5",
+    "entity": "profile",
+    "field": "전체",
+    "before": {
+      "name": "이지은",
+      "affiliation": "미디어팀",
+      "rank": "사원",
+      "role": "미디어팀",
+      "joinedAt": "2024-07-01",
+      "introShort": "콘텐츠의 목적과 활용 매체를 먼저 파악하고 촬영, 보정, 영상 제작과 기획을 연결하는 영상 크리에이터입니다.",
+      "introLong": "의류, 음식, 공간, 인물, 치과 광고와 유튜브 콘텐츠까지 다양한 분야의 작업을 경험했습니다.\n새로운 도구는 기능을 익히는 데서 멈추지 않고 실제 브랜드 콘텐츠와 업무 개선에 활용합니다.",
+      "profilePhoto": {
+        "url": "/uploads/74bc8792-2e35-449e-b9ea-8d05e3d9507b.jpeg",
+        "kind": "image",
+        "alt": "이지은 프로필 사진 [자료 필요]"
+      },
+      "onSitePhotos": [
+        {
+          "url": "/placeholders/onsite-1.svg",
+          "kind": "image",
+          "alt": "촬영 현장 사진 [자료 필요]"
+        },
+        {
+          "url": "/placeholders/onsite-2.svg",
+          "kind": "image",
+          "alt": "촬영 현장 사진 [자료 필요]"
+        }
+      ],
+      "representativePhrase": "촬영과 보정에서 시작해 업무의 범위를 넓혀왔습니다.",
+      "keyFacts": [
+        {
+          "label": "근무 시작",
+          "value": "2024년 7월",
+          "order": 0
+        },
+        {
+          "label": "주요 직무",
+          "value": "촬영·보정·영상 제작·콘텐츠 기획",
+          "order": 1
+        },
+        {
+          "label": "주요 분야",
+          "value": "의류·음식·인테리어·인물·메디컬·유튜브",
+          "order": 2
+        },
+        {
+          "label": "조직 기여",
+          "value": "인공지능 크레딧 관리체계 구축",
+          "order": 4
+        }
+      ],
+      "updatedAt": "2026-07-25T00:00:00.000Z",
+      "toolSkills": [
+        {
+          "id": "c8b8aa24-9c8a-4779-ab37-dbbc77a0dc8c",
+          "name": "Photoshop",
+          "percentage": 70,
+          "order": 0
+        },
+        {
+          "id": "03ce5f88-1d46-464a-b2c7-8cd7474b184d",
+          "name": "Premiere Pro",
+          "percentage": 90,
+          "order": 1
+        },
+        {
+          "id": "c620e829-53e4-40f0-9054-29909ab7d8a7",
+          "name": "CapCut",
+          "percentage": 70,
+          "order": 2
+        },
+        {
+          "id": "46900020-128e-4679-99fc-5ad3571fd532",
+          "name": "생성형 AI",
+          "percentage": 90,
+          "order": 3
+        },
+        {
+          "id": "06438e33-0871-4776-a1aa-0c1756b65e68",
+          "name": "Illustrator",
+          "percentage": 50,
+          "order": 4
+        },
+        {
+          "id": "473e96a7-e9f9-4032-9646-33a5959ffad3",
+          "name": "After Effects",
+          "percentage": 90,
+          "order": 5
+        }
+      ]
+    },
+    "after": {
+      "name": "이지은",
+      "affiliation": "미디어팀",
+      "rank": "사원",
+      "role": "미디어팀",
+      "joinedAt": "2024-07-01",
+      "introShort": "콘텐츠의 목적과 활용 매체를 먼저 파악하고 촬영, 보정, 영상 제작과 기획을 연결하는 영상 크리에이터입니다.",
+      "introLong": "의류, 음식, 공간, 인물, 치과 광고와 유튜브 콘텐츠까지 다양한 분야의 작업을 경험했습니다.\n새로운 도구는 기능을 익히는 데서 멈추지 않고 실제 브랜드 콘텐츠와 업무 개선에 활용합니다.",
+      "profilePhoto": {
+        "url": "/uploads/74bc8792-2e35-449e-b9ea-8d05e3d9507b.jpeg",
+        "kind": "image",
+        "alt": "이지은 프로필 사진 [자료 필요]"
+      },
+      "onSitePhotos": [
+        {
+          "url": "/placeholders/onsite-1.svg",
+          "kind": "image",
+          "alt": "촬영 현장 사진 [자료 필요]"
+        },
+        {
+          "url": "/placeholders/onsite-2.svg",
+          "kind": "image",
+          "alt": "촬영 현장 사진 [자료 필요]"
+        }
+      ],
+      "representativePhrase": "목적을 이해하는 것에서 콘텐츠는 시작됩니다.",
+      "keyFacts": [
+        {
+          "label": "근무 시작",
+          "value": "2024년 7월",
+          "order": 0
+        },
+        {
+          "label": "주요 직무",
+          "value": "촬영·보정·영상 제작·콘텐츠 기획",
+          "order": 1
+        },
+        {
+          "label": "주요 분야",
+          "value": "의류·음식·인테리어·인물·메디컬·유튜브",
+          "order": 2
+        },
+        {
+          "label": "조직 기여",
+          "value": "인공지능 크레딧 관리체계 구축",
+          "order": 4
+        }
+      ],
+      "updatedAt": "2026-07-25T00:00:00.000Z",
+      "toolSkills": [
+        {
+          "id": "c8b8aa24-9c8a-4779-ab37-dbbc77a0dc8c",
+          "name": "Photoshop",
+          "percentage": 70,
+          "order": 0
+        },
+        {
+          "id": "03ce5f88-1d46-464a-b2c7-8cd7474b184d",
+          "name": "Premiere Pro",
+          "percentage": 90,
+          "order": 1
+        },
+        {
+          "id": "c620e829-53e4-40f0-9054-29909ab7d8a7",
+          "name": "CapCut",
+          "percentage": 70,
+          "order": 2
+        },
+        {
+          "id": "46900020-128e-4679-99fc-5ad3571fd532",
+          "name": "생성형 AI",
+          "percentage": 90,
+          "order": 3
+        },
+        {
+          "id": "06438e33-0871-4776-a1aa-0c1756b65e68",
+          "name": "Illustrator",
+          "percentage": 50,
+          "order": 4
+        },
+        {
+          "id": "473e96a7-e9f9-4032-9646-33a5959ffad3",
+          "name": "After Effects",
+          "percentage": 90,
+          "order": 5
+        }
+      ]
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-26T10:36:41.426Z"
+  },
+  {
     "id": "160068f2-238c-4251-ad93-9c620bb1f080",
     "entity": "profile",
     "field": "전체",

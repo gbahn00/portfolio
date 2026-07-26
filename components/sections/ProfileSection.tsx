@@ -48,7 +48,7 @@ function IdentityText({ profile, philosophy }: { profile: Profile; philosophy: P
     // 82px) 클램프를 그대로 쓰니 폭에 비해 글자가 과하게 크고 줄바꿈도
     // 어색했다. 이 칼럼 폭에 맞는 크기로 다시 잡았다.
     <div className="h-full flex flex-col justify-center min-w-0">
-      <p className="text-2xl md:text-3xl lg:text-4xl font-medium text-korean mb-3 max-w-2xl line-clamp-2 leading-snug">{profile.representativePhrase}</p>
+      <p className="text-2xl md:text-3xl lg:text-4xl font-medium text-korean mb-3 max-w-2xl line-clamp-2 leading-snug whitespace-pre-line">{profile.representativePhrase}</p>
       <div className="space-y-2 mb-3">
         {paragraphs.map((p) => (
           <p key={p.id} className="body-large text-ink-secondary text-korean max-w-xl line-clamp-2 whitespace-pre-line">
@@ -234,7 +234,7 @@ function SkillsPanel({ items }: { items: Competency[] }) {
             {String(i + 1).padStart(2, "0")}
           </span>
           <div className="min-w-0">
-            <h3 className="text-lg md:text-xl lg:text-2xl font-bold mb-2 text-korean">{c.title}</h3>
+            <h3 className="text-lg md:text-xl lg:text-2xl font-bold mb-2 text-korean whitespace-pre-line">{c.title}</h3>
             <p className="text-ink-secondary text-sm md:text-base leading-relaxed text-korean line-clamp-2 whitespace-pre-line">{c.description}</p>
           </div>
         </div>
