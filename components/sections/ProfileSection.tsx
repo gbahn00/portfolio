@@ -135,13 +135,18 @@ function NumbersPanel({ profile }: { profile: Profile }) {
     <div className="h-full flex items-center">
       <div className="w-full">
         <div className="flex flex-col gap-3 md:gap-3.5">
+          {/* §75 — 라벨(근무 시작/주요 직무 등)이 얇은 폰트, 실제 내용이
+              볼드로 되어 있어 위계가 거꾸로 보인다는 피드백. 라벨을
+              굵게(font-semibold) + 살짝 밝은 톤으로 바꾸고, 내용은 볼드를
+              빼 기본 굵기로 되돌렸다 — "라벨은 강조, 내용은 담백하게"
+              읽히는 흔한 스탯(stat) 표기 방식대로다. */}
           {facts.map((f) => (
             <div key={f.label} className="flex items-center gap-4 md:gap-6">
               <span className="block w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "var(--accent)" }} />
-              <p className="text-korean text-xs md:text-sm text-ink-muted tracking-wide shrink-0 w-20 md:w-24">
+              <p className="text-korean text-xs md:text-sm text-ink-secondary font-semibold tracking-wide shrink-0 w-20 md:w-24">
                 {f.label}
               </p>
-              <p className="text-korean text-lg md:text-xl lg:text-2xl text-ink font-bold leading-snug text-left">
+              <p className="text-korean text-lg md:text-xl lg:text-2xl text-ink font-normal leading-snug text-left">
                 {f.value}
               </p>
             </div>
@@ -170,9 +175,14 @@ function NumbersPanel({ profile }: { profile: Profile }) {
                   />
                 )}
                 <div className="min-w-0 max-w-[220px] md:max-w-[260px] flex-1">
+                  {/* §75 — 도구명(라벨)은 굵게, 수치(%)는 이전에
+                      text-ink-muted(#6E6E6E)라 배경과 색 대비가 약하고
+                      도구명과도 톤이 비슷해 눈에 잘 안 띄었다. 수치를
+                      text-ink(밝은 색)+font-semibold로 바꿔 확실히
+                      대비되게 했다. */}
                   <div className="flex items-center justify-between mb-1.5 gap-2">
-                    <span className="text-korean text-sm text-ink-secondary truncate">{s.name}</span>
-                    <span className="font-en text-xs tabular-nums text-ink-muted shrink-0">{s.percentage}%</span>
+                    <span className="text-korean text-sm text-ink-secondary font-semibold truncate">{s.name}</span>
+                    <span className="font-en text-sm tabular-nums font-semibold text-ink shrink-0">{s.percentage}%</span>
                   </div>
                   <div className="h-1.5 w-full rounded-full overflow-hidden" style={{ background: "var(--color-border)" }}>
                     <div

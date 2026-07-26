@@ -722,8 +722,13 @@
       "status": "draft",
       "order": 4,
       "createdAt": "2025-03-01T00:00:00.000Z",
-      "updatedAt": "2026-07-26T06:24:51.161Z",
-      "retouchHighlights": []
+      "updatedAt": "2026-07-26T06:59:56.930Z",
+      "retouchHighlights": [],
+      "listPreviewMedia": {
+        "url": "/uploads/52d2c92d-2f82-45f9-8d7b-8fbef0c83e4d.png",
+        "kind": "image",
+        "alt": ""
+      }
     },
     {
       "id": "proj-lawyer-youtube",
