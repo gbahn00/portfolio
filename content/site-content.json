@@ -432,7 +432,23 @@
         "kind": "image",
         "alt": "카페 및 음식 촬영 대표 이미지 [자료 필요]"
       },
-      "gallery": [],
+      "gallery": [
+        {
+          "url": "/uploads/68bb68fa-60c8-4994-bc02-0b8bfad45cf0.png",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/284fe543-aa2d-48bb-a893-f19e8bb9f26e.png",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/1cf90451-d0ba-4b7c-8f47-b724d66770a1.png",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
       "beforeAfter": [],
       "metrics": [],
       "detailBlocks": [],
@@ -442,7 +458,7 @@
       "status": "draft",
       "order": 1,
       "createdAt": "2024-09-01T00:00:00.000Z",
-      "updatedAt": "2026-07-26T05:00:04.285Z"
+      "updatedAt": "2026-07-26T05:03:09.172Z"
     },
     {
       "id": "proj-interior",
