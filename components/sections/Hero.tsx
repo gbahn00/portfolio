@@ -131,21 +131,28 @@ export function Hero({
           </p>
         </div>
 
-        {/* §42 — 입사/생성형 AI 도구/주요 업무 분야 통계를 없애고, 그
-            자리(가운데 트랙)로 스크롤 안내 아이콘을 옮겼다. */}
-        <div ref={bottomRowRef} className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-4 items-end mt-10 md:mt-14">
+        {/* §51 — 스크롤 아이콘을 2단 그리드의 오른쪽 트랙 안에서만
+            가운데로 맞췄더니(justify-self-center) 그 트랙 자체가 화면
+            오른쪽 절반이라 실제로는 화면 중앙이 아니었다. 아이콘을 이
+            grid 밖으로 빼서 섹션 기준으로 절대 위치, 화면(가로) 정중앙에
+            오도록 바꿨다. */}
+        <div ref={bottomRowRef} className="mt-10 md:mt-14">
           <p ref={introRef} className="text-sm md:text-base text-ink-secondary text-korean max-w-xs">
             {hero.name} · {hero.role} · {hero.department}
           </p>
-
-          <div ref={hintRef} className="flex items-center gap-2 md:justify-self-center text-xs md:text-sm text-ink-secondary">
-            <span>SCROLL</span>
-            <div className="h-8 w-5 rounded-full border border-ink-muted/50 flex items-start justify-center p-1 animate-bounce">
-              <div className="h-1 w-1 rounded-full bg-ink-muted" />
-            </div>
-          </div>
         </div>
       </Container>
+
+      {/* 화면 맨 아래가 아니라 세로 85% 지점(하단에서 살짝 위)에 오도록 */}
+      <div
+        ref={hintRef}
+        className="absolute top-[85%] left-1/2 -translate-x-1/2 flex items-center gap-2 text-xs md:text-sm text-ink-secondary z-10"
+      >
+        <span>SCROLL</span>
+        <div className="h-8 w-5 rounded-full border border-ink-muted/50 flex items-start justify-center p-1 animate-bounce">
+          <div className="h-1 w-1 rounded-full bg-ink-muted" />
+        </div>
+      </div>
     </section>
   );
 }
