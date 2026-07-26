@@ -45,7 +45,7 @@
     "role": "크리에이티브",
     "joinedAt": "2024-07-01",
     "introShort": "콘텐츠의 목적과 활용 매체를 먼저 파악하고 촬영, 보정, 영상 제작과 기획을 연결하는 영상 크리에이터입니다.",
-    "introLong": "의류, 음식, 공간, 인물, 치과 광고와 유튜브 콘텐츠까지 다양한 분야의 작업을 경험했습니다. 새로운 도구는 기능을 익히는 데서 멈추지 않고 실제 브랜드 콘텐츠와 업무 개선에 활용합니다.",
+    "introLong": "의류, 음식, 공간, 인물, 치과 광고와 유튜브 콘텐츠까지 다양한 분야의 작업을 경험했습니다.\n새로운 도구는 기능을 익히는 데서 멈추지 않고 실제 브랜드 콘텐츠와 업무 개선에 활용합니다.",
     "profilePhoto": {
       "url": "/placeholders/profile.svg",
       "kind": "image",
@@ -570,23 +570,7 @@
         "[자료 필요] 사용 장비 및 편집 프로그램 목록"
       ],
       "description": "의료 광고 특성상 과장된 표현을 피하고 시술 정보를 정확히 전달하는 데 집중했으며, 광고 채널의 노출 방식에 맞춰 영상 길이와 자막 구성을 조정했다.",
-      "gallery": [
-        {
-          "url": "/uploads/6961dcc6-dfb7-4bf1-86b5-3fda7ab163ac.mp4",
-          "kind": "video-file",
-          "alt": ""
-        },
-        {
-          "url": "/uploads/d6cd4a9d-ad43-49a6-8370-3fe0613071fd.mp4",
-          "kind": "video-file",
-          "alt": ""
-        },
-        {
-          "url": "/uploads/b12d15e6-5607-4ce6-b81a-c1b711cb574e.mp4",
-          "kind": "video-file",
-          "alt": ""
-        }
-      ],
+      "gallery": [],
       "beforeAfter": [],
       "metrics": [
         {
@@ -738,7 +722,7 @@
       "status": "draft",
       "order": 4,
       "createdAt": "2025-03-01T00:00:00.000Z",
-      "updatedAt": "2026-07-26T06:16:51.629Z",
+      "updatedAt": "2026-07-26T06:24:51.161Z",
       "retouchHighlights": []
     },
     {

@@ -134,17 +134,19 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
           </div>
         </Container>
       )}
+      {/* §70 — "작업 이미지"는 max-w-3xl(본문 텍스트 폭)로 좁혀놨더니
+          가로 슬라이드가 화면 절반쯤에서 잘려 보였다. 이 블록만 폭 제한을
+          없애 Container 전체 폭(페이지 좌우 끝)까지 슬라이드가 이어지도록
+          했다. */}
       {topSlot === "gallery" && (
         <Container className="pt-24 md:pt-32">
-          <div className="max-w-3xl">
-            <Reveal>
-              <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-korean">작업 이미지</h2>
-              <GalleryGrid
-                items={project.gallery}
-                className="flex items-start gap-4 md:gap-5 h-72 sm:h-80 md:h-96 overflow-x-auto snap-x snap-mandatory scroll-smooth -mx-1 px-1 pb-2"
-              />
-            </Reveal>
-          </div>
+          <Reveal>
+            <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-korean">작업 이미지</h2>
+            <GalleryGrid
+              items={project.gallery}
+              className="flex items-start gap-4 md:gap-5 h-72 sm:h-80 md:h-96 overflow-x-auto snap-x snap-mandatory scroll-smooth -mx-1 px-1 pb-2"
+            />
+          </Reveal>
         </Container>
       )}
 
@@ -187,16 +189,20 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
             </Reveal>
           )}
 
-          {hasGallery && topSlot !== "gallery" && (
-            <Reveal>
-              <h2 className="text-xl md:text-2xl font-semibold mb-4">상세 이미지</h2>
-              <GalleryGrid
-                items={project.gallery}
-                className="flex items-start gap-4 md:gap-5 h-72 sm:h-80 md:h-96 overflow-x-auto snap-x snap-mandatory scroll-smooth -mx-1 px-1 pb-2"
-              />
-            </Reveal>
-          )}
         </div>
+
+        {/* §70 — 위 "작업 이미지"와 같은 이유로, 이 블록도 max-w-3xl 밖으로
+            빼서 Container 전체 폭까지 슬라이드가 이어지도록 했다(다른
+            본문 섹션은 계속 읽기 좋은 폭으로 유지). */}
+        {hasGallery && topSlot !== "gallery" && (
+          <Reveal className="mt-16">
+            <h2 className="text-xl md:text-2xl font-semibold mb-4">상세 이미지</h2>
+            <GalleryGrid
+              items={project.gallery}
+              className="flex items-start gap-4 md:gap-5 h-72 sm:h-80 md:h-96 overflow-x-auto snap-x snap-mandatory scroll-smooth -mx-1 px-1 pb-2"
+            />
+          </Reveal>
+        )}
       </Container>
 
       <Container className="pb-24 md:pb-32">
