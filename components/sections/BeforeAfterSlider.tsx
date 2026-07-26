@@ -117,9 +117,11 @@ export function BeforeAfterSlider({ pairs }: { pairs: BeforeAfterPair[] }) {
   return (
     <Reveal>
       <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-korean">보정 전·후</h2>
+      {/* §98 — "1단 · 디테일컷" / "2단 · 모델컷" 라벨 텍스트만 없애달라는
+          요청. 두 줄(디테일컷/모델컷)로 나누는 구조 자체는 그대로 두고,
+          화면에 보이던 소제목 문구만 제거했다. */}
       {detailShots.length > 0 && (
         <div className={modelShots.length > 0 ? "mb-12" : undefined}>
-          <p className="text-sm font-medium text-ink-secondary mb-3 text-korean">1단 · 디테일컷</p>
           <SlideCarousel
             items={detailShots}
             heightClassName="h-[312px] sm:h-[344px] md:h-[408px]"
@@ -130,7 +132,6 @@ export function BeforeAfterSlider({ pairs }: { pairs: BeforeAfterPair[] }) {
       )}
       {modelShots.length > 0 && (
         <div>
-          <p className="text-sm font-medium text-ink-secondary mb-3 text-korean">2단 · 모델컷</p>
           <SlideCarousel
             items={modelShots}
             heightClassName="h-[312px] sm:h-[344px] md:h-[408px]"
