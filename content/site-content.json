@@ -63,7 +63,7 @@
         "alt": "촬영 현장 사진 [자료 필요]"
       }
     ],
-    "representativePhrase": "목적을 이해하는 것에서 \n콘텐츠는 시작됩니다.",
+    "representativePhrase": "목적을 이해하는 것에서 콘텐츠는 시작됩니다.",
     "keyFacts": [
       {
         "label": "근무 시작",
@@ -378,7 +378,7 @@
     {
       "id": "proj-clothing",
       "number": "01",
-      "title": "의류 상세페이지 및 모델 촬영",
+      "title": "상세페이지 디테일컷 및 모델 촬영 · 보정",
       "brand": "[자료 필요 - 브랜드명]",
       "brandHidden": true,
       "year": "2024",
@@ -420,7 +420,7 @@
       "status": "draft",
       "order": 0,
       "createdAt": "2024-08-01T00:00:00.000Z",
-      "updatedAt": "2026-07-26T09:56:44.403Z"
+      "updatedAt": "2026-07-26T10:45:31.770Z"
     },
     {
       "id": "proj-cafe",
