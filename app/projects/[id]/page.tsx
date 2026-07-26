@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { getContent } from "@/lib/data/repo";
 import { Container } from "@/components/ui/Container";
 import { MediaFrame } from "@/components/ui/MediaFrame";
+import { GalleryGrid } from "@/components/ui/GalleryGrid";
 import { Reveal } from "@/components/motion/Reveal";
 import { ProjectCover } from "@/components/sections/ProjectCover";
 import { ProjectNav } from "@/components/sections/ProjectNav";
@@ -152,11 +153,7 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
           <div className="max-w-3xl">
             <Reveal>
               <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-korean">작업 이미지</h2>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {project.gallery.map((img, i) => (
-                  <MediaFrame key={i} media={img} className="aspect-square rounded-sm" />
-                ))}
-              </div>
+              <GalleryGrid items={project.gallery} className="grid grid-cols-2 md:grid-cols-3 gap-4" />
             </Reveal>
           </div>
         </Container>
@@ -204,11 +201,7 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
           {hasGallery && topSlot !== "gallery" && (
             <Reveal>
               <h2 className="text-xl md:text-2xl font-semibold mb-4">상세 이미지</h2>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {project.gallery.map((img, i) => (
-                  <MediaFrame key={i} media={img} className="aspect-square rounded-sm" />
-                ))}
-              </div>
+              <GalleryGrid items={project.gallery} className="grid grid-cols-2 md:grid-cols-3 gap-4" />
             </Reveal>
           )}
         </div>

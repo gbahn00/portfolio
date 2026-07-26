@@ -1,5 +1,108 @@
 [
   {
+    "id": "3f2909f2-dd53-4a0f-b038-1ee575224167",
+    "entity": "projects:proj-interior",
+    "field": "수정",
+    "before": {
+      "id": "proj-interior",
+      "number": "03",
+      "title": "인테리어 촬영 보조",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "인테리어",
+      "purpose": "공간의 구조와 분위기를 전달하는 인테리어 사진 제작",
+      "role": "촬영 보조 및 보정",
+      "tools": [
+        "[자료 필요] 사용 장비 및 보정 프로그램 목록"
+      ],
+      "description": "카페 및 음식 브랜드, 병원, 회사 인테리어 촬영을 보조하고, 공간의 구조와 밝기, 전체 분위기가 왜곡되지 않도록 보정했습니다.",
+      "heroImage": {
+        "url": "/placeholders/interior.svg",
+        "kind": "image",
+        "alt": "인테리어 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [],
+      "beforeAfter": [],
+      "metrics": [],
+      "detailBlocks": [],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 2,
+      "createdAt": "2024-09-15T00:00:00.000Z",
+      "updatedAt": "2026-07-25T00:00:00.000Z"
+    },
+    "after": {
+      "id": "proj-interior",
+      "number": "03",
+      "title": "인테리어 촬영 보조",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "인테리어",
+      "purpose": "공간의 구조와 분위기를 전달하는 인테리어 사진 제작",
+      "role": "촬영 보조 및 보정",
+      "tools": [
+        "[자료 필요] 사용 장비 및 보정 프로그램 목록"
+      ],
+      "description": "카페 및 음식 브랜드, 병원, 회사 인테리어 촬영을 보조하고, 공간의 구조와 밝기, 전체 분위기가 왜곡되지 않도록 보정했습니다.",
+      "heroImage": {
+        "url": "/placeholders/interior.svg",
+        "kind": "image",
+        "alt": "인테리어 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [],
+      "beforeAfter": [],
+      "metrics": [],
+      "detailBlocks": [],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 2,
+      "createdAt": "2024-09-15T00:00:00.000Z",
+      "updatedAt": "2026-07-26T05:13:42.554Z",
+      "retouchHighlights": [
+        {
+          "id": "025c91c5-cd78-49eb-bfbd-d77e7051b1ad",
+          "image": {
+            "url": "/uploads/f6894d13-77dc-4d45-a54e-37487d2e41cb.png",
+            "kind": "image",
+            "alt": ""
+          },
+          "points": [
+            {
+              "id": "da547502-258c-4a6f-bc4d-2ac60b2b56fe",
+              "x": 45,
+              "y": 52,
+              "label": "sadfsadfsadf",
+              "order": 0
+            },
+            {
+              "id": "a4b17453-2f9f-423e-aab2-ada49e5e309a",
+              "x": 70.8,
+              "y": 70.5,
+              "label": "asdfadsfasdf",
+              "order": 1
+            },
+            {
+              "id": "6493c856-e977-4a03-934f-e9cd06ed3402",
+              "x": 19.2,
+              "y": 81.4,
+              "label": "asdfasdfasdfs",
+              "order": 2
+            }
+          ],
+          "order": 0
+        }
+      ]
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-26T05:13:42.955Z"
+  },
+  {
     "id": "0bc6397f-fe0b-47ad-b2db-c607b888e1c7",
     "entity": "projects:proj-cafe",
     "field": "수정",

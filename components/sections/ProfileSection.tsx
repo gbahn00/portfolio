@@ -98,6 +98,36 @@ function NumbersPanel({ profile }: { profile: Profile }) {
       return (ai === -1 ? 999 : ai) - (bi === -1 ? 999 : bi);
     });
 
+  // §64 — Skills 진행바가 처음부터 목표 값만큼 채워진 채로 보이던 걸,
+  // 0%에서 목표 값까지 채워지는 모션으로 바꿨다. 이 패널은 "핵심 수치"
+  // 탭으로 전환될 때마다 새로 mount되므로(탭이 바뀔 때마다 조건부 렌더링),
+  // 이 useLayoutEffect도 매번 다시 실행되어 탭을 볼 때마다 애니메이션이
+  // 재생된다.
+  const skillsWrapRef = useRef<HTMLDivElement>(null);
+  useLayoutEffect(() => {
+    const wrap = skillsWrapRef.current;
+    if (!wrap) return;
+    const bars = Array.from(wrap.querySelectorAll<HTMLElement>("[data-skill-fill]"));
+    if (bars.length === 0) return;
+
+    if (prefersReducedMotion()) {
+      bars.forEach((bar) => {
+        bar.style.width = `${bar.dataset.target}%`;
+      });
+      return;
+    }
+
+    gsap.set(bars, { width: "0%" });
+    gsap.to(bars, {
+      width: (_i, target) => `${(target as HTMLElement).dataset.target}%`,
+      duration: 1,
+      ease: "power2.out",
+      stagger: 0.08,
+      delay: 0.15,
+      overwrite: "auto",
+    });
+  }, [skills.map((s) => s.id).join(",")]);
+
   return (
     // §54 — 행 사이 구분선은 없애고 왼쪽 정렬 리스트 구조만 유지해달라는
     // 요청에 따라 border를 없애고 gap만으로 행 간격을 준다.
@@ -126,7 +156,7 @@ function NumbersPanel({ profile }: { profile: Profile }) {
             우선 채우기)에 그대로 흘려보내면 요청받은 3행 짝이 나온다. */}
         <div className="mt-7 md:mt-9 pt-6 md:pt-8 border-t border-line">
           <p className="font-en text-sm md:text-base text-ink-muted mb-4 tracking-wide">Skills</p>
-          <div className="grid grid-cols-2 gap-x-8 gap-y-4 md:gap-y-5">
+          <div ref={skillsWrapRef} className="grid grid-cols-2 gap-x-8 gap-y-4 md:gap-y-5">
             {skills.map((s) => (
               <div key={s.id} className="flex items-center gap-3.5">
                 {TOOL_ICON_MAP[s.name] && (
@@ -145,8 +175,10 @@ function NumbersPanel({ profile }: { profile: Profile }) {
                   </div>
                   <div className="h-1.5 w-full rounded-full overflow-hidden" style={{ background: "var(--color-border)" }}>
                     <div
+                      data-skill-fill
+                      data-target={Math.max(0, Math.min(100, s.percentage))}
                       className="h-full rounded-full"
-                      style={{ width: `${Math.max(0, Math.min(100, s.percentage))}%`, background: "var(--accent)" }}
+                      style={{ width: "0%", background: "var(--accent)" }}
                     />
                   </div>
                 </div>

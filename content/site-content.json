@@ -489,7 +489,41 @@
       "status": "draft",
       "order": 2,
       "createdAt": "2024-09-15T00:00:00.000Z",
-      "updatedAt": "2026-07-25T00:00:00.000Z"
+      "updatedAt": "2026-07-26T05:13:42.554Z",
+      "retouchHighlights": [
+        {
+          "id": "025c91c5-cd78-49eb-bfbd-d77e7051b1ad",
+          "image": {
+            "url": "/uploads/f6894d13-77dc-4d45-a54e-37487d2e41cb.png",
+            "kind": "image",
+            "alt": ""
+          },
+          "points": [
+            {
+              "id": "da547502-258c-4a6f-bc4d-2ac60b2b56fe",
+              "x": 45,
+              "y": 52,
+              "label": "sadfsadfsadf",
+              "order": 0
+            },
+            {
+              "id": "a4b17453-2f9f-423e-aab2-ada49e5e309a",
+              "x": 70.8,
+              "y": 70.5,
+              "label": "asdfadsfasdf",
+              "order": 1
+            },
+            {
+              "id": "6493c856-e977-4a03-934f-e9cd06ed3402",
+              "x": 19.2,
+              "y": 81.4,
+              "label": "asdfasdfasdfs",
+              "order": 2
+            }
+          ],
+          "order": 0
+        }
+      ]
     },
     {
       "id": "proj-portrait",

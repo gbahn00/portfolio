@@ -204,13 +204,22 @@ export function ProjectEditor({ initial }: { initial: Project }) {
       <MediaUpload label="최종 영상 (선택)" value={data.finalVideo} onChange={(m) => set("finalVideo", m)} accept="video/*" />
 
       <div className="mb-5">
-        <span className="block text-sm font-medium text-neutral-300 mb-1.5">상세 이미지 (갤러리)</span>
+        <span className="block text-sm font-medium text-neutral-300 mb-1.5">상세 이미지·영상 (갤러리)</span>
+        <p className="text-xs text-neutral-500 mb-2">
+          사진뿐 아니라 영상도 첨부할 수 있습니다. 영상은 정사각형으로 자르지 않고 원본 가로세로 비율 그대로 보여줍니다.
+        </p>
         <div className="grid grid-cols-3 gap-3 mb-2">
           {data.gallery.map((img, idx) => (
-            <MediaUpload key={idx} label={`이미지 ${idx + 1}`} value={img} onChange={(m) => { if (!m) set("gallery", data.gallery.filter((_, i) => i !== idx)); else set("gallery", data.gallery.map((g, i) => (i === idx ? m : g))); }} />
+            <MediaUpload
+              key={idx}
+              label={`항목 ${idx + 1}`}
+              value={img}
+              accept="image/*,video/*"
+              onChange={(m) => { if (!m) set("gallery", data.gallery.filter((_, i) => i !== idx)); else set("gallery", data.gallery.map((g, i) => (i === idx ? m : g))); }}
+            />
           ))}
         </div>
-        <MediaUpload label="이미지 추가" value={undefined} onChange={addGalleryImage} />
+        <MediaUpload label="이미지·영상 추가" value={undefined} onChange={addGalleryImage} accept="image/*,video/*" />
       </div>
 
       <div className="mb-5">
