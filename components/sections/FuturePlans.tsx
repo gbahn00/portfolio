@@ -23,7 +23,7 @@ export function FuturePlans({ items }: { items: FuturePlan[] }) {
   return (
     <section id="future" className="fp-section bg-bg py-6 md:py-8">
       <Container className="w-full">
-        <Reveal>
+        <Reveal holdAfterEnter>
           <p className="accent-text text-sm font-medium mb-3 tracking-wide">특별진급 이후 실행 계획</p>
         </Reveal>
         <Reveal delay={0.05} strength="strong" holdAfterEnter>

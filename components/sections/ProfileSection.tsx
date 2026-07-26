@@ -251,7 +251,7 @@ export function ProfileSection({
     <section id="profile" className="fp-section bg-bg-soft py-6 md:py-8" style={{ justifyContent: "stretch" }}>
       <Container className="w-full h-full flex flex-col">
         <div className="shrink-0">
-          <Reveal>
+          <Reveal holdAfterEnter>
             <p className="accent-text text-sm font-medium mb-3 tracking-wide">PROFILE</p>
           </Reveal>
           <Reveal delay={0.05} strength="strong" holdAfterEnter>

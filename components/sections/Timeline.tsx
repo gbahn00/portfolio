@@ -79,7 +79,7 @@ export function Timeline({ entries }: { entries: TimelineEntry[] }) {
   return (
     <section id="growth" className="fp-section bg-bg py-6 md:py-8">
       <Container className="w-full">
-        <Reveal>
+        <Reveal holdAfterEnter>
           <p className="accent-text text-sm font-medium mb-3 tracking-wide">업무 성장과정</p>
         </Reveal>
         <Reveal delay={0.05}>

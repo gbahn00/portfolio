@@ -86,7 +86,7 @@ export function SelectedWork({ projects }: { projects: Project[] }) {
       <Container className="w-full h-full flex flex-col">
         {/* §30 — 제목과 목록 사이 여백이 과했다는 피드백으로 mb를 줄였다. */}
         <div className="shrink-0 mb-3 md:mb-4">
-          <Reveal>
+          <Reveal holdAfterEnter>
             <p className="accent-text text-sm font-medium mb-3 tracking-wide">대표 프로젝트</p>
           </Reveal>
           <Reveal delay={0.05} strength="strong" holdAfterEnter>

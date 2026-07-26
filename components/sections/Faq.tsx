@@ -67,7 +67,7 @@ export function Faq({ items }: { items: FaqItem[] }) {
       <Container className="w-full">
         <div className="grid grid-cols-1 md:grid-cols-[4fr_8fr] gap-6 md:gap-12 items-start">
           <div>
-            <Reveal>
+            <Reveal holdAfterEnter>
               <p className="accent-text text-sm font-medium mb-3 tracking-wide">추가 설명</p>
             </Reveal>
             <Reveal delay={0.05} strength="strong" holdAfterEnter>
