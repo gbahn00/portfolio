@@ -38,7 +38,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       </head>
       <body className="font-kr antialiased">
         <GsapProvider />
-        <Header name={content.profile?.name || content.settings?.siteTitle || "Portfolio"} />
+        <Header />
         {children}
       </body>
     </html>

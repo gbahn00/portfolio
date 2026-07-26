@@ -21,22 +21,20 @@ const NAV_ITEMS: { id: SectionId; label: string }[] = [
   { id: "faq", label: "FAQ" },
 ];
 
-export function Header({ name }: { name: string }) {
-  const logoRef = useRef<HTMLSpanElement>(null);
+// §57 — 헤더에 있던 이름(로고 텍스트)을 없애달라는 요청에 따라 name prop과
+// 로고 span을 완전히 제거했다. 이제 헤더에는 nav 메뉴만 남는다.
+export function Header() {
   const menuRef = useRef<HTMLElement>(null);
   const wrapRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState<string>("");
 
-  // 진입 모션: 로고 Fade In → 메뉴 Fade In (§9.3)
+  // 진입 모션: 메뉴 Fade In (§9.3)
   useLayoutEffect(() => {
     if (prefersReducedMotion()) return;
     const ctx = gsap.context(() => {
       const items = menuRef.current?.querySelectorAll<HTMLElement>("[data-nav-item]") ?? [];
-      gsap.set([logoRef.current, ...Array.from(items)], { autoAlpha: 0, y: -8 });
-      gsap
-        .timeline({ delay: 0.3, defaults: { ease: "power3.out" } })
-        .to(logoRef.current, { autoAlpha: 1, y: 0, duration: 0.6 })
-        .to(items, { autoAlpha: 1, y: 0, duration: 0.5, stagger: 0.08 }, "-=0.3");
+      gsap.set(items, { autoAlpha: 0, y: -8 });
+      gsap.to(items, { autoAlpha: 1, y: 0, duration: 0.5, stagger: 0.08, delay: 0.3, ease: "power3.out" });
     }, wrapRef);
     return () => ctx.revert();
   }, []);
@@ -72,13 +70,10 @@ export function Header({ name }: { name: string }) {
   // 맨 위쪽에 다른 클릭 요소(예: "← 목록으로" 링크)가 있는 페이지에서는
   // 그 빈 공간이 클릭을 가로채 버튼이 눌리지 않는 문제가 있었다. 실제로
   // 클릭이 필요한 건 nav 링크뿐이므로, pointer-events-auto를 nav에만 주고
-  // 나머지 영역(로고 포함)은 클릭이 그대로 통과하도록 한다.
+  // 나머지 영역은 클릭이 그대로 통과하도록 한다.
   return (
     <div ref={wrapRef} className="fixed top-0 left-0 right-0 z-50 pointer-events-none">
-      <div className="page-container flex items-center justify-between py-6 md:py-8 min-h-[72px]">
-        <span ref={logoRef} className="text-sm md:text-base font-semibold text-korean pointer-events-none">
-          {name || "Portfolio"}
-        </span>
+      <div className="page-container flex items-center justify-end py-6 md:py-8 min-h-[72px]">
         <nav ref={menuRef} className="flex items-center gap-5 md:gap-8 pointer-events-auto">
           {NAV_ITEMS.map((item) => (
             <a
