@@ -113,29 +113,29 @@ function NumbersPanel({ profile }: { profile: Profile }) {
         </div>
 
         {/* §40-44 — Skills: 위 핵심 수치와 구분선으로 나뉘는 아래쪽 절반.
-            아이콘을 한 단계 키우고, 진행바는 칸 끝까지 늘어나지 않도록
-            고정 최대 폭(max-w)을 줘서 라벨/퍼센트와 균형 잡힌 짧은
-            바 형태로 만들었다. */}
+            §45 — 아이콘을 한 번 더 키우고(h-11~h-14), 진행바 최대폭도
+            늘려서(220~260px) 화면 여백 대비 너무 작아 보이던 느낌을
+            해소했다. 라벨/퍼센트 글자도 함께 키웠다. */}
         <div className="mt-7 md:mt-9 pt-6 md:pt-8 border-t border-line">
-          <p className="font-en text-xs md:text-sm text-ink-muted mb-3.5 tracking-wide">Skills</p>
-          <div className="grid grid-cols-2 gap-x-6 gap-y-3 md:gap-y-3.5">
+          <p className="font-en text-sm md:text-base text-ink-muted mb-4 tracking-wide">Skills</p>
+          <div className="grid grid-cols-2 gap-x-8 gap-y-4 md:gap-y-5">
             {skills.map((s) => (
-              <div key={s.id} className="flex items-center gap-3">
+              <div key={s.id} className="flex items-center gap-3.5">
                 {TOOL_ICON_MAP[s.name] && (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img
                     src={TOOL_ICON_MAP[s.name]}
                     alt={s.name}
                     title={s.name}
-                    className="h-8 w-8 md:h-9 md:w-9 rounded-md object-cover shrink-0"
+                    className="h-11 w-11 md:h-14 md:w-14 rounded-lg object-cover shrink-0"
                   />
                 )}
-                <div className="min-w-0 max-w-[140px] md:max-w-[160px]">
-                  <div className="flex items-center justify-between mb-1 gap-2">
-                    <span className="text-korean text-xs text-ink-secondary truncate">{s.name}</span>
-                    <span className="font-en text-[11px] tabular-nums text-ink-muted shrink-0">{s.percentage}%</span>
+                <div className="min-w-0 max-w-[220px] md:max-w-[260px] flex-1">
+                  <div className="flex items-center justify-between mb-1.5 gap-2">
+                    <span className="text-korean text-sm text-ink-secondary truncate">{s.name}</span>
+                    <span className="font-en text-xs tabular-nums text-ink-muted shrink-0">{s.percentage}%</span>
                   </div>
-                  <div className="h-1 w-full rounded-full overflow-hidden" style={{ background: "var(--color-border)" }}>
+                  <div className="h-1.5 w-full rounded-full overflow-hidden" style={{ background: "var(--color-border)" }}>
                     <div
                       className="h-full rounded-full"
                       style={{ width: `${Math.max(0, Math.min(100, s.percentage))}%`, background: "var(--accent)" }}
