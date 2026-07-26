@@ -98,6 +98,24 @@ export interface BeforeAfterPair {
   order: number;
 }
 
+// §61 — 보정 전(before) 사진이 없이 보정 후 사진만 있는 프로젝트를 위한
+// 대안. 사진 위 특정 위치에 점을 찍어 "이 부분을 이렇게 보정했다"를
+// 설명하는 방식으로, 원본 비교 없이도 무엇을 보정했는지 보여준다.
+export interface RetouchPoint {
+  id: string;
+  x: number; // 사진 폭 대비 %, 0~100
+  y: number; // 사진 높이 대비 %, 0~100
+  label: string; // 이 위치에서 어떤 보정을 했는지 설명
+  order: number;
+}
+
+export interface RetouchHighlight {
+  id: string;
+  image: MediaRef; // 보정 후 사진
+  points: RetouchPoint[];
+  order: number;
+}
+
 export interface ProjectDetailBlock {
   id: string;
   key:
@@ -143,6 +161,7 @@ export interface Project {
   finalVideo?: MediaRef;
   gallery: MediaRef[];
   beforeAfter: BeforeAfterPair[];
+  retouchHighlights: RetouchHighlight[];
   metrics: { id: string; label: string; value: string; unit?: string }[];
   detailBlocks: ProjectDetailBlock[];
   isFeatured: boolean; // 대표 작업 여부

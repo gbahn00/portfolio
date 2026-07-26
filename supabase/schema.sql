@@ -111,6 +111,7 @@ create table if not exists projects (
   final_video jsonb,
   gallery jsonb not null default '[]',
   before_after jsonb not null default '[]',
+  retouch_highlights jsonb not null default '[]',
   metrics jsonb not null default '[]',
   detail_blocks jsonb not null default '[]',
   is_featured boolean not null default false,
@@ -481,6 +482,10 @@ alter table projects add column if not exists list_preview_media jsonb;
 -- 정의에는 이미 추가했지만, 이미 만들어진 테이블에는 반영되지 않으므로
 -- ALTER로 보정한다).
 alter table profile add column if not exists tool_skills jsonb not null default '[]';
+
+-- projects에 "보정 포인트"(원본 없이 보정 후 사진만 있을 때, 사진 위 특정
+-- 위치에 점을 찍어 설명하는 방식) 컬럼을 추가한다.
+alter table projects add column if not exists retouch_highlights jsonb not null default '[]';
 
 -- ============================================================================
 -- 참고: 마이그레이션 스크립트를 SUPABASE_SERVICE_ROLE_KEY로 실행했는데도

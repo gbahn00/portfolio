@@ -4,11 +4,12 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { v4 as uuid } from "uuid";
 import Link from "next/link";
-import { Project, ProjectField, ProjectDetailBlock, MediaRef, BeforeAfterPair } from "@/lib/types";
+import { Project, ProjectField, ProjectDetailBlock, MediaRef, BeforeAfterPair, RetouchHighlight } from "@/lib/types";
 import { TextField, TextAreaField, SelectField, ToggleField } from "@/components/admin/fields";
 import { MediaUpload } from "@/components/admin/MediaUpload";
 import { SaveBar } from "@/components/admin/SaveBar";
 import { DetailBlockEditor } from "@/components/admin/project/DetailBlockEditor";
+import { RetouchHighlightEditor } from "@/components/admin/project/RetouchHighlightEditor";
 import { ConfirmButton } from "@/components/admin/ConfirmButton";
 
 const FIELD_OPTIONS: ProjectField[] = [
@@ -107,6 +108,26 @@ export function ProjectEditor({ initial }: { initial: Project }) {
   function removeBeforeAfter(id: string) {
     set("beforeAfter", data.beforeAfter.filter((p) => p.id !== id).map((p, i) => ({ ...p, order: i })));
   }
+
+  // §61 — 보정 전 사진이 없는 프로젝트를 위한 대안(retouchHighlights)도
+  // 선택 사항이다. 위 보정 전·후 비교와 마찬가지로 비워두면 노출되지
+  // 않는다.
+  function addRetouchHighlight() {
+    const highlight: RetouchHighlight = {
+      id: uuid(),
+      image: { url: "", kind: "image" },
+      points: [],
+      order: data.retouchHighlights.length,
+    };
+    set("retouchHighlights", [...data.retouchHighlights, highlight]);
+  }
+  function updateRetouchHighlight(id: string, h: RetouchHighlight) {
+    set("retouchHighlights", data.retouchHighlights.map((r) => (r.id === id ? h : r)));
+  }
+  function removeRetouchHighlight(id: string) {
+    set("retouchHighlights", data.retouchHighlights.filter((r) => r.id !== id).map((r, i) => ({ ...r, order: i })));
+  }
+
   function addMetric() {
     set("metrics", [...data.metrics, { id: uuid(), label: "", value: "" }]);
   }
@@ -205,6 +226,30 @@ export function ProjectEditor({ initial }: { initial: Project }) {
           className="rounded-md border border-dashed border-neutral-700 px-3 py-1.5 text-xs text-neutral-300 hover:border-orange-500"
         >
           + 보정 전·후 비교쌍 추가
+        </button>
+      </div>
+
+      <div className="mb-5">
+        <span className="block text-sm font-medium text-neutral-300 mb-1.5">보정 포인트 (선택 — 보정 전 사진이 없을 때)</span>
+        <p className="text-xs text-neutral-500 mb-2">
+          보정 전 사진이 없어서 위 '보정 전·후 비교'를 쓸 수 없는 프로젝트를 위한 대안입니다. 보정 후 사진만 올리고, 사진 위를 클릭해
+          보정한 위치에 점을 찍은 뒤 무엇을 보정했는지 적어두면, 상세 페이지에서 그 점을 눌러 설명을 확인할 수 있습니다. 위 '보정
+          전·후 비교'가 채워져 있으면 그쪽이 우선 노출됩니다.
+        </p>
+        {data.retouchHighlights.map((highlight) => (
+          <RetouchHighlightEditor
+            key={highlight.id}
+            highlight={highlight}
+            onChange={(h) => updateRetouchHighlight(highlight.id, h)}
+            onRemove={() => removeRetouchHighlight(highlight.id)}
+          />
+        ))}
+        <button
+          type="button"
+          onClick={addRetouchHighlight}
+          className="rounded-md border border-dashed border-neutral-700 px-3 py-1.5 text-xs text-neutral-300 hover:border-orange-500"
+        >
+          + 보정 포인트 사진 추가
         </button>
       </div>
 
