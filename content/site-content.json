@@ -91,19 +91,19 @@
       {
         "id": "c8b8aa24-9c8a-4779-ab37-dbbc77a0dc8c",
         "name": "Photoshop",
-        "percentage": 80,
+        "percentage": 90,
         "order": 0
       },
       {
         "id": "03ce5f88-1d46-464a-b2c7-8cd7474b184d",
         "name": "Premiere Pro",
-        "percentage": 80,
+        "percentage": 90,
         "order": 1
       },
       {
         "id": "c620e829-53e4-40f0-9054-29909ab7d8a7",
         "name": "CapCut",
-        "percentage": 80,
+        "percentage": 85,
         "order": 2
       },
       {
@@ -115,7 +115,7 @@
       {
         "id": "06438e33-0871-4776-a1aa-0c1756b65e68",
         "name": "Illustrator",
-        "percentage": 80,
+        "percentage": 90,
         "order": 4
       },
       {

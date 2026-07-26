@@ -162,15 +162,20 @@ function SkillsPanel({ items }: { items: Competency[] }) {
   if (sorted.length === 0) return <p className="text-ink-muted text-sm">등록된 업무 역량이 아직 없습니다.</p>;
 
   return (
-    <div className="h-full flex flex-col justify-center gap-5 md:gap-6">
+    // §46 — "사진 프레임 크기에 비해 업무 역량 내용이 작다"는 피드백에 따라
+    // 번호/제목/설명 타이포와 행 간격을 전반적으로 한 단계 키웠다(제목
+    // text-base/lg → text-lg/xl/2xl, 설명 text-sm → text-sm/base, 번호도
+    // 함께 확대). 최대 5개가 들어가도 프레임(최대 640px) 안에 들어오도록
+    // 계산해서 키웠다 — 이전의 짤림 버그를 다시 만들지 않도록 주의.
+    <div className="h-full flex flex-col justify-center gap-6 md:gap-8">
       {sorted.map((c, i) => (
-        <div key={c.id} className="flex gap-4">
-          <span className="font-en text-sm tabular-nums shrink-0 mt-1" style={{ color: "var(--accent)" }}>
+        <div key={c.id} className="flex gap-4 md:gap-5">
+          <span className="font-en text-base md:text-lg tabular-nums shrink-0 mt-1" style={{ color: "var(--accent)" }}>
             {String(i + 1).padStart(2, "0")}
           </span>
           <div className="min-w-0">
-            <h3 className="text-base md:text-lg font-bold mb-1 text-korean">{c.title}</h3>
-            <p className="text-ink-secondary text-sm leading-relaxed text-korean line-clamp-2">{c.description}</p>
+            <h3 className="text-lg md:text-xl lg:text-2xl font-bold mb-2 text-korean">{c.title}</h3>
+            <p className="text-ink-secondary text-sm md:text-base leading-relaxed text-korean line-clamp-2">{c.description}</p>
           </div>
         </div>
       ))}
