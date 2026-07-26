@@ -91,40 +91,28 @@ function NumbersPanel({ profile }: { profile: Profile }) {
   );
 }
 
-// §14-21 — 업무 역량 탭 내부에 1~N(최대 5)개의 독립적인 콘텐츠 단계를 두고,
-// 스크롤 한 번마다 한 단계씩 전환한다. 실제 CMS에 등록된 역량 데이터를
-// 그대로 쓰고(가짜 항목을 만들어 채우지 않음), 5개보다 많으면 순서상 앞의
-// 5개만 사용한다.
-function SkillsPanel({ items, index }: { items: Competency[]; index: number }) {
+// §37 — "1개씩 스크롤해서 보는 게 아니라 1~5번을 전부 나열해달라"는 요청에
+// 따라, 업무 역량 탭 내부의 1단계씩 넘기는 스크롤 서브스텝을 없앴다.
+// 실제 CMS에 등록된 역량 데이터를 그대로 쓰고(가짜 항목을 만들어 채우지
+// 않음), 5개보다 많으면 순서상 앞의 5개까지만 한 번에 나열한다.
+function SkillsPanel({ items }: { items: Competency[] }) {
   const sorted = items.slice(0, MAX_SKILL_STEPS);
-  const current = sorted[Math.min(index, Math.max(sorted.length - 1, 0))];
 
   if (sorted.length === 0) return <p className="text-ink-muted text-sm">등록된 업무 역량이 아직 없습니다.</p>;
 
   return (
-    // §29 — 박스가 커진 만큼 제목/본문도 함께 키웠다. 고정 px 크기 대신
-    // 사이트 전역 타이포 스케일(statement-title)을 써서 다른 섹션과
-    // 비례가 어긋나지 않게 했다.
-    <div className="h-full flex flex-col justify-center">
-      <div className="flex items-center gap-2.5 mb-5 md:mb-6">
-        {sorted.map((_, i) => (
-          <span
-            key={i}
-            className="font-en text-sm tabular-nums transition-colors duration-300"
-            style={{ color: i === index ? "var(--accent)" : "var(--color-text-muted)" }}
-          >
+    <div className="h-full flex flex-col justify-center gap-5 md:gap-6">
+      {sorted.map((c, i) => (
+        <div key={c.id} className="flex gap-4">
+          <span className="font-en text-sm tabular-nums shrink-0 mt-1" style={{ color: "var(--accent)" }}>
             {String(i + 1).padStart(2, "0")}
-            {i < sorted.length - 1 && <span className="mx-2 text-ink-muted">/</span>}
           </span>
-        ))}
-      </div>
-      <div key={current.id} className="max-w-2xl">
-        {/* §36 — 항목 제목도 히어로급 statement-title 대신, 사이트 다른
-            곳(대표 프로젝트 목록/향후 계획 카드)의 "항목 제목" 스케일과
-            맞춘 text-2xl/3xl로 바꿨다 — 위계가 통일된다. */}
-        <h3 className="text-2xl md:text-3xl font-bold mb-4 text-korean">{current.title}</h3>
-        <p className="text-ink-secondary body-large leading-relaxed text-korean line-clamp-6">{current.description}</p>
-      </div>
+          <div className="min-w-0">
+            <h3 className="text-base md:text-lg font-bold mb-1 text-korean">{c.title}</h3>
+            <p className="text-ink-secondary text-sm leading-relaxed text-korean line-clamp-2">{c.description}</p>
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
@@ -139,63 +127,39 @@ export function ProfileSection({
   competencies: Competency[];
 }) {
   const sortedCompetencies = [...competencies].sort((a, b) => a.order - b.order);
-  const skillCount = Math.min(sortedCompetencies.length, MAX_SKILL_STEPS);
 
   const [tab, setTab] = useState<TabKey>("identity");
-  const [skillIndex, setSkillIndex] = useState(0);
   const tabRef = useRef<TabKey>(tab);
-  const skillIndexRef = useRef(skillIndex);
   const stageRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
     tabRef.current = tab;
   }, [tab]);
-  useLayoutEffect(() => {
-    skillIndexRef.current = skillIndex;
-  }, [skillIndex]);
 
-  // 인터랙션 수정 요청서 §16-19 — FullPageScroll에 "가상 스텝" 컨트롤을
-  // 등록한다. 0=소개, 1=핵심 수치, 2..(2+skillCount-1)=업무 역량 1~N번.
+  // §37 — 업무 역량 탭이 더 이상 내부적으로 1~5단계를 스크롤로 넘기지 않고
+  // 한 번에 다 보여주므로, "가상 스텝" 개념 자체가 필요 없어졌다. 이제는
+  // 딱 3개 탭(소개/핵심 수치/업무 역량) 사이만 스크롤 ±1로 오간다.
   useLayoutEffect(() => {
-    const totalSteps = 2 + skillCount;
+    const totalSteps = TABS.length;
     const unregister = registerSubSteps("profile", {
       count: totalSteps,
-      getActive: () => {
-        if (tabRef.current === "identity") return 0;
-        if (tabRef.current === "numbers") return 1;
-        return 2 + Math.min(skillIndexRef.current, Math.max(skillCount - 1, 0));
-      },
-      enter: (dir) => {
-        if (dir === 1) {
-          setTab("identity");
-        } else if (skillCount > 0) {
-          setTab("skills");
-          setSkillIndex(skillCount - 1);
-        } else {
-          setTab("numbers");
-        }
-      },
+      getActive: () => TABS.findIndex((t) => t.key === tabRef.current),
+      enter: (dir) => setTab(dir === 1 ? "identity" : "skills"),
       setActive: (index) => {
         const clamped = Math.max(0, Math.min(totalSteps - 1, index));
-        if (clamped === 0) setTab("identity");
-        else if (clamped === 1) setTab("numbers");
-        else {
-          setTab("skills");
-          setSkillIndex(clamped - 2);
-        }
+        setTab(TABS[clamped].key);
       },
     });
     return unregister;
-  }, [skillCount]);
+  }, []);
 
-  // §21 — 탭/스텝 변경은 페이지 전체가 아니라 고정 프레임 안의 내용만
-  // Fade 전환한다(약 320~350ms). 프레임 높이/제목/이미지/탭 메뉴 위치는
-  // 그대로 둔다.
+  // §21 — 탭 변경은 페이지 전체가 아니라 고정 프레임 안의 내용만 Fade
+  // 전환한다(약 320~350ms). 프레임 높이/제목/이미지/탭 메뉴 위치는 그대로 둔다.
   useLayoutEffect(() => {
     const stage = stageRef.current;
     if (!stage || prefersReducedMotion()) return;
     gsap.fromTo(stage, { autoAlpha: 0, y: 10 }, { autoAlpha: 1, y: 0, duration: 0.2, delay: 0.12, ease: "power2.out", overwrite: "auto" });
-  }, [tab, skillIndex]);
+  }, [tab]);
 
   const activeIndex = TABS.findIndex((t) => t.key === tab);
 
@@ -227,11 +191,7 @@ export function ProfileSection({
               <button
                 key={t.key}
                 type="button"
-                onClick={() => {
-                  // §19 — 업무 역량 탭을 직접 클릭하면 항상 1번부터 시작한다.
-                  if (t.key === "skills") setSkillIndex(0);
-                  setTab(t.key);
-                }}
+                onClick={() => setTab(t.key)}
                 className="text-sm md:text-base font-medium px-1 pb-2 border-b-2 transition-colors duration-300 text-korean"
                 style={{
                   borderColor: i === activeIndex ? "var(--accent)" : "transparent",
@@ -260,7 +220,7 @@ export function ProfileSection({
             <div ref={stageRef} className="relative h-full min-w-0">
               {tab === "identity" && <IdentityText profile={profile} philosophy={philosophy} />}
               {tab === "numbers" && <NumbersPanel profile={profile} />}
-              {tab === "skills" && <SkillsPanel items={sortedCompetencies} index={skillIndex} />}
+              {tab === "skills" && <SkillsPanel items={sortedCompetencies} />}
             </div>
           </div>
         </div>
