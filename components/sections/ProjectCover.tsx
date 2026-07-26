@@ -39,6 +39,13 @@ export function ProjectCover({ project }: { project: Project }) {
         delay: 0.3,
       });
 
+      // §71 — 예전에는 스크롤 진행률에 맞춰 제목/메타 정보를 Fade Out
+      // 시켰는데, 아래로 스크롤했다가 다시 위로 올라오는 과정에서 제목이
+      // 사라진 채로 보이는 경우가 있었다(헤더를 상시 노출로 바꾸고 섹션
+      // 라벨을 holdAfterEnter로 유지시킨 것과 같은 이유로, 제목도 한 번
+      // 나타난 뒤에는 스크롤 방향과 관계없이 계속 보이는 편이 자연스럽다).
+      // 이제 이미지 확대 패럴랙스만 스크롤에 연동하고, 제목/메타는 처음
+      // 등장(Fade In)한 뒤 계속 그대로 유지한다.
       gsap.timeline({
         scrollTrigger: {
           trigger: section,
@@ -47,9 +54,7 @@ export function ProjectCover({ project }: { project: Project }) {
           scrub: 0.6,
           ...FAST_SCROLL_SAFE,
         },
-      })
-        .to(imgWrapRef.current, { scale: 1.18, duration: 1, ease: "none" }, 0)
-        .to([titleRef.current, metaRef.current], { autoAlpha: 0, y: -40, duration: 1, ease: "none" }, 0);
+      }).to(imgWrapRef.current, { scale: 1.18, duration: 1, ease: "none" }, 0);
     }, section);
 
     return () => ctx.revert();

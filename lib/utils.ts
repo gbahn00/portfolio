@@ -30,3 +30,17 @@ export function isPlaceholder(text?: string | null): boolean {
 export function safeText(text?: string | null): string {
   return isPlaceholder(text) ? "" : text ?? "";
 }
+
+// §71 — 일부 프로젝트는 "기획 및 제작 [자료 필요 - 세부 역할 구분]"처럼
+// 실제로 채워진 문장 뒤에 참고용 대괄호 메모만 덧붙어 있었다. 예전
+// isPlaceholder()는 문자열 전체에 "자료 필요"가 한 글자라도 섞여 있으면
+// 통째로 공개 화면에서 숨겨버려서, 이미 채워진 본문까지 같이 사라지는
+// 문제가 있었다(예: 치과 프로젝트의 "기여도" 섹션). 이제는 대괄호 메모
+// 부분만 제거하고 실제 작성된 문장은 그대로 살린다.
+export function stripPlaceholder(text?: string | null): string {
+  if (typeof text !== "string") return "";
+  return text
+    .replace(/\[[^\]]*자료\s*필요[^\]]*\]/g, "")
+    .replace(/\s{2,}/g, " ")
+    .trim();
+}

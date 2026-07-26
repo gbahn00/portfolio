@@ -91,7 +91,7 @@
       {
         "id": "c8b8aa24-9c8a-4779-ab37-dbbc77a0dc8c",
         "name": "Photoshop",
-        "percentage": 90,
+        "percentage": 70,
         "order": 0
       },
       {
@@ -103,34 +103,34 @@
       {
         "id": "c620e829-53e4-40f0-9054-29909ab7d8a7",
         "name": "CapCut",
-        "percentage": 85,
+        "percentage": 70,
         "order": 2
       },
       {
         "id": "46900020-128e-4679-99fc-5ad3571fd532",
         "name": "생성형 AI",
-        "percentage": 80,
+        "percentage": 90,
         "order": 3
       },
       {
         "id": "06438e33-0871-4776-a1aa-0c1756b65e68",
         "name": "Illustrator",
-        "percentage": 90,
+        "percentage": 50,
         "order": 4
       },
       {
         "id": "473e96a7-e9f9-4032-9646-33a5959ffad3",
         "name": "After Effects",
-        "percentage": 80,
+        "percentage": 90,
         "order": 5
       }
     ]
   },
   "hero": {
-    "headline": "콘텐츠,\n다르게\n설계합니다.",
-    "subline": "촬영과 보정에서 시작해\n광고, 유튜브, 생성형 AI와\n제작 관리까지 역할을 넓혀왔습니다.",
+    "headline": "주어진 일 넘어,\n가치를\n만듭니다.",
+    "subline": "정교한 촬영·보정에서 시작해\n성과형 광고 제작, 생성형 AI 실무 도입,\n팀 생산성을 높이는 시스템 구축까지\n필요한 역할을 스스로 찾고 결과로 증명해 왔습니다.",
     "name": "이지은",
-    "role": "영상 크리에이터",
+    "role": "크리에이티브",
     "department": "미디어팀",
     "joinYear": "2024년 입사",
     "badge": "2026년 특별진급 포트폴리오",

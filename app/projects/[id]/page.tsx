@@ -7,7 +7,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { ProjectCover } from "@/components/sections/ProjectCover";
 import { ProjectNav } from "@/components/sections/ProjectNav";
 import { BeforeAfterSlider } from "@/components/sections/BeforeAfterSlider";
-import { isPlaceholder, mediaSrc } from "@/lib/utils";
+import { isPlaceholder, mediaSrc, stripPlaceholder } from "@/lib/utils";
 import { Project } from "@/lib/types";
 
 export const dynamic = "force-dynamic";
@@ -60,13 +60,24 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
     role: project.role,
   };
 
-  const sections = (["overview", "purpose", "role"] as SectionKey[])
-    .map((key) => {
-      const block = findBlock(project, key);
-      const body = block?.body && !isPlaceholder(block.body) ? block.body : fieldFallback[key];
-      return { key, title: SECTION_TITLES[key], body, images: block?.images ?? [] };
-    })
-    .filter((s) => s.body && !isPlaceholder(s.body));
+  // §71 — 프로젝트 개요/제작 의도/기여도는 "고정" 섹션이라 모든 상세
+  // 페이지에 항상 노출되어야 한다. 이전에는 본문 전체가 비어 있거나
+  // isPlaceholder() 판정을 받으면(대괄호 메모가 한 글자라도 섞여 있어도)
+  // 섹션 자체를 통째로 걸러냈는데, 그 탓에 실제로 내용이 채워진 프로젝트
+  // (예: 치과 상세페이지의 "기여도")까지 화면에서 사라지는 경우가 있었다.
+  // 이제는 대괄호 메모만 제거(stripPlaceholder)하고 남은 실제 문장은
+  // 항상 보여주며, 3개 섹션 자체를 필터링해서 빼지 않는다.
+  const sections = (["overview", "purpose", "role"] as SectionKey[]).map((key) => {
+    const block = findBlock(project, key);
+    // detailBlocks 본문은 "[자료 필요] ..." 형태의 안내용 템플릿 문장을
+    // 그대로 담고 있는 경우가 있어 여기서는 원래대로 통째로 걸러낸다
+    // (isPlaceholder). 반면 프로젝트 기본 필드(설명/목적/역할)는 실제
+    // 작성된 문장 뒤에 짧은 대괄호 메모만 덧붙은 경우가 있어, 그 메모만
+    // 제거(stripPlaceholder)하고 실제 문장은 살려서 사용한다.
+    const blockBody = block?.body && !isPlaceholder(block.body) ? block.body : "";
+    const body = blockBody || stripPlaceholder(fieldFallback[key]);
+    return { key, title: SECTION_TITLES[key], body, images: block?.images ?? [] };
+  });
 
   const toolsBlock = findBlock(project, "tools");
   const toolsList = (toolsBlock?.body && !isPlaceholder(toolsBlock.body) ? toolsBlock.body.split("\n") : project.tools)
