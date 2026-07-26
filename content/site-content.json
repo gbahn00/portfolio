@@ -699,7 +699,17 @@
       "description": "의료 광고 특성상 과장된 표현을 피하고 시술 정보를 정확히 전달하는 데 집중했으며, 광고 채널의 노출 방식에 맞춰 영상 길이와 자막 구성을 조정했다.",
       "gallery": [
         {
-          "url": "/uploads/065f75ae-055d-4522-9b08-0dd672516c92.mp4",
+          "url": "/uploads/15f56064-6ded-4dbc-a852-57d965616287.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/8713c5fa-03f4-4c87-b0b9-52486cfc71d0.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/7e4a2976-915d-4ade-9672-f0fab0c24bca.mp4",
           "kind": "video-file",
           "alt": ""
         }
@@ -855,7 +865,7 @@
       "status": "draft",
       "order": 4,
       "createdAt": "2025-03-01T00:00:00.000Z",
-      "updatedAt": "2026-07-26T12:33:02.903Z",
+      "updatedAt": "2026-07-26T12:37:32.686Z",
       "retouchHighlights": []
     },
     {
