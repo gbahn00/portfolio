@@ -111,8 +111,10 @@ export function SelectedWork({ projects }: { projects: Project[] }) {
                 "같은 순번의 행은 두 칼럼에서 항상 같은 높이"가 되도록
                 했다(그리드 행은 그 안의 가장 큰 셀 높이에 맞춰진다). 행
                 자체의 세로 길이도 패딩을 늘려 조금 더 여유 있게 키웠다. */}
+            {/* §50 — max-w-5xl로 좁혀놨던 폭을 없애 좌우가 Container(페이지
+                끝)까지 꽉 차도록 늘렸다. */}
             <div
-              className="grid grid-cols-1 md:grid-cols-2 gap-x-14 md:gap-x-20 gap-y-3 content-center h-full overflow-hidden w-full max-w-5xl mx-auto"
+              className="grid grid-cols-1 md:grid-cols-2 gap-x-14 md:gap-x-20 gap-y-3 content-center h-full overflow-hidden w-full"
               style={{ gridTemplateRows: "auto repeat(4, auto)" }}
             >
               {columns.map((col, colIdx) => (
