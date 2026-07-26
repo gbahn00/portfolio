@@ -51,8 +51,12 @@ const COLUMN_SPLIT = 4;
 
 export function SelectedWork({ projects }: { projects: Project[] }) {
   const sorted = [...projects].sort((a, b) => a.order - b.order);
-  const featured = sorted.filter((p) => p.isFeatured);
-  const list = (featured.length > 0 ? featured : sorted).slice(0, 8);
+  // §48 — 예전에는 isFeatured로 표시할 4개만 골랐는데, 그러면 앞의 4개
+  // (Design)가 전부 isFeatured=false라 목록에서 통째로 빠져 Design 칼럼이
+  // 비어버리는 문제가 있었다. Design/Content 2단 구성은 "정해진 8개를
+  // 순서대로 4+4로 나누는" 고정 구조이므로, featured 필터 없이 순서상
+  // 앞 8개를 그대로 쓴다.
+  const list = sorted.slice(0, 8);
   const columns = [
     { label: "Design", items: list.slice(0, COLUMN_SPLIT), offset: 0 },
     { label: "Content", items: list.slice(COLUMN_SPLIT, 8), offset: COLUMN_SPLIT },
