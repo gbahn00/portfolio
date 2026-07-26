@@ -82,29 +82,35 @@ const TOOL_ICON_MAP: Record<string, string> = {
   "After Effects": "/icons/tools/after-effects.png",
 };
 
+// §54 — Skills 아이콘 배치를 "포토샵/프리미어프로 → 일러스트레이터/
+// 애프터이펙트 → 캡컷/생성형 AI" 순서로 지정해달라는 요청. 관리자가 입력한
+// 순서(order)와 무관하게 항상 이 순서로 보이도록, 이름 기준 고정 우선순위
+// 목록을 두고 그 기준으로 정렬한다(목록에 없는 새 이름은 맨 뒤로).
+const SKILL_DISPLAY_ORDER = ["Photoshop", "Premiere Pro", "Illustrator", "After Effects", "CapCut", "생성형 AI"];
+
 function NumbersPanel({ profile }: { profile: Profile }) {
   const facts = [...profile.keyFacts].sort((a, b) => a.order - b.order);
-  const skills = [...(profile.toolSkills ?? [])].filter((s) => s.name).sort((a, b) => a.order - b.order);
+  const skills = [...(profile.toolSkills ?? [])]
+    .filter((s) => s.name)
+    .sort((a, b) => {
+      const ai = SKILL_DISPLAY_ORDER.indexOf(a.name);
+      const bi = SKILL_DISPLAY_ORDER.indexOf(b.name);
+      return (ai === -1 ? 999 : ai) - (bi === -1 ? 999 : bi);
+    });
 
   return (
-    // §44 — 핵심 수치를 다시 2x2로 배치하되, 관리자 데이터 입력 순서
-    // (근무시작→주요직무→주요분야→조직기여)를 그대로 두고 "세로로 먼저
-    // 채우는" grid-flow-col 배치를 써서 화면상으로는
-    //   근무시작   주요분야
-    //   주요직무   조직기여
-    // 순서가 나오도록 했다(요청받은 특정 배치). 4개짜리 한 줄 배치는
-    // "폰트만 키운 느낌"이라는 피드백이 있어 폐기하고, 대신 항목당 폭이
-    // 늘어난 만큼 타이포 크기를 한 단계 키워 여백과 크기감을 함께
-    // 재구성했다. Skills는 아이콘을 키우고, 진행바는 더 이상 칸 끝까지
-    // 늘어나지 않도록 최대 폭을 제한했다.
+    // §54 — 행 사이 구분선은 없애고 왼쪽 정렬 리스트 구조만 유지해달라는
+    // 요청에 따라 border를 없애고 gap만으로 행 간격을 준다.
     <div className="h-full flex items-center">
       <div className="w-full">
-        <div className="grid grid-cols-2 grid-rows-2 grid-flow-col gap-x-10 md:gap-x-16 gap-y-6 md:gap-y-8">
+        <div className="flex flex-col gap-3 md:gap-3.5">
           {facts.map((f) => (
-            <div key={f.label}>
-              <span className="block w-6 h-[2px] mb-2.5" style={{ background: "var(--accent)" }} />
-              <p className="text-korean text-xs md:text-sm text-ink-muted mb-1.5 tracking-wide">{f.label}</p>
-              <p className="text-korean text-xl md:text-2xl lg:text-3xl text-ink font-bold leading-snug line-clamp-2">
+            <div key={f.label} className="flex items-center gap-4 md:gap-6">
+              <span className="block w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "var(--accent)" }} />
+              <p className="text-korean text-xs md:text-sm text-ink-muted tracking-wide shrink-0 w-20 md:w-24">
+                {f.label}
+              </p>
+              <p className="text-korean text-lg md:text-xl lg:text-2xl text-ink font-bold leading-snug text-left">
                 {f.value}
               </p>
             </div>
@@ -115,7 +121,9 @@ function NumbersPanel({ profile }: { profile: Profile }) {
         {/* §40-44 — Skills: 위 핵심 수치와 구분선으로 나뉘는 아래쪽 절반.
             §45 — 아이콘을 한 번 더 키우고(h-11~h-14), 진행바 최대폭도
             늘려서(220~260px) 화면 여백 대비 너무 작아 보이던 느낌을
-            해소했다. 라벨/퍼센트 글자도 함께 키웠다. */}
+            해소했다. 라벨/퍼센트 글자도 함께 키웠다.
+            §54 — 위 SKILL_DISPLAY_ORDER로 정렬된 순서를 grid-cols-2(행
+            우선 채우기)에 그대로 흘려보내면 요청받은 3행 짝이 나온다. */}
         <div className="mt-7 md:mt-9 pt-6 md:pt-8 border-t border-line">
           <p className="font-en text-sm md:text-base text-ink-muted mb-4 tracking-wide">Skills</p>
           <div className="grid grid-cols-2 gap-x-8 gap-y-4 md:gap-y-5">
