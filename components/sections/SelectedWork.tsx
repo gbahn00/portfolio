@@ -84,11 +84,13 @@ export function SelectedWork({ projects }: { projects: Project[] }) {
 
         {list.length > 0 ? (
           <div ref={wrapRef} className="relative flex-1 min-h-0" onMouseMove={handleMouseMove}>
-            {/* §30 — 오른쪽에 항상 떠 있는 미리보기 칼럼이 없어진 뒤로는 목록을
-                max-w-3xl로 좁혀둘 이유가 없었다. 페이지 폭 전체를 쓰도록 바꿨다. */}
-            {/* justify-evenly로 행 사이 여백을 고르게 벌려, 항목 수가 적어도
-                목록이 박스 절반이 아니라 세로 공간 전체를 채우도록 했다. */}
-            <div className="flex flex-col justify-evenly h-full overflow-hidden w-full">
+            {/* §34 — justify-evenly로 4개 안팎의 항목을 세로 공간 전체에 억지로
+                고르게 벌렸더니 행 사이 간격이 부자연스럽게 커 보였다. 각 행
+                자체를 넉넉하게 키우고(패딩·글자 크기) justify-center로
+                되돌려, 항목 수에 맞는 자연스러운 밀도로 박스 가운데 놓이게
+                했다. 폭도 초광폭 화면에서 테두리 줄만 끝없이 길어 보이지
+                않도록 max-w-4xl로 적당히 잡았다(이전의 3xl보다는 넓게). */}
+            <div className="flex flex-col justify-center h-full overflow-hidden w-full max-w-4xl">
               {list.map((p, i) => (
                 <Link
                   key={p.id}
@@ -97,25 +99,25 @@ export function SelectedWork({ projects }: { projects: Project[] }) {
                   onMouseLeave={() => setHoveredId(null)}
                   onFocus={() => setHoveredId(p.id)}
                   onBlur={() => setHoveredId(null)}
-                  className="group flex items-center gap-4 py-3 md:py-3.5 border-b border-line first:border-t last:border-b-0"
+                  className="group flex items-center gap-5 py-5 md:py-6 border-b border-line first:border-t last:border-b-0"
                 >
                   <span
-                    className="font-en text-xs tabular-nums shrink-0 transition-colors duration-200"
+                    className="font-en text-sm tabular-nums shrink-0 transition-colors duration-200"
                     style={{ color: p.id === hoveredId ? "var(--accent)" : "var(--color-text-muted)" }}
                   >
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <div className="min-w-0 flex-1">
                     <p
-                      className="text-base md:text-lg font-semibold truncate text-korean transition-colors duration-200"
+                      className="text-xl md:text-2xl font-semibold truncate text-korean transition-colors duration-200"
                       style={{ color: p.id === hoveredId ? "var(--color-text-primary)" : "var(--color-text-secondary)" }}
                     >
                       {p.title}
                     </p>
-                    <p className="text-xs text-ink-muted truncate mt-0.5">{p.field}</p>
+                    <p className="text-sm text-ink-muted truncate mt-1">{p.field}</p>
                   </div>
                   <span
-                    className="shrink-0 text-sm transition-all duration-200"
+                    className="shrink-0 text-base transition-all duration-200"
                     style={{
                       color: "var(--accent)",
                       opacity: p.id === hoveredId ? 1 : 0,

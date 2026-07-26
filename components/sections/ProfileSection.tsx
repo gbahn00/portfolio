@@ -33,35 +33,34 @@ const TABS: { key: TabKey; label: string }[] = [
 
 const MAX_SKILL_STEPS = 5;
 
-function IdentityPanel({ profile, philosophy }: { profile: Profile; philosophy: PhilosophySection }) {
+// §35 — "탭을 바꾸면 사진이 통째로 사라진다"는 피드백에 따라 구조를 바꿨다.
+// 예전에는 사진+소개글이 하나의 IdentityPanel로 묶여 있어서, 핵심 수치/
+// 업무 역량 탭으로 넘어가면 사진까지 같이 없어졌다. 이제 사진은 박스 왼쪽
+// 절반에 항상 고정으로 떠 있고(탭이 바뀌어도 다시 렌더링되지 않음), 탭에
+// 따라 바뀌는 건 오른쪽 절반의 텍스트 콘텐츠뿐이다 — ProfileSection의
+// return 안에서 사진을 stage 밖에 별도로 그린다.
+function IdentityText({ profile, philosophy }: { profile: Profile; philosophy: PhilosophySection }) {
   const paragraphs = [...philosophy.paragraphs].sort((a, b) => a.order - b.order).slice(0, 2);
   const keywords = [...philosophy.keywords].sort((a, b) => a.order - b.order);
   return (
-    <div className="grid grid-cols-1 md:grid-cols-[0.9fr_1.1fr] gap-6 md:gap-10 items-center h-full">
-      {/* 색상/프로필 이미지 수정 요청서 §7-11 — 이미지 영역을 42~46%까지
-          키우고, 고정 높이 프레임을 그대로 채우도록(h-full) 조정했다. */}
-      <div className="relative w-full max-w-[46%] md:max-w-none h-full mx-auto md:mx-0 overflow-hidden rounded-sm">
-        <MediaFrame media={profile.profilePhoto} className="h-full w-full" />
+    <div className="h-full flex flex-col justify-center min-w-0">
+      <p className="statement-title font-medium text-korean mb-3 max-w-2xl line-clamp-2">{profile.representativePhrase}</p>
+      <div className="space-y-2 mb-3">
+        {paragraphs.map((p) => (
+          <p key={p.id} className="body-large text-ink-secondary text-korean max-w-xl line-clamp-2">
+            {p.text}
+          </p>
+        ))}
       </div>
-      <div className="min-w-0">
-        <p className="statement-title font-medium text-korean mb-3 max-w-2xl line-clamp-2">{profile.representativePhrase}</p>
-        <div className="space-y-2 mb-3">
-          {paragraphs.map((p) => (
-            <p key={p.id} className="body-large text-ink-secondary text-korean max-w-xl line-clamp-2">
-              {p.text}
-            </p>
+      {keywords.length > 0 && (
+        <div className="flex flex-wrap gap-2">
+          {keywords.slice(0, 5).map((k) => (
+            <span key={k.id} className="text-xs rounded-full border border-line px-3 py-1 text-ink-muted text-korean">
+              #{k.text}
+            </span>
           ))}
         </div>
-        {keywords.length > 0 && (
-          <div className="flex flex-wrap gap-2">
-            {keywords.slice(0, 5).map((k) => (
-              <span key={k.id} className="text-xs rounded-full border border-line px-3 py-1 text-ink-muted text-korean">
-                #{k.text}
-              </span>
-            ))}
-          </div>
-        )}
-      </div>
+      )}
     </div>
   );
 }
@@ -72,8 +71,10 @@ function NumbersPanel({ profile }: { profile: Profile }) {
     // §29 — 보조창이 커진 만큼(flex-1) 숫자 콘텐츠도 그에 맞춰 키웠다.
     // 작은 악센트 밑줄 + 라벨 + 큰 숫자로 이어지는 통계 카드 형태로 바꾸고,
     // 그리드 간격도 넓혀 여백이 남는 느낌 없이 박스를 채우게 했다.
+    // §35 — 사진이 항상 옆에 고정되면서 이 패널은 이제 박스 전체가 아니라
+    // 오른쪽 절반 폭만 쓴다. 3열은 좁은 폭에서 답답해 보여 2열로 조정했다.
     <div className="h-full flex items-center">
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-x-10 md:gap-x-14 gap-y-10 md:gap-y-12 w-full max-w-4xl">
+      <div className="grid grid-cols-2 gap-x-8 md:gap-x-10 gap-y-8 md:gap-y-10 w-full">
         {facts.map((f) => (
           <div key={f.label}>
             <span className="block w-6 h-[2px] mb-3" style={{ background: "var(--accent)" }} />
@@ -246,10 +247,18 @@ export function ProfileSection({
           className="relative w-full overflow-hidden rounded-sm bg-bg p-5 md:p-8 flex-1 min-h-0"
           style={{ minHeight: "260px", maxHeight: "640px" }}
         >
-          <div ref={stageRef} className="absolute inset-5 md:inset-8">
-            {tab === "identity" && <IdentityPanel profile={profile} philosophy={philosophy} />}
-            {tab === "numbers" && <NumbersPanel profile={profile} />}
-            {tab === "skills" && <SkillsPanel items={sortedCompetencies} index={skillIndex} />}
+          {/* §35 — 사진(왼쪽)은 탭과 무관하게 항상 고정이고, 오른쪽 절반만
+              탭에 따라 Fade 전환된다. 그리드 비율(0.9fr/1.1fr)은 이전
+              IdentityPanel과 동일하게 유지해 사진 크기/위치가 그대로다. */}
+          <div className="grid grid-cols-1 md:grid-cols-[0.9fr_1.1fr] gap-6 md:gap-10 h-full items-stretch">
+            <div className="relative w-full max-w-[46%] md:max-w-none h-full mx-auto md:mx-0 overflow-hidden rounded-sm">
+              <MediaFrame media={profile.profilePhoto} className="h-full w-full" />
+            </div>
+            <div ref={stageRef} className="relative h-full min-w-0">
+              {tab === "identity" && <IdentityText profile={profile} philosophy={philosophy} />}
+              {tab === "numbers" && <NumbersPanel profile={profile} />}
+              {tab === "skills" && <SkillsPanel items={sortedCompetencies} index={skillIndex} />}
+            </div>
           </div>
         </div>
       </Container>
