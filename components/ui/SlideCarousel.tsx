@@ -20,6 +20,15 @@ import { useEffect, useRef, useState, ReactNode } from "react";
 //   - 화살표를 누르면 "한 화면 분량"만큼 옆으로 스크롤한다(스냅 포함).
 //   - 항목마다 폭이 달라 "몇 번째 슬라이드"가 명확하지 않으므로 점
 //     인디케이터는 없애고, 더 스크롤할 내용이 있을 때만 화살표를 보여준다.
+//
+// §92 — "세로 슬라이드가 생겼다"는 신고. overflow-x-auto만 넣고
+// overflow-y를 따로 지정하지 않으면, CSS 스펙상 한쪽 축이라도 visible이
+// 아니게 지정되면 나머지 축의 계산값도 자동으로 visible→auto로 바뀐다
+// (브라우저 표준 동작). 그래서 캡션 등 내용이 세로로 살짝 넘칠 때마다
+// 의도치 않은 세로 스크롤(=세로 슬라이드)이 함께 생겼다. overflow-y를
+// 명시적으로 hidden으로 고정해 가로 슬라이드만 남기고, 내용이 넘치는
+// 경우는(§92, BeforeAfterSlider 캡션) 각 호출부에서 높이 예산을 미리
+// 맞춰 잘리지 않게 했다.
 // ============================================================================
 
 export function SlideCarousel<T>({
@@ -80,7 +89,7 @@ export function SlideCarousel<T>({
         <div
           ref={trackRef}
           onScroll={updateArrows}
-          className={`flex items-start ${heightClassName} ${gapClassName} overflow-x-auto snap-x snap-mandatory scroll-smooth -mx-1 px-1`}
+          className={`flex items-start ${heightClassName} ${gapClassName} overflow-x-auto overflow-y-hidden snap-x snap-mandatory scroll-smooth -mx-1 px-1`}
         >
           {items.map((item, i) => (
             <div key={keyOf ? keyOf(item, i) : i} className="h-full shrink-0 snap-start">
