@@ -1,1 +1,21 @@
-[]
+[
+  {
+    "id": "d4ee1158-552b-4b09-b3ec-7a42609e9d6f",
+    "entity": "achievements",
+    "originalId": "a1",
+    "data": {
+      "id": "a1",
+      "name": "사용 중인 생성형 인공지능 도구 수",
+      "value": "5",
+      "unit": "개",
+      "description": "Flow AI, Higgsfield AI, Sora AI, InVideo AI, Kling AI",
+      "asOfDate": "2026-07-25",
+      "source": "업무 기록",
+      "countUpEnabled": true,
+      "order": 0,
+      "visible": true
+    },
+    "deletedAt": "2026-07-26T02:42:31.789Z",
+    "deletedBy": "admin"
+  }
+]

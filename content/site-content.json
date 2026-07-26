@@ -81,17 +81,50 @@
         "order": 2
       },
       {
-        "label": "생성형 인공지능 활용 도구",
-        "value": "5개 이상",
-        "order": 3
-      },
-      {
         "label": "조직 기여",
         "value": "인공지능 크레딧 관리체계 구축",
         "order": 4
       }
     ],
-    "updatedAt": "2026-07-25T00:00:00.000Z"
+    "updatedAt": "2026-07-25T00:00:00.000Z",
+    "toolSkills": [
+      {
+        "id": "c8b8aa24-9c8a-4779-ab37-dbbc77a0dc8c",
+        "name": "Photoshop",
+        "percentage": 80,
+        "order": 0
+      },
+      {
+        "id": "03ce5f88-1d46-464a-b2c7-8cd7474b184d",
+        "name": "Premiere Pro",
+        "percentage": 80,
+        "order": 1
+      },
+      {
+        "id": "c620e829-53e4-40f0-9054-29909ab7d8a7",
+        "name": "CapCut",
+        "percentage": 80,
+        "order": 2
+      },
+      {
+        "id": "46900020-128e-4679-99fc-5ad3571fd532",
+        "name": "생성형 AI",
+        "percentage": 80,
+        "order": 3
+      },
+      {
+        "id": "06438e33-0871-4776-a1aa-0c1756b65e68",
+        "name": "Illustrator",
+        "percentage": 80,
+        "order": 4
+      },
+      {
+        "id": "473e96a7-e9f9-4032-9646-33a5959ffad3",
+        "name": "After Effects",
+        "percentage": 80,
+        "order": 5
+      }
+    ]
   },
   "hero": {
     "headline": "콘텐츠,\n다르게\n설계합니다.",
@@ -1451,18 +1484,6 @@
     "status": "draft"
   },
   "achievements": [
-    {
-      "id": "a1",
-      "name": "사용 중인 생성형 인공지능 도구 수",
-      "value": "5",
-      "unit": "개",
-      "description": "Flow AI, Higgsfield AI, Sora AI, InVideo AI, Kling AI",
-      "asOfDate": "2026-07-25",
-      "source": "업무 기록",
-      "countUpEnabled": true,
-      "order": 0,
-      "visible": true
-    },
     {
       "id": "a2",
       "name": "총 제작 영상 수",

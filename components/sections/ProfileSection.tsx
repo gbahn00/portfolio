@@ -84,62 +84,59 @@ const TOOL_ICON_MAP: Record<string, string> = {
 
 function NumbersPanel({ profile }: { profile: Profile }) {
   const facts = [...profile.keyFacts].sort((a, b) => a.order - b.order);
+  const skills = [...(profile.toolSkills ?? [])].filter((s) => s.name).sort((a, b) => a.order - b.order);
+
   return (
-    // §29 — 보조창이 커진 만큼(flex-1) 숫자 콘텐츠도 그에 맞춰 키웠다.
-    // 작은 악센트 밑줄 + 라벨 + 큰 숫자로 이어지는 통계 카드 형태로 바꾸고,
-    // 그리드 간격도 넓혀 여백이 남는 느낌 없이 박스를 채우게 했다.
-    // §35 — 사진이 항상 옆에 고정되면서 이 패널은 이제 박스 전체가 아니라
-    // 오른쪽 절반 폭만 쓴다. 3열은 좁은 폭에서 답답해 보여 2열로 조정했다.
+    // §41 — Skills(아이콘+진행바)를 핵심 수치 아래에 세로로 이어 붙였더니
+    // 둘의 높이가 그대로 더해져서, 고정 프레임(최대 640px) 안에 다 안
+    // 들어가는 화면에서 아래쪽이 잘렸다. 세로로 쌓는 대신 좌우로 나란히
+    // 배치해서, 전체 높이가 "둘의 합"이 아니라 "더 긴 쪽" 기준이 되도록
+    // 구조를 바꿨다. 각 쪽 글자/여백도 함께 줄여 여유를 더 확보했다.
     <div className="h-full flex items-center">
-      <div className="w-full">
-        <div className="grid grid-cols-2 gap-x-8 md:gap-x-10 gap-y-8 md:gap-y-10">
+      <div className="grid grid-cols-1 md:grid-cols-[1fr_1.1fr] gap-x-10 md:gap-x-12 gap-y-8 w-full">
+        <div className="grid grid-cols-2 gap-x-6 gap-y-6 md:gap-y-7 content-start">
           {facts.map((f) => (
             <div key={f.label}>
-              <span className="block w-6 h-[2px] mb-3" style={{ background: "var(--accent)" }} />
-              <p className="text-korean text-sm md:text-base text-ink-muted mb-2 tracking-wide">{f.label}</p>
-              <p className="text-korean text-3xl md:text-4xl text-ink font-bold tabular-nums">{f.value}</p>
+              <span className="block w-5 h-[2px] mb-2" style={{ background: "var(--accent)" }} />
+              <p className="text-korean text-xs md:text-sm text-ink-muted mb-1.5 tracking-wide">{f.label}</p>
+              <p className="text-korean text-2xl md:text-3xl text-ink font-bold tabular-nums">{f.value}</p>
             </div>
           ))}
           {facts.length === 0 && <p className="text-ink-muted text-sm">등록된 핵심 수치가 아직 없습니다.</p>}
         </div>
 
-        {/* §40 — Skills: 아이콘(왼쪽) + 진행바(오른쪽, 관리자가 조절하는
-            percentage). 숫자 카드들과 같은 세로 중앙 정렬 그룹 안에 있어
-            탭 전체 레이아웃(사진 고정, 프레임 크기)에는 영향을 주지 않는다. */}
-        <div className="mt-8 md:mt-10">
-          <p className="font-en text-sm md:text-base text-ink-muted mb-4 tracking-wide">Skills</p>
-          <div className="flex flex-col gap-4 md:gap-5">
-            {[...(profile.toolSkills ?? [])]
-              .filter((s) => s.name)
-              .sort((a, b) => a.order - b.order)
-              .map((s) => (
-                <div key={s.id} className="flex items-center gap-4">
-                  {TOOL_ICON_MAP[s.name] && (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img
-                      src={TOOL_ICON_MAP[s.name]}
-                      alt={s.name}
-                      title={s.name}
-                      className="h-9 w-9 md:h-10 md:w-10 rounded-lg object-cover shrink-0"
+        {/* §40-41 — Skills: 아이콘(왼쪽) + 진행바(오른쪽, 관리자가 조절하는
+            percentage). 핵심 수치 옆 칼럼에 두어 세로 길이가 늘어나지 않게
+            했다. */}
+        <div className="min-w-0">
+          <p className="font-en text-xs md:text-sm text-ink-muted mb-3 tracking-wide">Skills</p>
+          <div className="flex flex-col gap-2.5 md:gap-3">
+            {skills.map((s) => (
+              <div key={s.id} className="flex items-center gap-3">
+                {TOOL_ICON_MAP[s.name] && (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={TOOL_ICON_MAP[s.name]}
+                    alt={s.name}
+                    title={s.name}
+                    className="h-6 w-6 md:h-7 md:w-7 rounded-md object-cover shrink-0"
+                  />
+                )}
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="text-korean text-xs text-ink-secondary truncate">{s.name}</span>
+                    <span className="font-en text-[11px] tabular-nums text-ink-muted shrink-0">{s.percentage}%</span>
+                  </div>
+                  <div className="h-1 w-full rounded-full overflow-hidden" style={{ background: "var(--color-border)" }}>
+                    <div
+                      className="h-full rounded-full"
+                      style={{ width: `${Math.max(0, Math.min(100, s.percentage))}%`, background: "var(--accent)" }}
                     />
-                  )}
-                  <div className="min-w-0 flex-1">
-                    <div className="flex items-center justify-between mb-1.5">
-                      <span className="text-korean text-xs md:text-sm text-ink-secondary truncate">{s.name}</span>
-                      <span className="font-en text-xs tabular-nums text-ink-muted shrink-0">{s.percentage}%</span>
-                    </div>
-                    <div className="h-1.5 w-full rounded-full overflow-hidden" style={{ background: "var(--color-border)" }}>
-                      <div
-                        className="h-full rounded-full"
-                        style={{ width: `${Math.max(0, Math.min(100, s.percentage))}%`, background: "var(--accent)" }}
-                      />
-                    </div>
                   </div>
                 </div>
-              ))}
-            {(!profile.toolSkills || profile.toolSkills.length === 0) && (
-              <p className="text-ink-muted text-sm">등록된 도구가 아직 없습니다.</p>
-            )}
+              </div>
+            ))}
+            {skills.length === 0 && <p className="text-ink-muted text-sm">등록된 도구가 아직 없습니다.</p>}
           </div>
         </div>
       </div>
