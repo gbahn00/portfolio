@@ -118,18 +118,18 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
           <div className="max-w-3xl">
             <Reveal>
               <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-korean">결과물 영상</h2>
-              {/* §67 — 가로/세로 영상 모두 같은 크기의 표시 영역을 쓰도록,
-                  고정 비율 박스 안에서 object-contain으로 원본 비율을
-                  그대로 유지한 채 보여준다(잘리거나 늘어나지 않음). */}
-              <div className="relative w-full aspect-video overflow-hidden rounded-sm bg-bg-soft flex items-center justify-center">
-                <video
-                  src={mediaSrc(project.finalVideo.url)}
-                  poster={project.finalVideo.poster || (project.heroImage ? mediaSrc(project.heroImage.url) : undefined)}
-                  controls
-                  playsInline
-                  className="max-h-full max-w-full object-contain"
-                />
-              </div>
+              {/* §68 — 여기는 영상이 하나뿐이라(격자로 나란히 놓고 비교할
+                  필요가 없음) 고정 박스로 강제로 자르거나 레터박스를 두지
+                  않고, 영상 자체의 원본 비율대로 크게 보여준다(가로 영상은
+                  넓게, 세로 영상은 높게). 세로 영상이 화면을 너무 많이
+                  차지하지 않도록 최대 높이만 넉넉하게 잡아뒀다. */}
+              <video
+                src={mediaSrc(project.finalVideo.url)}
+                poster={project.finalVideo.poster || (project.heroImage ? mediaSrc(project.heroImage.url) : undefined)}
+                controls
+                playsInline
+                className="w-full h-auto max-h-[75vh] mx-auto block rounded-sm bg-bg-soft"
+              />
             </Reveal>
           </div>
         </Container>
@@ -139,7 +139,10 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
           <div className="max-w-3xl">
             <Reveal>
               <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-korean">작업 이미지</h2>
-              <GalleryGrid items={project.gallery} className="grid grid-cols-2 md:grid-cols-3 gap-4" />
+              <GalleryGrid
+                items={project.gallery}
+                className="flex items-start gap-4 md:gap-5 h-72 sm:h-80 md:h-96 overflow-x-auto snap-x snap-mandatory scroll-smooth -mx-1 px-1 pb-2"
+              />
             </Reveal>
           </div>
         </Container>
@@ -187,7 +190,10 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
           {hasGallery && topSlot !== "gallery" && (
             <Reveal>
               <h2 className="text-xl md:text-2xl font-semibold mb-4">상세 이미지</h2>
-              <GalleryGrid items={project.gallery} className="grid grid-cols-2 md:grid-cols-3 gap-4" />
+              <GalleryGrid
+                items={project.gallery}
+                className="flex items-start gap-4 md:gap-5 h-72 sm:h-80 md:h-96 overflow-x-auto snap-x snap-mandatory scroll-smooth -mx-1 px-1 pb-2"
+              />
             </Reveal>
           )}
         </div>

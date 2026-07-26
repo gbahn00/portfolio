@@ -580,6 +580,11 @@
           "url": "/uploads/d6cd4a9d-ad43-49a6-8370-3fe0613071fd.mp4",
           "kind": "video-file",
           "alt": ""
+        },
+        {
+          "url": "/uploads/b12d15e6-5607-4ce6-b81a-c1b711cb574e.mp4",
+          "kind": "video-file",
+          "alt": ""
         }
       ],
       "beforeAfter": [],
@@ -733,7 +738,7 @@
       "status": "draft",
       "order": 4,
       "createdAt": "2025-03-01T00:00:00.000Z",
-      "updatedAt": "2026-07-26T05:59:52.652Z",
+      "updatedAt": "2026-07-26T06:16:51.629Z",
       "retouchHighlights": []
     },
     {
