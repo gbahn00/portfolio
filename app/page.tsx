@@ -50,7 +50,7 @@ export default async function HomePage() {
           />
         </div>
         <div data-fp-section data-fp-id="growth">
-          <Timeline entries={visibleSorted(content.timeline)} />
+          <Timeline entries={visibleSorted(content.timeline)} title={content.growth?.title} />
         </div>
         <div data-fp-section data-fp-id="projects">
           <SelectedWork projects={publicProjects} />

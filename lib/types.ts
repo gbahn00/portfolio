@@ -67,6 +67,15 @@ export interface PhilosophySection {
   status: PublishStatus;
 }
 
+// §82 — "업무 성장과정" 섹션의 대표 제목("입사 이후, 역할은 이렇게
+// 확장되었습니다.")이 예전에는 컴포넌트에 하드코딩돼 있어 관리자 화면
+// 어디에서도 수정할 수 없었다. Hero/Philosophy/Closing처럼 이 섹션도
+// 자체 싱글턴 레코드를 두어 제목을 편집 가능하게 만들었다.
+export interface GrowthSection {
+  title: string;
+  status: PublishStatus;
+}
+
 export interface TimelineEntry {
   id: string;
   year: string;
@@ -306,6 +315,7 @@ export interface SiteContent {
   profile: Profile;
   hero: HeroSection;
   philosophy: PhilosophySection;
+  growth: GrowthSection;
   timeline: TimelineEntry[];
   projects: Project[];
   competencies: Competency[];

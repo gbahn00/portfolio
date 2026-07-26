@@ -4,7 +4,7 @@ import { getContent, updateSection } from "@/lib/data/repo";
 import { SiteContent } from "@/lib/types";
 
 const ALLOWED = [
-  "settings", "profile", "hero", "philosophy", "ai", "contributions", "fitness", "closing",
+  "settings", "profile", "hero", "philosophy", "growth", "ai", "contributions", "fitness", "closing",
 ] as const;
 
 export async function GET(_req: NextRequest, { params }: { params: { key: string } }) {

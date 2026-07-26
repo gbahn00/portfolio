@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { v4 as uuid } from "uuid";
-import { TimelineEntry } from "@/lib/types";
+import { TimelineEntry, GrowthSection } from "@/lib/types";
 import { TextField, TextAreaField, SelectField } from "@/components/admin/fields";
 import { TextListEditor } from "@/components/admin/ArrayEditor";
 import { MediaUpload } from "@/components/admin/MediaUpload";
@@ -53,7 +53,16 @@ function EntryCard({ entry, onSaved, onDeleted }: { entry: TimelineEntry; onSave
               ]}
             />
           </div>
-          <TextField label="제목" value={draft.title} onChange={(v) => set("title", v)} />
+          {/* §83 — 예전엔 한 줄짜리 input이라 줄바꿈을 입력할 수 없었다.
+              textarea로 바꿔 Enter로 원하는 위치에서 줄을 나눌 수 있다
+              (공개 화면에도 그대로 반영됨). */}
+          <TextAreaField
+            label="제목"
+            value={draft.title}
+            onChange={(v) => set("title", v)}
+            rows={2}
+            hint="Enter로 줄바꿈을 입력하면 공개 화면에도 그대로 반영됩니다."
+          />
           <TextAreaField label="설명" value={draft.description} onChange={(v) => set("description", v)} rows={2} />
           <TextListEditor label="주요 경험" items={draft.experiences} onChange={(v) => set("experiences", v as any)} />
           <TextField label="전달 메시지" value={draft.message} onChange={(v) => set("message", v)} />
@@ -72,7 +81,57 @@ function EntryCard({ entry, onSaved, onDeleted }: { entry: TimelineEntry; onSave
   );
 }
 
-export function TimelineManager({ initial }: { initial: TimelineEntry[] }) {
+// §82 — "업무 성장과정" 섹션의 대표 제목("입사 이후, 역할은 이렇게
+// 확장되었습니다.")을 편집하는 영역. 연도별 항목과는 별개의 데이터라
+// 별도의 저장 버튼을 둔다.
+function GrowthTitleEditor({ initial }: { initial: GrowthSection }) {
+  const [title, setTitle] = useState(initial.title);
+  const [saving, setSaving] = useState(false);
+  const [savedAt, setSavedAt] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
+
+  async function save() {
+    setSaving(true);
+    setError(null);
+    try {
+      await api("/api/admin/section/growth", {
+        method: "PATCH",
+        body: JSON.stringify({ ...initial, title }),
+      });
+      setSavedAt(new Date().toLocaleTimeString("ko-KR"));
+    } catch (e: any) {
+      setError(e.message || "저장에 실패했습니다.");
+    } finally {
+      setSaving(false);
+    }
+  }
+
+  return (
+    <div className="rounded-md border border-neutral-800 p-4 mb-8">
+      <p className="text-sm font-medium mb-3">섹션 대표 제목</p>
+      <TextAreaField
+        label="제목"
+        value={title}
+        onChange={setTitle}
+        rows={2}
+        hint="Enter로 줄바꿈을 입력하면 공개 화면에도 그대로 반영됩니다."
+      />
+      <div className="flex items-center gap-3">
+        <button
+          onClick={save}
+          disabled={saving}
+          className="rounded-md bg-orange-500 px-4 py-2 text-sm font-medium text-white hover:bg-orange-400 disabled:opacity-50"
+        >
+          {saving ? "저장 중..." : "저장"}
+        </button>
+        {error && <span className="text-xs text-red-400">{error}</span>}
+        {!error && savedAt && <span className="text-xs text-neutral-500">마지막 저장: {savedAt}</span>}
+      </div>
+    </div>
+  );
+}
+
+export function TimelineManager({ initial, initialGrowth }: { initial: TimelineEntry[]; initialGrowth: GrowthSection }) {
   const [entries, setEntries] = useState(initial);
   const sorted = [...entries].sort((a, b) => a.order - b.order);
 
@@ -101,6 +160,8 @@ export function TimelineManager({ initial }: { initial: TimelineEntry[] }) {
     <div>
       <h1 className="text-2xl font-bold mb-1">성장과정 관리</h1>
       <p className="text-sm text-neutral-500 mb-8">연도별 업무 확장 과정을 추가·수정·삭제·순서 변경할 수 있습니다.</p>
+
+      <GrowthTitleEditor initial={initialGrowth} />
 
       {sorted.map((entry, idx) => (
         <div key={entry.id} className="flex items-start gap-2">

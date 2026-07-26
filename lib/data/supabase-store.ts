@@ -56,6 +56,7 @@ export async function getContentSupabase(): Promise<SiteContent> {
     profile,
     hero,
     philosophy,
+    growth,
     timeline,
     projects,
     competencies,
@@ -74,6 +75,7 @@ export async function getContentSupabase(): Promise<SiteContent> {
     sb.from("profile").select("*").eq("id", 1).single(),
     sb.from("hero_section").select("*").eq("id", 1).single(),
     sb.from("philosophy_section").select("*").eq("id", 1).single(),
+    sb.from("growth_section").select("*").eq("id", 1).single(),
     sb.from("timeline_entries").select("*").order("order"),
     sb.from("projects").select("*").order("order"),
     sb.from("competencies").select("*").order("order"),
@@ -94,6 +96,9 @@ export async function getContentSupabase(): Promise<SiteContent> {
     profile: camel(profile.data),
     hero: camel(hero.data),
     philosophy: camel(philosophy.data),
+    growth: growth.data
+      ? camel(growth.data)
+      : ({ title: "입사 이후, 역할은 이렇게 확장되었습니다.", status: "published" } as any),
     timeline: (timeline.data ?? []).map(camel),
     projects: (projects.data ?? []).map(camel),
     competencies: (competencies.data ?? []).map(camel),
@@ -122,6 +127,7 @@ export async function saveContentSupabase(content: SiteContent): Promise<void> {
     sb.from("profile").upsert({ id: 1, ...snake(content.profile) }),
     sb.from("hero_section").upsert({ id: 1, ...snake(content.hero) }),
     sb.from("philosophy_section").upsert({ id: 1, ...snake(content.philosophy) }),
+    sb.from("growth_section").upsert({ id: 1, ...snake(content.growth) }),
     sb.from("ai_section").upsert({ id: 1, title: content.ai.title, process_steps: content.ai.processSteps, status: content.ai.status }),
     sb.from("contribution_section").upsert({ id: 1, title: content.contributions.title, status: content.contributions.status }),
     sb.from("fitness_section").upsert({ id: 1, ...snake(content.fitness) }),

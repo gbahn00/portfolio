@@ -34,12 +34,22 @@ function YearContent({ entry }: { entry: TimelineEntry }) {
 
   return (
     <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+      {/* §81 — 타이포그래피 위계 재정비. 제목에 statement-title(최대
+          82px, 원래 전체 화면용 히어로 문구 스타일)을 그대로 쓰다 보니
+          바로 아래 설명·메시지·해시태그와 크기 차이가 너무 커서 뚝
+          끊겨 보였다. 이 패널은 화면 전체가 아니라 2단 그리드의 절반
+          폭이라 그 맥락에 맞는 크기로 다시 잡았다: 제목(가장 큼) → 설명·
+          메시지(비슷하게 중간) → 해시태그(가장 작음) 순으로 자연스럽게
+          줄어들도록 했다. */}
       <div>
-        <h3 className="statement-title font-bold mb-3 text-korean">{entry.title}</h3>
-        <p className="body text-ink-secondary mb-4 max-w-md whitespace-pre-line">{entry.description}</p>
-        <p className="body-large font-medium border-l-2 accent-border pl-4 text-korean mb-4 whitespace-pre-line">{entry.message}</p>
+        {/* §83 — 연도 탭 제목은 예전엔 한 줄짜리 input이라 줄바꿈을 아예
+            입력할 수 없었다(관리자 편집기에서 textarea로 전환함). 여기서도
+            whitespace-pre-line으로 입력한 줄바꿈을 그대로 반영한다. */}
+        <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-korean leading-tight whitespace-pre-line">{entry.title}</h3>
+        <p className="text-base md:text-lg text-ink-secondary leading-relaxed mb-4 max-w-md whitespace-pre-line">{entry.description}</p>
+        <p className="text-lg md:text-xl font-medium border-l-2 accent-border pl-4 text-korean mb-4 whitespace-pre-line">{entry.message}</p>
         {experiences.length > 0 && (
-          <div className="flex flex-wrap gap-x-4 gap-y-1 font-en caption">
+          <div className="flex flex-wrap gap-x-4 gap-y-1 font-en text-xs md:text-sm text-ink-muted">
             {experiences.slice(0, 3).map((t) => (
               <span key={t.id}>#{t.text.replace(/\s/g, "")}</span>
             ))}
@@ -71,7 +81,9 @@ function YearContent({ entry }: { entry: TimelineEntry }) {
   );
 }
 
-export function Timeline({ entries }: { entries: TimelineEntry[] }) {
+const DEFAULT_GROWTH_TITLE = "입사 이후, 역할은 이렇게 확장되었습니다.";
+
+export function Timeline({ entries, title }: { entries: TimelineEntry[]; title?: string }) {
   const sorted = [...entries].sort((a, b) => a.order - b.order);
   const [active, setActive] = useState(0);
   const activeRef = useRef(active);
@@ -101,9 +113,13 @@ export function Timeline({ entries }: { entries: TimelineEntry[] }) {
         <Reveal holdAfterEnter>
           <p className="accent-text text-sm font-medium mb-3 tracking-wide">업무 성장과정</p>
         </Reveal>
+        {/* §82 — 예전엔 이 제목이 코드에 그대로 박혀 있어 관리자 화면에서
+            고칠 수 있는 곳이 없었다. growth_section의 title 값을 쓰고,
+            값이 비어 있으면 기존 문구를 그대로 기본값으로 쓴다.
+            whitespace-pre-line으로 관리자가 입력한 줄바꿈도 그대로 반영된다. */}
         <Reveal delay={0.05}>
-          <h2 className="section-title font-bold mb-6 md:mb-8 text-korean">
-            입사 이후, 역할은 이렇게 확장되었습니다.
+          <h2 className="section-title font-bold mb-6 md:mb-8 text-korean whitespace-pre-line">
+            {title?.trim() ? title : DEFAULT_GROWTH_TITLE}
           </h2>
         </Reveal>
 

@@ -74,6 +74,15 @@ create table if not exists philosophy_section (
 );
 
 -- ----------------------------------------------------------------------------
+-- 4.1 업무 성장과정 대표 제목 (§82 — 예전엔 컴포넌트에 하드코딩돼 있었다)
+-- ----------------------------------------------------------------------------
+create table if not exists growth_section (
+  id int primary key default 1 check (id = 1),
+  title text not null default '입사 이후, 역할은 이렇게 확장되었습니다.',
+  status text not null default 'published'
+);
+
+-- ----------------------------------------------------------------------------
 -- 5. 업무 확장 과정 (연도별)
 -- ----------------------------------------------------------------------------
 create table if not exists timeline_entries (
@@ -486,6 +495,21 @@ alter table profile add column if not exists tool_skills jsonb not null default 
 -- projects에 "보정 포인트"(원본 없이 보정 후 사진만 있을 때, 사진 위 특정
 -- 위치에 점을 찍어 설명하는 방식) 컬럼을 추가한다.
 alter table projects add column if not exists retouch_highlights jsonb not null default '[]';
+
+-- §82 — "업무 성장과정" 대표 제목을 관리자 화면에서 편집할 수 있게 새 테이블을
+-- 추가한다(위 CREATE TABLE 구문에 이미 포함되어 있지만, 이미 스키마를 실행해
+-- 둔 기존 프로젝트에는 반영되지 않으므로 아래 구문만 다시 실행해도 된다).
+create table if not exists growth_section (
+  id int primary key default 1 check (id = 1),
+  title text not null default '입사 이후, 역할은 이렇게 확장되었습니다.',
+  status text not null default 'published'
+);
+alter table growth_section enable row level security;
+drop policy if exists "public read published growth" on growth_section;
+create policy "public read published growth" on growth_section for select using (status = 'published');
+drop policy if exists "admin all growth" on growth_section;
+create policy "admin all growth" on growth_section for all using (auth.role() = 'authenticated');
+insert into growth_section (id) values (1) on conflict (id) do nothing;
 
 -- ============================================================================
 -- 참고: 마이그레이션 스크립트를 SUPABASE_SERVICE_ROLE_KEY로 실행했는데도
