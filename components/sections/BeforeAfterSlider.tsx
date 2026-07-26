@@ -20,7 +20,7 @@ function SliderItem({ pair }: { pair: BeforeAfterPair }) {
   const [pos, setPos] = useState(50);
 
   return (
-    <div className="h-full flex flex-col">
+    <div className="h-full w-fit flex flex-col">
       {/* §91 — §85에서는 "보정 후" 사진의 원본 비율대로 폭 전체(w-full)를
           채우는 박스를 썼는데, 그러면 슬라이드 한 장에 사진이 하나만
           크게 보였다. 이제는 갤러리(GalleryGrid)와 같은 방식으로 높이만
@@ -88,8 +88,13 @@ function SliderItem({ pair }: { pair: BeforeAfterPair }) {
       {/* §92 — 캡션 유무와 관계없이 항상 같은 높이(h-4)를 예약해둔다.
           그래야 캡션이 있는 항목과 없는 항목의 사진 박스 높이(위 flex-1)가
           서로 달라지지 않는다. line-clamp-1로 줄바꿈도 막아 높이가
-          예약한 값을 넘지 않게 한다. */}
-      <div className="shrink-0 h-4 mt-2">
+          예약한 값을 넘지 않게 한다.
+          §93 — max-w를 걸어두지 않으면 캡션 글자 수가 사진 폭보다 길 때
+          이 캡션 텍스트의 "내용 기준 폭"이 항목 전체 폭(w-fit) 계산에
+          끼어들어 사진보다 항목이 넓어지고, 그만큼 사진 옆에 빈 공간이
+          생길 수 있다. 사진 폭을 넘지 않도록 상한을 걸어 항상 캡션이
+          사진 폭 안에서만 잘리게(ellipsis) 했다. */}
+      <div className="shrink-0 h-4 mt-2 max-w-[200px] sm:max-w-[240px] md:max-w-[280px]">
         {pair.caption && !pair.caption.startsWith("[") && (
           <p className="text-xs text-ink-muted text-korean line-clamp-1">{pair.caption}</p>
         )}

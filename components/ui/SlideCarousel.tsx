@@ -29,6 +29,17 @@ import { useEffect, useRef, useState, ReactNode } from "react";
 // 명시적으로 hidden으로 고정해 가로 슬라이드만 남기고, 내용이 넘치는
 // 경우는(§92, BeforeAfterSlider 캡션) 각 호출부에서 높이 예산을 미리
 // 맞춰 잘리지 않게 했다.
+//
+// §93 — "사진 사이 간격이 너무 길다 / 한 장을 넘기면 빈 공간이 길게
+// 나오고서야 다음 사진이 나온다"는 신고. 각 슬라이드 항목을 감싸는 div가
+// (h-full shrink-0만 있고 폭을 지정하지 않아) flex 아이템의 기본 "auto"
+// 폭 계산에 의존하고 있었는데, 내부에 이미지 하나가 아니라 박스+캡션이
+// 함께 있는 겹겹이 중첩된 구조(예: BeforeAfterSlider)에서는 이 자동
+// 계산이 안정적으로 사진 폭만큼 줄어들지 않고 트랙 폭 전체로 늘어나는
+// 경우가 있었다 — 그 결과 사진은 왼쪽에 작게 보이고 나머지 빈 공간이
+// 함께 스크롤되어 "사이 간격이 매우 긴" 것처럼 보였다. 각 항목에
+// w-fit(내용 폭만큼만 차지)을 명시해 항상 사진 실제 폭만큼만 차지하도록
+// 고정했다.
 // ============================================================================
 
 export function SlideCarousel<T>({
@@ -92,7 +103,7 @@ export function SlideCarousel<T>({
           className={`flex items-start ${heightClassName} ${gapClassName} overflow-x-auto overflow-y-hidden snap-x snap-mandatory scroll-smooth -mx-1 px-1`}
         >
           {items.map((item, i) => (
-            <div key={keyOf ? keyOf(item, i) : i} className="h-full shrink-0 snap-start">
+            <div key={keyOf ? keyOf(item, i) : i} className="h-full w-fit shrink-0 snap-start">
               {renderItem(item, i)}
             </div>
           ))}
