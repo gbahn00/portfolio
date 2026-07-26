@@ -4,11 +4,12 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { v4 as uuid } from "uuid";
 import Link from "next/link";
-import { Project, ProjectField, ProjectDetailBlock, MediaRef } from "@/lib/types";
+import { Project, ProjectField, ProjectDetailBlock, MediaRef, BeforeAfterPair } from "@/lib/types";
 import { TextField, TextAreaField, SelectField, ToggleField } from "@/components/admin/fields";
 import { MediaUpload } from "@/components/admin/MediaUpload";
 import { SaveBar } from "@/components/admin/SaveBar";
 import { DetailBlockEditor } from "@/components/admin/project/DetailBlockEditor";
+import { ConfirmButton } from "@/components/admin/ConfirmButton";
 
 const FIELD_OPTIONS: ProjectField[] = [
   "의류", "카페 및 음식", "인테리어", "인물 프로필", "치과 및 병원 광고", "유튜브", "생성형 인공지능 콘텐츠",
@@ -86,6 +87,26 @@ export function ProjectEditor({ initial }: { initial: Project }) {
     if (!m) return;
     set("gallery", [...data.gallery, m]);
   }
+
+  // §58 — 보정 전/후 비교(beforeAfter)는 선택 사항이다. 등록해두면 상세
+  // 페이지의 대표 화면 바로 아래에 드래그로 비교하는 슬라이더가 뜨고,
+  // 비워두면 그 영역 자체가 나타나지 않는다.
+  function addBeforeAfter() {
+    const pair: BeforeAfterPair = {
+      id: uuid(),
+      before: { url: "", kind: "image" },
+      after: { url: "", kind: "image" },
+      caption: "",
+      order: data.beforeAfter.length,
+    };
+    set("beforeAfter", [...data.beforeAfter, pair]);
+  }
+  function updateBeforeAfter(id: string, patch: Partial<BeforeAfterPair>) {
+    set("beforeAfter", data.beforeAfter.map((p) => (p.id === id ? { ...p, ...patch } : p)));
+  }
+  function removeBeforeAfter(id: string) {
+    set("beforeAfter", data.beforeAfter.filter((p) => p.id !== id).map((p, i) => ({ ...p, order: i })));
+  }
   function addMetric() {
     set("metrics", [...data.metrics, { id: uuid(), label: "", value: "" }]);
   }
@@ -152,6 +173,39 @@ export function ProjectEditor({ initial }: { initial: Project }) {
           ))}
         </div>
         <MediaUpload label="이미지 추가" value={undefined} onChange={addGalleryImage} />
+      </div>
+
+      <div className="mb-5">
+        <span className="block text-sm font-medium text-neutral-300 mb-1.5">보정 전·후 비교 (선택)</span>
+        <p className="text-xs text-neutral-500 mb-2">
+          등록하면 상세 페이지의 대표 화면 바로 아래에 드래그로 비교하는 슬라이더가 나타납니다. 비워두면 해당 영역이 아예 보이지 않습니다.
+        </p>
+        <div className="space-y-3 mb-2">
+          {data.beforeAfter.map((pair) => (
+            <div key={pair.id} className="rounded-md border border-neutral-800 p-3">
+              <div className="grid grid-cols-2 gap-3 mb-2">
+                <MediaUpload label="보정 전" value={pair.before} onChange={(m) => m && updateBeforeAfter(pair.id, { before: m })} />
+                <MediaUpload label="보정 후" value={pair.after} onChange={(m) => m && updateBeforeAfter(pair.id, { after: m })} />
+              </div>
+              <div className="flex gap-2 items-center">
+                <input
+                  value={pair.caption ?? ""}
+                  onChange={(e) => updateBeforeAfter(pair.id, { caption: e.target.value })}
+                  placeholder="캡션 (선택)"
+                  className="flex-1 rounded-md border border-neutral-700 bg-neutral-900 px-3 py-1.5 text-xs text-neutral-100 outline-none focus:border-orange-500"
+                />
+                <ConfirmButton label="이 비교쌍 삭제" onConfirm={() => removeBeforeAfter(pair.id)} />
+              </div>
+            </div>
+          ))}
+        </div>
+        <button
+          type="button"
+          onClick={addBeforeAfter}
+          className="rounded-md border border-dashed border-neutral-700 px-3 py-1.5 text-xs text-neutral-300 hover:border-orange-500"
+        >
+          + 보정 전·후 비교쌍 추가
+        </button>
       </div>
 
       <div className="mb-5">

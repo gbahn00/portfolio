@@ -386,7 +386,23 @@
         "alt": "의류 촬영 대표 이미지 [자료 필요]"
       },
       "gallery": [],
-      "beforeAfter": [],
+      "beforeAfter": [
+        {
+          "id": "75331a83-1d99-4958-9620-389756ec918d",
+          "before": {
+            "url": "/uploads/4393cd5d-8fc9-4e73-8793-dc2bcf1e7162.png",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/0f5e0106-524a-45f0-b466-fd7a6578f3b0.png",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 0
+        }
+      ],
       "metrics": [],
       "detailBlocks": [],
       "isFeatured": false,
@@ -395,7 +411,7 @@
       "status": "draft",
       "order": 0,
       "createdAt": "2024-08-01T00:00:00.000Z",
-      "updatedAt": "2026-07-25T00:00:00.000Z"
+      "updatedAt": "2026-07-26T04:50:36.211Z"
     },
     {
       "id": "proj-cafe",
@@ -426,7 +442,7 @@
       "status": "draft",
       "order": 1,
       "createdAt": "2024-09-01T00:00:00.000Z",
-      "updatedAt": "2026-07-25T00:00:00.000Z"
+      "updatedAt": "2026-07-26T05:00:04.285Z"
     },
     {
       "id": "proj-interior",
@@ -656,7 +672,7 @@
       "status": "draft",
       "order": 4,
       "createdAt": "2025-03-01T00:00:00.000Z",
-      "updatedAt": "2026-07-26T02:28:49.634Z"
+      "updatedAt": "2026-07-26T04:49:06.362Z"
     },
     {
       "id": "proj-lawyer-youtube",
