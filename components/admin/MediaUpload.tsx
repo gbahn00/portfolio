@@ -10,18 +10,44 @@ export function MediaUpload({
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  // §77 — 업로드 속도 개선. Supabase 모드에서는 브라우저가 Supabase
+  // Storage에 "직접" 업로드한다(서명된 업로드 URL 사용). 예전에는 파일
+  // 전체가 브라우저 → Vercel 서버리스 함수 → Supabase Storage 순으로 두 번
+  // 실려 나갔는데, 특히 용량이 큰 영상에서 이 중간 홉이 체감 지연의 큰
+  // 원인이었다. 로컬 개발(DATA_MODE=local)에서는 Supabase 자체가 없으므로
+  // /api/admin/upload/sign이 mode:"local"을 돌려주고, 그러면 예전 방식
+  // (파일을 서버로 보내 public/uploads에 저장) 그대로 동작한다.
   async function handleFile(file: File) {
     setUploading(true);
     setError(null);
-    const form = new FormData();
-    form.append("file", file);
     try {
-      const res = await fetch("/api/admin/upload", { method: "POST", body: form });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || "업로드에 실패했습니다.");
-      onChange({ url: data.url, kind: data.kind, alt: value?.alt || "" });
+      const signRes = await fetch("/api/admin/upload/sign", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ filename: file.name, contentType: file.type }),
+      });
+      const signData = await signRes.json();
+      if (!signRes.ok) throw new Error(signData.error || "업로드 준비에 실패했습니다.");
+
+      if (signData.mode === "supabase") {
+        const { supabaseBrowserClient } = await import("@/lib/data/supabase-browser");
+        const { MEDIA_BUCKET } = await import("@/lib/media-constants");
+        const sb = supabaseBrowserClient();
+        const { error: uploadError } = await sb.storage
+          .from(MEDIA_BUCKET)
+          .uploadToSignedUrl(signData.path, signData.token, file, { contentType: file.type });
+        if (uploadError) throw uploadError;
+        onChange({ url: signData.publicUrl, kind: signData.kind, alt: value?.alt || "" });
+      } else {
+        const form = new FormData();
+        form.append("file", file);
+        const res = await fetch("/api/admin/upload", { method: "POST", body: form });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || "업로드에 실패했습니다.");
+        onChange({ url: data.url, kind: data.kind, alt: value?.alt || "" });
+      }
     } catch (e: any) {
-      setError(e.message);
+      setError(e.message || "업로드에 실패했습니다.");
     } finally {
       setUploading(false);
     }

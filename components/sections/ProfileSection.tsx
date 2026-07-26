@@ -150,7 +150,12 @@ function NumbersPanel({ profile }: { profile: Profile }) {
               <p className="text-korean text-lg md:text-xl lg:text-2xl text-ink-secondary font-semibold tracking-wide shrink-0 w-28 md:w-32 lg:w-36 whitespace-nowrap">
                 {f.label}
               </p>
-              <p className="text-korean text-lg md:text-xl lg:text-2xl text-ink font-normal leading-snug text-left">
+              {/* §78 — 라벨(위)은 그대로 두고, 내용(값)만 화면 크기와
+                  무관하게 고정 18px로 지정했다. */}
+              <p
+                className="text-korean text-ink font-normal leading-snug text-left"
+                style={{ fontSize: "18px" }}
+              >
                 {f.value}
               </p>
             </div>

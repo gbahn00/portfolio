@@ -3,6 +3,7 @@ import { requireAdmin } from "@/lib/admin-guard";
 import fs from "node:fs/promises";
 import path from "node:path";
 import { v4 as uuid } from "uuid";
+import { ALLOWED_IMAGE_TYPES, ALLOWED_VIDEO_TYPES, MAX_IMAGE_BYTES, MAX_VIDEO_BYTES } from "@/lib/media-constants";
 
 // ============================================================================
 // 이미지/영상 업로드
@@ -20,11 +21,6 @@ function isSupabaseMode() {
   return process.env.DATA_MODE === "supabase";
 }
 
-const ALLOWED_IMAGE = ["image/jpeg", "image/png", "image/webp", "image/avif", "image/svg+xml"];
-const ALLOWED_VIDEO = ["video/mp4", "video/webm", "video/quicktime"];
-const MAX_IMAGE_BYTES = 20 * 1024 * 1024; // 20MB
-const MAX_VIDEO_BYTES = 300 * 1024 * 1024; // 300MB
-
 export async function POST(req: NextRequest) {
   const guard = await requireAdmin();
   if (guard) return guard;
@@ -33,8 +29,8 @@ export async function POST(req: NextRequest) {
   const file = form.get("file") as File | null;
   if (!file) return NextResponse.json({ error: "파일이 없습니다." }, { status: 400 });
 
-  const isImage = ALLOWED_IMAGE.includes(file.type);
-  const isVideo = ALLOWED_VIDEO.includes(file.type);
+  const isImage = ALLOWED_IMAGE_TYPES.includes(file.type);
+  const isVideo = ALLOWED_VIDEO_TYPES.includes(file.type);
 
   if (!isImage && !isVideo) {
     return NextResponse.json(

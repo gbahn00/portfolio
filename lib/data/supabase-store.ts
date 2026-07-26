@@ -1,5 +1,6 @@
 import { createClient } from "@supabase/supabase-js";
 import { SiteContent } from "../types";
+import { MEDIA_BUCKET } from "../media-constants";
 
 // ============================================================================
 // Supabase 저장소 (DATA_MODE=supabase)
@@ -138,14 +139,18 @@ export async function saveContentSupabase(content: SiteContent): Promise<void> {
   if (content.faq?.length) await sb.from("faq_items").upsert(content.faq.map(snake));
 }
 
-const MEDIA_BUCKET = "portfolio-media";
-
 /**
  * 이미지/영상 업로드(Supabase Storage 버전).
  * app/api/admin/upload/route.ts가 로컬 파일시스템 대신 이 함수를 쓰면,
  * Vercel의 읽기 전용 파일시스템과 무관하게 실제로 파일이 남는다.
  * supabase/schema.sql의 portfolio-media 버킷(공개 읽기)에 업로드하고
  * 공개 URL을 돌려준다.
+ *
+ * §77 — 이 함수는 "서버가 파일 전체를 대신 받아서 올리는" 예전 경로
+ * (브라우저 → Vercel 서버리스 함수 → Supabase Storage)에서만 쓰인다.
+ * DATA_MODE=supabase일 때 새 업로드는 아래 createSignedUploadUrlSupabase로
+ * 브라우저가 Storage에 직접 올리므로 이 함수를 거치지 않는다 — 로컬
+ * 모드 호환을 위해 계속 남겨둔다(현재는 실제로 호출되지 않음).
  */
 export async function uploadMediaSupabase(
   filename: string,
@@ -161,4 +166,21 @@ export async function uploadMediaSupabase(
   if (error) throw error;
   const { data } = sb.storage.from(MEDIA_BUCKET).getPublicUrl(path);
   return data.publicUrl;
+}
+
+/**
+ * §77 — 브라우저가 Supabase Storage에 "직접" 업로드할 수 있도록 서명된
+ * 업로드 URL/토큰을 발급한다. service role 키는 이 서버 함수 안에서만
+ * 쓰이고 브라우저에는 노출되지 않는다(발급된 토큰은 이 경로 하나에만,
+ * 짧은 시간 동안만 유효하다). 브라우저는 이 토큰으로
+ * `storage.from(bucket).uploadToSignedUrl(path, token, file)`을 호출해
+ * Vercel 서버리스 함수를 거치지 않고 파일을 바로 올린다 — 특히 용량이
+ * 큰 영상에서 중간 홉 하나가 사라져 체감 속도가 빨라진다.
+ */
+export async function createSignedUploadUrlSupabase(objectPath: string) {
+  const sb = client();
+  const { data, error } = await sb.storage.from(MEDIA_BUCKET).createSignedUploadUrl(objectPath);
+  if (error) throw error;
+  const { data: pub } = sb.storage.from(MEDIA_BUCKET).getPublicUrl(objectPath);
+  return { signedUrl: data.signedUrl, token: data.token, path: objectPath, publicUrl: pub.publicUrl };
 }
