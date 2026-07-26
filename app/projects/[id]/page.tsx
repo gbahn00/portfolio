@@ -7,7 +7,6 @@ import { Reveal } from "@/components/motion/Reveal";
 import { ProjectCover } from "@/components/sections/ProjectCover";
 import { ProjectNav } from "@/components/sections/ProjectNav";
 import { BeforeAfterSlider } from "@/components/sections/BeforeAfterSlider";
-import { RetouchHighlights } from "@/components/sections/RetouchHighlights";
 import { isPlaceholder, mediaSrc } from "@/lib/utils";
 import { Project } from "@/lib/types";
 
@@ -74,37 +73,26 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
     .map((t) => t.trim())
     .filter((t) => t && !isPlaceholder(t));
 
-  // §60-61 — 보정 전/후 비교는 원본 사진이 남아있는 프로젝트(의류)에만 쓸
-  // 수 있다. 나머지 프로젝트는 원본이 없으므로, 대표 화면 바로 아래 같은
-  // 자리에 그 프로젝트에 실제로 있는 것 중 가장 설득력 있는 걸 우선순위로
-  // 대신 보여준다:
+  // §66 — 보정 포인트 기능은 제거했다(사용자가 별도 보정 작업을 하지
+  // 않아도 되도록). 대표 화면 바로 아래 자리의 우선순위는 이제:
   //   1) 보정 전/후 사진 (원본이 있는 프로젝트 — 의류)
-  //   2) 보정 포인트 (원본은 없지만 보정 후 사진에 "어디를 어떻게
-  //      보정했는지" 점을 찍어 설명해 둔 프로젝트)
-  //   3) 최종 영상 (영상 중심 프로젝트 — 치과 광고/유튜브/AI 영상 등. 관리자
-  //      화면에 "최종 영상" 업로드 항목은 예전부터 있었지만 공개 화면
-  //      어디에도 표시되지 않던 필드였다. 영상 크리에이터 포트폴리오에서는
-  //      정적 이미지보다 실제 완성 영상을 보여주는 쪽이 훨씬 설득력 있다.)
-  //   4) 작업 이미지 갤러리 (그 외 사진 기반 프로젝트)
-  //   5) 없으면 이 자리 자체를 생략
+  //   2) 최종 영상 (영상 중심 프로젝트. 관리자 화면에 "최종 영상" 업로드
+  //      항목은 예전부터 있었지만 공개 화면 어디에도 표시되지 않던
+  //      필드였다.)
+  //   3) 작업 이미지 갤러리 (그 외 사진 기반 프로젝트)
+  //   4) 없으면 이 자리 자체를 생략
   // 상단에서 이미 보여준 항목(갤러리)은 하단에서 중복으로 다시 보여주지
   // 않는다.
   // 보정 전(before) 사진 없이 보정 후(after) 사진만 등록된 짝은 반쪽짜리라
   // 슬라이더로 보여줄 수 없으므로 개수에서 제외한다 — 이런 경우엔 관리자가
-  // "보정 전·후 비교" 대신 "보정 포인트"나 "상세 이미지(갤러리)"를 써야 한다.
+  // "보정 전·후 비교" 대신 "상세 이미지(갤러리)"를 써야 한다.
   const validBeforeAfter = (project.beforeAfter ?? []).filter((p) => p.before?.url && p.after?.url);
   const hasBeforeAfter = validBeforeAfter.length > 0;
-  const validRetouchHighlights = (project.retouchHighlights ?? []).filter(
-    (h) => h.image?.url && h.points?.some((p) => p.label)
-  );
-  const hasRetouchHighlights = validRetouchHighlights.length > 0;
   const hasFinalVideo = Boolean(project.finalVideo?.url && !isPlaceholder(project.finalVideo.url));
   const hasGallery = project.gallery?.length > 0;
 
-  const topSlot: "beforeAfter" | "retouchPoints" | "video" | "gallery" | "none" = hasBeforeAfter
+  const topSlot: "beforeAfter" | "video" | "gallery" | "none" = hasBeforeAfter
     ? "beforeAfter"
-    : hasRetouchHighlights
-    ? "retouchPoints"
     : hasFinalVideo
     ? "video"
     : hasGallery
@@ -125,25 +113,23 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
           </div>
         </Container>
       )}
-      {topSlot === "retouchPoints" && (
-        <Container className="pt-24 md:pt-32">
-          <div className="max-w-3xl">
-            <RetouchHighlights highlights={validRetouchHighlights} />
-          </div>
-        </Container>
-      )}
       {topSlot === "video" && project.finalVideo && (
         <Container className="pt-24 md:pt-32">
           <div className="max-w-3xl">
             <Reveal>
               <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-korean">결과물 영상</h2>
-              <video
-                src={mediaSrc(project.finalVideo.url)}
-                poster={project.finalVideo.poster || (project.heroImage ? mediaSrc(project.heroImage.url) : undefined)}
-                controls
-                playsInline
-                className="w-full aspect-video rounded-sm bg-bg-soft"
-              />
+              {/* §67 — 가로/세로 영상 모두 같은 크기의 표시 영역을 쓰도록,
+                  고정 비율 박스 안에서 object-contain으로 원본 비율을
+                  그대로 유지한 채 보여준다(잘리거나 늘어나지 않음). */}
+              <div className="relative w-full aspect-video overflow-hidden rounded-sm bg-bg-soft flex items-center justify-center">
+                <video
+                  src={mediaSrc(project.finalVideo.url)}
+                  poster={project.finalVideo.poster || (project.heroImage ? mediaSrc(project.heroImage.url) : undefined)}
+                  controls
+                  playsInline
+                  className="max-h-full max-w-full object-contain"
+                />
+              </div>
             </Reveal>
           </div>
         </Container>

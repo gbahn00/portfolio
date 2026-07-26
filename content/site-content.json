@@ -570,7 +570,18 @@
         "[자료 필요] 사용 장비 및 편집 프로그램 목록"
       ],
       "description": "의료 광고 특성상 과장된 표현을 피하고 시술 정보를 정확히 전달하는 데 집중했으며, 광고 채널의 노출 방식에 맞춰 영상 길이와 자막 구성을 조정했다.",
-      "gallery": [],
+      "gallery": [
+        {
+          "url": "/uploads/6961dcc6-dfb7-4bf1-86b5-3fda7ab163ac.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/d6cd4a9d-ad43-49a6-8370-3fe0613071fd.mp4",
+          "kind": "video-file",
+          "alt": ""
+        }
+      ],
       "beforeAfter": [],
       "metrics": [
         {
@@ -722,7 +733,8 @@
       "status": "draft",
       "order": 4,
       "createdAt": "2025-03-01T00:00:00.000Z",
-      "updatedAt": "2026-07-26T04:49:06.362Z"
+      "updatedAt": "2026-07-26T05:59:52.652Z",
+      "retouchHighlights": []
     },
     {
       "id": "proj-lawyer-youtube",

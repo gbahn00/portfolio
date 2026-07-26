@@ -1,5 +1,1124 @@
 [
   {
+    "id": "bfa95e4f-bcef-4b0a-a977-c3218798a986",
+    "entity": "projects:proj-dental",
+    "field": "수정",
+    "before": {
+      "id": "proj-dental",
+      "number": "05",
+      "title": "치과 및 임플란트 광고 영상 제작",
+      "brand": "[자료 필요 - 병원명, 공개 가능 여부 확인 필요]",
+      "brandHidden": true,
+      "year": "2025",
+      "field": "치과 및 병원 광고",
+      "purpose": "임플란트 및 치과 시술을 알리는 Meta 광고 영상과 병원 사회관계망서비스 정보형 영상 제작",
+      "role": "기획 및 제작 [자료 필요 - 세부 역할 구분]",
+      "tools": [
+        "[자료 필요] 사용 장비 및 편집 프로그램 목록"
+      ],
+      "description": "의료 광고 특성상 과장된 표현을 피하고 시술 정보를 정확히 전달하는 데 집중했으며, 광고 채널의 노출 방식에 맞춰 영상 길이와 자막 구성을 조정했다.",
+      "gallery": [
+        {
+          "url": "/uploads/6961dcc6-dfb7-4bf1-86b5-3fda7ab163ac.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/d6cd4a9d-ad43-49a6-8370-3fe0613071fd.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/1e7bfaeb-72bf-4352-95f1-cb95c05d85d8.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/962f20ea-ca06-44b9-9e16-19f6998dba5f.mp4",
+          "kind": "video-file",
+          "alt": ""
+        }
+      ],
+      "beforeAfter": [],
+      "metrics": [
+        {
+          "id": "m1",
+          "label": "광고 클릭률",
+          "value": "[자료 필요]"
+        },
+        {
+          "id": "m2",
+          "label": "광고 전환율",
+          "value": "[자료 필요]"
+        }
+      ],
+      "detailBlocks": [
+        {
+          "id": "b1",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "임플란트 및 치과 시술 관련 Meta 광고 영상과 병원 사회관계망서비스 정보형 영상을 기획하고 제작한 프로젝트입니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b2",
+          "key": "before",
+          "title": "기존 상황",
+          "body": "[자료 필요] 프로젝트 착수 전 병원 측이 겪고 있던 콘텐츠 운영 상황을 정리합니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b3",
+          "key": "purpose",
+          "title": "제작 목적",
+          "body": "시술에 대한 막연한 두려움을 줄이고, 정확한 정보 전달을 통해 상담 문의로 연결되는 콘텐츠를 만드는 것이 목적이었습니다.",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b4",
+          "key": "role",
+          "title": "담당 역할",
+          "body": "[자료 필요] 기획, 촬영, 편집 단계별 실제 담당 범위를 구체적으로 기록합니다.",
+          "order": 3,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b5",
+          "key": "process",
+          "title": "기획 및 제작 과정",
+          "body": "의료진 인터뷰와 시술 장면을 바탕으로 정보 전달형 구성안을 작성하고, 자막과 정보 노출 순서를 여러 차례 조정했습니다.",
+          "order": 4,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b6",
+          "key": "decisions",
+          "title": "주요 판단",
+          "body": "의료 광고 심의 기준을 고려해 과장된 표현을 배제하고, 사실에 기반한 정보 전달 방식을 선택했습니다.",
+          "order": 5,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b7",
+          "key": "tools",
+          "title": "사용 도구",
+          "body": "[자료 필요] 촬영 장비 및 편집 프로그램을 기재합니다.",
+          "order": 6,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b8",
+          "key": "result",
+          "title": "최종 결과물",
+          "body": "[자료 필요] 최종 영상을 연결합니다.",
+          "order": 7,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b9",
+          "key": "impact",
+          "title": "성과 및 의미",
+          "body": "[자료 필요] 확인된 성과 수치가 있다면 광고 대상, 예산, 집행 시기 등 조건과 함께 기재합니다.",
+          "order": 8,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b10",
+          "key": "future-use",
+          "title": "이후 활용 가능성",
+          "body": "이번 제작 과정에서 정리한 자막 양식과 구성 방식은 이후 메디컬 콘텐츠 제작 표준화에 활용할 수 있습니다.",
+          "order": 9,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": true,
+      "isDetailFeatured": true,
+      "publicOk": true,
+      "status": "draft",
+      "order": 4,
+      "createdAt": "2025-03-01T00:00:00.000Z",
+      "updatedAt": "2026-07-26T05:59:34.369Z",
+      "retouchHighlights": []
+    },
+    "after": {
+      "id": "proj-dental",
+      "number": "05",
+      "title": "치과 및 임플란트 광고 영상 제작",
+      "brand": "[자료 필요 - 병원명, 공개 가능 여부 확인 필요]",
+      "brandHidden": true,
+      "year": "2025",
+      "field": "치과 및 병원 광고",
+      "purpose": "임플란트 및 치과 시술을 알리는 Meta 광고 영상과 병원 사회관계망서비스 정보형 영상 제작",
+      "role": "기획 및 제작 [자료 필요 - 세부 역할 구분]",
+      "tools": [
+        "[자료 필요] 사용 장비 및 편집 프로그램 목록"
+      ],
+      "description": "의료 광고 특성상 과장된 표현을 피하고 시술 정보를 정확히 전달하는 데 집중했으며, 광고 채널의 노출 방식에 맞춰 영상 길이와 자막 구성을 조정했다.",
+      "gallery": [
+        {
+          "url": "/uploads/6961dcc6-dfb7-4bf1-86b5-3fda7ab163ac.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/d6cd4a9d-ad43-49a6-8370-3fe0613071fd.mp4",
+          "kind": "video-file",
+          "alt": ""
+        }
+      ],
+      "beforeAfter": [],
+      "metrics": [
+        {
+          "id": "m1",
+          "label": "광고 클릭률",
+          "value": "[자료 필요]"
+        },
+        {
+          "id": "m2",
+          "label": "광고 전환율",
+          "value": "[자료 필요]"
+        }
+      ],
+      "detailBlocks": [
+        {
+          "id": "b1",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "임플란트 및 치과 시술 관련 Meta 광고 영상과 병원 사회관계망서비스 정보형 영상을 기획하고 제작한 프로젝트입니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b2",
+          "key": "before",
+          "title": "기존 상황",
+          "body": "[자료 필요] 프로젝트 착수 전 병원 측이 겪고 있던 콘텐츠 운영 상황을 정리합니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b3",
+          "key": "purpose",
+          "title": "제작 목적",
+          "body": "시술에 대한 막연한 두려움을 줄이고, 정확한 정보 전달을 통해 상담 문의로 연결되는 콘텐츠를 만드는 것이 목적이었습니다.",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b4",
+          "key": "role",
+          "title": "담당 역할",
+          "body": "[자료 필요] 기획, 촬영, 편집 단계별 실제 담당 범위를 구체적으로 기록합니다.",
+          "order": 3,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b5",
+          "key": "process",
+          "title": "기획 및 제작 과정",
+          "body": "의료진 인터뷰와 시술 장면을 바탕으로 정보 전달형 구성안을 작성하고, 자막과 정보 노출 순서를 여러 차례 조정했습니다.",
+          "order": 4,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b6",
+          "key": "decisions",
+          "title": "주요 판단",
+          "body": "의료 광고 심의 기준을 고려해 과장된 표현을 배제하고, 사실에 기반한 정보 전달 방식을 선택했습니다.",
+          "order": 5,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b7",
+          "key": "tools",
+          "title": "사용 도구",
+          "body": "[자료 필요] 촬영 장비 및 편집 프로그램을 기재합니다.",
+          "order": 6,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b8",
+          "key": "result",
+          "title": "최종 결과물",
+          "body": "[자료 필요] 최종 영상을 연결합니다.",
+          "order": 7,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b9",
+          "key": "impact",
+          "title": "성과 및 의미",
+          "body": "[자료 필요] 확인된 성과 수치가 있다면 광고 대상, 예산, 집행 시기 등 조건과 함께 기재합니다.",
+          "order": 8,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b10",
+          "key": "future-use",
+          "title": "이후 활용 가능성",
+          "body": "이번 제작 과정에서 정리한 자막 양식과 구성 방식은 이후 메디컬 콘텐츠 제작 표준화에 활용할 수 있습니다.",
+          "order": 9,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": true,
+      "isDetailFeatured": true,
+      "publicOk": true,
+      "status": "draft",
+      "order": 4,
+      "createdAt": "2025-03-01T00:00:00.000Z",
+      "updatedAt": "2026-07-26T05:59:52.652Z",
+      "retouchHighlights": []
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-26T05:59:52.675Z"
+  },
+  {
+    "id": "753c26c7-895f-42ea-87bc-041265a6599d",
+    "entity": "projects:proj-dental",
+    "field": "수정",
+    "before": {
+      "id": "proj-dental",
+      "number": "05",
+      "title": "치과 및 임플란트 광고 영상 제작",
+      "brand": "[자료 필요 - 병원명, 공개 가능 여부 확인 필요]",
+      "brandHidden": true,
+      "year": "2025",
+      "field": "치과 및 병원 광고",
+      "purpose": "임플란트 및 치과 시술을 알리는 Meta 광고 영상과 병원 사회관계망서비스 정보형 영상 제작",
+      "role": "기획 및 제작 [자료 필요 - 세부 역할 구분]",
+      "tools": [
+        "[자료 필요] 사용 장비 및 편집 프로그램 목록"
+      ],
+      "description": "의료 광고 특성상 과장된 표현을 피하고 시술 정보를 정확히 전달하는 데 집중했으며, 광고 채널의 노출 방식에 맞춰 영상 길이와 자막 구성을 조정했다.",
+      "gallery": [
+        {
+          "url": "/uploads/6961dcc6-dfb7-4bf1-86b5-3fda7ab163ac.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/d6cd4a9d-ad43-49a6-8370-3fe0613071fd.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/1e7bfaeb-72bf-4352-95f1-cb95c05d85d8.mp4",
+          "kind": "video-file",
+          "alt": ""
+        }
+      ],
+      "beforeAfter": [],
+      "metrics": [
+        {
+          "id": "m1",
+          "label": "광고 클릭률",
+          "value": "[자료 필요]"
+        },
+        {
+          "id": "m2",
+          "label": "광고 전환율",
+          "value": "[자료 필요]"
+        }
+      ],
+      "detailBlocks": [
+        {
+          "id": "b1",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "임플란트 및 치과 시술 관련 Meta 광고 영상과 병원 사회관계망서비스 정보형 영상을 기획하고 제작한 프로젝트입니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b2",
+          "key": "before",
+          "title": "기존 상황",
+          "body": "[자료 필요] 프로젝트 착수 전 병원 측이 겪고 있던 콘텐츠 운영 상황을 정리합니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b3",
+          "key": "purpose",
+          "title": "제작 목적",
+          "body": "시술에 대한 막연한 두려움을 줄이고, 정확한 정보 전달을 통해 상담 문의로 연결되는 콘텐츠를 만드는 것이 목적이었습니다.",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b4",
+          "key": "role",
+          "title": "담당 역할",
+          "body": "[자료 필요] 기획, 촬영, 편집 단계별 실제 담당 범위를 구체적으로 기록합니다.",
+          "order": 3,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b5",
+          "key": "process",
+          "title": "기획 및 제작 과정",
+          "body": "의료진 인터뷰와 시술 장면을 바탕으로 정보 전달형 구성안을 작성하고, 자막과 정보 노출 순서를 여러 차례 조정했습니다.",
+          "order": 4,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b6",
+          "key": "decisions",
+          "title": "주요 판단",
+          "body": "의료 광고 심의 기준을 고려해 과장된 표현을 배제하고, 사실에 기반한 정보 전달 방식을 선택했습니다.",
+          "order": 5,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b7",
+          "key": "tools",
+          "title": "사용 도구",
+          "body": "[자료 필요] 촬영 장비 및 편집 프로그램을 기재합니다.",
+          "order": 6,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b8",
+          "key": "result",
+          "title": "최종 결과물",
+          "body": "[자료 필요] 최종 영상을 연결합니다.",
+          "order": 7,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b9",
+          "key": "impact",
+          "title": "성과 및 의미",
+          "body": "[자료 필요] 확인된 성과 수치가 있다면 광고 대상, 예산, 집행 시기 등 조건과 함께 기재합니다.",
+          "order": 8,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b10",
+          "key": "future-use",
+          "title": "이후 활용 가능성",
+          "body": "이번 제작 과정에서 정리한 자막 양식과 구성 방식은 이후 메디컬 콘텐츠 제작 표준화에 활용할 수 있습니다.",
+          "order": 9,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": true,
+      "isDetailFeatured": true,
+      "publicOk": true,
+      "status": "draft",
+      "order": 4,
+      "createdAt": "2025-03-01T00:00:00.000Z",
+      "updatedAt": "2026-07-26T05:58:39.136Z",
+      "retouchHighlights": []
+    },
+    "after": {
+      "id": "proj-dental",
+      "number": "05",
+      "title": "치과 및 임플란트 광고 영상 제작",
+      "brand": "[자료 필요 - 병원명, 공개 가능 여부 확인 필요]",
+      "brandHidden": true,
+      "year": "2025",
+      "field": "치과 및 병원 광고",
+      "purpose": "임플란트 및 치과 시술을 알리는 Meta 광고 영상과 병원 사회관계망서비스 정보형 영상 제작",
+      "role": "기획 및 제작 [자료 필요 - 세부 역할 구분]",
+      "tools": [
+        "[자료 필요] 사용 장비 및 편집 프로그램 목록"
+      ],
+      "description": "의료 광고 특성상 과장된 표현을 피하고 시술 정보를 정확히 전달하는 데 집중했으며, 광고 채널의 노출 방식에 맞춰 영상 길이와 자막 구성을 조정했다.",
+      "gallery": [
+        {
+          "url": "/uploads/6961dcc6-dfb7-4bf1-86b5-3fda7ab163ac.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/d6cd4a9d-ad43-49a6-8370-3fe0613071fd.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/1e7bfaeb-72bf-4352-95f1-cb95c05d85d8.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/962f20ea-ca06-44b9-9e16-19f6998dba5f.mp4",
+          "kind": "video-file",
+          "alt": ""
+        }
+      ],
+      "beforeAfter": [],
+      "metrics": [
+        {
+          "id": "m1",
+          "label": "광고 클릭률",
+          "value": "[자료 필요]"
+        },
+        {
+          "id": "m2",
+          "label": "광고 전환율",
+          "value": "[자료 필요]"
+        }
+      ],
+      "detailBlocks": [
+        {
+          "id": "b1",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "임플란트 및 치과 시술 관련 Meta 광고 영상과 병원 사회관계망서비스 정보형 영상을 기획하고 제작한 프로젝트입니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b2",
+          "key": "before",
+          "title": "기존 상황",
+          "body": "[자료 필요] 프로젝트 착수 전 병원 측이 겪고 있던 콘텐츠 운영 상황을 정리합니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b3",
+          "key": "purpose",
+          "title": "제작 목적",
+          "body": "시술에 대한 막연한 두려움을 줄이고, 정확한 정보 전달을 통해 상담 문의로 연결되는 콘텐츠를 만드는 것이 목적이었습니다.",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b4",
+          "key": "role",
+          "title": "담당 역할",
+          "body": "[자료 필요] 기획, 촬영, 편집 단계별 실제 담당 범위를 구체적으로 기록합니다.",
+          "order": 3,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b5",
+          "key": "process",
+          "title": "기획 및 제작 과정",
+          "body": "의료진 인터뷰와 시술 장면을 바탕으로 정보 전달형 구성안을 작성하고, 자막과 정보 노출 순서를 여러 차례 조정했습니다.",
+          "order": 4,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b6",
+          "key": "decisions",
+          "title": "주요 판단",
+          "body": "의료 광고 심의 기준을 고려해 과장된 표현을 배제하고, 사실에 기반한 정보 전달 방식을 선택했습니다.",
+          "order": 5,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b7",
+          "key": "tools",
+          "title": "사용 도구",
+          "body": "[자료 필요] 촬영 장비 및 편집 프로그램을 기재합니다.",
+          "order": 6,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b8",
+          "key": "result",
+          "title": "최종 결과물",
+          "body": "[자료 필요] 최종 영상을 연결합니다.",
+          "order": 7,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b9",
+          "key": "impact",
+          "title": "성과 및 의미",
+          "body": "[자료 필요] 확인된 성과 수치가 있다면 광고 대상, 예산, 집행 시기 등 조건과 함께 기재합니다.",
+          "order": 8,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b10",
+          "key": "future-use",
+          "title": "이후 활용 가능성",
+          "body": "이번 제작 과정에서 정리한 자막 양식과 구성 방식은 이후 메디컬 콘텐츠 제작 표준화에 활용할 수 있습니다.",
+          "order": 9,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": true,
+      "isDetailFeatured": true,
+      "publicOk": true,
+      "status": "draft",
+      "order": 4,
+      "createdAt": "2025-03-01T00:00:00.000Z",
+      "updatedAt": "2026-07-26T05:59:34.369Z",
+      "retouchHighlights": []
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-26T05:59:34.389Z"
+  },
+  {
+    "id": "ce7aa026-0a3e-46e3-ba59-c2a7ddf32dea",
+    "entity": "projects:proj-dental",
+    "field": "수정",
+    "before": {
+      "id": "proj-dental",
+      "number": "05",
+      "title": "치과 및 임플란트 광고 영상 제작",
+      "brand": "[자료 필요 - 병원명, 공개 가능 여부 확인 필요]",
+      "brandHidden": true,
+      "year": "2025",
+      "field": "치과 및 병원 광고",
+      "purpose": "임플란트 및 치과 시술을 알리는 Meta 광고 영상과 병원 사회관계망서비스 정보형 영상 제작",
+      "role": "기획 및 제작 [자료 필요 - 세부 역할 구분]",
+      "tools": [
+        "[자료 필요] 사용 장비 및 편집 프로그램 목록"
+      ],
+      "description": "의료 광고 특성상 과장된 표현을 피하고 시술 정보를 정확히 전달하는 데 집중했으며, 광고 채널의 노출 방식에 맞춰 영상 길이와 자막 구성을 조정했다.",
+      "gallery": [],
+      "beforeAfter": [],
+      "metrics": [
+        {
+          "id": "m1",
+          "label": "광고 클릭률",
+          "value": "[자료 필요]"
+        },
+        {
+          "id": "m2",
+          "label": "광고 전환율",
+          "value": "[자료 필요]"
+        }
+      ],
+      "detailBlocks": [
+        {
+          "id": "b1",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "임플란트 및 치과 시술 관련 Meta 광고 영상과 병원 사회관계망서비스 정보형 영상을 기획하고 제작한 프로젝트입니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b2",
+          "key": "before",
+          "title": "기존 상황",
+          "body": "[자료 필요] 프로젝트 착수 전 병원 측이 겪고 있던 콘텐츠 운영 상황을 정리합니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b3",
+          "key": "purpose",
+          "title": "제작 목적",
+          "body": "시술에 대한 막연한 두려움을 줄이고, 정확한 정보 전달을 통해 상담 문의로 연결되는 콘텐츠를 만드는 것이 목적이었습니다.",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b4",
+          "key": "role",
+          "title": "담당 역할",
+          "body": "[자료 필요] 기획, 촬영, 편집 단계별 실제 담당 범위를 구체적으로 기록합니다.",
+          "order": 3,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b5",
+          "key": "process",
+          "title": "기획 및 제작 과정",
+          "body": "의료진 인터뷰와 시술 장면을 바탕으로 정보 전달형 구성안을 작성하고, 자막과 정보 노출 순서를 여러 차례 조정했습니다.",
+          "order": 4,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b6",
+          "key": "decisions",
+          "title": "주요 판단",
+          "body": "의료 광고 심의 기준을 고려해 과장된 표현을 배제하고, 사실에 기반한 정보 전달 방식을 선택했습니다.",
+          "order": 5,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b7",
+          "key": "tools",
+          "title": "사용 도구",
+          "body": "[자료 필요] 촬영 장비 및 편집 프로그램을 기재합니다.",
+          "order": 6,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b8",
+          "key": "result",
+          "title": "최종 결과물",
+          "body": "[자료 필요] 최종 영상을 연결합니다.",
+          "order": 7,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b9",
+          "key": "impact",
+          "title": "성과 및 의미",
+          "body": "[자료 필요] 확인된 성과 수치가 있다면 광고 대상, 예산, 집행 시기 등 조건과 함께 기재합니다.",
+          "order": 8,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b10",
+          "key": "future-use",
+          "title": "이후 활용 가능성",
+          "body": "이번 제작 과정에서 정리한 자막 양식과 구성 방식은 이후 메디컬 콘텐츠 제작 표준화에 활용할 수 있습니다.",
+          "order": 9,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": true,
+      "isDetailFeatured": true,
+      "publicOk": true,
+      "status": "draft",
+      "order": 4,
+      "createdAt": "2025-03-01T00:00:00.000Z",
+      "updatedAt": "2026-07-26T04:49:06.362Z"
+    },
+    "after": {
+      "id": "proj-dental",
+      "number": "05",
+      "title": "치과 및 임플란트 광고 영상 제작",
+      "brand": "[자료 필요 - 병원명, 공개 가능 여부 확인 필요]",
+      "brandHidden": true,
+      "year": "2025",
+      "field": "치과 및 병원 광고",
+      "purpose": "임플란트 및 치과 시술을 알리는 Meta 광고 영상과 병원 사회관계망서비스 정보형 영상 제작",
+      "role": "기획 및 제작 [자료 필요 - 세부 역할 구분]",
+      "tools": [
+        "[자료 필요] 사용 장비 및 편집 프로그램 목록"
+      ],
+      "description": "의료 광고 특성상 과장된 표현을 피하고 시술 정보를 정확히 전달하는 데 집중했으며, 광고 채널의 노출 방식에 맞춰 영상 길이와 자막 구성을 조정했다.",
+      "gallery": [
+        {
+          "url": "/uploads/6961dcc6-dfb7-4bf1-86b5-3fda7ab163ac.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/d6cd4a9d-ad43-49a6-8370-3fe0613071fd.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/1e7bfaeb-72bf-4352-95f1-cb95c05d85d8.mp4",
+          "kind": "video-file",
+          "alt": ""
+        }
+      ],
+      "beforeAfter": [],
+      "metrics": [
+        {
+          "id": "m1",
+          "label": "광고 클릭률",
+          "value": "[자료 필요]"
+        },
+        {
+          "id": "m2",
+          "label": "광고 전환율",
+          "value": "[자료 필요]"
+        }
+      ],
+      "detailBlocks": [
+        {
+          "id": "b1",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "임플란트 및 치과 시술 관련 Meta 광고 영상과 병원 사회관계망서비스 정보형 영상을 기획하고 제작한 프로젝트입니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b2",
+          "key": "before",
+          "title": "기존 상황",
+          "body": "[자료 필요] 프로젝트 착수 전 병원 측이 겪고 있던 콘텐츠 운영 상황을 정리합니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b3",
+          "key": "purpose",
+          "title": "제작 목적",
+          "body": "시술에 대한 막연한 두려움을 줄이고, 정확한 정보 전달을 통해 상담 문의로 연결되는 콘텐츠를 만드는 것이 목적이었습니다.",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b4",
+          "key": "role",
+          "title": "담당 역할",
+          "body": "[자료 필요] 기획, 촬영, 편집 단계별 실제 담당 범위를 구체적으로 기록합니다.",
+          "order": 3,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b5",
+          "key": "process",
+          "title": "기획 및 제작 과정",
+          "body": "의료진 인터뷰와 시술 장면을 바탕으로 정보 전달형 구성안을 작성하고, 자막과 정보 노출 순서를 여러 차례 조정했습니다.",
+          "order": 4,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b6",
+          "key": "decisions",
+          "title": "주요 판단",
+          "body": "의료 광고 심의 기준을 고려해 과장된 표현을 배제하고, 사실에 기반한 정보 전달 방식을 선택했습니다.",
+          "order": 5,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b7",
+          "key": "tools",
+          "title": "사용 도구",
+          "body": "[자료 필요] 촬영 장비 및 편집 프로그램을 기재합니다.",
+          "order": 6,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b8",
+          "key": "result",
+          "title": "최종 결과물",
+          "body": "[자료 필요] 최종 영상을 연결합니다.",
+          "order": 7,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b9",
+          "key": "impact",
+          "title": "성과 및 의미",
+          "body": "[자료 필요] 확인된 성과 수치가 있다면 광고 대상, 예산, 집행 시기 등 조건과 함께 기재합니다.",
+          "order": 8,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b10",
+          "key": "future-use",
+          "title": "이후 활용 가능성",
+          "body": "이번 제작 과정에서 정리한 자막 양식과 구성 방식은 이후 메디컬 콘텐츠 제작 표준화에 활용할 수 있습니다.",
+          "order": 9,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": true,
+      "isDetailFeatured": true,
+      "publicOk": true,
+      "status": "draft",
+      "order": 4,
+      "createdAt": "2025-03-01T00:00:00.000Z",
+      "updatedAt": "2026-07-26T05:58:39.136Z",
+      "retouchHighlights": []
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-26T05:58:39.310Z"
+  },
+  {
     "id": "3f2909f2-dd53-4a0f-b038-1ee575224167",
     "entity": "projects:proj-interior",
     "field": "수정",

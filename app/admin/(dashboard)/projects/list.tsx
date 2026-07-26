@@ -26,7 +26,7 @@ export function ProjectsList({ initial }: { initial: Project[] }) {
       body: JSON.stringify({
         number: "", title: "새 프로젝트", brand: "", brandHidden: true, year: String(new Date().getFullYear()),
         field: "의류", purpose: "", role: "", tools: [], description: "", gallery: [], beforeAfter: [],
-        retouchHighlights: [], metrics: [], detailBlocks: [], isFeatured: false, isDetailFeatured: false, publicOk: false, status: "draft",
+        metrics: [], detailBlocks: [], isFeatured: false, isDetailFeatured: false, publicOk: false, status: "draft",
         createdAt: new Date().toISOString(), updatedAt: new Date().toISOString(),
       }),
     });
