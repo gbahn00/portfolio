@@ -68,15 +68,16 @@ function IdentityText({ profile, philosophy }: { profile: Profile; philosophy: P
   );
 }
 
-// §39 — "사용 도구" 아이콘 행을 "생성형 활용 도구" 숙련도 목록으로
-// 바꿨다. 아이콘 자체는 여전히 첨부받은 고정 이미지(public/icons/tools)를
-// 쓰지만, 이름은 이제 profile.toolSkills(관리자에서 추가/삭제하고 %를
-// 조절할 수 있음)에서 오고, 코드는 이름으로 아이콘을 찾아 붙이기만 한다.
-// 범용 "생성형 AI" 아이콘은 요청에 따라 제외했다(관리자 선택 목록에도 없음).
+// §40 — 섹션 이름을 "생성형 활용 도구"에서 "Skills"로 바꾸고, 제외했던
+// 범용 AI 아이콘도 다시 포함해 총 6개 아이콘을 전부 쓴다. 아이콘 자체는
+// 여전히 첨부받은 고정 이미지(public/icons/tools)를 쓰지만, 이름은
+// profile.toolSkills(관리자에서 추가/삭제하고 %를 조절할 수 있음)에서
+// 오고, 코드는 이름으로 아이콘을 찾아 붙이기만 한다.
 const TOOL_ICON_MAP: Record<string, string> = {
   Photoshop: "/icons/tools/photoshop.png",
   "Premiere Pro": "/icons/tools/premiere.png",
   CapCut: "/icons/tools/capcut.png",
+  "생성형 AI": "/icons/tools/ai-tool.png",
   Illustrator: "/icons/tools/illustrator.png",
   "After Effects": "/icons/tools/after-effects.png",
 };
@@ -102,12 +103,11 @@ function NumbersPanel({ profile }: { profile: Profile }) {
           {facts.length === 0 && <p className="text-ink-muted text-sm">등록된 핵심 수치가 아직 없습니다.</p>}
         </div>
 
-        {/* §39 — 생성형 활용 도구: 아이콘(왼쪽) + 진행바(오른쪽, 관리자가
-            조절하는 percentage). 숫자 카드들과 같은 세로 중앙 정렬 그룹
-            안에 있어 탭 전체 레이아웃(사진 고정, 프레임 크기)에는 영향을
-            주지 않는다. */}
+        {/* §40 — Skills: 아이콘(왼쪽) + 진행바(오른쪽, 관리자가 조절하는
+            percentage). 숫자 카드들과 같은 세로 중앙 정렬 그룹 안에 있어
+            탭 전체 레이아웃(사진 고정, 프레임 크기)에는 영향을 주지 않는다. */}
         <div className="mt-8 md:mt-10">
-          <p className="text-korean text-sm md:text-base text-ink-muted mb-4 tracking-wide">생성형 활용 도구</p>
+          <p className="font-en text-sm md:text-base text-ink-muted mb-4 tracking-wide">Skills</p>
           <div className="flex flex-col gap-4 md:gap-5">
             {[...(profile.toolSkills ?? [])]
               .filter((s) => s.name)

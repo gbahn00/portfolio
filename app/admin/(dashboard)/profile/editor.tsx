@@ -8,9 +8,8 @@ import { MediaUpload } from "@/components/admin/MediaUpload";
 import { SaveBar } from "@/components/admin/SaveBar";
 
 // components/sections/ProfileSection.tsx의 TOOL_ICON_MAP과 이름을 맞춰야
-// 아이콘이 붙는다. 아이콘 파일이 없는 범용 "생성형 AI" 항목은 요청에 따라
-// 제외했다.
-const KNOWN_TOOLS = ["Photoshop", "Premiere Pro", "CapCut", "Illustrator", "After Effects"];
+// 아이콘이 붙는다.
+const KNOWN_TOOLS = ["Photoshop", "Premiere Pro", "CapCut", "생성형 AI", "Illustrator", "After Effects"];
 
 export function ProfileEditor({ initial }: { initial: Profile }) {
   const [data, setData] = useState<Profile>(initial);
@@ -133,7 +132,7 @@ export function ProfileEditor({ initial }: { initial: Profile }) {
       </div>
 
       <div className="mb-5">
-        <span className="block text-sm font-medium text-neutral-300 mb-1.5">생성형 활용 도구 (핵심 수치 탭 하단, 세로 진행바)</span>
+        <span className="block text-sm font-medium text-neutral-300 mb-1.5">Skills (핵심 수치 탭 하단, 세로 진행바)</span>
         <p className="text-xs text-neutral-500 mb-2">아이콘은 도구 이름에 맞춰 자동으로 붙습니다. 숙련도는 0~100 사이 % 값입니다.</p>
         <div className="space-y-2">
           {toolSkills.map((s, idx) => (
