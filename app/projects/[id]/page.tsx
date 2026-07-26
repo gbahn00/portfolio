@@ -55,13 +55,6 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
   const prevProject = currentIndex > 0 ? orderedPublic[currentIndex - 1] : null;
   const nextProject = currentIndex >= 0 && currentIndex < orderedPublic.length - 1 ? orderedPublic[currentIndex + 1] : null;
 
-  // §87 — 대표 프로젝트 목록의 "01번"(순서상 첫 프로젝트)만 이미지
-  // 갤러리를 2단(한 슬라이드에 2개씩)으로 보여주고, 나머지 프로젝트는
-  // 전부 1단(한 슬라이드에 1개)으로 보여달라는 요청. (보정 전/후는 §89에서
-  // 디테일컷/모델컷 구분에 따라 컴포넌트가 자체적으로 1단/2단을 정하므로
-  // 여기서는 적용하지 않는다.)
-  const gallerySlideColumns: 1 | 2 = currentIndex === 0 ? 2 : 1;
-
   const fieldFallback: Record<SectionKey, string> = {
     overview: project.description,
     purpose: project.purpose,
@@ -148,7 +141,7 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
         <Container className="pt-24 md:pt-32">
           <Reveal>
             <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-korean">작업 이미지</h2>
-            <GalleryGrid items={project.gallery} columns={gallerySlideColumns} />
+            <GalleryGrid items={project.gallery} />
           </Reveal>
         </Container>
       )}
@@ -199,7 +192,7 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
         {hasGallery && topSlot !== "gallery" && (
           <Reveal className="mt-16">
             <h2 className="text-xl md:text-2xl font-semibold mb-4">상세 이미지</h2>
-            <GalleryGrid items={project.gallery} columns={gallerySlideColumns} />
+            <GalleryGrid items={project.gallery} />
           </Reveal>
         )}
       </Container>

@@ -23,30 +23,23 @@ import { refreshScrollTrigger } from "@/lib/gsap";
 // §69 — 격자 대신 "1단 가로 배열 + 많아지면 옆으로 슬라이드"로 바꾸고,
 // 고정 비율 박스 대신 "높이만 고정"하는 방식으로 바꿨다.
 //
-// §87 — 자유 스크롤(높이 고정 + 폭 auto)에서 SlideCarousel 기반의 진짜
-// "슬라이드"(화살표/점 인디케이터로 한 장씩 넘김)로 바꿨다. 슬라이드 한
-// 장에 몇 개를 나란히 보여줄지는 columns로 정한다 — 기본은 1단(한 장에
-// 하나, 화면 폭 전체를 채움), 프로젝트 1번만 2단으로 호출된다.
+// §87-89 — 한때 슬라이드 한 장이 폭 전체를 채우는 방식으로 바꿨었는데,
+// §91에서 "사진이 너무 크다 / 간격이 너무 넓다 / 한 장씩밖에 안 보인다"는
+// 피드백을 받아 §69 방식(높이만 고정, 폭은 원본 비율)으로 되돌리고 화살표
+// 스크롤만 SlideCarousel에서 얹었다. columns는 더 이상 쓰지 않는다 —
+// 여러 장이 동시에 보이는지 여부는 화면 폭과 각 사진의 원본 비율에 따라
+// 자연스럽게 정해진다.
 // ============================================================================
-export function GalleryGrid({
-  items,
-  columns = 1,
-  className,
-}: {
-  items: MediaRef[];
-  columns?: 1 | 2;
-  className?: string;
-}) {
+export function GalleryGrid({ items, className }: { items: MediaRef[]; className?: string }) {
   return (
     <SlideCarousel
       items={items}
-      columns={columns}
       className={className}
-      // §88 — 이 이미지/영상들은 높이가 고정되어 있지 않고(w-full h-auto)
-      // 원본 비율대로 로드된 뒤에야 실제 높이가 정해진다. 로드가 끝난
-      // 뒤에도 ScrollTrigger가 예전(더 작은) 높이를 기준으로 남아 있으면
-      // 등장 모션이 실제보다 일찍 사라지므로, 로드가 끝나는 시점마다
-      // 위치를 다시 계산한다.
+      // §88 — 이 이미지/영상들은 높이만 고정되고 폭은 원본 비율대로
+      // 로드된 뒤에야 정확한 폭이 정해진다. 로드가 끝난 뒤에도
+      // ScrollTrigger가 예전(더 작은) 크기를 기준으로 남아 있으면 등장
+      // 모션이 실제보다 일찍 사라지므로, 로드가 끝나는 시점마다 위치를
+      // 다시 계산한다.
       renderItem={(m) =>
         m.kind === "video-file" ? (
           <video
@@ -55,7 +48,7 @@ export function GalleryGrid({
             controls
             playsInline
             onLoadedMetadata={refreshScrollTrigger}
-            className="w-full h-auto max-h-[70vh] rounded-sm bg-bg-soft"
+            className="h-full w-auto rounded-sm bg-bg-soft"
           />
         ) : (
           // eslint-disable-next-line @next/next/no-img-element
@@ -63,7 +56,7 @@ export function GalleryGrid({
             src={mediaSrc(m.url)}
             alt={m.alt || ""}
             onLoad={refreshScrollTrigger}
-            className="w-full h-auto max-h-[70vh] rounded-sm bg-bg-soft object-contain"
+            className="h-full w-auto rounded-sm bg-bg-soft object-contain"
           />
         )
       }

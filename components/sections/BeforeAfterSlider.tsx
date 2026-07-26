@@ -21,23 +21,24 @@ function SliderItem({ pair }: { pair: BeforeAfterPair }) {
 
   return (
     <div>
-      {/* §85 — 예전엔 4:3로 박스를 고정해두고 object-cover로 채웠는데,
-          세로로 긴 인물/모델 사진을 넣으면 얼굴이나 발이 잘려나가는
-          문제가 있었다. 이제는 박스 크기 자체를 "보정 후" 사진의 원본
-          비율에 맞춰(자연스러운 크기로) 잡고, "보정 전" 사진은 그 박스에
-          꼭 맞게 겹쳐 올린다 — 보정 전/후는 같은 원본 사진이라 두 비율이
-          거의 항상 같으므로 실제로는 잘림이 생기지 않는다. */}
-      <div className="relative w-full overflow-hidden rounded-sm select-none bg-bg-soft">
-        {/* §89 — 이 "보정 후" 이미지가 박스 높이를 결정한다(after는
-            일반 흐름, before는 absolute라 높이에 관여하지 않음). 로드가
-            끝나 실제 높이가 확정되는 시점에 ScrollTrigger를 다시
-            계산해야 등장 모션이 그 전 높이 기준으로 일찍 사라지지 않는다. */}
+      {/* §91 — §85에서는 "보정 후" 사진의 원본 비율대로 폭 전체(w-full)를
+          채우는 박스를 썼는데, 그러면 슬라이드 한 장에 사진이 하나만
+          크게 보였다. 이제는 갤러리(GalleryGrid)와 같은 방식으로 높이만
+          고정(h-72 sm:h-80 md:h-96 — SlideCarousel 기본 높이와 동일)하고
+          폭은 원본 비율대로 자동으로 정해지게(w-fit) 바꿔, 화면에 여러
+          장이 동시에 보이면서도 세로로 긴 사진이 잘리지 않는다(비율 유지). */}
+      <div className="relative h-72 sm:h-80 md:h-96 w-fit overflow-hidden rounded-sm select-none bg-bg-soft">
+        {/* §89 — 이 "보정 후" 이미지가 박스 폭을 결정한다(after는 h-full
+            w-auto로 원본 비율을 유지, before는 absolute라 크기에 관여하지
+            않음). 로드가 끝나 실제 크기가 확정되는 시점에 ScrollTrigger를
+            다시 계산해야 등장 모션이 그 전 크기 기준으로 일찍 사라지지
+            않는다. */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={mediaSrc(pair.after.url)}
           alt={pair.after.alt || "보정 후"}
           onLoad={refreshScrollTrigger}
-          className="block w-full h-auto pointer-events-none"
+          className="block h-full w-auto pointer-events-none"
           draggable={false}
         />
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -106,25 +107,13 @@ export function BeforeAfterSlider({ pairs }: { pairs: BeforeAfterPair[] }) {
       {detailShots.length > 0 && (
         <div className={modelShots.length > 0 ? "mb-12" : undefined}>
           <p className="text-sm font-medium text-ink-secondary mb-3 text-korean">1단 · 디테일컷</p>
-          <SlideCarousel
-            items={detailShots}
-            columns={1}
-            gapClassName="gap-6"
-            keyOf={(pair) => pair.id}
-            renderItem={(pair) => <SliderItem pair={pair} />}
-          />
+          <SlideCarousel items={detailShots} keyOf={(pair) => pair.id} renderItem={(pair) => <SliderItem pair={pair} />} />
         </div>
       )}
       {modelShots.length > 0 && (
         <div>
           <p className="text-sm font-medium text-ink-secondary mb-3 text-korean">2단 · 모델컷</p>
-          <SlideCarousel
-            items={modelShots}
-            columns={1}
-            gapClassName="gap-6"
-            keyOf={(pair) => pair.id}
-            renderItem={(pair) => <SliderItem pair={pair} />}
-          />
+          <SlideCarousel items={modelShots} keyOf={(pair) => pair.id} renderItem={(pair) => <SliderItem pair={pair} />} />
         </div>
       )}
     </Reveal>

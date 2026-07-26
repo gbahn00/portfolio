@@ -1,57 +1,75 @@
 "use client";
 
-import { useRef, useState, ReactNode } from "react";
+import { useEffect, useRef, useState, ReactNode } from "react";
 
 // ============================================================================
-// §87 — 대표 프로젝트 상세페이지의 이미지/갤러리 영역을 "가로 슬라이드"
-// 형식으로 바꿔달라는 요청. 기존에는 높이만 고정하고 폭은 원본 비율대로
-// 옆으로 이어 붙이는 자유 스크롤 방식(GalleryGrid)이었는데, 이제는 한
-// 슬라이드가 컨테이너 폭 전체를 채우고(1단) 좌우 화살표·점 인디케이터로
-// 다음/이전 슬라이드로 넘기는 진짜 "슬라이드" 방식으로 바꾼다.
+// §87-90 — 상세페이지 이미지/갤러리 영역을 "가로 슬라이드"로 바꿔달라는
+// 요청을 여러 차례에 걸쳐 다듬었다.
 //
-// 프로젝트 1번(의류 촬영·보정, 보정 전/후 비교)만 예외적으로 슬라이드 한
-// 장에 콘텐츠 2개를 나란히(2단) 보여달라는 요청이 있어, columns prop으로
-// 1단/2단을 선택할 수 있게 만들었다. 이미지 갤러리(GalleryGrid)든 보정
-// 전/후 비교(BeforeAfterSlider, 자체 드래그 인터랙션이 있는 컴포넌트)든
-// 같은 슬라이드 틀을 재사용할 수 있도록 renderItem 콜백을 받는 제네릭
-// 컴포넌트로 만들었다.
+// §87-89: 처음엔 슬라이드 한 장이 컨테이너 폭 전체를 채우는(한 번에 사진
+// 하나만 꽉 차게 보이는) 방식으로 만들었는데, §91에서 "사진이 너무 크다 /
+// 사진 사이 간격이 너무 넓다 / 슬라이드하면 한 장씩밖에 안 보인다"는
+// 피드백을 받았다.
+//
+// §91 — 예전 방식(§69, 높이만 고정하고 폭은 원본 비율대로 옆으로 이어
+// 붙이는 자유 스크롤)으로 크기 자체는 되돌리되, 화살표 버튼으로 페이지
+// 단위 스크롤이 가능한 "슬라이드" 느낌은 유지했다. 즉:
+//   - 각 사진/영상은 높이만 고정(heightClassName)하고 폭은 원본 비율대로
+//     자동으로 정해진다 → 화면 크기에 따라 여러 장이 동시에 보인다.
+//   - 간격(gapClassName)을 좁혀 사진 사이 여백을 줄였다.
+//   - 화살표를 누르면 "한 화면 분량"만큼 옆으로 스크롤한다(스냅 포함).
+//   - 항목마다 폭이 달라 "몇 번째 슬라이드"가 명확하지 않으므로 점
+//     인디케이터는 없애고, 더 스크롤할 내용이 있을 때만 화살표를 보여준다.
 // ============================================================================
 
 export function SlideCarousel<T>({
   items,
-  columns = 1,
   renderItem,
   keyOf,
-  gapClassName = "gap-4 md:gap-5",
+  heightClassName = "h-72 sm:h-80 md:h-96",
+  gapClassName = "gap-3 md:gap-4",
   className,
 }: {
   items: T[];
-  columns?: 1 | 2;
   renderItem: (item: T, index: number) => ReactNode;
   keyOf?: (item: T, index: number) => string | number;
+  heightClassName?: string;
   gapClassName?: string;
   className?: string;
 }) {
   const trackRef = useRef<HTMLDivElement>(null);
-  const [active, setActive] = useState(0);
+  const [canPrev, setCanPrev] = useState(false);
+  const [canNext, setCanNext] = useState(false);
 
-  const groups: T[][] = [];
-  for (let i = 0; i < items.length; i += columns) groups.push(items.slice(i, i + columns));
-
-  function scrollToIndex(idx: number) {
+  function updateArrows() {
     const track = trackRef.current;
     if (!track) return;
-    const clamped = Math.max(0, Math.min(groups.length - 1, idx));
-    const slide = track.children[clamped] as HTMLElement | undefined;
-    slide?.scrollIntoView({ behavior: "smooth", inline: "start", block: "nearest" });
-    setActive(clamped);
+    setCanPrev(track.scrollLeft > 4);
+    setCanNext(track.scrollLeft + track.clientWidth < track.scrollWidth - 4);
   }
 
-  function handleScroll() {
+  useEffect(() => {
     const track = trackRef.current;
-    if (!track || track.clientWidth === 0) return;
-    const idx = Math.round(track.scrollLeft / track.clientWidth);
-    setActive(Math.max(0, Math.min(groups.length - 1, idx)));
+    if (!track) return;
+    updateArrows();
+
+    // 이미지/영상이 뒤늦게 로드되며 각 항목의 실제 폭(scrollWidth)이
+    // 늘어나는 경우를 대비해, 각 슬라이드 항목의 크기 변화를 감지해서
+    // 화살표 표시 여부를 다시 계산한다.
+    const ro = new ResizeObserver(updateArrows);
+    Array.from(track.children).forEach((el) => ro.observe(el));
+    window.addEventListener("resize", updateArrows);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", updateArrows);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [items.length]);
+
+  function scrollByPage(dir: 1 | -1) {
+    const track = trackRef.current;
+    if (!track) return;
+    track.scrollBy({ left: dir * track.clientWidth * 0.9, behavior: "smooth" });
   }
 
   if (items.length === 0) return null;
@@ -61,62 +79,37 @@ export function SlideCarousel<T>({
       <div className="relative">
         <div
           ref={trackRef}
-          onScroll={handleScroll}
-          className="flex overflow-x-auto snap-x snap-mandatory scroll-smooth -mx-1 px-1"
+          onScroll={updateArrows}
+          className={`flex items-start ${heightClassName} ${gapClassName} overflow-x-auto snap-x snap-mandatory scroll-smooth -mx-1 px-1`}
         >
-          {groups.map((group, gi) => (
-            <div key={gi} className={`w-full shrink-0 snap-start flex ${gapClassName}`}>
-              {group.map((item, i) => {
-                const idx = gi * columns + i;
-                return (
-                  <div key={keyOf ? keyOf(item, idx) : idx} className={columns === 2 ? "flex-1 min-w-0" : "w-full"}>
-                    {renderItem(item, idx)}
-                  </div>
-                );
-              })}
+          {items.map((item, i) => (
+            <div key={keyOf ? keyOf(item, i) : i} className="h-full shrink-0 snap-start">
+              {renderItem(item, i)}
             </div>
           ))}
         </div>
 
-        {groups.length > 1 && (
-          <>
-            <button
-              type="button"
-              aria-label="이전 슬라이드"
-              onClick={() => scrollToIndex(active - 1)}
-              disabled={active === 0}
-              className="absolute left-2 top-1/2 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full bg-bg/70 text-ink border border-line backdrop-blur-sm transition-opacity duration-[0.25s] hover:border-ink/40 disabled:opacity-0 disabled:pointer-events-none"
-            >
-              ‹
-            </button>
-            <button
-              type="button"
-              aria-label="다음 슬라이드"
-              onClick={() => scrollToIndex(active + 1)}
-              disabled={active === groups.length - 1}
-              className="absolute right-2 top-1/2 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full bg-bg/70 text-ink border border-line backdrop-blur-sm transition-opacity duration-[0.25s] hover:border-ink/40 disabled:opacity-0 disabled:pointer-events-none"
-            >
-              ›
-            </button>
-          </>
+        {canPrev && (
+          <button
+            type="button"
+            aria-label="이전"
+            onClick={() => scrollByPage(-1)}
+            className="absolute left-2 top-1/2 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full bg-bg/70 text-ink border border-line backdrop-blur-sm transition-opacity duration-[0.25s] hover:border-ink/40"
+          >
+            ‹
+          </button>
+        )}
+        {canNext && (
+          <button
+            type="button"
+            aria-label="다음"
+            onClick={() => scrollByPage(1)}
+            className="absolute right-2 top-1/2 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full bg-bg/70 text-ink border border-line backdrop-blur-sm transition-opacity duration-[0.25s] hover:border-ink/40"
+          >
+            ›
+          </button>
         )}
       </div>
-
-      {groups.length > 1 && (
-        <div className="mt-3 flex items-center justify-center gap-1.5">
-          {groups.map((_, gi) => (
-            <button
-              key={gi}
-              type="button"
-              aria-label={`${gi + 1}번째 슬라이드로 이동`}
-              onClick={() => scrollToIndex(gi)}
-              className={`h-1.5 rounded-full transition-all duration-[0.25s] ${
-                gi === active ? "w-5 bg-ink" : "w-1.5 bg-line"
-              }`}
-            />
-          ))}
-        </div>
-      )}
     </div>
   );
 }
