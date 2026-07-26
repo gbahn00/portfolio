@@ -518,17 +518,27 @@
       },
       "gallery": [
         {
-          "url": "/uploads/68bb68fa-60c8-4994-bc02-0b8bfad45cf0.png",
+          "url": "/uploads/f5d27a5c-5879-4b82-a6eb-62685a9558d8.jpg",
           "kind": "image",
           "alt": ""
         },
         {
-          "url": "/uploads/284fe543-aa2d-48bb-a893-f19e8bb9f26e.png",
+          "url": "/uploads/c9fd9183-8467-411f-b5fe-bac98e5bacd7.jpg",
           "kind": "image",
           "alt": ""
         },
         {
-          "url": "/uploads/1cf90451-d0ba-4b7c-8f47-b724d66770a1.png",
+          "url": "/uploads/ff575187-5032-4e2a-8545-faf7f18ccb47.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/0c065bf9-62b7-40cc-af80-33dc7e9739a2.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/829bde65-a07f-48cc-aeff-30094fdfc130.jpg",
           "kind": "image",
           "alt": ""
         }
@@ -542,7 +552,7 @@
       "status": "draft",
       "order": 1,
       "createdAt": "2024-09-01T00:00:00.000Z",
-      "updatedAt": "2026-07-26T09:59:42.936Z"
+      "updatedAt": "2026-07-26T12:22:55.226Z"
     },
     {
       "id": "proj-interior",

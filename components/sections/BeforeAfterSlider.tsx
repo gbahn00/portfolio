@@ -20,19 +20,16 @@ function SliderItem({ pair }: { pair: BeforeAfterPair }) {
   const [pos, setPos] = useState(50);
 
   return (
-    <div className="h-full w-fit flex flex-col">
-      {/* §91 — §85에서는 "보정 후" 사진의 원본 비율대로 폭 전체(w-full)를
-          채우는 박스를 썼는데, 그러면 슬라이드 한 장에 사진이 하나만
-          크게 보였다. 이제는 갤러리(GalleryGrid)와 같은 방식으로 높이만
-          고정하고 폭은 원본 비율대로 자동으로 정해지게(w-fit) 바꿔, 화면에
-          여러 장이 동시에 보이면서도 세로로 긴 사진이 잘리지 않는다(비율
-          유지).
-          §92 — 높이를 h-72 등 고정값 대신 flex-1로 바꿨다. 아래 캡션
-          텍스트가 차지하는 만큼을 제외한 "남은 공간"을 사진 박스가
-          정확히 채우게 해서, 부모(SlideCarousel 트랙)가 정한 전체 높이를
-          넘기지 않는다 — 넘치면 트랙에 원치 않는 세로 스크롤(세로
-          슬라이드)이 생기기 때문이다. */}
-      <div className="relative flex-1 min-h-0 w-fit overflow-hidden rounded-sm select-none bg-bg-soft">
+    // §96 — "사진 하나만 보이고 나머지는 큰 빈칸 뒤에 나온다"는 신고가
+    // inline-block 전환(§94) 이후에도 재현됐다. 원인은 이 항목이
+    // flex-col(§92, box를 flex-1로 남은 높이만큼 늘리는 방식)이었던 것 —
+    // 중첩된 flex 컨테이너가 폭을 계산할 때 일부 브라우저에서 "내용
+    // 크기만큼만"이 아니라 "가능한 최대 폭"으로 늘어나는 경우가 있었다.
+    // flex를 완전히 걷어내고 GalleryGrid와 똑같이 "고정 높이 박스 + 그
+    // 아래 캡션"을 평범한 블록으로 쌓는 구조로 바꿔, 폭 계산이 오직
+    // w-fit 박스 하나에만 좌우되게 했다.
+    <div>
+      <div className="relative h-72 sm:h-80 md:h-96 w-fit overflow-hidden rounded-sm select-none bg-bg-soft">
         {/* §89 — 이 "보정 후" 이미지가 박스 폭을 결정한다(after는 h-full
             w-auto로 원본 비율을 유지, before는 absolute라 크기에 관여하지
             않음). 로드가 끝나 실제 크기가 확정되는 시점에 ScrollTrigger를
@@ -86,15 +83,15 @@ function SliderItem({ pair }: { pair: BeforeAfterPair }) {
         />
       </div>
       {/* §92 — 캡션 유무와 관계없이 항상 같은 높이(h-4)를 예약해둔다.
-          그래야 캡션이 있는 항목과 없는 항목의 사진 박스 높이(위 flex-1)가
-          서로 달라지지 않는다. line-clamp-1로 줄바꿈도 막아 높이가
-          예약한 값을 넘지 않게 한다.
+          그래야 캡션이 있는 항목과 없는 항목의 전체 높이가 서로 달라지지
+          않는다(트랙 높이를 box 고정 높이 + 이 여백에 맞춰뒀다).
+          line-clamp-1로 줄바꿈도 막아 높이가 예약한 값을 넘지 않게 한다.
           §93 — max-w를 걸어두지 않으면 캡션 글자 수가 사진 폭보다 길 때
           이 캡션 텍스트의 "내용 기준 폭"이 항목 전체 폭(w-fit) 계산에
           끼어들어 사진보다 항목이 넓어지고, 그만큼 사진 옆에 빈 공간이
           생길 수 있다. 사진 폭을 넘지 않도록 상한을 걸어 항상 캡션이
           사진 폭 안에서만 잘리게(ellipsis) 했다. */}
-      <div className="shrink-0 h-4 mt-2 max-w-[200px] sm:max-w-[240px] md:max-w-[280px]">
+      <div className="h-4 mt-2 max-w-[200px] sm:max-w-[240px] md:max-w-[280px]">
         {pair.caption && !pair.caption.startsWith("[") && (
           <p className="text-xs text-ink-muted text-korean line-clamp-1">{pair.caption}</p>
         )}

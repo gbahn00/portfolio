@@ -1,5 +1,116 @@
 [
   {
+    "id": "bd08d466-a54f-4f75-8761-dc0e85d4f490",
+    "entity": "projects:proj-cafe",
+    "field": "수정",
+    "before": {
+      "id": "proj-cafe",
+      "number": "02",
+      "title": "카페 및 음식 브랜드 촬영",
+      "brand": "갈바트 카페, 교타쿠",
+      "brandHidden": false,
+      "year": "2024",
+      "field": "카페 및 음식",
+      "purpose": "브랜드의 아이덴티티와 음식의 매력을 동시에 전달하여 온라인에서도 브랜드 경험이 이어질 수 있는 콘텐츠 제작",
+      "role": "촬영 · 색보정 · 리터칭 · 메뉴 콘텐츠 제작",
+      "tools": [
+        "[자료 필요] 사용 장비 및 보정 프로그램 목록"
+      ],
+      "description": "음식의 맛을 시각적으로 전달하고, 브랜드가 가진 분위기와 감성을 함께 담아낼 수 있는 메뉴 콘텐츠를 제작했습니다.",
+      "heroImage": {
+        "url": "/placeholders/cafe.svg",
+        "kind": "image",
+        "alt": "카페 및 음식 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [
+        {
+          "url": "/uploads/68bb68fa-60c8-4994-bc02-0b8bfad45cf0.png",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/284fe543-aa2d-48bb-a893-f19e8bb9f26e.png",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/1cf90451-d0ba-4b7c-8f47-b724d66770a1.png",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "beforeAfter": [],
+      "metrics": [],
+      "detailBlocks": [],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 1,
+      "createdAt": "2024-09-01T00:00:00.000Z",
+      "updatedAt": "2026-07-26T09:59:42.936Z"
+    },
+    "after": {
+      "id": "proj-cafe",
+      "number": "02",
+      "title": "카페 및 음식 브랜드 촬영",
+      "brand": "갈바트 카페, 교타쿠",
+      "brandHidden": false,
+      "year": "2024",
+      "field": "카페 및 음식",
+      "purpose": "브랜드의 아이덴티티와 음식의 매력을 동시에 전달하여 온라인에서도 브랜드 경험이 이어질 수 있는 콘텐츠 제작",
+      "role": "촬영 · 색보정 · 리터칭 · 메뉴 콘텐츠 제작",
+      "tools": [
+        "[자료 필요] 사용 장비 및 보정 프로그램 목록"
+      ],
+      "description": "음식의 맛을 시각적으로 전달하고, 브랜드가 가진 분위기와 감성을 함께 담아낼 수 있는 메뉴 콘텐츠를 제작했습니다.",
+      "heroImage": {
+        "url": "/placeholders/cafe.svg",
+        "kind": "image",
+        "alt": "카페 및 음식 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [
+        {
+          "url": "/uploads/f5d27a5c-5879-4b82-a6eb-62685a9558d8.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/c9fd9183-8467-411f-b5fe-bac98e5bacd7.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/ff575187-5032-4e2a-8545-faf7f18ccb47.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/0c065bf9-62b7-40cc-af80-33dc7e9739a2.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/829bde65-a07f-48cc-aeff-30094fdfc130.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "beforeAfter": [],
+      "metrics": [],
+      "detailBlocks": [],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 1,
+      "createdAt": "2024-09-01T00:00:00.000Z",
+      "updatedAt": "2026-07-26T12:22:55.226Z"
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-26T12:22:27.110Z"
+  },
+  {
     "id": "753f4241-4359-4806-8414-dbcf7cdd2e51",
     "entity": "projects:proj-clothing",
     "field": "수정",
