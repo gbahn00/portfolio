@@ -54,6 +54,11 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
   const prevProject = currentIndex > 0 ? orderedPublic[currentIndex - 1] : null;
   const nextProject = currentIndex >= 0 && currentIndex < orderedPublic.length - 1 ? orderedPublic[currentIndex + 1] : null;
 
+  // §87 — 대표 프로젝트 목록의 "01번"(순서상 첫 프로젝트)만 상세페이지의
+  // 이미지/보정 전후 슬라이드를 2단(한 슬라이드에 2개씩)으로 보여주고,
+  // 나머지 프로젝트는 전부 1단(한 슬라이드에 1개)으로 보여달라는 요청.
+  const gallerySlideColumns: 1 | 2 = currentIndex === 0 ? 2 : 1;
+
   const fieldFallback: Record<SectionKey, string> = {
     overview: project.description,
     purpose: project.purpose,
@@ -120,7 +125,7 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
       {topSlot === "beforeAfter" && (
         <Container className="pt-24 md:pt-32">
           <div className="max-w-3xl">
-            <BeforeAfterSlider pairs={validBeforeAfter} />
+            <BeforeAfterSlider pairs={validBeforeAfter} columns={gallerySlideColumns} />
           </div>
         </Container>
       )}
@@ -145,18 +150,17 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
           </div>
         </Container>
       )}
-      {/* §70 — "작업 이미지"는 max-w-3xl(본문 텍스트 폭)로 좁혀놨더니
-          가로 슬라이드가 화면 절반쯤에서 잘려 보였다. 이 블록만 폭 제한을
-          없애 Container 전체 폭(페이지 좌우 끝)까지 슬라이드가 이어지도록
-          했다. */}
+      {/* §87 — 예전엔(§70) 자유 스크롤이라 max-w-3xl 안에 넣으면 슬라이드가
+          화면 절반쯤에서 잘려 보여 폭 제한을 없앴었다. SlideCarousel로
+          바뀐 지금은 슬라이드가 컨테이너 폭에 맞춰 채워지므로 본문과 같은
+          읽기 폭(max-w-3xl)으로 다시 맞췄다. */}
       {topSlot === "gallery" && (
         <Container className="pt-24 md:pt-32">
           <Reveal>
             <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-korean">작업 이미지</h2>
-            <GalleryGrid
-              items={project.gallery}
-              className="flex items-start gap-4 md:gap-5 h-72 sm:h-80 md:h-96 overflow-x-auto snap-x snap-mandatory scroll-smooth -mx-1 px-1 pb-2"
-            />
+            <div className="max-w-3xl">
+              <GalleryGrid items={project.gallery} columns={gallerySlideColumns} />
+            </div>
           </Reveal>
         </Container>
       )}
@@ -202,16 +206,15 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
 
         </div>
 
-        {/* §70 — 위 "작업 이미지"와 같은 이유로, 이 블록도 max-w-3xl 밖으로
-            빼서 Container 전체 폭까지 슬라이드가 이어지도록 했다(다른
-            본문 섹션은 계속 읽기 좋은 폭으로 유지). */}
+        {/* §87 — 예전엔(§70) 자유 스크롤 방식이라 슬라이드가 화면 절반에서
+            잘려 보이지 않도록 이 블록을 max-w-3xl 밖으로 뺐었다. 이제는
+            SlideCarousel이 컨테이너 폭에 맞춰 슬라이드를 채우는 방식이라
+            그 문제가 없어졌고, 다른 본문 섹션과 같은 읽기 폭(max-w-3xl)에
+            맞추는 편이 더 자연스러워 다시 안쪽 폭으로 맞췄다. */}
         {hasGallery && topSlot !== "gallery" && (
-          <Reveal className="mt-16">
+          <Reveal className="mt-16 max-w-3xl">
             <h2 className="text-xl md:text-2xl font-semibold mb-4">상세 이미지</h2>
-            <GalleryGrid
-              items={project.gallery}
-              className="flex items-start gap-4 md:gap-5 h-72 sm:h-80 md:h-96 overflow-x-auto snap-x snap-mandatory scroll-smooth -mx-1 px-1 pb-2"
-            />
+            <GalleryGrid items={project.gallery} columns={gallerySlideColumns} />
           </Reveal>
         )}
       </Container>

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { BeforeAfterPair } from "@/lib/types";
 import { mediaSrc } from "@/lib/utils";
 import { Reveal } from "@/components/motion/Reveal";
+import { SlideCarousel } from "@/components/ui/SlideCarousel";
 
 // ============================================================================
 // §58 — 프로젝트 상세 페이지에 "보정 전/후 비교"를 선택적으로(관리자가 사진을
@@ -79,18 +80,26 @@ function SliderItem({ pair }: { pair: BeforeAfterPair }) {
   );
 }
 
-export function BeforeAfterSlider({ pairs }: { pairs: BeforeAfterPair[] }) {
+// §87 — 이 컴포넌트는 현재 프로젝트 1번(의류 촬영·보정)에서만 쓰이는데,
+// "가로 슬라이드 + 2단(한 슬라이드에 2개씩 나란히)" 요청의 대상이 바로
+// 이 화면이다. 기존 grid(모든 짝을 한 번에 격자로 나열)를 SlideCarousel로
+// 바꿔 화살표/점 인디케이터로 두 장씩 넘겨 보도록 했다. columns는 호출부
+// (프로젝트 상세 페이지)에서 프로젝트 순서에 따라 전달한다 — 기본값은
+// 이 컴포넌트를 쓰는 프로젝트 1번 기준으로 2단이다.
+export function BeforeAfterSlider({ pairs, columns = 2 }: { pairs: BeforeAfterPair[]; columns?: 1 | 2 }) {
   const sorted = [...pairs].sort((a, b) => a.order - b.order);
   if (sorted.length === 0) return null;
 
   return (
     <Reveal>
       <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-korean">보정 전·후</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        {sorted.map((pair) => (
-          <SliderItem key={pair.id} pair={pair} />
-        ))}
-      </div>
+      <SlideCarousel
+        items={sorted}
+        columns={columns}
+        gapClassName="gap-6"
+        keyOf={(pair) => pair.id}
+        renderItem={(pair) => <SliderItem pair={pair} />}
+      />
     </Reveal>
   );
 }

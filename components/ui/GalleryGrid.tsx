@@ -1,5 +1,15 @@
+"use client";
+
+// §87 — GalleryGrid는 원래 상태가 없는 순수 표시용 컴포넌트라 서버
+// 컴포넌트였는데, 이제 내부에서 SlideCarousel(클라이언트 컴포넌트)에
+// renderItem 함수를 prop으로 넘긴다. 서버 컴포넌트는 함수를 클라이언트
+// 컴포넌트에 prop으로 넘길 수 없어서("Functions cannot be passed
+// directly to Client Components") 빌드는 되지만 런타임에 에러가 났다.
+// 이 파일도 "use client"로 바꿔 같은 클라이언트 경계 안에서 함수를 바로
+// 전달할 수 있게 했다.
 import { MediaRef } from "@/lib/types";
 import { mediaSrc } from "@/lib/utils";
+import { SlideCarousel } from "@/components/ui/SlideCarousel";
 
 // ============================================================================
 // §65-69 — 상세 이미지/영상 표시 방식 변경 이력.
@@ -10,36 +20,45 @@ import { mediaSrc } from "@/lib/utils";
 // 보이는 문제가 있었다.
 //
 // §69 — 격자 대신 "1단 가로 배열 + 많아지면 옆으로 슬라이드"로 바꾸고,
-// 고정 비율 박스 대신 "높이만 고정"하는 방식으로 바꿨다. 각 항목은
-// 컨테이너 높이(h-full)만 맞추고 너비는 auto로 두어 원본 비율대로 옆으로
-// 넓어지거나 좁아진다 — 세로 영상 기준 높이를 그대로 채우고, 가로
-// 영상/사진은 그 높이에 맞는 비율만큼 옆으로 넓게 나온다. 레터박스(빈
-// 여백)가 전혀 생기지 않는다. 컨테이너 자체의 높이는 className으로
-// 호출부에서 지정한다(예: h-72 md:h-96).
+// 고정 비율 박스 대신 "높이만 고정"하는 방식으로 바꿨다.
+//
+// §87 — 자유 스크롤(높이 고정 + 폭 auto)에서 SlideCarousel 기반의 진짜
+// "슬라이드"(화살표/점 인디케이터로 한 장씩 넘김)로 바꿨다. 슬라이드 한
+// 장에 몇 개를 나란히 보여줄지는 columns로 정한다 — 기본은 1단(한 장에
+// 하나, 화면 폭 전체를 채움), 프로젝트 1번만 2단으로 호출된다.
 // ============================================================================
-export function GalleryGrid({ items, className }: { items: MediaRef[]; className?: string }) {
+export function GalleryGrid({
+  items,
+  columns = 1,
+  className,
+}: {
+  items: MediaRef[];
+  columns?: 1 | 2;
+  className?: string;
+}) {
   return (
-    <div className={className}>
-      {items.map((m, i) =>
+    <SlideCarousel
+      items={items}
+      columns={columns}
+      className={className}
+      renderItem={(m) =>
         m.kind === "video-file" ? (
           <video
-            key={i}
             src={mediaSrc(m.url)}
             poster={m.poster}
             controls
             playsInline
-            className="h-full w-auto shrink-0 snap-start rounded-sm bg-bg-soft"
+            className="w-full h-auto max-h-[70vh] rounded-sm bg-bg-soft"
           />
         ) : (
           // eslint-disable-next-line @next/next/no-img-element
           <img
-            key={i}
             src={mediaSrc(m.url)}
             alt={m.alt || ""}
-            className="h-full w-auto shrink-0 snap-start rounded-sm bg-bg-soft object-contain"
+            className="w-full h-auto max-h-[70vh] rounded-sm bg-bg-soft object-contain"
           />
         )
-      )}
-    </div>
+      }
+    />
   );
 }
