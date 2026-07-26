@@ -70,7 +70,8 @@ export function SelectedWork({ projects }: { projects: Project[] }) {
   return (
     <section id="projects" className="fp-section bg-bg-soft py-6 md:py-8" style={{ justifyContent: "stretch" }}>
       <Container className="w-full h-full flex flex-col">
-        <div className="shrink-0 mb-6 md:mb-8">
+        {/* §30 — 제목과 목록 사이 여백이 과했다는 피드백으로 mb를 줄였다. */}
+        <div className="shrink-0 mb-3 md:mb-4">
           <Reveal>
             <p className="accent-text text-sm font-medium mb-3 tracking-wide">대표 프로젝트</p>
           </Reveal>
@@ -83,7 +84,11 @@ export function SelectedWork({ projects }: { projects: Project[] }) {
 
         {list.length > 0 ? (
           <div ref={wrapRef} className="relative flex-1 min-h-0" onMouseMove={handleMouseMove}>
-            <div className="flex flex-col justify-center h-full overflow-hidden max-w-3xl">
+            {/* §30 — 오른쪽에 항상 떠 있는 미리보기 칼럼이 없어진 뒤로는 목록을
+                max-w-3xl로 좁혀둘 이유가 없었다. 페이지 폭 전체를 쓰도록 바꿨다. */}
+            {/* justify-evenly로 행 사이 여백을 고르게 벌려, 항목 수가 적어도
+                목록이 박스 절반이 아니라 세로 공간 전체를 채우도록 했다. */}
+            <div className="flex flex-col justify-evenly h-full overflow-hidden w-full">
               {list.map((p, i) => (
                 <Link
                   key={p.id}
@@ -134,8 +139,14 @@ export function SelectedWork({ projects }: { projects: Project[] }) {
                   {/* 목록 미리보기 전용 미디어가 따로 지정돼 있으면 그걸 쓰고,
                       없으면 상세 페이지 대표 이미지(heroImage)로 대신한다. */}
                   <PreviewMedia media={current.listPreviewMedia ?? current.heroImage} />
-                  <div className="absolute inset-0 bg-gradient-to-t from-bg/75 via-transparent to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-2.5">
+                  {/* §31 — 사진/영상 색상에 따라 제목 글자가 묻히는 문제를
+                      막기 위해, 전체 이미지에 옅은 그라디언트만 까는 대신
+                      맨 아래 텍스트가 놓이는 자리에만 불투명에 가까운 작은
+                      배경 박스를 준다. 이미지 색과 무관하게 항상 읽힌다. */}
+                  <div
+                    className="absolute bottom-0 left-0 right-0 px-2.5 py-2"
+                    style={{ background: "linear-gradient(to top, rgba(10,10,10,0.92) 40%, rgba(10,10,10,0.55) 75%, rgba(10,10,10,0) 100%)" }}
+                  >
                     <p className="text-xs font-semibold text-white line-clamp-1 text-korean">{current.title}</p>
                     {!isPlaceholder(current.field) && (
                       <p className="text-[10px] text-white/70 line-clamp-1">{current.field}</p>

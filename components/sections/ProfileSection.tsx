@@ -69,12 +69,16 @@ function IdentityPanel({ profile, philosophy }: { profile: Profile; philosophy: 
 function NumbersPanel({ profile }: { profile: Profile }) {
   const facts = [...profile.keyFacts].sort((a, b) => a.order - b.order);
   return (
+    // §29 — 보조창이 커진 만큼(flex-1) 숫자 콘텐츠도 그에 맞춰 키웠다.
+    // 작은 악센트 밑줄 + 라벨 + 큰 숫자로 이어지는 통계 카드 형태로 바꾸고,
+    // 그리드 간격도 넓혀 여백이 남는 느낌 없이 박스를 채우게 했다.
     <div className="h-full flex items-center">
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-6 max-w-3xl">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-x-10 md:gap-x-14 gap-y-10 md:gap-y-12 w-full max-w-4xl">
         {facts.map((f) => (
           <div key={f.label}>
-            <p className="text-korean text-sm text-ink-muted mb-1">{f.label}</p>
-            <p className="text-korean text-2xl md:text-3xl text-ink font-bold">{f.value}</p>
+            <span className="block w-6 h-[2px] mb-3" style={{ background: "var(--accent)" }} />
+            <p className="text-korean text-sm md:text-base text-ink-muted mb-2 tracking-wide">{f.label}</p>
+            <p className="text-korean text-3xl md:text-4xl lg:text-5xl text-ink font-bold tabular-nums">{f.value}</p>
           </div>
         ))}
         {facts.length === 0 && <p className="text-ink-muted text-sm">등록된 핵심 수치가 아직 없습니다.</p>}
@@ -94,22 +98,25 @@ function SkillsPanel({ items, index }: { items: Competency[]; index: number }) {
   if (sorted.length === 0) return <p className="text-ink-muted text-sm">등록된 업무 역량이 아직 없습니다.</p>;
 
   return (
+    // §29 — 박스가 커진 만큼 제목/본문도 함께 키웠다. 고정 px 크기 대신
+    // 사이트 전역 타이포 스케일(statement-title)을 써서 다른 섹션과
+    // 비례가 어긋나지 않게 했다.
     <div className="h-full flex flex-col justify-center">
-      <div className="flex items-center gap-2 mb-4">
+      <div className="flex items-center gap-2.5 mb-5 md:mb-6">
         {sorted.map((_, i) => (
           <span
             key={i}
-            className="font-en text-xs tabular-nums transition-colors duration-300"
+            className="font-en text-sm tabular-nums transition-colors duration-300"
             style={{ color: i === index ? "var(--accent)" : "var(--color-text-muted)" }}
           >
             {String(i + 1).padStart(2, "0")}
-            {i < sorted.length - 1 && <span className="mx-1.5 text-ink-muted">/</span>}
+            {i < sorted.length - 1 && <span className="mx-2 text-ink-muted">/</span>}
           </span>
         ))}
       </div>
-      <div key={current.id} className="max-w-2xl">
-        <h3 className="text-xl md:text-2xl font-bold mb-3 text-korean">{current.title}</h3>
-        <p className="text-ink-secondary body-large leading-relaxed text-korean line-clamp-4">{current.description}</p>
+      <div key={current.id} className="max-w-3xl">
+        <h3 className="statement-title font-bold mb-4 text-korean">{current.title}</h3>
+        <p className="text-ink-secondary body-large leading-relaxed text-korean line-clamp-6">{current.description}</p>
       </div>
     </div>
   );

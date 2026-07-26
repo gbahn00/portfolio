@@ -7,11 +7,15 @@ import { Reveal, RevealGroup, RevealItem } from "@/components/motion/Reveal";
 // ============================================================================
 // 전체 구조 개편 명세서 §5 — "05.향후 추진 계획"
 // 예전에는 계획 항목마다 화면 하나씩(min-h-[90svh]) 차지하는 긴 스토리
-// 형태였다. 이제는 한 화면 안에 NOW / NEXT / FUTURE 3장의 카드로 축소했다.
-// 항목이 3개보다 많으면 순서(order) 기준 상위 3개만 카드로 보여준다.
-// ============================================================================
-
-const STAGE_LABELS = ["NOW", "NEXT", "FUTURE"];
+// 형태였다. 이제는 한 화면 안에 3장의 카드로 축소했다. 항목이 3개보다
+// 많으면 순서(order) 기준 상위 3개만 카드로 보여준다.
+//
+// §33 — 원래는 카드 순서에 NOW/NEXT/FUTURE라는 이름을 붙였는데, 세 항목이
+// 전부 "향후" 실행 계획이라 NOW(현재 진행 중)라는 이름이 의미상 맞지
+// 않는다는 피드백이 있었다. 카드 순서를 나타내는 라벨은 사이트 전역에서
+// 이미 쓰는 "01/02/03" 숫자 표기로 바꾸고, 실제 진행 상태(예정/준비중/
+// 진행중/완료)는 이미 카드 하단에 표시되는 plan.progress 배지가 그대로
+// 담당한다 — 순서 라벨과 상태 라벨을 분리한 것이다.
 
 export function FuturePlans({ items }: { items: FuturePlan[] }) {
   const visible = [...items].filter((i) => i.visible !== false).sort((a, b) => a.order - b.order).slice(0, 3);
@@ -36,7 +40,7 @@ export function FuturePlans({ items }: { items: FuturePlan[] }) {
             {visible.map((plan, i) => (
               <RevealItem key={plan.id}>
                 <div className="h-full rounded-sm border border-line bg-bg-soft p-5 md:p-6 flex flex-col">
-                  <p className="font-en text-xs tracking-wide accent-text mb-2">{STAGE_LABELS[i] || `STAGE ${i + 1}`}</p>
+                  <p className="font-en text-xs tracking-wide accent-text mb-2 tabular-nums">PLAN {String(i + 1).padStart(2, "0")}</p>
                   <h3 className="text-xl md:text-2xl font-bold mb-3 text-korean">{plan.title}</h3>
                   <p className="body text-ink-secondary text-korean mb-4 flex-1">{plan.summary}</p>
                   {plan.details.length > 0 && (

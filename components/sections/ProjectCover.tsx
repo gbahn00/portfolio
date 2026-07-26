@@ -57,12 +57,19 @@ export function ProjectCover({ project }: { project: Project }) {
 
   return (
     <section ref={sectionRef} className="relative h-[100svh] w-full overflow-hidden bg-bg">
+      {/* §32 — 사진/영상 색을 타지 않도록 아래쪽을 훨씬 진하게, 대신 위쪽은
+          거의 그대로 보이게 그라디언트를 다시 잡았다(제목을 아래로 옮기면서
+          그 자리의 대비를 확실히 확보하기 위함). */}
       <div ref={imgWrapRef} className="absolute inset-0">
         <MediaFrame media={project.heroImage} className="absolute inset-0 h-full w-full" priority />
-        <div className="absolute inset-0 bg-gradient-to-t from-bg/70 via-bg/15 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-bg/90 via-bg/25 to-transparent" />
       </div>
 
-      <Container className="relative z-10 flex h-full flex-col justify-between py-10 md:py-14">
+      {/* §32 — 제목이 화면 한가운데 떠 있어 부자연스럽다는 피드백에 따라,
+          상단 내비게이션은 그대로 위에 두고 제목+메타 정보는 화면 아래쪽에
+          함께 모아 배치했다(잡지형 커버처럼 제목이 하단에 앵커링되는 방식).
+          가운데는 flex-1 spacer로 비워서 사진/영상이 그대로 드러나게 한다. */}
+      <Container className="relative z-10 flex h-full flex-col py-10 md:py-14">
         <div className="flex items-start justify-between">
           <Link href="/#projects" className="text-sm text-ink-secondary hover:text-ink transition-colors">
             ← 목록으로
@@ -72,19 +79,23 @@ export function ProjectCover({ project }: { project: Project }) {
           </span>
         </div>
 
+        <div className="flex-1" />
+
         <div ref={titleRef}>
           <h1 className="hero-title font-bold text-korean max-w-4xl">{project.title}</h1>
         </div>
 
-        <div ref={metaRef} className="flex flex-wrap gap-x-10 gap-y-2 text-sm text-ink-secondary">
+        <div ref={metaRef} className="flex flex-wrap gap-x-10 gap-y-2 text-sm text-ink-secondary mt-5 md:mt-6">
           {!isPlaceholder(project.role) && (
             <span>
               <strong className="text-ink font-medium">ROLE</strong> · {project.role}
             </span>
           )}
-          <span>
-            <strong className="text-ink font-medium">YEAR</strong> · {project.year}
-          </span>
+          {!isPlaceholder(project.year) && (
+            <span>
+              <strong className="text-ink font-medium">YEAR</strong> · {project.year}
+            </span>
+          )}
           {!project.brandHidden && project.brand && !isPlaceholder(project.brand) && (
             <span>
               <strong className="text-ink font-medium">TYPE</strong> · {project.brand}
