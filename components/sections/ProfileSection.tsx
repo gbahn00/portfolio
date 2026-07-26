@@ -87,20 +87,24 @@ function NumbersPanel({ profile }: { profile: Profile }) {
   const skills = [...(profile.toolSkills ?? [])].filter((s) => s.name).sort((a, b) => a.order - b.order);
 
   return (
-    // §43 — "중간 위(핵심 수치 4개) / 중간 아래(Skills)"로 다시 상하 배치를
-    // 요청받았다. 예전에 상하로 쌓았을 때 잘렸던 이유는 핵심 수치를 2행
-    // (2x2)으로 쌓았기 때문이므로, 이번엔 4개를 한 줄로만 배치해 위쪽
-    // 높이를 줄이고, Skills도 세로 한 줄이 아니라 2열 그리드로 배치해
-    // 아래쪽 높이를 절반으로 줄였다 — 둘을 세로로 쌓아도 합친 높이가
-    // 고정 프레임 안에 들어온다.
+    // §44 — 핵심 수치를 다시 2x2로 배치하되, 관리자 데이터 입력 순서
+    // (근무시작→주요직무→주요분야→조직기여)를 그대로 두고 "세로로 먼저
+    // 채우는" grid-flow-col 배치를 써서 화면상으로는
+    //   근무시작   주요분야
+    //   주요직무   조직기여
+    // 순서가 나오도록 했다(요청받은 특정 배치). 4개짜리 한 줄 배치는
+    // "폰트만 키운 느낌"이라는 피드백이 있어 폐기하고, 대신 항목당 폭이
+    // 늘어난 만큼 타이포 크기를 한 단계 키워 여백과 크기감을 함께
+    // 재구성했다. Skills는 아이콘을 키우고, 진행바는 더 이상 칸 끝까지
+    // 늘어나지 않도록 최대 폭을 제한했다.
     <div className="h-full flex items-center">
       <div className="w-full">
-        <div className="grid grid-cols-4 gap-x-4 md:gap-x-6">
+        <div className="grid grid-cols-2 grid-rows-2 grid-flow-col gap-x-10 md:gap-x-16 gap-y-6 md:gap-y-8">
           {facts.map((f) => (
             <div key={f.label}>
-              <span className="block w-5 h-[2px] mb-2" style={{ background: "var(--accent)" }} />
-              <p className="text-korean text-xs text-ink-muted mb-1.5 tracking-wide">{f.label}</p>
-              <p className="text-korean text-base md:text-lg lg:text-xl text-ink font-bold leading-snug line-clamp-2">
+              <span className="block w-6 h-[2px] mb-2.5" style={{ background: "var(--accent)" }} />
+              <p className="text-korean text-xs md:text-sm text-ink-muted mb-1.5 tracking-wide">{f.label}</p>
+              <p className="text-korean text-xl md:text-2xl lg:text-3xl text-ink font-bold leading-snug line-clamp-2">
                 {f.value}
               </p>
             </div>
@@ -108,26 +112,26 @@ function NumbersPanel({ profile }: { profile: Profile }) {
           {facts.length === 0 && <p className="text-ink-muted text-sm">등록된 핵심 수치가 아직 없습니다.</p>}
         </div>
 
-        {/* §40-43 — Skills: 위 핵심 수치와 구분선으로 나뉘는 아래쪽 절반.
-            아이콘(왼쪽) + 진행바(오른쪽, 관리자가 조절하는 percentage)를
-            2열 그리드로 배치해 6개가 들어가도 세로로 너무 길어지지 않게
-            했다. */}
-        <div className="mt-6 md:mt-8 pt-6 md:pt-8 border-t border-line">
-          <p className="font-en text-xs md:text-sm text-ink-muted mb-3 tracking-wide">Skills</p>
-          <div className="grid grid-cols-2 gap-x-6 gap-y-2.5 md:gap-y-3">
+        {/* §40-44 — Skills: 위 핵심 수치와 구분선으로 나뉘는 아래쪽 절반.
+            아이콘을 한 단계 키우고, 진행바는 칸 끝까지 늘어나지 않도록
+            고정 최대 폭(max-w)을 줘서 라벨/퍼센트와 균형 잡힌 짧은
+            바 형태로 만들었다. */}
+        <div className="mt-7 md:mt-9 pt-6 md:pt-8 border-t border-line">
+          <p className="font-en text-xs md:text-sm text-ink-muted mb-3.5 tracking-wide">Skills</p>
+          <div className="grid grid-cols-2 gap-x-6 gap-y-3 md:gap-y-3.5">
             {skills.map((s) => (
-              <div key={s.id} className="flex items-center gap-2.5">
+              <div key={s.id} className="flex items-center gap-3">
                 {TOOL_ICON_MAP[s.name] && (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img
                     src={TOOL_ICON_MAP[s.name]}
                     alt={s.name}
                     title={s.name}
-                    className="h-6 w-6 md:h-7 md:w-7 rounded-md object-cover shrink-0"
+                    className="h-8 w-8 md:h-9 md:w-9 rounded-md object-cover shrink-0"
                   />
                 )}
-                <div className="min-w-0 flex-1">
-                  <div className="flex items-center justify-between mb-1">
+                <div className="min-w-0 max-w-[140px] md:max-w-[160px]">
+                  <div className="flex items-center justify-between mb-1 gap-2">
                     <span className="text-korean text-xs text-ink-secondary truncate">{s.name}</span>
                     <span className="font-en text-[11px] tabular-nums text-ink-muted shrink-0">{s.percentage}%</span>
                   </div>
