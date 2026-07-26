@@ -43,10 +43,20 @@ function PreviewMedia({ media }: { media?: MediaRef }) {
   return <img src={src} alt={media.alt || ""} style={style} />;
 }
 
+// §47 — 목록을 "1~4번은 Design, 5~8번은 Content" 두 칼럼으로 나눠달라는
+// 요청. 순서는 여전히 관리자(프로필/프로젝트 관리 화면)에서 정한 order
+// 그대로이고, 앞의 4개는 왼쪽(Design) 칼럼에, 다음 4개는 오른쪽(Content)
+// 칼럼에 배치한다. 번호(01~08)는 전체 순번을 그대로 이어서 매긴다.
+const COLUMN_SPLIT = 4;
+
 export function SelectedWork({ projects }: { projects: Project[] }) {
   const sorted = [...projects].sort((a, b) => a.order - b.order);
   const featured = sorted.filter((p) => p.isFeatured);
   const list = (featured.length > 0 ? featured : sorted).slice(0, 8);
+  const columns = [
+    { label: "Design", items: list.slice(0, COLUMN_SPLIT), offset: 0 },
+    { label: "Content", items: list.slice(COLUMN_SPLIT, 8), offset: COLUMN_SPLIT },
+  ];
 
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const wrapRef = useRef<HTMLDivElement>(null);
@@ -90,43 +100,84 @@ export function SelectedWork({ projects }: { projects: Project[] }) {
                 되돌려, 항목 수에 맞는 자연스러운 밀도로 박스 가운데 놓이게
                 했다. 폭도 초광폭 화면에서 테두리 줄만 끝없이 길어 보이지
                 않도록 max-w-4xl로 적당히 잡았다(이전의 3xl보다는 넓게). */}
-            <div className="flex flex-col justify-center h-full overflow-hidden w-full max-w-4xl">
-              {list.map((p, i) => (
-                <Link
-                  key={p.id}
-                  href={`/projects/${p.id}`}
-                  onMouseEnter={() => setHoveredId(p.id)}
-                  onMouseLeave={() => setHoveredId(null)}
-                  onFocus={() => setHoveredId(p.id)}
-                  onBlur={() => setHoveredId(null)}
-                  className="group flex items-center gap-5 py-5 md:py-6 border-b border-line first:border-t last:border-b-0"
-                >
-                  <span
-                    className="font-en text-sm tabular-nums shrink-0 transition-colors duration-200"
-                    style={{ color: p.id === hoveredId ? "var(--accent)" : "var(--color-text-muted)" }}
-                  >
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <div className="min-w-0 flex-1">
-                    <p
-                      className="text-xl md:text-2xl font-semibold truncate text-korean transition-colors duration-200"
-                      style={{ color: p.id === hoveredId ? "var(--color-text-primary)" : "var(--color-text-secondary)" }}
-                    >
-                      {p.title}
-                    </p>
-                    <p className="text-sm text-ink-muted truncate mt-1">{p.field}</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-14 md:gap-x-20 gap-y-8 h-full items-center overflow-hidden w-full max-w-5xl mx-auto">
+              {columns.map((col) => (
+                <div key={col.label} className="flex flex-col justify-center">
+                  <p className="font-en text-xs md:text-sm text-ink-muted tracking-[0.2em] mb-2 md:mb-3">
+                    {col.label}
+                  </p>
+                  <div className="flex flex-col">
+                    {col.items.map((p, i) => {
+                      const globalIndex = col.offset + i;
+                      // §47 — 8번(마지막 항목)은 강조 폰트 색상(--accent)을
+                      // 뒷배경으로 반영해 시각적으로 도드라지게 했다. 배경이
+                      // 생기는 만큼 기본 테두리 줄 대신 카드 형태(둥근
+                      // 모서리 + 좌우 패딩)로 바꾸고, 글자색은 배경(주황)
+                      // 위에서도 잘 읽히도록 어두운 배경색을 그대로 썼다.
+                      const isHighlighted = globalIndex === 7;
+                      return (
+                        <Link
+                          key={p.id}
+                          href={`/projects/${p.id}`}
+                          onMouseEnter={() => setHoveredId(p.id)}
+                          onMouseLeave={() => setHoveredId(null)}
+                          onFocus={() => setHoveredId(p.id)}
+                          onBlur={() => setHoveredId(null)}
+                          className={
+                            isHighlighted
+                              ? "group flex items-center gap-5 py-4 md:py-5 px-4 md:px-5 rounded-md"
+                              : "group flex items-center gap-5 py-5 md:py-6 border-b border-line first:border-t last:border-b-0"
+                          }
+                          style={isHighlighted ? { background: "var(--accent)" } : undefined}
+                        >
+                          <span
+                            className="font-en text-sm tabular-nums shrink-0 transition-colors duration-200"
+                            style={{
+                              color: isHighlighted
+                                ? "var(--color-bg-primary)"
+                                : p.id === hoveredId
+                                ? "var(--accent)"
+                                : "var(--color-text-muted)",
+                              opacity: isHighlighted ? 0.7 : 1,
+                            }}
+                          >
+                            {String(globalIndex + 1).padStart(2, "0")}
+                          </span>
+                          <div className="min-w-0 flex-1">
+                            <p
+                              className="text-xl md:text-2xl font-semibold truncate text-korean transition-colors duration-200"
+                              style={{
+                                color: isHighlighted
+                                  ? "var(--color-bg-primary)"
+                                  : p.id === hoveredId
+                                  ? "var(--color-text-primary)"
+                                  : "var(--color-text-secondary)",
+                              }}
+                            >
+                              {p.title}
+                            </p>
+                            <p
+                              className="text-sm truncate mt-1"
+                              style={{ color: isHighlighted ? "var(--color-bg-primary)" : "var(--color-text-muted)", opacity: isHighlighted ? 0.75 : 1 }}
+                            >
+                              {p.field}
+                            </p>
+                          </div>
+                          <span
+                            className="shrink-0 text-base transition-all duration-200"
+                            style={{
+                              color: isHighlighted ? "var(--color-bg-primary)" : "var(--accent)",
+                              opacity: isHighlighted ? 1 : p.id === hoveredId ? 1 : 0,
+                              transform: p.id === hoveredId || isHighlighted ? "translateX(0)" : "translateX(-4px)",
+                            }}
+                          >
+                            →
+                          </span>
+                        </Link>
+                      );
+                    })}
                   </div>
-                  <span
-                    className="shrink-0 text-base transition-all duration-200"
-                    style={{
-                      color: "var(--accent)",
-                      opacity: p.id === hoveredId ? 1 : 0,
-                      transform: p.id === hoveredId ? "translateX(0)" : "translateX(-4px)",
-                    }}
-                  >
-                    →
-                  </span>
-                </Link>
+                </div>
               ))}
             </div>
 
