@@ -7,6 +7,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { MediaFrame } from "@/components/ui/MediaFrame";
 import { gsap, prefersReducedMotion } from "@/lib/gsap";
 import { registerSubSteps } from "@/lib/fullpage";
+import { mediaSrc } from "@/lib/utils";
 
 // ============================================================================
 // 전체 구조 개편 명세서 §3 — "03.업무 성장과정"
@@ -45,8 +46,26 @@ function YearContent({ entry }: { entry: TimelineEntry }) {
           </div>
         )}
       </div>
+      {/* §79 — 관리자 화면에는 "대표 영상(선택)" 업로드 항목이 예전부터
+          있었는데, 공개 화면에는 heroImage만 그리고 있어서 영상을 올려도
+          전혀 반영되지 않았다. 영상이 있으면 영상을(음소거 자동재생 루프),
+          없으면 기존처럼 대표 이미지를 보여준다. */}
       <div className="relative aspect-[4/3] w-full max-h-[45dvh] overflow-hidden rounded-sm">
-        <MediaFrame media={entry.heroImage} className="h-full w-full" />
+        {entry.heroVideo?.url ? (
+          <video
+            key={entry.id}
+            src={mediaSrc(entry.heroVideo.url)}
+            poster={entry.heroVideo.poster || (entry.heroImage?.url ? mediaSrc(entry.heroImage.url) : undefined)}
+            className="h-full w-full object-cover"
+            style={{ filter: "brightness(0.9) contrast(1.05)" }}
+            autoPlay
+            muted
+            loop
+            playsInline
+          />
+        ) : (
+          <MediaFrame media={entry.heroImage} className="h-full w-full" />
+        )}
       </div>
     </div>
   );
