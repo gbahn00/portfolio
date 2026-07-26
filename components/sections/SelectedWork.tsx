@@ -26,6 +26,25 @@ import { isPlaceholder, mediaSrc } from "@/lib/utils";
 const PREVIEW_MAX_W = 260;
 const PREVIEW_MAX_H = 180;
 
+// §74 — "사진을 첨부했다가 지웠더니 미리보기가 안 보인다"는 문제 수정.
+// 원인 1) 예전에는 `listPreviewMedia ?? heroImage`처럼 값이 있는지만
+// (null/undefined 여부만) 확인했는데, 관리자 화면에서 사진을 지운 뒤
+// 저장하면 필드 자체가 사라지는 대신 `{ url: "", ... }`처럼 속이 빈
+// 객체로 남는 경우가 있었다. 이런 객체는 값이 "있는 것"으로 취급돼
+// 다음 대체값(heroImage)으로 넘어가지 못하고 빈 이미지가 그대로 붙어버렸다.
+// 이제는 url이 실제로 채워져 있는지까지 확인한다.
+// 원인 2) listPreviewMedia와 heroImage 둘 다 비어 있고 상세 이미지
+// (gallery)만 채워둔 프로젝트는 대체할 이미지가 전혀 없었다 — 마지막
+// 대체 후보로 gallery의 첫 번째 미디어까지 추가했다.
+function pickPreviewMedia(project: Project): MediaRef | undefined {
+  const candidates: (MediaRef | undefined)[] = [
+    project.listPreviewMedia,
+    project.heroImage,
+    project.gallery?.[0],
+  ];
+  return candidates.find((m) => m && m.url);
+}
+
 function PreviewMedia({ media }: { media?: MediaRef }) {
   if (!media) return null;
   const src = mediaSrc(media.url);
@@ -212,8 +231,10 @@ export function SelectedWork({ projects }: { projects: Project[] }) {
               {current && (
                 <div className="relative inline-block overflow-hidden rounded-sm shadow-lg" style={{ background: "var(--color-bg-secondary)" }}>
                   {/* 목록 미리보기 전용 미디어가 따로 지정돼 있으면 그걸 쓰고,
-                      없으면 상세 페이지 대표 이미지(heroImage)로 대신한다. */}
-                  <PreviewMedia media={current.listPreviewMedia ?? current.heroImage} />
+                      없으면(또는 비어 있으면) 상세 페이지 대표 이미지
+                      (heroImage), 그마저 없으면 상세 이미지(gallery) 첫
+                      번째 항목으로 대신한다. */}
+                  <PreviewMedia media={pickPreviewMedia(current)} />
                   {/* §31 — 사진/영상 색상에 따라 제목 글자가 묻히는 문제를
                       막기 위해, 전체 이미지에 옅은 그라디언트만 까는 대신
                       맨 아래 텍스트가 놓이는 자리에만 불투명에 가까운 작은
