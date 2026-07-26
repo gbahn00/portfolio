@@ -34,8 +34,25 @@ async function api(path: string, options?: RequestInit) {
   return data;
 }
 
+// §62 — retouchHighlights는 새로 추가한 컬럼이라, 아직 supabase/schema.sql의
+// ALTER를 실행하지 않은 DB에서 불러온 기존 프로젝트에는 이 필드 자체가
+// 없어 undefined로 들어온다(.map 호출 시 그대로 크래시). 여기서 한 번에
+// 비어있는 배열로 채워 넣어 방어한다. gallery/beforeAfter/tools/metrics/
+// detailBlocks도 혹시 모를 구버전 데이터를 위해 같이 방어한다.
+function normalizeProject(p: Project): Project {
+  return {
+    ...p,
+    tools: p.tools ?? [],
+    gallery: p.gallery ?? [],
+    beforeAfter: p.beforeAfter ?? [],
+    retouchHighlights: p.retouchHighlights ?? [],
+    metrics: p.metrics ?? [],
+    detailBlocks: p.detailBlocks ?? [],
+  };
+}
+
 export function ProjectEditor({ initial }: { initial: Project }) {
-  const [data, setData] = useState<Project>(initial);
+  const [data, setData] = useState<Project>(() => normalizeProject(initial));
   const [saving, setSaving] = useState(false);
   const [savedAt, setSavedAt] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -53,7 +70,7 @@ export function ProjectEditor({ initial }: { initial: Project }) {
         method: "PATCH",
         body: JSON.stringify({ ...data, updatedAt: new Date().toISOString() }),
       });
-      setData(updated);
+      setData(normalizeProject(updated));
       setSavedAt(new Date().toLocaleTimeString("ko-KR"));
     } catch (e: any) {
       setError(e.message || "저장에 실패했습니다.");
