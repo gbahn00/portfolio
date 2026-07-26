@@ -5,6 +5,7 @@ import { BeforeAfterPair } from "@/lib/types";
 import { mediaSrc } from "@/lib/utils";
 import { Reveal } from "@/components/motion/Reveal";
 import { SlideCarousel } from "@/components/ui/SlideCarousel";
+import { refreshScrollTrigger } from "@/lib/gsap";
 
 // ============================================================================
 // §58 — 프로젝트 상세 페이지에 "보정 전/후 비교"를 선택적으로(관리자가 사진을
@@ -27,10 +28,15 @@ function SliderItem({ pair }: { pair: BeforeAfterPair }) {
           꼭 맞게 겹쳐 올린다 — 보정 전/후는 같은 원본 사진이라 두 비율이
           거의 항상 같으므로 실제로는 잘림이 생기지 않는다. */}
       <div className="relative w-full overflow-hidden rounded-sm select-none bg-bg-soft">
+        {/* §89 — 이 "보정 후" 이미지가 박스 높이를 결정한다(after는
+            일반 흐름, before는 absolute라 높이에 관여하지 않음). 로드가
+            끝나 실제 높이가 확정되는 시점에 ScrollTrigger를 다시
+            계산해야 등장 모션이 그 전 높이 기준으로 일찍 사라지지 않는다. */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={mediaSrc(pair.after.url)}
           alt={pair.after.alt || "보정 후"}
+          onLoad={refreshScrollTrigger}
           className="block w-full h-auto pointer-events-none"
           draggable={false}
         />
@@ -80,26 +86,47 @@ function SliderItem({ pair }: { pair: BeforeAfterPair }) {
   );
 }
 
-// §87 — 이 컴포넌트는 현재 프로젝트 1번(의류 촬영·보정)에서만 쓰이는데,
-// "가로 슬라이드 + 2단(한 슬라이드에 2개씩 나란히)" 요청의 대상이 바로
-// 이 화면이다. 기존 grid(모든 짝을 한 번에 격자로 나열)를 SlideCarousel로
-// 바꿔 화살표/점 인디케이터로 두 장씩 넘겨 보도록 했다. columns는 호출부
-// (프로젝트 상세 페이지)에서 프로젝트 순서에 따라 전달한다 — 기본값은
-// 이 컴포넌트를 쓰는 프로젝트 1번 기준으로 2단이다.
-export function BeforeAfterSlider({ pairs, columns = 2 }: { pairs: BeforeAfterPair[]; columns?: 1 | 2 }) {
+// §90 — 처음엔 "1단/2단"을 "슬라이드 한 장에 몇 개를 나란히 놓을지"로
+// 이해해서 모델컷을 2개씩 축소해 나란히 놓았는데, 실제 의도는 그게
+// 아니었다: "1단"과 "2단"은 위아래로 쌓인 두 개의 독립된 가로 슬라이드
+// 줄(tier)을 뜻한다 — 1단(위)은 디테일컷 전용 줄, 2단(아래)은 모델컷
+// 전용 줄이고, 각 줄 안에서는 사진이 예전과 똑같이 한 장씩 원본 크기로
+// 나온다(줄여서 나란히 놓지 않는다). pair.category로 어느 줄에 들어갈지
+// 정하고, 카테고리가 없는(기존) 데이터는 1단(디테일컷)으로 취급한다.
+export function BeforeAfterSlider({ pairs }: { pairs: BeforeAfterPair[] }) {
   const sorted = [...pairs].sort((a, b) => a.order - b.order);
   if (sorted.length === 0) return null;
+
+  const detailShots = sorted.filter((p) => (p.category ?? "detail") === "detail");
+  const modelShots = sorted.filter((p) => p.category === "model");
 
   return (
     <Reveal>
       <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-korean">보정 전·후</h2>
-      <SlideCarousel
-        items={sorted}
-        columns={columns}
-        gapClassName="gap-6"
-        keyOf={(pair) => pair.id}
-        renderItem={(pair) => <SliderItem pair={pair} />}
-      />
+      {detailShots.length > 0 && (
+        <div className={modelShots.length > 0 ? "mb-12" : undefined}>
+          <p className="text-sm font-medium text-ink-secondary mb-3 text-korean">1단 · 디테일컷</p>
+          <SlideCarousel
+            items={detailShots}
+            columns={1}
+            gapClassName="gap-6"
+            keyOf={(pair) => pair.id}
+            renderItem={(pair) => <SliderItem pair={pair} />}
+          />
+        </div>
+      )}
+      {modelShots.length > 0 && (
+        <div>
+          <p className="text-sm font-medium text-ink-secondary mb-3 text-korean">2단 · 모델컷</p>
+          <SlideCarousel
+            items={modelShots}
+            columns={1}
+            gapClassName="gap-6"
+            keyOf={(pair) => pair.id}
+            renderItem={(pair) => <SliderItem pair={pair} />}
+          />
+        </div>
+      )}
     </Reveal>
   );
 }

@@ -105,6 +105,13 @@ export interface BeforeAfterPair {
   after: MediaRef;
   caption?: string;
   order: number;
+  /**
+   * §89 — "보정 전·후" 슬라이드를 두 종류로 나눠 보여달라는 요청.
+   * "detail"(디테일컷, 기본값)은 슬라이드 한 장에 1개씩(1단), "model"
+   * (모델컷)은 슬라이드 한 장에 2개씩 나란히(2단) 보여준다. 값이 없으면
+   * 디테일컷으로 취급한다.
+   */
+  category?: "detail" | "model";
 }
 
 export interface ProjectDetailBlock {

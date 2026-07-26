@@ -7,6 +7,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { ProjectCover } from "@/components/sections/ProjectCover";
 import { ProjectNav } from "@/components/sections/ProjectNav";
 import { BeforeAfterSlider } from "@/components/sections/BeforeAfterSlider";
+import { FinalVideoBlock } from "@/components/sections/FinalVideoBlock";
 import { isPlaceholder, mediaSrc, stripPlaceholder } from "@/lib/utils";
 import { Project } from "@/lib/types";
 
@@ -54,9 +55,11 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
   const prevProject = currentIndex > 0 ? orderedPublic[currentIndex - 1] : null;
   const nextProject = currentIndex >= 0 && currentIndex < orderedPublic.length - 1 ? orderedPublic[currentIndex + 1] : null;
 
-  // §87 — 대표 프로젝트 목록의 "01번"(순서상 첫 프로젝트)만 상세페이지의
-  // 이미지/보정 전후 슬라이드를 2단(한 슬라이드에 2개씩)으로 보여주고,
-  // 나머지 프로젝트는 전부 1단(한 슬라이드에 1개)으로 보여달라는 요청.
+  // §87 — 대표 프로젝트 목록의 "01번"(순서상 첫 프로젝트)만 이미지
+  // 갤러리를 2단(한 슬라이드에 2개씩)으로 보여주고, 나머지 프로젝트는
+  // 전부 1단(한 슬라이드에 1개)으로 보여달라는 요청. (보정 전/후는 §89에서
+  // 디테일컷/모델컷 구분에 따라 컴포넌트가 자체적으로 1단/2단을 정하므로
+  // 여기서는 적용하지 않는다.)
   const gallerySlideColumns: 1 | 2 = currentIndex === 0 ? 2 : 1;
 
   const fieldFallback: Record<SectionKey, string> = {
@@ -122,45 +125,30 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
 
       {/* §58-60 — 대표 화면 바로 아래: 위 우선순위(보정 전/후 → 최종 영상 →
           갤러리 → 없음)에 따라 정확히 하나만 렌더링한다. */}
+      {/* §89 — max-w-3xl(본문 읽기 폭, 768px)로 감싸놨더니 가운데 정렬된
+          Container(최대 1600px) 안에서 사진이 왼쪽 절반쯤까지만 나타나고
+          오른쪽에 빈 공간이 크게 남는 문제가 있었다("좌측에서 화면
+          중앙까지밖에 안 나타난다"). 이미지/영상/보정전후 영역은 본문
+          텍스트와 달리 넓게 보여주는 게 자연스러워, 폭 제한을 없애고
+          Container 전체 폭(좌측 끝~우측 끝)까지 채우도록 되돌렸다. */}
       {topSlot === "beforeAfter" && (
         <Container className="pt-24 md:pt-32">
-          <div className="max-w-3xl">
-            <BeforeAfterSlider pairs={validBeforeAfter} columns={gallerySlideColumns} />
-          </div>
+          <BeforeAfterSlider pairs={validBeforeAfter} />
         </Container>
       )}
       {topSlot === "video" && project.finalVideo && (
         <Container className="pt-24 md:pt-32">
-          <div className="max-w-3xl">
-            <Reveal>
-              <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-korean">결과물 영상</h2>
-              {/* §68 — 여기는 영상이 하나뿐이라(격자로 나란히 놓고 비교할
-                  필요가 없음) 고정 박스로 강제로 자르거나 레터박스를 두지
-                  않고, 영상 자체의 원본 비율대로 크게 보여준다(가로 영상은
-                  넓게, 세로 영상은 높게). 세로 영상이 화면을 너무 많이
-                  차지하지 않도록 최대 높이만 넉넉하게 잡아뒀다. */}
-              <video
-                src={mediaSrc(project.finalVideo.url)}
-                poster={project.finalVideo.poster || (project.heroImage ? mediaSrc(project.heroImage.url) : undefined)}
-                controls
-                playsInline
-                className="w-full h-auto max-h-[75vh] mx-auto block rounded-sm bg-bg-soft"
-              />
-            </Reveal>
-          </div>
+          <FinalVideoBlock
+            video={project.finalVideo}
+            posterFallback={project.heroImage ? mediaSrc(project.heroImage.url) : undefined}
+          />
         </Container>
       )}
-      {/* §87 — 예전엔(§70) 자유 스크롤이라 max-w-3xl 안에 넣으면 슬라이드가
-          화면 절반쯤에서 잘려 보여 폭 제한을 없앴었다. SlideCarousel로
-          바뀐 지금은 슬라이드가 컨테이너 폭에 맞춰 채워지므로 본문과 같은
-          읽기 폭(max-w-3xl)으로 다시 맞췄다. */}
       {topSlot === "gallery" && (
         <Container className="pt-24 md:pt-32">
           <Reveal>
             <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-korean">작업 이미지</h2>
-            <div className="max-w-3xl">
-              <GalleryGrid items={project.gallery} columns={gallerySlideColumns} />
-            </div>
+            <GalleryGrid items={project.gallery} columns={gallerySlideColumns} />
           </Reveal>
         </Container>
       )}
@@ -206,13 +194,10 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
 
         </div>
 
-        {/* §87 — 예전엔(§70) 자유 스크롤 방식이라 슬라이드가 화면 절반에서
-            잘려 보이지 않도록 이 블록을 max-w-3xl 밖으로 뺐었다. 이제는
-            SlideCarousel이 컨테이너 폭에 맞춰 슬라이드를 채우는 방식이라
-            그 문제가 없어졌고, 다른 본문 섹션과 같은 읽기 폭(max-w-3xl)에
-            맞추는 편이 더 자연스러워 다시 안쪽 폭으로 맞췄다. */}
+        {/* §89 — 위 beforeAfter/gallery와 같은 이유로 max-w-3xl을 없애
+            Container 전체 폭까지 채우도록 했다. */}
         {hasGallery && topSlot !== "gallery" && (
-          <Reveal className="mt-16 max-w-3xl">
+          <Reveal className="mt-16">
             <h2 className="text-xl md:text-2xl font-semibold mb-4">상세 이미지</h2>
             <GalleryGrid items={project.gallery} columns={gallerySlideColumns} />
           </Reveal>

@@ -10,6 +10,7 @@
 import { MediaRef } from "@/lib/types";
 import { mediaSrc } from "@/lib/utils";
 import { SlideCarousel } from "@/components/ui/SlideCarousel";
+import { refreshScrollTrigger } from "@/lib/gsap";
 
 // ============================================================================
 // §65-69 — 상세 이미지/영상 표시 방식 변경 이력.
@@ -41,6 +42,11 @@ export function GalleryGrid({
       items={items}
       columns={columns}
       className={className}
+      // §88 — 이 이미지/영상들은 높이가 고정되어 있지 않고(w-full h-auto)
+      // 원본 비율대로 로드된 뒤에야 실제 높이가 정해진다. 로드가 끝난
+      // 뒤에도 ScrollTrigger가 예전(더 작은) 높이를 기준으로 남아 있으면
+      // 등장 모션이 실제보다 일찍 사라지므로, 로드가 끝나는 시점마다
+      // 위치를 다시 계산한다.
       renderItem={(m) =>
         m.kind === "video-file" ? (
           <video
@@ -48,6 +54,7 @@ export function GalleryGrid({
             poster={m.poster}
             controls
             playsInline
+            onLoadedMetadata={refreshScrollTrigger}
             className="w-full h-auto max-h-[70vh] rounded-sm bg-bg-soft"
           />
         ) : (
@@ -55,6 +62,7 @@ export function GalleryGrid({
           <img
             src={mediaSrc(m.url)}
             alt={m.alt || ""}
+            onLoad={refreshScrollTrigger}
             className="w-full h-auto max-h-[70vh] rounded-sm bg-bg-soft object-contain"
           />
         )
