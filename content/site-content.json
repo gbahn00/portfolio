@@ -543,7 +543,24 @@
           "alt": ""
         }
       ],
-      "beforeAfter": [],
+      "beforeAfter": [
+        {
+          "id": "e29d6bfd-435a-4de2-89f9-6c7cccc79f88",
+          "before": {
+            "url": "/uploads/fbd2f9d4-6605-4732-8c84-b28500b8f2a9.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/fb65fa8d-9c74-4d90-ba56-7a5e1235f05e.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 0,
+          "category": "detail"
+        }
+      ],
       "metrics": [],
       "detailBlocks": [],
       "isFeatured": false,
@@ -552,7 +569,7 @@
       "status": "draft",
       "order": 1,
       "createdAt": "2024-09-01T00:00:00.000Z",
-      "updatedAt": "2026-07-26T12:22:55.226Z"
+      "updatedAt": "2026-07-26T12:28:22.728Z"
     },
     {
       "id": "proj-interior",
@@ -573,7 +590,23 @@
         "kind": "image",
         "alt": "인테리어 촬영 대표 이미지 [자료 필요]"
       },
-      "gallery": [],
+      "gallery": [
+        {
+          "url": "/uploads/6c373a2e-0a89-4602-a858-6911219e0cf0.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/c633d4da-8af6-4367-b431-f2eb79d86563.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/3752823f-2812-4027-813a-7e033c0159c3.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
       "beforeAfter": [],
       "metrics": [],
       "detailBlocks": [],
@@ -583,7 +616,7 @@
       "status": "draft",
       "order": 2,
       "createdAt": "2024-09-15T00:00:00.000Z",
-      "updatedAt": "2026-07-26T05:13:42.554Z",
+      "updatedAt": "2026-07-26T12:31:04.604Z",
       "retouchHighlights": [
         {
           "id": "025c91c5-cd78-49eb-bfbd-d77e7051b1ad",
@@ -664,7 +697,13 @@
         "[자료 필요] 사용 장비 및 편집 프로그램 목록"
       ],
       "description": "의료 광고 특성상 과장된 표현을 피하고 시술 정보를 정확히 전달하는 데 집중했으며, 광고 채널의 노출 방식에 맞춰 영상 길이와 자막 구성을 조정했다.",
-      "gallery": [],
+      "gallery": [
+        {
+          "url": "/uploads/065f75ae-055d-4522-9b08-0dd672516c92.mp4",
+          "kind": "video-file",
+          "alt": ""
+        }
+      ],
       "beforeAfter": [],
       "metrics": [
         {
@@ -816,13 +855,8 @@
       "status": "draft",
       "order": 4,
       "createdAt": "2025-03-01T00:00:00.000Z",
-      "updatedAt": "2026-07-26T06:59:56.930Z",
-      "retouchHighlights": [],
-      "listPreviewMedia": {
-        "url": "/uploads/52d2c92d-2f82-45f9-8d7b-8fbef0c83e4d.png",
-        "kind": "image",
-        "alt": ""
-      }
+      "updatedAt": "2026-07-26T12:33:02.903Z",
+      "retouchHighlights": []
     },
     {
       "id": "proj-lawyer-youtube",

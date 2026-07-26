@@ -85,68 +85,70 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
     .map((t) => t.trim())
     .filter((t) => t && !isPlaceholder(t));
 
-  // §66 — 보정 포인트 기능은 제거했다(사용자가 별도 보정 작업을 하지
-  // 않아도 되도록). 대표 화면 바로 아래 자리의 우선순위는 이제:
-  //   1) 보정 전/후 사진 (원본이 있는 프로젝트 — 의류)
-  //   2) 최종 영상 (영상 중심 프로젝트. 관리자 화면에 "최종 영상" 업로드
-  //      항목은 예전부터 있었지만 공개 화면 어디에도 표시되지 않던
-  //      필드였다.)
-  //   3) 작업 이미지 갤러리 (그 외 사진 기반 프로젝트)
-  //   4) 없으면 이 자리 자체를 생략
-  // 상단에서 이미 보여준 항목(갤러리)은 하단에서 중복으로 다시 보여주지
-  // 않는다.
+  // §97 — 대표 프로젝트 전체 상세페이지의 구조 순서를 다음으로 통일한다:
+  //   1) 상세페이지 대표 화면 (ProjectCover)
+  //   2) 보정 전/후 사진 리스트 (첨부돼 있을 때만)
+  //   3) 상세 이미지(영상) 리스트 — 최종 영상은 별도의 큰 단일 블록으로,
+  //      갤러리는 그 아래에 이어서 (각각 첨부돼 있을 때만)
+  //   4) 프로젝트 개요
+  //   5) 제작 의도
+  //   6) 기여도 (+ Tools)
+  // 예전에는 보정 전/후·최종 영상·갤러리가 서로 배타적인 "한 자리"를
+  // 두고 우선순위로 경쟁해서 하나만 보였는데(§66), 이제는 셋 다 독립적으로
+  // — 각자 첨부된 게 있으면 전부 이 순서대로 나온다.
   // 보정 전(before) 사진 없이 보정 후(after) 사진만 등록된 짝은 반쪽짜리라
-  // 슬라이더로 보여줄 수 없으므로 개수에서 제외한다 — 이런 경우엔 관리자가
-  // "보정 전·후 비교" 대신 "상세 이미지(갤러리)"를 써야 한다.
+  // 슬라이더로 보여줄 수 없으므로 개수에서 제외한다.
   const validBeforeAfter = (project.beforeAfter ?? []).filter((p) => p.before?.url && p.after?.url);
   const hasBeforeAfter = validBeforeAfter.length > 0;
   const hasFinalVideo = Boolean(project.finalVideo?.url && !isPlaceholder(project.finalVideo.url));
   const hasGallery = project.gallery?.length > 0;
+  const hasAnyMedia = hasBeforeAfter || hasFinalVideo || hasGallery;
 
-  const topSlot: "beforeAfter" | "video" | "gallery" | "none" = hasBeforeAfter
-    ? "beforeAfter"
-    : hasFinalVideo
-    ? "video"
-    : hasGallery
-    ? "gallery"
-    : "none";
-  const hasTopSlot = topSlot !== "none";
+  // 셋 중 실제로 맨 처음 나오는 항목만 대표 화면과 이어지는 넉넉한
+  // 여백(pt-24/pt-32)을 쓰고, 그다음부터는 좀 더 좁은 여백(pt-16/pt-20)을
+  // 쓴다 — 위아래로 다닥다닥 붙지 않으면서도 서로 다른 섹션임이 자연스럽게
+  // 구분되도록.
+  const firstMedia = hasBeforeAfter ? "beforeAfter" : hasFinalVideo ? "video" : hasGallery ? "gallery" : null;
+  function mediaTopPad(kind: "beforeAfter" | "video" | "gallery") {
+    return firstMedia === kind ? "pt-24 md:pt-32" : "pt-16 md:pt-20";
+  }
 
   return (
     <main className="bg-bg min-h-screen">
       <ProjectCover project={project} />
 
-      {/* §58-60 — 대표 화면 바로 아래: 위 우선순위(보정 전/후 → 최종 영상 →
-          갤러리 → 없음)에 따라 정확히 하나만 렌더링한다. */}
-      {/* §89 — max-w-3xl(본문 읽기 폭, 768px)로 감싸놨더니 가운데 정렬된
-          Container(최대 1600px) 안에서 사진이 왼쪽 절반쯤까지만 나타나고
-          오른쪽에 빈 공간이 크게 남는 문제가 있었다("좌측에서 화면
-          중앙까지밖에 안 나타난다"). 이미지/영상/보정전후 영역은 본문
-          텍스트와 달리 넓게 보여주는 게 자연스러워, 폭 제한을 없애고
-          Container 전체 폭(좌측 끝~우측 끝)까지 채우도록 되돌렸다. */}
-      {topSlot === "beforeAfter" && (
-        <Container className="pt-24 md:pt-32">
+      {/* §97 — 2) 보정 전/후 사진 리스트. §89 — max-w-3xl(본문 읽기 폭)로
+          감싸면 가운데 정렬된 Container 안에서 사진이 왼쪽 절반쯤까지만
+          나타나 보였다. 이미지/영상 영역은 본문 텍스트와 달리 넓게
+          보여주는 게 자연스러워, Container 전체 폭까지 채운다. */}
+      {hasBeforeAfter && (
+        <Container className={mediaTopPad("beforeAfter")}>
           <BeforeAfterSlider pairs={validBeforeAfter} />
         </Container>
       )}
-      {topSlot === "video" && project.finalVideo && (
-        <Container className="pt-24 md:pt-32">
+
+      {/* §97 — 3) 상세 이미지(영상) 리스트: 최종 영상(있으면 별도의 큰
+          단일 블록) → 갤러리(있으면 그 아래에 이어서) 순서로, 각각
+          독립적으로 노출된다. */}
+      {hasFinalVideo && project.finalVideo && (
+        <Container className={mediaTopPad("video")}>
           <FinalVideoBlock
             video={project.finalVideo}
             posterFallback={project.heroImage ? mediaSrc(project.heroImage.url) : undefined}
           />
         </Container>
       )}
-      {topSlot === "gallery" && (
-        <Container className="pt-24 md:pt-32">
+      {hasGallery && (
+        <Container className={mediaTopPad("gallery")}>
           <Reveal>
-            <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-korean">작업 이미지</h2>
+            <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-korean">상세 이미지</h2>
             <GalleryGrid items={project.gallery} />
           </Reveal>
         </Container>
       )}
 
-      <Container className={`${hasTopSlot ? "pt-16 md:pt-20" : "pt-24 md:pt-32"} pb-24 md:pb-32`}>
+      {/* §97 — 4~6) 프로젝트 개요 / 제작 의도 / 기여도 (+ Tools) */}
+      <Container className={`${hasAnyMedia ? "pt-16 md:pt-20" : "pt-24 md:pt-32"} pb-24 md:pb-32`}>
         <div className="max-w-3xl space-y-16">
           {sections.map((s) => (
             <Reveal key={s.key}>
@@ -186,15 +188,6 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
           )}
 
         </div>
-
-        {/* §89 — 위 beforeAfter/gallery와 같은 이유로 max-w-3xl을 없애
-            Container 전체 폭까지 채우도록 했다. */}
-        {hasGallery && topSlot !== "gallery" && (
-          <Reveal className="mt-16">
-            <h2 className="text-xl md:text-2xl font-semibold mb-4">상세 이미지</h2>
-            <GalleryGrid items={project.gallery} />
-          </Reveal>
-        )}
       </Container>
 
       <Container className="pb-24 md:pb-32">
