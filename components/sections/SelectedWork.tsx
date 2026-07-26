@@ -104,85 +104,101 @@ export function SelectedWork({ projects }: { projects: Project[] }) {
                 되돌려, 항목 수에 맞는 자연스러운 밀도로 박스 가운데 놓이게
                 했다. 폭도 초광폭 화면에서 테두리 줄만 끝없이 길어 보이지
                 않도록 max-w-4xl로 적당히 잡았다(이전의 3xl보다는 넓게). */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-14 md:gap-x-20 gap-y-8 h-full items-center overflow-hidden w-full max-w-5xl mx-auto">
-              {columns.map((col) => (
-                <div key={col.label} className="flex flex-col justify-center">
-                  <p className="font-en text-xs md:text-sm text-ink-muted tracking-[0.2em] mb-2 md:mb-3">
-                    {col.label}
-                  </p>
-                  <div className="flex flex-col">
-                    {col.items.map((p, i) => {
-                      const globalIndex = col.offset + i;
-                      // §47 — 8번(마지막 항목)은 강조 폰트 색상(--accent)을
-                      // 뒷배경으로 반영해 시각적으로 도드라지게 했다. 배경이
-                      // 생기는 만큼 기본 테두리 줄 대신 카드 형태(둥근
-                      // 모서리 + 좌우 패딩)로 바꾸고, 글자색은 배경(주황)
-                      // 위에서도 잘 읽히도록 어두운 배경색을 그대로 썼다.
-                      const isHighlighted = globalIndex === 7;
-                      return (
-                        <Link
-                          key={p.id}
-                          href={`/projects/${p.id}`}
-                          onMouseEnter={() => setHoveredId(p.id)}
-                          onMouseLeave={() => setHoveredId(null)}
-                          onFocus={() => setHoveredId(p.id)}
-                          onBlur={() => setHoveredId(null)}
-                          className={
-                            isHighlighted
-                              ? "group flex items-center gap-5 py-4 md:py-5 px-4 md:px-5 rounded-md"
-                              : "group flex items-center gap-5 py-5 md:py-6 border-b border-line first:border-t last:border-b-0"
-                          }
-                          style={isHighlighted ? { background: "var(--accent)" } : undefined}
-                        >
-                          <span
-                            className="font-en text-sm tabular-nums shrink-0 transition-colors duration-200"
-                            style={{
-                              color: isHighlighted
-                                ? "var(--color-bg-primary)"
-                                : p.id === hoveredId
-                                ? "var(--accent)"
-                                : "var(--color-text-muted)",
-                              opacity: isHighlighted ? 0.7 : 1,
-                            }}
-                          >
-                            {String(globalIndex + 1).padStart(2, "0")}
-                          </span>
-                          <div className="min-w-0 flex-1">
-                            <p
-                              className="text-xl md:text-2xl font-semibold truncate text-korean transition-colors duration-200"
-                              style={{
-                                color: isHighlighted
-                                  ? "var(--color-bg-primary)"
-                                  : p.id === hoveredId
-                                  ? "var(--color-text-primary)"
-                                  : "var(--color-text-secondary)",
-                              }}
-                            >
-                              {p.title}
-                            </p>
-                            <p
-                              className="text-sm truncate mt-1"
-                              style={{ color: isHighlighted ? "var(--color-bg-primary)" : "var(--color-text-muted)", opacity: isHighlighted ? 0.75 : 1 }}
-                            >
-                              {p.field}
-                            </p>
-                          </div>
-                          <span
-                            className="shrink-0 text-base transition-all duration-200"
-                            style={{
-                              color: isHighlighted ? "var(--color-bg-primary)" : "var(--accent)",
-                              opacity: isHighlighted ? 1 : p.id === hoveredId ? 1 : 0,
-                              transform: p.id === hoveredId || isHighlighted ? "translateX(0)" : "translateX(-4px)",
-                            }}
-                          >
-                            →
-                          </span>
-                        </Link>
-                      );
-                    })}
-                  </div>
-                </div>
+            {/* §49 — 두 칼럼을 각각 독립된 flex 세로 목록으로 두면 칼럼별
+                콘텐츠 높이가 서로 달라(특히 8번 강조 박스 때문에) 같은
+                번째 행끼리 높이가 어긋나 보였다. 하나의 CSS Grid에
+                Design/Content를 같은 행 번호(gridRow)로 명시적으로 배치해
+                "같은 순번의 행은 두 칼럼에서 항상 같은 높이"가 되도록
+                했다(그리드 행은 그 안의 가장 큰 셀 높이에 맞춰진다). 행
+                자체의 세로 길이도 패딩을 늘려 조금 더 여유 있게 키웠다. */}
+            <div
+              className="grid grid-cols-1 md:grid-cols-2 gap-x-14 md:gap-x-20 gap-y-3 content-center h-full overflow-hidden w-full max-w-5xl mx-auto"
+              style={{ gridTemplateRows: "auto repeat(4, auto)" }}
+            >
+              {columns.map((col, colIdx) => (
+                <p
+                  key={col.label}
+                  className="font-en text-xs md:text-sm text-ink-muted tracking-[0.2em] mb-2 md:mb-3"
+                  style={{ gridColumn: colIdx + 1, gridRow: 1 }}
+                >
+                  {col.label}
+                </p>
               ))}
+              {columns.map((col, colIdx) =>
+                col.items.map((p, i) => {
+                  const globalIndex = col.offset + i;
+                  // §47 — 8번(마지막 항목)은 강조 폰트 색상(--accent)을
+                  // 뒷배경으로 반영해 시각적으로 도드라지게 했다. 배경이
+                  // 생기는 만큼 기본 테두리 줄 대신 카드 형태(둥근
+                  // 모서리 + 좌우 패딩)로 바꾸고, 글자색은 배경(주황)
+                  // 위에서도 잘 읽히도록 어두운 배경색을 그대로 썼다.
+                  const isHighlighted = globalIndex === 7;
+                  return (
+                    <Link
+                      key={p.id}
+                      href={`/projects/${p.id}`}
+                      onMouseEnter={() => setHoveredId(p.id)}
+                      onMouseLeave={() => setHoveredId(null)}
+                      onFocus={() => setHoveredId(p.id)}
+                      onBlur={() => setHoveredId(null)}
+                      style={{
+                        gridColumn: colIdx + 1,
+                        gridRow: i + 2,
+                        background: isHighlighted ? "var(--accent)" : undefined,
+                      }}
+                      className={
+                        isHighlighted
+                          ? "group flex items-center gap-5 py-6 md:py-7 px-4 md:px-5 rounded-md self-stretch"
+                          : `group flex items-center gap-5 py-6 md:py-7 self-stretch ${i === 0 ? "border-t" : ""} border-b border-line`
+                      }
+                    >
+                      <span
+                        className="font-en text-sm tabular-nums shrink-0 transition-colors duration-200"
+                        style={{
+                          color: isHighlighted
+                            ? "var(--color-bg-primary)"
+                            : p.id === hoveredId
+                            ? "var(--accent)"
+                            : "var(--color-text-muted)",
+                          opacity: isHighlighted ? 0.7 : 1,
+                        }}
+                      >
+                        {String(globalIndex + 1).padStart(2, "0")}
+                      </span>
+                      <div className="min-w-0 flex-1">
+                        <p
+                          className="text-xl md:text-2xl font-semibold truncate text-korean transition-colors duration-200"
+                          style={{
+                            color: isHighlighted
+                              ? "var(--color-bg-primary)"
+                              : p.id === hoveredId
+                              ? "var(--color-text-primary)"
+                              : "var(--color-text-secondary)",
+                          }}
+                        >
+                          {p.title}
+                        </p>
+                        <p
+                          className="text-sm truncate mt-1"
+                          style={{ color: isHighlighted ? "var(--color-bg-primary)" : "var(--color-text-muted)", opacity: isHighlighted ? 0.75 : 1 }}
+                        >
+                          {p.field}
+                        </p>
+                      </div>
+                      <span
+                        className="shrink-0 text-base transition-all duration-200"
+                        style={{
+                          color: isHighlighted ? "var(--color-bg-primary)" : "var(--accent)",
+                          opacity: isHighlighted ? 1 : p.id === hoveredId ? 1 : 0,
+                          transform: p.id === hoveredId || isHighlighted ? "translateX(0)" : "translateX(-4px)",
+                        }}
+                      >
+                        →
+                      </span>
+                    </Link>
+                  );
+                })
+              )}
             </div>
 
             {/* 커서를 따라다니는 작은 미리보기(호버 중일 때만 보임, 원본 비율 유지) */}
