@@ -68,6 +68,18 @@ function IdentityText({ profile, philosophy }: { profile: Profile; philosophy: P
   );
 }
 
+// §38 — 프로필 "핵심 수치" 탭에 실제로 쓰는 도구 아이콘을 스킬칸으로
+// 추가했다(첨부받은 Ps/Pr/CapCut/생성형 AI/Ai/Ae 아이콘, public/icons/tools
+// 에 저장). CMS 데이터가 아니라 고정된 도구 목록이라 여기 상수로 둔다.
+const TOOL_ICONS: { name: string; src: string }[] = [
+  { name: "Photoshop", src: "/icons/tools/photoshop.png" },
+  { name: "Premiere Pro", src: "/icons/tools/premiere.png" },
+  { name: "CapCut", src: "/icons/tools/capcut.png" },
+  { name: "생성형 AI", src: "/icons/tools/ai-tool.png" },
+  { name: "Illustrator", src: "/icons/tools/illustrator.png" },
+  { name: "After Effects", src: "/icons/tools/after-effects.png" },
+];
+
 function NumbersPanel({ profile }: { profile: Profile }) {
   const facts = [...profile.keyFacts].sort((a, b) => a.order - b.order);
   return (
@@ -77,15 +89,36 @@ function NumbersPanel({ profile }: { profile: Profile }) {
     // §35 — 사진이 항상 옆에 고정되면서 이 패널은 이제 박스 전체가 아니라
     // 오른쪽 절반 폭만 쓴다. 3열은 좁은 폭에서 답답해 보여 2열로 조정했다.
     <div className="h-full flex items-center">
-      <div className="grid grid-cols-2 gap-x-8 md:gap-x-10 gap-y-8 md:gap-y-10 w-full">
-        {facts.map((f) => (
-          <div key={f.label}>
-            <span className="block w-6 h-[2px] mb-3" style={{ background: "var(--accent)" }} />
-            <p className="text-korean text-sm md:text-base text-ink-muted mb-2 tracking-wide">{f.label}</p>
-            <p className="text-korean text-3xl md:text-4xl text-ink font-bold tabular-nums">{f.value}</p>
+      <div className="w-full">
+        <div className="grid grid-cols-2 gap-x-8 md:gap-x-10 gap-y-8 md:gap-y-10">
+          {facts.map((f) => (
+            <div key={f.label}>
+              <span className="block w-6 h-[2px] mb-3" style={{ background: "var(--accent)" }} />
+              <p className="text-korean text-sm md:text-base text-ink-muted mb-2 tracking-wide">{f.label}</p>
+              <p className="text-korean text-3xl md:text-4xl text-ink font-bold tabular-nums">{f.value}</p>
+            </div>
+          ))}
+          {facts.length === 0 && <p className="text-ink-muted text-sm">등록된 핵심 수치가 아직 없습니다.</p>}
+        </div>
+
+        {/* §38 — 사용 도구 아이콘 행. 숫자 카드들과 같은 세로 중앙 정렬
+            그룹 안에 있어 탭 전체 레이아웃(사진 고정, 프레임 크기)에는
+            영향을 주지 않는다. */}
+        <div className="mt-8 md:mt-10">
+          <p className="text-korean text-sm md:text-base text-ink-muted mb-3 tracking-wide">사용 도구</p>
+          <div className="flex flex-wrap gap-3">
+            {TOOL_ICONS.map((t) => (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                key={t.name}
+                src={t.src}
+                alt={t.name}
+                title={t.name}
+                className="h-10 w-10 md:h-11 md:w-11 rounded-lg object-cover shrink-0"
+              />
+            ))}
           </div>
-        ))}
-        {facts.length === 0 && <p className="text-ink-muted text-sm">등록된 핵심 수치가 아직 없습니다.</p>}
+        </div>
       </div>
     </div>
   );
