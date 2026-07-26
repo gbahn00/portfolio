@@ -6,7 +6,6 @@ import { mediaSrc } from "@/lib/utils";
 import { Container } from "@/components/ui/Container";
 import { MaskLines } from "@/components/motion/MaskLines";
 import { gsap, prefersReducedMotion } from "@/lib/gsap";
-import { CountUp } from "@/components/motion/CountUp";
 
 // 헤드라인에서 강조색을 적용할 줄 (0부터 시작) — "다르게" 줄
 const HERO_ACCENT_LINES = [1];
@@ -23,11 +22,9 @@ function isVideoKind(kind?: string) {
 
 export function Hero({
   hero,
-  stats,
   stackImages = [],
 }: {
   hero: HeroSection;
-  stats?: { label: string; value: string }[];
   stackImages?: MediaRef[];
 }) {
   const sectionRef = useRef<HTMLElement>(null);
@@ -38,7 +35,6 @@ export function Hero({
   const introRef = useRef<HTMLParagraphElement>(null);
   const badgeRef = useRef<HTMLParagraphElement>(null);
   const hintRef = useRef<HTMLDivElement>(null);
-  const statsRef = useRef<HTMLDivElement>(null);
   const bottomRowRef = useRef<HTMLDivElement>(null);
 
   const fallbackImage = stackImages.filter(Boolean)[0];
@@ -56,7 +52,7 @@ export function Hero({
     const ctx = gsap.context(() => {
       if (reduced) {
         gsap.set(
-          [overlayRef.current, sublineRef.current, introRef.current, badgeRef.current, hintRef.current, statsRef.current, ...Array.from(lines)],
+          [overlayRef.current, sublineRef.current, introRef.current, badgeRef.current, hintRef.current, ...Array.from(lines)],
           { clearProps: "all", autoAlpha: 1 }
         );
         gsap.set(overlayRef.current, { opacity: OVERLAY_OPACITY });
@@ -66,20 +62,20 @@ export function Hero({
       // ============================================================
       // 01 검정 오버레이가 목표 진하기까지 옅어지며 배경이 드러남 →
       // 02 배지 → 03 제목 줄 순차 Mask Reveal → 04 업무 소개 →
-      // 05 수치 Count Up → 06 Scroll Indicator
+      // 05 Scroll Indicator
+      // §42 — 입사/생성형 AI 도구/주요 업무 분야 통계(CountUp)는 제거했다.
       // ============================================================
       const intro = gsap.timeline({ defaults: { ease: "power3.out" } });
       intro
         .set(lines, { yPercent: 110, autoAlpha: 0 })
-        .set([sublineRef.current, introRef.current, badgeRef.current, hintRef.current, statsRef.current], { autoAlpha: 0, y: 16 })
+        .set([sublineRef.current, introRef.current, badgeRef.current, hintRef.current], { autoAlpha: 0, y: 16 })
         .set(overlayRef.current, { opacity: 1 })
         .to(overlayRef.current, { opacity: OVERLAY_OPACITY, duration: 1.1 })
         .to(badgeRef.current, { autoAlpha: 1, y: 0, duration: 0.6 }, 0.4)
         .to(lines, { yPercent: 0, autoAlpha: 1, duration: 0.9, stagger: 0.14 }, 0.55)
         .to(sublineRef.current, { autoAlpha: 1, y: 0, duration: 0.7 }, "-=0.5")
         .to(introRef.current, { autoAlpha: 1, y: 0, duration: 0.6 }, "-=0.35")
-        .to(statsRef.current, { autoAlpha: 1, y: 0, duration: 0.6 }, "-=0.3")
-        .to(hintRef.current, { autoAlpha: 1, y: 0, duration: 0.6 }, "-=0.2");
+        .to(hintRef.current, { autoAlpha: 1, y: 0, duration: 0.6 }, "-=0.3");
 
       // 전체 구조 개편 명세서 §1 — Full Page Scroll(스크롤 1회=섹션 1개)
       // 도입으로, Hero가 pin+scrub으로 화면 여러 개 분량(+=1800px)을 추가로
@@ -135,25 +131,14 @@ export function Hero({
           </p>
         </div>
 
-        <div ref={bottomRowRef} className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-4 items-end mt-10 md:mt-14">
+        {/* §42 — 입사/생성형 AI 도구/주요 업무 분야 통계를 없애고, 그
+            자리(가운데 트랙)로 스크롤 안내 아이콘을 옮겼다. */}
+        <div ref={bottomRowRef} className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-4 items-end mt-10 md:mt-14">
           <p ref={introRef} className="text-sm md:text-base text-ink-secondary text-korean max-w-xs">
             {hero.name} · {hero.role} · {hero.department}
           </p>
 
-          {stats && stats.length > 0 && (
-            <div ref={statsRef} className="flex flex-wrap gap-x-8 gap-y-3 md:justify-center">
-              {stats.map((s) => (
-                <div key={s.label}>
-                  <p className="font-en text-xl md:text-3xl font-bold accent-text">
-                    <CountUp value={s.value} />
-                  </p>
-                  <p className="text-xs text-ink-muted mt-1 text-korean">{s.label}</p>
-                </div>
-              ))}
-            </div>
-          )}
-
-          <div ref={hintRef} className="flex items-center gap-2 md:justify-self-end text-xs md:text-sm text-ink-secondary">
+          <div ref={hintRef} className="flex items-center gap-2 md:justify-self-center text-xs md:text-sm text-ink-secondary">
             <span>SCROLL</span>
             <div className="h-8 w-5 rounded-full border border-ink-muted/50 flex items-start justify-center p-1 animate-bounce">
               <div className="h-1 w-1 rounded-full bg-ink-muted" />

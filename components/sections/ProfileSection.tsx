@@ -87,32 +87,36 @@ function NumbersPanel({ profile }: { profile: Profile }) {
   const skills = [...(profile.toolSkills ?? [])].filter((s) => s.name).sort((a, b) => a.order - b.order);
 
   return (
-    // §41 — Skills(아이콘+진행바)를 핵심 수치 아래에 세로로 이어 붙였더니
-    // 둘의 높이가 그대로 더해져서, 고정 프레임(최대 640px) 안에 다 안
-    // 들어가는 화면에서 아래쪽이 잘렸다. 세로로 쌓는 대신 좌우로 나란히
-    // 배치해서, 전체 높이가 "둘의 합"이 아니라 "더 긴 쪽" 기준이 되도록
-    // 구조를 바꿨다. 각 쪽 글자/여백도 함께 줄여 여유를 더 확보했다.
+    // §43 — "중간 위(핵심 수치 4개) / 중간 아래(Skills)"로 다시 상하 배치를
+    // 요청받았다. 예전에 상하로 쌓았을 때 잘렸던 이유는 핵심 수치를 2행
+    // (2x2)으로 쌓았기 때문이므로, 이번엔 4개를 한 줄로만 배치해 위쪽
+    // 높이를 줄이고, Skills도 세로 한 줄이 아니라 2열 그리드로 배치해
+    // 아래쪽 높이를 절반으로 줄였다 — 둘을 세로로 쌓아도 합친 높이가
+    // 고정 프레임 안에 들어온다.
     <div className="h-full flex items-center">
-      <div className="grid grid-cols-1 md:grid-cols-[1fr_1.1fr] gap-x-10 md:gap-x-12 gap-y-8 w-full">
-        <div className="grid grid-cols-2 gap-x-6 gap-y-6 md:gap-y-7 content-start">
+      <div className="w-full">
+        <div className="grid grid-cols-4 gap-x-4 md:gap-x-6">
           {facts.map((f) => (
             <div key={f.label}>
               <span className="block w-5 h-[2px] mb-2" style={{ background: "var(--accent)" }} />
-              <p className="text-korean text-xs md:text-sm text-ink-muted mb-1.5 tracking-wide">{f.label}</p>
-              <p className="text-korean text-2xl md:text-3xl text-ink font-bold tabular-nums">{f.value}</p>
+              <p className="text-korean text-xs text-ink-muted mb-1.5 tracking-wide">{f.label}</p>
+              <p className="text-korean text-base md:text-lg lg:text-xl text-ink font-bold leading-snug line-clamp-2">
+                {f.value}
+              </p>
             </div>
           ))}
           {facts.length === 0 && <p className="text-ink-muted text-sm">등록된 핵심 수치가 아직 없습니다.</p>}
         </div>
 
-        {/* §40-41 — Skills: 아이콘(왼쪽) + 진행바(오른쪽, 관리자가 조절하는
-            percentage). 핵심 수치 옆 칼럼에 두어 세로 길이가 늘어나지 않게
+        {/* §40-43 — Skills: 위 핵심 수치와 구분선으로 나뉘는 아래쪽 절반.
+            아이콘(왼쪽) + 진행바(오른쪽, 관리자가 조절하는 percentage)를
+            2열 그리드로 배치해 6개가 들어가도 세로로 너무 길어지지 않게
             했다. */}
-        <div className="min-w-0">
+        <div className="mt-6 md:mt-8 pt-6 md:pt-8 border-t border-line">
           <p className="font-en text-xs md:text-sm text-ink-muted mb-3 tracking-wide">Skills</p>
-          <div className="flex flex-col gap-2.5 md:gap-3">
+          <div className="grid grid-cols-2 gap-x-6 gap-y-2.5 md:gap-y-3">
             {skills.map((s) => (
-              <div key={s.id} className="flex items-center gap-3">
+              <div key={s.id} className="flex items-center gap-2.5">
                 {TOOL_ICON_MAP[s.name] && (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img
@@ -136,7 +140,7 @@ function NumbersPanel({ profile }: { profile: Profile }) {
                 </div>
               </div>
             ))}
-            {skills.length === 0 && <p className="text-ink-muted text-sm">등록된 도구가 아직 없습니다.</p>}
+            {skills.length === 0 && <p className="text-ink-muted text-sm col-span-2">등록된 도구가 아직 없습니다.</p>}
           </div>
         </div>
       </div>

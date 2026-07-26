@@ -13,8 +13,6 @@ import { PageIndicator } from "@/components/motion/PageIndicator";
 
 export const dynamic = "force-dynamic";
 
-const PROJECT_FIELD_COUNT = 7; // 의류·카페및음식·인테리어·인물프로필·치과및병원광고·유튜브·생성형AI콘텐츠
-
 // 전체 구조 개편 명세서 §1~§7 + 인터랙션 수정 요청서(3차) — 메인 페이지를
 // 정확히 7개 섹션으로 고정한다. 01.대표 페이지 → 02.프로필 → 03.업무
 // 성장과정 → 04.대표 프로젝트 → 05.향후 추진 계획 → 06.FAQ → 07.마지막
@@ -22,18 +20,14 @@ const PROJECT_FIELD_COUNT = 7; // 의류·카페및음식·인테리어·인물�
 // Collaboration/Contributions 섹션은 물리적으로 제거했다(About·KeyNumbers·
 // 역량은 02.프로필 안의 탭으로 통합됨). FAQ는 06번으로 다시 도입했다.
 // 순서는 더 이상 관리자 화면에서 바꿀 수 없는 고정 구조다.
+//
+// §42 — Hero의 입사/생성형 AI 도구/주요 업무 분야 통계(heroStats)는
+// 없앴다. 그 계산에만 쓰이던 joinYear/aiToolCount/PROJECT_FIELD_COUNT도
+// 함께 정리했다.
 export default async function HomePage() {
   const content = await getContent();
 
   const publicProjects = content.projects.filter((p) => p.publicOk);
-  const joinYear = content.profile?.joinedAt ? new Date(content.profile.joinedAt).getFullYear() : "";
-  const aiToolCount = content.ai?.tools?.filter((t) => t.visible !== false).length ?? 0;
-
-  const heroStats = [
-    { label: "입사", value: String(joinYear) },
-    { label: "생성형 AI 도구", value: `${aiToolCount}+` },
-    { label: "주요 업무 분야", value: String(PROJECT_FIELD_COUNT) },
-  ];
 
   const heroStackImages: MediaRef[] = [
     content.hero?.backgroundImage,
@@ -46,7 +40,7 @@ export default async function HomePage() {
       <PageIndicator />
       <main>
         <div data-fp-section data-fp-id="hero">
-          <Hero hero={content.hero} stats={heroStats} stackImages={heroStackImages} />
+          <Hero hero={content.hero} stackImages={heroStackImages} />
         </div>
         <div data-fp-section data-fp-id="profile">
           <ProfileSection
