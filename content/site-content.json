@@ -136,12 +136,7 @@
     "badge": "2026년 특별진급 포트폴리오",
     "highlightClips": [],
     "visible": true,
-    "status": "draft",
-    "backgroundImage": {
-      "url": "/uploads/206a2370-a767-42dc-af33-e1b6c2fa685e.png",
-      "kind": "image",
-      "alt": ""
-    }
+    "status": "draft"
   },
   "philosophy": {
     "title": "핵심 업무 철학",

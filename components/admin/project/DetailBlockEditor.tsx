@@ -6,9 +6,7 @@ import { MediaUpload } from "@/components/admin/MediaUpload";
 import { ConfirmButton } from "@/components/admin/ConfirmButton";
 
 const BLOCK_LABELS: Record<string, string> = {
-  overview: "프로젝트 개요", before: "기존 상황", purpose: "제작 목적", role: "담당 역할",
-  process: "기획 및 제작 과정", decisions: "주요 판단", tools: "사용 도구", result: "최종 결과물",
-  impact: "성과 및 의미", "future-use": "이후 활용 가능성",
+  overview: "프로젝트 개요", purpose: "제작 의도", role: "기여도", tools: "Tools",
 };
 
 export function DetailBlockEditor({

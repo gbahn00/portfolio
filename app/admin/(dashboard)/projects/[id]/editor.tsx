@@ -14,13 +14,15 @@ const FIELD_OPTIONS: ProjectField[] = [
   "의류", "카페 및 음식", "인테리어", "인물 프로필", "치과 및 병원 광고", "유튜브", "생성형 인공지능 콘텐츠",
 ];
 
-const BLOCK_KEYS: ProjectDetailBlock["key"][] = [
-  "overview", "before", "purpose", "role", "process", "decisions", "tools", "result", "impact", "future-use",
-];
+// §55 — 상세 페이지 본문 구조를 "프로젝트 개요 / 제작 의도 / 기여도 / Tools"
+// 4개로 고정하면서, 여기서 고를 수 있는 보충 항목도 그 4개로 맞췄다(예전
+// 10개짜리 자유 블록 중 실제로 쓰이는 4개만 남김). 이 블록은 선택 사항이며,
+// 비워두면 위쪽 프로젝트 기본 정보(제작 목적/담당 역할/사용 도구/상세
+// 설명)가 그대로 상세 페이지에 쓰인다 — 여기서는 사진을 곁들이거나 본문을
+// 상세 페이지에서만 다르게 쓰고 싶을 때만 채우면 된다.
+const BLOCK_KEYS: ProjectDetailBlock["key"][] = ["overview", "purpose", "role", "tools"];
 const BLOCK_LABELS: Record<string, string> = {
-  overview: "프로젝트 개요", before: "기존 상황", purpose: "제작 목적", role: "담당 역할",
-  process: "기획 및 제작 과정", decisions: "주요 판단", tools: "사용 도구", result: "최종 결과물",
-  impact: "성과 및 의미", "future-use": "이후 활용 가능성",
+  overview: "프로젝트 개요", purpose: "제작 의도", role: "기여도", tools: "Tools",
 };
 
 async function api(path: string, options?: RequestInit) {
@@ -116,12 +118,13 @@ export function ProjectEditor({ initial }: { initial: Project }) {
         label="작업 분야" value={data.field} onChange={(v) => set("field", v as ProjectField)}
         options={FIELD_OPTIONS.map((f) => ({ value: f, label: f }))}
       />
-      <TextAreaField label="제작 목적" value={data.purpose} onChange={(v) => set("purpose", v)} rows={2} />
-      <TextField label="담당 역할" value={data.role} onChange={(v) => set("role", v)} hint="촬영/보조촬영/보정/기획/편집 등 실제 역할을 구체적으로 기재하세요." />
-      <TextAreaField label="상세 설명" value={data.description} onChange={(v) => set("description", v)} rows={3} />
+      <TextAreaField label="제작 의도" value={data.purpose} onChange={(v) => set("purpose", v)} rows={2} hint="상세 페이지의 '제작 의도' 섹션에 그대로 쓰입니다." />
+      <TextField label="기여도 (담당 역할)" value={data.role} onChange={(v) => set("role", v)} hint="촬영/보조촬영/보정/기획/편집 등 실제 역할을 구체적으로 기재하세요. 상세 페이지의 '기여도' 섹션에 쓰입니다." />
+      <TextAreaField label="상세 설명 (프로젝트 개요)" value={data.description} onChange={(v) => set("description", v)} rows={3} hint="상세 페이지의 '프로젝트 개요' 섹션에 그대로 쓰입니다." />
 
       <div className="mb-5">
-        <span className="block text-sm font-medium text-neutral-300 mb-1.5">사용 도구</span>
+        <span className="block text-sm font-medium text-neutral-300 mb-1.5">Tools (사용 도구)</span>
+        <p className="text-xs text-neutral-500 mb-1.5">상세 페이지의 'Tools' 섹션에 태그 형태로 그대로 쓰입니다.</p>
         <textarea
           value={data.tools.join("\n")}
           onChange={(e) => set("tools", e.target.value.split("\n"))}
@@ -181,8 +184,11 @@ export function ProjectEditor({ initial }: { initial: Project }) {
       </div>
 
       <div className="mt-8 mb-4">
-        <h2 className="text-lg font-semibold mb-1">대표 프로젝트 상세 사례 항목</h2>
-        <p className="text-xs text-neutral-500 mb-4">이 프로젝트를 상세 사례로 소개할 때 사용할 항목들입니다. 필요하지 않은 항목은 삭제해도 됩니다.</p>
+        <h2 className="text-lg font-semibold mb-1">상세 페이지 보충 항목 (선택)</h2>
+        <p className="text-xs text-neutral-500 mb-4">
+          위 프로젝트 개요/제작 의도/기여도/Tools에 사진을 곁들이거나, 상세 페이지에서만 다른 본문을 쓰고 싶을 때 추가하세요.
+          채우지 않으면 위쪽 기본 정보가 그대로 상세 페이지에 쓰입니다.
+        </p>
         {sortedBlocks.map((block, idx) => (
           <DetailBlockEditor
             key={block.id}
