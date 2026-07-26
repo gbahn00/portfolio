@@ -51,7 +51,14 @@ export function PhilosophyEditor({ initial }: { initial: PhilosophySection }) {
       />
       <TextField label="제목" value={data.title} onChange={(v) => set("title", v)} />
 
-      <TextListEditor label="문단" items={data.paragraphs} onChange={(v) => set("paragraphs", v as any)} placeholder="문단 내용" />
+      <TextListEditor
+        label="문단"
+        items={data.paragraphs}
+        onChange={(v) => set("paragraphs", v as any)}
+        placeholder="문단 내용"
+        multiline
+        hint="Enter로 줄바꿈을 입력하면 공개 화면에도 그대로 반영됩니다."
+      />
       <TextListEditor label="키워드" items={data.keywords} onChange={(v) => set("keywords", v as any)} placeholder="키워드" />
 
       <SaveBar onSave={handleSave} saving={saving} savedAt={savedAt} error={error} />

@@ -53,7 +53,7 @@ export function Collaboration({ items, projects }: { items: CollaborationType[];
                   <span className="accent-text font-en text-sm pt-1">{String(i + 1).padStart(2, "0")}</span>
                   <div>
                     <p className="text-ink text-korean font-medium mb-1">{e.partner}</p>
-                    <p className="body text-korean">{e.process}</p>
+                    <p className="body text-korean whitespace-pre-line">{e.process}</p>
                   </div>
                 </div>
               </Reveal>
@@ -85,7 +85,7 @@ export function Collaboration({ items, projects }: { items: CollaborationType[];
                     <div key={c.id} className="w-full shrink-0 snap-center px-4">
                       <div className="grid grid-cols-1 md:grid-cols-[1.3fr_1fr] gap-10 items-center min-h-[360px]">
                         <div>
-                          <p className="text-xl md:text-3xl leading-relaxed text-korean mb-8">
+                          <p className="text-xl md:text-3xl leading-relaxed text-korean whitespace-pre-line mb-8">
                             “{c.review}”
                           </p>
                           <div className="text-sm text-ink-muted">

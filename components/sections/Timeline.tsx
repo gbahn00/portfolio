@@ -35,8 +35,8 @@ function YearContent({ entry }: { entry: TimelineEntry }) {
     <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
       <div>
         <h3 className="statement-title font-bold mb-3 text-korean">{entry.title}</h3>
-        <p className="body text-ink-secondary mb-4 max-w-md">{entry.description}</p>
-        <p className="body-large font-medium border-l-2 accent-border pl-4 text-korean mb-4">{entry.message}</p>
+        <p className="body text-ink-secondary mb-4 max-w-md whitespace-pre-line">{entry.description}</p>
+        <p className="body-large font-medium border-l-2 accent-border pl-4 text-korean mb-4 whitespace-pre-line">{entry.message}</p>
         {experiences.length > 0 && (
           <div className="flex flex-wrap gap-x-4 gap-y-1 font-en caption">
             {experiences.slice(0, 3).map((t) => (

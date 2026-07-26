@@ -47,7 +47,7 @@ function FaqRow({ item, index, open, onToggle }: { item: FaqItem; index: number;
         style={{ gridTemplateRows: open ? "1fr" : "0fr" }}
       >
         <div className="overflow-hidden">
-          <p ref={contentRef} className="body text-ink-secondary leading-relaxed pb-4 md:pl-14 max-w-2xl text-korean line-clamp-3">
+          <p ref={contentRef} className="body text-ink-secondary leading-relaxed pb-4 md:pl-14 max-w-2xl text-korean whitespace-pre-line">
             {item.answer}
           </p>
         </div>

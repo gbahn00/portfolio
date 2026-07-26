@@ -51,7 +51,7 @@ function ParagraphLine({ text, index }: { text: string; index: number }) {
   const parts = splitEmphasis(text);
 
   return (
-    <p ref={ref} className="text-korean text-lg md:text-2xl leading-relaxed">
+    <p ref={ref} className="text-korean text-lg md:text-2xl leading-relaxed whitespace-pre-line">
       {parts.map((part, i) =>
         EMPHASIS_WORDS.includes(part) ? (
           <span key={i} data-emphasis className="font-semibold">

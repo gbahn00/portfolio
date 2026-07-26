@@ -77,7 +77,7 @@ export function Contributions({ data }: { data: ContributionSection }) {
           {items.map((item) => (
             <div key={item.id} style={{ visibility: "hidden", opacity: 0 }} className="border-l-2 accent-border pl-5">
               <h3 className="text-lg md:text-xl font-semibold mb-2 text-korean">{item.title}</h3>
-              <p className="text-ink-muted leading-relaxed text-korean">{item.description}</p>
+              <p className="text-ink-muted leading-relaxed text-korean whitespace-pre-line">{item.description}</p>
             </div>
           ))}
         </div>

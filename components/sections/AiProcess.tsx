@@ -122,7 +122,7 @@ export function AiProcess({ data }: { data: AiSection }) {
             <RevealItem key={t.id}>
               <div className="border border-white/10 rounded-sm p-5 text-center hover:border-white/25 transition-colors h-full">
                 <p className="font-en font-semibold text-lg mb-1">{t.name}</p>
-                <p className="text-xs text-ink-muted leading-relaxed text-korean">{t.purpose}</p>
+                <p className="text-xs text-ink-muted leading-relaxed text-korean whitespace-pre-line">{t.purpose}</p>
               </div>
             </RevealItem>
           ))}

@@ -50,7 +50,7 @@ function IdentityText({ profile, philosophy }: { profile: Profile; philosophy: P
       <p className="text-2xl md:text-3xl lg:text-4xl font-medium text-korean mb-3 max-w-2xl line-clamp-2 leading-snug">{profile.representativePhrase}</p>
       <div className="space-y-2 mb-3">
         {paragraphs.map((p) => (
-          <p key={p.id} className="body-large text-ink-secondary text-korean max-w-xl line-clamp-2">
+          <p key={p.id} className="body-large text-ink-secondary text-korean max-w-xl line-clamp-2 whitespace-pre-line">
             {p.text}
           </p>
         ))}
@@ -215,7 +215,7 @@ function SkillsPanel({ items }: { items: Competency[] }) {
           </span>
           <div className="min-w-0">
             <h3 className="text-lg md:text-xl lg:text-2xl font-bold mb-2 text-korean">{c.title}</h3>
-            <p className="text-ink-secondary text-sm md:text-base leading-relaxed text-korean line-clamp-2">{c.description}</p>
+            <p className="text-ink-secondary text-sm md:text-base leading-relaxed text-korean line-clamp-2 whitespace-pre-line">{c.description}</p>
           </div>
         </div>
       ))}

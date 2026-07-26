@@ -137,7 +137,7 @@ export function FeaturedCases({ projects }: { projects: Project[] }) {
                 {String(i + 1).padStart(2, "0")} · {p.field}
               </p>
               <h3 className="text-xl font-bold mb-2 text-korean">{p.title}</h3>
-              <p className="text-ink-muted text-sm leading-relaxed text-korean">{p.purpose}</p>
+              <p className="text-ink-muted text-sm leading-relaxed text-korean whitespace-pre-line">{p.purpose}</p>
             </Link>
           </Reveal>
         ))}

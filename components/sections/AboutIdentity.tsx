@@ -110,14 +110,14 @@ export function AboutIdentity({ profile, philosophy }: { profile: Profile; philo
                 <p
                   key={p.id}
                   data-about-sentence
-                  className="statement-title absolute inset-0 flex items-center text-korean font-medium overflow-visible"
+                  className="statement-title absolute inset-0 flex items-center text-korean font-medium overflow-visible whitespace-pre-line"
                   style={{ visibility: "hidden" }}
                 >
                   {p.text}
                 </p>
               ))}
               {/* 레이아웃 높이 확보용 투명 문장 (가장 긴 문장 기준) */}
-              <p aria-hidden className="statement-title invisible text-korean font-medium">
+              <p aria-hidden className="statement-title invisible text-korean font-medium whitespace-pre-line">
                 {paragraphs.reduce((a, b) => (a.text.length > b.text.length ? a : b), paragraphs[0])?.text}
               </p>
             </div>

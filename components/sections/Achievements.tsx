@@ -27,7 +27,7 @@ export function Achievements({ items }: { items: Achievement[] }) {
                   <span className="text-2xl md:text-3xl ml-1">{a.unit}</span>
                 </p>
                 <p className="text-sm md:text-base text-ink-muted">{a.name}</p>
-                {a.description && <p className="text-xs text-ink-muted/70 mt-1">{a.description}</p>}
+                {a.description && <p className="text-xs text-ink-muted/70 mt-1 whitespace-pre-line">{a.description}</p>}
               </div>
             </Reveal>
           ))}

@@ -142,7 +142,7 @@ function SequentialSkills({ items }: { items: Competency[] }) {
               const cases = [...(c.cases || [])].sort((a, b) => a.order - b.order);
               return (
                 <div key={c.id} data-skill-desc className="absolute inset-0" style={{ visibility: "hidden" }}>
-                  <p className="text-ink-secondary body-large leading-relaxed text-korean mb-6 max-w-[780px]">{c.description}</p>
+                  <p className="text-ink-secondary body-large leading-relaxed text-korean mb-6 max-w-[780px] whitespace-pre-line">{c.description}</p>
                   {cases.length > 0 && (
                     <ul className="space-y-2">
                       {cases.map((cs) => (
