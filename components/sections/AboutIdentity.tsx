@@ -122,7 +122,7 @@ export function AboutIdentity({ profile, philosophy }: { profile: Profile; philo
               </p>
             </div>
 
-            <div ref={photoWrapRef} className="relative aspect-[4/5] w-full max-w-sm overflow-hidden rounded-sm justify-self-center md:justify-self-end">
+            <div ref={photoWrapRef} className="relative aspect-square w-full max-w-sm overflow-hidden rounded-sm justify-self-center md:justify-self-end">
               <div ref={imgRef} className="absolute inset-0">
                 <MediaFrame media={profile.profilePhoto} className="h-full w-full" priority />
               </div>

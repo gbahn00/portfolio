@@ -320,7 +320,7 @@ export function ProfileSection({
               탭에 따라 Fade 전환된다. 그리드 비율(0.9fr/1.1fr)은 이전
               IdentityPanel과 동일하게 유지해 사진 크기/위치가 그대로다. */}
           <div className="grid grid-cols-1 md:grid-cols-[0.9fr_1.1fr] gap-6 md:gap-10 h-full items-stretch">
-            <div className="relative w-full max-w-[46%] md:max-w-none h-full mx-auto md:mx-0 overflow-hidden rounded-sm">
+            <div className="relative w-full max-w-[46%] md:max-w-none aspect-square mx-auto md:mx-0 overflow-hidden rounded-sm">
               <MediaFrame media={profile.profilePhoto} className="h-full w-full" />
             </div>
             <div ref={stageRef} className="relative h-full min-w-0">
