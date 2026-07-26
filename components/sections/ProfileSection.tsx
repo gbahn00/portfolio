@@ -139,11 +139,15 @@ function NumbersPanel({ profile }: { profile: Profile }) {
               볼드로 되어 있어 위계가 거꾸로 보인다는 피드백. 라벨을
               굵게(font-semibold) + 살짝 밝은 톤으로 바꾸고, 내용은 볼드를
               빼 기본 굵기로 되돌렸다 — "라벨은 강조, 내용은 담백하게"
-              읽히는 흔한 스탯(stat) 표기 방식대로다. */}
+              읽히는 흔한 스탯(stat) 표기 방식대로다.
+              §76 — 그래도 라벨 폰트 크기(text-xs/sm)가 내용(text-lg~2xl)
+              보다 작아서 여전히 라벨이 약해 보인다는 피드백. 라벨 크기를
+              내용과 동일한 크기로 맞추고, 4글자 라벨이 커진 폭에서도
+              줄바꿈되지 않도록 고정 너비도 함께 늘렸다. */}
           {facts.map((f) => (
             <div key={f.label} className="flex items-center gap-4 md:gap-6">
               <span className="block w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "var(--accent)" }} />
-              <p className="text-korean text-xs md:text-sm text-ink-secondary font-semibold tracking-wide shrink-0 w-20 md:w-24">
+              <p className="text-korean text-lg md:text-xl lg:text-2xl text-ink-secondary font-semibold tracking-wide shrink-0 w-28 md:w-32 lg:w-36 whitespace-nowrap">
                 {f.label}
               </p>
               <p className="text-korean text-lg md:text-xl lg:text-2xl text-ink font-normal leading-snug text-left">
