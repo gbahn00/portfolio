@@ -38,6 +38,7 @@ create table if not exists profile (
   on_site_photos jsonb not null default '[]',
   representative_phrase text not null default '',
   key_facts jsonb not null default '[]',
+  tool_skills jsonb not null default '[]',
   updated_at timestamptz not null default now()
 );
 
@@ -475,6 +476,11 @@ alter table faq_items alter column id set default uuid_generate_v4()::text;
 -- 정의에는 이미 추가했지만, 이미 만들어진 테이블에는 반영되지 않으므로
 -- ALTER로 보정한다). 비워두면 앱이 hero_image로 대신 보여준다.
 alter table projects add column if not exists list_preview_media jsonb;
+
+-- profile에 "생성형 활용 도구" 숙련도 목록 컬럼을 추가한다(위 CREATE TABLE
+-- 정의에는 이미 추가했지만, 이미 만들어진 테이블에는 반영되지 않으므로
+-- ALTER로 보정한다).
+alter table profile add column if not exists tool_skills jsonb not null default '[]';
 
 -- ============================================================================
 -- 참고: 마이그레이션 스크립트를 SUPABASE_SERVICE_ROLE_KEY로 실행했는데도

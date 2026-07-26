@@ -37,6 +37,10 @@ export interface Profile {
   onSitePhotos: MediaRef[];
   representativePhrase: string;
   keyFacts: { label: string; value: string; order: number }[];
+  // "핵심 수치" 탭 하단의 "생성형 활용 도구" — 아이콘은 알려진 툴 이름으로
+  // 코드에서 매칭해서 보여주고(components/sections/ProfileSection.tsx의
+  // TOOL_ICON_MAP), 여기서는 이름/숙련도(%)/순서만 관리한다.
+  toolSkills: { id: string; name: string; percentage: number; order: number }[];
   updatedAt: string;
 }
 

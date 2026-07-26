@@ -68,17 +68,18 @@ function IdentityText({ profile, philosophy }: { profile: Profile; philosophy: P
   );
 }
 
-// §38 — 프로필 "핵심 수치" 탭에 실제로 쓰는 도구 아이콘을 스킬칸으로
-// 추가했다(첨부받은 Ps/Pr/CapCut/생성형 AI/Ai/Ae 아이콘, public/icons/tools
-// 에 저장). CMS 데이터가 아니라 고정된 도구 목록이라 여기 상수로 둔다.
-const TOOL_ICONS: { name: string; src: string }[] = [
-  { name: "Photoshop", src: "/icons/tools/photoshop.png" },
-  { name: "Premiere Pro", src: "/icons/tools/premiere.png" },
-  { name: "CapCut", src: "/icons/tools/capcut.png" },
-  { name: "생성형 AI", src: "/icons/tools/ai-tool.png" },
-  { name: "Illustrator", src: "/icons/tools/illustrator.png" },
-  { name: "After Effects", src: "/icons/tools/after-effects.png" },
-];
+// §39 — "사용 도구" 아이콘 행을 "생성형 활용 도구" 숙련도 목록으로
+// 바꿨다. 아이콘 자체는 여전히 첨부받은 고정 이미지(public/icons/tools)를
+// 쓰지만, 이름은 이제 profile.toolSkills(관리자에서 추가/삭제하고 %를
+// 조절할 수 있음)에서 오고, 코드는 이름으로 아이콘을 찾아 붙이기만 한다.
+// 범용 "생성형 AI" 아이콘은 요청에 따라 제외했다(관리자 선택 목록에도 없음).
+const TOOL_ICON_MAP: Record<string, string> = {
+  Photoshop: "/icons/tools/photoshop.png",
+  "Premiere Pro": "/icons/tools/premiere.png",
+  CapCut: "/icons/tools/capcut.png",
+  Illustrator: "/icons/tools/illustrator.png",
+  "After Effects": "/icons/tools/after-effects.png",
+};
 
 function NumbersPanel({ profile }: { profile: Profile }) {
   const facts = [...profile.keyFacts].sort((a, b) => a.order - b.order);
@@ -101,22 +102,44 @@ function NumbersPanel({ profile }: { profile: Profile }) {
           {facts.length === 0 && <p className="text-ink-muted text-sm">등록된 핵심 수치가 아직 없습니다.</p>}
         </div>
 
-        {/* §38 — 사용 도구 아이콘 행. 숫자 카드들과 같은 세로 중앙 정렬
-            그룹 안에 있어 탭 전체 레이아웃(사진 고정, 프레임 크기)에는
-            영향을 주지 않는다. */}
+        {/* §39 — 생성형 활용 도구: 아이콘(왼쪽) + 진행바(오른쪽, 관리자가
+            조절하는 percentage). 숫자 카드들과 같은 세로 중앙 정렬 그룹
+            안에 있어 탭 전체 레이아웃(사진 고정, 프레임 크기)에는 영향을
+            주지 않는다. */}
         <div className="mt-8 md:mt-10">
-          <p className="text-korean text-sm md:text-base text-ink-muted mb-3 tracking-wide">사용 도구</p>
-          <div className="flex flex-wrap gap-3">
-            {TOOL_ICONS.map((t) => (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                key={t.name}
-                src={t.src}
-                alt={t.name}
-                title={t.name}
-                className="h-10 w-10 md:h-11 md:w-11 rounded-lg object-cover shrink-0"
-              />
-            ))}
+          <p className="text-korean text-sm md:text-base text-ink-muted mb-4 tracking-wide">생성형 활용 도구</p>
+          <div className="flex flex-col gap-4 md:gap-5">
+            {[...(profile.toolSkills ?? [])]
+              .filter((s) => s.name)
+              .sort((a, b) => a.order - b.order)
+              .map((s) => (
+                <div key={s.id} className="flex items-center gap-4">
+                  {TOOL_ICON_MAP[s.name] && (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={TOOL_ICON_MAP[s.name]}
+                      alt={s.name}
+                      title={s.name}
+                      className="h-9 w-9 md:h-10 md:w-10 rounded-lg object-cover shrink-0"
+                    />
+                  )}
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-center justify-between mb-1.5">
+                      <span className="text-korean text-xs md:text-sm text-ink-secondary truncate">{s.name}</span>
+                      <span className="font-en text-xs tabular-nums text-ink-muted shrink-0">{s.percentage}%</span>
+                    </div>
+                    <div className="h-1.5 w-full rounded-full overflow-hidden" style={{ background: "var(--color-border)" }}>
+                      <div
+                        className="h-full rounded-full"
+                        style={{ width: `${Math.max(0, Math.min(100, s.percentage))}%`, background: "var(--accent)" }}
+                      />
+                    </div>
+                  </div>
+                </div>
+              ))}
+            {(!profile.toolSkills || profile.toolSkills.length === 0) && (
+              <p className="text-ink-muted text-sm">등록된 도구가 아직 없습니다.</p>
+            )}
           </div>
         </div>
       </div>
