@@ -43,8 +43,11 @@ function IdentityText({ profile, philosophy }: { profile: Profile; philosophy: P
   const paragraphs = [...philosophy.paragraphs].sort((a, b) => a.order - b.order).slice(0, 2);
   const keywords = [...philosophy.keywords].sort((a, b) => a.order - b.order);
   return (
+    // §36 — narrower(~55%) 오른쪽 칼럼에 히어로급 statement-title(최대
+    // 82px) 클램프를 그대로 쓰니 폭에 비해 글자가 과하게 크고 줄바꿈도
+    // 어색했다. 이 칼럼 폭에 맞는 크기로 다시 잡았다.
     <div className="h-full flex flex-col justify-center min-w-0">
-      <p className="statement-title font-medium text-korean mb-3 max-w-2xl line-clamp-2">{profile.representativePhrase}</p>
+      <p className="text-2xl md:text-3xl lg:text-4xl font-medium text-korean mb-3 max-w-2xl line-clamp-2 leading-snug">{profile.representativePhrase}</p>
       <div className="space-y-2 mb-3">
         {paragraphs.map((p) => (
           <p key={p.id} className="body-large text-ink-secondary text-korean max-w-xl line-clamp-2">
@@ -79,7 +82,7 @@ function NumbersPanel({ profile }: { profile: Profile }) {
           <div key={f.label}>
             <span className="block w-6 h-[2px] mb-3" style={{ background: "var(--accent)" }} />
             <p className="text-korean text-sm md:text-base text-ink-muted mb-2 tracking-wide">{f.label}</p>
-            <p className="text-korean text-3xl md:text-4xl lg:text-5xl text-ink font-bold tabular-nums">{f.value}</p>
+            <p className="text-korean text-3xl md:text-4xl text-ink font-bold tabular-nums">{f.value}</p>
           </div>
         ))}
         {facts.length === 0 && <p className="text-ink-muted text-sm">등록된 핵심 수치가 아직 없습니다.</p>}
@@ -115,8 +118,11 @@ function SkillsPanel({ items, index }: { items: Competency[]; index: number }) {
           </span>
         ))}
       </div>
-      <div key={current.id} className="max-w-3xl">
-        <h3 className="statement-title font-bold mb-4 text-korean">{current.title}</h3>
+      <div key={current.id} className="max-w-2xl">
+        {/* §36 — 항목 제목도 히어로급 statement-title 대신, 사이트 다른
+            곳(대표 프로젝트 목록/향후 계획 카드)의 "항목 제목" 스케일과
+            맞춘 text-2xl/3xl로 바꿨다 — 위계가 통일된다. */}
+        <h3 className="text-2xl md:text-3xl font-bold mb-4 text-korean">{current.title}</h3>
         <p className="text-ink-secondary body-large leading-relaxed text-korean line-clamp-6">{current.description}</p>
       </div>
     </div>
@@ -238,15 +244,12 @@ export function ProfileSection({
           </div>
         </div>
 
-        {/* §22-24 — 탭/스텝 콘텐츠 길이가 달라도 화면이 흔들리지 않도록
-            프레임 자체는 고정(내부만 Fade 전환)하고, 페이지 배경(secondary)과
-            구분되도록 반대 톤(primary)의 배경을 준다. 높이는 더 이상 고정
-            px/dvh 값이 아니라 flex-1로 남는 세로 공간을 전부 채우고,
-            아주 크거나 작은 화면을 위한 안전선만 min/max로 둔다. */}
-        <div
-          className="relative w-full overflow-hidden rounded-sm bg-bg p-5 md:p-8 flex-1 min-h-0"
-          style={{ minHeight: "260px", maxHeight: "640px" }}
-        >
+        {/* §22-24, §36 — 탭/스텝 콘텐츠 길이가 달라도 화면이 흔들리지 않게
+            프레임 크기(flex-1, min/max 높이)는 고정하고 내부만 Fade
+            전환하는 건 그대로 유지한다. 다만 "굳이 박스가 필요 없다"는
+            피드백에 따라 반대 톤 배경/모서리/안쪽 패딩으로 된 카드 프레임은
+            없앴다 — 사진과 텍스트가 섹션 배경 위에 바로 놓인다. */}
+        <div className="relative w-full flex-1 min-h-0" style={{ minHeight: "260px", maxHeight: "640px" }}>
           {/* §35 — 사진(왼쪽)은 탭과 무관하게 항상 고정이고, 오른쪽 절반만
               탭에 따라 Fade 전환된다. 그리드 비율(0.9fr/1.1fr)은 이전
               IdentityPanel과 동일하게 유지해 사진 크기/위치가 그대로다. */}
