@@ -15,70 +15,14 @@ async function api(path: string, options?: RequestInit) {
   return data;
 }
 
-// §84 — 공개 화면의 "소개" 탭에는 대표 문구(위, 큰 글씨) 아래로 문단
-// 2줄과 키워드 태그가 함께 나온다. 그런데 그 문단/키워드는 실제로는
-// "프로필" 데이터가 아니라 별도의 "핵심 철학" 데이터(philosophy.paragraphs/
-// keywords)라서, 관리자가 프로필 관리 화면에서는 대표 문구만 보이고
-// 나머지는 수정할 곳을 찾지 못했다. 데이터는 그대로 두되(핵심 철학 관리
-// 화면에서도 계속 편집 가능), 실제로 보이는 화면과 같은 자리인 여기에도
-// 편집 UI를 추가해 바로 찾을 수 있게 했다.
-function IntroContentEditor({ initial }: { initial: PhilosophySection }) {
-  const [paragraphs, setParagraphs] = useState(initial.paragraphs);
-  const [keywords, setKeywords] = useState(initial.keywords);
-  const [saving, setSaving] = useState(false);
-  const [savedAt, setSavedAt] = useState<string | null>(null);
-  const [error, setError] = useState<string | null>(null);
-
-  async function save() {
-    setSaving(true);
-    setError(null);
-    try {
-      await api("/api/admin/section/philosophy", {
-        method: "PATCH",
-        body: JSON.stringify({ ...initial, paragraphs, keywords }),
-      });
-      setSavedAt(new Date().toLocaleTimeString("ko-KR"));
-    } catch (e: any) {
-      setError(e.message || "저장에 실패했습니다.");
-    } finally {
-      setSaving(false);
-    }
-  }
-
-  return (
-    <div className="rounded-md border border-neutral-800 p-4 mb-8">
-      <p className="text-sm font-medium mb-1">소개 탭 본문 (문단 · 키워드)</p>
-      <p className="text-xs text-neutral-500 mb-3">공개 화면 "소개" 탭에서 대표 문구 아래에 보이는 문단(앞 2개만 표시)과 키워드 태그입니다.</p>
-      <TextListEditor
-        label="문단"
-        items={paragraphs}
-        onChange={(v) => setParagraphs(v as any)}
-        placeholder="문단 내용"
-        multiline
-        hint="공개 화면에는 순서상 앞 2개 문단만 보입니다. Enter로 줄바꿈도 가능합니다."
-      />
-      <TextListEditor label="키워드" items={keywords} onChange={(v) => setKeywords(v as any)} placeholder="키워드" />
-      <div className="flex items-center gap-3 mt-1">
-        <button
-          onClick={save}
-          disabled={saving}
-          className="rounded-md bg-orange-500 px-4 py-2 text-sm font-medium text-white hover:bg-orange-400 disabled:opacity-50"
-        >
-          {saving ? "저장 중..." : "저장"}
-        </button>
-        {error && <span className="text-xs text-red-400">{error}</span>}
-        {!error && savedAt && <span className="text-xs text-neutral-500">마지막 저장: {savedAt}</span>}
-      </div>
-    </div>
-  );
-}
-
 // components/sections/ProfileSection.tsx의 TOOL_ICON_MAP과 이름을 맞춰야
 // 아이콘이 붙는다.
 const KNOWN_TOOLS = ["Photoshop", "Premiere Pro", "CapCut", "생성형 AI", "Illustrator", "After Effects"];
 
 export function ProfileEditor({ initial, initialPhilosophy }: { initial: Profile; initialPhilosophy: PhilosophySection }) {
   const [data, setData] = useState<Profile>(initial);
+  const [paragraphs, setParagraphs] = useState(initialPhilosophy.paragraphs);
+  const [keywords, setKeywords] = useState(initialPhilosophy.keywords);
   const [saving, setSaving] = useState(false);
   const [savedAt, setSavedAt] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -87,16 +31,30 @@ export function ProfileEditor({ initial, initialPhilosophy }: { initial: Profile
     setData((d) => ({ ...d, [key]: value }));
   }
 
+  // §86 — 이 페이지에는 원래 저장 버튼이 두 개 있었다: "소개 탭 본문" 영역
+  // 안의 작은 저장 버튼(철학 데이터만 저장)과 페이지 하단의 큰 저장 버튼
+  // (프로필 데이터만 저장). 사용자가 문단 내용을 수정한 뒤 자연스럽게 하단
+  // 저장 버튼만 눌렀는데, 그 버튼은 문단/키워드를 전혀 저장하지 않아서
+  // "제목은 바뀌었는데 내용은 그대로"인 문제가 생겼다. 이제 저장 버튼은
+  // 이 하나뿐이고, 누르면 프로필과 철학(문단/키워드) 데이터를 함께 저장한다.
   async function handleSave() {
     setSaving(true);
     setError(null);
     try {
-      const res = await fetch("/api/admin/section/profile", {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
-      if (!res.ok) throw new Error((await res.json()).error);
+      const [profileRes, philosophyRes] = await Promise.all([
+        fetch("/api/admin/section/profile", {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        }),
+        fetch("/api/admin/section/philosophy", {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ ...initialPhilosophy, paragraphs, keywords }),
+        }),
+      ]);
+      if (!profileRes.ok) throw new Error((await profileRes.json()).error);
+      if (!philosophyRes.ok) throw new Error((await philosophyRes.json()).error);
       setSavedAt(new Date().toLocaleTimeString("ko-KR"));
     } catch (e: any) {
       setError(e.message || "저장에 실패했습니다.");
@@ -140,7 +98,19 @@ export function ProfileEditor({ initial, initialPhilosophy }: { initial: Profile
         hint="Enter로 줄바꿈을 입력하면 공개 화면에도 그대로 반영됩니다."
       />
 
-      <IntroContentEditor initial={initialPhilosophy} />
+      <div className="rounded-md border border-neutral-800 p-4 mb-8">
+        <p className="text-sm font-medium mb-1">소개 탭 본문 (문단 · 키워드)</p>
+        <p className="text-xs text-neutral-500 mb-3">공개 화면 "소개" 탭에서 대표 문구 아래에 보이는 문단(앞 2개만 표시)과 키워드 태그입니다. 페이지 하단의 저장 버튼을 눌러야 저장됩니다.</p>
+        <TextListEditor
+          label="문단"
+          items={paragraphs}
+          onChange={(v) => setParagraphs(v as any)}
+          placeholder="문단 내용"
+          multiline
+          hint="공개 화면에는 순서상 앞 2개 문단만 보입니다. Enter로 줄바꿈도 가능합니다."
+        />
+        <TextListEditor label="키워드" items={keywords} onChange={(v) => setKeywords(v as any)} placeholder="키워드" />
+      </div>
 
       <MediaUpload label="프로필 사진" value={data.profilePhoto} onChange={(m) => set("profilePhoto", m)} />
 

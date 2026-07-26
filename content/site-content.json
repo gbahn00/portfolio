@@ -399,17 +399,32 @@
         {
           "id": "75331a83-1d99-4958-9620-389756ec918d",
           "before": {
-            "url": "/uploads/4393cd5d-8fc9-4e73-8793-dc2bcf1e7162.png",
+            "url": "/uploads/560e8d0a-80f2-4ca2-ae88-9d9696377c39.jpg",
             "kind": "image",
             "alt": ""
           },
           "after": {
-            "url": "/uploads/0f5e0106-524a-45f0-b466-fd7a6578f3b0.png",
+            "url": "/uploads/ad742acf-2f00-4d4f-b6f1-b3cea56793e5.jpg",
             "kind": "image",
             "alt": ""
           },
           "caption": "",
           "order": 0
+        },
+        {
+          "id": "de27a56e-87b1-452f-ad26-880a38647ae8",
+          "before": {
+            "url": "/uploads/5ad2940b-8033-4784-bc39-8f35d29acb18.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/89a1375c-a17d-42b8-b0ad-f3fc4548de34.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 1
         }
       ],
       "metrics": [],
@@ -420,7 +435,7 @@
       "status": "draft",
       "order": 0,
       "createdAt": "2024-08-01T00:00:00.000Z",
-      "updatedAt": "2026-07-26T10:55:34.566Z"
+      "updatedAt": "2026-07-26T11:05:06.280Z"
     },
     {
       "id": "proj-cafe",
