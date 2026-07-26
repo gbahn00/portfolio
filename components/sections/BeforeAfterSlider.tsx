@@ -19,12 +19,18 @@ function SliderItem({ pair }: { pair: BeforeAfterPair }) {
 
   return (
     <div>
-      <div className="relative w-full aspect-[4/3] overflow-hidden rounded-sm select-none bg-bg-soft">
+      {/* §85 — 예전엔 4:3로 박스를 고정해두고 object-cover로 채웠는데,
+          세로로 긴 인물/모델 사진을 넣으면 얼굴이나 발이 잘려나가는
+          문제가 있었다. 이제는 박스 크기 자체를 "보정 후" 사진의 원본
+          비율에 맞춰(자연스러운 크기로) 잡고, "보정 전" 사진은 그 박스에
+          꼭 맞게 겹쳐 올린다 — 보정 전/후는 같은 원본 사진이라 두 비율이
+          거의 항상 같으므로 실제로는 잘림이 생기지 않는다. */}
+      <div className="relative w-full overflow-hidden rounded-sm select-none bg-bg-soft">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={mediaSrc(pair.after.url)}
           alt={pair.after.alt || "보정 후"}
-          className="absolute inset-0 h-full w-full object-cover pointer-events-none"
+          className="block w-full h-auto pointer-events-none"
           draggable={false}
         />
         {/* eslint-disable-next-line @next/next/no-img-element */}

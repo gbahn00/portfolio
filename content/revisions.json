@@ -1,5 +1,756 @@
 [
   {
+    "id": "804bc0a8-1b16-4794-9eb8-f2029176a5c6",
+    "entity": "profile",
+    "field": "전체",
+    "before": {
+      "name": "이지은",
+      "affiliation": "미디어팀",
+      "rank": "사원",
+      "role": "미디어팀",
+      "joinedAt": "2024-07-01",
+      "introShort": "콘텐츠의 목적과 활용 매체를 먼저 파악하고 촬영, 보정, 영상 제작과 기획을 연결하는 영상 크리에이터입니다.",
+      "introLong": "의류, 음식, 공간, 인물, 치과 광고와 유튜브 콘텐츠까지 다양한 분야의 작업을 경험했습니다.\n새로운 도구는 기능을 익히는 데서 멈추지 않고 실제 브랜드 콘텐츠와 업무 개선에 활용합니다.",
+      "profilePhoto": {
+        "url": "/uploads/74bc8792-2e35-449e-b9ea-8d05e3d9507b.jpeg",
+        "kind": "image",
+        "alt": "이지은 프로필 사진 [자료 필요]"
+      },
+      "onSitePhotos": [
+        {
+          "url": "/placeholders/onsite-1.svg",
+          "kind": "image",
+          "alt": "촬영 현장 사진 [자료 필요]"
+        },
+        {
+          "url": "/placeholders/onsite-2.svg",
+          "kind": "image",
+          "alt": "촬영 현장 사진 [자료 필요]"
+        }
+      ],
+      "representativePhrase": "목적을 이해하는 것에서 \n콘텐츠는 시작됩니다.",
+      "keyFacts": [
+        {
+          "label": "근무 시작",
+          "value": "2024년 7월",
+          "order": 0
+        },
+        {
+          "label": "주요 직무",
+          "value": "촬영·보정·영상 제작·콘텐츠 기획",
+          "order": 1
+        },
+        {
+          "label": "주요 분야",
+          "value": "의류·음식·인테리어·인물·메디컬·유튜브",
+          "order": 2
+        },
+        {
+          "label": "조직 기여",
+          "value": "인공지능 크레딧 관리체계 구축",
+          "order": 4
+        }
+      ],
+      "updatedAt": "2026-07-25T00:00:00.000Z",
+      "toolSkills": [
+        {
+          "id": "c8b8aa24-9c8a-4779-ab37-dbbc77a0dc8c",
+          "name": "Photoshop",
+          "percentage": 70,
+          "order": 0
+        },
+        {
+          "id": "03ce5f88-1d46-464a-b2c7-8cd7474b184d",
+          "name": "Premiere Pro",
+          "percentage": 90,
+          "order": 1
+        },
+        {
+          "id": "c620e829-53e4-40f0-9054-29909ab7d8a7",
+          "name": "CapCut",
+          "percentage": 70,
+          "order": 2
+        },
+        {
+          "id": "46900020-128e-4679-99fc-5ad3571fd532",
+          "name": "생성형 AI",
+          "percentage": 90,
+          "order": 3
+        },
+        {
+          "id": "06438e33-0871-4776-a1aa-0c1756b65e68",
+          "name": "Illustrator",
+          "percentage": 50,
+          "order": 4
+        },
+        {
+          "id": "473e96a7-e9f9-4032-9646-33a5959ffad3",
+          "name": "After Effects",
+          "percentage": 90,
+          "order": 5
+        }
+      ]
+    },
+    "after": {
+      "name": "이지은",
+      "affiliation": "미디어팀",
+      "rank": "사원",
+      "role": "미디어팀",
+      "joinedAt": "2024-07-01",
+      "introShort": "콘텐츠의 목적과 활용 매체를 먼저 파악하고 촬영, 보정, 영상 제작과 기획을 연결하는 영상 크리에이터입니다.",
+      "introLong": "의류, 음식, 공간, 인물, 치과 광고와 유튜브 콘텐츠까지 다양한 분야의 작업을 경험했습니다.\n새로운 도구는 기능을 익히는 데서 멈추지 않고 실제 브랜드 콘텐츠와 업무 개선에 활용합니다.",
+      "profilePhoto": {
+        "url": "/uploads/74bc8792-2e35-449e-b9ea-8d05e3d9507b.jpeg",
+        "kind": "image",
+        "alt": "이지은 프로필 사진 [자료 필요]"
+      },
+      "onSitePhotos": [
+        {
+          "url": "/placeholders/onsite-1.svg",
+          "kind": "image",
+          "alt": "촬영 현장 사진 [자료 필요]"
+        },
+        {
+          "url": "/placeholders/onsite-2.svg",
+          "kind": "image",
+          "alt": "촬영 현장 사진 [자료 필요]"
+        }
+      ],
+      "representativePhrase": "목적을 이해하는 것에서 \n콘텐츠는 시작됩니다.",
+      "keyFacts": [
+        {
+          "label": "근무 시작",
+          "value": "2024년 7월",
+          "order": 0
+        },
+        {
+          "label": "주요 직무",
+          "value": "촬영·보정·영상 제작·콘텐츠 기획",
+          "order": 1
+        },
+        {
+          "label": "주요 분야",
+          "value": "의류·음식·인테리어·인물·메디컬·유튜브",
+          "order": 2
+        },
+        {
+          "label": "조직 기여",
+          "value": "인공지능 크레딧 관리체계 구축",
+          "order": 4
+        }
+      ],
+      "updatedAt": "2026-07-25T00:00:00.000Z",
+      "toolSkills": [
+        {
+          "id": "c8b8aa24-9c8a-4779-ab37-dbbc77a0dc8c",
+          "name": "Photoshop",
+          "percentage": 70,
+          "order": 0
+        },
+        {
+          "id": "03ce5f88-1d46-464a-b2c7-8cd7474b184d",
+          "name": "Premiere Pro",
+          "percentage": 90,
+          "order": 1
+        },
+        {
+          "id": "c620e829-53e4-40f0-9054-29909ab7d8a7",
+          "name": "CapCut",
+          "percentage": 70,
+          "order": 2
+        },
+        {
+          "id": "46900020-128e-4679-99fc-5ad3571fd532",
+          "name": "생성형 AI",
+          "percentage": 90,
+          "order": 3
+        },
+        {
+          "id": "06438e33-0871-4776-a1aa-0c1756b65e68",
+          "name": "Illustrator",
+          "percentage": 50,
+          "order": 4
+        },
+        {
+          "id": "473e96a7-e9f9-4032-9646-33a5959ffad3",
+          "name": "After Effects",
+          "percentage": 90,
+          "order": 5
+        }
+      ]
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-26T10:57:58.127Z"
+  },
+  {
+    "id": "dc2f8cac-fe31-4ef3-9f80-e080ab1c406b",
+    "entity": "profile",
+    "field": "전체",
+    "before": {
+      "name": "이지은",
+      "affiliation": "미디어팀",
+      "rank": "사원",
+      "role": "미디어팀",
+      "joinedAt": "2024-07-01",
+      "introShort": "콘텐츠의 목적과 활용 매체를 먼저 파악하고 촬영, 보정, 영상 제작과 기획을 연결하는 영상 크리에이터입니다.",
+      "introLong": "의류, 음식, 공간, 인물, 치과 광고와 유튜브 콘텐츠까지 다양한 분야의 작업을 경험했습니다.\n새로운 도구는 기능을 익히는 데서 멈추지 않고 실제 브랜드 콘텐츠와 업무 개선에 활용합니다.",
+      "profilePhoto": {
+        "url": "/uploads/74bc8792-2e35-449e-b9ea-8d05e3d9507b.jpeg",
+        "kind": "image",
+        "alt": "이지은 프로필 사진 [자료 필요]"
+      },
+      "onSitePhotos": [
+        {
+          "url": "/placeholders/onsite-1.svg",
+          "kind": "image",
+          "alt": "촬영 현장 사진 [자료 필요]"
+        },
+        {
+          "url": "/placeholders/onsite-2.svg",
+          "kind": "image",
+          "alt": "촬영 현장 사진 [자료 필요]"
+        }
+      ],
+      "representativePhrase": "목적을 이해하는 것에서 \n콘텐츠는 시작됩니다.",
+      "keyFacts": [
+        {
+          "label": "근무 시작",
+          "value": "2024년 7월",
+          "order": 0
+        },
+        {
+          "label": "주요 직무",
+          "value": "촬영·보정·영상 제작·콘텐츠 기획",
+          "order": 1
+        },
+        {
+          "label": "주요 분야",
+          "value": "의류·음식·인테리어·인물·메디컬·유튜브",
+          "order": 2
+        },
+        {
+          "label": "조직 기여",
+          "value": "인공지능 크레딧 관리체계 구축",
+          "order": 4
+        }
+      ],
+      "updatedAt": "2026-07-25T00:00:00.000Z",
+      "toolSkills": [
+        {
+          "id": "c8b8aa24-9c8a-4779-ab37-dbbc77a0dc8c",
+          "name": "Photoshop",
+          "percentage": 70,
+          "order": 0
+        },
+        {
+          "id": "03ce5f88-1d46-464a-b2c7-8cd7474b184d",
+          "name": "Premiere Pro",
+          "percentage": 90,
+          "order": 1
+        },
+        {
+          "id": "c620e829-53e4-40f0-9054-29909ab7d8a7",
+          "name": "CapCut",
+          "percentage": 70,
+          "order": 2
+        },
+        {
+          "id": "46900020-128e-4679-99fc-5ad3571fd532",
+          "name": "생성형 AI",
+          "percentage": 90,
+          "order": 3
+        },
+        {
+          "id": "06438e33-0871-4776-a1aa-0c1756b65e68",
+          "name": "Illustrator",
+          "percentage": 50,
+          "order": 4
+        },
+        {
+          "id": "473e96a7-e9f9-4032-9646-33a5959ffad3",
+          "name": "After Effects",
+          "percentage": 90,
+          "order": 5
+        }
+      ]
+    },
+    "after": {
+      "name": "이지은",
+      "affiliation": "미디어팀",
+      "rank": "사원",
+      "role": "미디어팀",
+      "joinedAt": "2024-07-01",
+      "introShort": "콘텐츠의 목적과 활용 매체를 먼저 파악하고 촬영, 보정, 영상 제작과 기획을 연결하는 영상 크리에이터입니다.",
+      "introLong": "의류, 음식, 공간, 인물, 치과 광고와 유튜브 콘텐츠까지 다양한 분야의 작업을 경험했습니다.\n새로운 도구는 기능을 익히는 데서 멈추지 않고 실제 브랜드 콘텐츠와 업무 개선에 활용합니다.",
+      "profilePhoto": {
+        "url": "/uploads/74bc8792-2e35-449e-b9ea-8d05e3d9507b.jpeg",
+        "kind": "image",
+        "alt": "이지은 프로필 사진 [자료 필요]"
+      },
+      "onSitePhotos": [
+        {
+          "url": "/placeholders/onsite-1.svg",
+          "kind": "image",
+          "alt": "촬영 현장 사진 [자료 필요]"
+        },
+        {
+          "url": "/placeholders/onsite-2.svg",
+          "kind": "image",
+          "alt": "촬영 현장 사진 [자료 필요]"
+        }
+      ],
+      "representativePhrase": "목적을 이해하는 것에서 \n콘텐츠는 시작됩니다.",
+      "keyFacts": [
+        {
+          "label": "근무 시작",
+          "value": "2024년 7월",
+          "order": 0
+        },
+        {
+          "label": "주요 직무",
+          "value": "촬영·보정·영상 제작·콘텐츠 기획",
+          "order": 1
+        },
+        {
+          "label": "주요 분야",
+          "value": "의류·음식·인테리어·인물·메디컬·유튜브",
+          "order": 2
+        },
+        {
+          "label": "조직 기여",
+          "value": "인공지능 크레딧 관리체계 구축",
+          "order": 4
+        }
+      ],
+      "updatedAt": "2026-07-25T00:00:00.000Z",
+      "toolSkills": [
+        {
+          "id": "c8b8aa24-9c8a-4779-ab37-dbbc77a0dc8c",
+          "name": "Photoshop",
+          "percentage": 70,
+          "order": 0
+        },
+        {
+          "id": "03ce5f88-1d46-464a-b2c7-8cd7474b184d",
+          "name": "Premiere Pro",
+          "percentage": 90,
+          "order": 1
+        },
+        {
+          "id": "c620e829-53e4-40f0-9054-29909ab7d8a7",
+          "name": "CapCut",
+          "percentage": 70,
+          "order": 2
+        },
+        {
+          "id": "46900020-128e-4679-99fc-5ad3571fd532",
+          "name": "생성형 AI",
+          "percentage": 90,
+          "order": 3
+        },
+        {
+          "id": "06438e33-0871-4776-a1aa-0c1756b65e68",
+          "name": "Illustrator",
+          "percentage": 50,
+          "order": 4
+        },
+        {
+          "id": "473e96a7-e9f9-4032-9646-33a5959ffad3",
+          "name": "After Effects",
+          "percentage": 90,
+          "order": 5
+        }
+      ]
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-26T10:57:05.638Z"
+  },
+  {
+    "id": "fb6c8443-80b1-4546-b064-7a6422929043",
+    "entity": "profile",
+    "field": "전체",
+    "before": {
+      "name": "이지은",
+      "affiliation": "미디어팀",
+      "rank": "사원",
+      "role": "미디어팀",
+      "joinedAt": "2024-07-01",
+      "introShort": "콘텐츠의 목적과 활용 매체를 먼저 파악하고 촬영, 보정, 영상 제작과 기획을 연결하는 영상 크리에이터입니다.",
+      "introLong": "의류, 음식, 공간, 인물, 치과 광고와 유튜브 콘텐츠까지 다양한 분야의 작업을 경험했습니다.\n새로운 도구는 기능을 익히는 데서 멈추지 않고 실제 브랜드 콘텐츠와 업무 개선에 활용합니다.",
+      "profilePhoto": {
+        "url": "/uploads/74bc8792-2e35-449e-b9ea-8d05e3d9507b.jpeg",
+        "kind": "image",
+        "alt": "이지은 프로필 사진 [자료 필요]"
+      },
+      "onSitePhotos": [
+        {
+          "url": "/placeholders/onsite-1.svg",
+          "kind": "image",
+          "alt": "촬영 현장 사진 [자료 필요]"
+        },
+        {
+          "url": "/placeholders/onsite-2.svg",
+          "kind": "image",
+          "alt": "촬영 현장 사진 [자료 필요]"
+        }
+      ],
+      "representativePhrase": "목적을 이해하는 것에서 콘텐츠는 시작됩니다.",
+      "keyFacts": [
+        {
+          "label": "근무 시작",
+          "value": "2024년 7월",
+          "order": 0
+        },
+        {
+          "label": "주요 직무",
+          "value": "촬영·보정·영상 제작·콘텐츠 기획",
+          "order": 1
+        },
+        {
+          "label": "주요 분야",
+          "value": "의류·음식·인테리어·인물·메디컬·유튜브",
+          "order": 2
+        },
+        {
+          "label": "조직 기여",
+          "value": "인공지능 크레딧 관리체계 구축",
+          "order": 4
+        }
+      ],
+      "updatedAt": "2026-07-25T00:00:00.000Z",
+      "toolSkills": [
+        {
+          "id": "c8b8aa24-9c8a-4779-ab37-dbbc77a0dc8c",
+          "name": "Photoshop",
+          "percentage": 70,
+          "order": 0
+        },
+        {
+          "id": "03ce5f88-1d46-464a-b2c7-8cd7474b184d",
+          "name": "Premiere Pro",
+          "percentage": 90,
+          "order": 1
+        },
+        {
+          "id": "c620e829-53e4-40f0-9054-29909ab7d8a7",
+          "name": "CapCut",
+          "percentage": 70,
+          "order": 2
+        },
+        {
+          "id": "46900020-128e-4679-99fc-5ad3571fd532",
+          "name": "생성형 AI",
+          "percentage": 90,
+          "order": 3
+        },
+        {
+          "id": "06438e33-0871-4776-a1aa-0c1756b65e68",
+          "name": "Illustrator",
+          "percentage": 50,
+          "order": 4
+        },
+        {
+          "id": "473e96a7-e9f9-4032-9646-33a5959ffad3",
+          "name": "After Effects",
+          "percentage": 90,
+          "order": 5
+        }
+      ]
+    },
+    "after": {
+      "name": "이지은",
+      "affiliation": "미디어팀",
+      "rank": "사원",
+      "role": "미디어팀",
+      "joinedAt": "2024-07-01",
+      "introShort": "콘텐츠의 목적과 활용 매체를 먼저 파악하고 촬영, 보정, 영상 제작과 기획을 연결하는 영상 크리에이터입니다.",
+      "introLong": "의류, 음식, 공간, 인물, 치과 광고와 유튜브 콘텐츠까지 다양한 분야의 작업을 경험했습니다.\n새로운 도구는 기능을 익히는 데서 멈추지 않고 실제 브랜드 콘텐츠와 업무 개선에 활용합니다.",
+      "profilePhoto": {
+        "url": "/uploads/74bc8792-2e35-449e-b9ea-8d05e3d9507b.jpeg",
+        "kind": "image",
+        "alt": "이지은 프로필 사진 [자료 필요]"
+      },
+      "onSitePhotos": [
+        {
+          "url": "/placeholders/onsite-1.svg",
+          "kind": "image",
+          "alt": "촬영 현장 사진 [자료 필요]"
+        },
+        {
+          "url": "/placeholders/onsite-2.svg",
+          "kind": "image",
+          "alt": "촬영 현장 사진 [자료 필요]"
+        }
+      ],
+      "representativePhrase": "목적을 이해하는 것에서 \n콘텐츠는 시작됩니다.",
+      "keyFacts": [
+        {
+          "label": "근무 시작",
+          "value": "2024년 7월",
+          "order": 0
+        },
+        {
+          "label": "주요 직무",
+          "value": "촬영·보정·영상 제작·콘텐츠 기획",
+          "order": 1
+        },
+        {
+          "label": "주요 분야",
+          "value": "의류·음식·인테리어·인물·메디컬·유튜브",
+          "order": 2
+        },
+        {
+          "label": "조직 기여",
+          "value": "인공지능 크레딧 관리체계 구축",
+          "order": 4
+        }
+      ],
+      "updatedAt": "2026-07-25T00:00:00.000Z",
+      "toolSkills": [
+        {
+          "id": "c8b8aa24-9c8a-4779-ab37-dbbc77a0dc8c",
+          "name": "Photoshop",
+          "percentage": 70,
+          "order": 0
+        },
+        {
+          "id": "03ce5f88-1d46-464a-b2c7-8cd7474b184d",
+          "name": "Premiere Pro",
+          "percentage": 90,
+          "order": 1
+        },
+        {
+          "id": "c620e829-53e4-40f0-9054-29909ab7d8a7",
+          "name": "CapCut",
+          "percentage": 70,
+          "order": 2
+        },
+        {
+          "id": "46900020-128e-4679-99fc-5ad3571fd532",
+          "name": "생성형 AI",
+          "percentage": 90,
+          "order": 3
+        },
+        {
+          "id": "06438e33-0871-4776-a1aa-0c1756b65e68",
+          "name": "Illustrator",
+          "percentage": 50,
+          "order": 4
+        },
+        {
+          "id": "473e96a7-e9f9-4032-9646-33a5959ffad3",
+          "name": "After Effects",
+          "percentage": 90,
+          "order": 5
+        }
+      ]
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-26T10:56:46.582Z"
+  },
+  {
+    "id": "87ecf028-98cc-45fb-8beb-a93f16f83659",
+    "entity": "projects:proj-clothing",
+    "field": "수정",
+    "before": {
+      "id": "proj-clothing",
+      "number": "01",
+      "title": "의류 상세페이지 및 모델 촬영",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "의류",
+      "purpose": "온라인 환경에서도 실제 제품의 질감과 색감을 신뢰감 있게 전달하고, 구매 결정에 필요한 정보를 효과적으로 제공하는 상세페이지 제작",
+      "role": "촬영 · 색보정 · 리터칭",
+      "tools": [
+        "[자료 필요] 사용 장비 및 보정 프로그램 목록"
+      ],
+      "description": "온라인 판매용 의류 상세페이지 제작 프로젝트로, 제품의 색상과 소재를 실제와 가깝게 표현하고 모델 착용 이미지를 통해 상품의 특징과 착용감을 효과적으로 전달하는 데 중점을 두었습니다.",
+      "heroImage": {
+        "url": "/placeholders/clothing.svg",
+        "kind": "image",
+        "alt": "의류 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [],
+      "beforeAfter": [
+        {
+          "id": "75331a83-1d99-4958-9620-389756ec918d",
+          "before": {
+            "url": "/uploads/e35aa4bd-d30e-4ccf-a011-efb2596ee6c2.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/b9e53e6b-0e58-48e9-bd31-ff644f5fd9a2.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 0
+        }
+      ],
+      "metrics": [],
+      "detailBlocks": [],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 0,
+      "createdAt": "2024-08-01T00:00:00.000Z",
+      "updatedAt": "2026-07-26T10:54:20.670Z"
+    },
+    "after": {
+      "id": "proj-clothing",
+      "number": "01",
+      "title": "상세페이지 디테일컷 및 모델 촬영 · 보정",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "의류",
+      "purpose": "제품의 실제 색감과 디테일을 정확하게 표현하고, 모델 착용 이미지를 통해 온라인에서도 상품의 특징과 착용감을 직관적으로 전달할 수 있는 이미지 제작",
+      "role": "촬영 · 색보정 · 리터칭",
+      "tools": [
+        "[자료 필요] 사용 장비 및 보정 프로그램 목록"
+      ],
+      "description": "온라인 판매용 의류 상세페이지에 활용되는 디테일컷과 모델 착용컷을 촬영하고 보정한 프로젝트입니다. 제품의 색감과 소재를 실제와 가깝게 표현하고, 모델 착용 이미지를 통해 상품의 실루엣과 착용감을 자연스럽게 전달하는 데 중점을 두었습니다.",
+      "heroImage": {
+        "url": "/placeholders/clothing.svg",
+        "kind": "image",
+        "alt": "의류 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [],
+      "beforeAfter": [
+        {
+          "id": "75331a83-1d99-4958-9620-389756ec918d",
+          "before": {
+            "url": "/uploads/4393cd5d-8fc9-4e73-8793-dc2bcf1e7162.png",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/0f5e0106-524a-45f0-b466-fd7a6578f3b0.png",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 0
+        }
+      ],
+      "metrics": [],
+      "detailBlocks": [],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 0,
+      "createdAt": "2024-08-01T00:00:00.000Z",
+      "updatedAt": "2026-07-26T10:55:34.566Z"
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-26T10:55:34.600Z"
+  },
+  {
+    "id": "a71f997b-53c9-4e62-98a9-fd6a94f16220",
+    "entity": "projects:proj-clothing",
+    "field": "수정",
+    "before": {
+      "id": "proj-clothing",
+      "number": "01",
+      "title": "상세페이지 디테일컷 및 모델 촬영 · 보정",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "의류",
+      "purpose": "온라인 환경에서도 실제 제품의 질감과 색감을 신뢰감 있게 전달하고, 구매 결정에 필요한 정보를 효과적으로 제공하는 상세페이지 제작",
+      "role": "촬영 · 색보정 · 리터칭",
+      "tools": [
+        "[자료 필요] 사용 장비 및 보정 프로그램 목록"
+      ],
+      "description": "온라인 판매용 의류 상세페이지 제작 프로젝트로, 제품의 색상과 소재를 실제와 가깝게 표현하고 모델 착용 이미지를 통해 상품의 특징과 착용감을 효과적으로 전달하는 데 중점을 두었습니다.",
+      "heroImage": {
+        "url": "/placeholders/clothing.svg",
+        "kind": "image",
+        "alt": "의류 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [],
+      "beforeAfter": [
+        {
+          "id": "75331a83-1d99-4958-9620-389756ec918d",
+          "before": {
+            "url": "/uploads/4393cd5d-8fc9-4e73-8793-dc2bcf1e7162.png",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/0f5e0106-524a-45f0-b466-fd7a6578f3b0.png",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 0
+        }
+      ],
+      "metrics": [],
+      "detailBlocks": [],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 0,
+      "createdAt": "2024-08-01T00:00:00.000Z",
+      "updatedAt": "2026-07-26T10:45:31.770Z"
+    },
+    "after": {
+      "id": "proj-clothing",
+      "number": "01",
+      "title": "의류 상세페이지 및 모델 촬영",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "의류",
+      "purpose": "온라인 환경에서도 실제 제품의 질감과 색감을 신뢰감 있게 전달하고, 구매 결정에 필요한 정보를 효과적으로 제공하는 상세페이지 제작",
+      "role": "촬영 · 색보정 · 리터칭",
+      "tools": [
+        "[자료 필요] 사용 장비 및 보정 프로그램 목록"
+      ],
+      "description": "온라인 판매용 의류 상세페이지 제작 프로젝트로, 제품의 색상과 소재를 실제와 가깝게 표현하고 모델 착용 이미지를 통해 상품의 특징과 착용감을 효과적으로 전달하는 데 중점을 두었습니다.",
+      "heroImage": {
+        "url": "/placeholders/clothing.svg",
+        "kind": "image",
+        "alt": "의류 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [],
+      "beforeAfter": [
+        {
+          "id": "75331a83-1d99-4958-9620-389756ec918d",
+          "before": {
+            "url": "/uploads/e35aa4bd-d30e-4ccf-a011-efb2596ee6c2.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/b9e53e6b-0e58-48e9-bd31-ff644f5fd9a2.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 0
+        }
+      ],
+      "metrics": [],
+      "detailBlocks": [],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 0,
+      "createdAt": "2024-08-01T00:00:00.000Z",
+      "updatedAt": "2026-07-26T10:54:20.670Z"
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-26T10:53:52.511Z"
+  },
+  {
     "id": "c2d0d2a9-f38d-4db2-bdea-9a193efa58d4",
     "entity": "projects:proj-clothing",
     "field": "수정",
