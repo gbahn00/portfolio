@@ -1,5 +1,2601 @@
 [
   {
+    "id": "0a44142c-5a76-4990-95b0-c3c0b88928f4",
+    "entity": "faq:b92a171b",
+    "field": "수정",
+    "before": {
+      "id": "b92a171b",
+      "question": "팀의 업무 방식을 개선한 사례가 있나요?",
+      "answer": "공용 AI 계정의 사용자별·도구별·목적별 크레딧 사용량을 확인할 수 있도록 노션 관리체계를 구축했습니다. 월별 사용 현황과 소모 원인을 한눈에 확인할 수 있어 추가 구매 시점과 활용 현황을 판단하는 기초자료로 활용되고 있습니다.",
+      "order": 3,
+      "visible": true
+    },
+    "after": {
+      "id": "b92a171b",
+      "question": "팀의 업무 방식을 개선한 사례가 있나요?",
+      "answer": "공용 AI 계정의 사용자별·도구별·목적별 크레딧 사용량을 확인할 수 있도록 노션 관리체계를 구축했습니다.\n월별 사용 현황과 소모 원인을 한눈에 확인할 수 있어 추가 구매 시점과 활용 현황을 판단하는 기초자료로 활용되고 있습니다.",
+      "order": 3,
+      "visible": true
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-26T10:13:36.721Z"
+  },
+  {
+    "id": "ae26d24e-bffe-4254-995f-348afbb57c15",
+    "entity": "faq:d858f191",
+    "field": "수정",
+    "before": {
+      "id": "d858f191",
+      "question": "촬영과 보정 외에 어떤 업무를 수행했나요?",
+      "answer": "광고 영상, 유튜브 콘텐츠 기획과 제작, 생성형 AI 영상 제작과 \nAI 크레딧 관리체계 구축 업무를 수행했습니다.",
+      "order": 0,
+      "visible": true
+    },
+    "after": {
+      "id": "d858f191",
+      "question": "입사 초기와 비교해 가장 크게 달라진 점은 무엇인가요?",
+      "answer": "촬영과 보정 중심의 업무에서 영상 제작, 콘텐츠 기획, 생성형 AI 활용, 제작 관리까지 역할을 확장했습니다. \n주어진 작업만 수행하기보다 콘텐츠의 목적을 판단하고, 필요한 과정을 연결해 결과까지 책임지는 방식으로 업무를 수행하고 있습니다.",
+      "order": 0,
+      "visible": true
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-26T10:13:29.926Z"
+  },
+  {
+    "id": "f2bb952a-f826-48f7-bbe9-01e9c856dc4c",
+    "entity": "faq:0d7b33bb",
+    "field": "수정",
+    "before": {
+      "id": "0d7b33bb",
+      "question": "생성형 AI는 어떤 방식으로 활용했나요?",
+      "answer": "기존 촬영과 편집을 모두 대체하기보다 콘텐츠 목적과 \n활용 가능성을 판단한 뒤 필요한 장면에 적용했습니다.",
+      "order": 1,
+      "visible": true
+    },
+    "after": {
+      "id": "0d7b33bb",
+      "question": "사진 촬영 외에 어떤 콘텐츠 제작 경험이 있나요?",
+      "answer": "의류·음식·공간·인물 촬영을 비롯해 치과 광고, 병원 SNS 영상, 메타 광고, 유튜브 콘텐츠의 기획과 제작에 참여했습니다. \n사진과 영상 중 한 영역에 한정되지 않고 프로젝트 목적에 맞는 제작 방식을 적용해 왔습니다.",
+      "order": 1,
+      "visible": true
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-26T10:13:28.225Z"
+  },
+  {
+    "id": "5cfde841-4d98-4250-950f-885b121b2ace",
+    "entity": "faq:21a09a37",
+    "field": "수정",
+    "before": {
+      "id": "21a09a37",
+      "question": "팀 업무 개선 사례는 무엇인가요?",
+      "answer": "공용 AI 계정의 사용자별·도구별·목적별 크레딧 사용량을 확인할 수 있는 Notion 관리체계를 구축했습니다.",
+      "order": 2,
+      "visible": true
+    },
+    "after": {
+      "id": "21a09a37",
+      "question": "생성형 AI는 실제 업무에 어떻게 활용했나요?",
+      "answer": "Flow, Higgsfield, Sora, InVideo, Kling 등 다양한 AI 도구의 결과를 비교하고, 치과 광고와 브랜드 영상 제작에 적용했습니다. \n기존 촬영과 편집을 무조건 대체하기보다 목적과 품질을 기준으로 필요한 장면에 선택적으로 활용했습니다.",
+      "order": 2,
+      "visible": true
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-26T10:13:27.177Z"
+  },
+  {
+    "id": "c104933c-13ff-4004-b131-795aeb9a709b",
+    "entity": "faq:b92a171b",
+    "field": "수정",
+    "before": {
+      "id": "b92a171b",
+      "question": "특별진급 이후 무엇을 실행할 계획인가요?",
+      "answer": "메디컬 마케팅 협업체계, 광고 데이터 기반 영상 개선과 메디컬 제작과정 표준화를 추진할 계획입니다.",
+      "order": 3,
+      "visible": true
+    },
+    "after": {
+      "id": "b92a171b",
+      "question": "팀의 업무 방식을 개선한 사례가 있나요?",
+      "answer": "공용 AI 계정의 사용자별·도구별·목적별 크레딧 사용량을 확인할 수 있도록 노션 관리체계를 구축했습니다. 월별 사용 현황과 소모 원인을 한눈에 확인할 수 있어 추가 구매 시점과 활용 현황을 판단하는 기초자료로 활용되고 있습니다.",
+      "order": 3,
+      "visible": true
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-26T10:13:26.439Z"
+  },
+  {
+    "id": "a909fce4-c5fc-4487-9e30-e49891f4f0f6",
+    "entity": "futurePlans:fp2",
+    "field": "수정",
+    "before": {
+      "id": "fp2",
+      "title": "광고 데이터를 반영한 영상 개선",
+      "summary": "클릭률, 전환율, 시청 유지율을 확인하고 실제 반응을 다음 콘텐츠 제작에 반영합니다.",
+      "details": [
+        {
+          "id": "d1",
+          "text": "첫 장면·카피 A/B 테스트",
+          "order": 0
+        },
+        {
+          "id": "d2",
+          "text": "시청 유지율 분석",
+          "order": 1
+        },
+        {
+          "id": "d3",
+          "text": "CTA 및 영상 길이 개선",
+          "order": 2
+        }
+      ],
+      "expectedEffect": "동일한 주제에 다른 첫 장면과 카피를 적용해 A/B 테스트를 진행하고, 반응이 좋은 구성을 다음 콘텐츠에 적용하겠습니다.",
+      "progress": "예정",
+      "order": 1,
+      "visible": true
+    },
+    "after": {
+      "id": "fp2",
+      "title": "광고 데이터를 반영한 영상 개선",
+      "summary": "클릭률, 전환율, 시청 유지율을 확인하고 실제 반응을 다음 콘텐츠 제작에 반영합니다.",
+      "details": [
+        {
+          "id": "d1",
+          "text": "첫 장면·카피 A/B 테스트",
+          "order": 0
+        },
+        {
+          "id": "d2",
+          "text": "시청 유지율 분석",
+          "order": 1
+        },
+        {
+          "id": "d3",
+          "text": "CTA 및 영상 길이 개선",
+          "order": 2
+        }
+      ],
+      "expectedEffect": "광고 성과 데이터를 제작 과정에 반영하여 지속적인 콘텐츠 품질 개선",
+      "progress": "예정",
+      "order": 1,
+      "visible": true
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-26T10:08:28.712Z"
+  },
+  {
+    "id": "b02402f0-f6a9-4a3b-ab53-e38d220bedc1",
+    "entity": "futurePlans:fp3",
+    "field": "수정",
+    "before": {
+      "id": "fp3",
+      "title": "메디컬 영상 제작 프로세스 표준화",
+      "summary": "반복되는 요청과 수정사항을 제작 기준으로 정리해 팀이 함께 활용할 수 있는 체계를 구축합니다.",
+      "details": [
+        {
+          "id": "d1",
+          "text": "콘텐츠 유형별 기획 가이드",
+          "order": 0
+        },
+        {
+          "id": "d2",
+          "text": "촬영 전 점검표",
+          "order": 1
+        },
+        {
+          "id": "d3",
+          "text": "자막·화면 구성 템플릿",
+          "order": 2
+        }
+      ],
+      "expectedEffect": "제작자가 바뀌어도 일정 품질 이상의 결과물을 유지할 수 있는 가이드와 템플릿을 마련하겠습니다.",
+      "progress": "예정",
+      "order": 2,
+      "visible": true
+    },
+    "after": {
+      "id": "fp3",
+      "title": "메디컬 영상 제작 프로세스 표준화",
+      "summary": "반복되는 요청과 수정사항을 제작 기준으로 정리해 팀이 함께 활용할 수 있는 체계를 구축합니다.",
+      "details": [
+        {
+          "id": "d1",
+          "text": "콘텐츠 유형별 기획 가이드",
+          "order": 0
+        },
+        {
+          "id": "d2",
+          "text": "촬영 전 점검표",
+          "order": 1
+        },
+        {
+          "id": "d3",
+          "text": "자막·화면 구성 템플릿",
+          "order": 2
+        }
+      ],
+      "expectedEffect": "반복 활용 가능한 제작 기준을 구축하여 업무 효율성과 콘텐츠 품질 향상",
+      "progress": "예정",
+      "order": 2,
+      "visible": true
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-26T10:08:27.629Z"
+  },
+  {
+    "id": "51fd2cb6-d819-4418-b822-ca092150224b",
+    "entity": "futurePlans:fp1",
+    "field": "수정",
+    "before": {
+      "id": "fp1",
+      "title": "메디컬 마케팅·미디어 전속 TF 구축",
+      "summary": "마케팅팀과 미디어팀이 기획 단계부터 협업하는 전속 TF를 제안하고, 실무 운영을 주도합니다.",
+      "details": [
+        {
+          "id": "d1",
+          "text": "임플란트·치과 전문 광고",
+          "order": 0
+        },
+        {
+          "id": "d2",
+          "text": "메타 전환형 숏폼",
+          "order": 1
+        },
+        {
+          "id": "d3",
+          "text": "병원 정보형 SNS 콘텐츠",
+          "order": 2
+        }
+      ],
+      "expectedEffect": "제작 과정의 혼선과 반복 수정을 줄이고, 마케팅 목적에 맞는 영상을 안정적으로 제작하겠습니다.",
+      "progress": "예정",
+      "order": 0,
+      "visible": true
+    },
+    "after": {
+      "id": "fp1",
+      "title": "메디컬 마케팅·미디어 전속 TF 구축",
+      "summary": "마케팅팀과 미디어팀이 기획 단계부터 협업하는 전속 TF를 제안하고, 실무 운영을 주도합니다.",
+      "details": [
+        {
+          "id": "d1",
+          "text": "임플란트·치과 전문 광고",
+          "order": 0
+        },
+        {
+          "id": "d2",
+          "text": "메타 전환형 숏폼",
+          "order": 1
+        },
+        {
+          "id": "d3",
+          "text": "병원 정보형 SNS 콘텐츠",
+          "order": 2
+        }
+      ],
+      "expectedEffect": "기획부터 제작까지 유기적인 협업 체계를 구축하여 프로젝트 운영 효율 향상",
+      "progress": "예정",
+      "order": 0,
+      "visible": true
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-26T10:08:16.910Z"
+  },
+  {
+    "id": "5c286a15-baf5-401c-93ea-a249522a8c02",
+    "entity": "futurePlans:fp3",
+    "field": "수정",
+    "before": {
+      "id": "fp3",
+      "title": "메디컬 영상 제작 과정 표준화",
+      "summary": "콘텐츠 유형별로 반복 활용할 수 있는 제작 자료를 구축한다.",
+      "details": [
+        {
+          "id": "d1",
+          "text": "콘텐츠 유형별 기획서",
+          "order": 0
+        },
+        {
+          "id": "d2",
+          "text": "촬영 전 점검표",
+          "order": 1
+        },
+        {
+          "id": "d3",
+          "text": "자막 양식",
+          "order": 2
+        },
+        {
+          "id": "d4",
+          "text": "화면 구성 양식",
+          "order": 3
+        },
+        {
+          "id": "d5",
+          "text": "광고 영상 기본 구성",
+          "order": 4
+        },
+        {
+          "id": "d6",
+          "text": "정보 영상 기본 구성",
+          "order": 5
+        },
+        {
+          "id": "d7",
+          "text": "최종 검수표",
+          "order": 6
+        }
+      ],
+      "expectedEffect": "제작자가 바뀌어도 일정 품질 이상의 결과물을 유지할 수 있는 가이드와 템플릿을 마련하겠습니다.",
+      "progress": "예정",
+      "order": 2,
+      "visible": true
+    },
+    "after": {
+      "id": "fp3",
+      "title": "메디컬 영상 제작 프로세스 표준화",
+      "summary": "반복되는 요청과 수정사항을 제작 기준으로 정리해 팀이 함께 활용할 수 있는 체계를 구축합니다.",
+      "details": [
+        {
+          "id": "d1",
+          "text": "콘텐츠 유형별 기획 가이드",
+          "order": 0
+        },
+        {
+          "id": "d2",
+          "text": "촬영 전 점검표",
+          "order": 1
+        },
+        {
+          "id": "d3",
+          "text": "자막·화면 구성 템플릿",
+          "order": 2
+        }
+      ],
+      "expectedEffect": "제작자가 바뀌어도 일정 품질 이상의 결과물을 유지할 수 있는 가이드와 템플릿을 마련하겠습니다.",
+      "progress": "예정",
+      "order": 2,
+      "visible": true
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-26T10:07:54.292Z"
+  },
+  {
+    "id": "432380c4-9b26-4d13-a923-29e4c4acd609",
+    "entity": "futurePlans:fp2",
+    "field": "수정",
+    "before": {
+      "id": "fp2",
+      "title": "광고 결과를 반영한 영상 개선",
+      "summary": "영상의 완성도를 제작자의 판단에만 의존하지 않고, 실제 광고 반응을 다음 콘텐츠에 반영하겠습니다.",
+      "details": [
+        {
+          "id": "d1",
+          "text": "클릭률",
+          "order": 0
+        },
+        {
+          "id": "d2",
+          "text": "전환율",
+          "order": 1
+        },
+        {
+          "id": "d3",
+          "text": "시청 유지율",
+          "order": 2
+        },
+        {
+          "id": "d4",
+          "text": "초반 이탈",
+          "order": 3
+        },
+        {
+          "id": "d5",
+          "text": "영상 길이별 반응",
+          "order": 4
+        },
+        {
+          "id": "d6",
+          "text": "첫 장면별 반응",
+          "order": 5
+        },
+        {
+          "id": "d7",
+          "text": "문구별 반응",
+          "order": 6
+        },
+        {
+          "id": "d8",
+          "text": "상담 유도 문구 반응",
+          "order": 7
+        }
+      ],
+      "expectedEffect": "동일한 주제에 다른 첫 장면과 카피를 적용해 A/B 테스트를 진행하고, 반응이 좋은 구성을 다음 콘텐츠에 적용하겠습니다.",
+      "progress": "예정",
+      "order": 1,
+      "visible": true
+    },
+    "after": {
+      "id": "fp2",
+      "title": "광고 데이터를 반영한 영상 개선",
+      "summary": "클릭률, 전환율, 시청 유지율을 확인하고 실제 반응을 다음 콘텐츠 제작에 반영합니다.",
+      "details": [
+        {
+          "id": "d1",
+          "text": "첫 장면·카피 A/B 테스트",
+          "order": 0
+        },
+        {
+          "id": "d2",
+          "text": "시청 유지율 분석",
+          "order": 1
+        },
+        {
+          "id": "d3",
+          "text": "CTA 및 영상 길이 개선",
+          "order": 2
+        }
+      ],
+      "expectedEffect": "동일한 주제에 다른 첫 장면과 카피를 적용해 A/B 테스트를 진행하고, 반응이 좋은 구성을 다음 콘텐츠에 적용하겠습니다.",
+      "progress": "예정",
+      "order": 1,
+      "visible": true
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-26T10:07:30.489Z"
+  },
+  {
+    "id": "1e873591-b286-44f8-8abd-b3cbda72c491",
+    "entity": "futurePlans:fp1",
+    "field": "수정",
+    "before": {
+      "id": "fp1",
+      "title": "메디컬 마케팅·미디어 커머스 전속 TF 신설 및 주도",
+      "summary": "메디컬 마케팅팀과 미디어팀이 기획 단계부터 협업하는 전속 TF 신설을 제안하고, 실무 운영을 주도하겠습니다.",
+      "details": [
+        {
+          "id": "d1",
+          "text": "주요 대상",
+          "order": 0
+        },
+        {
+          "id": "d2",
+          "text": "핵심 소구점",
+          "order": 1
+        },
+        {
+          "id": "d3",
+          "text": "활용 채널",
+          "order": 2
+        },
+        {
+          "id": "d4",
+          "text": "영상 길이",
+          "order": 3
+        },
+        {
+          "id": "d5",
+          "text": "납기",
+          "order": 4
+        },
+        {
+          "id": "d6",
+          "text": "필요한 촬영 자료",
+          "order": 5
+        },
+        {
+          "id": "d7",
+          "text": "상담 유도 방향",
+          "order": 6
+        },
+        {
+          "id": "d8",
+          "text": "검수 기준",
+          "order": 7
+        }
+      ],
+      "expectedEffect": "제작 과정의 혼선과 반복 수정을 줄이고, 마케팅 목적에 맞는 영상을 안정적으로 제작하겠습니다.",
+      "progress": "예정",
+      "order": 0,
+      "visible": true
+    },
+    "after": {
+      "id": "fp1",
+      "title": "메디컬 마케팅·미디어 전속 TF 구축",
+      "summary": "마케팅팀과 미디어팀이 기획 단계부터 협업하는 전속 TF를 제안하고, 실무 운영을 주도합니다.",
+      "details": [
+        {
+          "id": "d1",
+          "text": "임플란트·치과 전문 광고",
+          "order": 0
+        },
+        {
+          "id": "d2",
+          "text": "메타 전환형 숏폼",
+          "order": 1
+        },
+        {
+          "id": "d3",
+          "text": "병원 정보형 SNS 콘텐츠",
+          "order": 2
+        }
+      ],
+      "expectedEffect": "제작 과정의 혼선과 반복 수정을 줄이고, 마케팅 목적에 맞는 영상을 안정적으로 제작하겠습니다.",
+      "progress": "예정",
+      "order": 0,
+      "visible": true
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-26T10:07:12.029Z"
+  },
+  {
+    "id": "0fd3ad7b-cda0-455b-a5e3-4fee5fec239d",
+    "entity": "projects:proj-cafe",
+    "field": "수정",
+    "before": {
+      "id": "proj-cafe",
+      "number": "02",
+      "title": "카페 및 음식 브랜드 촬영",
+      "brand": "갈바트 카페, 교타쿠",
+      "brandHidden": false,
+      "year": "2024",
+      "field": "카페 및 음식",
+      "purpose": "메뉴판 및 사회관계망서비스 홍보용 음식·음료 사진 제작",
+      "role": "촬영 및 보정",
+      "tools": [
+        "[자료 필요] 사용 장비 및 보정 프로그램 목록"
+      ],
+      "description": "갈바트 카페와 교타쿠 브랜드의 메뉴 콘텐츠에서 음식의 특징과 브랜드 분위기가 자연스럽게 드러나도록 촬영하고 보정했습니다.",
+      "heroImage": {
+        "url": "/placeholders/cafe.svg",
+        "kind": "image",
+        "alt": "카페 및 음식 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [
+        {
+          "url": "/uploads/68bb68fa-60c8-4994-bc02-0b8bfad45cf0.png",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/284fe543-aa2d-48bb-a893-f19e8bb9f26e.png",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/1cf90451-d0ba-4b7c-8f47-b724d66770a1.png",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "beforeAfter": [],
+      "metrics": [],
+      "detailBlocks": [],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 1,
+      "createdAt": "2024-09-01T00:00:00.000Z",
+      "updatedAt": "2026-07-26T05:03:09.172Z"
+    },
+    "after": {
+      "id": "proj-cafe",
+      "number": "02",
+      "title": "카페 및 음식 브랜드 촬영",
+      "brand": "갈바트 카페, 교타쿠",
+      "brandHidden": false,
+      "year": "2024",
+      "field": "카페 및 음식",
+      "purpose": "브랜드의 아이덴티티와 음식의 매력을 동시에 전달하여 온라인에서도 브랜드 경험이 이어질 수 있는 콘텐츠 제작",
+      "role": "촬영 · 색보정 · 리터칭 · 메뉴 콘텐츠 제작",
+      "tools": [
+        "[자료 필요] 사용 장비 및 보정 프로그램 목록"
+      ],
+      "description": "음식의 맛을 시각적으로 전달하고, 브랜드가 가진 분위기와 감성을 함께 담아낼 수 있는 메뉴 콘텐츠를 제작했습니다.",
+      "heroImage": {
+        "url": "/placeholders/cafe.svg",
+        "kind": "image",
+        "alt": "카페 및 음식 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [
+        {
+          "url": "/uploads/68bb68fa-60c8-4994-bc02-0b8bfad45cf0.png",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/284fe543-aa2d-48bb-a893-f19e8bb9f26e.png",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/1cf90451-d0ba-4b7c-8f47-b724d66770a1.png",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "beforeAfter": [],
+      "metrics": [],
+      "detailBlocks": [],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 1,
+      "createdAt": "2024-09-01T00:00:00.000Z",
+      "updatedAt": "2026-07-26T09:59:42.936Z"
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-26T09:59:42.961Z"
+  },
+  {
+    "id": "54f39f96-a002-44ba-9fc1-c1f5cfa7591a",
+    "entity": "timeline:tl-2026",
+    "field": "수정",
+    "before": {
+      "id": "tl-2026",
+      "year": "2026",
+      "title": "AI와 제작 프로세스로 새로운 기준을 만들다",
+      "description": "생성형 AI를 콘텐츠 제작에 적용하고, 제작 관리 체계를 구축하며 업무의 효율과 완성도를 함께 높였습니다.",
+      "experiences": [
+        {
+          "id": "e1",
+          "text": "Flow AI 활용",
+          "order": 0
+        },
+        {
+          "id": "e2",
+          "text": "Higgsfield AI 활용",
+          "order": 1
+        },
+        {
+          "id": "e3",
+          "text": "Sora AI 활용",
+          "order": 2
+        },
+        {
+          "id": "e4",
+          "text": "InVideo AI 활용",
+          "order": 3
+        },
+        {
+          "id": "e5",
+          "text": "Kling AI 활용",
+          "order": 4
+        },
+        {
+          "id": "e6",
+          "text": "인공지능 활용 브랜드 홍보 영상 제작",
+          "order": 5
+        },
+        {
+          "id": "e7",
+          "text": "Notion 기반 인공지능 크레딧 관리 데이터베이스 구축",
+          "order": 6
+        },
+        {
+          "id": "e8",
+          "text": "월별·사용자별·도구별 사용량 통계 구성",
+          "order": 7
+        },
+        {
+          "id": "e9",
+          "text": "팀장 보고용 사용현황 화면 구성",
+          "order": 8
+        }
+      ],
+      "message": "새로운 기술을 실무에 적용하며 제작 효율과 협업 방식을 함께 개선했습니다.",
+      "heroImage": {
+        "url": "/placeholders/year-2026.svg",
+        "kind": "image",
+        "alt": "2026년 대표 이미지 [자료 필요]"
+      },
+      "order": 2,
+      "visible": true,
+      "status": "draft"
+    },
+    "after": {
+      "id": "tl-2026",
+      "year": "2026",
+      "title": "생성형 인공지능과 제작 관리로 업무 범위를 확장하다",
+      "description": "새로운 생성형 인공지능 도구를 실제 콘텐츠 제작에 적용하고, 팀이 함께 사용할 수 있는 관리체계를 구축했다.",
+      "experiences": [
+        {
+          "id": "e1",
+          "text": "Flow AI 활용",
+          "order": 0
+        },
+        {
+          "id": "e2",
+          "text": "Higgsfield AI 활용",
+          "order": 1
+        },
+        {
+          "id": "e3",
+          "text": "Sora AI 활용",
+          "order": 2
+        },
+        {
+          "id": "e4",
+          "text": "InVideo AI 활용",
+          "order": 3
+        },
+        {
+          "id": "e5",
+          "text": "Kling AI 활용",
+          "order": 4
+        },
+        {
+          "id": "e6",
+          "text": "인공지능 활용 브랜드 홍보 영상 제작",
+          "order": 5
+        },
+        {
+          "id": "e7",
+          "text": "Notion 기반 인공지능 크레딧 관리 데이터베이스 구축",
+          "order": 6
+        },
+        {
+          "id": "e8",
+          "text": "월별·사용자별·도구별 사용량 통계 구성",
+          "order": 7
+        },
+        {
+          "id": "e9",
+          "text": "팀장 보고용 사용현황 화면 구성",
+          "order": 8
+        }
+      ],
+      "message": "새로운 기술을 단순히 체험하지 않고 업무 결과와 팀 운영 개선으로 연결했습니다.",
+      "heroImage": {
+        "url": "/uploads/652eccc5-8d65-4110-ae97-c0137b037cdd.jpg",
+        "kind": "image",
+        "alt": "2026년 대표 이미지 [자료 필요]"
+      },
+      "order": 2,
+      "visible": true,
+      "status": "draft"
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-26T09:57:36.840Z"
+  },
+  {
+    "id": "90a7b023-ba28-4194-a72b-1355b038c5f5",
+    "entity": "projects:proj-clothing",
+    "field": "수정",
+    "before": {
+      "id": "proj-clothing",
+      "number": "01",
+      "title": "의류 상세페이지 및 모델 촬영",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "의류",
+      "purpose": "온라인 환경에서도 실제 제품의 질감과 색감을 신뢰감 있게 전달하고, 구매 결정에 필요한 정보를 효과적으로 제공하는 상세페이지 제작",
+      "role": "촬영 · 색보정 · 리터칭",
+      "tools": [
+        "[자료 필요] 사용 장비 및 보정 프로그램 목록"
+      ],
+      "description": "온라인 판매용 의류 상세페이지 제작 프로젝트로, 제품의 색상과 소재를 실제와 가깝게 표현하고 모델 착용 이미지를 통해 상품의 특징과 착용감을 효과적으로 전달하는 데 중점을 두었습니다.",
+      "heroImage": {
+        "url": "/placeholders/clothing.svg",
+        "kind": "image",
+        "alt": "의류 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [],
+      "beforeAfter": [
+        {
+          "id": "75331a83-1d99-4958-9620-389756ec918d",
+          "before": {
+            "url": "/uploads/4393cd5d-8fc9-4e73-8793-dc2bcf1e7162.png",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/0f5e0106-524a-45f0-b466-fd7a6578f3b0.png",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 0
+        }
+      ],
+      "metrics": [],
+      "detailBlocks": [],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 0,
+      "createdAt": "2024-08-01T00:00:00.000Z",
+      "updatedAt": "2026-07-26T09:55:24.836Z"
+    },
+    "after": {
+      "id": "proj-clothing",
+      "number": "01",
+      "title": "의류 상세페이지 및 모델 촬영",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "의류",
+      "purpose": "온라인 환경에서도 실제 제품의 질감과 색감을 신뢰감 있게 전달하고, 구매 결정에 필요한 정보를 효과적으로 제공하는 상세페이지 제작",
+      "role": "촬영 · 색보정 · 리터칭",
+      "tools": [
+        "[자료 필요] 사용 장비 및 보정 프로그램 목록"
+      ],
+      "description": "온라인 판매용 의류 상세페이지 제작 프로젝트로, 제품의 색상과 소재를 실제와 가깝게 표현하고 모델 착용 이미지를 통해 상품의 특징과 착용감을 효과적으로 전달하는 데 중점을 두었습니다.",
+      "heroImage": {
+        "url": "/placeholders/clothing.svg",
+        "kind": "image",
+        "alt": "의류 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [],
+      "beforeAfter": [
+        {
+          "id": "75331a83-1d99-4958-9620-389756ec918d",
+          "before": {
+            "url": "/uploads/4393cd5d-8fc9-4e73-8793-dc2bcf1e7162.png",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/0f5e0106-524a-45f0-b466-fd7a6578f3b0.png",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 0
+        }
+      ],
+      "metrics": [],
+      "detailBlocks": [],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 0,
+      "createdAt": "2024-08-01T00:00:00.000Z",
+      "updatedAt": "2026-07-26T09:56:44.403Z"
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-26T09:56:44.433Z"
+  },
+  {
+    "id": "423140d8-a12f-4846-8302-7e3090d3b444",
+    "entity": "projects:proj-clothing",
+    "field": "수정",
+    "before": {
+      "id": "proj-clothing",
+      "number": "01",
+      "title": "의류 상세페이지 및 모델 촬영",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "의류",
+      "purpose": "온라인 판매 페이지에 사용할 상품 디테일컷과 모델 착용컷 제작",
+      "role": "촬영 및 보정",
+      "tools": [
+        "[자료 필요] 사용 장비 및 보정 프로그램 목록"
+      ],
+      "description": "상품의 소재와 색감이 실제와 다르게 보이지 않도록 정확한 색보정을 우선하고, 모델 촬영에서는 착용감이 드러나는 구도를 함께 고려했다.",
+      "heroImage": {
+        "url": "/placeholders/clothing.svg",
+        "kind": "image",
+        "alt": "의류 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [],
+      "beforeAfter": [
+        {
+          "id": "75331a83-1d99-4958-9620-389756ec918d",
+          "before": {
+            "url": "/uploads/4393cd5d-8fc9-4e73-8793-dc2bcf1e7162.png",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/0f5e0106-524a-45f0-b466-fd7a6578f3b0.png",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 0
+        }
+      ],
+      "metrics": [],
+      "detailBlocks": [],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 0,
+      "createdAt": "2024-08-01T00:00:00.000Z",
+      "updatedAt": "2026-07-26T04:50:36.211Z"
+    },
+    "after": {
+      "id": "proj-clothing",
+      "number": "01",
+      "title": "의류 상세페이지 및 모델 촬영",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "의류",
+      "purpose": "온라인 환경에서도 실제 제품의 질감과 색감을 신뢰감 있게 전달하고, 구매 결정에 필요한 정보를 효과적으로 제공하는 상세페이지 제작",
+      "role": "촬영 · 색보정 · 리터칭",
+      "tools": [
+        "[자료 필요] 사용 장비 및 보정 프로그램 목록"
+      ],
+      "description": "온라인 판매용 의류 상세페이지 제작 프로젝트로, 제품의 색상과 소재를 실제와 가깝게 표현하고 모델 착용 이미지를 통해 상품의 특징과 착용감을 효과적으로 전달하는 데 중점을 두었습니다.",
+      "heroImage": {
+        "url": "/placeholders/clothing.svg",
+        "kind": "image",
+        "alt": "의류 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [],
+      "beforeAfter": [
+        {
+          "id": "75331a83-1d99-4958-9620-389756ec918d",
+          "before": {
+            "url": "/uploads/4393cd5d-8fc9-4e73-8793-dc2bcf1e7162.png",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/0f5e0106-524a-45f0-b466-fd7a6578f3b0.png",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 0
+        }
+      ],
+      "metrics": [],
+      "detailBlocks": [],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 0,
+      "createdAt": "2024-08-01T00:00:00.000Z",
+      "updatedAt": "2026-07-26T09:55:24.836Z"
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-26T09:55:25.076Z"
+  },
+  {
+    "id": "daace5bc-84bd-4b82-b1ef-8f715a31dd47",
+    "entity": "timeline:tl-2026",
+    "field": "수정",
+    "before": {
+      "id": "tl-2026",
+      "year": "2026",
+      "title": "생성형 인공지능과 제작 관리로 업무 범위를 확장하다",
+      "description": "새로운 생성형 인공지능 도구를 실제 콘텐츠 제작에 적용하고, 팀이 함께 사용할 수 있는 관리체계를 구축했다.",
+      "experiences": [
+        {
+          "id": "e1",
+          "text": "Flow AI 활용",
+          "order": 0
+        },
+        {
+          "id": "e2",
+          "text": "Higgsfield AI 활용",
+          "order": 1
+        },
+        {
+          "id": "e3",
+          "text": "Sora AI 활용",
+          "order": 2
+        },
+        {
+          "id": "e4",
+          "text": "InVideo AI 활용",
+          "order": 3
+        },
+        {
+          "id": "e5",
+          "text": "Kling AI 활용",
+          "order": 4
+        },
+        {
+          "id": "e6",
+          "text": "인공지능 활용 브랜드 홍보 영상 제작",
+          "order": 5
+        },
+        {
+          "id": "e7",
+          "text": "Notion 기반 인공지능 크레딧 관리 데이터베이스 구축",
+          "order": 6
+        },
+        {
+          "id": "e8",
+          "text": "월별·사용자별·도구별 사용량 통계 구성",
+          "order": 7
+        },
+        {
+          "id": "e9",
+          "text": "팀장 보고용 사용현황 화면 구성",
+          "order": 8
+        }
+      ],
+      "message": "새로운 기술을 단순히 체험하지 않고 업무 결과와 팀 운영 개선으로 연결했습니다.",
+      "heroImage": {
+        "url": "/placeholders/year-2026.svg",
+        "kind": "image",
+        "alt": "2026년 대표 이미지 [자료 필요]"
+      },
+      "order": 2,
+      "visible": true,
+      "status": "draft"
+    },
+    "after": {
+      "id": "tl-2026",
+      "year": "2026",
+      "title": "AI와 제작 프로세스로 새로운 기준을 만들다",
+      "description": "생성형 AI를 콘텐츠 제작에 적용하고, 제작 관리 체계를 구축하며 업무의 효율과 완성도를 함께 높였습니다.",
+      "experiences": [
+        {
+          "id": "e1",
+          "text": "Flow AI 활용",
+          "order": 0
+        },
+        {
+          "id": "e2",
+          "text": "Higgsfield AI 활용",
+          "order": 1
+        },
+        {
+          "id": "e3",
+          "text": "Sora AI 활용",
+          "order": 2
+        },
+        {
+          "id": "e4",
+          "text": "InVideo AI 활용",
+          "order": 3
+        },
+        {
+          "id": "e5",
+          "text": "Kling AI 활용",
+          "order": 4
+        },
+        {
+          "id": "e6",
+          "text": "인공지능 활용 브랜드 홍보 영상 제작",
+          "order": 5
+        },
+        {
+          "id": "e7",
+          "text": "Notion 기반 인공지능 크레딧 관리 데이터베이스 구축",
+          "order": 6
+        },
+        {
+          "id": "e8",
+          "text": "월별·사용자별·도구별 사용량 통계 구성",
+          "order": 7
+        },
+        {
+          "id": "e9",
+          "text": "팀장 보고용 사용현황 화면 구성",
+          "order": 8
+        }
+      ],
+      "message": "새로운 기술을 실무에 적용하며 제작 효율과 협업 방식을 함께 개선했습니다.",
+      "heroImage": {
+        "url": "/placeholders/year-2026.svg",
+        "kind": "image",
+        "alt": "2026년 대표 이미지 [자료 필요]"
+      },
+      "order": 2,
+      "visible": true,
+      "status": "draft"
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-26T09:48:55.151Z"
+  },
+  {
+    "id": "28b36ec0-2c48-4161-81a2-a120c3f3bfa7",
+    "entity": "timeline:tl-2025",
+    "field": "수정",
+    "before": {
+      "id": "tl-2025",
+      "year": "2025",
+      "title": "사진에서 영상과 콘텐츠 기획으로 역할을 넓히다",
+      "description": "사진과 보정 중심의 업무에서 벗어나 광고 영상과 유튜브 콘텐츠 제작까지 범위를 확대했다.",
+      "experiences": [
+        {
+          "id": "e1",
+          "text": "임플란트 및 치과 광고 영상 제작",
+          "order": 0
+        },
+        {
+          "id": "e2",
+          "text": "Meta 광고 영상 제작",
+          "order": 1
+        },
+        {
+          "id": "e3",
+          "text": "병원 사회관계망서비스 정보형 영상 제작",
+          "order": 2
+        },
+        {
+          "id": "e4",
+          "text": "변호사 유튜브 채널 콘텐츠 기획 및 제작",
+          "order": 3
+        },
+        {
+          "id": "e5",
+          "text": "갈바트 카페 유튜브 콘텐츠 제작",
+          "order": 4
+        },
+        {
+          "id": "e6",
+          "text": "갈바트 카페 콘텐츠 메인 진행자 참여",
+          "order": 5
+        }
+      ],
+      "message": "촬영된 내용을 편집하는 데 그치지 않고 무엇을 어떤 순서로 전달할지 고민하기 시작했습니다.",
+      "heroImage": {
+        "url": "/uploads/f69efc6f-57cf-444d-abf0-33af12cc0158.jpg",
+        "kind": "image",
+        "alt": "2025년 대표 이미지 [자료 필요]"
+      },
+      "order": 1,
+      "visible": true,
+      "status": "draft"
+    },
+    "after": {
+      "id": "tl-2025",
+      "year": "2025",
+      "title": "콘텐츠 제작의 영역을 넓히다",
+      "description": "사진 중심의 제작에서 영상과 콘텐츠 기획까지 담당하며 콘텐츠 제작의 역할과 범위를 확장했습니다.",
+      "experiences": [
+        {
+          "id": "e1",
+          "text": "임플란트 및 치과 광고 영상 제작",
+          "order": 0
+        },
+        {
+          "id": "e2",
+          "text": "Meta 광고 영상 제작",
+          "order": 1
+        },
+        {
+          "id": "e3",
+          "text": "병원 사회관계망서비스 정보형 영상 제작",
+          "order": 2
+        },
+        {
+          "id": "e4",
+          "text": "변호사 유튜브 채널 콘텐츠 기획 및 제작",
+          "order": 3
+        },
+        {
+          "id": "e5",
+          "text": "갈바트 카페 유튜브 콘텐츠 제작",
+          "order": 4
+        },
+        {
+          "id": "e6",
+          "text": "갈바트 카페 콘텐츠 메인 진행자 참여",
+          "order": 5
+        }
+      ],
+      "message": "편집을 넘어 콘텐츠의 흐름과 전달 방식까지 함께 설계하는 시각을 갖추었습니다.",
+      "heroImage": {
+        "url": "/placeholders/year-2025.svg",
+        "kind": "image",
+        "alt": "2025년 대표 이미지 [자료 필요]"
+      },
+      "order": 1,
+      "visible": true,
+      "status": "draft"
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-26T09:47:08.240Z"
+  },
+  {
+    "id": "a9e61d29-3fb3-46dc-9c77-0dfb2194cdb2",
+    "entity": "timeline:tl-2024",
+    "field": "수정",
+    "before": {
+      "id": "tl-2024",
+      "year": "2024",
+      "title": "기본기에서 시작한 콘텐츠 제작",
+      "description": "촬영과 보정의 완성도를 높이는 과정에서 다양한 촬영 환경을 경험하며 콘텐츠 제작의 기초 역량을 체계적으로 다졌습니다.",
+      "experiences": [
+        {
+          "id": "e1",
+          "text": "의류 디테일컷 촬영 및 보정",
+          "order": 0
+        },
+        {
+          "id": "e2",
+          "text": "의류 모델 촬영 및 보정",
+          "order": 1
+        },
+        {
+          "id": "e3",
+          "text": "카페 및 음식 메뉴 촬영 및 보정",
+          "order": 2
+        },
+        {
+          "id": "e4",
+          "text": "인테리어 촬영 보조 및 보정",
+          "order": 3
+        },
+        {
+          "id": "e5",
+          "text": "직원과 의료진 프로필 촬영 보조 및 보정",
+          "order": 4
+        },
+        {
+          "id": "e6",
+          "text": "트레이너 프로필 보정",
+          "order": 5
+        },
+        {
+          "id": "e7",
+          "text": "단체사진 촬영 보조 및 보정",
+          "order": 6
+        }
+      ],
+      "message": "상품, 음식, 공간 등 다양한 콘텐츠를 경험하며 표현의 기준을 넓혀갔습니다.",
+      "heroImage": {
+        "url": "/uploads/41e26ca1-e922-47a2-bdad-c141603be45f.jpg",
+        "kind": "image",
+        "alt": "2024년 대표 이미지 [자료 필요]"
+      },
+      "order": 0,
+      "visible": true,
+      "status": "draft"
+    },
+    "after": {
+      "id": "tl-2024",
+      "year": "2024",
+      "title": "기본기에서 시작한 콘텐츠 제작",
+      "description": "입사 초기에는 정확한 촬영과 보정을 중심으로 다양한 제품과 환경에 맞는 표현 기준을 익히며 제작의 기본기를 탄탄하게 쌓았습니다.",
+      "experiences": [
+        {
+          "id": "e1",
+          "text": "의류 디테일컷 촬영 및 보정",
+          "order": 0
+        },
+        {
+          "id": "e2",
+          "text": "의류 모델 촬영 및 보정",
+          "order": 1
+        },
+        {
+          "id": "e3",
+          "text": "카페 및 음식 메뉴 촬영 및 보정",
+          "order": 2
+        },
+        {
+          "id": "e4",
+          "text": "인테리어 촬영 보조 및 보정",
+          "order": 3
+        },
+        {
+          "id": "e5",
+          "text": "직원과 의료진 프로필 촬영 보조 및 보정",
+          "order": 4
+        },
+        {
+          "id": "e6",
+          "text": "트레이너 프로필 보정",
+          "order": 5
+        },
+        {
+          "id": "e7",
+          "text": "단체사진 촬영 보조 및 보정",
+          "order": 6
+        }
+      ],
+      "message": "상품, 음식, 공간 등 다양한 콘텐츠를 경험하며 표현의 기준을 넓혀갔습니다.",
+      "heroImage": {
+        "url": "/uploads/41e26ca1-e922-47a2-bdad-c141603be45f.jpg",
+        "kind": "image",
+        "alt": "2024년 대표 이미지 [자료 필요]"
+      },
+      "order": 0,
+      "visible": true,
+      "status": "draft"
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-26T09:45:11.530Z"
+  },
+  {
+    "id": "d11a5986-1ccd-4962-a3e4-7ab186c04183",
+    "entity": "timeline:tl-2024",
+    "field": "수정",
+    "before": {
+      "id": "tl-2024",
+      "year": "2024",
+      "title": "기본기에서 시작한 콘텐츠 제작",
+      "description": "입사 초기에는 정확한 촬영과 보정을 중심으로 다양한 제품과 환경에 맞는 표현 기준을 익히며 제작의 기본기를 탄탄하게 쌓았습니다.",
+      "experiences": [
+        {
+          "id": "e1",
+          "text": "의류 디테일컷 촬영 및 보정",
+          "order": 0
+        },
+        {
+          "id": "e2",
+          "text": "의류 모델 촬영 및 보정",
+          "order": 1
+        },
+        {
+          "id": "e3",
+          "text": "카페 및 음식 메뉴 촬영 및 보정",
+          "order": 2
+        },
+        {
+          "id": "e4",
+          "text": "인테리어 촬영 보조 및 보정",
+          "order": 3
+        },
+        {
+          "id": "e5",
+          "text": "직원과 의료진 프로필 촬영 보조 및 보정",
+          "order": 4
+        },
+        {
+          "id": "e6",
+          "text": "트레이너 프로필 보정",
+          "order": 5
+        },
+        {
+          "id": "e7",
+          "text": "단체사진 촬영 보조 및 보정",
+          "order": 6
+        }
+      ],
+      "message": "상품, 음식, 공간 등 다양한 콘텐츠를 경험하며 표현의 기준을 넓혀갔습니다.",
+      "heroImage": {
+        "url": "/uploads/41e26ca1-e922-47a2-bdad-c141603be45f.jpg",
+        "kind": "image",
+        "alt": "2024년 대표 이미지 [자료 필요]"
+      },
+      "order": 0,
+      "visible": true,
+      "status": "draft"
+    },
+    "after": {
+      "id": "tl-2024",
+      "year": "2024",
+      "title": "기본기에서 시작한 콘텐츠 제작",
+      "description": "촬영과 보정의 완성도를 높이는 과정에서 다양한 촬영 환경을 경험하며 콘텐츠 제작의 기초 역량을 체계적으로 다졌습니다.",
+      "experiences": [
+        {
+          "id": "e1",
+          "text": "의류 디테일컷 촬영 및 보정",
+          "order": 0
+        },
+        {
+          "id": "e2",
+          "text": "의류 모델 촬영 및 보정",
+          "order": 1
+        },
+        {
+          "id": "e3",
+          "text": "카페 및 음식 메뉴 촬영 및 보정",
+          "order": 2
+        },
+        {
+          "id": "e4",
+          "text": "인테리어 촬영 보조 및 보정",
+          "order": 3
+        },
+        {
+          "id": "e5",
+          "text": "직원과 의료진 프로필 촬영 보조 및 보정",
+          "order": 4
+        },
+        {
+          "id": "e6",
+          "text": "트레이너 프로필 보정",
+          "order": 5
+        },
+        {
+          "id": "e7",
+          "text": "단체사진 촬영 보조 및 보정",
+          "order": 6
+        }
+      ],
+      "message": "상품, 음식, 공간 등 다양한 콘텐츠를 경험하며 표현의 기준을 넓혀갔습니다.",
+      "heroImage": {
+        "url": "/uploads/41e26ca1-e922-47a2-bdad-c141603be45f.jpg",
+        "kind": "image",
+        "alt": "2024년 대표 이미지 [자료 필요]"
+      },
+      "order": 0,
+      "visible": true,
+      "status": "draft"
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-26T09:44:43.695Z"
+  },
+  {
+    "id": "3f04ba4f-868d-49ee-9d72-03502dd874e6",
+    "entity": "timeline:tl-2024",
+    "field": "수정",
+    "before": {
+      "id": "tl-2024",
+      "year": "2024",
+      "title": "촬영과 보정의 기본을 다지다",
+      "description": "입사 초기에는 정확한 촬영과 보정을 중심으로 다양한 제품과 환경에 맞는 표현 기준을 익히며 제작의 기본기를 탄탄하게 쌓았습니다.",
+      "experiences": [
+        {
+          "id": "e1",
+          "text": "의류 디테일컷 촬영 및 보정",
+          "order": 0
+        },
+        {
+          "id": "e2",
+          "text": "의류 모델 촬영 및 보정",
+          "order": 1
+        },
+        {
+          "id": "e3",
+          "text": "카페 및 음식 메뉴 촬영 및 보정",
+          "order": 2
+        },
+        {
+          "id": "e4",
+          "text": "인테리어 촬영 보조 및 보정",
+          "order": 3
+        },
+        {
+          "id": "e5",
+          "text": "직원과 의료진 프로필 촬영 보조 및 보정",
+          "order": 4
+        },
+        {
+          "id": "e6",
+          "text": "트레이너 프로필 보정",
+          "order": 5
+        },
+        {
+          "id": "e7",
+          "text": "단체사진 촬영 보조 및 보정",
+          "order": 6
+        }
+      ],
+      "message": "상품, 음식, 공간 등 다양한 콘텐츠를 경험하며 표현의 기준을 넓혀갔습니다.",
+      "heroImage": {
+        "url": "/uploads/41e26ca1-e922-47a2-bdad-c141603be45f.jpg",
+        "kind": "image",
+        "alt": "2024년 대표 이미지 [자료 필요]"
+      },
+      "order": 0,
+      "visible": true,
+      "status": "draft"
+    },
+    "after": {
+      "id": "tl-2024",
+      "year": "2024",
+      "title": "기본기에서 시작한 콘텐츠 제작",
+      "description": "입사 초기에는 정확한 촬영과 보정을 중심으로 다양한 제품과 환경에 맞는 표현 기준을 익히며 제작의 기본기를 탄탄하게 쌓았습니다.",
+      "experiences": [
+        {
+          "id": "e1",
+          "text": "의류 디테일컷 촬영 및 보정",
+          "order": 0
+        },
+        {
+          "id": "e2",
+          "text": "의류 모델 촬영 및 보정",
+          "order": 1
+        },
+        {
+          "id": "e3",
+          "text": "카페 및 음식 메뉴 촬영 및 보정",
+          "order": 2
+        },
+        {
+          "id": "e4",
+          "text": "인테리어 촬영 보조 및 보정",
+          "order": 3
+        },
+        {
+          "id": "e5",
+          "text": "직원과 의료진 프로필 촬영 보조 및 보정",
+          "order": 4
+        },
+        {
+          "id": "e6",
+          "text": "트레이너 프로필 보정",
+          "order": 5
+        },
+        {
+          "id": "e7",
+          "text": "단체사진 촬영 보조 및 보정",
+          "order": 6
+        }
+      ],
+      "message": "상품, 음식, 공간 등 다양한 콘텐츠를 경험하며 표현의 기준을 넓혀갔습니다.",
+      "heroImage": {
+        "url": "/uploads/41e26ca1-e922-47a2-bdad-c141603be45f.jpg",
+        "kind": "image",
+        "alt": "2024년 대표 이미지 [자료 필요]"
+      },
+      "order": 0,
+      "visible": true,
+      "status": "draft"
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-26T09:44:26.731Z"
+  },
+  {
+    "id": "c9e121df-f604-460c-b837-19ced2565eef",
+    "entity": "timeline:tl-2024",
+    "field": "수정",
+    "before": {
+      "id": "tl-2024",
+      "year": "2024",
+      "title": "촬영과 보정의 기본을 쌓다",
+      "description": "입사 초기에는 촬영과 보정 업무를 정확하고 안정적으로 처리하는 데 집중했다.",
+      "experiences": [
+        {
+          "id": "e1",
+          "text": "의류 디테일컷 촬영 및 보정",
+          "order": 0
+        },
+        {
+          "id": "e2",
+          "text": "의류 모델 촬영 및 보정",
+          "order": 1
+        },
+        {
+          "id": "e3",
+          "text": "카페 및 음식 메뉴 촬영 및 보정",
+          "order": 2
+        },
+        {
+          "id": "e4",
+          "text": "인테리어 촬영 보조 및 보정",
+          "order": 3
+        },
+        {
+          "id": "e5",
+          "text": "직원과 의료진 프로필 촬영 보조 및 보정",
+          "order": 4
+        },
+        {
+          "id": "e6",
+          "text": "트레이너 프로필 보정",
+          "order": 5
+        },
+        {
+          "id": "e7",
+          "text": "단체사진 촬영 보조 및 보정",
+          "order": 6
+        }
+      ],
+      "message": "상품, 음식, 공간과 인물마다 다른 표현 기준을 익혔습니다.",
+      "heroImage": {
+        "url": "/uploads/41e26ca1-e922-47a2-bdad-c141603be45f.jpg",
+        "kind": "image",
+        "alt": "2024년 대표 이미지 [자료 필요]"
+      },
+      "order": 0,
+      "visible": true,
+      "status": "draft"
+    },
+    "after": {
+      "id": "tl-2024",
+      "year": "2024",
+      "title": "촬영과 보정의 기본을 다지다",
+      "description": "입사 초기에는 정확한 촬영과 보정을 중심으로 다양한 제품과 환경에 맞는 표현 기준을 익히며 제작의 기본기를 탄탄하게 쌓았습니다.",
+      "experiences": [
+        {
+          "id": "e1",
+          "text": "의류 디테일컷 촬영 및 보정",
+          "order": 0
+        },
+        {
+          "id": "e2",
+          "text": "의류 모델 촬영 및 보정",
+          "order": 1
+        },
+        {
+          "id": "e3",
+          "text": "카페 및 음식 메뉴 촬영 및 보정",
+          "order": 2
+        },
+        {
+          "id": "e4",
+          "text": "인테리어 촬영 보조 및 보정",
+          "order": 3
+        },
+        {
+          "id": "e5",
+          "text": "직원과 의료진 프로필 촬영 보조 및 보정",
+          "order": 4
+        },
+        {
+          "id": "e6",
+          "text": "트레이너 프로필 보정",
+          "order": 5
+        },
+        {
+          "id": "e7",
+          "text": "단체사진 촬영 보조 및 보정",
+          "order": 6
+        }
+      ],
+      "message": "상품, 음식, 공간 등 다양한 콘텐츠를 경험하며 표현의 기준을 넓혀갔습니다.",
+      "heroImage": {
+        "url": "/uploads/41e26ca1-e922-47a2-bdad-c141603be45f.jpg",
+        "kind": "image",
+        "alt": "2024년 대표 이미지 [자료 필요]"
+      },
+      "order": 0,
+      "visible": true,
+      "status": "draft"
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-26T09:43:54.562Z"
+  },
+  {
+    "id": "b8aaacb2-38a6-44b0-82cd-1aba0b3905ed",
+    "entity": "competencies:c2",
+    "field": "수정",
+    "before": {
+      "id": "c2",
+      "title": "사진·영상 통합 제작",
+      "description": "촬영부터 보정, 영상 제작까지 하나의 흐름으로 완성도를 높이는 제작 경험",
+      "cases": [
+        {
+          "id": "fbdbb5ed",
+          "text": "의류 디테일 컷과 모델 촬영·보정, 카페 및 음식 브랜드 메뉴 촬영·보정, 인테리어 촬영 보조와 보정 업무를 수행했습니다.",
+          "order": 0
+        },
+        {
+          "id": "586a9c32",
+          "text": "직원·의료진·트레이너 프로필과 단체사진 촬영 보조 및 보정에도 참여했습니다.",
+          "order": 1
+        },
+        {
+          "id": "8553ed47",
+          "text": "임플란트와 치과 광고 영상, 메타 광고 영상, 병원 SNS 정보 전달형 영상을 제작했습니다.",
+          "order": 2
+        }
+      ],
+      "order": 1,
+      "visible": true,
+      "status": "draft"
+    },
+    "after": {
+      "id": "c2",
+      "title": "사진·영상 통합 제작",
+      "description": "촬영부터 보정, 영상 제작까지 하나의 흐름으로 완성도를 높이는 제작 경험",
+      "cases": [
+        {
+          "id": "fbdbb5ed",
+          "text": "의류 디테일 컷과 모델 촬영·보정, 카페 및 음식 브랜드 메뉴 촬영·보정, 인테리어 촬영 보조와 보정 업무를 수행했습니다.",
+          "order": 0
+        },
+        {
+          "id": "586a9c32",
+          "text": "직원·의료진·트레이너 프로필과 단체사진 촬영 보조 및 보정에도 참여했습니다.",
+          "order": 1
+        },
+        {
+          "id": "8553ed47",
+          "text": "임플란트와 치과 광고 영상, 메타 광고 영상, 병원 SNS 정보 전달형 영상을 제작했습니다.",
+          "order": 2
+        }
+      ],
+      "order": 1,
+      "visible": true,
+      "status": "draft"
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-26T09:42:10.753Z"
+  },
+  {
+    "id": "61d658b3-a38c-4edb-b417-2174e8088116",
+    "entity": "competencies:c2",
+    "field": "수정",
+    "before": {
+      "id": "c2",
+      "title": "사진과 영상의 통합 제작",
+      "description": "정지 이미지의 완성도뿐 아니라 영상 흐름, 장면 연결, 자막과 정보 전달 순서를 함께 고려한다.",
+      "cases": [
+        {
+          "id": "fbdbb5ed",
+          "text": "의류 디테일 컷과 모델 촬영·보정, 카페 및 음식 브랜드 메뉴 촬영·보정, 인테리어 촬영 보조와 보정 업무를 수행했습니다.",
+          "order": 0
+        },
+        {
+          "id": "586a9c32",
+          "text": "직원·의료진·트레이너 프로필과 단체사진 촬영 보조 및 보정에도 참여했습니다.",
+          "order": 1
+        },
+        {
+          "id": "8553ed47",
+          "text": "임플란트와 치과 광고 영상, 메타 광고 영상, 병원 SNS 정보 전달형 영상을 제작했습니다.",
+          "order": 2
+        }
+      ],
+      "order": 1,
+      "visible": true,
+      "status": "draft"
+    },
+    "after": {
+      "id": "c2",
+      "title": "사진·영상 통합 제작",
+      "description": "촬영부터 보정, 영상 제작까지 하나의 흐름으로 완성도를 높이는 제작 경험",
+      "cases": [
+        {
+          "id": "fbdbb5ed",
+          "text": "의류 디테일 컷과 모델 촬영·보정, 카페 및 음식 브랜드 메뉴 촬영·보정, 인테리어 촬영 보조와 보정 업무를 수행했습니다.",
+          "order": 0
+        },
+        {
+          "id": "586a9c32",
+          "text": "직원·의료진·트레이너 프로필과 단체사진 촬영 보조 및 보정에도 참여했습니다.",
+          "order": 1
+        },
+        {
+          "id": "8553ed47",
+          "text": "임플란트와 치과 광고 영상, 메타 광고 영상, 병원 SNS 정보 전달형 영상을 제작했습니다.",
+          "order": 2
+        }
+      ],
+      "order": 1,
+      "visible": true,
+      "status": "draft"
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-26T09:42:10.561Z"
+  },
+  {
+    "id": "b6472cea-3ab7-47f9-93b7-96175ad67875",
+    "entity": "competencies:c1",
+    "field": "수정",
+    "before": {
+      "id": "c1",
+      "title": "콘텐츠 목적에 따른 표현방식 조정",
+      "description": "결과물이 어디에 사용되고 누구에게 전달되는지를 먼저 파악한 뒤 촬영과 보정 방향을 정한다.",
+      "cases": [
+        {
+          "id": "6599bc68",
+          "text": "의류 상세페이지에서는 실제 색상과 소재, 형태, 세부 디테일이 정확하게 전달되도록 촬영과 보정을 진행했습니다.",
+          "order": 0
+        },
+        {
+          "id": "13444e19",
+          "text": "갈바트 카페와 교타쿠 브랜드의 메뉴 콘텐츠에서는 음식의 특징과 브랜드 분위기가 자연스럽게 드러나도록 작업했습니다.",
+          "order": 1
+        },
+        {
+          "id": "f13891e3",
+          "text": "카페·음식 브랜드·병원·회사 인테리어 작업에서는 공간의 구조와 밝기, 전체 분위기가 왜곡되지 않도록 보정했습니다.",
+          "order": 2
+        },
+        {
+          "id": "0b6a28a2",
+          "text": "회사 직원, 병원 의사, 헬스장 트레이너 프로필에서는 과도한 보정보다 대상자의 자연스러움과 직업적 신뢰감을 유지하는 데 집중했습니다.",
+          "order": 3
+        }
+      ],
+      "order": 0,
+      "visible": true,
+      "status": "draft"
+    },
+    "after": {
+      "id": "c1",
+      "title": "목적 중심의 콘텐츠 기획",
+      "description": "콘텐츠의 목적을 먼저 이해하고, 가장 효과적인 표현 방식을 고민하는 크리에이터",
+      "cases": [
+        {
+          "id": "6599bc68",
+          "text": "의류 상세페이지에서는 실제 색상과 소재, 형태, 세부 디테일이 정확하게 전달되도록 촬영과 보정을 진행했습니다.",
+          "order": 0
+        },
+        {
+          "id": "13444e19",
+          "text": "갈바트 카페와 교타쿠 브랜드의 메뉴 콘텐츠에서는 음식의 특징과 브랜드 분위기가 자연스럽게 드러나도록 작업했습니다.",
+          "order": 1
+        },
+        {
+          "id": "f13891e3",
+          "text": "카페·음식 브랜드·병원·회사 인테리어 작업에서는 공간의 구조와 밝기, 전체 분위기가 왜곡되지 않도록 보정했습니다.",
+          "order": 2
+        },
+        {
+          "id": "0b6a28a2",
+          "text": "회사 직원, 병원 의사, 헬스장 트레이너 프로필에서는 과도한 보정보다 대상자의 자연스러움과 직업적 신뢰감을 유지하는 데 집중했습니다.",
+          "order": 3
+        }
+      ],
+      "order": 0,
+      "visible": true,
+      "status": "draft"
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-26T09:42:09.030Z"
+  },
+  {
+    "id": "867e606e-66c2-4702-9899-6d5ebfd73ec8",
+    "entity": "competencies:c3",
+    "field": "수정",
+    "before": {
+      "id": "c3",
+      "title": "생성형 인공지능의 실무 적용",
+      "description": "각 도구의 특성과 결과물 차이를 비교하고 실제 업무에 활용할 수 있는 범위를 판단한다.",
+      "cases": [
+        {
+          "id": "51150013",
+          "text": "Flow AI, Higgsfield AI, Sora AI, InVideo AI, Kling AI 등 5개 이상 생성형 AI 도구를 활용했습니다.",
+          "order": 0
+        },
+        {
+          "id": "eb2c1cde",
+          "text": "각 도구의 영상 표현 방식과 결과물 차이를 비교하고, 치과 광고 영상과 유튜브 콘텐츠 제작에 적합한 활용범위를 찾았습니다.",
+          "order": 1
+        },
+        {
+          "id": "123c6df9",
+          "text": "결과물이 원하는 수준에 미치지 못할 경우 프롬프트와 장면 구성을 조정하고, 필요한 후반 편집을 거쳐 완성도를 높였습니다.",
+          "order": 2
+        }
+      ],
+      "order": 2,
+      "visible": true,
+      "status": "draft"
+    },
+    "after": {
+      "id": "c3",
+      "title": "생성형 AI 실무 활용",
+      "description": "새로운 기술을 빠르게 익히고 실무 결과물로 연결하는 실행력",
+      "cases": [
+        {
+          "id": "51150013",
+          "text": "Flow AI, Higgsfield AI, Sora AI, InVideo AI, Kling AI 등 5개 이상 생성형 AI 도구를 활용했습니다.",
+          "order": 0
+        },
+        {
+          "id": "eb2c1cde",
+          "text": "각 도구의 영상 표현 방식과 결과물 차이를 비교하고, 치과 광고 영상과 유튜브 콘텐츠 제작에 적합한 활용범위를 찾았습니다.",
+          "order": 1
+        },
+        {
+          "id": "123c6df9",
+          "text": "결과물이 원하는 수준에 미치지 못할 경우 프롬프트와 장면 구성을 조정하고, 필요한 후반 편집을 거쳐 완성도를 높였습니다.",
+          "order": 2
+        }
+      ],
+      "order": 2,
+      "visible": true,
+      "status": "draft"
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-26T09:42:06.314Z"
+  },
+  {
+    "id": "1e28efba-10e5-4714-977e-0d9b2c0b55b4",
+    "entity": "competencies:c4",
+    "field": "수정",
+    "before": {
+      "id": "c4",
+      "title": "제작과 출연 전반에 대한 소통",
+      "description": "기획자, 촬영자, 출연자와 편집자가 필요로 하는 정보를 이해하고 전체 제작 흐름을 고려해 소통한다.",
+      "cases": [
+        {
+          "id": "f6594c9f",
+          "text": "갈바트 카페 유튜브 콘텐츠에서 메인 MC로 참여해 카메라 앞에서 직접 내용을 전달했습니다.",
+          "order": 0
+        },
+        {
+          "id": "a494c244",
+          "text": "촬영자의 요청을 받는 출연자의 입장과 촬영 이후 편집에 필요한 장면을 함께 경험했습니다.",
+          "order": 1
+        },
+        {
+          "id": "2822d391",
+          "text": "촬영 보조, 보정, 기획, 영상 제작, 출연 등 여러 역할을 수행하며 클라이언트와 일정 및 수정사항을 조율했습니다.",
+          "order": 2
+        }
+      ],
+      "order": 3,
+      "visible": true,
+      "status": "draft"
+    },
+    "after": {
+      "id": "c4",
+      "title": "협업 기반 프로젝트 운영",
+      "description": "다양한 구성원과의 소통을 바탕으로 프로젝트를 완성하는 협업 역량",
+      "cases": [
+        {
+          "id": "f6594c9f",
+          "text": "갈바트 카페 유튜브 콘텐츠에서 메인 MC로 참여해 카메라 앞에서 직접 내용을 전달했습니다.",
+          "order": 0
+        },
+        {
+          "id": "a494c244",
+          "text": "촬영자의 요청을 받는 출연자의 입장과 촬영 이후 편집에 필요한 장면을 함께 경험했습니다.",
+          "order": 1
+        },
+        {
+          "id": "2822d391",
+          "text": "촬영 보조, 보정, 기획, 영상 제작, 출연 등 여러 역할을 수행하며 클라이언트와 일정 및 수정사항을 조율했습니다.",
+          "order": 2
+        }
+      ],
+      "order": 3,
+      "visible": true,
+      "status": "draft"
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-26T09:42:04.280Z"
+  },
+  {
+    "id": "c1acddc0-71f8-4c04-ab71-cc5fd7db195a",
+    "entity": "competencies:c5",
+    "field": "수정",
+    "before": {
+      "id": "c5",
+      "title": "업무 개선 및 프로세스 구축",
+      "description": "반복되는 문제를 개선하고 더 효율적인 업무 방식을 만드는 문제 해결 역량",
+      "cases": [
+        {
+          "id": "880fa25d",
+          "text": "공용 AI 계정의 크레딧 사용 내역과 잔여량을 확인하기 어려운 문제를 발견했습니다.",
+          "order": 0
+        },
+        {
+          "id": "238bdfb8",
+          "text": "노션 기반 AI 크레딧 자산 관리 데이터베이스를 직접 설계하고 구축했습니다.",
+          "order": 1
+        },
+        {
+          "id": "c5fece42",
+          "text": "개인 편의가 아니라 팀이 함께 활용할 수 있는 방식으로 만들었습니다.",
+          "order": 2
+        }
+      ],
+      "order": 4,
+      "visible": true,
+      "status": "draft"
+    },
+    "after": {
+      "id": "c5",
+      "title": "업무 개선 및 프로세스 구축",
+      "description": "반복되는 문제를 개선하고 더 효율적인 업무 방식을 만드는 문제 해결 역량",
+      "cases": [
+        {
+          "id": "880fa25d",
+          "text": "공용 AI 계정의 크레딧 사용 내역과 잔여량을 확인하기 어려운 문제를 발견했습니다.",
+          "order": 0
+        },
+        {
+          "id": "238bdfb8",
+          "text": "노션 기반 AI 크레딧 자산 관리 데이터베이스를 직접 설계하고 구축했습니다.",
+          "order": 1
+        },
+        {
+          "id": "c5fece42",
+          "text": "개인 편의가 아니라 팀이 함께 활용할 수 있는 방식으로 만들었습니다.",
+          "order": 2
+        }
+      ],
+      "order": 4,
+      "visible": true,
+      "status": "draft"
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-26T09:42:03.165Z"
+  },
+  {
+    "id": "e91310f8-cdb4-4ede-b195-dc5af46a5b93",
+    "entity": "competencies:c5",
+    "field": "수정",
+    "before": {
+      "id": "c5",
+      "title": "업무 개선 및 프로세스 구축",
+      "description": "반복되는 문제를 분석하고, 팀이 함께 활용할 수 있는 업무 체계와 관리 방식을 구축한다.",
+      "cases": [
+        {
+          "id": "880fa25d",
+          "text": "공용 AI 계정의 크레딧 사용 내역과 잔여량을 확인하기 어려운 문제를 발견했습니다.",
+          "order": 0
+        },
+        {
+          "id": "238bdfb8",
+          "text": "노션 기반 AI 크레딧 자산 관리 데이터베이스를 직접 설계하고 구축했습니다.",
+          "order": 1
+        },
+        {
+          "id": "c5fece42",
+          "text": "개인 편의가 아니라 팀이 함께 활용할 수 있는 방식으로 만들었습니다.",
+          "order": 2
+        }
+      ],
+      "order": 4,
+      "visible": true,
+      "status": "draft"
+    },
+    "after": {
+      "id": "c5",
+      "title": "업무 개선 및 프로세스 구축",
+      "description": "반복되는 문제를 개선하고 더 효율적인 업무 방식을 만드는 문제 해결 역량",
+      "cases": [
+        {
+          "id": "880fa25d",
+          "text": "공용 AI 계정의 크레딧 사용 내역과 잔여량을 확인하기 어려운 문제를 발견했습니다.",
+          "order": 0
+        },
+        {
+          "id": "238bdfb8",
+          "text": "노션 기반 AI 크레딧 자산 관리 데이터베이스를 직접 설계하고 구축했습니다.",
+          "order": 1
+        },
+        {
+          "id": "c5fece42",
+          "text": "개인 편의가 아니라 팀이 함께 활용할 수 있는 방식으로 만들었습니다.",
+          "order": 2
+        }
+      ],
+      "order": 4,
+      "visible": true,
+      "status": "draft"
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-26T09:41:42.805Z"
+  },
+  {
+    "id": "99d1a1b0-151d-46d9-92bf-8834be420f0f",
+    "entity": "competencies:c5",
+    "field": "수정",
+    "before": {
+      "id": "c5",
+      "title": "지속적인 개선과 실행",
+      "description": "제작 과정의 문제를 분석하고 개선안을 실행하여 더 효율적인 업무 환경과 높은 콘텐츠 완성도를 만들어간다.",
+      "cases": [
+        {
+          "id": "880fa25d",
+          "text": "공용 AI 계정의 크레딧 사용 내역과 잔여량을 확인하기 어려운 문제를 발견했습니다.",
+          "order": 0
+        },
+        {
+          "id": "238bdfb8",
+          "text": "노션 기반 AI 크레딧 자산 관리 데이터베이스를 직접 설계하고 구축했습니다.",
+          "order": 1
+        },
+        {
+          "id": "c5fece42",
+          "text": "개인 편의가 아니라 팀이 함께 활용할 수 있는 방식으로 만들었습니다.",
+          "order": 2
+        }
+      ],
+      "order": 4,
+      "visible": true,
+      "status": "draft"
+    },
+    "after": {
+      "id": "c5",
+      "title": "업무 개선 및 프로세스 구축",
+      "description": "반복되는 문제를 분석하고, 팀이 함께 활용할 수 있는 업무 체계와 관리 방식을 구축한다.",
+      "cases": [
+        {
+          "id": "880fa25d",
+          "text": "공용 AI 계정의 크레딧 사용 내역과 잔여량을 확인하기 어려운 문제를 발견했습니다.",
+          "order": 0
+        },
+        {
+          "id": "238bdfb8",
+          "text": "노션 기반 AI 크레딧 자산 관리 데이터베이스를 직접 설계하고 구축했습니다.",
+          "order": 1
+        },
+        {
+          "id": "c5fece42",
+          "text": "개인 편의가 아니라 팀이 함께 활용할 수 있는 방식으로 만들었습니다.",
+          "order": 2
+        }
+      ],
+      "order": 4,
+      "visible": true,
+      "status": "draft"
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-26T09:38:51.691Z"
+  },
+  {
+    "id": "b9123e12-1e29-4dc5-aed3-e72f957e3de4",
+    "entity": "timeline:tl-2025",
+    "field": "수정",
+    "before": {
+      "id": "tl-2025",
+      "year": "2025",
+      "title": "사진에서 영상과 콘텐츠 기획으로 역할을 넓히다",
+      "description": "사진과 보정 중심의 업무에서 벗어나 광고 영상과 유튜브 콘텐츠 제작까지 범위를 확대했다.",
+      "experiences": [
+        {
+          "id": "e1",
+          "text": "임플란트 및 치과 광고 영상 제작",
+          "order": 0
+        },
+        {
+          "id": "e2",
+          "text": "Meta 광고 영상 제작",
+          "order": 1
+        },
+        {
+          "id": "e3",
+          "text": "병원 사회관계망서비스 정보형 영상 제작",
+          "order": 2
+        },
+        {
+          "id": "e4",
+          "text": "변호사 유튜브 채널 콘텐츠 기획 및 제작",
+          "order": 3
+        },
+        {
+          "id": "e5",
+          "text": "갈바트 카페 유튜브 콘텐츠 제작",
+          "order": 4
+        },
+        {
+          "id": "e6",
+          "text": "갈바트 카페 콘텐츠 메인 진행자 참여",
+          "order": 5
+        }
+      ],
+      "message": "촬영된 내용을 편집하는 데 그치지 않고 무엇을 어떤 순서로 전달할지 고민하기 시작했습니다.",
+      "heroImage": {
+        "url": "/placeholders/year-2025.svg",
+        "kind": "image",
+        "alt": "2025년 대표 이미지 [자료 필요]"
+      },
+      "order": 1,
+      "visible": true,
+      "status": "draft"
+    },
+    "after": {
+      "id": "tl-2025",
+      "year": "2025",
+      "title": "사진에서 영상과 콘텐츠 기획으로 역할을 넓히다",
+      "description": "사진과 보정 중심의 업무에서 벗어나 광고 영상과 유튜브 콘텐츠 제작까지 범위를 확대했다.",
+      "experiences": [
+        {
+          "id": "e1",
+          "text": "임플란트 및 치과 광고 영상 제작",
+          "order": 0
+        },
+        {
+          "id": "e2",
+          "text": "Meta 광고 영상 제작",
+          "order": 1
+        },
+        {
+          "id": "e3",
+          "text": "병원 사회관계망서비스 정보형 영상 제작",
+          "order": 2
+        },
+        {
+          "id": "e4",
+          "text": "변호사 유튜브 채널 콘텐츠 기획 및 제작",
+          "order": 3
+        },
+        {
+          "id": "e5",
+          "text": "갈바트 카페 유튜브 콘텐츠 제작",
+          "order": 4
+        },
+        {
+          "id": "e6",
+          "text": "갈바트 카페 콘텐츠 메인 진행자 참여",
+          "order": 5
+        }
+      ],
+      "message": "촬영된 내용을 편집하는 데 그치지 않고 무엇을 어떤 순서로 전달할지 고민하기 시작했습니다.",
+      "heroImage": {
+        "url": "/uploads/f69efc6f-57cf-444d-abf0-33af12cc0158.jpg",
+        "kind": "image",
+        "alt": "2025년 대표 이미지 [자료 필요]"
+      },
+      "order": 1,
+      "visible": true,
+      "status": "draft"
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-26T09:35:56.063Z"
+  },
+  {
+    "id": "30972c1d-2214-40fb-adda-b9e4b4959fc4",
+    "entity": "competencies:c5",
+    "field": "수정",
+    "before": {
+      "id": "c5",
+      "title": "문제 발견 및 업무 개선",
+      "description": "반복되는 불편을 그대로 두지 않고 원인을 파악해 실행 가능한 방법으로 개선한다.",
+      "cases": [
+        {
+          "id": "880fa25d",
+          "text": "공용 AI 계정의 크레딧 사용 내역과 잔여량을 확인하기 어려운 문제를 발견했습니다.",
+          "order": 0
+        },
+        {
+          "id": "238bdfb8",
+          "text": "노션 기반 AI 크레딧 자산 관리 데이터베이스를 직접 설계하고 구축했습니다.",
+          "order": 1
+        },
+        {
+          "id": "c5fece42",
+          "text": "개인 편의가 아니라 팀이 함께 활용할 수 있는 방식으로 만들었습니다.",
+          "order": 2
+        }
+      ],
+      "order": 4,
+      "visible": true,
+      "status": "draft"
+    },
+    "after": {
+      "id": "c5",
+      "title": "지속적인 개선과 실행",
+      "description": "제작 과정의 문제를 분석하고 개선안을 실행하여 더 효율적인 업무 환경과 높은 콘텐츠 완성도를 만들어간다.",
+      "cases": [
+        {
+          "id": "880fa25d",
+          "text": "공용 AI 계정의 크레딧 사용 내역과 잔여량을 확인하기 어려운 문제를 발견했습니다.",
+          "order": 0
+        },
+        {
+          "id": "238bdfb8",
+          "text": "노션 기반 AI 크레딧 자산 관리 데이터베이스를 직접 설계하고 구축했습니다.",
+          "order": 1
+        },
+        {
+          "id": "c5fece42",
+          "text": "개인 편의가 아니라 팀이 함께 활용할 수 있는 방식으로 만들었습니다.",
+          "order": 2
+        }
+      ],
+      "order": 4,
+      "visible": true,
+      "status": "draft"
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-26T09:35:05.330Z"
+  },
+  {
+    "id": "129835e0-0b76-43df-934e-3c0480fd1926",
+    "entity": "timeline:tl-2024",
+    "field": "수정",
+    "before": {
+      "id": "tl-2024",
+      "year": "2024",
+      "title": "촬영과 보정의 기본을 쌓다",
+      "description": "입사 초기에는 촬영과 보정 업무를 정확하고 안정적으로 처리하는 데 집중했다.",
+      "experiences": [
+        {
+          "id": "e1",
+          "text": "의류 디테일컷 촬영 및 보정",
+          "order": 0
+        },
+        {
+          "id": "e2",
+          "text": "의류 모델 촬영 및 보정",
+          "order": 1
+        },
+        {
+          "id": "e3",
+          "text": "카페 및 음식 메뉴 촬영 및 보정",
+          "order": 2
+        },
+        {
+          "id": "e4",
+          "text": "인테리어 촬영 보조 및 보정",
+          "order": 3
+        },
+        {
+          "id": "e5",
+          "text": "직원과 의료진 프로필 촬영 보조 및 보정",
+          "order": 4
+        },
+        {
+          "id": "e6",
+          "text": "트레이너 프로필 보정",
+          "order": 5
+        },
+        {
+          "id": "e7",
+          "text": "단체사진 촬영 보조 및 보정",
+          "order": 6
+        }
+      ],
+      "message": "상품, 음식, 공간과 인물마다 다른 표현 기준을 익혔습니다.",
+      "heroImage": {
+        "url": "/uploads/18ce5918-d6c8-4b44-804b-1a9707a630ad.jpg",
+        "kind": "image",
+        "alt": "2024년 대표 이미지 [자료 필요]"
+      },
+      "order": 0,
+      "visible": true,
+      "status": "draft"
+    },
+    "after": {
+      "id": "tl-2024",
+      "year": "2024",
+      "title": "촬영과 보정의 기본을 쌓다",
+      "description": "입사 초기에는 촬영과 보정 업무를 정확하고 안정적으로 처리하는 데 집중했다.",
+      "experiences": [
+        {
+          "id": "e1",
+          "text": "의류 디테일컷 촬영 및 보정",
+          "order": 0
+        },
+        {
+          "id": "e2",
+          "text": "의류 모델 촬영 및 보정",
+          "order": 1
+        },
+        {
+          "id": "e3",
+          "text": "카페 및 음식 메뉴 촬영 및 보정",
+          "order": 2
+        },
+        {
+          "id": "e4",
+          "text": "인테리어 촬영 보조 및 보정",
+          "order": 3
+        },
+        {
+          "id": "e5",
+          "text": "직원과 의료진 프로필 촬영 보조 및 보정",
+          "order": 4
+        },
+        {
+          "id": "e6",
+          "text": "트레이너 프로필 보정",
+          "order": 5
+        },
+        {
+          "id": "e7",
+          "text": "단체사진 촬영 보조 및 보정",
+          "order": 6
+        }
+      ],
+      "message": "상품, 음식, 공간과 인물마다 다른 표현 기준을 익혔습니다.",
+      "heroImage": {
+        "url": "/uploads/41e26ca1-e922-47a2-bdad-c141603be45f.jpg",
+        "kind": "image",
+        "alt": "2024년 대표 이미지 [자료 필요]"
+      },
+      "order": 0,
+      "visible": true,
+      "status": "draft"
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-26T09:22:39.781Z"
+  },
+  {
+    "id": "938bab08-8986-4e63-9e69-fccbb82c8eeb",
+    "entity": "timeline:tl-2024",
+    "field": "수정",
+    "before": {
+      "id": "tl-2024",
+      "year": "2024",
+      "title": "촬영과 보정의 기본을 쌓다",
+      "description": "입사 초기에는 촬영과 보정 업무를 정확하고 안정적으로 처리하는 데 집중했다.",
+      "experiences": [
+        {
+          "id": "e1",
+          "text": "의류 디테일컷 촬영 및 보정",
+          "order": 0
+        },
+        {
+          "id": "e2",
+          "text": "의류 모델 촬영 및 보정",
+          "order": 1
+        },
+        {
+          "id": "e3",
+          "text": "카페 및 음식 메뉴 촬영 및 보정",
+          "order": 2
+        },
+        {
+          "id": "e4",
+          "text": "인테리어 촬영 보조 및 보정",
+          "order": 3
+        },
+        {
+          "id": "e5",
+          "text": "직원과 의료진 프로필 촬영 보조 및 보정",
+          "order": 4
+        },
+        {
+          "id": "e6",
+          "text": "트레이너 프로필 보정",
+          "order": 5
+        },
+        {
+          "id": "e7",
+          "text": "단체사진 촬영 보조 및 보정",
+          "order": 6
+        }
+      ],
+      "message": "상품, 음식, 공간과 인물마다 다른 표현 기준을 익혔습니다.",
+      "heroImage": {
+        "url": "/uploads/07ef608c-1c82-4193-a8f0-cffbc7d0d1ca.jpg",
+        "kind": "image",
+        "alt": "2024년 대표 이미지 [자료 필요]"
+      },
+      "order": 0,
+      "visible": true,
+      "status": "draft"
+    },
+    "after": {
+      "id": "tl-2024",
+      "year": "2024",
+      "title": "촬영과 보정의 기본을 쌓다",
+      "description": "입사 초기에는 촬영과 보정 업무를 정확하고 안정적으로 처리하는 데 집중했다.",
+      "experiences": [
+        {
+          "id": "e1",
+          "text": "의류 디테일컷 촬영 및 보정",
+          "order": 0
+        },
+        {
+          "id": "e2",
+          "text": "의류 모델 촬영 및 보정",
+          "order": 1
+        },
+        {
+          "id": "e3",
+          "text": "카페 및 음식 메뉴 촬영 및 보정",
+          "order": 2
+        },
+        {
+          "id": "e4",
+          "text": "인테리어 촬영 보조 및 보정",
+          "order": 3
+        },
+        {
+          "id": "e5",
+          "text": "직원과 의료진 프로필 촬영 보조 및 보정",
+          "order": 4
+        },
+        {
+          "id": "e6",
+          "text": "트레이너 프로필 보정",
+          "order": 5
+        },
+        {
+          "id": "e7",
+          "text": "단체사진 촬영 보조 및 보정",
+          "order": 6
+        }
+      ],
+      "message": "상품, 음식, 공간과 인물마다 다른 표현 기준을 익혔습니다.",
+      "heroImage": {
+        "url": "/uploads/18ce5918-d6c8-4b44-804b-1a9707a630ad.jpg",
+        "kind": "image",
+        "alt": "2024년 대표 이미지 [자료 필요]"
+      },
+      "order": 0,
+      "visible": true,
+      "status": "draft"
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-26T09:21:17.632Z"
+  },
+  {
+    "id": "0392b22a-bb56-4466-9303-d84bccfef9a8",
+    "entity": "timeline:tl-2024",
+    "field": "수정",
+    "before": {
+      "id": "tl-2024",
+      "year": "2024",
+      "title": "촬영과 보정의 기본을 쌓다",
+      "description": "입사 초기에는 촬영과 보정 업무를 정확하고 안정적으로 처리하는 데 집중했다.",
+      "experiences": [
+        {
+          "id": "e1",
+          "text": "의류 디테일컷 촬영 및 보정",
+          "order": 0
+        },
+        {
+          "id": "e2",
+          "text": "의류 모델 촬영 및 보정",
+          "order": 1
+        },
+        {
+          "id": "e3",
+          "text": "카페 및 음식 메뉴 촬영 및 보정",
+          "order": 2
+        },
+        {
+          "id": "e4",
+          "text": "인테리어 촬영 보조 및 보정",
+          "order": 3
+        },
+        {
+          "id": "e5",
+          "text": "직원과 의료진 프로필 촬영 보조 및 보정",
+          "order": 4
+        },
+        {
+          "id": "e6",
+          "text": "트레이너 프로필 보정",
+          "order": 5
+        },
+        {
+          "id": "e7",
+          "text": "단체사진 촬영 보조 및 보정",
+          "order": 6
+        }
+      ],
+      "message": "상품, 음식, 공간과 인물마다 다른 표현 기준을 익혔습니다.",
+      "heroImage": {
+        "url": "/placeholders/year-2024.svg",
+        "kind": "image",
+        "alt": "2024년 대표 이미지 [자료 필요]"
+      },
+      "order": 0,
+      "visible": true,
+      "status": "draft"
+    },
+    "after": {
+      "id": "tl-2024",
+      "year": "2024",
+      "title": "촬영과 보정의 기본을 쌓다",
+      "description": "입사 초기에는 촬영과 보정 업무를 정확하고 안정적으로 처리하는 데 집중했다.",
+      "experiences": [
+        {
+          "id": "e1",
+          "text": "의류 디테일컷 촬영 및 보정",
+          "order": 0
+        },
+        {
+          "id": "e2",
+          "text": "의류 모델 촬영 및 보정",
+          "order": 1
+        },
+        {
+          "id": "e3",
+          "text": "카페 및 음식 메뉴 촬영 및 보정",
+          "order": 2
+        },
+        {
+          "id": "e4",
+          "text": "인테리어 촬영 보조 및 보정",
+          "order": 3
+        },
+        {
+          "id": "e5",
+          "text": "직원과 의료진 프로필 촬영 보조 및 보정",
+          "order": 4
+        },
+        {
+          "id": "e6",
+          "text": "트레이너 프로필 보정",
+          "order": 5
+        },
+        {
+          "id": "e7",
+          "text": "단체사진 촬영 보조 및 보정",
+          "order": 6
+        }
+      ],
+      "message": "상품, 음식, 공간과 인물마다 다른 표현 기준을 익혔습니다.",
+      "heroImage": {
+        "url": "/uploads/07ef608c-1c82-4193-a8f0-cffbc7d0d1ca.jpg",
+        "kind": "image",
+        "alt": "2024년 대표 이미지 [자료 필요]"
+      },
+      "order": 0,
+      "visible": true,
+      "status": "draft"
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-26T09:17:58.995Z"
+  },
+  {
     "id": "315eee80-3023-4f8b-92e1-782e0ee4a9df",
     "entity": "profile",
     "field": "전체",

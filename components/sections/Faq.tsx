@@ -47,7 +47,10 @@ function FaqRow({ item, index, open, onToggle }: { item: FaqItem; index: number;
         style={{ gridTemplateRows: open ? "1fr" : "0fr" }}
       >
         <div className="overflow-hidden">
-          <p ref={contentRef} className="body text-ink-secondary leading-relaxed pb-4 md:pl-14 max-w-2xl text-korean whitespace-pre-line">
+          {/* §80 — 답변 문단 폭이 max-w-2xl(672px)로 좁게 묶여 있어서, 오른쪽에
+              여백이 많이 남는데도 짧은 줄에서 자꾸 줄바꿈됐다. 폭을
+              max-w-4xl로 넓혀 한 줄에 더 많은 글자가 들어가도록 했다. */}
+          <p ref={contentRef} className="body text-ink-secondary leading-relaxed pb-4 md:pl-14 max-w-4xl text-korean whitespace-pre-line">
             {item.answer}
           </p>
         </div>
