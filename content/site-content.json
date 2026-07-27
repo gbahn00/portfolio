@@ -665,7 +665,7 @@
       "tools": [
         "[자료 필요] 사용 장비 및 보정 프로그램 목록"
       ],
-      "description": "회사 직원, 병원 의사, 헬스장 트레이너의 프로필과 단체사진을 촬영 보조하고 보정했습니다. 과도한 보정보다 대상자의 자연스러움과 직업적 신뢰감을 유지하는 데 집중했습니다.",
+      "description": "회사 직원, 병원 의사, 헬스장 트레이너의 프로필과 단체사진을 촬영 보조하고 보정했습니다.\n과도한 보정보다 대상자의 자연스러움과 직업적 신뢰감을 유지하는 데 집중했습니다.",
       "heroImage": {
         "url": "/placeholders/portrait.svg",
         "kind": "image",
@@ -681,7 +681,7 @@
       "status": "draft",
       "order": 3,
       "createdAt": "2024-10-01T00:00:00.000Z",
-      "updatedAt": "2026-07-25T00:00:00.000Z"
+      "updatedAt": "2026-07-27T02:08:54.006Z"
     },
     {
       "id": "proj-dental",
@@ -871,7 +871,7 @@
     {
       "id": "proj-lawyer-youtube",
       "number": "06",
-      "title": "변호사 유튜브 채널 콘텐츠 기획 및 제작",
+      "title": "변호사 유튜브 채널 콘텐츠 \n기획 및 제작",
       "brand": "[자료 필요 - 채널명, 공개 가능 여부 확인 필요]",
       "brandHidden": true,
       "year": "2025",
@@ -1039,7 +1039,7 @@
       "status": "draft",
       "order": 5,
       "createdAt": "2025-05-01T00:00:00.000Z",
-      "updatedAt": "2026-07-25T00:00:00.000Z"
+      "updatedAt": "2026-07-27T02:10:49.472Z"
     },
     {
       "id": "proj-ai-brand-video",

@@ -22,10 +22,15 @@ export function FinalVideoBlock({ video, posterFallback }: { video: MediaRef; po
           자체의 원본 비율대로 크게 보여준다(가로 영상은 넓게, 세로 영상은
           높게). 세로 영상이 화면을 너무 많이 차지하지 않도록 최대 높이만
           넉넉하게 잡아뒀다. */}
+      {/* §99 — controlsList="nodownload"로 컨트롤 바의 다운로드 아이콘을
+          숨긴다(완전 차단은 아니지만 가장 눈에 띄는 저장 경로를 없앤다). */}
       <video
         src={mediaSrc(video.url)}
         poster={video.poster || posterFallback}
         controls
+        controlsList="nodownload noremoteplayback"
+        disablePictureInPicture
+        onContextMenu={(e) => e.preventDefault()}
         playsInline
         onLoadedMetadata={refreshScrollTrigger}
         className="w-full h-auto max-h-[75vh] mx-auto block rounded-sm bg-bg-soft"

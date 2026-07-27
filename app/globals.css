@@ -83,6 +83,16 @@ body {
   word-break: keep-all;
 }
 
+/* §99 — 사진/영상 다운로드를 (완전 차단은 불가능하지만) 최대한 번거롭게
+   만든다: 드래그로 끌어다 저장, iOS 롱프레스 메뉴를 막는다. 오른쪽 클릭
+   메뉴 차단은 components/motion/DownloadGuard.tsx에서 JS로 처리한다. */
+img,
+video {
+  -webkit-user-drag: none;
+  user-drag: none;
+  -webkit-touch-callout: none;
+}
+
 .font-en {
   word-break: normal;
   overflow-wrap: break-word;

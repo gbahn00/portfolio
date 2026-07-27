@@ -42,10 +42,15 @@ export function GalleryGrid({ items, className }: { items: MediaRef[]; className
       // 다시 계산한다.
       renderItem={(m) =>
         m.kind === "video-file" ? (
+          // §99 — controlsList="nodownload"로 컨트롤 바의 다운로드
+          // 아이콘을 숨긴다.
           <video
             src={mediaSrc(m.url)}
             poster={m.poster}
             controls
+            controlsList="nodownload noremoteplayback"
+            disablePictureInPicture
+            onContextMenu={(e) => e.preventDefault()}
             playsInline
             onLoadedMetadata={refreshScrollTrigger}
             className="h-full w-auto rounded-sm bg-bg-soft"
@@ -56,6 +61,8 @@ export function GalleryGrid({ items, className }: { items: MediaRef[]; className
             src={mediaSrc(m.url)}
             alt={m.alt || ""}
             onLoad={refreshScrollTrigger}
+            onContextMenu={(e) => e.preventDefault()}
+            draggable={false}
             className="h-full w-auto rounded-sm bg-bg-soft object-contain"
           />
         )

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { getContent } from "@/lib/data/repo";
 import { GsapProvider } from "@/components/motion/GsapProvider";
+import { DownloadGuard } from "@/components/motion/DownloadGuard";
 import { Header } from "@/components/motion/Header";
 import { getActiveFontConfig } from "@/lib/fonts";
 
@@ -38,6 +39,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       </head>
       <body className="font-kr antialiased">
         <GsapProvider />
+        <DownloadGuard />
         <Header />
         {children}
       </body>
