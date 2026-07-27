@@ -41,6 +41,14 @@ export function Closing({ data }: { data: ClosingSection }) {
       gsap.set(bgRef.current, { autoAlpha: 0, scale: 1.1 });
       gsap.set([metaRef.current, btnRef.current], { autoAlpha: 0, y: 16 });
 
+      // §100 — 마지막 페이지(Closing)의 이름/소속 줄과 버튼(Back to
+      // Top·View Works)이 다른 섹션들에 비해 눈에 띄게 늦게 나타난다는
+      // 신고. 원인은 bg(1.4s) → 문구(0.9s) → 메타 정보(0.7s) → 버튼(0.7s)을
+      // 거의 순차적으로(살짝만 겹치며) 이어붙인 타임라인이라, 화면에
+      // 들어온 시점부터 버튼이 다 나타나기까지 약 1.7초가 걸렸던 것이다.
+      // 다른 섹션들의 기본 Reveal은 보통 0.7~1.0초 안에 끝난다. 각 구간의
+      // 길이를 줄이고 겹치는 비중을 크게 늘려, 버튼까지 전부 나타나는
+      // 시점을 1초 안쪽으로 당겼다.
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: section,
@@ -51,10 +59,10 @@ export function Closing({ data }: { data: ClosingSection }) {
         defaults: { ease: "power3.out" },
       });
 
-      tl.to(bgRef.current, { autoAlpha: 0.35, scale: 1, duration: 1.4 }, 0)
-        .to(lines, { yPercent: 0, autoAlpha: 1, duration: 0.9, stagger: 0.14 }, 0.1)
-        .to(metaRef.current, { autoAlpha: 1, y: 0, duration: 0.7 }, "-=0.3")
-        .to(btnRef.current, { autoAlpha: 1, y: 0, duration: 0.7 }, "-=0.4");
+      tl.to(bgRef.current, { autoAlpha: 0.35, scale: 1, duration: 1.0 }, 0)
+        .to(lines, { yPercent: 0, autoAlpha: 1, duration: 0.7, stagger: 0.1 }, 0.05)
+        .to(metaRef.current, { autoAlpha: 1, y: 0, duration: 0.6 }, 0.25)
+        .to(btnRef.current, { autoAlpha: 1, y: 0, duration: 0.6 }, 0.35);
     }, section);
 
     return () => ctx.revert();
