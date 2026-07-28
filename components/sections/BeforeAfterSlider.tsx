@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { BeforeAfterPair } from "@/lib/types";
 import { optimizedImageSrc } from "@/lib/utils";
 import { refreshScrollTrigger } from "@/lib/gsap";
@@ -67,6 +67,19 @@ import { refreshScrollTrigger } from "@/lib/gsap";
 // 보이는" 사각형이 나온다. 다만 아주 극단적인 비율(파노라마처럼 매우
 // 넓거나 매우 좁고 긴 사진)에서 한쪽이 지나치게 커지지 않도록 최소/최대
 // 픽셀 값으로 한 번 더 안전하게 잘라준다.
+//
+// §123 — "처음 볼 땐 비율이 맞는데 새로고침하면 비율이 바뀐다"는 버그.
+// 이 페이지는 서버에서 미리 렌더링돼(img 태그가 이미 src까지 박힌 채로)
+// 브라우저에 도착한다. 사진을 한 번도 안 봤을 때는 브라우저가 실제로
+// 다운로드하는 동안 시간이 걸려서, 그 사이 React가 하이드레이션을 마치고
+// onLoad 리스너를 붙인 "다음"에 로드가 끝나 정상적으로 onNaturalSize가
+// 불린다. 그런데 새로고침해서 사진이 브라우저 캐시에 이미 있으면, 이미지
+// 로드가 매우 빨리(때로는 하이드레이션보다도 먼저) 끝나버려 onLoad 이벤트
+// 자체를 놓친다 — 그러면 실제 비율 계산이 한 번도 안 일어나고 기본값
+// (360×480, 세로 사진 기준)이 그대로 남아 카페 프로젝트처럼 가로로 넓은
+// 사진에는 안 맞는 비율이 보였다. 마운트 시점에 img.complete를 직접
+// 확인해서, 이미 로드가 끝나 있으면 onLoad를 기다리지 않고 그 자리에서
+// 바로 계산하도록 보강했다.
 // ============================================================================
 
 const TARGET_AREA = 420 * 480; // 기준 박스(px^2) — 이 넓이를 유지하도록 폭/높이를 계산한다
@@ -99,9 +112,20 @@ function computeBoxSize(naturalWidth: number, naturalHeight: number) {
 
 function CompareView({ pair, onNaturalSize }: { pair: BeforeAfterPair; onNaturalSize: (w: number, h: number) => void }) {
   const [pos, setPos] = useState(50);
+  const afterImgRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
     setPos(50);
+  }, [pair.id]);
+
+  // §123 — 마운트/사진 교체 시점에 이미지가 이미 로드 완료(캐시 등) 상태면
+  // onLoad 이벤트가 아예 안 오므로, complete 여부를 직접 확인해 보정한다.
+  useEffect(() => {
+    const img = afterImgRef.current;
+    if (img && img.complete && img.naturalWidth && img.naturalHeight) {
+      onNaturalSize(img.naturalWidth, img.naturalHeight);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pair.id]);
 
   function handleAfterLoad(e: React.SyntheticEvent<HTMLImageElement>) {
@@ -114,6 +138,7 @@ function CompareView({ pair, onNaturalSize }: { pair: BeforeAfterPair; onNatural
     <>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
+        ref={afterImgRef}
         src={optimizedImageSrc(pair.after.url, 1080)}
         alt={pair.after.alt || "보정 후"}
         onLoad={handleAfterLoad}
