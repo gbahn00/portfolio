@@ -1,13 +1,14 @@
 "use client";
 
 import { useLayoutEffect, useRef, useState } from "react";
-import { Profile, PhilosophySection, Competency } from "@/lib/types";
+import { Profile, PhilosophySection, Competency, MediaRef } from "@/lib/types";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/motion/Reveal";
 import { MediaFrame } from "@/components/ui/MediaFrame";
 import { gsap, prefersReducedMotion } from "@/lib/gsap";
 import { registerSubSteps } from "@/lib/fullpage";
 import { optimizedImageSrc } from "@/lib/utils";
+import { useElementSize } from "@/lib/hooks/useElementHeight";
 
 // ============================================================================
 // 인터랙션 수정 요청서 §5-23 (누적) — "02.프로필" 섹션.
@@ -243,6 +244,85 @@ function SkillsPanel({ items }: { items: Competency[] }) {
   );
 }
 
+// ============================================================================
+// §134 — "프로필 사진이 우측 상세 내용의 세로 크기 비율에 맞춰지지 않는다"는
+// 피드백. 사진은 grid-cols-[0.9fr_1.1fr]의 고정 칼럼 폭 안에서
+// object-contain(원본 비율 유지)으로 보여지는데, 칼럼 폭이 이미지 자체의
+// 가로세로 비율과 맞지 않으면 사진이 칼럼 높이(h-full, 오른쪽 텍스트
+// 칼럼과 items-stretch로 동일한 높이)를 다 못 채우고 위아래에 빈 여백이
+// 생겼다.
+//
+// components/sections/BeforeAfterSlider.tsx(§127)·RepresentativeMediaColumn.tsx
+// (§131)에서 이미 검증한 것과 같은 방식으로 고쳤다: 칼럼 폭을 고정 비율
+// (0.9fr)로 두는 대신, "프레임의 실제 높이 × 사진 원본 가로세로 비율"로
+// 계산해서 사진 폭 자체를 정한다 — 그러면 object-contain이 letterbox
+// 없이 프레임 높이를 정확히 채운다(비율이 유지되므로 자르거나 찌그러지지
+// 않는다). 폭이 화면을 너무 많이 차지하지 않도록, 프레임 전체 폭에서
+// 텍스트 칼럼 최소 폭(MIN_TEXT_W)을 뺀 값을 상한으로 둔다.
+//
+// 크기가 확정되기 전(프레임 높이/사진 원본 비율을 아직 모르는 순간)에는
+// §128과 동일하게 투명 처리해서, 잘못된 크기가 잠깐 보였다가 되돌아오는
+// 점프를 막는다.
+// ============================================================================
+const PROFILE_PHOTO_DEFAULT_MAX_W = 420;
+const PROFILE_PHOTO_MIN_TEXT_W = 320;
+const PROFILE_PHOTO_GAP_PX = 40; // md:gap-10
+
+function ProfilePhoto({
+  photo,
+  frameHeight,
+  maxWidthPx,
+}: {
+  photo?: MediaRef;
+  frameHeight?: number;
+  maxWidthPx?: number;
+}) {
+  const imgRef = useRef<HTMLImageElement>(null);
+  const [natural, setNatural] = useState<{ w: number; h: number } | null>(null);
+
+  useLayoutEffect(() => {
+    const img = imgRef.current;
+    if (img && img.complete && img.naturalWidth && img.naturalHeight) {
+      setNatural({ w: img.naturalWidth, h: img.naturalHeight });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [photo?.url]);
+
+  function handleLoad(e: React.SyntheticEvent<HTMLImageElement>) {
+    const img = e.currentTarget;
+    if (img.naturalWidth && img.naturalHeight) setNatural({ w: img.naturalWidth, h: img.naturalHeight });
+  }
+
+  const effectiveHeight = frameHeight ?? 480;
+  const effectiveMaxW = maxWidthPx ?? PROFILE_PHOTO_DEFAULT_MAX_W;
+  const boxW = natural ? Math.min(effectiveMaxW, effectiveHeight * (natural.w / natural.h)) : effectiveMaxW;
+  const ready = natural !== null && frameHeight !== undefined;
+
+  if (!photo?.url) return <div className="h-full w-full" style={{ maxWidth: `${effectiveMaxW}px` }} />;
+
+  return (
+    <div
+      className="relative h-full mx-auto md:mx-0 overflow-hidden rounded-sm flex items-center justify-center"
+      style={{
+        width: `${Math.round(boxW)}px`,
+        maxWidth: "100%",
+        opacity: ready ? 1 : 0,
+        transition: ready ? "opacity 200ms ease-out" : "none",
+      }}
+    >
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        ref={imgRef}
+        src={optimizedImageSrc(photo.url, 1080)}
+        alt={photo.alt || ""}
+        onLoad={handleLoad}
+        className="h-full w-full object-contain"
+        style={{ filter: "brightness(0.9) contrast(1.05)" }}
+      />
+    </div>
+  );
+}
+
 export function ProfileSection({
   profile,
   philosophy,
@@ -257,6 +337,12 @@ export function ProfileSection({
   const [tab, setTab] = useState<TabKey>("identity");
   const tabRef = useRef<TabKey>(tab);
   const stageRef = useRef<HTMLDivElement>(null);
+  // §134 — 프레임(사진+텍스트를 담는 줄)의 실제 렌더링 크기를 재서 사진
+  // 폭을 "프레임 높이 × 사진 원본 비율"로 계산하는 데 쓴다.
+  const { ref: frameRef, width: frameWidth, height: frameHeight } = useElementSize<HTMLDivElement>();
+  const photoMaxWidthPx = frameWidth
+    ? Math.max(240, frameWidth - PROFILE_PHOTO_GAP_PX - PROFILE_PHOTO_MIN_TEXT_W)
+    : undefined;
 
   useLayoutEffect(() => {
     tabRef.current = tab;
@@ -335,26 +421,18 @@ export function ProfileSection({
             전환하는 건 그대로 유지한다. 다만 "굳이 박스가 필요 없다"는
             피드백에 따라 반대 톤 배경/모서리/안쪽 패딩으로 된 카드 프레임은
             없앴다 — 사진과 텍스트가 섹션 배경 위에 바로 놓인다. */}
-        <div className="relative w-full flex-1 min-h-0" style={{ minHeight: "260px", maxHeight: "640px" }}>
-          {/* §35 — 사진(왼쪽)은 탭과 무관하게 항상 고정이고, 오른쪽 절반만
-              탭에 따라 Fade 전환된다. 그리드 비율(0.9fr/1.1fr)은 이전
-              IdentityPanel과 동일하게 유지해 사진 크기/위치가 그대로다. */}
-          <div className="grid grid-cols-1 md:grid-cols-[0.9fr_1.1fr] gap-6 md:gap-10 h-full items-stretch">
-            {/* §73 — 정사각형 강제 크롭 대신, 첨부한 사진의 원본 비율을
-                그대로 유지한 채 열 높이(h-full) 안에서 잘리지 않게
-                보여준다(가운데 정렬 + max-w/max-h로 비율 유지). */}
-            <div className="relative w-full max-w-[46%] md:max-w-none h-full mx-auto md:mx-0 overflow-hidden rounded-sm flex items-center justify-center">
-              {profile.profilePhoto?.url && (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  src={optimizedImageSrc(profile.profilePhoto.url, 1080)}
-                  alt={profile.profilePhoto.alt || ""}
-                  className="max-w-full max-h-full w-auto h-auto object-contain"
-                  style={{ filter: "brightness(0.9) contrast(1.05)" }}
-                />
-              )}
+        <div ref={frameRef} className="relative w-full flex-1 min-h-0" style={{ minHeight: "260px", maxHeight: "640px" }}>
+          {/* §35 — 사진(왼쪽)은 탭과 무관하게 항상 고정이고, 오른쪽만 탭에
+              따라 Fade 전환된다. §134 — 예전엔 grid-cols-[0.9fr_1.1fr]로
+              사진 칼럼 폭을 고정해서, 사진 원본 비율에 따라 위아래로 빈
+              여백(letterbox)이 생겼다. 이제 flex로 바꿔 사진 폭을 "프레임
+              높이 × 원본 비율"로 직접 계산해(ProfilePhoto), object-contain이
+              프레임 높이를 정확히 채우게 한다(자르거나 찌그러지지 않음). */}
+          <div className="flex flex-col md:flex-row gap-6 md:gap-10 h-full items-stretch">
+            <div className="w-full md:w-auto md:flex-shrink-0 h-full flex items-center justify-center">
+              <ProfilePhoto photo={profile.profilePhoto} frameHeight={frameHeight} maxWidthPx={photoMaxWidthPx} />
             </div>
-            <div ref={stageRef} className="relative h-full min-w-0">
+            <div ref={stageRef} className="relative h-full min-w-0 flex-1">
               {tab === "identity" && <IdentityText profile={profile} philosophy={philosophy} />}
               {tab === "numbers" && <NumbersPanel profile={profile} />}
               {tab === "skills" && <SkillsPanel items={sortedCompetencies} />}

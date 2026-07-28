@@ -56,3 +56,28 @@ export function useElementWidth<T extends HTMLElement>() {
 
   return { ref, width };
 }
+
+// §134 — "프로필 사진도 옆 텍스트의 세로 크기 비율에 맞춰달라"는 요청.
+// 하나의 요소에서 폭과 높이를 동시에(같은 ResizeObserver 하나로) 재야
+// 할 때 쓴다. useElementHeight + useElementWidth를 각각 따로 쓰면 같은
+// DOM 요소에 ref를 두 개 붙일 수 없어서(JSX ref는 하나만 받는다) 합친
+// 버전을 새로 만들었다.
+export function useElementSize<T extends HTMLElement>() {
+  const ref = useRef<T>(null);
+  const [size, setSize] = useState<{ width: number; height: number } | undefined>(undefined);
+
+  useLayoutEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    setSize({ width: rect.width, height: rect.height });
+    const ro = new ResizeObserver((entries) => {
+      const entry = entries[0];
+      if (entry) setSize({ width: entry.contentRect.width, height: entry.contentRect.height });
+    });
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+
+  return { ref, width: size?.width, height: size?.height };
+}

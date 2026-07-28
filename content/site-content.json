@@ -36,7 +36,8 @@
       "faq",
       "closing"
     ],
-    "updatedAt": "2026-07-25T00:00:00.000Z"
+    "updatedAt": "2026-07-25T00:00:00.000Z",
+    "typography": {}
   },
   "profile": {
     "name": "이지은",
@@ -624,33 +625,7 @@
         "kind": "image",
         "alt": "카페 및 음식 촬영 대표 이미지 [자료 필요]"
       },
-      "gallery": [
-        {
-          "url": "/uploads/f5d27a5c-5879-4b82-a6eb-62685a9558d8.jpg",
-          "kind": "image",
-          "alt": ""
-        },
-        {
-          "url": "/uploads/c9fd9183-8467-411f-b5fe-bac98e5bacd7.jpg",
-          "kind": "image",
-          "alt": ""
-        },
-        {
-          "url": "/uploads/ff575187-5032-4e2a-8545-faf7f18ccb47.jpg",
-          "kind": "image",
-          "alt": ""
-        },
-        {
-          "url": "/uploads/0c065bf9-62b7-40cc-af80-33dc7e9739a2.jpg",
-          "kind": "image",
-          "alt": ""
-        },
-        {
-          "url": "/uploads/829bde65-a07f-48cc-aeff-30094fdfc130.jpg",
-          "kind": "image",
-          "alt": ""
-        }
-      ],
+      "gallery": [],
       "beforeAfter": [
         {
           "id": "e29d6bfd-435a-4de2-89f9-6c7cccc79f88",
@@ -665,8 +640,22 @@
             "alt": ""
           },
           "caption": "",
-          "order": 0,
-          "category": "detail"
+          "order": 0
+        },
+        {
+          "id": "fd351d4b-0fd1-41e6-afff-f8b57a95136f",
+          "before": {
+            "url": "/uploads/58283ee3-c198-4075-af69-910674493f7b.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/8168d062-016c-4ee1-81fa-76caf2f1ba9b.png",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 1
         }
       ],
       "metrics": [],
@@ -717,7 +706,7 @@
       "status": "draft",
       "order": 1,
       "createdAt": "2024-09-01T00:00:00.000Z",
-      "updatedAt": "2026-07-28T07:16:07.655Z",
+      "updatedAt": "2026-07-28T07:36:00.078Z",
       "contents": []
     },
     {
@@ -902,13 +891,7 @@
           "videos": [],
           "compareImages": [],
           "links": [],
-          "metrics": [
-            {
-              "id": "b8f79759-c897-4a0f-baad-469a7bc093cc",
-              "label": "촬영 보조",
-              "value": "90"
-            }
-          ]
+          "metrics": []
         }
       ],
       "isFeatured": false,
@@ -917,7 +900,7 @@
       "status": "draft",
       "order": 3,
       "createdAt": "2024-10-01T00:00:00.000Z",
-      "updatedAt": "2026-07-28T07:20:42.833Z",
+      "updatedAt": "2026-07-28T07:23:55.296Z",
       "contents": []
     },
     {
@@ -1086,14 +1069,9 @@
       "status": "draft",
       "order": 4,
       "createdAt": "2025-03-01T00:00:00.000Z",
-      "updatedAt": "2026-07-28T06:42:10.639Z",
+      "updatedAt": "2026-07-28T07:24:28.195Z",
       "retouchHighlights": [],
-      "contents": [],
-      "beforeAfterFallbackMedia": {
-        "url": "/uploads/2ed559be-76b6-4524-866e-7bd3583e7fc8.png",
-        "kind": "image",
-        "alt": ""
-      }
+      "contents": []
     },
     {
       "id": "proj-lawyer-youtube",
