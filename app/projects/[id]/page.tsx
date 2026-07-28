@@ -7,6 +7,7 @@ import { ProjectCover } from "@/components/sections/ProjectCover";
 import { ProjectNav } from "@/components/sections/ProjectNav";
 import { BeforeAfterWithText } from "@/components/sections/BeforeAfterWithText";
 import { FinalVideoBlock } from "@/components/sections/FinalVideoBlock";
+import { ContentsCarousel } from "@/components/sections/ContentsCarousel";
 import { isPlaceholder, optimizedImageSrc, stripPlaceholder } from "@/lib/utils";
 import { Project } from "@/lib/types";
 
@@ -101,7 +102,9 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
   const hasBeforeAfter = validBeforeAfter.length > 0;
   const hasFinalVideo = Boolean(project.finalVideo?.url && !isPlaceholder(project.finalVideo.url));
   const hasGallery = project.gallery?.length > 0;
-  const hasAnyMedia = hasBeforeAfter || hasFinalVideo || hasGallery;
+  // §124 — "상세 이미지"와 별도인 영상 전용 Contents 영역.
+  const hasContents = (project.contents?.length ?? 0) > 0;
+  const hasAnyMedia = hasBeforeAfter || hasFinalVideo || hasGallery || hasContents;
 
   // §103 — 보정 전/후 사진이 있는 프로젝트는 "왼쪽: 보정 전/후 사진(한 장씩
   // 이전/다음), 오른쪽: 프로젝트 개요/제작 의도/기여도/Tools" 2단 구성으로
@@ -165,7 +168,7 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
   // "첫 번째" 블록으로 오는 경우가 없으므로(사진+텍스트 또는 텍스트만이
   // 항상 먼저 온다) 위쪽 여백은 항상 pt-10/12로 고정한다.
   const mediaTopPad = "pt-10 md:pt-12";
-  const hasMediaBelow = hasFinalVideo || hasGallery;
+  const hasMediaBelow = hasFinalVideo || hasGallery || hasContents;
 
   return (
     <main className="bg-bg min-h-screen">
@@ -203,7 +206,7 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
           단일 블록) → 갤러리(있으면 그 아래에 이어서) 순서로, 위 텍스트/
           사진 블록 다음에 온다. */}
       {hasFinalVideo && project.finalVideo && (
-        <Container className={`${mediaTopPad} ${hasGallery ? "" : "pb-24 md:pb-32"}`}>
+        <Container className={`${mediaTopPad} ${hasGallery || hasContents ? "" : "pb-24 md:pb-32"}`}>
           <FinalVideoBlock
             video={project.finalVideo}
             posterFallback={project.heroImage ? optimizedImageSrc(project.heroImage.url, 1200) : undefined}
@@ -211,9 +214,18 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
         </Container>
       )}
       {hasGallery && (
-        <Container className={`${mediaTopPad} pb-24 md:pb-32`}>
+        <Container className={`${mediaTopPad} ${hasContents ? "" : "pb-24 md:pb-32"}`}>
           <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-korean">상세 이미지</h2>
           <GalleryGrid items={project.gallery} />
+        </Container>
+      )}
+
+      {/* §124 — "상세 이미지"와 별도인 영상 전용 Contents 영역. 마우스로
+          드래그해 한 편씩 넘겨본다(components/sections/ContentsCarousel.tsx). */}
+      {hasContents && (
+        <Container className={`${mediaTopPad} pb-24 md:pb-32`}>
+          <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-korean">Contents</h2>
+          <ContentsCarousel items={project.contents} />
         </Container>
       )}
 

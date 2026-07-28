@@ -41,6 +41,7 @@ function normalizeProject(p: Project): Project {
     ...p,
     tools: p.tools ?? [],
     gallery: p.gallery ?? [],
+    contents: p.contents ?? [],
     beforeAfter: p.beforeAfter ?? [],
     metrics: p.metrics ?? [],
     detailBlocks: p.detailBlocks ?? [],
@@ -100,6 +101,12 @@ export function ProjectEditor({ initial }: { initial: Project }) {
   function addGalleryImage(m: MediaRef | undefined) {
     if (!m) return;
     set("gallery", [...data.gallery, m]);
+  }
+
+  // §124 — Contents(영상 전용, 드래그로 넘겨보는 영역)
+  function addContentsItem(m: MediaRef | undefined) {
+    if (!m) return;
+    set("contents", [...data.contents, m]);
   }
 
   // §58 — 보정 전/후 비교(beforeAfter)는 선택 사항이다. 등록해두면 상세
@@ -209,6 +216,25 @@ export function ProjectEditor({ initial }: { initial: Project }) {
           ))}
         </div>
         <MediaUpload label="이미지·영상 추가" value={undefined} onChange={addGalleryImage} accept="image/*,video/*" />
+      </div>
+
+      <div className="mb-5">
+        <span className="block text-sm font-medium text-neutral-300 mb-1.5">Contents (영상 전용, 선택)</span>
+        <p className="text-xs text-neutral-500 mb-2">
+          위 "상세 이미지·영상"과는 별도의 영역입니다. 영상만 등록할 수 있고, 상세 페이지에서 마우스로 드래그해 한 편씩 넘겨볼 수 있는 전용 칸으로 노출됩니다. 비워두면 해당 영역이 아예 보이지 않습니다.
+        </p>
+        <div className="grid grid-cols-3 gap-3 mb-2">
+          {data.contents.map((v, idx) => (
+            <MediaUpload
+              key={idx}
+              label={`영상 ${idx + 1}`}
+              value={v}
+              accept="video/*"
+              onChange={(m) => { if (!m) set("contents", data.contents.filter((_, i) => i !== idx)); else set("contents", data.contents.map((c, i) => (i === idx ? m : c))); }}
+            />
+          ))}
+        </div>
+        <MediaUpload label="영상 추가" value={undefined} onChange={addContentsItem} accept="video/*" />
       </div>
 
       <div className="mb-5">

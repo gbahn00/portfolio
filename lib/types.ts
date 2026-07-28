@@ -155,6 +155,10 @@ export interface Project {
   previewVideo?: MediaRef;
   finalVideo?: MediaRef;
   gallery: MediaRef[];
+  // §124 — "상세 이미지(갤러리)"와는 별도로, 영상만 모아서 마우스 드래그로
+  // 한 편씩 넘겨보는 전용 "Contents" 영역을 위한 필드. 비워두면 해당
+  // 영역 자체가 보이지 않는다.
+  contents: MediaRef[];
   beforeAfter: BeforeAfterPair[];
   metrics: { id: string; label: string; value: string; unit?: string }[];
   detailBlocks: ProjectDetailBlock[];

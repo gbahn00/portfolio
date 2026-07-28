@@ -901,8 +901,45 @@
       "status": "draft",
       "order": 4,
       "createdAt": "2025-03-01T00:00:00.000Z",
-      "updatedAt": "2026-07-26T12:37:32.686Z",
-      "retouchHighlights": []
+      "updatedAt": "2026-07-28T06:00:58.983Z",
+      "retouchHighlights": [],
+      "contents": [
+        {
+          "url": "/uploads/abe8b8cb-d23d-4f6d-86fd-625ba24916ce.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/3f0ce05c-9e49-4d00-b61a-d74eed77801c.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/243c043e-a693-429c-ab14-7517e05605f3.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/faacb123-194a-4b74-a364-5ceb341db234.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/ed45c10f-bef5-410a-9bc1-cb2c2b922918.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/6ca64480-ee0e-4890-af2b-7836c6110a3b.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/4f446c88-3be8-4a23-b1b1-93bb9b3b4d89.mp4",
+          "kind": "video-file",
+          "alt": ""
+        }
+      ]
     },
     {
       "id": "proj-lawyer-youtube",
