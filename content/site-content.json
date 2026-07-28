@@ -1,6 +1,6 @@
 {
   "settings": {
-    "siteTitle": "이지은 영상 크리에이터 포트폴리오",
+    "siteTitle": "2026 하반기 특별진급 포트폴리오(이지은)",
     "accentColor": "orange",
     "reduceMotionRespect": false,
     "sectionVisibility": {
@@ -459,6 +459,54 @@
           "caption": "",
           "order": 3,
           "category": "detail"
+        },
+        {
+          "id": "04ae5c5e-7adf-4ab1-85fe-b1afd2a33cf5",
+          "before": {
+            "url": "/uploads/56627d69-7a60-4f4b-82e5-2bde2a13d94b.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/0d5f4c66-c160-45aa-ad21-e2a37660c352.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 4,
+          "category": "model"
+        },
+        {
+          "id": "54e5ebbd-3756-4b06-b3c5-3ca4a38a06a4",
+          "before": {
+            "url": "/uploads/c1f1f1a3-9fa1-4454-9719-41b5a93e01ce.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/b300509c-05ec-405b-af89-a37224abf550.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 5,
+          "category": "model"
+        },
+        {
+          "id": "fdf7a51b-9d26-4334-960a-e2c9789ec5f5",
+          "before": {
+            "url": "/uploads/e005cd49-7428-4101-8c79-2d6576d453b4.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/332ace65-e87a-405b-af62-13aad8cb0b36.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 6,
+          "category": "model"
         }
       ],
       "metrics": [],
@@ -483,7 +531,7 @@
       "status": "draft",
       "order": 0,
       "createdAt": "2024-08-01T00:00:00.000Z",
-      "updatedAt": "2026-07-28T06:32:52.175Z",
+      "updatedAt": "2026-07-28T06:56:35.578Z",
       "contents": []
     },
     {
