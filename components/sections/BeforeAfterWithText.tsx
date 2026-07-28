@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode, useEffect, useRef, useState } from "react";
+import { ReactNode, useLayoutEffect, useRef, useState } from "react";
 import { BeforeAfterPair } from "@/lib/types";
 import { BeforeAfterSlider } from "@/components/sections/BeforeAfterSlider";
 
@@ -19,14 +19,33 @@ import { BeforeAfterSlider } from "@/components/sections/BeforeAfterSlider";
 // 그 높이에 맞춰 자기 원본 비율대로 폭을 계산한다(크롭·찌그러짐 없음).
 // 텍스트는 원래대로 자연스럽게 필요한 만큼 늘어난다 — 스크롤이 생기는
 // 쪽은 이제 없다.
+//
+// §128 — "새로고침하면 사진 크기가 이상한 크기로 바뀌었다가 원래대로
+// 돌아온다"는 버그 제보. 원인은 초기 렌더에서 textHeightPx가 아직
+// undefined라서 사진 쪽이 임시 기본값(DEFAULT_HEIGHT)으로 한 번 그려진
+// 뒤, 이 useEffect의 ResizeObserver가 (브라우저가 화면을 그린 다음에야)
+// 진짜 텍스트 높이를 재서 값을 바꾸면서 사진이 다시 리사이즈되는
+// "눈에 보이는 점프"였다. useEffect는 브라우저가 이미 화면을 한 번
+// 그린 뒤에 실행되기 때문에 이 점프가 사용자 눈에 보인다.
+//
+// useLayoutEffect + getBoundingClientRect로 마운트 시점에 텍스트 높이를
+// "동기적으로" 먼저 재서 첫 렌더 결과에 곧바로 반영되도록 바꿨다 —
+// useLayoutEffect 안에서의 setState는 브라우저가 화면을 그리기 전에
+// 다시 렌더링을 끝내므로, 화면에는 처음부터 맞는 크기만 보인다.
+// ResizeObserver는 그 이후 창 크기 변경 등 추가 변화를 잡기 위해 그대로
+// 둔다.
 // ============================================================================
 export function BeforeAfterWithText({ pairs, children }: { pairs: BeforeAfterPair[]; children: ReactNode }) {
   const textRef = useRef<HTMLDivElement>(null);
   const [textHeightPx, setTextHeightPx] = useState<number | undefined>(undefined);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const el = textRef.current;
     if (!el) return;
+    // §128 — 마운트 시점에 먼저 동기적으로 한 번 재서, 화면에 그려지기
+    // 전에(useLayoutEffect는 paint 이전에 실행) 정확한 높이가 반영되게
+    // 한다. 이후 변화는 ResizeObserver가 이어서 잡는다.
+    setTextHeightPx(el.getBoundingClientRect().height);
     const ro = new ResizeObserver((entries) => {
       const entry = entries[0];
       if (entry) setTextHeightPx(entry.contentRect.height);

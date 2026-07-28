@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { BeforeAfterPair } from "@/lib/types";
 import { optimizedImageSrc } from "@/lib/utils";
 import { refreshScrollTrigger } from "@/lib/gsap";
@@ -80,6 +80,25 @@ import { refreshScrollTrigger } from "@/lib/gsap";
 // 자체를 놓친다. 마운트 시점에 img.complete를 직접 확인해서, 이미 로드가
 // 끝나 있으면 onLoad를 기다리지 않고 그 자리에서 바로 계산하도록
 // 보강했다(이 보강은 계속 유효하다).
+//
+// §128 — "새로고침하면 사진 크기가 이상한 크기로 바뀌었다가 원래대로
+// 돌아온다"는 버그 제보. 1차로 §123 보강을 useEffect에서 useLayoutEffect로
+// 바꿔봤지만(브라우저가 paint하기 전에 동기적으로 값을 확정) 실제
+// 화면 녹화로 확인해보니 여전히 잘못된 크기가 잠깐 보였다 — 이유는
+// useLayoutEffect가 "React가 하이드레이션을 끝낸 뒤"에만 도움이 되기
+// 때문이다. 이 페이지는 서버에서 미리 렌더링되는데, 서버는 텍스트 칸의
+// 실제 렌더링 높이도 사진의 원본 비율도 알 수 없으므로 서버가 만든
+// 최초 HTML 자체에 이미 DEFAULT_HEIGHT 기준의 "짐작 박스" 크기가 박혀
+// 있다. 브라우저는 이 HTML을 받는 즉시(자바스크립트가 실행되기도
+// 전에) 그 짐작 박스 크기로 먼저 그려버리고, 그 다음에야 자바스크립트가
+// 실행되어 진짜 크기로 고쳐진다 — 이 "짐작 박스로 먼저 그려지는 순간"
+// 자체가 사용자 눈에 보이는 것이었다.
+//
+// 그래서 접근을 바꿨다: 진짜 크기(텍스트 높이 + 사진 원본 비율)를 둘 다
+// 알기 전까지는 사진 내용 자체를 투명(opacity: 0)하게 감춰서, "잘못된
+// 크기의 사진"이 아예 보이지 않게 한다. 두 값이 모두 확정되면(ready)
+// 그제서야 최종 크기로 반짝 나타난다 — 화면에 보이는 사진은 항상 최종
+// 크기 하나뿐이고, 크기가 바뀌는 과정 자체는 보이지 않는다.
 // ============================================================================
 
 const DEFAULT_HEIGHT = 480; // 텍스트 칸 높이를 아직 측정하기 전(최초 렌더) 기준값
@@ -104,9 +123,11 @@ function CompareView({ pair, onNaturalSize }: { pair: BeforeAfterPair; onNatural
     setPos(50);
   }, [pair.id]);
 
-  // §123 — 마운트/사진 교체 시점에 이미지가 이미 로드 완료(캐시 등) 상태면
-  // onLoad 이벤트가 아예 안 오므로, complete 여부를 직접 확인해 보정한다.
-  useEffect(() => {
+  // §123/§128 — 마운트/사진 교체 시점에 이미지가 이미 로드 완료(캐시 등)
+  // 상태면 onLoad 이벤트가 아예 안 오므로, complete 여부를 직접 확인해
+  // 보정한다. useLayoutEffect라 paint 전에 동기적으로 실행되므로, 캐시된
+  // 이미지에서 "잘못된 크기가 잠깐 보였다가 되돌아오는" 점프가 없다.
+  useLayoutEffect(() => {
     const img = afterImgRef.current;
     if (img && img.complete && img.naturalWidth && img.naturalHeight) {
       onNaturalSize(img.naturalWidth, img.naturalHeight);
@@ -199,6 +220,12 @@ export function BeforeAfterSlider({ pairs, targetHeightPx }: { pairs: BeforeAfte
     ? computeBoxFromHeight(natural.w, natural.h, effectiveHeight)
     : { w: Math.round(effectiveHeight * 0.75), h: Math.round(effectiveHeight) };
 
+  // §128 — 텍스트 높이(targetHeightPx)와 사진 원본 비율(natural)이 둘 다
+  // 확정되기 전까지는 아직 "짐작 박스" 크기라는 뜻이므로, 이 순간에는
+  // 사진 내용을 감춘다(레이아웃 공간만 차지, 눈에는 안 보임). 두 값이
+  // 다 준비되면(ready) 바로 그 최종 크기로만 나타난다.
+  const ready = natural !== null && targetHeightPx !== undefined;
+
   // §122 — "사진이 아주 작아졌다"는 버그. width를 `min(${box.w}px, 100%)`
   // 문자열로 줬는데, 이 박스의 조상이 flex 아이템(width: auto, 즉
   // shrink-to-fit)이라 브라우저가 "이 아이템이 원래 얼마나 넓어야
@@ -217,7 +244,11 @@ export function BeforeAfterSlider({ pairs, targetHeightPx }: { pairs: BeforeAfte
             그려지도록 한다. */}
         <div
           className="relative overflow-hidden rounded-sm select-none bg-bg-soft"
-          style={{ aspectRatio: `${box.w} / ${box.h}` }}
+          style={{
+            aspectRatio: `${box.w} / ${box.h}`,
+            opacity: ready ? 1 : 0,
+            transition: ready ? "opacity 200ms ease-out" : "none",
+          }}
         >
           {/* §108 — key를 주지 않아 같은 DOM을 유지한 채 사진(src)만
               바뀐다("화면이 새로고침되는 느낌" 방지). */}
