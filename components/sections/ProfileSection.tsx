@@ -9,6 +9,7 @@ import { gsap, prefersReducedMotion } from "@/lib/gsap";
 import { registerSubSteps } from "@/lib/fullpage";
 import { optimizedImageSrc } from "@/lib/utils";
 import { useElementSize, useElementHeight } from "@/lib/hooks/useElementHeight";
+import { TOOL_ICON_MAP, TOOL_ICON_ORDER } from "@/lib/tool-icons";
 
 // ============================================================================
 // 인터랙션 수정 요청서 §5-23 (누적) — "02.프로필" 섹션.
@@ -75,28 +76,18 @@ function IdentityText({ profile, philosophy }: { profile: Profile; philosophy: P
 // 여전히 첨부받은 고정 이미지(public/icons/tools)를 쓰지만, 이름은
 // profile.toolSkills(관리자에서 추가/삭제하고 %를 조절할 수 있음)에서
 // 오고, 코드는 이름으로 아이콘을 찾아 붙이기만 한다.
-const TOOL_ICON_MAP: Record<string, string> = {
-  Photoshop: "/icons/tools/photoshop.png",
-  "Premiere Pro": "/icons/tools/premiere.png",
-  CapCut: "/icons/tools/capcut.png",
-  "생성형 AI": "/icons/tools/ai-tool.png",
-  Illustrator: "/icons/tools/illustrator.png",
-  "After Effects": "/icons/tools/after-effects.png",
-};
-
-// §54 — Skills 아이콘 배치를 "포토샵/프리미어프로 → 일러스트레이터/
-// 애프터이펙트 → 캡컷/생성형 AI" 순서로 지정해달라는 요청. 관리자가 입력한
-// 순서(order)와 무관하게 항상 이 순서로 보이도록, 이름 기준 고정 우선순위
-// 목록을 두고 그 기준으로 정렬한다(목록에 없는 새 이름은 맨 뒤로).
-const SKILL_DISPLAY_ORDER = ["Photoshop", "Premiere Pro", "Illustrator", "After Effects", "CapCut", "생성형 AI"];
-
+//
+// §137 — TOOL_ICON_MAP/정렬 우선순위를 lib/tool-icons.ts 공용 파일로
+// 옮겼다. 프로젝트 상세페이지의 "Tools" 아이콘 선택 UI가 이 Skill 목록과
+// 항상 같은 아이콘 세트를 참조하게 하기 위해서다(한쪽만 바뀌는 일이
+// 없도록 소스를 하나로 합침).
 function NumbersPanel({ profile }: { profile: Profile }) {
   const facts = [...profile.keyFacts].sort((a, b) => a.order - b.order);
   const skills = [...(profile.toolSkills ?? [])]
     .filter((s) => s.name)
     .sort((a, b) => {
-      const ai = SKILL_DISPLAY_ORDER.indexOf(a.name);
-      const bi = SKILL_DISPLAY_ORDER.indexOf(b.name);
+      const ai = TOOL_ICON_ORDER.indexOf(a.name);
+      const bi = TOOL_ICON_ORDER.indexOf(b.name);
       return (ai === -1 ? 999 : ai) - (bi === -1 ? 999 : bi);
     });
 

@@ -14,6 +14,14 @@ export interface MediaRef {
   alt?: string;
   caption?: string;
   poster?: string; // 영상 대표 이미지
+  // §138 — "좌측 이미지/우측 콘텐츠 높이를 항상 맞추고 object-fit: cover를
+  // 적용하되, 얼굴 등 주요 피사체가 잘리지 않도록 object-position을 조절할
+  // 수 있게 해달라"는 요청으로 추가. 0~100 퍼센트(CSS object-position과
+  // 동일한 값 범위), 비워두면 50(중앙)으로 취급한다. 현재는
+  // RepresentativeMediaColumn(보정 전후 없을 때 대체 이미지)에서만
+  // 관리자가 조절할 수 있게 연결돼 있다.
+  focusX?: number;
+  focusY?: number;
 }
 
 // §133 — "전체 페이지 글자들의 폰트·자간·행간·줄바꿈을 설정 가능하게

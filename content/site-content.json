@@ -372,7 +372,12 @@
       "purpose": "제품의 색감과 디테일을 정확하게 전달하고, 구매 결정에 도움이 되는 이미지 제작",
       "role": "촬영과 보정 기준을 일관되게 적용해 상품의 완성도와 표현 품질을 높였습니다.",
       "tools": [
-        "dfdfdfdfdfdf"
+        "dfdfdfdfdfdf",
+        "CapCut",
+        "After Effects",
+        "Illustrator",
+        "Premiere Pro",
+        "Photoshop"
       ],
       "description": "온라인 판매용 의류 상세페이지에 활용되는 제품 이미지와 모델 착용컷을 촬영·보정했습니다.",
       "heroImage": {
@@ -614,8 +619,10 @@
       "status": "draft",
       "order": 0,
       "createdAt": "2024-08-01T00:00:00.000Z",
-      "updatedAt": "2026-07-28T08:22:51.224Z",
-      "contents": []
+      "updatedAt": "2026-07-28T10:10:43.594Z",
+      "contents": [],
+      "beforeAfterFallbackMedia": [],
+      "retouchMarkers": []
     },
     {
       "id": "proj-cafe",
@@ -628,7 +635,11 @@
       "purpose": "브랜드의 아이덴티티와 음식의 매력을 동시에 전달하여 온라인에서도 브랜드 경험이 이어질 수 있는 콘텐츠 제작",
       "role": "촬영 · 색보정 · 리터칭 · 메뉴 콘텐츠 제작",
       "tools": [
-        "ㅁㅇㄴㄹㅁㅇㄴㄹ"
+        "ㅁㅇㄴㄹㅁㅇㄴㄹ",
+        "Photoshop",
+        "Premiere Pro",
+        "Illustrator",
+        "After Effects"
       ],
       "description": "음식의 맛을 시각적으로 전달하고, 브랜드가 가진 분위기와 감성을 함께 담아낼 수 있는 메뉴 콘텐츠를 제작했습니다.",
       "heroImage": {
@@ -758,8 +769,10 @@
       "status": "draft",
       "order": 1,
       "createdAt": "2024-09-01T00:00:00.000Z",
-      "updatedAt": "2026-07-28T08:23:34.825Z",
-      "contents": []
+      "updatedAt": "2026-07-28T10:18:55.375Z",
+      "contents": [],
+      "beforeAfterFallbackMedia": [],
+      "retouchMarkers": []
     },
     {
       "id": "proj-interior",
@@ -907,7 +920,28 @@
         "kind": "image",
         "alt": "인물 프로필 촬영 대표 이미지 [자료 필요]"
       },
-      "gallery": [],
+      "gallery": [
+        {
+          "url": "/uploads/cafb27ca-52b6-4690-be4e-1ee0f2a1c099.png",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/c3ecd252-7005-4d5d-8f0e-a2ff32ca2607.png",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/69270e0a-7a58-413a-b559-63bcb658d926.png",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/ae15d535-1439-49bb-a261-71b6fb9fd8bf.JPG",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
       "beforeAfter": [],
       "metrics": [],
       "detailBlocks": [
@@ -949,6 +983,19 @@
           "compareImages": [],
           "links": [],
           "metrics": []
+        },
+        {
+          "id": "14b5fbaf-a442-4711-8dfd-0c8170937a76",
+          "key": "tools",
+          "title": "Tools",
+          "body": "ㅁㄴㅇㄹㄴㅁㅇㄹㅁㄴㅇㄹㅇㄴㄹ",
+          "order": 3,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
         }
       ],
       "isFeatured": false,
@@ -957,7 +1004,7 @@
       "status": "draft",
       "order": 3,
       "createdAt": "2024-10-01T00:00:00.000Z",
-      "updatedAt": "2026-07-28T09:22:27.708Z",
+      "updatedAt": "2026-07-28T09:47:06.140Z",
       "contents": [],
       "beforeAfterFallbackMedia": [
         {
@@ -1026,7 +1073,10 @@
       "purpose": "임플란트 및 치과 시술을 알리는 Meta 광고 영상과 병원 사회관계망서비스 정보형 영상 제작",
       "role": "기획 및 제작 [자료 필요 - 세부 역할 구분]",
       "tools": [
-        "ㅁㅇㄹㄴㅁㅇㄹ"
+        "ㅁㅇㄹㄴㅁㅇㄹ",
+        "Premiere Pro",
+        "Photoshop",
+        "Illustrator"
       ],
       "description": "의료 광고 특성상 과장된 표현을 피하고 시술 정보를 정확히 전달하는 데 집중했으며, 광고 채널의 노출 방식에 맞춰 영상 길이와 자막 구성을 조정했다.",
       "gallery": [],
@@ -1090,9 +1140,11 @@
       "status": "draft",
       "order": 4,
       "createdAt": "2025-03-01T00:00:00.000Z",
-      "updatedAt": "2026-07-28T08:28:14.590Z",
+      "updatedAt": "2026-07-28T10:10:20.327Z",
       "retouchHighlights": [],
-      "contents": []
+      "contents": [],
+      "beforeAfterFallbackMedia": [],
+      "retouchMarkers": []
     },
     {
       "id": "proj-lawyer-youtube",
@@ -1174,34 +1226,16 @@
       "status": "draft",
       "order": 5,
       "createdAt": "2025-05-01T00:00:00.000Z",
-      "updatedAt": "2026-07-28T08:58:56.043Z",
-      "contents": [
+      "updatedAt": "2026-07-28T09:43:48.971Z",
+      "contents": [],
+      "beforeAfterFallbackMedia": [
         {
-          "url": "/uploads/8855c7b8-2dd3-4823-a237-edd054e7c3a5.mp4",
-          "kind": "video-file",
-          "alt": ""
-        },
-        {
-          "url": "/uploads/ad096beb-668f-4ee3-a478-850b37e02fa1.mp4",
-          "kind": "video-file",
-          "alt": ""
-        },
-        {
-          "url": "/uploads/d7614cdf-9738-4ad8-97b2-3e3b4bf680f7.mp4",
-          "kind": "video-file",
-          "alt": ""
-        },
-        {
-          "url": "/uploads/df0da8fa-9c24-40cb-b1ad-f720b94e29c7.mp4",
+          "url": "/uploads/b9d66daa-d6e2-47b1-94dd-db6227338773.mp4",
           "kind": "video-file",
           "alt": ""
         }
       ],
-      "beforeAfterFallbackMedia": {
-        "url": "/uploads/b9d66daa-d6e2-47b1-94dd-db6227338773.mp4",
-        "kind": "video-file",
-        "alt": ""
-      }
+      "retouchMarkers": []
     },
     {
       "id": "proj-ai-brand-video",

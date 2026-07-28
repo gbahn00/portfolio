@@ -24,13 +24,18 @@ import { useElementHeight, useElementWidth } from "@/lib/hooks/useElementHeight"
 // 버튼으로 넘겨볼 수 있게 됐다(RepresentativeMediaColumn 참고). 또한
 // "인물 프로필" 프로젝트처럼 사진이 좌측 절반, 텍스트가 우측 절반을
 // 정확히 채워야 하는 요청에 맞춰 layout="half" 옵션을 추가했다 — grid-
-// cols-2로 폭을 정확히 50/50으로 나누고, 사진 칸은 폭을 100% 채운 채
-// 원본 가로세로 비율대로 높이가 정해진다(§135-보정 — 처음엔 텍스트 칸
-// 높이에 맞춰 object-cover로 채워서 세로 사진이 잘렸는데, 폭만 고정하고
-// 높이는 비율대로 따라가게 바꿔 잘리지 않는다). 그래서 items-stretch가
-// 아니라 items-start로 두 칸을 각자의 자연스러운 높이로 위쪽 정렬한다.
-// layout을 지정하지 않으면(기본값 "auto") 기존 프로젝트들과 동일하게
-// 동작해 회귀가 없다.
+// cols-2로 폭을 정확히 50/50으로 나눈다.
+//
+// §138 — "좌측 이미지 상단·하단이 우측 콘텐츠 상단·하단과 정확히
+// 맞아야 한다"는 요청으로, half 레이아웃도 auto와 마찬가지로
+// targetHeightPx(텍스트 칸 실측 높이)를 사진에 그대로 전달한다
+// (§135-보정에서 "세로 사진 잘림 방지"로 비율 유지 방식을 썼던 걸 다시
+// 되돌린 것 — 이번엔 크롭 자체는 허용하되 MediaRef.focusX/focusY로
+// 잘리는 위치를 조절하는 방향으로 절충했다. RepresentativeMediaColumn
+// 참고). items-start로 둬도 두 칸의 실제 높이가 같아지므로(사진은
+// targetHeightPx로 고정, 텍스트는 그 높이를 만든 원본이므로 당연히
+// 같음) 상/하단이 자연히 맞는다. layout을 지정하지 않으면(기본값
+// "auto") 기존 프로젝트들과 동일하게 동작해 회귀가 없다.
 const GAP_PX = 48; // md:gap-12
 const MIN_TEXT_W = 320; // 텍스트 칸에 항상 남겨두는 최소 폭
 
@@ -53,7 +58,7 @@ export function RepresentativeMediaWithText({
     return (
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
         <div className="w-full">
-          <RepresentativeMediaColumn media={media} fillWidth retouchMarkers={retouchMarkers} />
+          <RepresentativeMediaColumn media={media} targetHeightPx={textHeightPx} fillWidth retouchMarkers={retouchMarkers} />
         </div>
         <div ref={textRef} className="min-w-0 w-full">
           {children}

@@ -11,18 +11,22 @@ import { SaveBar } from "@/components/admin/SaveBar";
 import { DetailBlockEditor } from "@/components/admin/project/DetailBlockEditor";
 import { RetouchMarkerEditor } from "@/components/admin/project/RetouchMarkerEditor";
 import { ConfirmButton } from "@/components/admin/ConfirmButton";
+import { TOOL_ICON_MAP, TOOL_ICON_ORDER } from "@/lib/tool-icons";
 
 const FIELD_OPTIONS: ProjectField[] = [
   "의류", "카페 및 음식", "인테리어", "인물 프로필", "치과 및 병원 광고", "유튜브", "생성형 인공지능 콘텐츠",
 ];
 
-// §55 — 상세 페이지 본문 구조를 "프로젝트 개요 / 제작 의도 / 기여도 / Tools"
-// 4개로 고정하면서, 여기서 고를 수 있는 보충 항목도 그 4개로 맞췄다(예전
-// 10개짜리 자유 블록 중 실제로 쓰이는 4개만 남김). 이 블록은 선택 사항이며,
-// 비워두면 위쪽 프로젝트 기본 정보(제작 목적/담당 역할/사용 도구/상세
-// 설명)가 그대로 상세 페이지에 쓰인다 — 여기서는 사진을 곁들이거나 본문을
-// 상세 페이지에서만 다르게 쓰고 싶을 때만 채우면 된다.
-const BLOCK_KEYS: ProjectDetailBlock["key"][] = ["overview", "purpose", "role", "tools"];
+// §55 — 상세 페이지 본문 구조를 "프로젝트 개요 / 제작 의도 / 기여도" 3개로
+// 고정하면서, 여기서 고를 수 있는 보충 항목도 그 3개로 맞췄다(예전 10개짜리
+// 자유 블록 중 실제로 쓰이는 것만 남김). 이 블록은 선택 사항이며, 비워두면
+// 위쪽 프로젝트 기본 정보(제작 목적/담당 역할/상세 설명)가 그대로 상세
+// 페이지에 쓰인다 — 여기서는 사진을 곁들이거나 본문을 상세 페이지에서만
+// 다르게 쓰고 싶을 때만 채우면 된다.
+// §137 — "Tools"는 자유 텍스트/이미지 보충 블록에서 빠졌다. 이제 아래
+// "Tools (사용 프로그램)" FieldGroup에서 아이콘을 선택하는 방식으로만
+// 관리한다(자유 입력 항목이 아니게 됨에 따라 이 보충 블록 목록에서 제외).
+const BLOCK_KEYS: ProjectDetailBlock["key"][] = ["overview", "purpose", "role"];
 const BLOCK_LABELS: Record<string, string> = {
   overview: "프로젝트 개요", purpose: "제작 의도", role: "기여도", tools: "Tools",
 };
@@ -210,17 +214,50 @@ export function ProjectEditor({ initial }: { initial: Project }) {
           hint="촬영/보조촬영/보정/기획/편집 등 실제 역할을 구체적으로 기재하세요. Enter로 줄바꿈하면 상세 페이지에 그대로 반영됩니다(대표 화면 상단의 짧은 요약줄에서는 자동으로 한 줄로 보입니다)."
         />
         <TextAreaField label="상세 설명 (프로젝트 개요)" value={data.description} onChange={(v) => set("description", v)} rows={3} />
-        <div>
-          <span className="block text-sm font-medium text-neutral-300 mb-1.5">Tools (사용 도구)</span>
-          <p className="text-xs text-neutral-500 mb-1.5">태그 형태로 그대로 쓰입니다.</p>
-          <textarea
-            value={data.tools.join("\n")}
-            onChange={(e) => set("tools", e.target.value.split("\n"))}
-            rows={3}
-            placeholder="한 줄에 하나씩 입력"
-            className="w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-neutral-100 outline-none focus:border-orange-500"
-          />
+      </FieldGroup>
+
+      <FieldGroup
+        title="Tools (사용 프로그램)"
+        hint='자유 입력이 아니라 Skill 페이지(프로필 → 핵심 수치 → Skills)에 등록된 아이콘 중에서 이 프로젝트에 사용한 도구를 선택합니다. 상세 페이지에는 아이콘만 나오고 도구명은 표시되지 않으며, 커서를 올리면 이름이 툴팁으로 보입니다. 같은 아이콘은 중복 선택할 수 없습니다.'
+      >
+        <div className="flex flex-wrap gap-2.5 mb-3">
+          {TOOL_ICON_ORDER.map((name) => {
+            const selected = data.tools.includes(name);
+            return (
+              <button
+                key={name}
+                type="button"
+                onClick={() => set("tools", selected ? data.tools.filter((t) => t !== name) : [...data.tools, name])}
+                className={`flex flex-col items-center gap-1.5 rounded-lg border p-2.5 w-[76px] transition-colors ${
+                  selected ? "border-orange-500 bg-orange-500/10" : "border-neutral-700 hover:border-neutral-500"
+                }`}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={TOOL_ICON_MAP[name]} alt={name} className="h-9 w-9 rounded-md object-cover" />
+                <span className="text-[10px] text-neutral-400 text-center leading-tight">{name}</span>
+              </button>
+            );
+          })}
         </div>
+        {data.tools.filter((t) => TOOL_ICON_MAP[t]).length > 0 && (
+          <div className="flex flex-wrap gap-2 pt-3 border-t border-neutral-800">
+            {data.tools.filter((t) => TOOL_ICON_MAP[t]).map((name) => (
+              <span key={name} className="flex items-center gap-1.5 rounded-full border border-neutral-700 pl-1 pr-2 py-1 text-xs text-neutral-300">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={TOOL_ICON_MAP[name]} alt="" className="h-5 w-5 rounded object-cover" />
+                {name}
+                <button
+                  type="button"
+                  onClick={() => set("tools", data.tools.filter((t) => t !== name))}
+                  className="ml-1 text-neutral-500 hover:text-red-400"
+                  aria-label={`${name} 제거`}
+                >
+                  ×
+                </button>
+              </span>
+            ))}
+          </div>
+        )}
       </FieldGroup>
 
       <FieldGroup title="대표·목록 사진·영상">
@@ -309,7 +346,7 @@ export function ProjectEditor({ initial }: { initial: Project }) {
 
       <FieldGroup
         title="보정 전후 없을 때 대체 이미지·영상 (선택)"
-        hint='위 "보정 전·후 비교"가 하나도 없는 프로젝트는 상세 페이지의 그 자리가 텍스트만으로 채워지는데, 여기에 이미지·영상을 등록하면 그 자리에 대신 나타납니다(왼쪽 사진/영상 + 오른쪽 프로젝트 개요~Tools). 여러 장 등록하면 보정 전·후 비교와 같은 방식으로 화살표(‹ ›)를 눌러 이전/다음 사진을 볼 수 있습니다. 비워두면 위쪽 "대표 이미지"를 자동으로 대신 씁니다. 보정 전·후 비교가 하나라도 있으면 이 항목은 쓰이지 않습니다.'
+        hint='위 "보정 전·후 비교"가 하나도 없는 프로젝트는 상세 페이지의 그 자리가 텍스트만으로 채워지는데, 여기에 이미지·영상을 등록하면 그 자리에 대신 나타납니다(왼쪽 사진/영상 + 오른쪽 프로젝트 개요~Tools). 여러 장 등록하면 보정 전·후 비교와 같은 방식으로 화살표(‹ ›)를 눌러 이전/다음 사진을 볼 수 있습니다. 비워두면 위쪽 "대표 이미지"를 자동으로 대신 씁니다. 보정 전·후 비교가 하나라도 있으면 이 항목은 쓰이지 않습니다. 사진 영역의 높이는 항상 오른쪽 텍스트 칸 높이에 정확히 맞춰지고(위아래 정렬이 항상 일치), 사진은 원본 비율 그대로(잘리거나 늘어나지 않고) 그 영역 안에 표시되며 남는 공간은 여백으로 남습니다.'
       >
         <div className="grid grid-cols-3 gap-3 mb-2">
           {fallbackMediaList.map((item, idx) => (

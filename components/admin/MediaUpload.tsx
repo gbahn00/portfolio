@@ -3,9 +3,21 @@
 import { useRef, useState } from "react";
 import { MediaRef } from "@/lib/types";
 
+// §138 — "좌측 이미지 높이를 텍스트 칸에 맞추고 object-fit: cover를
+// 쓰되, 얼굴 등 주요 피사체가 잘리지 않도록 object-position을 조절할 수
+// 있게 해달라"는 요청. showFocus를 true로 켠 곳(현재는 프로젝트 편집의
+// "대체 이미지·영상" 목록)에서만 세로 위치 조절 버튼(상단/중앙/하단)이
+// 나타난다 — 사이트 전체 MediaUpload에 항상 보이면 대부분의 용도(크롭이
+// 일어나지 않는 자리)에서는 불필요한 UI라 옵션으로 뺐다.
+const FOCUS_Y_OPTIONS: { value: number; label: string }[] = [
+  { value: 15, label: "상단" },
+  { value: 50, label: "중앙" },
+  { value: 85, label: "하단" },
+];
+
 export function MediaUpload({
-  label, value, onChange, accept = "image/*", hint,
-}: { label: string; value?: MediaRef; onChange: (m: MediaRef | undefined) => void; accept?: string; hint?: string }) {
+  label, value, onChange, accept = "image/*", hint, showFocus,
+}: { label: string; value?: MediaRef; onChange: (m: MediaRef | undefined) => void; accept?: string; hint?: string; showFocus?: boolean }) {
   const inputRef = useRef<HTMLInputElement>(null);
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -106,6 +118,30 @@ export function MediaUpload({
               onChange={(e) => onChange({ ...value, alt: e.target.value })}
               className="mt-2 w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-1.5 text-xs text-neutral-100 outline-none focus:border-orange-500"
             />
+          )}
+          {showFocus && value?.url && value.kind !== "video-file" && (
+            <div className="mt-2">
+              <span className="block text-[11px] text-neutral-500 mb-1">
+                피사체 위치 (사진이 잘려야 할 때 어느 쪽을 남길지)
+              </span>
+              <div className="flex gap-1.5">
+                {FOCUS_Y_OPTIONS.map((opt) => {
+                  const selected = (value.focusY ?? 50) === opt.value;
+                  return (
+                    <button
+                      key={opt.value}
+                      type="button"
+                      onClick={() => onChange({ ...value, focusY: opt.value })}
+                      className={`rounded-md border px-2.5 py-1 text-xs ${
+                        selected ? "border-orange-500 text-orange-400" : "border-neutral-700 text-neutral-400"
+                      }`}
+                    >
+                      {opt.label}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
           )}
           {error && <p className="text-xs text-red-400 mt-1">{error}</p>}
         </div>

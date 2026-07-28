@@ -11,6 +11,7 @@ import { FinalVideoBlock } from "@/components/sections/FinalVideoBlock";
 import { ContentsCarousel } from "@/components/sections/ContentsCarousel";
 import { isPlaceholder, optimizedImageSrc, stripPlaceholder } from "@/lib/utils";
 import { Project, MediaRef } from "@/lib/types";
+import { TOOL_ICON_MAP, sortByToolIconOrder } from "@/lib/tool-icons";
 
 export const dynamic = "force-dynamic";
 
@@ -81,10 +82,13 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
     return { key, title: SECTION_TITLES[key], body, images: block?.images ?? [] };
   });
 
+  // §137 — Tools는 더 이상 자유 텍스트가 아니라 Skill 페이지에 등록된
+  // 아이콘 중에서 고른 이름(project.tools)만 쓴다. 예전에 "보충 항목"으로
+  // 등록됐던 tools 블록의 본문 텍스트는 더 이상 이름 목록으로 쓰지 않고,
+  // TOOL_ICON_MAP에 실제 아이콘이 있는 이름만 걸러서 순서대로 보여준다
+  // (다만 그 블록에 첨부된 이미지는 그대로 Tools 아이콘 아래에 보여준다).
   const toolsBlock = findBlock(project, "tools");
-  const toolsList = (toolsBlock?.body && !isPlaceholder(toolsBlock.body) ? toolsBlock.body.split("\n") : project.tools)
-    .map((t) => t.trim())
-    .filter((t) => t && !isPlaceholder(t));
+  const toolsList = sortByToolIconOrder((project.tools ?? []).filter((t) => TOOL_ICON_MAP[t]));
 
   // §97 — 대표 프로젝트 전체 상세페이지의 구조 순서를 다음으로 통일한다:
   //   1) 상세페이지 대표 화면 (ProjectCover)
@@ -125,6 +129,17 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
   // §124 — "상세 이미지"와 별도인 영상 전용 Contents 영역.
   const hasContents = (project.contents?.length ?? 0) > 0;
   const hasAnyMedia = hasBeforeAfter || hasFinalVideo || hasGallery || hasContents;
+  // §136 — "인물 프로필 상세페이지의 Tools 하단에 상세 이미지를 반영해달라
+  // (모션은 동일하게, 가로로 자동으로 움직이도록)"는 요청. layout="half"
+  // (좌우 50/50 분할)는 사진이 세로로 아주 길어질 수 있어서, 상세 이미지를
+  // 기존처럼 사진+텍스트 줄 전체가 끝난 뒤(=사진 하단)에 두면 Tools와
+  // 상세 이미지 사이에 사진 길이만큼 큰 빈 공간이 생긴다. layout이
+  // "half"일 때는 상세 이미지(GalleryGrid, AutoScrollRow의 가로 자동
+  // 스크롤 모션 그대로)를 텍스트 칸 안 Tools 바로 아래에 넣어 사진 길이와
+  // 무관하게 항상 Tools 다음에 바로 이어지게 한다. 이때는 아래쪽 별도
+  // Container에서 다시 렌더링하지 않는다(중복 방지).
+  const showGalleryInline =
+    !hasBeforeAfter && fallbackMediaList.length > 0 && project.beforeAfterFallbackLayout === "half" && hasGallery;
 
   // §103 — 보정 전/후 사진이 있는 프로젝트는 "왼쪽: 보정 전/후 사진(한 장씩
   // 이전/다음), 오른쪽: 프로젝트 개요/제작 의도/기여도/Tools" 2단 구성으로
@@ -152,17 +167,31 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
         </div>
       ))}
 
+      {/* §137 — "Tools는 자유 텍스트가 아니라 Skill 페이지에 등록된 아이콘을
+          선택하는 방식으로, 상세 페이지엔 아이콘만(도구명 비표시) 노출하고
+          hover 시 툴팁으로 이름을 보여달라"는 요청. 텍스트 알약(pill) 대신
+          아이콘만 동일 크기·간격으로 나열하고, 커서를 올리면(순수 CSS
+          group-hover라 이 서버 컴포넌트 안에서도 별도 자바스크립트 없이
+          동작한다) 이름이 말풍선으로 뜬다. */}
       {toolsList.length > 0 && (
         <div>
           <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-korean">Tools</h2>
-          <div className="flex flex-wrap gap-2">
-            {toolsList.map((t, i) => (
-              <span
-                key={i}
-                className="text-sm rounded-full border border-line px-4 py-1.5 text-ink-secondary text-korean"
-              >
-                {t}
-              </span>
+          <div className="flex flex-wrap gap-4">
+            {toolsList.map((t) => (
+              <div key={t} className="group relative">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={TOOL_ICON_MAP[t]}
+                  alt={t}
+                  className="h-11 w-11 md:h-12 md:w-12 rounded-lg object-cover border border-line"
+                />
+                <div
+                  className="pointer-events-none absolute left-1/2 -translate-x-1/2 bottom-full mb-2 whitespace-nowrap rounded-md bg-black/90 px-2.5 py-1.5 text-xs text-white opacity-0 shadow-lg transition-opacity duration-150 group-hover:opacity-100"
+                  role="tooltip"
+                >
+                  {t}
+                </div>
+              </div>
             ))}
           </div>
           {toolsBlock?.images && toolsBlock.images.length > 0 && (
@@ -172,6 +201,16 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
               ))}
             </div>
           )}
+        </div>
+      )}
+
+      {/* §136 — layout="half"에서는 상세 이미지를 Tools 바로 아래(텍스트
+          칸 안)에 넣는다. 모션은 다른 프로젝트와 동일한 GalleryGrid(가로로
+          계속 흘러가는 자동 스크롤, AutoScrollRow)를 그대로 재사용한다. */}
+      {showGalleryInline && (
+        <div>
+          <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-korean">상세 이미지</h2>
+          <GalleryGrid items={project.gallery} />
         </div>
       )}
     </div>
@@ -188,7 +227,10 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
   // "첫 번째" 블록으로 오는 경우가 없으므로(사진+텍스트 또는 텍스트만이
   // 항상 먼저 온다) 위쪽 여백은 항상 pt-10/12로 고정한다.
   const mediaTopPad = "pt-10 md:pt-12";
-  const hasMediaBelow = hasFinalVideo || hasGallery || hasContents;
+  // §136 — 상세 이미지가 Tools 아래로 이미 인라인 배치됐으면(showGalleryInline)
+  // 더 이상 "사진+텍스트 블록 아래에 별도로 이어지는 미디어"가 아니므로
+  // 여백 계산에서 제외한다.
+  const hasMediaBelow = hasFinalVideo || (hasGallery && !showGalleryInline) || hasContents;
 
   return (
     <main className="bg-bg min-h-screen">
@@ -250,7 +292,10 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
           />
         </Container>
       )}
-      {hasGallery && (
+      {/* §136 — layout="half"인 프로젝트는 상세 이미지를 위 sectionsAndTools
+          안(Tools 바로 아래)에서 이미 보여줬으므로 여기서 중복으로 다시
+          렌더링하지 않는다. */}
+      {hasGallery && !showGalleryInline && (
         <Container className={`${mediaTopPad} ${hasContents ? "" : "pb-24 md:pb-32"}`}>
           <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-korean">상세 이미지</h2>
           <GalleryGrid items={project.gallery} />

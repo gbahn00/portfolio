@@ -1,5 +1,1791 @@
 [
   {
+    "id": "999f5791-88e3-43e9-b48b-f652e86c69f2",
+    "entity": "projects:proj-cafe",
+    "field": "수정",
+    "before": {
+      "id": "proj-cafe",
+      "number": "02",
+      "title": "카페 및 음식 브랜드 촬영 · 보정",
+      "brand": "갈바트 카페, 교타쿠",
+      "brandHidden": false,
+      "year": "2024",
+      "field": "카페 및 음식",
+      "purpose": "브랜드의 아이덴티티와 음식의 매력을 동시에 전달하여 온라인에서도 브랜드 경험이 이어질 수 있는 콘텐츠 제작",
+      "role": "촬영 · 색보정 · 리터칭 · 메뉴 콘텐츠 제작",
+      "tools": [
+        "ㅁㅇㄴㄹㅁㅇㄴㄹ"
+      ],
+      "description": "음식의 맛을 시각적으로 전달하고, 브랜드가 가진 분위기와 감성을 함께 담아낼 수 있는 메뉴 콘텐츠를 제작했습니다.",
+      "heroImage": {
+        "url": "/placeholders/cafe.svg",
+        "kind": "image",
+        "alt": "카페 및 음식 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [
+        {
+          "url": "/uploads/bcf87e95-b144-44d9-b69a-8de6f1892531.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/e2a25d9b-2915-4704-9f69-223048060668.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/7291e123-01a1-43b0-b2aa-0763d39c2abd.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/bebb9628-e7b6-4008-acf3-b9f5a54f14cf.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/97a120fc-c486-4a83-a85b-8e6c891b8d17.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/3c0f97ba-4bfb-4d88-a40a-66f502c0e555.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/0a328ce7-0039-4b70-ba3d-ba0def8bced8.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/ea39efcf-3bde-4e04-82ac-f4e5fe511d06.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "beforeAfter": [
+        {
+          "id": "8acaed8b-9a25-4c27-8225-e1ef43204697",
+          "before": {
+            "url": "/uploads/dedc624c-b0dc-495b-8317-c92fd666bf8c.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/4dd1f6a8-fde7-44ae-9412-d619b61ef6cb.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 0
+        },
+        {
+          "id": "ed5ce6e0-51c9-4b11-949e-8b3f400292bf",
+          "before": {
+            "url": "/uploads/5bdb2147-603e-4f87-93ed-806553284bbb.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/715756d1-6a19-4be7-ba82-dc6314af54e4.png",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 1
+        }
+      ],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "facc2350-d18e-44b2-8d0b-8bf477ea0b64",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "카페와 음식 브랜드의 홍보 콘텐츠 제작을 위해 메뉴와 음료를 촬영하고, \n브랜드 분위기에 맞춰 구도와 소품, 색감을 구성했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "75af1c57-711c-43f1-8e6c-65c9abc69ade",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "고객이 사진만으로도 메뉴의 맛과 질감을 직관적으로 느끼고, \n각 브랜드가 가진 분위기와 차별점을 함께 인식할 수 있도록 제작했습니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "9b9e2471-a66b-47f2-bce3-ebc6d6d37db5",
+          "key": "role",
+          "title": "기여도",
+          "body": "푸드 촬영 · 소품 배치 · 구도 구성 · 색보정 · 리터칭",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 1,
+      "createdAt": "2024-09-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T08:23:34.825Z",
+      "contents": []
+    },
+    "after": {
+      "id": "proj-cafe",
+      "number": "02",
+      "title": "카페 및 음식 브랜드 촬영 · 보정",
+      "brand": "갈바트 카페, 교타쿠",
+      "brandHidden": false,
+      "year": "2024",
+      "field": "카페 및 음식",
+      "purpose": "브랜드의 아이덴티티와 음식의 매력을 동시에 전달하여 온라인에서도 브랜드 경험이 이어질 수 있는 콘텐츠 제작",
+      "role": "촬영 · 색보정 · 리터칭 · 메뉴 콘텐츠 제작",
+      "tools": [
+        "ㅁㅇㄴㄹㅁㅇㄴㄹ",
+        "Photoshop",
+        "Premiere Pro",
+        "Illustrator",
+        "After Effects"
+      ],
+      "description": "음식의 맛을 시각적으로 전달하고, 브랜드가 가진 분위기와 감성을 함께 담아낼 수 있는 메뉴 콘텐츠를 제작했습니다.",
+      "heroImage": {
+        "url": "/placeholders/cafe.svg",
+        "kind": "image",
+        "alt": "카페 및 음식 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [
+        {
+          "url": "/uploads/bcf87e95-b144-44d9-b69a-8de6f1892531.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/e2a25d9b-2915-4704-9f69-223048060668.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/7291e123-01a1-43b0-b2aa-0763d39c2abd.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/bebb9628-e7b6-4008-acf3-b9f5a54f14cf.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/97a120fc-c486-4a83-a85b-8e6c891b8d17.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/3c0f97ba-4bfb-4d88-a40a-66f502c0e555.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/0a328ce7-0039-4b70-ba3d-ba0def8bced8.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/ea39efcf-3bde-4e04-82ac-f4e5fe511d06.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "beforeAfter": [
+        {
+          "id": "8acaed8b-9a25-4c27-8225-e1ef43204697",
+          "before": {
+            "url": "/uploads/dedc624c-b0dc-495b-8317-c92fd666bf8c.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/4dd1f6a8-fde7-44ae-9412-d619b61ef6cb.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 0
+        },
+        {
+          "id": "ed5ce6e0-51c9-4b11-949e-8b3f400292bf",
+          "before": {
+            "url": "/uploads/5bdb2147-603e-4f87-93ed-806553284bbb.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/715756d1-6a19-4be7-ba82-dc6314af54e4.png",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 1
+        }
+      ],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "facc2350-d18e-44b2-8d0b-8bf477ea0b64",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "카페와 음식 브랜드의 홍보 콘텐츠 제작을 위해 메뉴와 음료를 촬영하고, \n브랜드 분위기에 맞춰 구도와 소품, 색감을 구성했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "75af1c57-711c-43f1-8e6c-65c9abc69ade",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "고객이 사진만으로도 메뉴의 맛과 질감을 직관적으로 느끼고, \n각 브랜드가 가진 분위기와 차별점을 함께 인식할 수 있도록 제작했습니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "9b9e2471-a66b-47f2-bce3-ebc6d6d37db5",
+          "key": "role",
+          "title": "기여도",
+          "body": "푸드 촬영 · 소품 배치 · 구도 구성 · 색보정 · 리터칭",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 1,
+      "createdAt": "2024-09-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T10:18:55.375Z",
+      "contents": [],
+      "beforeAfterFallbackMedia": [],
+      "retouchMarkers": []
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-28T10:18:55.676Z"
+  },
+  {
+    "id": "646fa29b-5fb3-4021-9231-a1eb86e4f4fd",
+    "entity": "projects:proj-clothing",
+    "field": "수정",
+    "before": {
+      "id": "proj-clothing",
+      "number": "01",
+      "title": "상세페이지 디테일컷 및 모델 촬영 · 보정",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "의류",
+      "purpose": "제품의 색감과 디테일을 정확하게 전달하고, 구매 결정에 도움이 되는 이미지 제작",
+      "role": "촬영과 보정 기준을 일관되게 적용해 상품의 완성도와 표현 품질을 높였습니다.",
+      "tools": [
+        "dfdfdfdfdfdf"
+      ],
+      "description": "온라인 판매용 의류 상세페이지에 활용되는 제품 이미지와 모델 착용컷을 촬영·보정했습니다.",
+      "heroImage": {
+        "url": "/placeholders/clothing.svg",
+        "kind": "image",
+        "alt": "의류 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [
+        {
+          "url": "/uploads/7400789d-72f2-4d98-a80a-2e1d738447b7.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/bb5dbc9f-4dca-4e55-8f6d-86bddfd5fd6a.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/0789c1e8-3e75-458e-a6b5-cda9bf3442bd.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/56073b72-251e-4f40-9eb7-09bde6858c36.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/109382a4-8d2b-4e92-93bf-5ab2ea1f56b2.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/e1272cf7-c419-48bd-9297-f6a075f03e22.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/0febb2a7-1054-4f1d-8c36-d149c5085916.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/9158154c-aa82-4d8b-860b-e87a26d92cf0.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/1bf39d9b-8705-425f-a7fe-f90284726611.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/8827737d-4682-4d85-a5f7-a16ef2407435.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/9652459f-73b4-4f8e-bab0-84416567ddfb.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/3b047aee-38cf-4e3b-b941-5098bb64b4df.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/e1bf25f1-18e3-4cd9-93f2-95ca73f803e8.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/62a48662-6c1d-4c7f-8271-f239b705e8e2.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "beforeAfter": [
+        {
+          "id": "75331a83-1d99-4958-9620-389756ec918d",
+          "before": {
+            "url": "/uploads/560e8d0a-80f2-4ca2-ae88-9d9696377c39.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/ad742acf-2f00-4d4f-b6f1-b3cea56793e5.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 0,
+          "category": "detail"
+        },
+        {
+          "id": "de27a56e-87b1-452f-ad26-880a38647ae8",
+          "before": {
+            "url": "/uploads/5ad2940b-8033-4784-bc39-8f35d29acb18.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/89a1375c-a17d-42b8-b0ad-f3fc4548de34.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 1,
+          "category": "detail"
+        },
+        {
+          "id": "b46b8017-12c2-4b47-b445-13d833f3f5b5",
+          "before": {
+            "url": "/uploads/6b582a79-a9b6-4a77-b0d2-ca10fbdaabc2.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/6c2bf48b-e0f9-4443-ab32-87ec2e7e6853.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 2,
+          "category": "detail"
+        },
+        {
+          "id": "250320e4-c4dd-4049-83a8-59c7747671a2",
+          "before": {
+            "url": "/uploads/6d650b1a-1c9b-437e-b9e1-2ef4243926e6.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/0d42364b-27a7-4d7b-8678-5c281c429f85.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 3,
+          "category": "detail"
+        },
+        {
+          "id": "04ae5c5e-7adf-4ab1-85fe-b1afd2a33cf5",
+          "before": {
+            "url": "/uploads/56627d69-7a60-4f4b-82e5-2bde2a13d94b.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/0d5f4c66-c160-45aa-ad21-e2a37660c352.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 4,
+          "category": "model"
+        },
+        {
+          "id": "54e5ebbd-3756-4b06-b3c5-3ca4a38a06a4",
+          "before": {
+            "url": "/uploads/c1f1f1a3-9fa1-4454-9719-41b5a93e01ce.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/b300509c-05ec-405b-af89-a37224abf550.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 5,
+          "category": "model"
+        },
+        {
+          "id": "fdf7a51b-9d26-4334-960a-e2c9789ec5f5",
+          "before": {
+            "url": "/uploads/e005cd49-7428-4101-8c79-2d6576d453b4.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/332ace65-e87a-405b-af62-13aad8cb0b36.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 6,
+          "category": "model"
+        }
+      ],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "f9f91455-299c-4dd8-9e67-848e40d2e662",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "온라인 의류 상세페이지 제작 과정에서 제품 디테일컷과 모델 착용컷을 직접 촬영하고,\n실제 색감과 소재가 자연스럽게 보이도록 보정했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "6eab677c-90ef-4a62-a17d-dc95fa8cafd8",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "고객이 제품을 직접 확인하기 어려운 온라인 환경에서도 소재와 세부 디자인,\n착용 형태를 정확히 파악해 구매를 판단할 수 있도록 제작했습니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b93bf333-ef63-4f07-9287-723138e9a159",
+          "key": "role",
+          "title": "기여도",
+          "body": "제품 촬영 · 모델 촬영 · 색보정 · 리터칭 · 이미지 검수",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 0,
+      "createdAt": "2024-08-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T08:22:51.224Z",
+      "contents": []
+    },
+    "after": {
+      "id": "proj-clothing",
+      "number": "01",
+      "title": "상세페이지 디테일컷 및 모델 촬영 · 보정",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "의류",
+      "purpose": "제품의 색감과 디테일을 정확하게 전달하고, 구매 결정에 도움이 되는 이미지 제작",
+      "role": "촬영과 보정 기준을 일관되게 적용해 상품의 완성도와 표현 품질을 높였습니다.",
+      "tools": [
+        "dfdfdfdfdfdf",
+        "CapCut",
+        "After Effects",
+        "Illustrator",
+        "Premiere Pro",
+        "Photoshop"
+      ],
+      "description": "온라인 판매용 의류 상세페이지에 활용되는 제품 이미지와 모델 착용컷을 촬영·보정했습니다.",
+      "heroImage": {
+        "url": "/placeholders/clothing.svg",
+        "kind": "image",
+        "alt": "의류 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [
+        {
+          "url": "/uploads/7400789d-72f2-4d98-a80a-2e1d738447b7.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/bb5dbc9f-4dca-4e55-8f6d-86bddfd5fd6a.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/0789c1e8-3e75-458e-a6b5-cda9bf3442bd.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/56073b72-251e-4f40-9eb7-09bde6858c36.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/109382a4-8d2b-4e92-93bf-5ab2ea1f56b2.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/e1272cf7-c419-48bd-9297-f6a075f03e22.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/0febb2a7-1054-4f1d-8c36-d149c5085916.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/9158154c-aa82-4d8b-860b-e87a26d92cf0.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/1bf39d9b-8705-425f-a7fe-f90284726611.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/8827737d-4682-4d85-a5f7-a16ef2407435.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/9652459f-73b4-4f8e-bab0-84416567ddfb.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/3b047aee-38cf-4e3b-b941-5098bb64b4df.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/e1bf25f1-18e3-4cd9-93f2-95ca73f803e8.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/62a48662-6c1d-4c7f-8271-f239b705e8e2.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "beforeAfter": [
+        {
+          "id": "75331a83-1d99-4958-9620-389756ec918d",
+          "before": {
+            "url": "/uploads/560e8d0a-80f2-4ca2-ae88-9d9696377c39.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/ad742acf-2f00-4d4f-b6f1-b3cea56793e5.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 0,
+          "category": "detail"
+        },
+        {
+          "id": "de27a56e-87b1-452f-ad26-880a38647ae8",
+          "before": {
+            "url": "/uploads/5ad2940b-8033-4784-bc39-8f35d29acb18.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/89a1375c-a17d-42b8-b0ad-f3fc4548de34.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 1,
+          "category": "detail"
+        },
+        {
+          "id": "b46b8017-12c2-4b47-b445-13d833f3f5b5",
+          "before": {
+            "url": "/uploads/6b582a79-a9b6-4a77-b0d2-ca10fbdaabc2.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/6c2bf48b-e0f9-4443-ab32-87ec2e7e6853.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 2,
+          "category": "detail"
+        },
+        {
+          "id": "250320e4-c4dd-4049-83a8-59c7747671a2",
+          "before": {
+            "url": "/uploads/6d650b1a-1c9b-437e-b9e1-2ef4243926e6.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/0d42364b-27a7-4d7b-8678-5c281c429f85.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 3,
+          "category": "detail"
+        },
+        {
+          "id": "04ae5c5e-7adf-4ab1-85fe-b1afd2a33cf5",
+          "before": {
+            "url": "/uploads/56627d69-7a60-4f4b-82e5-2bde2a13d94b.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/0d5f4c66-c160-45aa-ad21-e2a37660c352.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 4,
+          "category": "model"
+        },
+        {
+          "id": "54e5ebbd-3756-4b06-b3c5-3ca4a38a06a4",
+          "before": {
+            "url": "/uploads/c1f1f1a3-9fa1-4454-9719-41b5a93e01ce.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/b300509c-05ec-405b-af89-a37224abf550.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 5,
+          "category": "model"
+        },
+        {
+          "id": "fdf7a51b-9d26-4334-960a-e2c9789ec5f5",
+          "before": {
+            "url": "/uploads/e005cd49-7428-4101-8c79-2d6576d453b4.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/332ace65-e87a-405b-af62-13aad8cb0b36.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 6,
+          "category": "model"
+        }
+      ],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "f9f91455-299c-4dd8-9e67-848e40d2e662",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "온라인 의류 상세페이지 제작 과정에서 제품 디테일컷과 모델 착용컷을 직접 촬영하고,\n실제 색감과 소재가 자연스럽게 보이도록 보정했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "6eab677c-90ef-4a62-a17d-dc95fa8cafd8",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "고객이 제품을 직접 확인하기 어려운 온라인 환경에서도 소재와 세부 디자인,\n착용 형태를 정확히 파악해 구매를 판단할 수 있도록 제작했습니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "b93bf333-ef63-4f07-9287-723138e9a159",
+          "key": "role",
+          "title": "기여도",
+          "body": "제품 촬영 · 모델 촬영 · 색보정 · 리터칭 · 이미지 검수",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 0,
+      "createdAt": "2024-08-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T10:10:43.594Z",
+      "contents": [],
+      "beforeAfterFallbackMedia": [],
+      "retouchMarkers": []
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-28T10:10:43.611Z"
+  },
+  {
+    "id": "4e82c54f-b5c3-4b19-a4eb-62eff1d9dadd",
+    "entity": "projects:proj-dental",
+    "field": "수정",
+    "before": {
+      "id": "proj-dental",
+      "number": "05",
+      "title": "치과 및 임플란트 광고 영상 제작",
+      "brand": "[자료 필요 - 병원명, 공개 가능 여부 확인 필요]",
+      "brandHidden": true,
+      "year": "2025",
+      "field": "치과 및 병원 광고",
+      "purpose": "임플란트 및 치과 시술을 알리는 Meta 광고 영상과 병원 사회관계망서비스 정보형 영상 제작",
+      "role": "기획 및 제작 [자료 필요 - 세부 역할 구분]",
+      "tools": [
+        "ㅁㅇㄹㄴㅁㅇㄹ"
+      ],
+      "description": "의료 광고 특성상 과장된 표현을 피하고 시술 정보를 정확히 전달하는 데 집중했으며, 광고 채널의 노출 방식에 맞춰 영상 길이와 자막 구성을 조정했다.",
+      "gallery": [],
+      "beforeAfter": [],
+      "metrics": [
+        {
+          "id": "m1",
+          "label": "광고 클릭률",
+          "value": "[자료 필요]"
+        },
+        {
+          "id": "m2",
+          "label": "광고 전환율",
+          "value": "[자료 필요]"
+        }
+      ],
+      "detailBlocks": [
+        {
+          "id": "b1",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "치과와 임플란트 홍보를 위해 Meta 광고 및 병원 SNS용 콘텐츠를 기획하고, \n콘티 작성부터 편집과 후반 작업까지 영상 제작 전반을 수행했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "d0b6f237-87fa-48b2-bb36-6a0b50414fc4",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "치료를 고민하는 환자가 어려운 의료 정보를 빠르게 이해하고, 병원의 전문성과 시술에 대한 신뢰를 느낄 수 있도록 핵심 메시지를 구성했습니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "668af89b-b6d3-4217-a1fc-41564b0bffca",
+          "key": "role",
+          "title": "기여도",
+          "body": "콘텐츠 기획 · 콘티 작성 · 컷편집 · 모션 그래픽 · 사운드",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": true,
+      "isDetailFeatured": true,
+      "publicOk": true,
+      "status": "draft",
+      "order": 4,
+      "createdAt": "2025-03-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T08:28:14.590Z",
+      "retouchHighlights": [],
+      "contents": []
+    },
+    "after": {
+      "id": "proj-dental",
+      "number": "05",
+      "title": "치과 및 임플란트 광고 영상 제작",
+      "brand": "[자료 필요 - 병원명, 공개 가능 여부 확인 필요]",
+      "brandHidden": true,
+      "year": "2025",
+      "field": "치과 및 병원 광고",
+      "purpose": "임플란트 및 치과 시술을 알리는 Meta 광고 영상과 병원 사회관계망서비스 정보형 영상 제작",
+      "role": "기획 및 제작 [자료 필요 - 세부 역할 구분]",
+      "tools": [
+        "ㅁㅇㄹㄴㅁㅇㄹ",
+        "Premiere Pro",
+        "Photoshop",
+        "Illustrator"
+      ],
+      "description": "의료 광고 특성상 과장된 표현을 피하고 시술 정보를 정확히 전달하는 데 집중했으며, 광고 채널의 노출 방식에 맞춰 영상 길이와 자막 구성을 조정했다.",
+      "gallery": [],
+      "beforeAfter": [],
+      "metrics": [
+        {
+          "id": "m1",
+          "label": "광고 클릭률",
+          "value": "[자료 필요]"
+        },
+        {
+          "id": "m2",
+          "label": "광고 전환율",
+          "value": "[자료 필요]"
+        }
+      ],
+      "detailBlocks": [
+        {
+          "id": "b1",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "치과와 임플란트 홍보를 위해 Meta 광고 및 병원 SNS용 콘텐츠를 기획하고, \n콘티 작성부터 편집과 후반 작업까지 영상 제작 전반을 수행했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "d0b6f237-87fa-48b2-bb36-6a0b50414fc4",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "치료를 고민하는 환자가 어려운 의료 정보를 빠르게 이해하고, 병원의 전문성과 시술에 대한 신뢰를 느낄 수 있도록 핵심 메시지를 구성했습니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "668af89b-b6d3-4217-a1fc-41564b0bffca",
+          "key": "role",
+          "title": "기여도",
+          "body": "콘텐츠 기획 · 콘티 작성 · 컷편집 · 모션 그래픽 · 사운드",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": true,
+      "isDetailFeatured": true,
+      "publicOk": true,
+      "status": "draft",
+      "order": 4,
+      "createdAt": "2025-03-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T10:10:20.327Z",
+      "retouchHighlights": [],
+      "contents": [],
+      "beforeAfterFallbackMedia": [],
+      "retouchMarkers": []
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-28T10:10:20.799Z"
+  },
+  {
+    "id": "1d6a40cd-aae7-41a3-9cea-0213b6d802b2",
+    "entity": "projects:proj-portrait",
+    "field": "수정",
+    "before": {
+      "id": "proj-portrait",
+      "number": "04",
+      "title": "인물 프로필 보정",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "인물 프로필",
+      "purpose": "직원, 의료진과 트레이너의 프로필 사진 제작",
+      "role": "촬영 보조 및 보정",
+      "tools": [
+        "[자료 필요] 사용 장비 및 보정 프로그램 목록"
+      ],
+      "description": "회사 직원, 병원 의사, 헬스장 트레이너의 프로필과 단체사진을 촬영 보조하고 보정했습니다.\n과도한 보정보다 대상자의 자연스러움과 직업적 신뢰감을 유지하는 데 집중했습니다.",
+      "heroImage": {
+        "url": "/placeholders/portrait.svg",
+        "kind": "image",
+        "alt": "인물 프로필 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [],
+      "beforeAfter": [],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "48432402-4ee5-4355-b2ab-55135bf57158",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "회사 직원, 의료진, 트레이너 등 직무별 프로필 촬영 현장에서 세팅과 포즈를 지원하고, \n대상자의 인상이 자연스럽게 드러나도록 보정했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "3041fb27-fc5f-4eb4-aed8-d6b38cd8a51f",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "홈페이지와 홍보물에서 활용되는 프로필 사진이 직무에 대한 신뢰감과 전문성을 전달할 수 있도록\n이미지를 제작했습니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "21e21939-38e9-4e2d-aead-a0cceae42b7d",
+          "key": "role",
+          "title": "기여도",
+          "body": "촬영 지원 · 현장 세팅 · 포즈 보조 · 색보정 · 리터칭",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "14b5fbaf-a442-4711-8dfd-0c8170937a76",
+          "key": "tools",
+          "title": "Tools",
+          "body": "ㅁㄴㅇㄹㄴㅁㅇㄹㅁㄴㅇㄹㅇㄴㄹ",
+          "order": 3,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 3,
+      "createdAt": "2024-10-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T09:41:26.186Z",
+      "contents": [],
+      "beforeAfterFallbackMedia": [
+        {
+          "url": "/uploads/2efdbb3f-f732-4831-9e61-7f4893b7a1d2.png",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/ebc29c56-1cc9-4941-9597-43efe309f599.png",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "retouchMarkers": [
+        {
+          "id": "2c42fff8-f442-4374-93e0-47897412cac7",
+          "mediaIndex": 0,
+          "x": 43.8,
+          "y": 47.1,
+          "label": "dfjlkdjflj",
+          "order": 0
+        },
+        {
+          "id": "7973cf9e-f6b8-4dfa-95d5-56373cc26c4d",
+          "mediaIndex": 0,
+          "x": 58.7,
+          "y": 49.8,
+          "label": "sdlkfjsldfjkldsj",
+          "order": 1
+        },
+        {
+          "id": "4df499c4-3f21-40ce-b74a-f99f9befaa92",
+          "mediaIndex": 0,
+          "x": 58,
+          "y": 63.9,
+          "label": "kfjlwejlkfjlds",
+          "order": 2
+        },
+        {
+          "id": "a231ac0a-499b-4980-b4ba-7230b885ed75",
+          "mediaIndex": 0,
+          "x": 38.4,
+          "y": 59.3,
+          "label": "skldjfwfn;dnfkdn",
+          "order": 3
+        },
+        {
+          "id": "aba2b8a1-3899-487f-9b9c-f6704e87c382",
+          "mediaIndex": 0,
+          "x": 31.9,
+          "y": 45.7,
+          "label": "sdfnlfnlwnflsdlfkdf",
+          "order": 4
+        }
+      ],
+      "beforeAfterFallbackLayout": "half"
+    },
+    "after": {
+      "id": "proj-portrait",
+      "number": "04",
+      "title": "인물 프로필 보정",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "인물 프로필",
+      "purpose": "직원, 의료진과 트레이너의 프로필 사진 제작",
+      "role": "촬영 보조 및 보정",
+      "tools": [
+        "[자료 필요] 사용 장비 및 보정 프로그램 목록"
+      ],
+      "description": "회사 직원, 병원 의사, 헬스장 트레이너의 프로필과 단체사진을 촬영 보조하고 보정했습니다.\n과도한 보정보다 대상자의 자연스러움과 직업적 신뢰감을 유지하는 데 집중했습니다.",
+      "heroImage": {
+        "url": "/placeholders/portrait.svg",
+        "kind": "image",
+        "alt": "인물 프로필 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [
+        {
+          "url": "/uploads/cafb27ca-52b6-4690-be4e-1ee0f2a1c099.png",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/c3ecd252-7005-4d5d-8f0e-a2ff32ca2607.png",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/69270e0a-7a58-413a-b559-63bcb658d926.png",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/ae15d535-1439-49bb-a261-71b6fb9fd8bf.JPG",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "beforeAfter": [],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "48432402-4ee5-4355-b2ab-55135bf57158",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "회사 직원, 의료진, 트레이너 등 직무별 프로필 촬영 현장에서 세팅과 포즈를 지원하고, \n대상자의 인상이 자연스럽게 드러나도록 보정했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "3041fb27-fc5f-4eb4-aed8-d6b38cd8a51f",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "홈페이지와 홍보물에서 활용되는 프로필 사진이 직무에 대한 신뢰감과 전문성을 전달할 수 있도록\n이미지를 제작했습니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "21e21939-38e9-4e2d-aead-a0cceae42b7d",
+          "key": "role",
+          "title": "기여도",
+          "body": "촬영 지원 · 현장 세팅 · 포즈 보조 · 색보정 · 리터칭",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "14b5fbaf-a442-4711-8dfd-0c8170937a76",
+          "key": "tools",
+          "title": "Tools",
+          "body": "ㅁㄴㅇㄹㄴㅁㅇㄹㅁㄴㅇㄹㅇㄴㄹ",
+          "order": 3,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 3,
+      "createdAt": "2024-10-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T09:47:06.140Z",
+      "contents": [],
+      "beforeAfterFallbackMedia": [
+        {
+          "url": "/uploads/2efdbb3f-f732-4831-9e61-7f4893b7a1d2.png",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/ebc29c56-1cc9-4941-9597-43efe309f599.png",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "retouchMarkers": [
+        {
+          "id": "2c42fff8-f442-4374-93e0-47897412cac7",
+          "mediaIndex": 0,
+          "x": 43.8,
+          "y": 47.1,
+          "label": "dfjlkdjflj",
+          "order": 0
+        },
+        {
+          "id": "7973cf9e-f6b8-4dfa-95d5-56373cc26c4d",
+          "mediaIndex": 0,
+          "x": 58.7,
+          "y": 49.8,
+          "label": "sdlkfjsldfjkldsj",
+          "order": 1
+        },
+        {
+          "id": "4df499c4-3f21-40ce-b74a-f99f9befaa92",
+          "mediaIndex": 0,
+          "x": 58,
+          "y": 63.9,
+          "label": "kfjlwejlkfjlds",
+          "order": 2
+        },
+        {
+          "id": "a231ac0a-499b-4980-b4ba-7230b885ed75",
+          "mediaIndex": 0,
+          "x": 38.4,
+          "y": 59.3,
+          "label": "skldjfwfn;dnfkdn",
+          "order": 3
+        },
+        {
+          "id": "aba2b8a1-3899-487f-9b9c-f6704e87c382",
+          "mediaIndex": 0,
+          "x": 31.9,
+          "y": 45.7,
+          "label": "sdfnlfnlwnflsdlfkdf",
+          "order": 4
+        }
+      ],
+      "beforeAfterFallbackLayout": "half"
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-28T09:47:06.277Z"
+  },
+  {
+    "id": "8ecfa7cf-92c4-41e6-9c11-f4325de5f921",
+    "entity": "projects:proj-lawyer-youtube",
+    "field": "수정",
+    "before": {
+      "id": "proj-lawyer-youtube",
+      "number": "06",
+      "title": "변호사 유튜브 채널 콘텐츠 \n기획 및 제작",
+      "brand": "[자료 필요 - 채널명, 공개 가능 여부 확인 필요]",
+      "brandHidden": true,
+      "year": "2025",
+      "field": "유튜브",
+      "purpose": "법률 정보를 대중이 이해하기 쉬운 형태로 전달하는 유튜브 채널 콘텐츠 제작",
+      "role": "기획 및 제작",
+      "tools": [
+        "[자료 필요] 편집 프로그램 및 장비 목록"
+      ],
+      "description": "법률 콘텐츠는 정보의 정확성과 전문성을 유지해야 하지만, 전문 용어와 긴 설명이 많아 일반 시청자가 어렵게 느낄 수 있어 시청자가 실제로 궁금해하는 내용을 중심으로 정보를 다시 구성했습니다.",
+      "heroImage": {
+        "url": "/placeholders/youtube.svg",
+        "kind": "image",
+        "alt": "변호사 유튜브 대표 이미지 [자료 필요]"
+      },
+      "gallery": [],
+      "beforeAfter": [],
+      "metrics": [
+        {
+          "id": "m1",
+          "label": "콘텐츠 조회수",
+          "value": "[자료 필요]"
+        },
+        {
+          "id": "m2",
+          "label": "영상 시청 유지율",
+          "value": "[자료 필요]"
+        }
+      ],
+      "detailBlocks": [
+        {
+          "id": "b1",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "변호사 유튜브 채널 운영을 위해 시청자가 궁금해할 법률 주제를 기획하고, \n촬영 지원부터 컷편집, 자막 구성과 최종 검수까지 참여했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "1bc3a7f6-5951-4e9b-b968-47aa01ca60f5",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "전문 용어가 많은 법률 정보를 실제 시청자의 질문과 사례를 중심으로 풀어내어, \n핵심 내용을 쉽고 명확하게 이해할 수 있도록 제작했습니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "3cacb903-2ae0-4a7f-a89e-8ff1d0a9cf07",
+          "key": "role",
+          "title": "기여도",
+          "body": "콘텐츠 기획 · 촬영 지원 · 컷편집 · 자막 디자인 · 사운드",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": true,
+      "isDetailFeatured": true,
+      "publicOk": true,
+      "status": "draft",
+      "order": 5,
+      "createdAt": "2025-05-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T08:58:56.043Z",
+      "contents": [
+        {
+          "url": "/uploads/8855c7b8-2dd3-4823-a237-edd054e7c3a5.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/ad096beb-668f-4ee3-a478-850b37e02fa1.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/d7614cdf-9738-4ad8-97b2-3e3b4bf680f7.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/df0da8fa-9c24-40cb-b1ad-f720b94e29c7.mp4",
+          "kind": "video-file",
+          "alt": ""
+        }
+      ],
+      "beforeAfterFallbackMedia": {
+        "url": "/uploads/b9d66daa-d6e2-47b1-94dd-db6227338773.mp4",
+        "kind": "video-file",
+        "alt": ""
+      }
+    },
+    "after": {
+      "id": "proj-lawyer-youtube",
+      "number": "06",
+      "title": "변호사 유튜브 채널 콘텐츠 \n기획 및 제작",
+      "brand": "[자료 필요 - 채널명, 공개 가능 여부 확인 필요]",
+      "brandHidden": true,
+      "year": "2025",
+      "field": "유튜브",
+      "purpose": "법률 정보를 대중이 이해하기 쉬운 형태로 전달하는 유튜브 채널 콘텐츠 제작",
+      "role": "기획 및 제작",
+      "tools": [
+        "[자료 필요] 편집 프로그램 및 장비 목록"
+      ],
+      "description": "법률 콘텐츠는 정보의 정확성과 전문성을 유지해야 하지만, 전문 용어와 긴 설명이 많아 일반 시청자가 어렵게 느낄 수 있어 시청자가 실제로 궁금해하는 내용을 중심으로 정보를 다시 구성했습니다.",
+      "heroImage": {
+        "url": "/placeholders/youtube.svg",
+        "kind": "image",
+        "alt": "변호사 유튜브 대표 이미지 [자료 필요]"
+      },
+      "gallery": [],
+      "beforeAfter": [],
+      "metrics": [
+        {
+          "id": "m1",
+          "label": "콘텐츠 조회수",
+          "value": "[자료 필요]"
+        },
+        {
+          "id": "m2",
+          "label": "영상 시청 유지율",
+          "value": "[자료 필요]"
+        }
+      ],
+      "detailBlocks": [
+        {
+          "id": "b1",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "변호사 유튜브 채널 운영을 위해 시청자가 궁금해할 법률 주제를 기획하고, \n촬영 지원부터 컷편집, 자막 구성과 최종 검수까지 참여했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "1bc3a7f6-5951-4e9b-b968-47aa01ca60f5",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "전문 용어가 많은 법률 정보를 실제 시청자의 질문과 사례를 중심으로 풀어내어, \n핵심 내용을 쉽고 명확하게 이해할 수 있도록 제작했습니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "3cacb903-2ae0-4a7f-a89e-8ff1d0a9cf07",
+          "key": "role",
+          "title": "기여도",
+          "body": "콘텐츠 기획 · 촬영 지원 · 컷편집 · 자막 디자인 · 사운드",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": true,
+      "isDetailFeatured": true,
+      "publicOk": true,
+      "status": "draft",
+      "order": 5,
+      "createdAt": "2025-05-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T09:43:48.971Z",
+      "contents": [],
+      "beforeAfterFallbackMedia": [
+        {
+          "url": "/uploads/b9d66daa-d6e2-47b1-94dd-db6227338773.mp4",
+          "kind": "video-file",
+          "alt": ""
+        }
+      ],
+      "retouchMarkers": []
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-28T09:43:49.122Z"
+  },
+  {
+    "id": "4aaa364a-4f97-4077-9208-8c45365751b0",
+    "entity": "projects:proj-portrait",
+    "field": "수정",
+    "before": {
+      "id": "proj-portrait",
+      "number": "04",
+      "title": "인물 프로필 보정",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "인물 프로필",
+      "purpose": "직원, 의료진과 트레이너의 프로필 사진 제작",
+      "role": "촬영 보조 및 보정",
+      "tools": [
+        "[자료 필요] 사용 장비 및 보정 프로그램 목록"
+      ],
+      "description": "회사 직원, 병원 의사, 헬스장 트레이너의 프로필과 단체사진을 촬영 보조하고 보정했습니다.\n과도한 보정보다 대상자의 자연스러움과 직업적 신뢰감을 유지하는 데 집중했습니다.",
+      "heroImage": {
+        "url": "/placeholders/portrait.svg",
+        "kind": "image",
+        "alt": "인물 프로필 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [],
+      "beforeAfter": [],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "48432402-4ee5-4355-b2ab-55135bf57158",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "회사 직원, 의료진, 트레이너 등 직무별 프로필 촬영 현장에서 세팅과 포즈를 지원하고, \n대상자의 인상이 자연스럽게 드러나도록 보정했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "3041fb27-fc5f-4eb4-aed8-d6b38cd8a51f",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "홈페이지와 홍보물에서 활용되는 프로필 사진이 직무에 대한 신뢰감과 전문성을 전달할 수 있도록\n이미지를 제작했습니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "21e21939-38e9-4e2d-aead-a0cceae42b7d",
+          "key": "role",
+          "title": "기여도",
+          "body": "촬영 지원 · 현장 세팅 · 포즈 보조 · 색보정 · 리터칭",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 3,
+      "createdAt": "2024-10-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T09:22:27.708Z",
+      "contents": [],
+      "beforeAfterFallbackMedia": [
+        {
+          "url": "/uploads/2efdbb3f-f732-4831-9e61-7f4893b7a1d2.png",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/ebc29c56-1cc9-4941-9597-43efe309f599.png",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "retouchMarkers": [
+        {
+          "id": "2c42fff8-f442-4374-93e0-47897412cac7",
+          "mediaIndex": 0,
+          "x": 43.8,
+          "y": 47.1,
+          "label": "dfjlkdjflj",
+          "order": 0
+        },
+        {
+          "id": "7973cf9e-f6b8-4dfa-95d5-56373cc26c4d",
+          "mediaIndex": 0,
+          "x": 58.7,
+          "y": 49.8,
+          "label": "sdlkfjsldfjkldsj",
+          "order": 1
+        },
+        {
+          "id": "4df499c4-3f21-40ce-b74a-f99f9befaa92",
+          "mediaIndex": 0,
+          "x": 58,
+          "y": 63.9,
+          "label": "kfjlwejlkfjlds",
+          "order": 2
+        },
+        {
+          "id": "a231ac0a-499b-4980-b4ba-7230b885ed75",
+          "mediaIndex": 0,
+          "x": 38.4,
+          "y": 59.3,
+          "label": "skldjfwfn;dnfkdn",
+          "order": 3
+        },
+        {
+          "id": "aba2b8a1-3899-487f-9b9c-f6704e87c382",
+          "mediaIndex": 0,
+          "x": 31.9,
+          "y": 45.7,
+          "label": "sdfnlfnlwnflsdlfkdf",
+          "order": 4
+        }
+      ],
+      "beforeAfterFallbackLayout": "half"
+    },
+    "after": {
+      "id": "proj-portrait",
+      "number": "04",
+      "title": "인물 프로필 보정",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "인물 프로필",
+      "purpose": "직원, 의료진과 트레이너의 프로필 사진 제작",
+      "role": "촬영 보조 및 보정",
+      "tools": [
+        "[자료 필요] 사용 장비 및 보정 프로그램 목록"
+      ],
+      "description": "회사 직원, 병원 의사, 헬스장 트레이너의 프로필과 단체사진을 촬영 보조하고 보정했습니다.\n과도한 보정보다 대상자의 자연스러움과 직업적 신뢰감을 유지하는 데 집중했습니다.",
+      "heroImage": {
+        "url": "/placeholders/portrait.svg",
+        "kind": "image",
+        "alt": "인물 프로필 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [],
+      "beforeAfter": [],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "48432402-4ee5-4355-b2ab-55135bf57158",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "회사 직원, 의료진, 트레이너 등 직무별 프로필 촬영 현장에서 세팅과 포즈를 지원하고, \n대상자의 인상이 자연스럽게 드러나도록 보정했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "3041fb27-fc5f-4eb4-aed8-d6b38cd8a51f",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "홈페이지와 홍보물에서 활용되는 프로필 사진이 직무에 대한 신뢰감과 전문성을 전달할 수 있도록\n이미지를 제작했습니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "21e21939-38e9-4e2d-aead-a0cceae42b7d",
+          "key": "role",
+          "title": "기여도",
+          "body": "촬영 지원 · 현장 세팅 · 포즈 보조 · 색보정 · 리터칭",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "14b5fbaf-a442-4711-8dfd-0c8170937a76",
+          "key": "tools",
+          "title": "Tools",
+          "body": "ㅁㄴㅇㄹㄴㅁㅇㄹㅁㄴㅇㄹㅇㄴㄹ",
+          "order": 3,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 3,
+      "createdAt": "2024-10-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T09:41:26.186Z",
+      "contents": [],
+      "beforeAfterFallbackMedia": [
+        {
+          "url": "/uploads/2efdbb3f-f732-4831-9e61-7f4893b7a1d2.png",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/ebc29c56-1cc9-4941-9597-43efe309f599.png",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "retouchMarkers": [
+        {
+          "id": "2c42fff8-f442-4374-93e0-47897412cac7",
+          "mediaIndex": 0,
+          "x": 43.8,
+          "y": 47.1,
+          "label": "dfjlkdjflj",
+          "order": 0
+        },
+        {
+          "id": "7973cf9e-f6b8-4dfa-95d5-56373cc26c4d",
+          "mediaIndex": 0,
+          "x": 58.7,
+          "y": 49.8,
+          "label": "sdlkfjsldfjkldsj",
+          "order": 1
+        },
+        {
+          "id": "4df499c4-3f21-40ce-b74a-f99f9befaa92",
+          "mediaIndex": 0,
+          "x": 58,
+          "y": 63.9,
+          "label": "kfjlwejlkfjlds",
+          "order": 2
+        },
+        {
+          "id": "a231ac0a-499b-4980-b4ba-7230b885ed75",
+          "mediaIndex": 0,
+          "x": 38.4,
+          "y": 59.3,
+          "label": "skldjfwfn;dnfkdn",
+          "order": 3
+        },
+        {
+          "id": "aba2b8a1-3899-487f-9b9c-f6704e87c382",
+          "mediaIndex": 0,
+          "x": 31.9,
+          "y": 45.7,
+          "label": "sdfnlfnlwnflsdlfkdf",
+          "order": 4
+        }
+      ],
+      "beforeAfterFallbackLayout": "half"
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-28T09:41:26.417Z"
+  },
+  {
     "id": "723dacfb-e94d-42e6-a0a8-b0e9cf97359d",
     "entity": "projects:proj-portrait",
     "field": "수정",
