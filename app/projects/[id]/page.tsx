@@ -151,14 +151,45 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
   // 스크롤에 따라 나타났다 사라지는 모션(Reveal)을 전부 뺐다.
   // §117 — 프로젝트 개요/제작 의도/기여도/Tools 사이 여백이 넓다는
   // 피드백으로 space-y-16(4rem) → space-y-10(2.5rem)으로 줄였다.
+  //
+  // §147 — "인물 프로필(half 레이아웃 + 인라인 상세 이미지) 상세페이지만
+  // 우측 콘텐츠 세로 간격이 과도해서 좌측 메인 이미지 하단과 우측 하단
+  // (Tools 다음 상세 이미지 끝)이 맞지 않는다"는 요청. showGalleryInline인
+  // 경우에만(=이 프로젝트만) 섹션 간 간격을 25~35% 줄인 compact 값을 쓴다
+  // — 다른 7개 프로젝트는 sectionsAndTools를 그대로 공유하며 이 값이
+  // false이므로 예전과 동일하다. 상세 이미지 자체의 크기(GalleryGrid)는
+  // 요청대로 건드리지 않고, 위쪽 간격이 줄어든 만큼 자연스럽게 위로
+  // 올라오게만 한다.
+  const compact = showGalleryInline;
+
+  // space-y-10(2.5rem/40px) → space-y-7(1.75rem/28px): 섹션 사이 간격 30% 축소.
+  const sectionSpaceClass = compact ? "space-y-7" : "space-y-10";
+  // mb-4(16px) → mb-3(12px): 제목→본문 간격 25% 축소.
+  const sectionHeadingClass = compact
+    ? "text-2xl md:text-3xl font-semibold mb-3 text-korean"
+    : "text-2xl md:text-3xl font-semibold mb-4 text-korean";
+  // mb-6(24px) → mb-4(16px): 본문→다음 섹션 간격 33% 축소.
+  const sectionBodyClass = compact
+    ? "text-ink-muted leading-relaxed whitespace-pre-line text-korean mb-4"
+    : "text-ink-muted leading-relaxed whitespace-pre-line text-korean mb-6";
+  const sectionImagesClass = compact ? "grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4" : "grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6";
+  // Tools는 보조 정보라 제목·아이콘 크기도 살짝 함께 줄인다.
+  const toolsHeadingClass = compact
+    ? "text-xl md:text-2xl font-semibold mb-3 text-korean"
+    : "text-2xl md:text-3xl font-semibold mb-4 text-korean";
+  const toolsRowClass = compact ? "flex flex-wrap gap-3" : "flex flex-wrap gap-4";
+  const toolIconClass = compact
+    ? "h-9 w-9 md:h-10 md:w-10 rounded-lg object-cover border border-line"
+    : "h-11 w-11 md:h-12 md:w-12 rounded-lg object-cover border border-line";
+
   const sectionsAndTools = (
-    <div className="space-y-10">
+    <div className={sectionSpaceClass}>
       {sections.map((s) => (
         <div key={s.key}>
-          <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-korean">{s.title}</h2>
-          <p className="text-ink-muted leading-relaxed whitespace-pre-line text-korean mb-6">{s.body}</p>
+          <h2 className={sectionHeadingClass}>{s.title}</h2>
+          <p className={sectionBodyClass}>{s.body}</p>
           {s.images.length > 0 && (
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+            <div className={sectionImagesClass}>
               {s.images.map((img, i) => (
                 <MediaFrame key={i} media={img} className="aspect-[4/3] rounded-sm" fit="contain" />
               ))}
@@ -175,16 +206,12 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
           동작한다) 이름이 말풍선으로 뜬다. */}
       {toolsList.length > 0 && (
         <div>
-          <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-korean">Tools</h2>
-          <div className="flex flex-wrap gap-4">
+          <h2 className={toolsHeadingClass}>Tools</h2>
+          <div className={toolsRowClass}>
             {toolsList.map((t) => (
               <div key={t} className="group relative">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={TOOL_ICON_MAP[t]}
-                  alt={t}
-                  className="h-11 w-11 md:h-12 md:w-12 rounded-lg object-cover border border-line"
-                />
+                <img src={TOOL_ICON_MAP[t]} alt={t} className={toolIconClass} />
                 <div
                   className="pointer-events-none absolute left-1/2 -translate-x-1/2 bottom-full mb-2 whitespace-nowrap rounded-md bg-black/90 px-2.5 py-1.5 text-xs text-white opacity-0 shadow-lg transition-opacity duration-150 group-hover:opacity-100"
                   role="tooltip"
@@ -195,7 +222,7 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
             ))}
           </div>
           {toolsBlock?.images && toolsBlock.images.length > 0 && (
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+            <div className={compact ? "grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4" : "grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6"}>
               {toolsBlock.images.map((img, i) => (
                 <MediaFrame key={i} media={img} className="aspect-[4/3] rounded-sm" fit="contain" />
               ))}
@@ -206,10 +233,12 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
 
       {/* §136 — layout="half"에서는 상세 이미지를 Tools 바로 아래(텍스트
           칸 안)에 넣는다. 모션은 다른 프로젝트와 동일한 GalleryGrid(가로로
-          계속 흘러가는 자동 스크롤, AutoScrollRow)를 그대로 재사용한다. */}
+          계속 흘러가는 자동 스크롤, AutoScrollRow)를 그대로 재사용한다.
+          §147 — 크기는 그대로 두고(요청대로), 위 간격이 줄어든 만큼만
+          자연스럽게 위로 올라온다. */}
       {showGalleryInline && (
         <div>
-          <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-korean">상세 이미지</h2>
+          <h2 className={sectionHeadingClass}>상세 이미지</h2>
           <GalleryGrid items={project.gallery} />
         </div>
       )}
