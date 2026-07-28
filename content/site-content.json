@@ -394,7 +394,28 @@
         "kind": "image",
         "alt": "의류 촬영 대표 이미지 [자료 필요]"
       },
-      "gallery": [],
+      "gallery": [
+        {
+          "url": "/uploads/faf150ca-db5f-420b-837a-61de8fb55c36.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/910db165-a220-4aec-9341-737b84a22721.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/1e6af3b5-cc00-4f5f-913e-3b1cfc3ea165.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/820b846d-4277-407e-9410-195f48c21472.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
       "beforeAfter": [
         {
           "id": "75331a83-1d99-4958-9620-389756ec918d",
@@ -485,6 +506,22 @@
           },
           "caption": "",
           "order": 5
+        },
+        {
+          "id": "822619b0-a0f4-4021-aaff-4d66c92ddf80",
+          "before": {
+            "url": "/uploads/71d63f81-5918-4750-bfcd-75e4118b8f15.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/75cc28e5-ec8c-4fbb-a093-79f9d113d859.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 6,
+          "category": "model"
         }
       ],
       "metrics": [],
@@ -495,7 +532,7 @@
       "status": "draft",
       "order": 0,
       "createdAt": "2024-08-01T00:00:00.000Z",
-      "updatedAt": "2026-07-26T12:08:02.962Z"
+      "updatedAt": "2026-07-28T04:25:34.041Z"
     },
     {
       "id": "proj-cafe",

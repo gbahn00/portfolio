@@ -104,12 +104,58 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
   const hasGallery = project.gallery?.length > 0;
   const hasAnyMedia = hasBeforeAfter || hasFinalVideo || hasGallery;
 
-  // 셋 중 실제로 맨 처음 나오는 항목만 대표 화면과 이어지는 넉넉한
-  // 여백(pt-24/pt-32)을 쓰고, 그다음부터는 좀 더 좁은 여백(pt-16/pt-20)을
-  // 쓴다 — 위아래로 다닥다닥 붙지 않으면서도 서로 다른 섹션임이 자연스럽게
-  // 구분되도록.
+  // §103 — 보정 전/후 사진이 있는 프로젝트는 "왼쪽: 보정 전/후 사진(한 장씩
+  // 이전/다음), 오른쪽: 프로젝트 개요/제작 의도/기여도/Tools" 2단 구성으로
+  // 바뀌었다. 예전엔 이 텍스트 블록이 항상 페이지 맨 아래 별도 Container에
+  // 있었는데, 보정 전/후가 있는 프로젝트는 그 블록을 통째로 위로 옮겨서
+  // 오른쪽 칸에 채운다(중복 노출 방지 — 아래쪽엔 더 이상 렌더링하지 않는다).
+  // 보정 전/후가 없는 프로젝트는 예전과 같은 세로 1단 구조를 그대로 쓴다.
+  const sectionsAndTools = (
+    <div className="space-y-16">
+      {sections.map((s) => (
+        <Reveal key={s.key}>
+          <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-korean">{s.title}</h2>
+          <p className="text-ink-muted leading-relaxed whitespace-pre-line text-korean mb-6">{s.body}</p>
+          {s.images.length > 0 && (
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+              {s.images.map((img, i) => (
+                <MediaFrame key={i} media={img} className="aspect-[4/3] rounded-sm" />
+              ))}
+            </div>
+          )}
+        </Reveal>
+      ))}
+
+      {toolsList.length > 0 && (
+        <Reveal>
+          <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-korean">Tools</h2>
+          <div className="flex flex-wrap gap-2">
+            {toolsList.map((t, i) => (
+              <span
+                key={i}
+                className="text-sm rounded-full border border-line px-4 py-1.5 text-ink-secondary text-korean"
+              >
+                {t}
+              </span>
+            ))}
+          </div>
+          {toolsBlock?.images && toolsBlock.images.length > 0 && (
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+              {toolsBlock.images.map((img, i) => (
+                <MediaFrame key={i} media={img} className="aspect-[4/3] rounded-sm" />
+              ))}
+            </div>
+          )}
+        </Reveal>
+      )}
+    </div>
+  );
+
+  // 보정 전/후 다음으로 실제 처음 나오는 미디어(영상/갤러리)만 대표
+  // 화면과 이어지는 넉넉한 여백(pt-24/pt-32)을 쓰고, 그다음부터는 좀 더
+  // 좁은 여백(pt-16/pt-20)을 쓴다.
   const firstMedia = hasBeforeAfter ? "beforeAfter" : hasFinalVideo ? "video" : hasGallery ? "gallery" : null;
-  function mediaTopPad(kind: "beforeAfter" | "video" | "gallery") {
+  function mediaTopPad(kind: "video" | "gallery") {
     return firstMedia === kind ? "pt-24 md:pt-32" : "pt-16 md:pt-20";
   }
 
@@ -117,13 +163,20 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
     <main className="bg-bg min-h-screen">
       <ProjectCover project={project} />
 
-      {/* §97 — 2) 보정 전/후 사진 리스트. §89 — max-w-3xl(본문 읽기 폭)로
-          감싸면 가운데 정렬된 Container 안에서 사진이 왼쪽 절반쯤까지만
-          나타나 보였다. 이미지/영상 영역은 본문 텍스트와 달리 넓게
-          보여주는 게 자연스러워, Container 전체 폭까지 채운다. */}
+      {/* §103 — 보정 전/후 사진(왼쪽, 한 장씩 이전/다음) + 프로젝트 개요/
+          제작 의도/기여도/Tools(오른쪽)를 나란히 배치한다. */}
       {hasBeforeAfter && (
-        <Container className={mediaTopPad("beforeAfter")}>
-          <BeforeAfterSlider pairs={validBeforeAfter} />
+        <Container className="pt-24 md:pt-32 pb-16 md:pb-20">
+          {/* §104 — 제목을 grid 바깥(위)에 둬서, 아래 2단 grid의 왼쪽
+              (사진)과 오른쪽(프로젝트 개요 등) 칸이 같은 지점(사진 윗변)
+              에서 나란히 시작하도록 했다. */}
+          <Reveal>
+            <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-korean">보정 전·후</h2>
+          </Reveal>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start">
+            <BeforeAfterSlider pairs={validBeforeAfter} />
+            {sectionsAndTools}
+          </div>
         </Container>
       )}
 
@@ -147,48 +200,15 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
         </Container>
       )}
 
-      {/* §97 — 4~6) 프로젝트 개요 / 제작 의도 / 기여도 (+ Tools) */}
-      <Container className={`${hasAnyMedia ? "pt-16 md:pt-20" : "pt-24 md:pt-32"} pb-24 md:pb-32`}>
-        <div className="max-w-3xl space-y-16">
-          {sections.map((s) => (
-            <Reveal key={s.key}>
-              <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-korean">{s.title}</h2>
-              <p className="text-ink-muted leading-relaxed whitespace-pre-line text-korean mb-6">{s.body}</p>
-              {s.images.length > 0 && (
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-                  {s.images.map((img, i) => (
-                    <MediaFrame key={i} media={img} className="aspect-[4/3] rounded-sm" />
-                  ))}
-                </div>
-              )}
-            </Reveal>
-          ))}
-
-          {toolsList.length > 0 && (
-            <Reveal>
-              <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-korean">Tools</h2>
-              <div className="flex flex-wrap gap-2">
-                {toolsList.map((t, i) => (
-                  <span
-                    key={i}
-                    className="text-sm rounded-full border border-line px-4 py-1.5 text-ink-secondary text-korean"
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-              {toolsBlock?.images && toolsBlock.images.length > 0 && (
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
-                  {toolsBlock.images.map((img, i) => (
-                    <MediaFrame key={i} media={img} className="aspect-[4/3] rounded-sm" />
-                  ))}
-                </div>
-              )}
-            </Reveal>
-          )}
-
-        </div>
-      </Container>
+      {/* §97/§103 — 보정 전/후가 없는 프로젝트에서만 프로젝트 개요/제작
+          의도/기여도(+Tools)를 여기 세로 1단으로 보여준다. 보정 전/후가
+          있는 프로젝트는 이미 위 2단 구성 오른쪽 칸에 렌더링했으므로
+          여기서는 렌더링하지 않는다(중복 방지). */}
+      {!hasBeforeAfter && (
+        <Container className={`${hasAnyMedia ? "pt-16 md:pt-20" : "pt-24 md:pt-32"} pb-24 md:pb-32`}>
+          <div className="max-w-3xl">{sectionsAndTools}</div>
+        </Container>
+      )}
 
       <Container className="pb-24 md:pb-32">
         <ProjectNav prev={prevProject} next={nextProject} />

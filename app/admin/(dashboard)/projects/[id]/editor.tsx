@@ -112,7 +112,6 @@ export function ProjectEditor({ initial }: { initial: Project }) {
       after: { url: "", kind: "image" },
       caption: "",
       order: data.beforeAfter.length,
-      category: "detail",
     };
     set("beforeAfter", [...data.beforeAfter, pair]);
   }
@@ -215,8 +214,7 @@ export function ProjectEditor({ initial }: { initial: Project }) {
       <div className="mb-5">
         <span className="block text-sm font-medium text-neutral-300 mb-1.5">보정 전·후 비교 (선택)</span>
         <p className="text-xs text-neutral-500 mb-2">
-          등록하면 상세 페이지의 대표 화면 바로 아래에 드래그로 비교하는 슬라이더가 나타납니다. 비워두면 해당 영역이 아예 보이지 않습니다.
-          위아래로 독립된 두 줄(1단/2단)로 나뉘어 나오며, 1단에는 "디테일컷", 2단에는 "모델컷"으로 지정한 사진이 각각 모입니다. 각 줄 안에서는 사진이 한 장씩 원본 크기로 나옵니다.
+          등록하면 상세 페이지 대표 화면 아래에 드래그로 비교하는 사진이 나타납니다(왼쪽 큰 칸). 여러 장 등록하면 "이전/다음" 버튼으로 한 장씩 넘겨볼 수 있습니다. 비워두면 해당 영역이 아예 보이지 않습니다.
         </p>
         <div className="space-y-3 mb-2">
           {data.beforeAfter.map((pair) => (
@@ -224,17 +222,6 @@ export function ProjectEditor({ initial }: { initial: Project }) {
               <div className="grid grid-cols-2 gap-3 mb-2">
                 <MediaUpload label="보정 전" value={pair.before} onChange={(m) => m && updateBeforeAfter(pair.id, { before: m })} />
                 <MediaUpload label="보정 후" value={pair.after} onChange={(m) => m && updateBeforeAfter(pair.id, { after: m })} />
-              </div>
-              <div className="flex gap-2 items-center mb-2">
-                <span className="text-xs text-neutral-500 shrink-0">구분</span>
-                <select
-                  value={pair.category ?? "detail"}
-                  onChange={(e) => updateBeforeAfter(pair.id, { category: e.target.value as "detail" | "model" })}
-                  className="rounded-md border border-neutral-700 bg-neutral-900 px-2 py-1.5 text-xs text-neutral-100 outline-none focus:border-orange-500"
-                >
-                  <option value="detail">1단 · 디테일컷</option>
-                  <option value="model">2단 · 모델컷</option>
-                </select>
               </div>
               <div className="flex gap-2 items-center">
                 <input
