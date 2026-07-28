@@ -13,7 +13,20 @@ import { isPlaceholder, optimizedImageSrc, stripPlaceholder } from "@/lib/utils"
 import { Project, MediaRef } from "@/lib/types";
 import { TOOL_ICON_MAP, sortByToolIconOrder } from "@/lib/tool-icons";
 
-export const dynamic = "force-dynamic";
+// §151 — 홈(app/page.tsx)과 동일한 이유로 force-dynamic을 제거했다.
+// 렌더링 결과를 캐시해 방문자에게 즉시 응답하고, 관리자가 저장할 때만
+// (lib/data/repo.ts의 saveContent → revalidatePath) 정확히 새로 그린다.
+export const revalidate = 3600;
+
+// §151 — generateStaticParams가 없으면 이 동적 라우트는 "처음 방문한
+// 사람이 결과를 캐시에 채워 넣고, 그다음 방문자부터 빠른" 방식으로
+// 동작한다(첫 방문자만 손해). 배포된 프로젝트 id 목록을 빌드 시점에
+// 알려주면 홈처럼 모든 프로젝트 상세페이지를 빌드할 때 미리 다 만들어
+// 둬서, 첫 방문자부터 예외 없이 즉시 응답을 받는다.
+export async function generateStaticParams() {
+  const content = await getContent();
+  return content.projects.filter((p) => p.publicOk).map((p) => ({ id: p.id }));
+}
 
 // ============================================================================
 // §55 — 대표 프로젝트 상세 페이지(1~8번 전부)를 "프로젝트 개요 / 제작 의도 /

@@ -11,7 +11,15 @@ import { Closing } from "@/components/sections/Closing";
 import { FullPageScroll } from "@/components/motion/FullPageScroll";
 import { PageIndicator } from "@/components/motion/PageIndicator";
 
-export const dynamic = "force-dynamic";
+// §151 — "첫 방문자에게 이미지/영상이 늦게 나온다"는 문제의 실제 원인은
+// force-dynamic이었다: 이 값이 있으면 방문할 때마다 이 페이지 전체를
+// 서버에서 처음부터 다시 렌더링(=Supabase 조회 18개 왕복 포함)한 뒤에야
+// 이미지/영상 주소가 담긴 HTML을 보낼 수 있었다. 이제 렌더링 결과를
+// 캐시해 방문자는 그 캐시를 즉시 받고, 관리자가 저장하는 순간
+// (lib/data/repo.ts의 saveContent → revalidatePath)에만 정확히 새로
+// 그린다. revalidate는 그 무효화 호출이 어떤 이유로 누락되더라도 오래된
+// 내용이 무한정 남아있지 않도록 하는 안전망이다.
+export const revalidate = 3600;
 
 // 전체 구조 개편 명세서 §1~§7 + 인터랙션 수정 요청서(3차) — 메인 페이지를
 // 정확히 7개 섹션으로 고정한다. 01.대표 페이지 → 02.프로필 → 03.업무

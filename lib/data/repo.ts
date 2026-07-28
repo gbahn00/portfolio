@@ -1,4 +1,5 @@
 import { v4 as uuid } from "uuid";
+import { revalidatePath, revalidateTag } from "next/cache";
 import {
   SiteContent,
   Project,
@@ -36,10 +37,21 @@ export async function getContent(): Promise<SiteContent> {
 async function saveContent(content: SiteContent) {
   if (isLocalMode()) {
     await localStore.writeContent(content);
-    return;
+  } else {
+    const { saveContentSupabase } = await import("./supabase-store");
+    await saveContentSupabase(content);
   }
-  const { saveContentSupabase } = await import("./supabase-store");
-  await saveContentSupabase(content);
+  // §151 — "첫 방문자에게 이미지/영상이 늦게 나온다" 문제의 원인은
+  // app/page.tsx·app/projects/[id]/page.tsx의 force-dynamic("항상 새로
+  // 렌더링")과 Supabase 조회의 cache:"no-store"("항상 새로 조회")가 겹쳐,
+  // 모든 방문자가 방문할 때마다 18개 쿼리 왕복이 끝나야 HTML(이미지·영상
+  // 주소가 담긴)을 받을 수 있었던 것이었다. 이제 공개 페이지는 캐시된
+  // 결과를 즉시 돌려주고(빠름), 관리자가 실제로 저장(추가/수정/삭제/순서
+  // 변경/복구 — saveContent를 거치는 모든 경로)할 때만 이 두 줄로 정확히
+  // 그 시점에 캐시를 비운다 — "저장했는데 반영이 안 보인다"는 예전 문제도
+  // 방문자 성능을 희생하지 않고 그대로 해결된다.
+  revalidateTag("site-content");
+  revalidatePath("/", "layout");
 }
 
 export async function logRevision(entity: string, field: string, before: unknown, after: unknown, editor = "admin") {

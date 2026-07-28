@@ -18,13 +18,19 @@ export function client() {
     );
   }
   return createClient(url, key, {
-    // supabase-js는 내부적으로 fetch()를 사용하는데, Next.js는 프로덕션
-    // 빌드에서 fetch 요청을 기본적으로 캐싱한다. 그대로 두면 관리자에서
-    // 저장(삭제 포함)해도 다음 조회가 캐시된 이전 데이터를 계속 돌려줘서
-    // "저장은 됐는데 반영이 안 되는" 것처럼 보인다. 항상 최신 데이터를
-    // 가져오도록 캐시를 명시적으로 끈다.
+    // §151 — "첫 방문자에게 이미지/영상이 늦게 나온다"는 성능 문제를 조사한
+    // 결과, 진짜 원인은 이미지/영상 자체보다 이 부분이었다: 이전에는 모든
+    // 조회를 cache: "no-store"로 강제해서 next.config의 캐싱이나 페이지
+    // 캐싱과 무관하게 방문할 때마다 이 함수 하나에서만 18개의 Supabase
+    // 요청을 매번 새로 다시 보냈다(app/page.tsx·app/projects/[id]/page.tsx의
+    // force-dynamic과 맞물려, 방문자가 이미지 태그를 담은 HTML을 받기도
+    // 전에 이 왕복이 먼저 끝나야 했다). "저장은 됐는데 반영이 안 되는"
+    // 원래 문제를 캐시를 아예 끄는 대신, 태그 기반으로 정확히 저장 시점에
+    // 만 무효화(lib/data/repo.ts의 saveContent → revalidateTag)하는 방식으로
+    // 바꿔, 방문자는 캐시된 빠른 응답을 받고 관리자가 저장하는 즉시 그
+    // 캐시만 정확히 비워지도록 한다.
     global: {
-      fetch: (input, init) => fetch(input, { ...init, cache: "no-store" }),
+      fetch: (input, init) => fetch(input, { ...init, next: { revalidate: 3600, tags: ["site-content"] } }),
     },
   });
 }
