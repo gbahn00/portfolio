@@ -24,6 +24,11 @@ import { refreshScrollTrigger } from "@/lib/gsap";
 //    클래스라 아무 색도 안 나가고 있었다)에서 globals.css의 .accent-bg
 //    (사이트 강조색 CSS 변수 --accent)로 바꿔 실제로 강조색이 나오게
 //    했다.
+//
+// §126 — 영상이 몇 개 안 돼서 트랙 전체 폭이 보이는 영역보다 좁으면(=
+// 끌어도 움직일 게 없으면) "Drag" 배지도, 커서를 숨기는 것도 의미가
+// 없다. minOffset(끌 수 있는 최대 거리)이 0이면(=넘치는 폭이 없으면)
+// canDrag를 false로 두어 배지 자체를 아예 렌더링하지 않는다.
 // ============================================================================
 
 const ITEM_HEIGHT_CLASS = "h-72 sm:h-80 md:h-96"; // GalleryGrid와 동일한 높이 기준
@@ -70,6 +75,8 @@ export function ContentsCarousel({ items }: { items: MediaRef[] }) {
 
   if (items.length === 0) return null;
 
+  const canDrag = minOffset < 0;
+
   function handlePointerDown(e: React.PointerEvent<HTMLDivElement>) {
     setDragging(true);
     dragStartXRef.current = e.clientX;
@@ -78,7 +85,7 @@ export function ContentsCarousel({ items }: { items: MediaRef[] }) {
   }
 
   function handlePointerMove(e: React.PointerEvent<HTMLDivElement>) {
-    if (canHover) setHoverPos({ x: e.clientX, y: e.clientY });
+    if (canHover && canDrag) setHoverPos({ x: e.clientX, y: e.clientY });
     if (!dragging) return;
     const delta = e.clientX - dragStartXRef.current;
     const next = Math.min(0, Math.max(minOffset, dragStartOffsetRef.current + delta));
@@ -94,12 +101,12 @@ export function ContentsCarousel({ items }: { items: MediaRef[] }) {
       <div
         ref={containerRef}
         className="relative w-full overflow-hidden touch-pan-y"
-        style={{ cursor: canHover ? "none" : undefined }}
-        onPointerDown={handlePointerDown}
+        style={{ cursor: canHover && canDrag ? "none" : undefined }}
+        onPointerDown={canDrag ? handlePointerDown : undefined}
         onPointerMove={handlePointerMove}
         onPointerUp={endDrag}
         onPointerCancel={endDrag}
-        onMouseEnter={(e) => canHover && setHoverPos({ x: e.clientX, y: e.clientY })}
+        onMouseEnter={(e) => canHover && canDrag && setHoverPos({ x: e.clientX, y: e.clientY })}
         onMouseLeave={() => setHoverPos(null)}
       >
         <div
@@ -134,7 +141,7 @@ export function ContentsCarousel({ items }: { items: MediaRef[] }) {
 
         {/* §125 — 드래그 가능함을 알려주는 커서 추종 배지. 배경은
             globals.css의 .accent-bg(사이트 강조색 --accent)를 쓴다. */}
-        {canHover && hoverPos && (
+        {canHover && canDrag && hoverPos && (
           <div
             className="accent-bg pointer-events-none fixed z-50 flex h-16 w-16 items-center justify-center rounded-full text-[11px] font-semibold tracking-wide text-white shadow-lg"
             style={{ left: hoverPos.x, top: hoverPos.y, transform: "translate(-50%, -50%)" }}

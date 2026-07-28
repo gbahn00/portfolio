@@ -733,23 +733,7 @@
         "[자료 필요] 사용 장비 및 편집 프로그램 목록"
       ],
       "description": "의료 광고 특성상 과장된 표현을 피하고 시술 정보를 정확히 전달하는 데 집중했으며, 광고 채널의 노출 방식에 맞춰 영상 길이와 자막 구성을 조정했다.",
-      "gallery": [
-        {
-          "url": "/uploads/15f56064-6ded-4dbc-a852-57d965616287.mp4",
-          "kind": "video-file",
-          "alt": ""
-        },
-        {
-          "url": "/uploads/8713c5fa-03f4-4c87-b0b9-52486cfc71d0.mp4",
-          "kind": "video-file",
-          "alt": ""
-        },
-        {
-          "url": "/uploads/7e4a2976-915d-4ade-9672-f0fab0c24bca.mp4",
-          "kind": "video-file",
-          "alt": ""
-        }
-      ],
+      "gallery": [],
       "beforeAfter": [],
       "metrics": [
         {
@@ -901,45 +885,9 @@
       "status": "draft",
       "order": 4,
       "createdAt": "2025-03-01T00:00:00.000Z",
-      "updatedAt": "2026-07-28T06:00:58.983Z",
+      "updatedAt": "2026-07-28T06:05:50.198Z",
       "retouchHighlights": [],
-      "contents": [
-        {
-          "url": "/uploads/abe8b8cb-d23d-4f6d-86fd-625ba24916ce.mp4",
-          "kind": "video-file",
-          "alt": ""
-        },
-        {
-          "url": "/uploads/3f0ce05c-9e49-4d00-b61a-d74eed77801c.mp4",
-          "kind": "video-file",
-          "alt": ""
-        },
-        {
-          "url": "/uploads/243c043e-a693-429c-ab14-7517e05605f3.mp4",
-          "kind": "video-file",
-          "alt": ""
-        },
-        {
-          "url": "/uploads/faacb123-194a-4b74-a364-5ceb341db234.mp4",
-          "kind": "video-file",
-          "alt": ""
-        },
-        {
-          "url": "/uploads/ed45c10f-bef5-410a-9bc1-cb2c2b922918.mp4",
-          "kind": "video-file",
-          "alt": ""
-        },
-        {
-          "url": "/uploads/6ca64480-ee0e-4890-af2b-7836c6110a3b.mp4",
-          "kind": "video-file",
-          "alt": ""
-        },
-        {
-          "url": "/uploads/4f446c88-3be8-4a23-b1b1-93bb9b3b4d89.mp4",
-          "kind": "video-file",
-          "alt": ""
-        }
-      ]
+      "contents": []
     },
     {
       "id": "proj-lawyer-youtube",
