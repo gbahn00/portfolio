@@ -5,7 +5,7 @@ import { MediaFrame } from "@/components/ui/MediaFrame";
 import { GalleryGrid } from "@/components/ui/GalleryGrid";
 import { ProjectCover } from "@/components/sections/ProjectCover";
 import { ProjectNav } from "@/components/sections/ProjectNav";
-import { BeforeAfterSlider } from "@/components/sections/BeforeAfterSlider";
+import { BeforeAfterWithText } from "@/components/sections/BeforeAfterWithText";
 import { FinalVideoBlock } from "@/components/sections/FinalVideoBlock";
 import { isPlaceholder, optimizedImageSrc, stripPlaceholder } from "@/lib/utils";
 import { Project } from "@/lib/types";
@@ -152,24 +152,27 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
     </div>
   );
 
-  // 보정 전/후 다음으로 실제 처음 나오는 미디어(영상/갤러리)만 대표
-  // 화면과 이어지는 넉넉한 여백(pt-24/pt-32)을 쓰고, 그다음부터는 좀 더
-  // 좁은 여백을 쓴다. §106 — "보정 전후 사진과 상세 이미지 사이 공간이
-  // 너무 넓다"는 피드백으로, 보정 전/후 섹션의 하단 여백(아래)과 다음
-  // 미디어 섹션의 상단 여백(pt-16/20 → pt-10/12)을 함께 줄였다.
-  const firstMedia = hasBeforeAfter ? "beforeAfter" : hasFinalVideo ? "video" : hasGallery ? "gallery" : null;
-  function mediaTopPad(kind: "video" | "gallery") {
-    return firstMedia === kind ? "pt-24 md:pt-32" : "pt-10 md:pt-12";
-  }
+  // §110 — "나머지 상세페이지도 proj-clothing 구조로 통일해달라"는 요청.
+  // proj-clothing처럼 보정 전/후 사진이 있는 프로젝트는 그대로 "왼쪽 사진
+  // + 오른쪽 텍스트" 2단을 쓰고, 보정 전/후 사진이 없는 프로젝트(대다수)는
+  // 사용자 확인에 따라 "오른쪽에 있던 프로젝트 개요/제작 의도/기여도/
+  // Tools를 왼쪽(=대표 화면 바로 아래, 첫 번째) 자리에 그대로 쓰고 상세
+  // 이미지(영상/갤러리)는 그 아래에 배치"하는 구조로 바꿨다. 즉 두 경우
+  // 모두 "대표 화면 → (사진+텍스트 또는 텍스트만) → 상세 이미지 → 다음
+  // 프로젝트" 순서로 구조 자체는 항상 동일하다. 상세 이미지가 더 이상
+  // "첫 번째" 블록으로 오는 경우가 없으므로(사진+텍스트 또는 텍스트만이
+  // 항상 먼저 온다) 위쪽 여백은 항상 pt-10/12로 고정한다.
+  const mediaTopPad = "pt-10 md:pt-12";
+  const hasMediaBelow = hasFinalVideo || hasGallery;
 
   return (
     <main className="bg-bg min-h-screen">
       <ProjectCover project={project} />
 
-      {/* §103 — 보정 전/후 사진(왼쪽, 한 장씩 이전/다음) + 프로젝트 개요/
-          제작 의도/기여도/Tools(오른쪽)를 나란히 배치한다. */}
+      {/* §103/§110 — 보정 전/후 사진(왼쪽, 한 장씩 이전/다음) + 프로젝트
+          개요/제작 의도/기여도/Tools(오른쪽)를 나란히 배치한다. */}
       {hasBeforeAfter && (
-        <Container className="pt-24 md:pt-32 pb-8 md:pb-10">
+        <Container className={`pt-24 md:pt-32 ${hasMediaBelow ? "pb-8 md:pb-10" : "pb-24 md:pb-32"}`}>
           {/* §104 — 제목을 flex 바깥(위)에 둬서, 아래 왼쪽(사진)과
               오른쪽(프로젝트 개요 등) 칸이 같은 지점(사진 윗변)에서
               나란히 시작하도록 했다. */}
@@ -177,22 +180,28 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
           {/* §106 — grid 2단(50/50)으로 나누면 사진이 max-w-md로 줄어든
               뒤에도 칸 자체는 50% 폭을 그대로 차지해, 사진 오른쪽과 텍스트
               칸 사이에 큰 빈 공간이 남았다. flex로 바꿔 사진은 실제
-              폭(max-w-md)만큼만 차지하고, 텍스트가 바로 그 옆에 붙도록
-              했다. */}
-          <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-start">
-            <div className="w-full md:w-auto md:flex-shrink-0">
-              <BeforeAfterSlider pairs={validBeforeAfter} />
-            </div>
-            <div className="flex-1 min-w-0">{sectionsAndTools}</div>
-          </div>
+              폭만큼만 차지하고, 텍스트가 바로 그 옆에 붙도록 했다.
+              §112 — 사진 높이를 텍스트 칸의 실제 렌더링 높이에 맞추기
+              위해 BeforeAfterWithText(클라이언트 컴포넌트)가 텍스트 칸을
+              ResizeObserver로 측정해 사진에 그대로 전달한다. */}
+          <BeforeAfterWithText pairs={validBeforeAfter}>{sectionsAndTools}</BeforeAfterWithText>
         </Container>
       )}
 
-      {/* §97 — 3) 상세 이미지(영상) 리스트: 최종 영상(있으면 별도의 큰
-          단일 블록) → 갤러리(있으면 그 아래에 이어서) 순서로, 각각
-          독립적으로 노출된다. */}
+      {/* §110 — 보정 전/후 사진이 없는 프로젝트는 오른쪽에 있던 텍스트
+          (프로젝트 개요/제작 의도/기여도/Tools)를 대표 화면 바로 아래
+          첫 번째 자리에 그대로 쓴다. */}
+      {!hasBeforeAfter && (
+        <Container className={`pt-24 md:pt-32 ${hasMediaBelow ? "pb-8 md:pb-10" : "pb-24 md:pb-32"}`}>
+          <div className="max-w-3xl">{sectionsAndTools}</div>
+        </Container>
+      )}
+
+      {/* §97/§110 — 상세 이미지(영상) 리스트: 최종 영상(있으면 별도의 큰
+          단일 블록) → 갤러리(있으면 그 아래에 이어서) 순서로, 위 텍스트/
+          사진 블록 다음에 온다. */}
       {hasFinalVideo && project.finalVideo && (
-        <Container className={mediaTopPad("video")}>
+        <Container className={`${mediaTopPad} ${hasGallery ? "" : "pb-24 md:pb-32"}`}>
           <FinalVideoBlock
             video={project.finalVideo}
             posterFallback={project.heroImage ? optimizedImageSrc(project.heroImage.url, 1200) : undefined}
@@ -200,19 +209,9 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
         </Container>
       )}
       {hasGallery && (
-        <Container className={mediaTopPad("gallery")}>
+        <Container className={`${mediaTopPad} pb-24 md:pb-32`}>
           <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-korean">상세 이미지</h2>
           <GalleryGrid items={project.gallery} />
-        </Container>
-      )}
-
-      {/* §97/§103 — 보정 전/후가 없는 프로젝트에서만 프로젝트 개요/제작
-          의도/기여도(+Tools)를 여기 세로 1단으로 보여준다. 보정 전/후가
-          있는 프로젝트는 이미 위 2단 구성 오른쪽 칸에 렌더링했으므로
-          여기서는 렌더링하지 않는다(중복 방지). */}
-      {!hasBeforeAfter && (
-        <Container className={`${hasAnyMedia ? "pt-16 md:pt-20" : "pt-24 md:pt-32"} pb-24 md:pb-32`}>
-          <div className="max-w-3xl">{sectionsAndTools}</div>
         </Container>
       )}
 
