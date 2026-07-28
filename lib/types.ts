@@ -206,6 +206,10 @@ export interface Project {
   field: ProjectField;
   purpose: string;
   role: string; // 담당 역할 (촬영/보조촬영/보정/기획/편집 등 명확히 구분)
+  // §157 — "상세페이지 기여도 제목에 퍼센트를 작성할 수 있도록" 요청으로
+  // 추가. 예: 70을 입력하면 상세 페이지 "기여도" 제목 옆에 "70%"가
+  // 표시된다. 비워두면(undefined) 예전처럼 퍼센트 없이 제목만 나온다.
+  contributionPercentage?: number;
   tools: string[];
   description: string;
   heroImage?: MediaRef;

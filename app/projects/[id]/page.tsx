@@ -199,7 +199,14 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
     <div className={sectionSpaceClass}>
       {sections.map((s) => (
         <div key={s.key}>
-          <h2 className={sectionHeadingClass}>{s.title}</h2>
+          <h2 className={sectionHeadingClass}>
+            {s.title}
+            {/* §157 — "기여도" 제목 옆에 담당 퍼센트를 함께 표시(선택 입력,
+                admin에서 비워두면 예전처럼 제목만 나온다). */}
+            {s.key === "role" && typeof project.contributionPercentage === "number" && (
+              <span className="accent-text"> {project.contributionPercentage}%</span>
+            )}
+          </h2>
           <p className={sectionBodyClass}>{s.body}</p>
           {s.images.length > 0 && (
             <div className={sectionImagesClass}>

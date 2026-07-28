@@ -43,6 +43,32 @@ export function TextField({
   );
 }
 
+// §157 — "상세페이지 기여도 제목에 퍼센트를 작성할 수 있도록" 요청으로
+// 추가한 숫자 입력 필드. 빈 값은 undefined로 저장해(퍼센트 미표시) 기존
+// 프로젝트에는 아무 영향이 없다.
+export function NumberField({
+  label, value, onChange, min = 0, max = 100, placeholder, hint,
+}: { label: string; value: number | undefined; onChange: (v: number | undefined) => void; min?: number; max?: number; placeholder?: string; hint?: string }) {
+  return (
+    <FieldWrap label={label} hint={hint}>
+      <input
+        type="number"
+        value={value ?? ""}
+        min={min}
+        max={max}
+        placeholder={placeholder}
+        onChange={(e) => {
+          const raw = e.target.value;
+          if (raw === "") return onChange(undefined);
+          const n = Number(raw);
+          onChange(Number.isFinite(n) ? Math.max(min, Math.min(max, n)) : undefined);
+        }}
+        className="w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-neutral-100 outline-none focus:border-orange-500"
+      />
+    </FieldWrap>
+  );
+}
+
 export function TextAreaField({
   label, value, onChange, rows = 4, placeholder, hint,
 }: { label: string; value: string; onChange: (v: string) => void; rows?: number; placeholder?: string; hint?: string }) {

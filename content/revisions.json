@@ -1,5 +1,1548 @@
 [
   {
+    "id": "e5823008-ea5e-4eb9-a303-8fd0ef84d6da",
+    "entity": "projects:proj-portrait",
+    "field": "수정",
+    "before": {
+      "id": "proj-portrait",
+      "number": "04",
+      "title": "인물 프로필 보정",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "상시업무",
+      "field": "인물 프로필",
+      "purpose": "직원, 의료진과 트레이너의 프로필 사진 제작",
+      "role": "촬영 보조 및 보정",
+      "tools": [
+        "[자료 필요] 사용 장비 및 보정 프로그램 목록",
+        "Photoshop",
+        "생성형 AI"
+      ],
+      "description": "회사 직원, 병원 의사, 헬스장 트레이너의 프로필과 단체사진을 촬영 보조하고 보정했습니다.\n과도한 보정보다 대상자의 자연스러움과 직업적 신뢰감을 유지하는 데 집중했습니다.",
+      "heroImage": {
+        "url": "/uploads/8c54c5c0-28e9-45ff-a7e9-d3f532cd28f2.png",
+        "kind": "image",
+        "alt": ""
+      },
+      "gallery": [
+        {
+          "url": "/uploads/b7ba84b7-f327-4c41-b23d-21225d9bfccd.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/69335174-dbfc-4f79-958c-8b4911577c09.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/625f7c05-d5a5-47c1-a22f-623be77165c3.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/c820ed84-da54-49fb-b12f-b64bac7bd186.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/67b028bd-7706-48de-8fa6-db899bafc0a1.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "beforeAfter": [],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "48432402-4ee5-4355-b2ab-55135bf57158",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "회사 직원, 의료진, 트레이너 등 직무별 프로필 촬영 현장에서 세팅과 포즈를 지원하고, \n대상자의 인상이 자연스럽게 드러나도록 보정했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "3041fb27-fc5f-4eb4-aed8-d6b38cd8a51f",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "홈페이지와 홍보물에서 활용되는 프로필 사진이 직무에 대한 신뢰감과 전문성을 전달할 수 있도록\n이미지를 제작했습니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "21e21939-38e9-4e2d-aead-a0cceae42b7d",
+          "key": "role",
+          "title": "기여도",
+          "body": "촬영 지원 · 현장 세팅 · 포즈 보조 · 색보정 · 리터칭",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "14b5fbaf-a442-4711-8dfd-0c8170937a76",
+          "key": "tools",
+          "title": "Tools",
+          "body": "ㅁㄴㅇㄹㄴㅁㅇㄹㅁㄴㅇㄹㅇㄴㄹ",
+          "order": 3,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 3,
+      "createdAt": "2024-10-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T14:11:05.573Z",
+      "contents": [],
+      "beforeAfterFallbackMedia": [
+        {
+          "url": "/uploads/d3ddeb59-933d-4953-9a08-3168148d8299.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "retouchMarkers": [
+        {
+          "id": "02077667-8009-426f-b962-90a2afb24261",
+          "mediaIndex": 0,
+          "x": 58.9,
+          "y": 33.2,
+          "label": "얼굴 윤곽 보정",
+          "order": 0
+        },
+        {
+          "id": "fba7ca64-14ce-4659-bff9-12918e1ff4ae",
+          "mediaIndex": 0,
+          "x": 58.5,
+          "y": 25.5,
+          "label": "눈매 교정",
+          "order": 1
+        },
+        {
+          "id": "36302bbd-94cc-4eb3-af9a-b6897ef361a6",
+          "mediaIndex": 0,
+          "x": 33,
+          "y": 42.5,
+          "label": "헤어 정돈",
+          "order": 2
+        },
+        {
+          "id": "239f8d46-2e31-4b07-ade3-d3ce0065d149",
+          "mediaIndex": 0,
+          "x": 59.8,
+          "y": 12.4,
+          "label": "두상 보정",
+          "order": 3
+        },
+        {
+          "id": "bf83d468-54b0-45af-940f-318c4fd2147e",
+          "mediaIndex": 0,
+          "x": 43.8,
+          "y": 29.1,
+          "label": "피부 톤 보정",
+          "order": 4
+        },
+        {
+          "id": "766e57a5-9f7d-44e4-83d2-5338b74d1bda",
+          "mediaIndex": 0,
+          "x": 80.8,
+          "y": 51.7,
+          "label": "체형 라인 보정",
+          "order": 5
+        }
+      ],
+      "beforeAfterFallbackLayout": "half"
+    },
+    "after": {
+      "id": "proj-portrait",
+      "number": "04",
+      "title": "인물 프로필 보정",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "상시업무",
+      "field": "인물 프로필",
+      "purpose": "직원, 의료진과 트레이너의 프로필 사진 제작",
+      "role": "촬영 보조 및 보정",
+      "tools": [
+        "[자료 필요] 사용 장비 및 보정 프로그램 목록",
+        "Photoshop",
+        "생성형 AI"
+      ],
+      "description": "회사 직원, 병원 의사, 헬스장 트레이너의 프로필과 단체사진을 촬영 보조하고 보정했습니다.\n과도한 보정보다 대상자의 자연스러움과 직업적 신뢰감을 유지하는 데 집중했습니다.",
+      "heroImage": {
+        "url": "/uploads/8c54c5c0-28e9-45ff-a7e9-d3f532cd28f2.png",
+        "kind": "image",
+        "alt": ""
+      },
+      "gallery": [
+        {
+          "url": "/uploads/b7ba84b7-f327-4c41-b23d-21225d9bfccd.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/69335174-dbfc-4f79-958c-8b4911577c09.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/625f7c05-d5a5-47c1-a22f-623be77165c3.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/c820ed84-da54-49fb-b12f-b64bac7bd186.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/67b028bd-7706-48de-8fa6-db899bafc0a1.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "beforeAfter": [],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "48432402-4ee5-4355-b2ab-55135bf57158",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "회사 직원, 의료진, 트레이너 등 직무별 프로필 촬영 현장에서 세팅과 포즈를 지원하고, \n대상자의 인상이 자연스럽게 드러나도록 보정했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "3041fb27-fc5f-4eb4-aed8-d6b38cd8a51f",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "홈페이지와 홍보물에서 활용되는 프로필 사진이 직무에 대한 신뢰감과 전문성을 전달할 수 있도록\n이미지를 제작했습니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "21e21939-38e9-4e2d-aead-a0cceae42b7d",
+          "key": "role",
+          "title": "기여도",
+          "body": "촬영 지원 · 현장 세팅 · 포즈 보조 · 색보정 · 리터칭",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "14b5fbaf-a442-4711-8dfd-0c8170937a76",
+          "key": "tools",
+          "title": "Tools",
+          "body": "ㅁㄴㅇㄹㄴㅁㅇㄹㅁㄴㅇㄹㅇㄴㄹ",
+          "order": 3,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 3,
+      "createdAt": "2024-10-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T14:14:19.121Z",
+      "contents": [],
+      "beforeAfterFallbackMedia": [
+        {
+          "url": "/uploads/d3ddeb59-933d-4953-9a08-3168148d8299.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/6d71af95-a686-4635-8550-32db514e0fef.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "retouchMarkers": [
+        {
+          "id": "02077667-8009-426f-b962-90a2afb24261",
+          "mediaIndex": 0,
+          "x": 58.9,
+          "y": 33.2,
+          "label": "얼굴 윤곽 보정",
+          "order": 0
+        },
+        {
+          "id": "fba7ca64-14ce-4659-bff9-12918e1ff4ae",
+          "mediaIndex": 0,
+          "x": 58.5,
+          "y": 25.5,
+          "label": "눈매 교정",
+          "order": 1
+        },
+        {
+          "id": "36302bbd-94cc-4eb3-af9a-b6897ef361a6",
+          "mediaIndex": 0,
+          "x": 33,
+          "y": 42.5,
+          "label": "헤어 정돈",
+          "order": 2
+        },
+        {
+          "id": "239f8d46-2e31-4b07-ade3-d3ce0065d149",
+          "mediaIndex": 0,
+          "x": 59.8,
+          "y": 12.4,
+          "label": "두상 보정",
+          "order": 3
+        },
+        {
+          "id": "bf83d468-54b0-45af-940f-318c4fd2147e",
+          "mediaIndex": 0,
+          "x": 43.8,
+          "y": 29.1,
+          "label": "피부 톤 보정",
+          "order": 4
+        },
+        {
+          "id": "766e57a5-9f7d-44e4-83d2-5338b74d1bda",
+          "mediaIndex": 0,
+          "x": 80.8,
+          "y": 51.7,
+          "label": "체형 라인 보정",
+          "order": 5
+        }
+      ],
+      "beforeAfterFallbackLayout": "half"
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-28T14:13:49.390Z"
+  },
+  {
+    "id": "6b36944d-3648-4503-9c52-0a1bd9d7d60b",
+    "entity": "projects:proj-interior",
+    "field": "수정",
+    "before": {
+      "id": "proj-interior",
+      "number": "03",
+      "title": "인테리어  촬영 · 보정",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "인테리어",
+      "purpose": "공간의 구조와 분위기를 전달하는 인테리어 사진 제작",
+      "role": "촬영 보조 및 보정",
+      "tools": [
+        "[자료 필요] 사용 장비 및 보정 프로그램 목록",
+        "Photoshop"
+      ],
+      "description": "카페 및 음식 브랜드, 병원, 회사 인테리어 촬영을 보조하고, 공간의 구조와 밝기, 전체 분위기가 왜곡되지 않도록 보정했습니다.",
+      "heroImage": {
+        "url": "/uploads/fdb803eb-8c1e-480e-9b7f-a876d6078e7b.jpg",
+        "kind": "image",
+        "alt": ""
+      },
+      "gallery": [
+        {
+          "url": "/uploads/6c373a2e-0a89-4602-a858-6911219e0cf0.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/c633d4da-8af6-4367-b431-f2eb79d86563.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/3752823f-2812-4027-813a-7e033c0159c3.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/1dcf90e5-faa1-44a6-82a9-9c07aef3fafc.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/8242c4f7-a555-4f3a-9f4b-3c4dac4d5f21.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "beforeAfter": [],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "a85507b7-2deb-4df7-af42-b844fa9c7975",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "카페, 병원 등의 인테리어 홍보 촬영 현장에서 장비 세팅과 구도 설정을 지원하고, \n촬영 결과물의 색감과 세부 요소를 보정했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "4365da25-2b88-4cc3-b3c3-8704bc690096",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "사진을 보는 고객이 공간의 구조와 동선을 쉽게 이해하고, \n각 장소가 가진 분위기와 브랜드 이미지를 자연스럽게 느낄 수 있도록 지원했습니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "d9a628d3-f4d9-4885-abd3-3d222fc30724",
+          "key": "role",
+          "title": "기여도",
+          "body": "촬영 지원 · 장비 세팅 · 구도 보조 · 색보정 · 리터칭",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 2,
+      "createdAt": "2024-09-15T00:00:00.000Z",
+      "updatedAt": "2026-07-28T13:46:42.190Z",
+      "retouchHighlights": [
+        {
+          "id": "025c91c5-cd78-49eb-bfbd-d77e7051b1ad",
+          "image": {
+            "url": "/uploads/f6894d13-77dc-4d45-a54e-37487d2e41cb.png",
+            "kind": "image",
+            "alt": ""
+          },
+          "points": [
+            {
+              "id": "da547502-258c-4a6f-bc4d-2ac60b2b56fe",
+              "x": 45,
+              "y": 52,
+              "label": "sadfsadfsadf",
+              "order": 0
+            },
+            {
+              "id": "a4b17453-2f9f-423e-aab2-ada49e5e309a",
+              "x": 70.8,
+              "y": 70.5,
+              "label": "asdfadsfasdf",
+              "order": 1
+            },
+            {
+              "id": "6493c856-e977-4a03-934f-e9cd06ed3402",
+              "x": 19.2,
+              "y": 81.4,
+              "label": "asdfasdfasdfs",
+              "order": 2
+            }
+          ],
+          "order": 0
+        }
+      ],
+      "contents": [],
+      "beforeAfterFallbackMedia": [
+        {
+          "url": "/uploads/e3466550-13eb-4dc9-ae4b-7e64436d4349.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "retouchMarkers": []
+    },
+    "after": {
+      "id": "proj-interior",
+      "number": "03",
+      "title": "인테리어  촬영 · 보정",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "인테리어",
+      "purpose": "공간의 구조와 분위기를 전달하는 인테리어 사진 제작",
+      "role": "촬영 보조 및 보정",
+      "tools": [
+        "[자료 필요] 사용 장비 및 보정 프로그램 목록",
+        "Photoshop"
+      ],
+      "description": "카페 및 음식 브랜드, 병원, 회사 인테리어 촬영을 보조하고, 공간의 구조와 밝기, 전체 분위기가 왜곡되지 않도록 보정했습니다.",
+      "heroImage": {
+        "url": "/uploads/fdb803eb-8c1e-480e-9b7f-a876d6078e7b.jpg",
+        "kind": "image",
+        "alt": ""
+      },
+      "gallery": [
+        {
+          "url": "/uploads/6c373a2e-0a89-4602-a858-6911219e0cf0.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/c633d4da-8af6-4367-b431-f2eb79d86563.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/3752823f-2812-4027-813a-7e033c0159c3.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/1dcf90e5-faa1-44a6-82a9-9c07aef3fafc.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/8242c4f7-a555-4f3a-9f4b-3c4dac4d5f21.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "beforeAfter": [],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "a85507b7-2deb-4df7-af42-b844fa9c7975",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "카페, 병원 등의 인테리어 홍보 촬영 현장에서 장비 세팅과 구도 설정을 지원하고, \n촬영 결과물의 색감과 세부 요소를 보정했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "4365da25-2b88-4cc3-b3c3-8704bc690096",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "사진을 보는 고객이 공간의 구조와 동선을 쉽게 이해하고, \n각 장소가 가진 분위기와 브랜드 이미지를 자연스럽게 느낄 수 있도록 지원했습니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "d9a628d3-f4d9-4885-abd3-3d222fc30724",
+          "key": "role",
+          "title": "기여도",
+          "body": "촬영 지원 · 장비 세팅 · 구도 보조 · 색보정 · 리터칭",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 2,
+      "createdAt": "2024-09-15T00:00:00.000Z",
+      "updatedAt": "2026-07-28T14:13:35.486Z",
+      "retouchHighlights": [
+        {
+          "id": "025c91c5-cd78-49eb-bfbd-d77e7051b1ad",
+          "image": {
+            "url": "/uploads/f6894d13-77dc-4d45-a54e-37487d2e41cb.png",
+            "kind": "image",
+            "alt": ""
+          },
+          "points": [
+            {
+              "id": "da547502-258c-4a6f-bc4d-2ac60b2b56fe",
+              "x": 45,
+              "y": 52,
+              "label": "sadfsadfsadf",
+              "order": 0
+            },
+            {
+              "id": "a4b17453-2f9f-423e-aab2-ada49e5e309a",
+              "x": 70.8,
+              "y": 70.5,
+              "label": "asdfadsfasdf",
+              "order": 1
+            },
+            {
+              "id": "6493c856-e977-4a03-934f-e9cd06ed3402",
+              "x": 19.2,
+              "y": 81.4,
+              "label": "asdfasdfasdfs",
+              "order": 2
+            }
+          ],
+          "order": 0
+        }
+      ],
+      "contents": [],
+      "beforeAfterFallbackMedia": [
+        {
+          "url": "/uploads/e3466550-13eb-4dc9-ae4b-7e64436d4349.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "retouchMarkers": [],
+      "contributionPercentage": 100
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-28T14:13:35.641Z"
+  },
+  {
+    "id": "2a5cba67-4f0e-46d2-8e0f-31f3149972af",
+    "entity": "projects:proj-notion-credit",
+    "field": "수정",
+    "before": {
+      "id": "proj-notion-credit",
+      "number": "08",
+      "title": "Notion 기반 Higgsfield AI 크레딧 관리체계 구축",
+      "brand": "미디어팀 내부 운영체계",
+      "brandHidden": false,
+      "year": "2026",
+      "field": "생성형 인공지능 콘텐츠",
+      "purpose": "공용 인공지능 계정의 크레딧 사용 현황을 팀이 함께 확인할 수 있는 관리 데이터베이스 구축",
+      "role": "설계 및 구축",
+      "tools": [
+        "Notion",
+        "Higgsfield AI"
+      ],
+      "description": "팀에서 공동으로 사용하는 힉스필드 AI 계정의 크레딧 소모 현황을 실시간으로 추적할 수 있는 노션 데이터베이스를 설계하고 구축했습니다.",
+      "heroImage": {
+        "url": "/placeholders/notion.svg",
+        "kind": "image",
+        "alt": "노션 관리체계 대표 이미지 [자료 필요]"
+      },
+      "gallery": [
+        {
+          "url": "/uploads/e2a49a83-64b2-4cea-b1d0-c1b9a9207270.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/de7c5c37-e060-4ea9-98f9-c74fcaecd075.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/a2c16bc8-6dab-436c-8594-bfa3405d5bfb.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "beforeAfter": [],
+      "metrics": [
+        {
+          "id": "m1",
+          "label": "월별 크레딧 사용량",
+          "value": "[자료 필요]"
+        }
+      ],
+      "detailBlocks": [
+        {
+          "id": "b1",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "미디어팀이 사용하는 AI 서비스의 크레딧을 사용자·도구·사용 목적별로 관리할 수 있도록\nNotion 기반 운영체계를 구축했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "a1801b66-76bb-40ef-be5f-5c695a8e22c5",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "분산된 사용 정보를 하나의 데이터베이스로 통합하여 크레딧 사용 현황과 운영 상태를 효율적으로 관리하고,\n합리적인 AI 자원 운영이 가능하도록 설계했습니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "bb288ab0-9d61-4b0d-97f5-e7adc7275ac9",
+          "key": "role",
+          "title": "기여도",
+          "body": "운영 기획 · DB 설계 · 대시보드 구성 · 데이터 관리 · 운영체계 구축",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": true,
+      "isDetailFeatured": true,
+      "publicOk": true,
+      "status": "draft",
+      "order": 7,
+      "createdAt": "2026-03-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T13:23:17.619Z",
+      "contents": [],
+      "beforeAfterFallbackMedia": [],
+      "retouchMarkers": []
+    },
+    "after": {
+      "id": "proj-notion-credit",
+      "number": "08",
+      "title": "Notion 기반 Higgsfield AI 크레딧 관리체계 구축",
+      "brand": "미디어팀 내부 운영체계",
+      "brandHidden": false,
+      "year": "2026",
+      "field": "생성형 인공지능 콘텐츠",
+      "purpose": "공용 인공지능 계정의 크레딧 사용 현황을 팀이 함께 확인할 수 있는 관리 데이터베이스 구축",
+      "role": "설계 및 구축",
+      "tools": [
+        "Notion",
+        "Higgsfield AI"
+      ],
+      "description": "팀에서 공동으로 사용하는 힉스필드 AI 계정의 크레딧 소모 현황을 실시간으로 추적할 수 있는 노션 데이터베이스를 설계하고 구축했습니다.",
+      "heroImage": {
+        "url": "/uploads/ac16f225-83da-4a1e-bf49-754a4dbbb329.png",
+        "kind": "image",
+        "alt": ""
+      },
+      "gallery": [
+        {
+          "url": "/uploads/e2a49a83-64b2-4cea-b1d0-c1b9a9207270.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/de7c5c37-e060-4ea9-98f9-c74fcaecd075.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/a2c16bc8-6dab-436c-8594-bfa3405d5bfb.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "beforeAfter": [],
+      "metrics": [
+        {
+          "id": "m1",
+          "label": "월별 크레딧 사용량",
+          "value": "[자료 필요]"
+        }
+      ],
+      "detailBlocks": [
+        {
+          "id": "b1",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "미디어팀이 사용하는 AI 서비스의 크레딧을 사용자·도구·사용 목적별로 관리할 수 있도록\nNotion 기반 운영체계를 구축했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "a1801b66-76bb-40ef-be5f-5c695a8e22c5",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "분산된 사용 정보를 하나의 데이터베이스로 통합하여 크레딧 사용 현황과 운영 상태를 효율적으로 관리하고,\n합리적인 AI 자원 운영이 가능하도록 설계했습니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "bb288ab0-9d61-4b0d-97f5-e7adc7275ac9",
+          "key": "role",
+          "title": "기여도",
+          "body": "운영 기획 · DB 설계 · 대시보드 구성 · 데이터 관리 · 운영체계 구축",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": true,
+      "isDetailFeatured": true,
+      "publicOk": true,
+      "status": "draft",
+      "order": 7,
+      "createdAt": "2026-03-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T14:11:55.989Z",
+      "contents": [],
+      "beforeAfterFallbackMedia": [],
+      "retouchMarkers": []
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-28T14:11:26.628Z"
+  },
+  {
+    "id": "78e7ecfe-95e9-46a9-b865-8b71351e0416",
+    "entity": "projects:proj-portrait",
+    "field": "수정",
+    "before": {
+      "id": "proj-portrait",
+      "number": "04",
+      "title": "인물 프로필 보정",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "상시업무",
+      "field": "인물 프로필",
+      "purpose": "직원, 의료진과 트레이너의 프로필 사진 제작",
+      "role": "촬영 보조 및 보정",
+      "tools": [
+        "[자료 필요] 사용 장비 및 보정 프로그램 목록",
+        "Photoshop",
+        "생성형 AI"
+      ],
+      "description": "회사 직원, 병원 의사, 헬스장 트레이너의 프로필과 단체사진을 촬영 보조하고 보정했습니다.\n과도한 보정보다 대상자의 자연스러움과 직업적 신뢰감을 유지하는 데 집중했습니다.",
+      "heroImage": {
+        "url": "/uploads/8c54c5c0-28e9-45ff-a7e9-d3f532cd28f2.png",
+        "kind": "image",
+        "alt": ""
+      },
+      "gallery": [
+        {
+          "url": "/uploads/b7ba84b7-f327-4c41-b23d-21225d9bfccd.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/69335174-dbfc-4f79-958c-8b4911577c09.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/625f7c05-d5a5-47c1-a22f-623be77165c3.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/c820ed84-da54-49fb-b12f-b64bac7bd186.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/67b028bd-7706-48de-8fa6-db899bafc0a1.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "beforeAfter": [],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "48432402-4ee5-4355-b2ab-55135bf57158",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "회사 직원, 의료진, 트레이너 등 직무별 프로필 촬영 현장에서 세팅과 포즈를 지원하고, \n대상자의 인상이 자연스럽게 드러나도록 보정했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "3041fb27-fc5f-4eb4-aed8-d6b38cd8a51f",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "홈페이지와 홍보물에서 활용되는 프로필 사진이 직무에 대한 신뢰감과 전문성을 전달할 수 있도록\n이미지를 제작했습니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "21e21939-38e9-4e2d-aead-a0cceae42b7d",
+          "key": "role",
+          "title": "기여도",
+          "body": "촬영 지원 · 현장 세팅 · 포즈 보조 · 색보정 · 리터칭",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "14b5fbaf-a442-4711-8dfd-0c8170937a76",
+          "key": "tools",
+          "title": "Tools",
+          "body": "ㅁㄴㅇㄹㄴㅁㅇㄹㅁㄴㅇㄹㅇㄴㄹ",
+          "order": 3,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 3,
+      "createdAt": "2024-10-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T14:10:29.459Z",
+      "contents": [],
+      "beforeAfterFallbackMedia": [
+        {
+          "url": "/uploads/d3ddeb59-933d-4953-9a08-3168148d8299.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "retouchMarkers": [
+        {
+          "id": "02077667-8009-426f-b962-90a2afb24261",
+          "mediaIndex": 0,
+          "x": 58.9,
+          "y": 33.2,
+          "label": "얼굴 윤곽 보정",
+          "order": 0
+        },
+        {
+          "id": "fba7ca64-14ce-4659-bff9-12918e1ff4ae",
+          "mediaIndex": 0,
+          "x": 58.5,
+          "y": 25.5,
+          "label": "눈매 교정",
+          "order": 1
+        },
+        {
+          "id": "36302bbd-94cc-4eb3-af9a-b6897ef361a6",
+          "mediaIndex": 0,
+          "x": 33,
+          "y": 42.5,
+          "label": "헤어 정돈",
+          "order": 2
+        },
+        {
+          "id": "239f8d46-2e31-4b07-ade3-d3ce0065d149",
+          "mediaIndex": 0,
+          "x": 59.8,
+          "y": 12.4,
+          "label": "두상 보정",
+          "order": 3
+        },
+        {
+          "id": "bf83d468-54b0-45af-940f-318c4fd2147e",
+          "mediaIndex": 0,
+          "x": 43.8,
+          "y": 29.1,
+          "label": "피부 톤 보정",
+          "order": 4
+        },
+        {
+          "id": "766e57a5-9f7d-44e4-83d2-5338b74d1bda",
+          "mediaIndex": 0,
+          "x": 80.8,
+          "y": 51.7,
+          "label": "체형 라인 보정",
+          "order": 5
+        }
+      ],
+      "beforeAfterFallbackLayout": "half"
+    },
+    "after": {
+      "id": "proj-portrait",
+      "number": "04",
+      "title": "인물 프로필 보정",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "상시업무",
+      "field": "인물 프로필",
+      "purpose": "직원, 의료진과 트레이너의 프로필 사진 제작",
+      "role": "촬영 보조 및 보정",
+      "tools": [
+        "[자료 필요] 사용 장비 및 보정 프로그램 목록",
+        "Photoshop",
+        "생성형 AI"
+      ],
+      "description": "회사 직원, 병원 의사, 헬스장 트레이너의 프로필과 단체사진을 촬영 보조하고 보정했습니다.\n과도한 보정보다 대상자의 자연스러움과 직업적 신뢰감을 유지하는 데 집중했습니다.",
+      "heroImage": {
+        "url": "/uploads/8c54c5c0-28e9-45ff-a7e9-d3f532cd28f2.png",
+        "kind": "image",
+        "alt": ""
+      },
+      "gallery": [
+        {
+          "url": "/uploads/b7ba84b7-f327-4c41-b23d-21225d9bfccd.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/69335174-dbfc-4f79-958c-8b4911577c09.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/625f7c05-d5a5-47c1-a22f-623be77165c3.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/c820ed84-da54-49fb-b12f-b64bac7bd186.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/67b028bd-7706-48de-8fa6-db899bafc0a1.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "beforeAfter": [],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "48432402-4ee5-4355-b2ab-55135bf57158",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "회사 직원, 의료진, 트레이너 등 직무별 프로필 촬영 현장에서 세팅과 포즈를 지원하고, \n대상자의 인상이 자연스럽게 드러나도록 보정했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "3041fb27-fc5f-4eb4-aed8-d6b38cd8a51f",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "홈페이지와 홍보물에서 활용되는 프로필 사진이 직무에 대한 신뢰감과 전문성을 전달할 수 있도록\n이미지를 제작했습니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "21e21939-38e9-4e2d-aead-a0cceae42b7d",
+          "key": "role",
+          "title": "기여도",
+          "body": "촬영 지원 · 현장 세팅 · 포즈 보조 · 색보정 · 리터칭",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "14b5fbaf-a442-4711-8dfd-0c8170937a76",
+          "key": "tools",
+          "title": "Tools",
+          "body": "ㅁㄴㅇㄹㄴㅁㅇㄹㅁㄴㅇㄹㅇㄴㄹ",
+          "order": 3,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 3,
+      "createdAt": "2024-10-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T14:11:05.573Z",
+      "contents": [],
+      "beforeAfterFallbackMedia": [
+        {
+          "url": "/uploads/d3ddeb59-933d-4953-9a08-3168148d8299.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "retouchMarkers": [
+        {
+          "id": "02077667-8009-426f-b962-90a2afb24261",
+          "mediaIndex": 0,
+          "x": 58.9,
+          "y": 33.2,
+          "label": "얼굴 윤곽 보정",
+          "order": 0
+        },
+        {
+          "id": "fba7ca64-14ce-4659-bff9-12918e1ff4ae",
+          "mediaIndex": 0,
+          "x": 58.5,
+          "y": 25.5,
+          "label": "눈매 교정",
+          "order": 1
+        },
+        {
+          "id": "36302bbd-94cc-4eb3-af9a-b6897ef361a6",
+          "mediaIndex": 0,
+          "x": 33,
+          "y": 42.5,
+          "label": "헤어 정돈",
+          "order": 2
+        },
+        {
+          "id": "239f8d46-2e31-4b07-ade3-d3ce0065d149",
+          "mediaIndex": 0,
+          "x": 59.8,
+          "y": 12.4,
+          "label": "두상 보정",
+          "order": 3
+        },
+        {
+          "id": "bf83d468-54b0-45af-940f-318c4fd2147e",
+          "mediaIndex": 0,
+          "x": 43.8,
+          "y": 29.1,
+          "label": "피부 톤 보정",
+          "order": 4
+        },
+        {
+          "id": "766e57a5-9f7d-44e4-83d2-5338b74d1bda",
+          "mediaIndex": 0,
+          "x": 80.8,
+          "y": 51.7,
+          "label": "체형 라인 보정",
+          "order": 5
+        }
+      ],
+      "beforeAfterFallbackLayout": "half"
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-28T14:10:35.949Z"
+  },
+  {
+    "id": "d8c83d7a-a7d7-4b90-aae2-b00610960690",
+    "entity": "projects:proj-portrait",
+    "field": "수정",
+    "before": {
+      "id": "proj-portrait",
+      "number": "04",
+      "title": "인물 프로필 보정",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "상시업무",
+      "field": "인물 프로필",
+      "purpose": "직원, 의료진과 트레이너의 프로필 사진 제작",
+      "role": "촬영 보조 및 보정",
+      "tools": [
+        "[자료 필요] 사용 장비 및 보정 프로그램 목록",
+        "Photoshop",
+        "생성형 AI"
+      ],
+      "description": "회사 직원, 병원 의사, 헬스장 트레이너의 프로필과 단체사진을 촬영 보조하고 보정했습니다.\n과도한 보정보다 대상자의 자연스러움과 직업적 신뢰감을 유지하는 데 집중했습니다.",
+      "heroImage": {
+        "url": "/uploads/8c54c5c0-28e9-45ff-a7e9-d3f532cd28f2.png",
+        "kind": "image",
+        "alt": ""
+      },
+      "gallery": [
+        {
+          "url": "/uploads/b7ba84b7-f327-4c41-b23d-21225d9bfccd.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/69335174-dbfc-4f79-958c-8b4911577c09.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/625f7c05-d5a5-47c1-a22f-623be77165c3.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/c820ed84-da54-49fb-b12f-b64bac7bd186.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/67b028bd-7706-48de-8fa6-db899bafc0a1.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "beforeAfter": [],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "48432402-4ee5-4355-b2ab-55135bf57158",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "회사 직원, 의료진, 트레이너 등 직무별 프로필 촬영 현장에서 세팅과 포즈를 지원하고, \n대상자의 인상이 자연스럽게 드러나도록 보정했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "3041fb27-fc5f-4eb4-aed8-d6b38cd8a51f",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "홈페이지와 홍보물에서 활용되는 프로필 사진이 직무에 대한 신뢰감과 전문성을 전달할 수 있도록\n이미지를 제작했습니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "21e21939-38e9-4e2d-aead-a0cceae42b7d",
+          "key": "role",
+          "title": "기여도",
+          "body": "촬영 지원 · 현장 세팅 · 포즈 보조 · 색보정 · 리터칭",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "14b5fbaf-a442-4711-8dfd-0c8170937a76",
+          "key": "tools",
+          "title": "Tools",
+          "body": "ㅁㄴㅇㄹㄴㅁㅇㄹㅁㄴㅇㄹㅇㄴㄹ",
+          "order": 3,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 3,
+      "createdAt": "2024-10-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T14:03:18.942Z",
+      "contents": [],
+      "beforeAfterFallbackMedia": [
+        {
+          "url": "/uploads/d3ddeb59-933d-4953-9a08-3168148d8299.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "retouchMarkers": [
+        {
+          "id": "02077667-8009-426f-b962-90a2afb24261",
+          "mediaIndex": 0,
+          "x": 58.9,
+          "y": 33.2,
+          "label": "얼굴 윤곽 보정",
+          "order": 0
+        },
+        {
+          "id": "fba7ca64-14ce-4659-bff9-12918e1ff4ae",
+          "mediaIndex": 0,
+          "x": 58.5,
+          "y": 25.5,
+          "label": "눈매 교정",
+          "order": 1
+        },
+        {
+          "id": "36302bbd-94cc-4eb3-af9a-b6897ef361a6",
+          "mediaIndex": 0,
+          "x": 33,
+          "y": 42.5,
+          "label": "헤어 정돈",
+          "order": 2
+        },
+        {
+          "id": "239f8d46-2e31-4b07-ade3-d3ce0065d149",
+          "mediaIndex": 0,
+          "x": 59.8,
+          "y": 12.4,
+          "label": "두상 보정",
+          "order": 3
+        },
+        {
+          "id": "bf83d468-54b0-45af-940f-318c4fd2147e",
+          "mediaIndex": 0,
+          "x": 43.8,
+          "y": 29.1,
+          "label": "피부 톤 보정",
+          "order": 4
+        },
+        {
+          "id": "766e57a5-9f7d-44e4-83d2-5338b74d1bda",
+          "mediaIndex": 0,
+          "x": 80.8,
+          "y": 51.7,
+          "label": "체형 라인 보정",
+          "order": 5
+        }
+      ],
+      "beforeAfterFallbackLayout": "half"
+    },
+    "after": {
+      "id": "proj-portrait",
+      "number": "04",
+      "title": "인물 프로필 보정",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "상시업무",
+      "field": "인물 프로필",
+      "purpose": "직원, 의료진과 트레이너의 프로필 사진 제작",
+      "role": "촬영 보조 및 보정",
+      "tools": [
+        "[자료 필요] 사용 장비 및 보정 프로그램 목록",
+        "Photoshop",
+        "생성형 AI"
+      ],
+      "description": "회사 직원, 병원 의사, 헬스장 트레이너의 프로필과 단체사진을 촬영 보조하고 보정했습니다.\n과도한 보정보다 대상자의 자연스러움과 직업적 신뢰감을 유지하는 데 집중했습니다.",
+      "heroImage": {
+        "url": "/uploads/8c54c5c0-28e9-45ff-a7e9-d3f532cd28f2.png",
+        "kind": "image",
+        "alt": ""
+      },
+      "gallery": [
+        {
+          "url": "/uploads/b7ba84b7-f327-4c41-b23d-21225d9bfccd.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/69335174-dbfc-4f79-958c-8b4911577c09.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/625f7c05-d5a5-47c1-a22f-623be77165c3.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/c820ed84-da54-49fb-b12f-b64bac7bd186.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/67b028bd-7706-48de-8fa6-db899bafc0a1.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "beforeAfter": [],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "48432402-4ee5-4355-b2ab-55135bf57158",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "회사 직원, 의료진, 트레이너 등 직무별 프로필 촬영 현장에서 세팅과 포즈를 지원하고, \n대상자의 인상이 자연스럽게 드러나도록 보정했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "3041fb27-fc5f-4eb4-aed8-d6b38cd8a51f",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "홈페이지와 홍보물에서 활용되는 프로필 사진이 직무에 대한 신뢰감과 전문성을 전달할 수 있도록\n이미지를 제작했습니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "21e21939-38e9-4e2d-aead-a0cceae42b7d",
+          "key": "role",
+          "title": "기여도",
+          "body": "촬영 지원 · 현장 세팅 · 포즈 보조 · 색보정 · 리터칭",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "14b5fbaf-a442-4711-8dfd-0c8170937a76",
+          "key": "tools",
+          "title": "Tools",
+          "body": "ㅁㄴㅇㄹㄴㅁㅇㄹㅁㄴㅇㄹㅇㄴㄹ",
+          "order": 3,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 3,
+      "createdAt": "2024-10-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T14:10:29.459Z",
+      "contents": [],
+      "beforeAfterFallbackMedia": [
+        {
+          "url": "/uploads/d3ddeb59-933d-4953-9a08-3168148d8299.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "retouchMarkers": [
+        {
+          "id": "02077667-8009-426f-b962-90a2afb24261",
+          "mediaIndex": 0,
+          "x": 58.9,
+          "y": 33.2,
+          "label": "얼굴 윤곽 보정",
+          "order": 0
+        },
+        {
+          "id": "fba7ca64-14ce-4659-bff9-12918e1ff4ae",
+          "mediaIndex": 0,
+          "x": 58.5,
+          "y": 25.5,
+          "label": "눈매 교정",
+          "order": 1
+        },
+        {
+          "id": "36302bbd-94cc-4eb3-af9a-b6897ef361a6",
+          "mediaIndex": 0,
+          "x": 33,
+          "y": 42.5,
+          "label": "헤어 정돈",
+          "order": 2
+        },
+        {
+          "id": "239f8d46-2e31-4b07-ade3-d3ce0065d149",
+          "mediaIndex": 0,
+          "x": 59.8,
+          "y": 12.4,
+          "label": "두상 보정",
+          "order": 3
+        },
+        {
+          "id": "bf83d468-54b0-45af-940f-318c4fd2147e",
+          "mediaIndex": 0,
+          "x": 43.8,
+          "y": 29.1,
+          "label": "피부 톤 보정",
+          "order": 4
+        },
+        {
+          "id": "766e57a5-9f7d-44e4-83d2-5338b74d1bda",
+          "mediaIndex": 0,
+          "x": 80.8,
+          "y": 51.7,
+          "label": "체형 라인 보정",
+          "order": 5
+        }
+      ],
+      "beforeAfterFallbackLayout": "half"
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-28T14:10:00.055Z"
+  },
+  {
     "id": "2956f45f-4708-472e-b520-2d9301a2b6b7",
     "entity": "projects:proj-portrait",
     "field": "수정",

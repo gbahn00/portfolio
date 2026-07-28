@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { v4 as uuid } from "uuid";
 import Link from "next/link";
 import { Project, ProjectField, ProjectDetailBlock, MediaRef, BeforeAfterPair } from "@/lib/types";
-import { TextField, TextAreaField, SelectField, ToggleField, FieldGroup } from "@/components/admin/fields";
+import { TextField, TextAreaField, SelectField, ToggleField, FieldGroup, NumberField } from "@/components/admin/fields";
 import { MediaUpload } from "@/components/admin/MediaUpload";
 import { SaveBar } from "@/components/admin/SaveBar";
 import { DetailBlockEditor } from "@/components/admin/project/DetailBlockEditor";
@@ -212,6 +212,12 @@ export function ProjectEditor({ initial }: { initial: Project }) {
           onChange={(v) => set("role", v)}
           rows={2}
           hint="촬영/보조촬영/보정/기획/편집 등 실제 역할을 구체적으로 기재하세요. Enter로 줄바꿈하면 상세 페이지에 그대로 반영됩니다(대표 화면 상단의 짧은 요약줄에서는 자동으로 한 줄로 보입니다)."
+        />
+        <NumberField
+          label="기여도 퍼센트 (선택)"
+          value={data.contributionPercentage}
+          onChange={(v) => set("contributionPercentage", v)}
+          hint="입력하면 상세 페이지 '기여도' 제목 옆에 예: 70% 형태로 표시됩니다. 비워두면 표시되지 않습니다."
         />
         <TextAreaField label="상세 설명 (프로젝트 개요)" value={data.description} onChange={(v) => set("description", v)} rows={3} />
       </FieldGroup>
