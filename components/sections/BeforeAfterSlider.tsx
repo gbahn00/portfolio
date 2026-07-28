@@ -45,17 +45,16 @@ import { refreshScrollTrigger } from "@/lib/gsap";
 // 슬라이더 위치(pos)는 사진이 바뀔 때마다 가운데(50)로 리셋해야 하므로
 // pair.id가 바뀔 때 별도 effect로 초기화한다.
 //
-// §111 — "사진 비율을 오른쪽 텍스트(프로젝트 개요/제작 의도/기여도/
-// Tools) 분량과 비슷하게 맞춰달라"는 요청. 처음엔 고정 세로 비율
-// (aspect-[3/4])로 대충 맞췄는데, 실제로는 "프로젝트 개요~기여도를 다
-// 작성했을 때의 실제 세로 길이"와 정확히 같은 높이를 원한다는 재요청을
-// 받아, 고정 비율 대신 텍스트 칸의 실제 렌더링 높이(px)를 측정해 그
-// 값을 사진 박스 높이로 그대로 준다(components/sections/
-// BeforeAfterWithText.tsx에서 측정 → matchHeightPx prop으로 전달).
-// 측정 전(최초 렌더) 순간에만 aspect-[3/4]를 기본값으로 쓴다.
+// §115 — "사진은 첨부한 원본 비율 그대로(이전과 동일하게), 대신 옆
+// 텍스트(프로젝트 개요~Tools)를 사진의 세로 크기에 맞춰달라"는 요청으로
+// §111~114의 "사진을 텍스트/고정 비율에 맞추는" 방향을 되돌렸다. 사진은
+// 다시 원본 비율 그대로(after 이미지가 일반 흐름에 놓여 폭 기준으로
+// 자연스럽게 세로 크기가 정해짐) 보여주고, 텍스트 칸의 높이를 사진에
+// 맞추는 쪽은 components/sections/BeforeAfterWithText.tsx에서 사진 칸의
+// 실제 렌더링 높이를 측정해 텍스트 칸에 적용한다.
 // ============================================================================
 
-function CompareView({ pair, heightPx }: { pair: BeforeAfterPair; heightPx?: number }) {
+function CompareView({ pair }: { pair: BeforeAfterPair }) {
   const [pos, setPos] = useState(50);
 
   useEffect(() => {
@@ -63,18 +62,15 @@ function CompareView({ pair, heightPx }: { pair: BeforeAfterPair; heightPx?: num
   }, [pair.id]);
 
   return (
-    <div
-      className={`relative w-full overflow-hidden rounded-sm select-none bg-bg-soft ${heightPx ? "" : "aspect-[3/4]"}`}
-      style={heightPx ? { height: `${heightPx}px` } : undefined}
-    >
-      {/* §111 — 텍스트 칸의 실제 렌더링 높이(heightPx)에 맞춰 사진을
-          object-cover로 채운다. */}
+    <div className="relative w-full overflow-hidden rounded-sm select-none bg-bg-soft">
+      {/* §115 — 첨부한 사진 원본 비율 그대로(w-full h-auto, 일반 흐름)
+          보여준다. */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={optimizedImageSrc(pair.after.url, 1080)}
         alt={pair.after.alt || "보정 후"}
         onLoad={refreshScrollTrigger}
-        className="absolute inset-0 h-full w-full object-cover pointer-events-none"
+        className="block w-full h-auto pointer-events-none"
         draggable={false}
       />
       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -119,7 +115,7 @@ function CompareView({ pair, heightPx }: { pair: BeforeAfterPair; heightPx?: num
   );
 }
 
-export function BeforeAfterSlider({ pairs, heightPx }: { pairs: BeforeAfterPair[]; heightPx?: number }) {
+export function BeforeAfterSlider({ pairs }: { pairs: BeforeAfterPair[] }) {
   const sorted = [...pairs].sort((a, b) => a.order - b.order);
   const [index, setIndex] = useState(0);
 
@@ -134,17 +130,17 @@ export function BeforeAfterSlider({ pairs, heightPx }: { pairs: BeforeAfterPair[
     <>
       {/* §104 — 칸 폭을 그대로 채우면 너무 커 보여서 max-w로 한 단계
           줄였다. §109 — 상세 페이지 대표 화면을 제외한 나머지는 등장/퇴장
-          모션을 빼기로 해서 <Reveal> 대신 그냥 렌더링한다. §111 — 사진
-          높이를 텍스트 칸 실측 높이(heightPx)에 맞추며 폭도 한 단계
-          (max-w-md → max-w-lg) 넓혔다. */}
-      <div className="max-w-lg">
+          모션을 빼기로 해서 <Reveal> 대신 그냥 렌더링한다. §115 — 사진을
+          다시 원본 비율로 되돌리며 폭 상한도 max-w-md로 되돌렸다(폭은
+          이 max-w-md 안에서 사진 자체의 너비만큼 자연스럽게 줄어든다). */}
+      <div className="max-w-md">
         {/* §107 — 이전/다음 버튼을 사진 좌우 중앙에 겹쳐 그리기 위한
             래퍼. CompareView 뒤(형제)에 버튼을 둬서 항상 사진 위에
             그려지도록 한다. */}
         <div className="relative">
           {/* §108 — key를 주지 않아 같은 DOM을 유지한 채 사진(src)만
               바뀐다("화면이 새로고침되는 느낌" 방지). */}
-          <CompareView pair={current} heightPx={heightPx} />
+          <CompareView pair={current} />
 
           {sorted.length > 1 && (
             <>
