@@ -9,6 +9,7 @@ import { TextField, TextAreaField, SelectField, ToggleField, FieldGroup } from "
 import { MediaUpload } from "@/components/admin/MediaUpload";
 import { SaveBar } from "@/components/admin/SaveBar";
 import { DetailBlockEditor } from "@/components/admin/project/DetailBlockEditor";
+import { RetouchMarkerEditor } from "@/components/admin/project/RetouchMarkerEditor";
 import { ConfirmButton } from "@/components/admin/ConfirmButton";
 
 const FIELD_OPTIONS: ProjectField[] = [
@@ -37,6 +38,15 @@ async function api(path: string, options?: RequestInit) {
 // .map 호출 시 그대로 크래시하므로, 여기서 한 번에 비어있는 배열로 채워
 // 넣어 방어한다.
 function normalizeProject(p: Project): Project {
+  // §135 — beforeAfterFallbackMedia가 단일 객체(§131)에서 배열로
+  // 바뀌면서, 예전에 저장된 단일 객체 데이터도 배열로 감싸 안전하게
+  // 편집할 수 있게 한다.
+  const rawFallback = p.beforeAfterFallbackMedia as unknown;
+  const fallbackArr = Array.isArray(rawFallback)
+    ? (rawFallback as Project["beforeAfterFallbackMedia"])
+    : rawFallback && typeof rawFallback === "object"
+      ? [rawFallback as MediaRef]
+      : [];
   return {
     ...p,
     tools: p.tools ?? [],
@@ -45,6 +55,8 @@ function normalizeProject(p: Project): Project {
     beforeAfter: p.beforeAfter ?? [],
     metrics: p.metrics ?? [],
     detailBlocks: p.detailBlocks ?? [],
+    beforeAfterFallbackMedia: fallbackArr,
+    retouchMarkers: p.retouchMarkers ?? [],
   };
 }
 
@@ -107,6 +119,24 @@ export function ProjectEditor({ initial }: { initial: Project }) {
   function addContentsItem(m: MediaRef | undefined) {
     if (!m) return;
     set("contents", [...data.contents, m]);
+  }
+
+  // §135 — 보정 전후 없을 때 대체 이미지·영상. 단일 필드에서 목록으로
+  // 바뀌어 갤러리/Contents와 같은 방식(추가 → 그리드에 항목별 업로드칸)으로
+  // 관리한다. 항목을 지우면(빈 값으로 변경) 그 인덱스를 참조하던
+  // 보정 위치 마커도 함께 정리한다(밀려서 다른 사진을 가리키는 것 방지).
+  const fallbackMediaList = data.beforeAfterFallbackMedia ?? [];
+  function addFallbackMedia(m: MediaRef | undefined) {
+    if (!m) return;
+    set("beforeAfterFallbackMedia", [...fallbackMediaList, m]);
+  }
+  function updateFallbackMedia(idx: number, m: MediaRef | undefined) {
+    if (!m) {
+      set("beforeAfterFallbackMedia", fallbackMediaList.filter((_, i) => i !== idx));
+      set("retouchMarkers", (data.retouchMarkers ?? []).filter((mk) => mk.mediaIndex !== idx).map((mk) => (mk.mediaIndex > idx ? { ...mk, mediaIndex: mk.mediaIndex - 1 } : mk)));
+    } else {
+      set("beforeAfterFallbackMedia", fallbackMediaList.map((g, i) => (i === idx ? m : g)));
+    }
   }
 
   // §58 — 보정 전/후 비교(beforeAfter)는 선택 사항이다. 등록해두면 상세
@@ -279,14 +309,45 @@ export function ProjectEditor({ initial }: { initial: Project }) {
 
       <FieldGroup
         title="보정 전후 없을 때 대체 이미지·영상 (선택)"
-        hint='위 "보정 전·후 비교"가 하나도 없는 프로젝트는 상세 페이지의 그 자리가 텍스트만으로 채워지는데, 여기에 이미지 또는 영상을 등록하면 그 자리에 대신 나타납니다(왼쪽 사진/영상 + 오른쪽 프로젝트 개요~Tools). 비워두면 위쪽 "대표 이미지"를 자동으로 대신 씁니다. 보정 전·후 비교가 하나라도 있으면 이 항목은 쓰이지 않습니다.'
+        hint='위 "보정 전·후 비교"가 하나도 없는 프로젝트는 상세 페이지의 그 자리가 텍스트만으로 채워지는데, 여기에 이미지·영상을 등록하면 그 자리에 대신 나타납니다(왼쪽 사진/영상 + 오른쪽 프로젝트 개요~Tools). 여러 장 등록하면 보정 전·후 비교와 같은 방식으로 화살표(‹ ›)를 눌러 이전/다음 사진을 볼 수 있습니다. 비워두면 위쪽 "대표 이미지"를 자동으로 대신 씁니다. 보정 전·후 비교가 하나라도 있으면 이 항목은 쓰이지 않습니다.'
       >
-        <MediaUpload
-          label="대체 이미지·영상"
-          value={data.beforeAfterFallbackMedia}
-          onChange={(m) => set("beforeAfterFallbackMedia", m)}
-          accept="image/*,video/*"
-        />
+        <div className="grid grid-cols-3 gap-3 mb-2">
+          {fallbackMediaList.map((item, idx) => (
+            <MediaUpload
+              key={idx}
+              label={`항목 ${idx + 1}`}
+              value={item}
+              accept="image/*,video/*"
+              onChange={(m) => updateFallbackMedia(idx, m)}
+            />
+          ))}
+        </div>
+        <MediaUpload label="이미지·영상 추가" value={undefined} onChange={addFallbackMedia} accept="image/*,video/*" />
+
+        <div className="mt-4 pt-4 border-t border-neutral-800">
+          <SelectField
+            label="레이아웃"
+            value={data.beforeAfterFallbackLayout ?? "auto"}
+            onChange={(v) => set("beforeAfterFallbackLayout", v === "half" ? "half" : undefined)}
+            options={[
+              { value: "auto", label: "자동 (사진 원본 비율 유지, 기본값)" },
+              { value: "half", label: "좌우 50/50 분할 (사진이 왼쪽 절반을 꽉 채움 — 예: 인물 프로필)" },
+            ]}
+            hint='"좌우 50/50 분할"을 선택하면 사진이 화면 좌측 절반을 채우고(필요하면 잘림), 텍스트는 우측 절반에 배치됩니다.'
+          />
+        </div>
+
+        <div className="mt-4 pt-4 border-t border-neutral-800">
+          <span className="block text-sm font-medium text-neutral-300 mb-1.5">보정 위치 표시 (선택)</span>
+          <p className="text-xs text-neutral-500 mb-2">
+            사진에서 보정한 위치를 표시해두면, 공개 상세 페이지에서 그 위치에 커서를 올렸을 때 설명이 나타납니다.
+          </p>
+          <RetouchMarkerEditor
+            media={fallbackMediaList}
+            markers={data.retouchMarkers ?? []}
+            onChange={(markers) => set("retouchMarkers", markers)}
+          />
+        </div>
       </FieldGroup>
 
       <FieldGroup title="성과 수치" hint="⚠️ 현재 상세 페이지 어디에도 표시되지 않습니다(참고용).">

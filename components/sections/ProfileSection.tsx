@@ -8,7 +8,7 @@ import { MediaFrame } from "@/components/ui/MediaFrame";
 import { gsap, prefersReducedMotion } from "@/lib/gsap";
 import { registerSubSteps } from "@/lib/fullpage";
 import { optimizedImageSrc } from "@/lib/utils";
-import { useElementSize } from "@/lib/hooks/useElementHeight";
+import { useElementSize, useElementHeight } from "@/lib/hooks/useElementHeight";
 
 // ============================================================================
 // 인터랙션 수정 요청서 §5-23 (누적) — "02.프로필" 섹션.
@@ -48,7 +48,7 @@ function IdentityText({ profile, philosophy }: { profile: Profile; philosophy: P
     // §36 — narrower(~55%) 오른쪽 칼럼에 히어로급 statement-title(최대
     // 82px) 클램프를 그대로 쓰니 폭에 비해 글자가 과하게 크고 줄바꿈도
     // 어색했다. 이 칼럼 폭에 맞는 크기로 다시 잡았다.
-    <div className="h-full flex flex-col justify-center min-w-0">
+    <div className="flex flex-col min-w-0">
       <p className="text-2xl md:text-3xl lg:text-4xl font-medium text-korean mb-3 max-w-2xl line-clamp-2 leading-snug whitespace-pre-line">{profile.representativePhrase}</p>
       <div className="space-y-2 mb-3">
         {paragraphs.map((p) => (
@@ -133,9 +133,8 @@ function NumbersPanel({ profile }: { profile: Profile }) {
   return (
     // §54 — 행 사이 구분선은 없애고 왼쪽 정렬 리스트 구조만 유지해달라는
     // 요청에 따라 border를 없애고 gap만으로 행 간격을 준다.
-    <div className="h-full flex items-center">
-      <div className="w-full">
-        <div className="flex flex-col gap-3 md:gap-3.5">
+    <div className="w-full">
+      <div className="flex flex-col gap-3 md:gap-3.5">
           {/* §75 — 라벨(근무 시작/주요 직무 등)이 얇은 폰트, 실제 내용이
               볼드로 되어 있어 위계가 거꾸로 보인다는 피드백. 라벨을
               굵게(font-semibold) + 살짝 밝은 톤으로 바꾸고, 내용은 볼드를
@@ -209,7 +208,6 @@ function NumbersPanel({ profile }: { profile: Profile }) {
           </div>
         </div>
       </div>
-    </div>
   );
 }
 
@@ -228,7 +226,7 @@ function SkillsPanel({ items }: { items: Competency[] }) {
     // text-base/lg → text-lg/xl/2xl, 설명 text-sm → text-sm/base, 번호도
     // 함께 확대). 최대 5개가 들어가도 프레임(최대 640px) 안에 들어오도록
     // 계산해서 키웠다 — 이전의 짤림 버그를 다시 만들지 않도록 주의.
-    <div className="h-full flex flex-col justify-center gap-6 md:gap-8">
+    <div className="flex flex-col gap-6 md:gap-8">
       {sorted.map((c, i) => (
         <div key={c.id} className="flex gap-4 md:gap-5">
           <span className="font-en text-base md:text-lg tabular-nums shrink-0 mt-1" style={{ color: "var(--accent)" }}>
@@ -301,10 +299,16 @@ function ProfilePhoto({
   if (!photo?.url) return <div className="h-full w-full" style={{ maxWidth: `${effectiveMaxW}px` }} />;
 
   return (
+    // §134-보정 — 부모(줄 전체)의 h-full(=프레임 CSS 높이, 640px 상한)에
+    // 맞춰 %로 늘어나던 것을, 실제 목표 높이(effectiveHeight, px 고정값)로
+    // 직접 지정하도록 바꿨다. 목표 높이가 프레임의 CSS 상한보다 커야 하는
+    // 경우(예: 업무 역량 탭 5개 항목이 프레임보다 큰 화면)에도 사진이 그
+    // 높이만큼 정확히 나오고, 부모 쪽에 overflow:hidden이 없어 잘리지 않는다.
     <div
-      className="relative h-full mx-auto md:mx-0 overflow-hidden rounded-sm flex items-center justify-center"
+      className="relative mx-auto md:mx-0 overflow-hidden rounded-sm flex items-center justify-center"
       style={{
         width: `${Math.round(boxW)}px`,
+        height: `${Math.round(effectiveHeight)}px`,
         maxWidth: "100%",
         opacity: ready ? 1 : 0,
         transition: ready ? "opacity 200ms ease-out" : "none",
@@ -343,6 +347,20 @@ export function ProfileSection({
   const photoMaxWidthPx = frameWidth
     ? Math.max(240, frameWidth - PROFILE_PHOTO_GAP_PX - PROFILE_PHOTO_MIN_TEXT_W)
     : undefined;
+  // §134-보정 — "01~05번 상세 내용의 전체 세로 크기에 맞춰달라"는 재요청.
+  // frameHeight는 프레임 div의 CSS 높이(min 260 / max 640px로 묶여 있음)라서,
+  // 화면이 작을 때 업무 역량 탭의 실제 콘텐츠(5개 항목)가 그보다 커도 사진은
+  // frameHeight까지만 커졌다 — 텍스트는 그대로 다 보이는데 사진만 짧아
+  // 보이는 원인이었다. 지금 탭 콘텐츠의 "있는 그대로" 높이(contentRef)를
+  // 따로 재서, 프레임 높이와 실제 콘텐츠 높이 중 더 큰 값을 사진 목표
+  // 높이로 쓴다 — 프레임보다 짧은 탭(소개 등)은 이전과 동일하게 프레임
+  // 높이에 맞추고, 프레임보다 긴 탭(업무 역량)에서는 사진도 함께 커져
+  // 텍스트 전체 길이를 따라간다.
+  const { ref: contentRef, height: contentHeight } = useElementHeight<HTMLDivElement>();
+  const photoTargetHeight =
+    frameHeight !== undefined || contentHeight !== undefined
+      ? Math.max(frameHeight ?? 0, contentHeight ?? 0)
+      : undefined;
 
   useLayoutEffect(() => {
     tabRef.current = tab;
@@ -429,13 +447,19 @@ export function ProfileSection({
               높이 × 원본 비율"로 직접 계산해(ProfilePhoto), object-contain이
               프레임 높이를 정확히 채우게 한다(자르거나 찌그러지지 않음). */}
           <div className="flex flex-col md:flex-row gap-6 md:gap-10 h-full items-stretch">
-            <div className="w-full md:w-auto md:flex-shrink-0 h-full flex items-center justify-center">
-              <ProfilePhoto photo={profile.profilePhoto} frameHeight={frameHeight} maxWidthPx={photoMaxWidthPx} />
+            <div className="w-full md:w-auto md:flex-shrink-0 flex items-center justify-center">
+              <ProfilePhoto photo={profile.profilePhoto} frameHeight={photoTargetHeight} maxWidthPx={photoMaxWidthPx} />
             </div>
-            <div ref={stageRef} className="relative h-full min-w-0 flex-1">
-              {tab === "identity" && <IdentityText profile={profile} philosophy={philosophy} />}
-              {tab === "numbers" && <NumbersPanel profile={profile} />}
-              {tab === "skills" && <SkillsPanel items={sortedCompetencies} />}
+            {/* §134-보정 — 세로 정렬(justify-center)은 여기 stage 쪽에서 공통으로
+                맡고, 그 안의 contentRef 래퍼는 h-full을 주지 않아(=내용 그대로의
+                자연 높이) useElementHeight로 실제 필요한 높이를 정확히 잴 수
+                있다. */}
+            <div ref={stageRef} className="relative h-full min-w-0 flex-1 flex flex-col justify-center">
+              <div ref={contentRef}>
+                {tab === "identity" && <IdentityText profile={profile} philosophy={philosophy} />}
+                {tab === "numbers" && <NumbersPanel profile={profile} />}
+                {tab === "skills" && <SkillsPanel items={sortedCompetencies} />}
+              </div>
             </div>
           </div>
         </div>

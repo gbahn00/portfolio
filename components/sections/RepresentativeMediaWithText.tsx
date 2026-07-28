@@ -1,7 +1,7 @@
 "use client";
 
 import { ReactNode } from "react";
-import { MediaRef } from "@/lib/types";
+import { MediaRef, RetouchMarker } from "@/lib/types";
 import { RepresentativeMediaColumn } from "@/components/sections/RepresentativeMediaColumn";
 import { useElementHeight, useElementWidth } from "@/lib/hooks/useElementHeight";
 
@@ -19,18 +19,55 @@ import { useElementHeight, useElementWidth } from "@/lib/hooks/useElementHeight"
 // 폭(MIN_TEXT_W)만 남기고 나머지를 전부 사진 폭 상한으로 넘겨준다 —
 // 그러면 텍스트 칸을 완전히 밀어내지 않는 선에서, 사진은 항상 원본
 // 비율 그대로 세로를 최대한 채운다.
+//
+// §135 — media가 단일 MediaRef에서 배열로 바뀌어 여러 장을 이전/다음
+// 버튼으로 넘겨볼 수 있게 됐다(RepresentativeMediaColumn 참고). 또한
+// "인물 프로필" 프로젝트처럼 사진이 좌측 절반, 텍스트가 우측 절반을
+// 정확히 채워야 하는 요청에 맞춰 layout="half" 옵션을 추가했다 — 이때는
+// 기존의 "원본 비율 유지 + 폭 계산" 대신 grid-cols-2로 정확히 50/50을
+// 나누고, 사진은 그 칸을 object-cover로 꽉 채운다(필요하면 잘림).
+// layout을 지정하지 않으면(기본값 "auto") 기존 프로젝트들과 동일하게
+// 동작해 회귀가 없다.
 const GAP_PX = 48; // md:gap-12
 const MIN_TEXT_W = 320; // 텍스트 칸에 항상 남겨두는 최소 폭
 
-export function RepresentativeMediaWithText({ media, children }: { media: MediaRef; children: ReactNode }) {
+export function RepresentativeMediaWithText({
+  media,
+  children,
+  layout = "auto",
+  retouchMarkers,
+}: {
+  media: MediaRef[];
+  children: ReactNode;
+  layout?: "auto" | "half";
+  retouchMarkers?: RetouchMarker[];
+}) {
   const { ref: textRef, height: textHeightPx } = useElementHeight<HTMLDivElement>();
   const { ref: rowRef, width: rowWidth } = useElementWidth<HTMLDivElement>();
   const maxWidthPx = rowWidth ? Math.max(240, rowWidth - GAP_PX - MIN_TEXT_W) : undefined;
 
+  if (layout === "half") {
+    return (
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-stretch">
+        <div className="w-full">
+          <RepresentativeMediaColumn
+            media={media}
+            targetHeightPx={textHeightPx}
+            fillWidth
+            retouchMarkers={retouchMarkers}
+          />
+        </div>
+        <div ref={textRef} className="min-w-0 w-full">
+          {children}
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div ref={rowRef} className="flex flex-col md:flex-row gap-8 md:gap-12 items-start">
       <div className="w-full md:w-auto md:flex-shrink-0">
-        <RepresentativeMediaColumn media={media} targetHeightPx={textHeightPx} maxWidthPx={maxWidthPx} />
+        <RepresentativeMediaColumn media={media} targetHeightPx={textHeightPx} maxWidthPx={maxWidthPx} retouchMarkers={retouchMarkers} />
       </div>
       <div ref={textRef} className="flex-1 min-w-0 w-full">
         {children}

@@ -120,6 +120,29 @@ export type ProjectField =
   | "유튜브"
   | "생성형 인공지능 콘텐츠";
 
+// §135 — "대체 이미지/영상을 여러 개 첨부하고, 보정 전후와 같은 방식으로
+// 화살표를 눌러 다음/이전을 볼 수 있게 해달라"는 요청으로
+// beforeAfterFallbackMedia가 단일 MediaRef에서 배열로 바뀐다(아래
+// Project.beforeAfterFallbackMedia 참고). 기존에 단일 객체로 저장된 데이터도
+// 있을 수 있어, 읽는 쪽(app/projects/[id]/page.tsx)에서 배열이 아니면
+// 배열로 감싸는 방식으로 하위 호환을 맞춘다.
+//
+// §135 — "인물 프로필 프로젝트의 대체 이미지에는 내가 보정한 위치를
+// 표시해서, 그 위치에 커서를 올리면 무엇을 수정했는지 보이게 해달라"는
+// 요청으로 추가한 좌표 기반 주석(annotation) 타입. x/y는 이미지 표시 영역
+// 기준 퍼센트(0~100)로 저장해서, 실제 화면에 보이는 사진 크기가 얼마든
+// (반응형으로 커지거나 작아져도) 항상 같은 상대 위치를 가리킨다.
+// mediaIndex는 beforeAfterFallbackMedia 배열에서 이 마커가 속한 사진의
+// 인덱스(0부터) — 여러 장 중 특정 사진에만 마커를 표시할 수 있다.
+export interface RetouchMarker {
+  id: string;
+  mediaIndex: number;
+  x: number; // 0~100 (%)
+  y: number; // 0~100 (%)
+  label: string;
+  order: number;
+}
+
 export interface BeforeAfterPair {
   id: string;
   before: MediaRef;
@@ -190,12 +213,24 @@ export interface Project {
   // 영역 자체가 보이지 않는다.
   contents: MediaRef[];
   beforeAfter: BeforeAfterPair[];
-  // §131 — 보정 전후 비교쌍(beforeAfter)이 하나도 없는 프로젝트는 상세
-  // 페이지의 그 자리가 텍스트만으로 채워지는데, 대신 넣고 싶은 대표
-  // 이미지·영상을 여기에 직접 지정할 수 있다(이미지/영상 모두 가능).
-  // 비워두면 heroImage(대표 이미지)로 자동 대체된다. 보정 전후 비교쌍이
-  // 하나라도 있으면 이 필드는 무시된다(그쪽이 우선).
-  beforeAfterFallbackMedia?: MediaRef;
+  // §131/§135 — 보정 전후 비교쌍(beforeAfter)이 하나도 없는 프로젝트는
+  // 상세 페이지의 그 자리가 텍스트만으로 채워지는데, 대신 넣고 싶은 대표
+  // 이미지·영상을 여기에 직접 지정할 수 있다(이미지/영상 모두 가능,
+  // 여러 장 첨부 가능 — 보정 전후 슬라이더와 같은 방식으로 이전/다음
+  // 버튼으로 넘겨본다). 비워두면 heroImage(대표 이미지)로 자동 대체된다.
+  // 보정 전후 비교쌍이 하나라도 있으면 이 필드는 무시된다(그쪽이 우선).
+  beforeAfterFallbackMedia?: MediaRef[];
+  // §135 — "인물 프로필" 같은 프로젝트에서 사진을 화면 좌측 절반부터
+  // 중앙까지 꽉 채우고, 우측 절반(중앙~우측)에 프로젝트 개요/제작 의도/
+  // 기여도를 배치해달라는 요청. 기본값(auto, 미지정 포함)은 기존처럼
+  // 사진 원본 비율을 유지하며 텍스트 칸 높이에 맞추는 방식이고, "half"로
+  // 지정하면 사진·텍스트가 정확히 50/50으로 나뉘고 사진은 그 영역을
+  // 꽉 채운다(object-cover, 필요시 잘림).
+  beforeAfterFallbackLayout?: "auto" | "half";
+  // §135 — 위 beforeAfterFallbackMedia 중 특정 사진에 "보정한 위치"
+  // 마커를 등록해두면, 상세 페이지에서 그 위치에 커서를 올렸을 때 설명이
+  // 나타난다(RetouchMarker 정의 참고).
+  retouchMarkers?: RetouchMarker[];
   metrics: { id: string; label: string; value: string; unit?: string }[];
   detailBlocks: ProjectDetailBlock[];
   isFeatured: boolean; // 대표 작업 여부

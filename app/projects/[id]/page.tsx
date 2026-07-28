@@ -10,7 +10,7 @@ import { RepresentativeMediaWithText } from "@/components/sections/Representativ
 import { FinalVideoBlock } from "@/components/sections/FinalVideoBlock";
 import { ContentsCarousel } from "@/components/sections/ContentsCarousel";
 import { isPlaceholder, optimizedImageSrc, stripPlaceholder } from "@/lib/utils";
-import { Project } from "@/lib/types";
+import { Project, MediaRef } from "@/lib/types";
 
 export const dynamic = "force-dynamic";
 
@@ -101,16 +101,25 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
   // 슬라이더로 보여줄 수 없으므로 개수에서 제외한다.
   const validBeforeAfter = (project.beforeAfter ?? []).filter((p) => p.before?.url && p.after?.url);
   const hasBeforeAfter = validBeforeAfter.length > 0;
-  // §131 — 보정 전후 비교쌍이 하나도 없으면, 그 자리에 관리자가 따로
-  // 지정한 대체 이미지/영상(beforeAfterFallbackMedia)을 쓰고, 그것도
-  // 없으면 대표 이미지(heroImage)로 자동 대체한다.
-  const fallbackMedia = !hasBeforeAfter
-    ? project.beforeAfterFallbackMedia?.url
-      ? project.beforeAfterFallbackMedia
-      : project.heroImage?.url
-        ? project.heroImage
-        : undefined
-    : undefined;
+  // §131/§135 — 보정 전후 비교쌍이 하나도 없으면, 그 자리에 관리자가 따로
+  // 지정한 대체 이미지/영상(beforeAfterFallbackMedia, 여러 장 가능)을
+  // 쓰고, 그것도 없으면 대표 이미지(heroImage)로 자동 대체한다.
+  // beforeAfterFallbackMedia가 배열로 바뀌기 전(§131) 저장된 데이터는
+  // 단일 객체 형태일 수 있어, 배열이 아니면 배열로 감싸 하위 호환을
+  // 맞춘다.
+  const rawFallbackMedia = project.beforeAfterFallbackMedia as unknown;
+  const fallbackMediaArr: MediaRef[] = Array.isArray(rawFallbackMedia)
+    ? (rawFallbackMedia as MediaRef[])
+    : rawFallbackMedia && typeof rawFallbackMedia === "object"
+      ? [rawFallbackMedia as MediaRef]
+      : [];
+  const fallbackMediaList: MediaRef[] = !hasBeforeAfter
+    ? (() => {
+        const valid = fallbackMediaArr.filter((m) => m?.url);
+        if (valid.length > 0) return valid;
+        return project.heroImage?.url ? [project.heroImage] : [];
+      })()
+    : [];
   const hasFinalVideo = Boolean(project.finalVideo?.url && !isPlaceholder(project.finalVideo.url));
   const hasGallery = project.gallery?.length > 0;
   // §124 — "상세 이미지"와 별도인 영상 전용 Contents 영역.
@@ -204,19 +213,27 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
         </Container>
       )}
 
-      {/* §131 — 보정 전후 비교쌍이 없는 프로젝트는 그 자리에 대체 이미지/
-          영상(없으면 대표 이미지)을 왼쪽에 두고, 오른쪽엔 그대로 프로젝트
-          개요/제작 의도/기여도/Tools를 배치한다. */}
-      {!hasBeforeAfter && fallbackMedia && (
+      {/* §131/§135 — 보정 전후 비교쌍이 없는 프로젝트는 그 자리에 대체
+          이미지/영상(여러 장이면 이전/다음, 없으면 대표 이미지)을 왼쪽에
+          두고, 오른쪽엔 그대로 프로젝트 개요/제작 의도/기여도/Tools를
+          배치한다. beforeAfterFallbackLayout이 "half"면 좌우 정확히
+          50/50으로 나뉜다(§135, 예: 인물 프로필 프로젝트). */}
+      {!hasBeforeAfter && fallbackMediaList.length > 0 && (
         <Container className={`pt-24 md:pt-32 ${hasMediaBelow ? "pb-8 md:pb-10" : "pb-24 md:pb-32"}`}>
-          <RepresentativeMediaWithText media={fallbackMedia}>{sectionsAndTools}</RepresentativeMediaWithText>
+          <RepresentativeMediaWithText
+            media={fallbackMediaList}
+            layout={project.beforeAfterFallbackLayout}
+            retouchMarkers={project.retouchMarkers}
+          >
+            {sectionsAndTools}
+          </RepresentativeMediaWithText>
         </Container>
       )}
 
       {/* §110 — 보정 전/후 사진도, 대체할 이미지/영상도 없는 프로젝트는
           오른쪽에 있던 텍스트(프로젝트 개요/제작 의도/기여도/Tools)를
           대표 화면 바로 아래 첫 번째 자리에 그대로 쓴다. */}
-      {!hasBeforeAfter && !fallbackMedia && (
+      {!hasBeforeAfter && fallbackMediaList.length === 0 && (
         <Container className={`pt-24 md:pt-32 ${hasMediaBelow ? "pb-8 md:pb-10" : "pb-24 md:pb-32"}`}>
           <div className="max-w-3xl">{sectionsAndTools}</div>
         </Container>
