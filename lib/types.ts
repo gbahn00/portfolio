@@ -105,13 +105,10 @@ export interface BeforeAfterPair {
   after: MediaRef;
   caption?: string;
   order: number;
-  /**
-   * §89 — "보정 전·후" 슬라이드를 두 종류로 나눠 보여달라는 요청.
-   * "detail"(디테일컷, 기본값)은 슬라이드 한 장에 1개씩(1단), "model"
-   * (모델컷)은 슬라이드 한 장에 2개씩 나란히(2단) 보여준다. 값이 없으면
-   * 디테일컷으로 취급한다.
-   */
-  category?: "detail" | "model";
+  // §89에서 "1단 디테일컷/2단 모델컷"을 구분하려고 만들었던 category
+  // 필드는 §103에서 구분 자체를 없애면서(하나의 순번 리스트로 통합) 더
+  // 이상 화면 렌더링에 쓰이지 않게 됐다. §108 — 이제 쓸모없어진 필드라
+  // 타입에서 제거한다(기존 저장된 데이터에 남아 있어도 무시될 뿐 문제없다).
 }
 
 export interface ProjectDetailBlock {

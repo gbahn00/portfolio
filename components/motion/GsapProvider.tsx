@@ -48,6 +48,28 @@ export function GsapProvider() {
     };
   }, [pathname]);
 
+  // §108 — "보정 전후, 상세 이미지 등에서 모션이 갑자기 사라진다"는
+  // 피드백. 위 useEffect(이미지 load/타임아웃 기반)로는 미처 못 잡는
+  // 레이아웃 변화(예: 사진 비율에 따라 계속 바뀌는 보정 전/후 칸 높이,
+  // 자동 슬라이드 트랙 등)가 있으면 ScrollTrigger가 예전 위치를 기준으로
+  // 계산해 등장 모션이 화면에 아직 있는데도 일찍 사라져(reverse) 보일 수
+  // 있다. 개별 요소마다 새로 감시 코드를 추가하는 대신, 문서 전체 높이를
+  // ResizeObserver로 계속 지켜보다가 조금이라도 바뀌면 바로 재계산하는
+  // 공통 안전장치를 둔다.
+  useEffect(() => {
+    if (typeof ResizeObserver === "undefined") return;
+    let raf = 0;
+    const ro = new ResizeObserver(() => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => ScrollTrigger.refresh());
+    });
+    ro.observe(document.body);
+    return () => {
+      ro.disconnect();
+      cancelAnimationFrame(raf);
+    };
+  }, [pathname]);
+
   useEffect(() => {
     return () => {
       ScrollTrigger.getAll().forEach((st) => st.kill());

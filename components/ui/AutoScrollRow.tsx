@@ -18,6 +18,10 @@ import { cn } from "@/lib/utils";
 // 각 항목의 실제 폭은 이미지 원본 비율에 따라 로드 후에 정해지므로,
 // 고정된 재생 시간 대신 트랙 전체 폭(scrollWidth)을 측정해 "초당 px
 // 이동 속도(speed)"가 항상 일정하게 유지되도록 재생 시간을 계산한다.
+//
+// §108 — 처음엔 마우스를 올리면(hover) 잠시 멈추도록 만들었는데, "커서를
+// 가져가니 동작이 멈춘다"는 피드백으로 그 동작을 없앴다 — 항상 계속
+// 움직인다.
 // ============================================================================
 
 interface AutoScrollRowProps<T> {
@@ -43,7 +47,6 @@ export function AutoScrollRow<T>({
 }: AutoScrollRowProps<T>) {
   const trackRef = useRef<HTMLDivElement>(null);
   const [duration, setDuration] = useState(30);
-  const [paused, setPaused] = useState(false);
 
   useEffect(() => {
     const el = trackRef.current;
@@ -68,13 +71,8 @@ export function AutoScrollRow<T>({
     <div className={cn("overflow-hidden", className)}>
       <div
         ref={trackRef}
-        onMouseEnter={() => setPaused(true)}
-        onMouseLeave={() => setPaused(false)}
         className={cn("flex w-max", heightClassName)}
-        style={{
-          animation: `auto-scroll-x ${duration}s linear infinite`,
-          animationPlayState: paused ? "paused" : "running",
-        }}
+        style={{ animation: `auto-scroll-x ${duration}s linear infinite` }}
       >
         {doubled.map((item, i) => (
           <div key={`${keyFn(item, i % items.length)}-${i}`} className={cn("h-full flex-shrink-0", gapClassName)}>

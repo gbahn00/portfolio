@@ -2,7 +2,6 @@
 
 import { MediaRef } from "@/lib/types";
 import { mediaSrc } from "@/lib/utils";
-import { Reveal } from "@/components/motion/Reveal";
 import { refreshScrollTrigger } from "@/lib/gsap";
 
 // §89 — 이 영상은 폭만 꽉 채우고(w-full) 높이는 원본 비율대로 자동
@@ -13,9 +12,12 @@ import { refreshScrollTrigger } from "@/lib/gsap";
 // 클라이언트 컴포넌트로 분리했다. 로드가 끝나는 시점에 ScrollTrigger를
 // 다시 계산해, 영상 높이가 늦게 확정되면서 등장 모션이 일찍 사라지는
 // 문제를 막는다.
+// §109 — 상세 페이지 대표 화면(ProjectCover)을 제외한 나머지 구간은
+// 스크롤에 따라 나타났다 사라지는 모션(Reveal)을 전부 뺐다. 이 영상
+// 블록도 더 이상 <Reveal>로 감싸지 않고 바로 보여준다.
 export function FinalVideoBlock({ video, posterFallback }: { video: MediaRef; posterFallback?: string }) {
   return (
-    <Reveal>
+    <div>
       <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-korean">결과물 영상</h2>
       {/* §68 — 여기는 영상이 하나뿐이라(격자로 나란히 놓고 비교할 필요가
           없음) 고정 박스로 강제로 자르거나 레터박스를 두지 않고, 영상
@@ -35,6 +37,6 @@ export function FinalVideoBlock({ video, posterFallback }: { video: MediaRef; po
         onLoadedMetadata={refreshScrollTrigger}
         className="w-full h-auto max-h-[75vh] mx-auto block rounded-sm bg-bg-soft"
       />
-    </Reveal>
+    </div>
   );
 }

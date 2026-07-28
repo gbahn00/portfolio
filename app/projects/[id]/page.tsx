@@ -3,7 +3,6 @@ import { getContent } from "@/lib/data/repo";
 import { Container } from "@/components/ui/Container";
 import { MediaFrame } from "@/components/ui/MediaFrame";
 import { GalleryGrid } from "@/components/ui/GalleryGrid";
-import { Reveal } from "@/components/motion/Reveal";
 import { ProjectCover } from "@/components/sections/ProjectCover";
 import { ProjectNav } from "@/components/sections/ProjectNav";
 import { BeforeAfterSlider } from "@/components/sections/BeforeAfterSlider";
@@ -110,10 +109,12 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
   // 있었는데, 보정 전/후가 있는 프로젝트는 그 블록을 통째로 위로 옮겨서
   // 오른쪽 칸에 채운다(중복 노출 방지 — 아래쪽엔 더 이상 렌더링하지 않는다).
   // 보정 전/후가 없는 프로젝트는 예전과 같은 세로 1단 구조를 그대로 쓴다.
+  // §109 — 상세 페이지 대표 화면(ProjectCover)을 제외한 나머지 구간은
+  // 스크롤에 따라 나타났다 사라지는 모션(Reveal)을 전부 뺐다.
   const sectionsAndTools = (
     <div className="space-y-16">
       {sections.map((s) => (
-        <Reveal key={s.key}>
+        <div key={s.key}>
           <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-korean">{s.title}</h2>
           <p className="text-ink-muted leading-relaxed whitespace-pre-line text-korean mb-6">{s.body}</p>
           {s.images.length > 0 && (
@@ -123,11 +124,11 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
               ))}
             </div>
           )}
-        </Reveal>
+        </div>
       ))}
 
       {toolsList.length > 0 && (
-        <Reveal>
+        <div>
           <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-korean">Tools</h2>
           <div className="flex flex-wrap gap-2">
             {toolsList.map((t, i) => (
@@ -146,7 +147,7 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
               ))}
             </div>
           )}
-        </Reveal>
+        </div>
       )}
     </div>
   );
@@ -172,9 +173,7 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
           {/* §104 — 제목을 flex 바깥(위)에 둬서, 아래 왼쪽(사진)과
               오른쪽(프로젝트 개요 등) 칸이 같은 지점(사진 윗변)에서
               나란히 시작하도록 했다. */}
-          <Reveal>
-            <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-korean">보정 전·후</h2>
-          </Reveal>
+          <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-korean">보정 전·후</h2>
           {/* §106 — grid 2단(50/50)으로 나누면 사진이 max-w-md로 줄어든
               뒤에도 칸 자체는 50% 폭을 그대로 차지해, 사진 오른쪽과 텍스트
               칸 사이에 큰 빈 공간이 남았다. flex로 바꿔 사진은 실제
@@ -202,10 +201,8 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
       )}
       {hasGallery && (
         <Container className={mediaTopPad("gallery")}>
-          <Reveal>
-            <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-korean">상세 이미지</h2>
-            <GalleryGrid items={project.gallery} />
-          </Reveal>
+          <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-korean">상세 이미지</h2>
+          <GalleryGrid items={project.gallery} />
         </Container>
       )}
 

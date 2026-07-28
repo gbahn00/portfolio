@@ -1,9 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BeforeAfterPair } from "@/lib/types";
 import { optimizedImageSrc } from "@/lib/utils";
-import { Reveal } from "@/components/motion/Reveal";
 import { refreshScrollTrigger } from "@/lib/gsap";
 
 // ============================================================================
@@ -35,10 +34,24 @@ import { refreshScrollTrigger } from "@/lib/gsap";
 // 옮겼다. 버튼을 CompareView보다 DOM상 뒤(형제 요소)에 둬서, 같은
 // 스태킹 컨텍스트 안에서 항상 위에 그려지도록 했다 — 그래야 사진 전체를
 // 덮는 투명 드래그용 range input보다 버튼 클릭이 우선 인식된다.
+//
+// §108 — 이전/다음을 누르면 "화면이 새로고침되는 느낌"이 든다는 피드백.
+// 원인은 CompareView에 key={pair.id}를 줘서 사진을 넘길 때마다 이
+// 컴포넌트 전체(사진 두 장, 경계선, BEFORE/AFTER 라벨, 드래그용 input)를
+// 통째로 지웠다가 새로 그렸기 때문이다 — DOM이 통째로 사라졌다 다시
+// 생기니 그 사이 배경색만 잠깐 보이며 "페이지가 갱신되는" 것처럼
+// 느껴진다. key를 없애 같은 DOM을 그대로 유지하고 <img>의 src만
+// 바꾸도록 했다 — 그러면 사진만 자연스럽게 바뀐다. 대신 좌우 비교
+// 슬라이더 위치(pos)는 사진이 바뀔 때마다 가운데(50)로 리셋해야 하므로
+// pair.id가 바뀔 때 별도 effect로 초기화한다.
 // ============================================================================
 
 function CompareView({ pair }: { pair: BeforeAfterPair }) {
   const [pos, setPos] = useState(50);
+
+  useEffect(() => {
+    setPos(50);
+  }, [pair.id]);
 
   return (
     <div className="relative w-full overflow-hidden rounded-sm select-none bg-bg-soft">
@@ -106,18 +119,18 @@ export function BeforeAfterSlider({ pairs }: { pairs: BeforeAfterPair[] }) {
   }
 
   return (
-    <Reveal>
+    <>
       {/* §104 — 칸 폭을 그대로 채우면 너무 커 보여서 max-w로 한 단계
-          줄였다. */}
+          줄였다. §109 — 상세 페이지 대표 화면을 제외한 나머지는 등장/퇴장
+          모션을 빼기로 해서 <Reveal> 대신 그냥 렌더링한다. */}
       <div className="max-w-md">
         {/* §107 — 이전/다음 버튼을 사진 좌우 중앙에 겹쳐 그리기 위한
             래퍼. CompareView 뒤(형제)에 버튼을 둬서 항상 사진 위에
             그려지도록 한다. */}
         <div className="relative">
-          {/* key로 pair.id를 줘서 사진이 바뀔 때마다 요소를 새로 그린다 —
-              이전 사진이 화면에 남아있다가 다음 사진으로 바뀌는
-              문제(§101)와 같은 이유. */}
-          <CompareView key={current.id} pair={current} />
+          {/* §108 — key를 주지 않아 같은 DOM을 유지한 채 사진(src)만
+              바뀐다("화면이 새로고침되는 느낌" 방지). */}
+          <CompareView pair={current} />
 
           {sorted.length > 1 && (
             <>
@@ -155,6 +168,6 @@ export function BeforeAfterSlider({ pairs }: { pairs: BeforeAfterPair[] }) {
           </div>
         )}
       </div>
-    </Reveal>
+    </>
   );
 }
