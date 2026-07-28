@@ -16,7 +16,9 @@ export function PrintControls() {
         </Link>
         <span className="text-neutral-500">
           아래 버튼을 누르면 인쇄 대화상자가 열립니다. 대상(프린터)을{" "}
-          <strong className="text-neutral-200">PDF로 저장</strong>으로 선택하면 PDF 파일로 저장됩니다.
+          <strong className="text-neutral-200">PDF로 저장</strong>으로 선택하면 PDF 파일로 저장됩니다. 방향은{" "}
+          <strong className="text-neutral-200">가로(Landscape)</strong>로 자동 지정되어 있습니다 — 혹시 세로로
+          바뀌어 있다면 인쇄 설정의 "방향"을 가로로 바꿔주세요.
         </span>
       </div>
       <button

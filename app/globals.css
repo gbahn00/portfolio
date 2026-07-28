@@ -454,11 +454,20 @@ video {
   margin-top: 2px;
 }
 
+/* §158 — "인쇄 미리보기에서 세로(Portrait)로 뜨거나 방향을 못 바꾼다"는
+   문제. @page를 @media print 안에 중첩해두면 브라우저에 따라(특히 일부
+   Chrome 버전) 인쇄 미리보기가 이 규칙을 무시하고 브라우저 자체 기본값
+   (Portrait)을 그대로 쓰는 경우가 있다. @page는 항상 최상위(top-level)에
+   둬야 인쇄 미리보기가 열리는 즉시 방향을 A4 Landscape로 미리 선택해
+   보여준다 — @media print 안에 있을 때보다 브라우저 호환성이 훨씬 높다.
+   의사 클래스 없이 선언했으므로 표지부터 마지막 페이지까지 모든 페이지에
+   동일하게 적용된다("첫 페이지만 가로, 다음 페이지부터 세로" 현상 방지). */
+@page {
+  size: A4 landscape;
+  margin: 0;
+}
+
 @media print {
-  @page {
-    size: A4 landscape;
-    margin: 0;
-  }
   html,
   body {
     background: var(--color-bg-primary) !important;

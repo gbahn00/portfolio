@@ -17,7 +17,13 @@ function NeighborCard({ project, direction }: { project: Project; direction: "pr
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-bg/85 via-bg/20 to-transparent" />
       </div>
-      <div className="absolute inset-x-0 bottom-0 p-5 md:p-6">
+      {/* §159 — "다음(Next) 카드는 우측 정렬로, 이전(Previous)과 대칭을
+          이루도록" 요청. 카드 자체 위치(좌/우)는 그대로 두고 텍스트
+          정렬만 direction에 따라 좌/우로 바꾼다 — 카드 폭 전체에 동일한
+          좌우 여백(p-5/md:p-6)을 유지한 채 text-align만 바뀌므로, Next
+          카드는 "카드 우측 가장자리 기준"으로 정렬된다(텍스트 시작점
+          기준이 아님). */}
+      <div className={`absolute inset-x-0 bottom-0 p-5 md:p-6 ${direction === "next" ? "text-right" : "text-left"}`}>
         <p className="font-en text-xs text-ink-secondary tracking-wide mb-1">
           {direction === "prev" ? "← PREVIOUS" : "NEXT →"}
         </p>

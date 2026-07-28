@@ -370,7 +370,7 @@
       "year": "2024~2025",
       "field": "의류",
       "purpose": "제품의 색감과 디테일을 정확하게 전달하고, 구매 결정에 도움이 되는 이미지 제작",
-      "role": "촬영과 보정 기준을 일관되게 적용해 상품의 완성도와 표현 품질을 높였습니다.",
+      "role": "촬영 및 보정",
       "tools": [
         "dfdfdfdfdfdf",
         "Photoshop"
@@ -615,21 +615,22 @@
       "status": "draft",
       "order": 0,
       "createdAt": "2024-08-01T00:00:00.000Z",
-      "updatedAt": "2026-07-28T13:35:11.361Z",
+      "updatedAt": "2026-07-28T14:26:57.582Z",
       "contents": [],
       "beforeAfterFallbackMedia": [],
-      "retouchMarkers": []
+      "retouchMarkers": [],
+      "contributionPercentage": 100
     },
     {
       "id": "proj-cafe",
       "number": "02",
       "title": "카페 및 음식 브랜드 촬영 · 보정",
       "brand": "갈바트 카페, 교타쿠",
-      "brandHidden": false,
-      "year": "2024",
+      "brandHidden": true,
+      "year": "상시 업무",
       "field": "카페 및 음식",
       "purpose": "브랜드의 아이덴티티와 음식의 매력을 동시에 전달하여 온라인에서도 브랜드 경험이 이어질 수 있는 콘텐츠 제작",
-      "role": "촬영 · 색보정 · 리터칭 · 메뉴 콘텐츠 제작",
+      "role": "촬영 및 보정",
       "tools": [
         "ㅁㅇㄴㄹㅁㅇㄴㄹ",
         "Photoshop"
@@ -762,10 +763,11 @@
       "status": "draft",
       "order": 1,
       "createdAt": "2024-09-01T00:00:00.000Z",
-      "updatedAt": "2026-07-28T13:39:51.206Z",
+      "updatedAt": "2026-07-28T14:28:41.189Z",
       "contents": [],
       "beforeAfterFallbackMedia": [],
-      "retouchMarkers": []
+      "retouchMarkers": [],
+      "contributionPercentage": 80
     },
     {
       "id": "proj-interior",
@@ -773,7 +775,7 @@
       "title": "인테리어  촬영 · 보정",
       "brand": "[자료 필요 - 브랜드명]",
       "brandHidden": true,
-      "year": "2024",
+      "year": "상시 업무",
       "field": "인테리어",
       "purpose": "공간의 구조와 분위기를 전달하는 인테리어 사진 제작",
       "role": "촬영 보조 및 보정",
@@ -863,7 +865,7 @@
       "status": "draft",
       "order": 2,
       "createdAt": "2024-09-15T00:00:00.000Z",
-      "updatedAt": "2026-07-28T14:13:35.486Z",
+      "updatedAt": "2026-07-28T14:29:10.125Z",
       "retouchHighlights": [
         {
           "id": "025c91c5-cd78-49eb-bfbd-d77e7051b1ad",
@@ -907,7 +909,7 @@
         }
       ],
       "retouchMarkers": [],
-      "contributionPercentage": 100
+      "contributionPercentage": 50
     },
     {
       "id": "proj-portrait",
@@ -1019,7 +1021,7 @@
       "status": "draft",
       "order": 3,
       "createdAt": "2024-10-01T00:00:00.000Z",
-      "updatedAt": "2026-07-28T14:14:19.121Z",
+      "updatedAt": "2026-07-28T14:30:34.322Z",
       "contents": [],
       "beforeAfterFallbackMedia": [
         {
@@ -1028,7 +1030,7 @@
           "alt": ""
         },
         {
-          "url": "/uploads/6d71af95-a686-4635-8550-32db514e0fef.jpg",
+          "url": "/uploads/51b0ef95-357b-400b-963e-8b0e08dbfa29.jpg",
           "kind": "image",
           "alt": ""
         }
@@ -1083,23 +1085,26 @@
           "order": 5
         }
       ],
-      "beforeAfterFallbackLayout": "half"
+      "beforeAfterFallbackLayout": "half",
+      "contributionPercentage": 50
     },
     {
       "id": "proj-dental",
       "number": "05",
-      "title": "치과 및 임플란트 광고 영상 제작",
+      "title": "치과 및 임플란트, 병원 광고 영상 제작",
       "brand": "[자료 필요 - 병원명, 공개 가능 여부 확인 필요]",
       "brandHidden": true,
-      "year": "2025",
+      "year": "상시 업무",
       "field": "치과 및 병원 광고",
       "purpose": "임플란트 및 치과 시술을 알리는 Meta 광고 영상과 병원 사회관계망서비스 정보형 영상 제작",
-      "role": "기획 및 제작 [자료 필요 - 세부 역할 구분]",
+      "role": "기획 및 제작",
       "tools": [
         "ㅁㅇㄹㄴㅁㅇㄹ",
         "Premiere Pro",
         "Photoshop",
-        "Illustrator"
+        "Illustrator",
+        "After Effects",
+        "생성형 AI"
       ],
       "description": "의료 광고 특성상 과장된 표현을 피하고 시술 정보를 정확히 전달하는 데 집중했으며, 광고 채널의 노출 방식에 맞춰 영상 길이와 자막 구성을 조정했다.",
       "gallery": [],
@@ -1163,7 +1168,7 @@
       "status": "draft",
       "order": 4,
       "createdAt": "2025-03-01T00:00:00.000Z",
-      "updatedAt": "2026-07-28T13:05:02.282Z",
+      "updatedAt": "2026-07-28T14:41:38.472Z",
       "retouchHighlights": [],
       "contents": [
         {
@@ -1204,7 +1209,13 @@
           "alt": ""
         }
       ],
-      "retouchMarkers": []
+      "retouchMarkers": [],
+      "contributionPercentage": 100,
+      "heroImage": {
+        "url": "/uploads/8cfffb12-076b-479a-8f53-1daf58478bb6.jpg",
+        "kind": "image",
+        "alt": ""
+      }
     },
     {
       "id": "proj-lawyer-youtube",
@@ -1212,7 +1223,7 @@
       "title": "변호사 유튜브 채널 콘텐츠 \n기획 및 제작",
       "brand": "[자료 필요 - 채널명, 공개 가능 여부 확인 필요]",
       "brandHidden": true,
-      "year": "2025",
+      "year": "2026",
       "field": "유튜브",
       "purpose": "법률 정보를 대중이 이해하기 쉬운 형태로 전달하는 유튜브 채널 콘텐츠 제작",
       "role": "기획 및 제작",
@@ -1221,15 +1232,32 @@
         "After Effects",
         "Illustrator",
         "Premiere Pro",
-        "Photoshop"
+        "Photoshop",
+        "생성형 AI"
       ],
       "description": "법률 콘텐츠는 정보의 정확성과 전문성을 유지해야 하지만, 전문 용어와 긴 설명이 많아 일반 시청자가 어렵게 느낄 수 있어 시청자가 실제로 궁금해하는 내용을 중심으로 정보를 다시 구성했습니다.",
       "heroImage": {
-        "url": "/placeholders/youtube.svg",
+        "url": "/uploads/7a669805-ce0f-46e1-8408-6afa30d0497a.png",
         "kind": "image",
         "alt": "변호사 유튜브 대표 이미지 [자료 필요]"
       },
-      "gallery": [],
+      "gallery": [
+        {
+          "url": "/uploads/458d5971-5413-4266-8020-1965a9f01815.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/f719eb6a-d3ff-4b33-b6cf-ecc50933d8a9.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/63c74783-265d-4029-9228-da44fd623a91.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
       "beforeAfter": [],
       "metrics": [
         {
@@ -1290,10 +1318,17 @@
       "status": "draft",
       "order": 5,
       "createdAt": "2025-05-01T00:00:00.000Z",
-      "updatedAt": "2026-07-28T13:10:50.546Z",
+      "updatedAt": "2026-07-28T15:15:19.200Z",
       "contents": [],
-      "beforeAfterFallbackMedia": [],
-      "retouchMarkers": []
+      "beforeAfterFallbackMedia": [
+        {
+          "url": "/uploads/e575e34b-4f38-47f6-9166-8b2b8f62c8e3.mp4",
+          "kind": "video-file",
+          "alt": ""
+        }
+      ],
+      "retouchMarkers": [],
+      "contributionPercentage": 100
     },
     {
       "id": "proj-ai-brand-video",
@@ -1304,7 +1339,7 @@
       "year": "2026",
       "field": "생성형 인공지능 콘텐츠",
       "purpose": "촬영이 어렵거나 시간이 제한된 장면을 생성형 인공지능으로 보완해 브랜드 홍보 영상 완성",
-      "role": "기획, 생성형 인공지능 결과물 생성 및 비교, 편집",
+      "role": "기획 및 제작",
       "tools": [
         "Flow AI",
         "Higgsfield AI",
@@ -1313,11 +1348,12 @@
         "Kling AI",
         "Photoshop",
         "생성형 AI",
-        "After Effects"
+        "After Effects",
+        "Premiere Pro"
       ],
       "description": "실제 촬영이 어려운 장면을 생성형 인공지능으로 대체하되, 브랜드 톤과 어긋나지 않도록 여러 도구의 결과물을 비교하고 재생성하는 과정을 거쳤다.",
       "heroImage": {
-        "url": "/placeholders/ai-content.svg",
+        "url": "/uploads/2468157b-ba1e-403f-999b-7112043a61e0.jpg",
         "kind": "image",
         "alt": "생성형 인공지능 브랜드 영상 대표 이미지 [자료 필요]"
       },
@@ -1335,7 +1371,7 @@
           "id": "b1",
           "key": "overview",
           "title": "프로젝트 개요",
-          "body": "브랜드 홍보 영상 제작 과정에서 생성형 AI 도구를 활용해 필요한 장면을 구현하고, \n결과물을 비교·선별한 뒤 편집해 최종 영상으로 완성했습니다.",
+          "body": "브랜드 홍보 및 광고 영상 제작 과정에서 생성형 AI 도구를 활용해 필요한 장면을 구현하고, \n결과물을 비교·선별한 뒤 편집해 최종 영상으로 완성했습니다.",
           "order": 0,
           "visible": true,
           "images": [],
@@ -1377,7 +1413,7 @@
       "status": "draft",
       "order": 6,
       "createdAt": "2026-02-01T00:00:00.000Z",
-      "updatedAt": "2026-07-28T13:19:06.362Z",
+      "updatedAt": "2026-07-28T14:43:25.229Z",
       "contents": [
         {
           "url": "/uploads/bf280e9d-8a37-48c4-8dbb-294ad6bff719.mp4",
@@ -1417,14 +1453,15 @@
           "alt": ""
         }
       ],
-      "retouchMarkers": []
+      "retouchMarkers": [],
+      "contributionPercentage": 100
     },
     {
       "id": "proj-notion-credit",
       "number": "08",
       "title": "Notion 기반 Higgsfield AI 크레딧 관리체계 구축",
       "brand": "미디어팀 내부 운영체계",
-      "brandHidden": false,
+      "brandHidden": true,
       "year": "2026",
       "field": "생성형 인공지능 콘텐츠",
       "purpose": "공용 인공지능 계정의 크레딧 사용 현황을 팀이 함께 확인할 수 있는 관리 데이터베이스 구축",
@@ -1511,7 +1548,7 @@
       "status": "draft",
       "order": 7,
       "createdAt": "2026-03-01T00:00:00.000Z",
-      "updatedAt": "2026-07-28T14:11:55.989Z",
+      "updatedAt": "2026-07-28T14:43:53.985Z",
       "contents": [],
       "beforeAfterFallbackMedia": [],
       "retouchMarkers": []
@@ -2093,7 +2130,7 @@
     "department": "미디어팀",
     "badge": "2026년 특별진급 포트폴리오",
     "backgroundImage": {
-      "url": "/placeholders/closing-bg.svg",
+      "url": "/uploads/ed1525bf-01e8-492f-94c5-8c27305e7adf.jpg",
       "kind": "image",
       "alt": "마무리 화면 배경 [자료 필요]"
     },
