@@ -93,6 +93,23 @@ export function Timeline({ entries, title }: { entries: TimelineEntry[]; title?:
     activeRef.current = active;
   }, [active]);
 
+  // §101 — "연도 탭을 넘기면 이전 연도 사진이 잠깐 보였다가 다음 연도
+  // 사진으로 바뀐다"는 신고. 실제로는 버퍼링이 아니라, 탭을 눌렀을 때
+  // 그제서야 새 사진을 요청하기 시작해서 다운로드되는 짧은 시간 동안
+  // 이전 사진이 화면에 남아 있던 것이었다. 섹션이 마운트되는 시점에
+  // 모든 연도의 대표 이미지(영상은 포스터 프레임)를 미리 백그라운드로
+  // 내려받아 브라우저 캐시에 데워둔다 — 탭을 누를 때는 이미 캐시에
+  // 있으므로 새로 받아올 필요가 없어 바로 바뀐다.
+  useLayoutEffect(() => {
+    sorted.forEach((entry) => {
+      const url = entry.heroVideo?.poster || entry.heroImage?.url;
+      if (!url || url.endsWith(".svg")) return;
+      const img = new window.Image();
+      img.src = mediaSrc(url);
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sorted.length]);
+
   useLayoutEffect(() => {
     const count = sorted.length;
     if (count === 0) return;
@@ -141,7 +158,12 @@ export function Timeline({ entries, title }: { entries: TimelineEntry[]; title?:
                 </button>
               ))}
             </div>
-            {current && <YearContent entry={current} />}
+            {/* §101 — key를 연도별 entry.id에 연결해, 탭을 넘길 때마다
+                이 패널(텍스트 + 이미지/영상)을 완전히 새로 마운트한다.
+                key가 없으면 이전 연도의 이미지 DOM을 그대로 재사용해서
+                src만 바뀌는데, 이 경우 새 이미지가 로드되는 짧은 시간
+                동안 이전 이미지가 화면에 남아있는 채로 보일 수 있다. */}
+            {current && <YearContent key={current.id} entry={current} />}
           </>
         )}
 
