@@ -409,7 +409,8 @@
             "alt": ""
           },
           "caption": "",
-          "order": 0
+          "order": 0,
+          "category": "detail"
         },
         {
           "id": "de27a56e-87b1-452f-ad26-880a38647ae8",
@@ -424,7 +425,8 @@
             "alt": ""
           },
           "caption": "",
-          "order": 1
+          "order": 1,
+          "category": "detail"
         },
         {
           "id": "b46b8017-12c2-4b47-b445-13d833f3f5b5",
@@ -439,7 +441,8 @@
             "alt": ""
           },
           "caption": "",
-          "order": 2
+          "order": 2,
+          "category": "detail"
         },
         {
           "id": "250320e4-c4dd-4049-83a8-59c7747671a2",
@@ -454,7 +457,8 @@
             "alt": ""
           },
           "caption": "",
-          "order": 3
+          "order": 3,
+          "category": "detail"
         }
       ],
       "metrics": [],
@@ -479,7 +483,7 @@
       "status": "draft",
       "order": 0,
       "createdAt": "2024-08-01T00:00:00.000Z",
-      "updatedAt": "2026-07-28T06:20:40.838Z",
+      "updatedAt": "2026-07-28T06:32:52.175Z",
       "contents": []
     },
     {

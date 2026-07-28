@@ -102,14 +102,14 @@ import { refreshScrollTrigger } from "@/lib/gsap";
 // ============================================================================
 
 const DEFAULT_HEIGHT = 480; // 텍스트 칸 높이를 아직 측정하기 전(최초 렌더) 기준값
-const MAX_W = 640; // 사진이 가로로 아주 넓을 때 옆 텍스트 칸을 침범하지 않도록 하는 안전 상한
+const MAX_W = 640; // 사진이 가로로 아주 넓을 때 옆 텍스트 칸을 침범하지 않도록 하는 안전 상한(단일 슬라이더 기본값)
 
-function computeBoxFromHeight(naturalWidth: number, naturalHeight: number, targetHeight: number) {
+function computeBoxFromHeight(naturalWidth: number, naturalHeight: number, targetHeight: number, maxWidth: number) {
   const ratio = naturalWidth / naturalHeight;
   let h = targetHeight;
   let w = h * ratio;
-  if (w > MAX_W) {
-    w = MAX_W;
+  if (w > maxWidth) {
+    w = maxWidth;
     h = w / ratio;
   }
   return { w: Math.round(w), h: Math.round(h) };
@@ -194,7 +194,19 @@ function CompareView({ pair, onNaturalSize }: { pair: BeforeAfterPair; onNatural
   );
 }
 
-export function BeforeAfterSlider({ pairs, targetHeightPx }: { pairs: BeforeAfterPair[]; targetHeightPx?: number }) {
+export function BeforeAfterSlider({
+  pairs,
+  targetHeightPx,
+  maxWidthPx,
+}: {
+  pairs: BeforeAfterPair[];
+  targetHeightPx?: number;
+  // §129 — "디테일컷 | 모델컷 | 텍스트" 3단 구조에서는 사진 칸이 두 개가
+  // 되므로, 단일 슬라이더 기본 상한(MAX_W=640)을 그대로 쓰면 두 칸 폭을
+  // 합친 게 텍스트 칸을 밀어낼 수 있다. 이럴 때 부모(BeforeAfterWithText)가
+  // 더 좁은 상한을 넘겨줄 수 있게 했다. 안 넘기면 기존 MAX_W를 그대로 쓴다.
+  maxWidthPx?: number;
+}) {
   const sorted = [...pairs].sort((a, b) => a.order - b.order);
   const [index, setIndex] = useState(0);
   // §127 — 사진의 실제 원본 가로세로 비율(로드되면 채워진다).
@@ -216,9 +228,10 @@ export function BeforeAfterSlider({ pairs, targetHeightPx }: { pairs: BeforeAfte
   // 아주 짧은 순간(최초 렌더)에는 DEFAULT_HEIGHT 기준의 임시 박스를 쓰다가,
   // 로드/캐시 확인이 끝나는 즉시 실제 비율로 갱신된다.
   const effectiveHeight = targetHeightPx ?? DEFAULT_HEIGHT;
+  const effectiveMaxW = maxWidthPx ?? MAX_W;
   const box = natural
-    ? computeBoxFromHeight(natural.w, natural.h, effectiveHeight)
-    : { w: Math.round(effectiveHeight * 0.75), h: Math.round(effectiveHeight) };
+    ? computeBoxFromHeight(natural.w, natural.h, effectiveHeight, effectiveMaxW)
+    : { w: Math.round(Math.min(effectiveHeight * 0.75, effectiveMaxW)), h: Math.round(effectiveHeight) };
 
   // §128 — 텍스트 높이(targetHeightPx)와 사진 원본 비율(natural)이 둘 다
   // 확정되기 전까지는 아직 "짐작 박스" 크기라는 뜻이므로, 이 순간에는

@@ -241,10 +241,22 @@ export function ProjectEditor({ initial }: { initial: Project }) {
         <span className="block text-sm font-medium text-neutral-300 mb-1.5">보정 전·후 비교 (선택)</span>
         <p className="text-xs text-neutral-500 mb-2">
           등록하면 상세 페이지 대표 화면 아래에 드래그로 비교하는 사진이 나타납니다(왼쪽 큰 칸). 여러 장 등록하면 "이전/다음" 버튼으로 한 장씩 넘겨볼 수 있습니다. 비워두면 해당 영역이 아예 보이지 않습니다.
+          {" "}
+          아래 "구분"에서 각 비교쌍을 디테일컷/모델컷으로 지정하면, 두 종류가 모두 하나 이상 있을 때 상세 페이지가 "디테일컷 | 모델컷 | 프로젝트 개요~Tools" 3단 구조로 바뀌고 두 그룹의 이전/다음 넘기기가 서로 독립적으로 동작합니다. 구분을 지정하지 않으면(기본값) 지금처럼 구분 없는 단일 슬라이더로 보입니다.
         </p>
         <div className="space-y-3 mb-2">
           {data.beforeAfter.map((pair) => (
             <div key={pair.id} className="rounded-md border border-neutral-800 p-3">
+              <SelectField
+                label="구분"
+                value={pair.category ?? ""}
+                onChange={(v) => updateBeforeAfter(pair.id, { category: (v || undefined) as BeforeAfterPair["category"] })}
+                options={[
+                  { value: "", label: "구분 없음" },
+                  { value: "detail", label: "디테일컷" },
+                  { value: "model", label: "모델컷" },
+                ]}
+              />
               <div className="grid grid-cols-2 gap-3 mb-2">
                 <MediaUpload label="보정 전" value={pair.before} onChange={(m) => m && updateBeforeAfter(pair.id, { before: m })} />
                 <MediaUpload label="보정 후" value={pair.after} onChange={(m) => m && updateBeforeAfter(pair.id, { after: m })} />
