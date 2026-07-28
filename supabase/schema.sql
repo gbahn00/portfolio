@@ -82,6 +82,13 @@ create table if not exists growth_section (
   status text not null default 'published'
 );
 
+-- §160 — "대표 프로젝트" 섹션 제목(growth_section과 동일한 싱글턴 패턴)
+create table if not exists projects_section (
+  id int primary key default 1 check (id = 1),
+  title text not null default '촬영부터 영상, 생성형 AI와 업무 체계까지.',
+  status text not null default 'published'
+);
+
 -- ----------------------------------------------------------------------------
 -- 5. 업무 확장 과정 (연도별)
 -- ----------------------------------------------------------------------------
@@ -510,6 +517,18 @@ create policy "public read published growth" on growth_section for select using 
 drop policy if exists "admin all growth" on growth_section;
 create policy "admin all growth" on growth_section for all using (auth.role() = 'authenticated');
 insert into growth_section (id) values (1) on conflict (id) do nothing;
+
+create table if not exists projects_section (
+  id int primary key default 1 check (id = 1),
+  title text not null default '촬영부터 영상, 생성형 AI와 업무 체계까지.',
+  status text not null default 'published'
+);
+alter table projects_section enable row level security;
+drop policy if exists "public read published projects_section" on projects_section;
+create policy "public read published projects_section" on projects_section for select using (status = 'published');
+drop policy if exists "admin all projects_section" on projects_section;
+create policy "admin all projects_section" on projects_section for all using (auth.role() = 'authenticated');
+insert into projects_section (id) values (1) on conflict (id) do nothing;
 
 -- ============================================================================
 -- 참고: 마이그레이션 스크립트를 SUPABASE_SERVICE_ROLE_KEY로 실행했는데도

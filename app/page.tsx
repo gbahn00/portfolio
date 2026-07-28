@@ -61,7 +61,7 @@ export default async function HomePage() {
           <Timeline entries={visibleSorted(content.timeline)} title={content.growth?.title} />
         </div>
         <div data-fp-section data-fp-id="projects">
-          <SelectedWork projects={publicProjects} />
+          <SelectedWork projects={publicProjects} title={content.projectsSection?.title} />
         </div>
         <div data-fp-section data-fp-id="future">
           <FuturePlans items={content.futurePlans} />

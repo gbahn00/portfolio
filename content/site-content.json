@@ -2168,5 +2168,9 @@
       "order": 3,
       "visible": true
     }
-  ]
+  ],
+  "projectsSection": {
+    "title": "촬영부터 영상, \n생성형 AI와 업무 체계까지.",
+    "status": "published"
+  }
 }

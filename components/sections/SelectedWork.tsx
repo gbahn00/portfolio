@@ -70,7 +70,13 @@ function PreviewMedia({ media }: { media?: MediaRef }) {
 // 칼럼에 배치한다. 번호(01~08)는 전체 순번을 그대로 이어서 매긴다.
 const COLUMN_SPLIT = 4;
 
-export function SelectedWork({ projects }: { projects: Project[] }) {
+// §160 — "대표 프로젝트" 제목을 admin에서 줄바꿈까지 수정할 수 있도록
+// growth(§82)와 동일한 패턴으로 바꿨다. title이 비어 있으면(아직 저장 전,
+// 또는 기존 site-content.json에 필드가 없는 경우) 기존 하드코딩 문구를
+// 그대로 기본값으로 쓴다.
+const DEFAULT_TITLE = "촬영부터 영상, 생성형 AI와 업무 체계까지.";
+
+export function SelectedWork({ projects, title }: { projects: Project[]; title?: string }) {
   const sorted = [...projects].sort((a, b) => a.order - b.order);
   // §48 — 예전에는 isFeatured로 표시할 4개만 골랐는데, 그러면 앞의 4개
   // (Design)가 전부 isFeatured=false라 목록에서 통째로 빠져 Design 칼럼이
@@ -111,8 +117,8 @@ export function SelectedWork({ projects }: { projects: Project[] }) {
             <p className="accent-text text-sm font-medium mb-3 tracking-wide">대표 프로젝트</p>
           </Reveal>
           <Reveal delay={0.05} strength="strong" holdAfterEnter>
-            <h2 className="section-title font-bold text-korean max-w-2xl">
-              촬영부터 영상, 생성형 AI와 업무 체계까지.
+            <h2 className="section-title font-bold text-korean max-w-2xl whitespace-pre-line">
+              {title?.trim() ? title : DEFAULT_TITLE}
             </h2>
           </Reveal>
         </div>

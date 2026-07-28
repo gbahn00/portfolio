@@ -105,6 +105,15 @@ export interface GrowthSection {
   status: PublishStatus;
 }
 
+// §160 — "대표 프로젝트" 섹션의 제목("촬영부터 영상, 생성형 AI와 업무
+// 체계까지.")도 growth와 똑같이 예전엔 컴포넌트에 하드코딩돼 있어 관리자
+// 화면에서 줄바꿈은커녕 글자 하나도 고칠 수 없었다. 동일한 싱글턴 패턴을
+// 그대로 옮겼다.
+export interface ProjectsSection {
+  title: string;
+  status: PublishStatus;
+}
+
 export interface TimelineEntry {
   id: string;
   year: string;
@@ -407,6 +416,7 @@ export interface SiteContent {
   hero: HeroSection;
   philosophy: PhilosophySection;
   growth: GrowthSection;
+  projectsSection: ProjectsSection;
   timeline: TimelineEntry[];
   projects: Project[];
   competencies: Competency[];

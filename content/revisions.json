@@ -1,5 +1,16 @@
 [
   {
+    "id": "43a6ff39-62f0-410e-b79c-1c4b2877b8b0",
+    "entity": "projectsSection",
+    "field": "전체",
+    "after": {
+      "title": "촬영부터 영상, \n생성형 AI와 업무 체계까지.",
+      "status": "published"
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-28T15:57:32.594Z"
+  },
+  {
     "id": "48edf4bd-271a-431d-8259-91775f60f22b",
     "entity": "projects:proj-notion-credit",
     "field": "수정",

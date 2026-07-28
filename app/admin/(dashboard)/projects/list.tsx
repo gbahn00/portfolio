@@ -3,8 +3,9 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Project } from "@/lib/types";
+import { Project, ProjectsSection } from "@/lib/types";
 import { ConfirmButton } from "@/components/admin/ConfirmButton";
+import { TextAreaField } from "@/components/admin/fields";
 
 async function api(path: string, options?: RequestInit) {
   const res = await fetch(path, { headers: { "Content-Type": "application/json" }, ...options });
@@ -15,7 +16,58 @@ async function api(path: string, options?: RequestInit) {
 
 const STATUS_LABEL: Record<string, string> = { draft: "작성 중", review: "검토 중", published: "공개", hidden: "비공개" };
 
-export function ProjectsList({ initial }: { initial: Project[] }) {
+// §160 — "대표 프로젝트" 섹션 제목 편집. timeline/editor.tsx의
+// GrowthTitleEditor와 동일한 패턴 — TextAreaField라 Enter로 줄바꿈을
+// 입력하면 공개 화면(SelectedWork)에도 whitespace-pre-line으로 그대로
+// 반영된다.
+function ProjectsSectionTitleEditor({ initial }: { initial: ProjectsSection }) {
+  const [title, setTitle] = useState(initial.title);
+  const [saving, setSaving] = useState(false);
+  const [savedAt, setSavedAt] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
+
+  async function save() {
+    setSaving(true);
+    setError(null);
+    try {
+      await api("/api/admin/section/projectsSection", {
+        method: "PATCH",
+        body: JSON.stringify({ ...initial, title }),
+      });
+      setSavedAt(new Date().toLocaleTimeString("ko-KR"));
+    } catch (e: any) {
+      setError(e.message || "저장에 실패했습니다.");
+    } finally {
+      setSaving(false);
+    }
+  }
+
+  return (
+    <div className="rounded-md border border-neutral-800 p-4 mb-8">
+      <p className="text-sm font-medium mb-3">섹션 대표 제목</p>
+      <TextAreaField
+        label="제목"
+        value={title}
+        onChange={setTitle}
+        rows={2}
+        hint="Enter로 줄바꿈을 입력하면 공개 화면에도 그대로 반영됩니다."
+      />
+      <div className="flex items-center gap-3">
+        <button
+          onClick={save}
+          disabled={saving}
+          className="rounded-md bg-orange-500 px-4 py-2 text-sm font-medium text-white hover:bg-orange-400 disabled:opacity-50"
+        >
+          {saving ? "저장 중..." : "저장"}
+        </button>
+        {error && <span className="text-xs text-red-400">{error}</span>}
+        {!error && savedAt && <span className="text-xs text-neutral-500">마지막 저장: {savedAt}</span>}
+      </div>
+    </div>
+  );
+}
+
+export function ProjectsList({ initial, initialProjectsSection }: { initial: Project[]; initialProjectsSection: ProjectsSection }) {
   const [items, setItems] = useState(initial);
   const router = useRouter();
   const sorted = [...items].sort((a, b) => a.order - b.order);
@@ -64,6 +116,8 @@ export function ProjectsList({ initial }: { initial: Project[] }) {
           + 새 프로젝트
         </button>
       </div>
+
+      <ProjectsSectionTitleEditor initial={initialProjectsSection} />
 
       <div className="space-y-2">
         {sorted.map((p, idx) => (
