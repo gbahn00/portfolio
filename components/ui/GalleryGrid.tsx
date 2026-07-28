@@ -62,7 +62,7 @@ export function GalleryGrid({ items, className }: { items: MediaRef[]; className
         ) : (
           // eslint-disable-next-line @next/next/no-img-element
           <img
-            src={optimizedImageSrc(m.url, 960)}
+            src={optimizedImageSrc(m.url, 1200)}
             alt={m.alt || ""}
             onLoad={refreshScrollTrigger}
             onContextMenu={(e) => e.preventDefault()}

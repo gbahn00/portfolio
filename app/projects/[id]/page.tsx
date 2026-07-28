@@ -160,7 +160,7 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
           {s.images.length > 0 && (
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
               {s.images.map((img, i) => (
-                <MediaFrame key={i} media={img} className="aspect-[4/3] rounded-sm" />
+                <MediaFrame key={i} media={img} className="aspect-[4/3] rounded-sm" fit="contain" />
               ))}
             </div>
           )}
@@ -197,7 +197,7 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
           {toolsBlock?.images && toolsBlock.images.length > 0 && (
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
               {toolsBlock.images.map((img, i) => (
-                <MediaFrame key={i} media={img} className="aspect-[4/3] rounded-sm" />
+                <MediaFrame key={i} media={img} className="aspect-[4/3] rounded-sm" fit="contain" />
               ))}
             </div>
           )}

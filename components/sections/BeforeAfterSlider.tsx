@@ -157,7 +157,7 @@ function CompareView({ pair, onNaturalSize }: { pair: BeforeAfterPair; onNatural
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         ref={afterImgRef}
-        src={optimizedImageSrc(pair.after.url, 1080)}
+        src={optimizedImageSrc(pair.after.url, 1920)}
         alt={pair.after.alt || "보정 후"}
         onLoad={handleAfterLoad}
         className="absolute inset-0 h-full w-full object-cover pointer-events-none"
@@ -166,7 +166,7 @@ function CompareView({ pair, onNaturalSize }: { pair: BeforeAfterPair; onNatural
       />
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src={optimizedImageSrc(pair.before.url, 1080)}
+        src={optimizedImageSrc(pair.before.url, 1920)}
         alt={pair.before.alt || "보정 전"}
         className="absolute inset-0 h-full w-full object-cover pointer-events-none"
         style={{ objectPosition, clipPath: `inset(0 ${100 - pos}% 0 0)` }}

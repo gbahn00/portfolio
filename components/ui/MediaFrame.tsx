@@ -8,11 +8,19 @@ export function MediaFrame({
   className,
   sizes = "100vw",
   priority = false,
+  fit = "cover",
 }: {
   media?: MediaRef;
   className?: string;
   sizes?: string;
   priority?: boolean;
+  // §142 — "상세페이지 본문 이미지(프로젝트 개요·제작 의도·기여도·Tools에
+  // 곁들이는 사진)의 중요한 영역이 잘리지 않도록 해달라"는 요청. 이
+  // 컴포넌트는 히어로/카드/썸네일 등 사이트 전반에서 두루 쓰여서
+  // object-cover(고정 비율 박스를 꽉 채우며 필요하면 자르는 방식)가
+  // 대부분 맞는 기본값이지만(예: 대표 커버, 목록 카드), 본문에 곁들이는
+  // 사진은 잘리면 안 되므로 그 호출부만 fit="contain"으로 넘겨쓴다.
+  fit?: "cover" | "contain";
 }) {
   if (!media) return null;
   const isSvg = media.url.endsWith(".svg");
@@ -33,7 +41,7 @@ export function MediaFrame({
         unoptimized={isSvg}
         sizes={sizes}
         priority={priority}
-        className="object-cover"
+        className={fit === "contain" ? "object-contain" : "object-cover"}
         style={{ filter: "brightness(0.9) contrast(1.05)" }}
       />
     </div>

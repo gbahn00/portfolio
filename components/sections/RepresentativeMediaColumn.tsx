@@ -101,9 +101,12 @@ function MediaView({
     />
   ) : (
     // eslint-disable-next-line @next/next/no-img-element
+    // §142 — "원본 해상도를 최대한 유지, 흐릿하게 보이지 않도록"라는
+    // 요청으로 최적화 요청 폭을 1080 → 1920으로 올렸다(레티나 화면에서도
+    // 이 박스가 가질 수 있는 최대 CSS 폭 대비 넉넉한 여유를 둔다).
     <img
       ref={imgRef}
-      src={optimizedImageSrc(item.url, 1080)}
+      src={optimizedImageSrc(item.url, 1920)}
       alt={item.alt || ""}
       onLoad={handleImgLoad}
       className="absolute inset-0 h-full w-full object-cover pointer-events-none"
