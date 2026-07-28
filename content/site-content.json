@@ -394,7 +394,78 @@
         "kind": "image",
         "alt": "의류 촬영 대표 이미지 [자료 필요]"
       },
-      "gallery": [],
+      "gallery": [
+        {
+          "url": "/uploads/7400789d-72f2-4d98-a80a-2e1d738447b7.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/bb5dbc9f-4dca-4e55-8f6d-86bddfd5fd6a.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/0789c1e8-3e75-458e-a6b5-cda9bf3442bd.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/56073b72-251e-4f40-9eb7-09bde6858c36.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/109382a4-8d2b-4e92-93bf-5ab2ea1f56b2.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/e1272cf7-c419-48bd-9297-f6a075f03e22.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/0febb2a7-1054-4f1d-8c36-d149c5085916.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/9158154c-aa82-4d8b-860b-e87a26d92cf0.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/1bf39d9b-8705-425f-a7fe-f90284726611.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/8827737d-4682-4d85-a5f7-a16ef2407435.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/9652459f-73b4-4f8e-bab0-84416567ddfb.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/3b047aee-38cf-4e3b-b941-5098bb64b4df.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/e1bf25f1-18e3-4cd9-93f2-95ca73f803e8.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/62a48662-6c1d-4c7f-8271-f239b705e8e2.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
       "beforeAfter": [
         {
           "id": "75331a83-1d99-4958-9620-389756ec918d",
@@ -531,7 +602,7 @@
       "status": "draft",
       "order": 0,
       "createdAt": "2024-08-01T00:00:00.000Z",
-      "updatedAt": "2026-07-28T06:56:35.578Z",
+      "updatedAt": "2026-07-28T07:18:58.887Z",
       "contents": []
     },
     {
@@ -599,14 +670,55 @@
         }
       ],
       "metrics": [],
-      "detailBlocks": [],
+      "detailBlocks": [
+        {
+          "id": "facc2350-d18e-44b2-8d0b-8bf477ea0b64",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "갈바트 카페와 교타쿠 브랜드의 메뉴 촬영·보정 프로젝트로, 음식의 색감과 질감, 브랜드 분위기를 자연스럽게 담는 데 집중했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "75af1c57-711c-43f1-8e6c-65c9abc69ade",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "메뉴의 특징과 먹음직스러운 이미지를 효과적으로 표현하고, 브랜드의 분위기까지 함께 전달할 수 있는 사진 제작",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "9b9e2471-a66b-47f2-bce3-ebc6d6d37db5",
+          "key": "role",
+          "title": "기여도",
+          "body": "음식·음료 촬영 · 색보정 · 리터칭",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
       "isFeatured": false,
       "isDetailFeatured": false,
       "publicOk": true,
       "status": "draft",
       "order": 1,
       "createdAt": "2024-09-01T00:00:00.000Z",
-      "updatedAt": "2026-07-28T05:14:09.721Z"
+      "updatedAt": "2026-07-28T07:16:07.655Z",
+      "contents": []
     },
     {
       "id": "proj-interior",
@@ -646,14 +758,54 @@
       ],
       "beforeAfter": [],
       "metrics": [],
-      "detailBlocks": [],
+      "detailBlocks": [
+        {
+          "id": "a85507b7-2deb-4df7-af42-b844fa9c7975",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "카페, 병원, 사무공간 등 다양한 공간의 인테리어 촬영을 지원하며,\n공간이 가진 분위기와 구조를 자연스럽게 전달하는 이미지 제작에 참여했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "4365da25-2b88-4cc3-b3c3-8704bc690096",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "공간의 특징과 브랜드의 분위기를 시각적으로 전달할 수 있는 인테리어 이미지 제작",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "d9a628d3-f4d9-4885-abd3-3d222fc30724",
+          "key": "role",
+          "title": "기여도",
+          "body": "촬영 보조 · 색보정 · 리터칭",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
       "isFeatured": false,
       "isDetailFeatured": false,
       "publicOk": true,
       "status": "draft",
       "order": 2,
       "createdAt": "2024-09-15T00:00:00.000Z",
-      "updatedAt": "2026-07-26T12:31:04.604Z",
+      "updatedAt": "2026-07-28T07:18:57.168Z",
       "retouchHighlights": [
         {
           "id": "025c91c5-cd78-49eb-bfbd-d77e7051b1ad",
@@ -687,7 +839,8 @@
           ],
           "order": 0
         }
-      ]
+      ],
+      "contents": []
     },
     {
       "id": "proj-portrait",
@@ -711,14 +864,61 @@
       "gallery": [],
       "beforeAfter": [],
       "metrics": [],
-      "detailBlocks": [],
+      "detailBlocks": [
+        {
+          "id": "48432402-4ee5-4355-b2ab-55135bf57158",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "회사 직원과 의료진, 트레이너의 프로필 촬영을 지원하며,\n대상의 이미지와 직업적 신뢰감을 자연스럽게 전달하는 사진 제작에 참여했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "3041fb27-fc5f-4eb4-aed8-d6b38cd8a51f",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "인물의 자연스러운 표정과 분위기를 담아내고,\n직업적 이미지를 효과적으로 전달하는 프로필 사진 제작",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "21e21939-38e9-4e2d-aead-a0cceae42b7d",
+          "key": "role",
+          "title": "기여도",
+          "body": "촬영 보조 · 색보정 · 리터칭",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": [
+            {
+              "id": "b8f79759-c897-4a0f-baad-469a7bc093cc",
+              "label": "촬영 보조",
+              "value": "90"
+            }
+          ]
+        }
+      ],
       "isFeatured": false,
       "isDetailFeatured": false,
       "publicOk": true,
       "status": "draft",
       "order": 3,
       "createdAt": "2024-10-01T00:00:00.000Z",
-      "updatedAt": "2026-07-27T02:08:54.006Z"
+      "updatedAt": "2026-07-28T07:20:42.833Z",
+      "contents": []
     },
     {
       "id": "proj-dental",

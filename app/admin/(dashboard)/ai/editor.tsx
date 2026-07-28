@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { v4 as uuid } from "uuid";
 import { AiSection, AiTool } from "@/lib/types";
-import { TextField, TextAreaField, SelectField, ToggleField } from "@/components/admin/fields";
+import { TextField, TextAreaField, SelectField, ToggleField, FieldGroup } from "@/components/admin/fields";
 import { SaveBar } from "@/components/admin/SaveBar";
 import { ConfirmButton } from "@/components/admin/ConfirmButton";
 
@@ -77,18 +77,12 @@ export function AiEditor({ initial }: { initial: AiSection }) {
   return (
     <div>
       <h1 className="text-2xl font-bold mb-1">생성형 인공지능 활용 관리</h1>
-      <p className="text-sm text-neutral-500 mb-8">제작 흐름 단계와 사용 도구를 관리합니다.</p>
+      <p className="text-sm text-neutral-500 mb-2">제작 흐름 단계와 사용 도구를 관리합니다.</p>
+      <p className="text-xs text-amber-500 mb-8">⚠️ 이 메뉴의 내용은 현재 공개 화면 어디에도 표시되지 않습니다.</p>
 
-      <SelectField
-        label="공개 상태"
-        value={data.status}
-        onChange={(v) => set("status", v as AiSection["status"])}
-        options={[
-          { value: "draft", label: "작성 중" }, { value: "review", label: "검토 중" },
-          { value: "published", label: "공개" }, { value: "hidden", label: "비공개" },
-        ]}
-      />
-      <TextField label="제목" value={data.title} onChange={(v) => set("title", v)} />
+      <FieldGroup title="텍스트">
+        <TextField label="제목" value={data.title} onChange={(v) => set("title", v)} />
+      </FieldGroup>
 
       <div className="mb-6">
         <span className="block text-sm font-medium text-neutral-300 mb-1.5">제작 흐름 단계</span>
@@ -151,6 +145,18 @@ export function AiEditor({ initial }: { initial: AiSection }) {
           + 도구 추가
         </button>
       </div>
+
+      <FieldGroup title="노출 설정">
+        <SelectField
+          label="공개 상태"
+          value={data.status}
+          onChange={(v) => set("status", v as AiSection["status"])}
+          options={[
+            { value: "draft", label: "작성 중" }, { value: "review", label: "검토 중" },
+            { value: "published", label: "공개" }, { value: "hidden", label: "비공개" },
+          ]}
+        />
+      </FieldGroup>
 
       <SaveBar onSave={handleSave} saving={saving} savedAt={savedAt} error={error} />
     </div>

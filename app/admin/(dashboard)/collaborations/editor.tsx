@@ -92,7 +92,8 @@ export function CollaborationsManager({ initial, projects }: { initial: Collabor
   return (
     <div>
       <h1 className="text-2xl font-bold mb-1">협업 평가 관리</h1>
-      <p className="text-sm text-neutral-500 mb-8">협업 대상, 협업 과정과 평가/후기를 관리합니다.</p>
+      <p className="text-sm text-neutral-500 mb-2">협업 대상, 협업 과정과 평가/후기를 관리합니다.</p>
+      <p className="text-xs text-amber-500 mb-8">⚠️ 이 메뉴의 내용은 현재 공개 화면 어디에도 표시되지 않습니다.</p>
 
       {sorted.map((item, idx) => (
         <div key={item.id} className="flex items-start gap-2">

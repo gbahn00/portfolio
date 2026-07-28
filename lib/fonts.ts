@@ -47,9 +47,26 @@ export const ACTIVE_BODY_FONT: FontKey = "pretendard";
 /** 숫자·강조 문구(CountUp, accent-text 등)에 쓸 포인트 폰트. */
 export const ACTIVE_POINT_FONT: FontKey = "pretendard";
 
-export function getActiveFontConfig() {
-  const title = FONTS[ACTIVE_TITLE_FONT];
-  const body = FONTS[ACTIVE_BODY_FONT];
+/** 관리자 화면 "사이트 설정 > 타이포그래피"에서 고를 수 있는 목록에 쓰는
+ *  한글 라벨. FONTS의 키와 1:1로 맞춰둔다. */
+export const FONT_LABELS: Record<FontKey, string> = {
+  pretendard: "Pretendard",
+  suit: "SUIT",
+  wantedSans: "Wanted Sans",
+  paperlogy: "Paperlogy",
+};
+
+// §133 — "폰트를 관리자 화면에서 고를 수 있게 해달라"는 요청으로, 코드에
+// 고정된 ACTIVE_TITLE_FONT/ACTIVE_BODY_FONT 대신 사이트 설정(content.
+// settings.typography)에서 넘어온 값을 우선 쓰도록 바꿨다. 설정값이
+// 없거나 목록에 없는 값이면 기존 ACTIVE_* 상수로 안전하게 되돌아간다 —
+// 그래서 관리자가 아직 아무것도 고르지 않은 프로젝트(기존 데이터)는
+// 예전과 똑같이 동작한다.
+export function getActiveFontConfig(titleKey?: string, bodyKey?: string) {
+  const resolvedTitleKey = titleKey && titleKey in FONTS ? (titleKey as FontKey) : ACTIVE_TITLE_FONT;
+  const resolvedBodyKey = bodyKey && bodyKey in FONTS ? (bodyKey as FontKey) : ACTIVE_BODY_FONT;
+  const title = FONTS[resolvedTitleKey];
+  const body = FONTS[resolvedBodyKey];
   const point = FONTS[ACTIVE_POINT_FONT];
   // 서로 다른 CDN 링크만 중복 없이 모아서 <head>에 넣는다.
   const cssUrls = Array.from(new Set([title.cssUrl, body.cssUrl, point.cssUrl]));

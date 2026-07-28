@@ -56,7 +56,8 @@ export function ContributionsEditor({ initial }: { initial: ContributionSection 
   return (
     <div>
       <h1 className="text-2xl font-bold mb-1">조직 기여 관리</h1>
-      <p className="text-sm text-neutral-500 mb-8">팀/조직 기여 사례를 추가·수정·삭제합니다.</p>
+      <p className="text-sm text-neutral-500 mb-2">팀/조직 기여 사례를 추가·수정·삭제합니다.</p>
+      <p className="text-xs text-amber-500 mb-8">⚠️ 이 메뉴의 내용은 현재 공개 화면 어디에도 표시되지 않습니다.</p>
 
       <SelectField
         label="공개 상태"

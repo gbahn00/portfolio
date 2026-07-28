@@ -4,8 +4,8 @@ import { useRef, useState } from "react";
 import { MediaRef } from "@/lib/types";
 
 export function MediaUpload({
-  label, value, onChange, accept = "image/*",
-}: { label: string; value?: MediaRef; onChange: (m: MediaRef | undefined) => void; accept?: string }) {
+  label, value, onChange, accept = "image/*", hint,
+}: { label: string; value?: MediaRef; onChange: (m: MediaRef | undefined) => void; accept?: string; hint?: string }) {
   const inputRef = useRef<HTMLInputElement>(null);
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -56,6 +56,7 @@ export function MediaUpload({
   return (
     <div className="mb-5">
       <span className="block text-sm font-medium text-neutral-300 mb-1.5">{label}</span>
+      {hint && <p className="text-xs text-neutral-500 mb-1.5">{hint}</p>}
       <div className="flex items-start gap-3">
         <div className="h-24 w-32 shrink-0 overflow-hidden rounded-md bg-neutral-800 border border-neutral-700 flex items-center justify-center">
           {value?.url ? (

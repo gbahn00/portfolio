@@ -2,6 +2,21 @@
 
 import { ReactNode } from "react";
 
+// §133 — "글자 수정, 사진·영상 첨부하는 부분들이 너무 많아서 헷갈린다"는
+// 피드백. 필드 개수를 줄이는 대신(기능은 그대로 유지해야 하므로), 각
+// 편집 화면 안의 필드들을 "텍스트" / "사진·영상" / "노출 설정" 같은
+// 명확한 소제목 상자로 묶어서 한눈에 "지금 내가 뭘 고치고 있는지" 알 수
+// 있게 했다. 모든 admin editor.tsx 페이지에서 공통으로 쓴다.
+export function FieldGroup({ title, hint, children }: { title: string; hint?: string; children: ReactNode }) {
+  return (
+    <div className="mb-6 rounded-md border border-neutral-800 p-4">
+      <span className="block text-xs font-semibold uppercase tracking-wide text-neutral-500 mb-1">{title}</span>
+      {hint && <p className="text-xs text-neutral-500 mb-3">{hint}</p>}
+      <div className={hint ? "" : "mt-3"}>{children}</div>
+    </div>
+  );
+}
+
 export function FieldWrap({ label, hint, children }: { label: string; hint?: string; children: ReactNode }) {
   return (
     <label className="block mb-5">

@@ -1,5 +1,4796 @@
 [
   {
+    "id": "48482297-46e1-4848-b63b-b9b85a8f3e30",
+    "entity": "projects:proj-portrait",
+    "field": "수정",
+    "before": {
+      "id": "proj-portrait",
+      "number": "04",
+      "title": "인물 프로필 촬영 보조",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "인물 프로필",
+      "purpose": "직원, 의료진과 트레이너의 프로필 사진 제작",
+      "role": "촬영 보조 및 보정",
+      "tools": [
+        "[자료 필요] 사용 장비 및 보정 프로그램 목록"
+      ],
+      "description": "회사 직원, 병원 의사, 헬스장 트레이너의 프로필과 단체사진을 촬영 보조하고 보정했습니다.\n과도한 보정보다 대상자의 자연스러움과 직업적 신뢰감을 유지하는 데 집중했습니다.",
+      "heroImage": {
+        "url": "/placeholders/portrait.svg",
+        "kind": "image",
+        "alt": "인물 프로필 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [],
+      "beforeAfter": [],
+      "metrics": [],
+      "detailBlocks": [],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 3,
+      "createdAt": "2024-10-01T00:00:00.000Z",
+      "updatedAt": "2026-07-27T02:08:54.006Z"
+    },
+    "after": {
+      "id": "proj-portrait",
+      "number": "04",
+      "title": "인물 프로필 촬영 보조",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "인물 프로필",
+      "purpose": "직원, 의료진과 트레이너의 프로필 사진 제작",
+      "role": "촬영 보조 및 보정",
+      "tools": [
+        "[자료 필요] 사용 장비 및 보정 프로그램 목록"
+      ],
+      "description": "회사 직원, 병원 의사, 헬스장 트레이너의 프로필과 단체사진을 촬영 보조하고 보정했습니다.\n과도한 보정보다 대상자의 자연스러움과 직업적 신뢰감을 유지하는 데 집중했습니다.",
+      "heroImage": {
+        "url": "/placeholders/portrait.svg",
+        "kind": "image",
+        "alt": "인물 프로필 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [],
+      "beforeAfter": [],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "48432402-4ee5-4355-b2ab-55135bf57158",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "회사 직원과 의료진, 트레이너의 프로필 촬영을 지원하며,\n대상의 이미지와 직업적 신뢰감을 자연스럽게 전달하는 사진 제작에 참여했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "3041fb27-fc5f-4eb4-aed8-d6b38cd8a51f",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "인물의 자연스러운 표정과 분위기를 담아내고,\n직업적 이미지를 효과적으로 전달하는 프로필 사진 제작",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "21e21939-38e9-4e2d-aead-a0cceae42b7d",
+          "key": "role",
+          "title": "기여도",
+          "body": "촬영 보조 · 색보정 · 리터칭",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": [
+            {
+              "id": "b8f79759-c897-4a0f-baad-469a7bc093cc",
+              "label": "촬영 보조",
+              "value": "90"
+            }
+          ]
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 3,
+      "createdAt": "2024-10-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T07:20:42.833Z",
+      "contents": []
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-28T07:20:42.862Z"
+  },
+  {
+    "id": "0d21cf62-5456-4e07-82fc-4b4a4e0dd0ca",
+    "entity": "projects:proj-interior",
+    "field": "수정",
+    "before": {
+      "id": "proj-interior",
+      "number": "03",
+      "title": "인테리어 촬영 보조",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "인테리어",
+      "purpose": "공간의 구조와 분위기를 전달하는 인테리어 사진 제작",
+      "role": "촬영 보조 및 보정",
+      "tools": [
+        "[자료 필요] 사용 장비 및 보정 프로그램 목록"
+      ],
+      "description": "카페 및 음식 브랜드, 병원, 회사 인테리어 촬영을 보조하고, 공간의 구조와 밝기, 전체 분위기가 왜곡되지 않도록 보정했습니다.",
+      "heroImage": {
+        "url": "/placeholders/interior.svg",
+        "kind": "image",
+        "alt": "인테리어 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [
+        {
+          "url": "/uploads/6c373a2e-0a89-4602-a858-6911219e0cf0.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/c633d4da-8af6-4367-b431-f2eb79d86563.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/3752823f-2812-4027-813a-7e033c0159c3.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "beforeAfter": [],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "a85507b7-2deb-4df7-af42-b844fa9c7975",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "카페, 병원, 사무공간 등 다양한 공간의 인테리어 촬영을 지원하며,\n공간이 가진 분위기와 구조를 자연스럽게 전달하는 이미지 제작에 참여했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "4365da25-2b88-4cc3-b3c3-8704bc690096",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "공간의 특징과 브랜드의 분위기를 시각적으로 전달할 수 있는 인테리어 이미지 제작",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "d9a628d3-f4d9-4885-abd3-3d222fc30724",
+          "key": "role",
+          "title": "기여도",
+          "body": "촬영 보조 · 색보정 · 리터칭",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 2,
+      "createdAt": "2024-09-15T00:00:00.000Z",
+      "updatedAt": "2026-07-28T07:18:50.618Z",
+      "retouchHighlights": [
+        {
+          "id": "025c91c5-cd78-49eb-bfbd-d77e7051b1ad",
+          "image": {
+            "url": "/uploads/f6894d13-77dc-4d45-a54e-37487d2e41cb.png",
+            "kind": "image",
+            "alt": ""
+          },
+          "points": [
+            {
+              "id": "da547502-258c-4a6f-bc4d-2ac60b2b56fe",
+              "x": 45,
+              "y": 52,
+              "label": "sadfsadfsadf",
+              "order": 0
+            },
+            {
+              "id": "a4b17453-2f9f-423e-aab2-ada49e5e309a",
+              "x": 70.8,
+              "y": 70.5,
+              "label": "asdfadsfasdf",
+              "order": 1
+            },
+            {
+              "id": "6493c856-e977-4a03-934f-e9cd06ed3402",
+              "x": 19.2,
+              "y": 81.4,
+              "label": "asdfasdfasdfs",
+              "order": 2
+            }
+          ],
+          "order": 0
+        }
+      ],
+      "contents": []
+    },
+    "after": {
+      "id": "proj-interior",
+      "number": "03",
+      "title": "인테리어 촬영 보조",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "인테리어",
+      "purpose": "공간의 구조와 분위기를 전달하는 인테리어 사진 제작",
+      "role": "촬영 보조 및 보정",
+      "tools": [
+        "[자료 필요] 사용 장비 및 보정 프로그램 목록"
+      ],
+      "description": "카페 및 음식 브랜드, 병원, 회사 인테리어 촬영을 보조하고, 공간의 구조와 밝기, 전체 분위기가 왜곡되지 않도록 보정했습니다.",
+      "heroImage": {
+        "url": "/placeholders/interior.svg",
+        "kind": "image",
+        "alt": "인테리어 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [
+        {
+          "url": "/uploads/6c373a2e-0a89-4602-a858-6911219e0cf0.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/c633d4da-8af6-4367-b431-f2eb79d86563.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/3752823f-2812-4027-813a-7e033c0159c3.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "beforeAfter": [],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "a85507b7-2deb-4df7-af42-b844fa9c7975",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "카페, 병원, 사무공간 등 다양한 공간의 인테리어 촬영을 지원하며,\n공간이 가진 분위기와 구조를 자연스럽게 전달하는 이미지 제작에 참여했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "4365da25-2b88-4cc3-b3c3-8704bc690096",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "공간의 특징과 브랜드의 분위기를 시각적으로 전달할 수 있는 인테리어 이미지 제작",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "d9a628d3-f4d9-4885-abd3-3d222fc30724",
+          "key": "role",
+          "title": "기여도",
+          "body": "촬영 보조 · 색보정 · 리터칭",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 2,
+      "createdAt": "2024-09-15T00:00:00.000Z",
+      "updatedAt": "2026-07-28T07:18:57.168Z",
+      "retouchHighlights": [
+        {
+          "id": "025c91c5-cd78-49eb-bfbd-d77e7051b1ad",
+          "image": {
+            "url": "/uploads/f6894d13-77dc-4d45-a54e-37487d2e41cb.png",
+            "kind": "image",
+            "alt": ""
+          },
+          "points": [
+            {
+              "id": "da547502-258c-4a6f-bc4d-2ac60b2b56fe",
+              "x": 45,
+              "y": 52,
+              "label": "sadfsadfsadf",
+              "order": 0
+            },
+            {
+              "id": "a4b17453-2f9f-423e-aab2-ada49e5e309a",
+              "x": 70.8,
+              "y": 70.5,
+              "label": "asdfadsfasdf",
+              "order": 1
+            },
+            {
+              "id": "6493c856-e977-4a03-934f-e9cd06ed3402",
+              "x": 19.2,
+              "y": 81.4,
+              "label": "asdfasdfasdfs",
+              "order": 2
+            }
+          ],
+          "order": 0
+        }
+      ],
+      "contents": []
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-28T07:18:57.189Z"
+  },
+  {
+    "id": "5959d819-030d-4e10-ba64-94417e2daf6d",
+    "entity": "projects:proj-interior",
+    "field": "수정",
+    "before": {
+      "id": "proj-interior",
+      "number": "03",
+      "title": "인테리어 촬영 보조",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "인테리어",
+      "purpose": "공간의 구조와 분위기를 전달하는 인테리어 사진 제작",
+      "role": "촬영 보조 및 보정",
+      "tools": [
+        "[자료 필요] 사용 장비 및 보정 프로그램 목록"
+      ],
+      "description": "카페 및 음식 브랜드, 병원, 회사 인테리어 촬영을 보조하고, 공간의 구조와 밝기, 전체 분위기가 왜곡되지 않도록 보정했습니다.",
+      "heroImage": {
+        "url": "/placeholders/interior.svg",
+        "kind": "image",
+        "alt": "인테리어 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [
+        {
+          "url": "/uploads/6c373a2e-0a89-4602-a858-6911219e0cf0.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/c633d4da-8af6-4367-b431-f2eb79d86563.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/3752823f-2812-4027-813a-7e033c0159c3.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "beforeAfter": [],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "a85507b7-2deb-4df7-af42-b844fa9c7975",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "카페, 병원, 사무공간 등 다양한 공간의 인테리어 촬영을 지원하며,\n공간이 가진 분위기와 구조를 자연스럽게 전달하는 이미지 제작에 참여했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "4365da25-2b88-4cc3-b3c3-8704bc690096",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "공간의 구조와 분위기를 실제와 가깝게 전달하고,\n브랜드가 전달하고자 하는 공간의 이미지를 효과적으로 표현하는 사진 제작",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "d9a628d3-f4d9-4885-abd3-3d222fc30724",
+          "key": "role",
+          "title": "기여도",
+          "body": "촬영 보조 · 색보정 · 리터칭",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 2,
+      "createdAt": "2024-09-15T00:00:00.000Z",
+      "updatedAt": "2026-07-28T07:18:35.469Z",
+      "retouchHighlights": [
+        {
+          "id": "025c91c5-cd78-49eb-bfbd-d77e7051b1ad",
+          "image": {
+            "url": "/uploads/f6894d13-77dc-4d45-a54e-37487d2e41cb.png",
+            "kind": "image",
+            "alt": ""
+          },
+          "points": [
+            {
+              "id": "da547502-258c-4a6f-bc4d-2ac60b2b56fe",
+              "x": 45,
+              "y": 52,
+              "label": "sadfsadfsadf",
+              "order": 0
+            },
+            {
+              "id": "a4b17453-2f9f-423e-aab2-ada49e5e309a",
+              "x": 70.8,
+              "y": 70.5,
+              "label": "asdfadsfasdf",
+              "order": 1
+            },
+            {
+              "id": "6493c856-e977-4a03-934f-e9cd06ed3402",
+              "x": 19.2,
+              "y": 81.4,
+              "label": "asdfasdfasdfs",
+              "order": 2
+            }
+          ],
+          "order": 0
+        }
+      ],
+      "contents": []
+    },
+    "after": {
+      "id": "proj-interior",
+      "number": "03",
+      "title": "인테리어 촬영 보조",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "인테리어",
+      "purpose": "공간의 구조와 분위기를 전달하는 인테리어 사진 제작",
+      "role": "촬영 보조 및 보정",
+      "tools": [
+        "[자료 필요] 사용 장비 및 보정 프로그램 목록"
+      ],
+      "description": "카페 및 음식 브랜드, 병원, 회사 인테리어 촬영을 보조하고, 공간의 구조와 밝기, 전체 분위기가 왜곡되지 않도록 보정했습니다.",
+      "heroImage": {
+        "url": "/placeholders/interior.svg",
+        "kind": "image",
+        "alt": "인테리어 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [
+        {
+          "url": "/uploads/6c373a2e-0a89-4602-a858-6911219e0cf0.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/c633d4da-8af6-4367-b431-f2eb79d86563.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/3752823f-2812-4027-813a-7e033c0159c3.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "beforeAfter": [],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "a85507b7-2deb-4df7-af42-b844fa9c7975",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "카페, 병원, 사무공간 등 다양한 공간의 인테리어 촬영을 지원하며,\n공간이 가진 분위기와 구조를 자연스럽게 전달하는 이미지 제작에 참여했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "4365da25-2b88-4cc3-b3c3-8704bc690096",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "공간의 특징과 브랜드의 분위기를 시각적으로 전달할 수 있는 인테리어 이미지 제작",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "d9a628d3-f4d9-4885-abd3-3d222fc30724",
+          "key": "role",
+          "title": "기여도",
+          "body": "촬영 보조 · 색보정 · 리터칭",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 2,
+      "createdAt": "2024-09-15T00:00:00.000Z",
+      "updatedAt": "2026-07-28T07:18:50.618Z",
+      "retouchHighlights": [
+        {
+          "id": "025c91c5-cd78-49eb-bfbd-d77e7051b1ad",
+          "image": {
+            "url": "/uploads/f6894d13-77dc-4d45-a54e-37487d2e41cb.png",
+            "kind": "image",
+            "alt": ""
+          },
+          "points": [
+            {
+              "id": "da547502-258c-4a6f-bc4d-2ac60b2b56fe",
+              "x": 45,
+              "y": 52,
+              "label": "sadfsadfsadf",
+              "order": 0
+            },
+            {
+              "id": "a4b17453-2f9f-423e-aab2-ada49e5e309a",
+              "x": 70.8,
+              "y": 70.5,
+              "label": "asdfadsfasdf",
+              "order": 1
+            },
+            {
+              "id": "6493c856-e977-4a03-934f-e9cd06ed3402",
+              "x": 19.2,
+              "y": 81.4,
+              "label": "asdfasdfasdfs",
+              "order": 2
+            }
+          ],
+          "order": 0
+        }
+      ],
+      "contents": []
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-28T07:18:50.638Z"
+  },
+  {
+    "id": "987602e4-c6b2-4514-af6d-f37875f4cbae",
+    "entity": "projects:proj-interior",
+    "field": "수정",
+    "before": {
+      "id": "proj-interior",
+      "number": "03",
+      "title": "인테리어 촬영 보조",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "인테리어",
+      "purpose": "공간의 구조와 분위기를 전달하는 인테리어 사진 제작",
+      "role": "촬영 보조 및 보정",
+      "tools": [
+        "[자료 필요] 사용 장비 및 보정 프로그램 목록"
+      ],
+      "description": "카페 및 음식 브랜드, 병원, 회사 인테리어 촬영을 보조하고, 공간의 구조와 밝기, 전체 분위기가 왜곡되지 않도록 보정했습니다.",
+      "heroImage": {
+        "url": "/placeholders/interior.svg",
+        "kind": "image",
+        "alt": "인테리어 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [
+        {
+          "url": "/uploads/6c373a2e-0a89-4602-a858-6911219e0cf0.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/c633d4da-8af6-4367-b431-f2eb79d86563.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/3752823f-2812-4027-813a-7e033c0159c3.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "beforeAfter": [],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "a85507b7-2deb-4df7-af42-b844fa9c7975",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "카페, 병원, 사무공간 등 다양한 공간의 인테리어 촬영을 보조하고,\n공간의 구조와 분위기가 자연스럽게 전달될 수 있도록 촬영과 보정을 지원했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "4365da25-2b88-4cc3-b3c3-8704bc690096",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "공간의 구조와 분위기를 실제와 가깝게 전달하고,\n브랜드가 전달하고자 하는 공간의 이미지를 효과적으로 표현하는 사진 제작",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "d9a628d3-f4d9-4885-abd3-3d222fc30724",
+          "key": "role",
+          "title": "기여도",
+          "body": "촬영 보조 · 색보정 · 리터칭",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 2,
+      "createdAt": "2024-09-15T00:00:00.000Z",
+      "updatedAt": "2026-07-28T07:17:15.004Z",
+      "retouchHighlights": [
+        {
+          "id": "025c91c5-cd78-49eb-bfbd-d77e7051b1ad",
+          "image": {
+            "url": "/uploads/f6894d13-77dc-4d45-a54e-37487d2e41cb.png",
+            "kind": "image",
+            "alt": ""
+          },
+          "points": [
+            {
+              "id": "da547502-258c-4a6f-bc4d-2ac60b2b56fe",
+              "x": 45,
+              "y": 52,
+              "label": "sadfsadfsadf",
+              "order": 0
+            },
+            {
+              "id": "a4b17453-2f9f-423e-aab2-ada49e5e309a",
+              "x": 70.8,
+              "y": 70.5,
+              "label": "asdfadsfasdf",
+              "order": 1
+            },
+            {
+              "id": "6493c856-e977-4a03-934f-e9cd06ed3402",
+              "x": 19.2,
+              "y": 81.4,
+              "label": "asdfasdfasdfs",
+              "order": 2
+            }
+          ],
+          "order": 0
+        }
+      ],
+      "contents": []
+    },
+    "after": {
+      "id": "proj-interior",
+      "number": "03",
+      "title": "인테리어 촬영 보조",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "인테리어",
+      "purpose": "공간의 구조와 분위기를 전달하는 인테리어 사진 제작",
+      "role": "촬영 보조 및 보정",
+      "tools": [
+        "[자료 필요] 사용 장비 및 보정 프로그램 목록"
+      ],
+      "description": "카페 및 음식 브랜드, 병원, 회사 인테리어 촬영을 보조하고, 공간의 구조와 밝기, 전체 분위기가 왜곡되지 않도록 보정했습니다.",
+      "heroImage": {
+        "url": "/placeholders/interior.svg",
+        "kind": "image",
+        "alt": "인테리어 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [
+        {
+          "url": "/uploads/6c373a2e-0a89-4602-a858-6911219e0cf0.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/c633d4da-8af6-4367-b431-f2eb79d86563.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/3752823f-2812-4027-813a-7e033c0159c3.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "beforeAfter": [],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "a85507b7-2deb-4df7-af42-b844fa9c7975",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "카페, 병원, 사무공간 등 다양한 공간의 인테리어 촬영을 지원하며,\n공간이 가진 분위기와 구조를 자연스럽게 전달하는 이미지 제작에 참여했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "4365da25-2b88-4cc3-b3c3-8704bc690096",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "공간의 구조와 분위기를 실제와 가깝게 전달하고,\n브랜드가 전달하고자 하는 공간의 이미지를 효과적으로 표현하는 사진 제작",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "d9a628d3-f4d9-4885-abd3-3d222fc30724",
+          "key": "role",
+          "title": "기여도",
+          "body": "촬영 보조 · 색보정 · 리터칭",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 2,
+      "createdAt": "2024-09-15T00:00:00.000Z",
+      "updatedAt": "2026-07-28T07:18:35.469Z",
+      "retouchHighlights": [
+        {
+          "id": "025c91c5-cd78-49eb-bfbd-d77e7051b1ad",
+          "image": {
+            "url": "/uploads/f6894d13-77dc-4d45-a54e-37487d2e41cb.png",
+            "kind": "image",
+            "alt": ""
+          },
+          "points": [
+            {
+              "id": "da547502-258c-4a6f-bc4d-2ac60b2b56fe",
+              "x": 45,
+              "y": 52,
+              "label": "sadfsadfsadf",
+              "order": 0
+            },
+            {
+              "id": "a4b17453-2f9f-423e-aab2-ada49e5e309a",
+              "x": 70.8,
+              "y": 70.5,
+              "label": "asdfadsfasdf",
+              "order": 1
+            },
+            {
+              "id": "6493c856-e977-4a03-934f-e9cd06ed3402",
+              "x": 19.2,
+              "y": 81.4,
+              "label": "asdfasdfasdfs",
+              "order": 2
+            }
+          ],
+          "order": 0
+        }
+      ],
+      "contents": []
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-28T07:18:35.480Z"
+  },
+  {
+    "id": "f8c2ca15-5c88-43fc-a094-36bfb4bfc258",
+    "entity": "projects:proj-clothing",
+    "field": "수정",
+    "before": {
+      "id": "proj-clothing",
+      "number": "01",
+      "title": "상세페이지 디테일컷 및 모델 촬영 · 보정",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "의류",
+      "purpose": "제품의 실제 색감과 디테일을 정확하게 표현하고, 모델 착용 이미지를 통해 온라인에서도 상품의 특징과 착용감을 직관적으로 전달할 수 있는 이미지 제작",
+      "role": "촬영 · 색보정 · 리터칭",
+      "tools": [
+        "dfdfdfdfdfdf"
+      ],
+      "description": "온라인 판매용 의류 상세페이지에 활용되는\n디테일컷과 모델 착용컷을 촬영·보정한 프로젝트입니다.\n\n제품의 실제 색감과 소재를 정확하게 표현하고,\n착용 이미지로 상품의 특징과 실루엣을 자연스럽게 전달하는 데 집중했습니다.",
+      "heroImage": {
+        "url": "/placeholders/clothing.svg",
+        "kind": "image",
+        "alt": "의류 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [
+        {
+          "url": "/uploads/7400789d-72f2-4d98-a80a-2e1d738447b7.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/bb5dbc9f-4dca-4e55-8f6d-86bddfd5fd6a.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/0789c1e8-3e75-458e-a6b5-cda9bf3442bd.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/56073b72-251e-4f40-9eb7-09bde6858c36.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/109382a4-8d2b-4e92-93bf-5ab2ea1f56b2.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/e1272cf7-c419-48bd-9297-f6a075f03e22.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/0febb2a7-1054-4f1d-8c36-d149c5085916.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "beforeAfter": [
+        {
+          "id": "75331a83-1d99-4958-9620-389756ec918d",
+          "before": {
+            "url": "/uploads/560e8d0a-80f2-4ca2-ae88-9d9696377c39.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/ad742acf-2f00-4d4f-b6f1-b3cea56793e5.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 0,
+          "category": "detail"
+        },
+        {
+          "id": "de27a56e-87b1-452f-ad26-880a38647ae8",
+          "before": {
+            "url": "/uploads/5ad2940b-8033-4784-bc39-8f35d29acb18.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/89a1375c-a17d-42b8-b0ad-f3fc4548de34.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 1,
+          "category": "detail"
+        },
+        {
+          "id": "b46b8017-12c2-4b47-b445-13d833f3f5b5",
+          "before": {
+            "url": "/uploads/6b582a79-a9b6-4a77-b0d2-ca10fbdaabc2.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/6c2bf48b-e0f9-4443-ab32-87ec2e7e6853.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 2,
+          "category": "detail"
+        },
+        {
+          "id": "250320e4-c4dd-4049-83a8-59c7747671a2",
+          "before": {
+            "url": "/uploads/6d650b1a-1c9b-437e-b9e1-2ef4243926e6.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/0d42364b-27a7-4d7b-8678-5c281c429f85.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 3,
+          "category": "detail"
+        },
+        {
+          "id": "04ae5c5e-7adf-4ab1-85fe-b1afd2a33cf5",
+          "before": {
+            "url": "/uploads/56627d69-7a60-4f4b-82e5-2bde2a13d94b.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/0d5f4c66-c160-45aa-ad21-e2a37660c352.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 4,
+          "category": "model"
+        },
+        {
+          "id": "54e5ebbd-3756-4b06-b3c5-3ca4a38a06a4",
+          "before": {
+            "url": "/uploads/c1f1f1a3-9fa1-4454-9719-41b5a93e01ce.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/b300509c-05ec-405b-af89-a37224abf550.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 5,
+          "category": "model"
+        },
+        {
+          "id": "fdf7a51b-9d26-4334-960a-e2c9789ec5f5",
+          "before": {
+            "url": "/uploads/e005cd49-7428-4101-8c79-2d6576d453b4.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/332ace65-e87a-405b-af62-13aad8cb0b36.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 6,
+          "category": "model"
+        }
+      ],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "f9f91455-299c-4dd8-9e67-848e40d2e662",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "온라인 판매용 의류 상세페이지에 활용되는 디테일컷과 모델 착용컷을 촬영·보정한 프로젝트입니다.\n\n제품의 실제 색감과 소재를 정확하게 표현하고, 착용 이미지로 상품의 특징과\n실루엣을 자연스럽게 전달하는 데 중점을 두었습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "1f586d16-9a25-499d-b003-d2da7b07277a",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "제품의 실제 색감과 디테일을 정확하게 표현하고, 모델 착용 이미지를 통해\n상품의 특징과 착용감을 효과적으로 전달하는 이미지 제작",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "f057372d-d096-4e74-bbcb-f178b898d59f",
+          "key": "role",
+          "title": "기여도",
+          "body": "촬영 · 색보정 · 리터칭",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 0,
+      "createdAt": "2024-08-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T07:14:31.408Z",
+      "contents": []
+    },
+    "after": {
+      "id": "proj-clothing",
+      "number": "01",
+      "title": "상세페이지 디테일컷 및 모델 촬영 · 보정",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "의류",
+      "purpose": "제품의 실제 색감과 디테일을 정확하게 표현하고, 모델 착용 이미지를 통해 온라인에서도 상품의 특징과 착용감을 직관적으로 전달할 수 있는 이미지 제작",
+      "role": "촬영 · 색보정 · 리터칭",
+      "tools": [
+        "dfdfdfdfdfdf"
+      ],
+      "description": "온라인 판매용 의류 상세페이지에 활용되는 디테일컷과 모델 착용컷을 촬영하고 보정한 프로젝트입니다. \n제품의 색감과 소재를 실제와 가깝게 표현하고, 모델 착용 이미지를 통해 상품의 실루엣과 착용감을 자연스럽게 전달하는 데 중점을 두었습니다.",
+      "heroImage": {
+        "url": "/placeholders/clothing.svg",
+        "kind": "image",
+        "alt": "의류 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [
+        {
+          "url": "/uploads/7400789d-72f2-4d98-a80a-2e1d738447b7.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/bb5dbc9f-4dca-4e55-8f6d-86bddfd5fd6a.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/0789c1e8-3e75-458e-a6b5-cda9bf3442bd.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/56073b72-251e-4f40-9eb7-09bde6858c36.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/109382a4-8d2b-4e92-93bf-5ab2ea1f56b2.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/e1272cf7-c419-48bd-9297-f6a075f03e22.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/0febb2a7-1054-4f1d-8c36-d149c5085916.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/9158154c-aa82-4d8b-860b-e87a26d92cf0.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/1bf39d9b-8705-425f-a7fe-f90284726611.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/8827737d-4682-4d85-a5f7-a16ef2407435.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/9652459f-73b4-4f8e-bab0-84416567ddfb.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/3b047aee-38cf-4e3b-b941-5098bb64b4df.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/e1bf25f1-18e3-4cd9-93f2-95ca73f803e8.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/62a48662-6c1d-4c7f-8271-f239b705e8e2.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "beforeAfter": [
+        {
+          "id": "75331a83-1d99-4958-9620-389756ec918d",
+          "before": {
+            "url": "/uploads/560e8d0a-80f2-4ca2-ae88-9d9696377c39.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/ad742acf-2f00-4d4f-b6f1-b3cea56793e5.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 0,
+          "category": "detail"
+        },
+        {
+          "id": "de27a56e-87b1-452f-ad26-880a38647ae8",
+          "before": {
+            "url": "/uploads/5ad2940b-8033-4784-bc39-8f35d29acb18.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/89a1375c-a17d-42b8-b0ad-f3fc4548de34.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 1,
+          "category": "detail"
+        },
+        {
+          "id": "b46b8017-12c2-4b47-b445-13d833f3f5b5",
+          "before": {
+            "url": "/uploads/6b582a79-a9b6-4a77-b0d2-ca10fbdaabc2.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/6c2bf48b-e0f9-4443-ab32-87ec2e7e6853.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 2,
+          "category": "detail"
+        },
+        {
+          "id": "250320e4-c4dd-4049-83a8-59c7747671a2",
+          "before": {
+            "url": "/uploads/6d650b1a-1c9b-437e-b9e1-2ef4243926e6.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/0d42364b-27a7-4d7b-8678-5c281c429f85.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 3,
+          "category": "detail"
+        },
+        {
+          "id": "04ae5c5e-7adf-4ab1-85fe-b1afd2a33cf5",
+          "before": {
+            "url": "/uploads/56627d69-7a60-4f4b-82e5-2bde2a13d94b.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/0d5f4c66-c160-45aa-ad21-e2a37660c352.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 4,
+          "category": "model"
+        },
+        {
+          "id": "54e5ebbd-3756-4b06-b3c5-3ca4a38a06a4",
+          "before": {
+            "url": "/uploads/c1f1f1a3-9fa1-4454-9719-41b5a93e01ce.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/b300509c-05ec-405b-af89-a37224abf550.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 5,
+          "category": "model"
+        },
+        {
+          "id": "fdf7a51b-9d26-4334-960a-e2c9789ec5f5",
+          "before": {
+            "url": "/uploads/e005cd49-7428-4101-8c79-2d6576d453b4.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/332ace65-e87a-405b-af62-13aad8cb0b36.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 6,
+          "category": "model"
+        }
+      ],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "f9f91455-299c-4dd8-9e67-848e40d2e662",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "온라인 판매용 의류 상세페이지에 활용되는 디테일컷과 모델 착용컷을 촬영하고 보정한 프로젝트입니다. \n제품의 색감과 소재를 실제와 가깝게 표현하고, 모델 착용 이미지를 통해 상품의 실루엣과 착용감을 자연스럽게 전달하는 데 중점을 두었습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 0,
+      "createdAt": "2024-08-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T07:18:58.887Z",
+      "contents": []
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-28T07:18:28.867Z"
+  },
+  {
+    "id": "0a0a5835-71c8-430e-b30d-9e6bf3095f32",
+    "entity": "projects:proj-interior",
+    "field": "수정",
+    "before": {
+      "id": "proj-interior",
+      "number": "03",
+      "title": "인테리어 촬영 보조",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "인테리어",
+      "purpose": "공간의 구조와 분위기를 전달하는 인테리어 사진 제작",
+      "role": "촬영 보조 및 보정",
+      "tools": [
+        "[자료 필요] 사용 장비 및 보정 프로그램 목록"
+      ],
+      "description": "카페 및 음식 브랜드, 병원, 회사 인테리어 촬영을 보조하고, 공간의 구조와 밝기, 전체 분위기가 왜곡되지 않도록 보정했습니다.",
+      "heroImage": {
+        "url": "/placeholders/interior.svg",
+        "kind": "image",
+        "alt": "인테리어 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [
+        {
+          "url": "/uploads/6c373a2e-0a89-4602-a858-6911219e0cf0.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/c633d4da-8af6-4367-b431-f2eb79d86563.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/3752823f-2812-4027-813a-7e033c0159c3.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "beforeAfter": [],
+      "metrics": [],
+      "detailBlocks": [],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 2,
+      "createdAt": "2024-09-15T00:00:00.000Z",
+      "updatedAt": "2026-07-26T12:31:04.604Z",
+      "retouchHighlights": [
+        {
+          "id": "025c91c5-cd78-49eb-bfbd-d77e7051b1ad",
+          "image": {
+            "url": "/uploads/f6894d13-77dc-4d45-a54e-37487d2e41cb.png",
+            "kind": "image",
+            "alt": ""
+          },
+          "points": [
+            {
+              "id": "da547502-258c-4a6f-bc4d-2ac60b2b56fe",
+              "x": 45,
+              "y": 52,
+              "label": "sadfsadfsadf",
+              "order": 0
+            },
+            {
+              "id": "a4b17453-2f9f-423e-aab2-ada49e5e309a",
+              "x": 70.8,
+              "y": 70.5,
+              "label": "asdfadsfasdf",
+              "order": 1
+            },
+            {
+              "id": "6493c856-e977-4a03-934f-e9cd06ed3402",
+              "x": 19.2,
+              "y": 81.4,
+              "label": "asdfasdfasdfs",
+              "order": 2
+            }
+          ],
+          "order": 0
+        }
+      ]
+    },
+    "after": {
+      "id": "proj-interior",
+      "number": "03",
+      "title": "인테리어 촬영 보조",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "인테리어",
+      "purpose": "공간의 구조와 분위기를 전달하는 인테리어 사진 제작",
+      "role": "촬영 보조 및 보정",
+      "tools": [
+        "[자료 필요] 사용 장비 및 보정 프로그램 목록"
+      ],
+      "description": "카페 및 음식 브랜드, 병원, 회사 인테리어 촬영을 보조하고, 공간의 구조와 밝기, 전체 분위기가 왜곡되지 않도록 보정했습니다.",
+      "heroImage": {
+        "url": "/placeholders/interior.svg",
+        "kind": "image",
+        "alt": "인테리어 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [
+        {
+          "url": "/uploads/6c373a2e-0a89-4602-a858-6911219e0cf0.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/c633d4da-8af6-4367-b431-f2eb79d86563.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/3752823f-2812-4027-813a-7e033c0159c3.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "beforeAfter": [],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "a85507b7-2deb-4df7-af42-b844fa9c7975",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "카페, 병원, 사무공간 등 다양한 공간의 인테리어 촬영을 보조하고,\n공간의 구조와 분위기가 자연스럽게 전달될 수 있도록 촬영과 보정을 지원했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "4365da25-2b88-4cc3-b3c3-8704bc690096",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "공간의 구조와 분위기를 실제와 가깝게 전달하고,\n브랜드가 전달하고자 하는 공간의 이미지를 효과적으로 표현하는 사진 제작",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "d9a628d3-f4d9-4885-abd3-3d222fc30724",
+          "key": "role",
+          "title": "기여도",
+          "body": "촬영 보조 · 색보정 · 리터칭",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 2,
+      "createdAt": "2024-09-15T00:00:00.000Z",
+      "updatedAt": "2026-07-28T07:17:15.004Z",
+      "retouchHighlights": [
+        {
+          "id": "025c91c5-cd78-49eb-bfbd-d77e7051b1ad",
+          "image": {
+            "url": "/uploads/f6894d13-77dc-4d45-a54e-37487d2e41cb.png",
+            "kind": "image",
+            "alt": ""
+          },
+          "points": [
+            {
+              "id": "da547502-258c-4a6f-bc4d-2ac60b2b56fe",
+              "x": 45,
+              "y": 52,
+              "label": "sadfsadfsadf",
+              "order": 0
+            },
+            {
+              "id": "a4b17453-2f9f-423e-aab2-ada49e5e309a",
+              "x": 70.8,
+              "y": 70.5,
+              "label": "asdfadsfasdf",
+              "order": 1
+            },
+            {
+              "id": "6493c856-e977-4a03-934f-e9cd06ed3402",
+              "x": 19.2,
+              "y": 81.4,
+              "label": "asdfasdfasdfs",
+              "order": 2
+            }
+          ],
+          "order": 0
+        }
+      ],
+      "contents": []
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-28T07:17:15.032Z"
+  },
+  {
+    "id": "2f43cd88-5e91-4009-b1b0-85ea8596c8f8",
+    "entity": "projects:proj-cafe",
+    "field": "수정",
+    "before": {
+      "id": "proj-cafe",
+      "number": "02",
+      "title": "카페 및 음식 브랜드 촬영",
+      "brand": "갈바트 카페, 교타쿠",
+      "brandHidden": false,
+      "year": "2024",
+      "field": "카페 및 음식",
+      "purpose": "브랜드의 아이덴티티와 음식의 매력을 동시에 전달하여 온라인에서도 브랜드 경험이 이어질 수 있는 콘텐츠 제작",
+      "role": "촬영 · 색보정 · 리터칭 · 메뉴 콘텐츠 제작",
+      "tools": [
+        "ㅁㅇㄴㄹㅁㅇㄴㄹ"
+      ],
+      "description": "음식의 맛을 시각적으로 전달하고, 브랜드가 가진 분위기와 감성을 함께 담아낼 수 있는 메뉴 콘텐츠를 제작했습니다.",
+      "heroImage": {
+        "url": "/placeholders/cafe.svg",
+        "kind": "image",
+        "alt": "카페 및 음식 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [
+        {
+          "url": "/uploads/f5d27a5c-5879-4b82-a6eb-62685a9558d8.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/c9fd9183-8467-411f-b5fe-bac98e5bacd7.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/ff575187-5032-4e2a-8545-faf7f18ccb47.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/0c065bf9-62b7-40cc-af80-33dc7e9739a2.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/829bde65-a07f-48cc-aeff-30094fdfc130.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "beforeAfter": [
+        {
+          "id": "e29d6bfd-435a-4de2-89f9-6c7cccc79f88",
+          "before": {
+            "url": "/uploads/fbd2f9d4-6605-4732-8c84-b28500b8f2a9.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/fb65fa8d-9c74-4d90-ba56-7a5e1235f05e.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 0,
+          "category": "detail"
+        }
+      ],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "facc2350-d18e-44b2-8d0b-8bf477ea0b64",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "갈바트 카페와 교타쿠 브랜드의 메뉴 촬영·보정 프로젝트로,\n음식의 색감과 질감, 브랜드 분위기를 자연스럽게 담는 데 집중했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "75af1c57-711c-43f1-8e6c-65c9abc69ade",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "메뉴의 특징과 먹음직스러운 이미지를 효과적으로 표현하고,\n브랜드의 분위기까지 함께 전달할 수 있는 사진 제작",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "9b9e2471-a66b-47f2-bce3-ebc6d6d37db5",
+          "key": "role",
+          "title": "기여도",
+          "body": "음식·음료 촬영 · 색보정 · 리터칭",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 1,
+      "createdAt": "2024-09-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T07:15:54.489Z",
+      "contents": []
+    },
+    "after": {
+      "id": "proj-cafe",
+      "number": "02",
+      "title": "카페 및 음식 브랜드 촬영",
+      "brand": "갈바트 카페, 교타쿠",
+      "brandHidden": false,
+      "year": "2024",
+      "field": "카페 및 음식",
+      "purpose": "브랜드의 아이덴티티와 음식의 매력을 동시에 전달하여 온라인에서도 브랜드 경험이 이어질 수 있는 콘텐츠 제작",
+      "role": "촬영 · 색보정 · 리터칭 · 메뉴 콘텐츠 제작",
+      "tools": [
+        "ㅁㅇㄴㄹㅁㅇㄴㄹ"
+      ],
+      "description": "음식의 맛을 시각적으로 전달하고, 브랜드가 가진 분위기와 감성을 함께 담아낼 수 있는 메뉴 콘텐츠를 제작했습니다.",
+      "heroImage": {
+        "url": "/placeholders/cafe.svg",
+        "kind": "image",
+        "alt": "카페 및 음식 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [
+        {
+          "url": "/uploads/f5d27a5c-5879-4b82-a6eb-62685a9558d8.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/c9fd9183-8467-411f-b5fe-bac98e5bacd7.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/ff575187-5032-4e2a-8545-faf7f18ccb47.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/0c065bf9-62b7-40cc-af80-33dc7e9739a2.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/829bde65-a07f-48cc-aeff-30094fdfc130.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "beforeAfter": [
+        {
+          "id": "e29d6bfd-435a-4de2-89f9-6c7cccc79f88",
+          "before": {
+            "url": "/uploads/fbd2f9d4-6605-4732-8c84-b28500b8f2a9.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/fb65fa8d-9c74-4d90-ba56-7a5e1235f05e.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 0,
+          "category": "detail"
+        }
+      ],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "facc2350-d18e-44b2-8d0b-8bf477ea0b64",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "갈바트 카페와 교타쿠 브랜드의 메뉴 촬영·보정 프로젝트로, 음식의 색감과 질감, 브랜드 분위기를 자연스럽게 담는 데 집중했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "75af1c57-711c-43f1-8e6c-65c9abc69ade",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "메뉴의 특징과 먹음직스러운 이미지를 효과적으로 표현하고, 브랜드의 분위기까지 함께 전달할 수 있는 사진 제작",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "9b9e2471-a66b-47f2-bce3-ebc6d6d37db5",
+          "key": "role",
+          "title": "기여도",
+          "body": "음식·음료 촬영 · 색보정 · 리터칭",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 1,
+      "createdAt": "2024-09-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T07:16:07.655Z",
+      "contents": []
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-28T07:16:07.674Z"
+  },
+  {
+    "id": "0774d2bd-f9ec-43a7-891e-5dac2cf7b65a",
+    "entity": "projects:proj-cafe",
+    "field": "수정",
+    "before": {
+      "id": "proj-cafe",
+      "number": "02",
+      "title": "카페 및 음식 브랜드 촬영",
+      "brand": "갈바트 카페, 교타쿠",
+      "brandHidden": false,
+      "year": "2024",
+      "field": "카페 및 음식",
+      "purpose": "브랜드의 아이덴티티와 음식의 매력을 동시에 전달하여 온라인에서도 브랜드 경험이 이어질 수 있는 콘텐츠 제작",
+      "role": "촬영 · 색보정 · 리터칭 · 메뉴 콘텐츠 제작",
+      "tools": [
+        "ㅁㅇㄴㄹㅁㅇㄴㄹ"
+      ],
+      "description": "음식의 맛을 시각적으로 전달하고, 브랜드가 가진 분위기와 감성을 함께 담아낼 수 있는 메뉴 콘텐츠를 제작했습니다.",
+      "heroImage": {
+        "url": "/placeholders/cafe.svg",
+        "kind": "image",
+        "alt": "카페 및 음식 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [
+        {
+          "url": "/uploads/f5d27a5c-5879-4b82-a6eb-62685a9558d8.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/c9fd9183-8467-411f-b5fe-bac98e5bacd7.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/ff575187-5032-4e2a-8545-faf7f18ccb47.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/0c065bf9-62b7-40cc-af80-33dc7e9739a2.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/829bde65-a07f-48cc-aeff-30094fdfc130.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "beforeAfter": [
+        {
+          "id": "e29d6bfd-435a-4de2-89f9-6c7cccc79f88",
+          "before": {
+            "url": "/uploads/fbd2f9d4-6605-4732-8c84-b28500b8f2a9.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/fb65fa8d-9c74-4d90-ba56-7a5e1235f05e.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 0,
+          "category": "detail"
+        }
+      ],
+      "metrics": [],
+      "detailBlocks": [],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 1,
+      "createdAt": "2024-09-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T05:14:09.721Z"
+    },
+    "after": {
+      "id": "proj-cafe",
+      "number": "02",
+      "title": "카페 및 음식 브랜드 촬영",
+      "brand": "갈바트 카페, 교타쿠",
+      "brandHidden": false,
+      "year": "2024",
+      "field": "카페 및 음식",
+      "purpose": "브랜드의 아이덴티티와 음식의 매력을 동시에 전달하여 온라인에서도 브랜드 경험이 이어질 수 있는 콘텐츠 제작",
+      "role": "촬영 · 색보정 · 리터칭 · 메뉴 콘텐츠 제작",
+      "tools": [
+        "ㅁㅇㄴㄹㅁㅇㄴㄹ"
+      ],
+      "description": "음식의 맛을 시각적으로 전달하고, 브랜드가 가진 분위기와 감성을 함께 담아낼 수 있는 메뉴 콘텐츠를 제작했습니다.",
+      "heroImage": {
+        "url": "/placeholders/cafe.svg",
+        "kind": "image",
+        "alt": "카페 및 음식 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [
+        {
+          "url": "/uploads/f5d27a5c-5879-4b82-a6eb-62685a9558d8.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/c9fd9183-8467-411f-b5fe-bac98e5bacd7.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/ff575187-5032-4e2a-8545-faf7f18ccb47.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/0c065bf9-62b7-40cc-af80-33dc7e9739a2.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/829bde65-a07f-48cc-aeff-30094fdfc130.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "beforeAfter": [
+        {
+          "id": "e29d6bfd-435a-4de2-89f9-6c7cccc79f88",
+          "before": {
+            "url": "/uploads/fbd2f9d4-6605-4732-8c84-b28500b8f2a9.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/fb65fa8d-9c74-4d90-ba56-7a5e1235f05e.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 0,
+          "category": "detail"
+        }
+      ],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "facc2350-d18e-44b2-8d0b-8bf477ea0b64",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "갈바트 카페와 교타쿠 브랜드의 메뉴 촬영·보정 프로젝트로,\n음식의 색감과 질감, 브랜드 분위기를 자연스럽게 담는 데 집중했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "75af1c57-711c-43f1-8e6c-65c9abc69ade",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "메뉴의 특징과 먹음직스러운 이미지를 효과적으로 표현하고,\n브랜드의 분위기까지 함께 전달할 수 있는 사진 제작",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "9b9e2471-a66b-47f2-bce3-ebc6d6d37db5",
+          "key": "role",
+          "title": "기여도",
+          "body": "음식·음료 촬영 · 색보정 · 리터칭",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 1,
+      "createdAt": "2024-09-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T07:15:54.489Z",
+      "contents": []
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-28T07:15:54.514Z"
+  },
+  {
+    "id": "b353a1d9-de34-4811-a14e-0e03aab4f9ba",
+    "entity": "projects:proj-clothing",
+    "field": "수정",
+    "before": {
+      "id": "proj-clothing",
+      "number": "01",
+      "title": "상세페이지 디테일컷 및 모델 촬영 · 보정",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "의류",
+      "purpose": "제품의 실제 색감과 디테일을 정확하게 표현하고, 모델 착용 이미지를 통해 온라인에서도 상품의 특징과 착용감을 직관적으로 전달할 수 있는 이미지 제작",
+      "role": "촬영 · 색보정 · 리터칭",
+      "tools": [
+        "dfdfdfdfdfdf"
+      ],
+      "description": "온라인 판매용 의류 상세페이지에 활용되는\n디테일컷과 모델 착용컷을 촬영·보정한 프로젝트입니다.\n\n제품의 실제 색감과 소재를 정확하게 표현하고,\n착용 이미지로 상품의 특징과 실루엣을 자연스럽게 전달하는 데 집중했습니다.",
+      "heroImage": {
+        "url": "/placeholders/clothing.svg",
+        "kind": "image",
+        "alt": "의류 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [
+        {
+          "url": "/uploads/7400789d-72f2-4d98-a80a-2e1d738447b7.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/bb5dbc9f-4dca-4e55-8f6d-86bddfd5fd6a.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/0789c1e8-3e75-458e-a6b5-cda9bf3442bd.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/56073b72-251e-4f40-9eb7-09bde6858c36.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/109382a4-8d2b-4e92-93bf-5ab2ea1f56b2.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/e1272cf7-c419-48bd-9297-f6a075f03e22.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/0febb2a7-1054-4f1d-8c36-d149c5085916.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "beforeAfter": [
+        {
+          "id": "75331a83-1d99-4958-9620-389756ec918d",
+          "before": {
+            "url": "/uploads/560e8d0a-80f2-4ca2-ae88-9d9696377c39.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/ad742acf-2f00-4d4f-b6f1-b3cea56793e5.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 0,
+          "category": "detail"
+        },
+        {
+          "id": "de27a56e-87b1-452f-ad26-880a38647ae8",
+          "before": {
+            "url": "/uploads/5ad2940b-8033-4784-bc39-8f35d29acb18.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/89a1375c-a17d-42b8-b0ad-f3fc4548de34.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 1,
+          "category": "detail"
+        },
+        {
+          "id": "b46b8017-12c2-4b47-b445-13d833f3f5b5",
+          "before": {
+            "url": "/uploads/6b582a79-a9b6-4a77-b0d2-ca10fbdaabc2.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/6c2bf48b-e0f9-4443-ab32-87ec2e7e6853.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 2,
+          "category": "detail"
+        },
+        {
+          "id": "250320e4-c4dd-4049-83a8-59c7747671a2",
+          "before": {
+            "url": "/uploads/6d650b1a-1c9b-437e-b9e1-2ef4243926e6.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/0d42364b-27a7-4d7b-8678-5c281c429f85.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 3,
+          "category": "detail"
+        },
+        {
+          "id": "04ae5c5e-7adf-4ab1-85fe-b1afd2a33cf5",
+          "before": {
+            "url": "/uploads/56627d69-7a60-4f4b-82e5-2bde2a13d94b.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/0d5f4c66-c160-45aa-ad21-e2a37660c352.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 4,
+          "category": "model"
+        },
+        {
+          "id": "54e5ebbd-3756-4b06-b3c5-3ca4a38a06a4",
+          "before": {
+            "url": "/uploads/c1f1f1a3-9fa1-4454-9719-41b5a93e01ce.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/b300509c-05ec-405b-af89-a37224abf550.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 5,
+          "category": "model"
+        },
+        {
+          "id": "fdf7a51b-9d26-4334-960a-e2c9789ec5f5",
+          "before": {
+            "url": "/uploads/e005cd49-7428-4101-8c79-2d6576d453b4.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/332ace65-e87a-405b-af62-13aad8cb0b36.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 6,
+          "category": "model"
+        }
+      ],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "f9f91455-299c-4dd8-9e67-848e40d2e662",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "온라인 판매용 의류 상세페이지에 활용되는 디테일컷과 모델 착용컷을\n촬영·보정한 프로젝트입니다.\n\n제품의 실제 색감과 소재를 정확하게 표현하고, 착용 이미지로 상품의 특징과\n실루엣을 자연스럽게 전달하는 데 중점을 두었습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "1f586d16-9a25-499d-b003-d2da7b07277a",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "제품의 실제 색감과 디테일을 정확하게 표현하고, 모델 착용 이미지를 통해\n상품의 특징과 착용감을 효과적으로 전달하는 이미지 제작",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "f057372d-d096-4e74-bbcb-f178b898d59f",
+          "key": "role",
+          "title": "기여도",
+          "body": "촬영 · 색보정 · 리터칭",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 0,
+      "createdAt": "2024-08-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T07:14:12.824Z",
+      "contents": []
+    },
+    "after": {
+      "id": "proj-clothing",
+      "number": "01",
+      "title": "상세페이지 디테일컷 및 모델 촬영 · 보정",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "의류",
+      "purpose": "제품의 실제 색감과 디테일을 정확하게 표현하고, 모델 착용 이미지를 통해 온라인에서도 상품의 특징과 착용감을 직관적으로 전달할 수 있는 이미지 제작",
+      "role": "촬영 · 색보정 · 리터칭",
+      "tools": [
+        "dfdfdfdfdfdf"
+      ],
+      "description": "온라인 판매용 의류 상세페이지에 활용되는\n디테일컷과 모델 착용컷을 촬영·보정한 프로젝트입니다.\n\n제품의 실제 색감과 소재를 정확하게 표현하고,\n착용 이미지로 상품의 특징과 실루엣을 자연스럽게 전달하는 데 집중했습니다.",
+      "heroImage": {
+        "url": "/placeholders/clothing.svg",
+        "kind": "image",
+        "alt": "의류 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [
+        {
+          "url": "/uploads/7400789d-72f2-4d98-a80a-2e1d738447b7.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/bb5dbc9f-4dca-4e55-8f6d-86bddfd5fd6a.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/0789c1e8-3e75-458e-a6b5-cda9bf3442bd.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/56073b72-251e-4f40-9eb7-09bde6858c36.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/109382a4-8d2b-4e92-93bf-5ab2ea1f56b2.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/e1272cf7-c419-48bd-9297-f6a075f03e22.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/0febb2a7-1054-4f1d-8c36-d149c5085916.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "beforeAfter": [
+        {
+          "id": "75331a83-1d99-4958-9620-389756ec918d",
+          "before": {
+            "url": "/uploads/560e8d0a-80f2-4ca2-ae88-9d9696377c39.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/ad742acf-2f00-4d4f-b6f1-b3cea56793e5.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 0,
+          "category": "detail"
+        },
+        {
+          "id": "de27a56e-87b1-452f-ad26-880a38647ae8",
+          "before": {
+            "url": "/uploads/5ad2940b-8033-4784-bc39-8f35d29acb18.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/89a1375c-a17d-42b8-b0ad-f3fc4548de34.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 1,
+          "category": "detail"
+        },
+        {
+          "id": "b46b8017-12c2-4b47-b445-13d833f3f5b5",
+          "before": {
+            "url": "/uploads/6b582a79-a9b6-4a77-b0d2-ca10fbdaabc2.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/6c2bf48b-e0f9-4443-ab32-87ec2e7e6853.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 2,
+          "category": "detail"
+        },
+        {
+          "id": "250320e4-c4dd-4049-83a8-59c7747671a2",
+          "before": {
+            "url": "/uploads/6d650b1a-1c9b-437e-b9e1-2ef4243926e6.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/0d42364b-27a7-4d7b-8678-5c281c429f85.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 3,
+          "category": "detail"
+        },
+        {
+          "id": "04ae5c5e-7adf-4ab1-85fe-b1afd2a33cf5",
+          "before": {
+            "url": "/uploads/56627d69-7a60-4f4b-82e5-2bde2a13d94b.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/0d5f4c66-c160-45aa-ad21-e2a37660c352.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 4,
+          "category": "model"
+        },
+        {
+          "id": "54e5ebbd-3756-4b06-b3c5-3ca4a38a06a4",
+          "before": {
+            "url": "/uploads/c1f1f1a3-9fa1-4454-9719-41b5a93e01ce.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/b300509c-05ec-405b-af89-a37224abf550.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 5,
+          "category": "model"
+        },
+        {
+          "id": "fdf7a51b-9d26-4334-960a-e2c9789ec5f5",
+          "before": {
+            "url": "/uploads/e005cd49-7428-4101-8c79-2d6576d453b4.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/332ace65-e87a-405b-af62-13aad8cb0b36.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 6,
+          "category": "model"
+        }
+      ],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "f9f91455-299c-4dd8-9e67-848e40d2e662",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "온라인 판매용 의류 상세페이지에 활용되는 디테일컷과 모델 착용컷을 촬영·보정한 프로젝트입니다.\n\n제품의 실제 색감과 소재를 정확하게 표현하고, 착용 이미지로 상품의 특징과\n실루엣을 자연스럽게 전달하는 데 중점을 두었습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "1f586d16-9a25-499d-b003-d2da7b07277a",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "제품의 실제 색감과 디테일을 정확하게 표현하고, 모델 착용 이미지를 통해\n상품의 특징과 착용감을 효과적으로 전달하는 이미지 제작",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "f057372d-d096-4e74-bbcb-f178b898d59f",
+          "key": "role",
+          "title": "기여도",
+          "body": "촬영 · 색보정 · 리터칭",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 0,
+      "createdAt": "2024-08-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T07:14:31.408Z",
+      "contents": []
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-28T07:14:31.420Z"
+  },
+  {
+    "id": "03da1f36-ab69-4ccf-880a-d74484d49a86",
+    "entity": "projects:proj-clothing",
+    "field": "수정",
+    "before": {
+      "id": "proj-clothing",
+      "number": "01",
+      "title": "상세페이지 디테일컷 및 모델 촬영 · 보정",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "의류",
+      "purpose": "제품의 실제 색감과 디테일을 정확하게 표현하고, 모델 착용 이미지를 통해 온라인에서도 상품의 특징과 착용감을 직관적으로 전달할 수 있는 이미지 제작",
+      "role": "촬영 · 색보정 · 리터칭",
+      "tools": [
+        "dfdfdfdfdfdf"
+      ],
+      "description": "온라인 판매용 의류 상세페이지에 활용되는\n디테일컷과 모델 착용컷을 촬영·보정한 프로젝트입니다.\n\n제품의 실제 색감과 소재를 정확하게 표현하고,\n착용 이미지로 상품의 특징과 실루엣을 자연스럽게 전달하는 데 집중했습니다.",
+      "heroImage": {
+        "url": "/placeholders/clothing.svg",
+        "kind": "image",
+        "alt": "의류 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [
+        {
+          "url": "/uploads/7400789d-72f2-4d98-a80a-2e1d738447b7.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/bb5dbc9f-4dca-4e55-8f6d-86bddfd5fd6a.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/0789c1e8-3e75-458e-a6b5-cda9bf3442bd.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/56073b72-251e-4f40-9eb7-09bde6858c36.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/109382a4-8d2b-4e92-93bf-5ab2ea1f56b2.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/e1272cf7-c419-48bd-9297-f6a075f03e22.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/0febb2a7-1054-4f1d-8c36-d149c5085916.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "beforeAfter": [
+        {
+          "id": "75331a83-1d99-4958-9620-389756ec918d",
+          "before": {
+            "url": "/uploads/560e8d0a-80f2-4ca2-ae88-9d9696377c39.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/ad742acf-2f00-4d4f-b6f1-b3cea56793e5.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 0,
+          "category": "detail"
+        },
+        {
+          "id": "de27a56e-87b1-452f-ad26-880a38647ae8",
+          "before": {
+            "url": "/uploads/5ad2940b-8033-4784-bc39-8f35d29acb18.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/89a1375c-a17d-42b8-b0ad-f3fc4548de34.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 1,
+          "category": "detail"
+        },
+        {
+          "id": "b46b8017-12c2-4b47-b445-13d833f3f5b5",
+          "before": {
+            "url": "/uploads/6b582a79-a9b6-4a77-b0d2-ca10fbdaabc2.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/6c2bf48b-e0f9-4443-ab32-87ec2e7e6853.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 2,
+          "category": "detail"
+        },
+        {
+          "id": "250320e4-c4dd-4049-83a8-59c7747671a2",
+          "before": {
+            "url": "/uploads/6d650b1a-1c9b-437e-b9e1-2ef4243926e6.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/0d42364b-27a7-4d7b-8678-5c281c429f85.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 3,
+          "category": "detail"
+        },
+        {
+          "id": "04ae5c5e-7adf-4ab1-85fe-b1afd2a33cf5",
+          "before": {
+            "url": "/uploads/56627d69-7a60-4f4b-82e5-2bde2a13d94b.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/0d5f4c66-c160-45aa-ad21-e2a37660c352.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 4,
+          "category": "model"
+        },
+        {
+          "id": "54e5ebbd-3756-4b06-b3c5-3ca4a38a06a4",
+          "before": {
+            "url": "/uploads/c1f1f1a3-9fa1-4454-9719-41b5a93e01ce.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/b300509c-05ec-405b-af89-a37224abf550.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 5,
+          "category": "model"
+        },
+        {
+          "id": "fdf7a51b-9d26-4334-960a-e2c9789ec5f5",
+          "before": {
+            "url": "/uploads/e005cd49-7428-4101-8c79-2d6576d453b4.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/332ace65-e87a-405b-af62-13aad8cb0b36.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 6,
+          "category": "model"
+        }
+      ],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "f9f91455-299c-4dd8-9e67-848e40d2e662",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "온라인 판매용 의류 상세페이지에 활용되는 디테일컷과 모델 착용컷을\n촬영·보정한 프로젝트입니다.\n\n제품의 실제 색감과 소재를 정확하게 표현하고, 착용 이미지로 상품의 특징과\n실루엣을 자연스럽게 전달하는 데 중점을 두었습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 0,
+      "createdAt": "2024-08-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T07:13:53.191Z",
+      "contents": []
+    },
+    "after": {
+      "id": "proj-clothing",
+      "number": "01",
+      "title": "상세페이지 디테일컷 및 모델 촬영 · 보정",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "의류",
+      "purpose": "제품의 실제 색감과 디테일을 정확하게 표현하고, 모델 착용 이미지를 통해 온라인에서도 상품의 특징과 착용감을 직관적으로 전달할 수 있는 이미지 제작",
+      "role": "촬영 · 색보정 · 리터칭",
+      "tools": [
+        "dfdfdfdfdfdf"
+      ],
+      "description": "온라인 판매용 의류 상세페이지에 활용되는\n디테일컷과 모델 착용컷을 촬영·보정한 프로젝트입니다.\n\n제품의 실제 색감과 소재를 정확하게 표현하고,\n착용 이미지로 상품의 특징과 실루엣을 자연스럽게 전달하는 데 집중했습니다.",
+      "heroImage": {
+        "url": "/placeholders/clothing.svg",
+        "kind": "image",
+        "alt": "의류 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [
+        {
+          "url": "/uploads/7400789d-72f2-4d98-a80a-2e1d738447b7.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/bb5dbc9f-4dca-4e55-8f6d-86bddfd5fd6a.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/0789c1e8-3e75-458e-a6b5-cda9bf3442bd.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/56073b72-251e-4f40-9eb7-09bde6858c36.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/109382a4-8d2b-4e92-93bf-5ab2ea1f56b2.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/e1272cf7-c419-48bd-9297-f6a075f03e22.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/0febb2a7-1054-4f1d-8c36-d149c5085916.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "beforeAfter": [
+        {
+          "id": "75331a83-1d99-4958-9620-389756ec918d",
+          "before": {
+            "url": "/uploads/560e8d0a-80f2-4ca2-ae88-9d9696377c39.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/ad742acf-2f00-4d4f-b6f1-b3cea56793e5.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 0,
+          "category": "detail"
+        },
+        {
+          "id": "de27a56e-87b1-452f-ad26-880a38647ae8",
+          "before": {
+            "url": "/uploads/5ad2940b-8033-4784-bc39-8f35d29acb18.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/89a1375c-a17d-42b8-b0ad-f3fc4548de34.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 1,
+          "category": "detail"
+        },
+        {
+          "id": "b46b8017-12c2-4b47-b445-13d833f3f5b5",
+          "before": {
+            "url": "/uploads/6b582a79-a9b6-4a77-b0d2-ca10fbdaabc2.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/6c2bf48b-e0f9-4443-ab32-87ec2e7e6853.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 2,
+          "category": "detail"
+        },
+        {
+          "id": "250320e4-c4dd-4049-83a8-59c7747671a2",
+          "before": {
+            "url": "/uploads/6d650b1a-1c9b-437e-b9e1-2ef4243926e6.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/0d42364b-27a7-4d7b-8678-5c281c429f85.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 3,
+          "category": "detail"
+        },
+        {
+          "id": "04ae5c5e-7adf-4ab1-85fe-b1afd2a33cf5",
+          "before": {
+            "url": "/uploads/56627d69-7a60-4f4b-82e5-2bde2a13d94b.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/0d5f4c66-c160-45aa-ad21-e2a37660c352.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 4,
+          "category": "model"
+        },
+        {
+          "id": "54e5ebbd-3756-4b06-b3c5-3ca4a38a06a4",
+          "before": {
+            "url": "/uploads/c1f1f1a3-9fa1-4454-9719-41b5a93e01ce.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/b300509c-05ec-405b-af89-a37224abf550.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 5,
+          "category": "model"
+        },
+        {
+          "id": "fdf7a51b-9d26-4334-960a-e2c9789ec5f5",
+          "before": {
+            "url": "/uploads/e005cd49-7428-4101-8c79-2d6576d453b4.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/332ace65-e87a-405b-af62-13aad8cb0b36.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 6,
+          "category": "model"
+        }
+      ],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "f9f91455-299c-4dd8-9e67-848e40d2e662",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "온라인 판매용 의류 상세페이지에 활용되는 디테일컷과 모델 착용컷을\n촬영·보정한 프로젝트입니다.\n\n제품의 실제 색감과 소재를 정확하게 표현하고, 착용 이미지로 상품의 특징과\n실루엣을 자연스럽게 전달하는 데 중점을 두었습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "1f586d16-9a25-499d-b003-d2da7b07277a",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "제품의 실제 색감과 디테일을 정확하게 표현하고, 모델 착용 이미지를 통해\n상품의 특징과 착용감을 효과적으로 전달하는 이미지 제작",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "f057372d-d096-4e74-bbcb-f178b898d59f",
+          "key": "role",
+          "title": "기여도",
+          "body": "촬영 · 색보정 · 리터칭",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 0,
+      "createdAt": "2024-08-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T07:14:12.824Z",
+      "contents": []
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-28T07:14:12.835Z"
+  },
+  {
+    "id": "127df0eb-3ffd-4944-af28-9c85d5552b9f",
+    "entity": "projects:proj-clothing",
+    "field": "수정",
+    "before": {
+      "id": "proj-clothing",
+      "number": "01",
+      "title": "상세페이지 디테일컷 및 모델 촬영 · 보정",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "의류",
+      "purpose": "제품의 실제 색감과 디테일을 정확하게 표현하고, 모델 착용 이미지를 통해 온라인에서도 상품의 특징과 착용감을 직관적으로 전달할 수 있는 이미지 제작",
+      "role": "촬영 · 색보정 · 리터칭",
+      "tools": [
+        "dfdfdfdfdfdf"
+      ],
+      "description": "온라인 판매용 의류 상세페이지에 활용되는\n디테일컷과 모델 착용컷을 촬영·보정한 프로젝트입니다.\n\n제품의 실제 색감과 소재를 정확하게 표현하고,\n착용 이미지로 상품의 특징과 실루엣을 자연스럽게 전달하는 데 집중했습니다.",
+      "heroImage": {
+        "url": "/placeholders/clothing.svg",
+        "kind": "image",
+        "alt": "의류 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [
+        {
+          "url": "/uploads/7400789d-72f2-4d98-a80a-2e1d738447b7.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/bb5dbc9f-4dca-4e55-8f6d-86bddfd5fd6a.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/0789c1e8-3e75-458e-a6b5-cda9bf3442bd.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/56073b72-251e-4f40-9eb7-09bde6858c36.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/109382a4-8d2b-4e92-93bf-5ab2ea1f56b2.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/e1272cf7-c419-48bd-9297-f6a075f03e22.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/0febb2a7-1054-4f1d-8c36-d149c5085916.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "beforeAfter": [
+        {
+          "id": "75331a83-1d99-4958-9620-389756ec918d",
+          "before": {
+            "url": "/uploads/560e8d0a-80f2-4ca2-ae88-9d9696377c39.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/ad742acf-2f00-4d4f-b6f1-b3cea56793e5.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 0,
+          "category": "detail"
+        },
+        {
+          "id": "de27a56e-87b1-452f-ad26-880a38647ae8",
+          "before": {
+            "url": "/uploads/5ad2940b-8033-4784-bc39-8f35d29acb18.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/89a1375c-a17d-42b8-b0ad-f3fc4548de34.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 1,
+          "category": "detail"
+        },
+        {
+          "id": "b46b8017-12c2-4b47-b445-13d833f3f5b5",
+          "before": {
+            "url": "/uploads/6b582a79-a9b6-4a77-b0d2-ca10fbdaabc2.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/6c2bf48b-e0f9-4443-ab32-87ec2e7e6853.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 2,
+          "category": "detail"
+        },
+        {
+          "id": "250320e4-c4dd-4049-83a8-59c7747671a2",
+          "before": {
+            "url": "/uploads/6d650b1a-1c9b-437e-b9e1-2ef4243926e6.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/0d42364b-27a7-4d7b-8678-5c281c429f85.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 3,
+          "category": "detail"
+        },
+        {
+          "id": "04ae5c5e-7adf-4ab1-85fe-b1afd2a33cf5",
+          "before": {
+            "url": "/uploads/56627d69-7a60-4f4b-82e5-2bde2a13d94b.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/0d5f4c66-c160-45aa-ad21-e2a37660c352.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 4,
+          "category": "model"
+        },
+        {
+          "id": "54e5ebbd-3756-4b06-b3c5-3ca4a38a06a4",
+          "before": {
+            "url": "/uploads/c1f1f1a3-9fa1-4454-9719-41b5a93e01ce.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/b300509c-05ec-405b-af89-a37224abf550.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 5,
+          "category": "model"
+        },
+        {
+          "id": "fdf7a51b-9d26-4334-960a-e2c9789ec5f5",
+          "before": {
+            "url": "/uploads/e005cd49-7428-4101-8c79-2d6576d453b4.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/332ace65-e87a-405b-af62-13aad8cb0b36.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 6,
+          "category": "model"
+        }
+      ],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "f9f91455-299c-4dd8-9e67-848e40d2e662",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "온라인 판매용 의류 상세페이지에 활용되는 디테일컷과 모델 착용컷을 촬영·보정한 프로젝트입니다.\n\n제품의 실제 색감과 소재를 정확하게 표현하고, 착용 이미지로 상품의 특징과 실루엣을 자연스럽게 전달하는 데 중점을 두었습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 0,
+      "createdAt": "2024-08-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T07:13:29.792Z",
+      "contents": []
+    },
+    "after": {
+      "id": "proj-clothing",
+      "number": "01",
+      "title": "상세페이지 디테일컷 및 모델 촬영 · 보정",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "의류",
+      "purpose": "제품의 실제 색감과 디테일을 정확하게 표현하고, 모델 착용 이미지를 통해 온라인에서도 상품의 특징과 착용감을 직관적으로 전달할 수 있는 이미지 제작",
+      "role": "촬영 · 색보정 · 리터칭",
+      "tools": [
+        "dfdfdfdfdfdf"
+      ],
+      "description": "온라인 판매용 의류 상세페이지에 활용되는\n디테일컷과 모델 착용컷을 촬영·보정한 프로젝트입니다.\n\n제품의 실제 색감과 소재를 정확하게 표현하고,\n착용 이미지로 상품의 특징과 실루엣을 자연스럽게 전달하는 데 집중했습니다.",
+      "heroImage": {
+        "url": "/placeholders/clothing.svg",
+        "kind": "image",
+        "alt": "의류 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [
+        {
+          "url": "/uploads/7400789d-72f2-4d98-a80a-2e1d738447b7.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/bb5dbc9f-4dca-4e55-8f6d-86bddfd5fd6a.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/0789c1e8-3e75-458e-a6b5-cda9bf3442bd.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/56073b72-251e-4f40-9eb7-09bde6858c36.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/109382a4-8d2b-4e92-93bf-5ab2ea1f56b2.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/e1272cf7-c419-48bd-9297-f6a075f03e22.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/0febb2a7-1054-4f1d-8c36-d149c5085916.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "beforeAfter": [
+        {
+          "id": "75331a83-1d99-4958-9620-389756ec918d",
+          "before": {
+            "url": "/uploads/560e8d0a-80f2-4ca2-ae88-9d9696377c39.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/ad742acf-2f00-4d4f-b6f1-b3cea56793e5.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 0,
+          "category": "detail"
+        },
+        {
+          "id": "de27a56e-87b1-452f-ad26-880a38647ae8",
+          "before": {
+            "url": "/uploads/5ad2940b-8033-4784-bc39-8f35d29acb18.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/89a1375c-a17d-42b8-b0ad-f3fc4548de34.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 1,
+          "category": "detail"
+        },
+        {
+          "id": "b46b8017-12c2-4b47-b445-13d833f3f5b5",
+          "before": {
+            "url": "/uploads/6b582a79-a9b6-4a77-b0d2-ca10fbdaabc2.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/6c2bf48b-e0f9-4443-ab32-87ec2e7e6853.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 2,
+          "category": "detail"
+        },
+        {
+          "id": "250320e4-c4dd-4049-83a8-59c7747671a2",
+          "before": {
+            "url": "/uploads/6d650b1a-1c9b-437e-b9e1-2ef4243926e6.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/0d42364b-27a7-4d7b-8678-5c281c429f85.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 3,
+          "category": "detail"
+        },
+        {
+          "id": "04ae5c5e-7adf-4ab1-85fe-b1afd2a33cf5",
+          "before": {
+            "url": "/uploads/56627d69-7a60-4f4b-82e5-2bde2a13d94b.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/0d5f4c66-c160-45aa-ad21-e2a37660c352.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 4,
+          "category": "model"
+        },
+        {
+          "id": "54e5ebbd-3756-4b06-b3c5-3ca4a38a06a4",
+          "before": {
+            "url": "/uploads/c1f1f1a3-9fa1-4454-9719-41b5a93e01ce.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/b300509c-05ec-405b-af89-a37224abf550.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 5,
+          "category": "model"
+        },
+        {
+          "id": "fdf7a51b-9d26-4334-960a-e2c9789ec5f5",
+          "before": {
+            "url": "/uploads/e005cd49-7428-4101-8c79-2d6576d453b4.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/332ace65-e87a-405b-af62-13aad8cb0b36.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 6,
+          "category": "model"
+        }
+      ],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "f9f91455-299c-4dd8-9e67-848e40d2e662",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "온라인 판매용 의류 상세페이지에 활용되는 디테일컷과 모델 착용컷을\n촬영·보정한 프로젝트입니다.\n\n제품의 실제 색감과 소재를 정확하게 표현하고, 착용 이미지로 상품의 특징과\n실루엣을 자연스럽게 전달하는 데 중점을 두었습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 0,
+      "createdAt": "2024-08-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T07:13:53.191Z",
+      "contents": []
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-28T07:13:53.208Z"
+  },
+  {
+    "id": "fb4b0ac2-c759-45d8-a737-15f5241477f2",
+    "entity": "projects:proj-clothing",
+    "field": "수정",
+    "before": {
+      "id": "proj-clothing",
+      "number": "01",
+      "title": "상세페이지 디테일컷 및 모델 촬영 · 보정",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "의류",
+      "purpose": "제품의 실제 색감과 디테일을 정확하게 표현하고, 모델 착용 이미지를 통해 온라인에서도 상품의 특징과 착용감을 직관적으로 전달할 수 있는 이미지 제작",
+      "role": "촬영 · 색보정 · 리터칭",
+      "tools": [
+        "dfdfdfdfdfdf"
+      ],
+      "description": "온라인 판매용 의류 상세페이지에 활용되는\n디테일컷과 모델 착용컷을 촬영·보정한 프로젝트입니다.\n\n제품의 실제 색감과 소재를 정확하게 표현하고,\n착용 이미지로 상품의 특징과 실루엣을 자연스럽게 전달하는 데 집중했습니다.",
+      "heroImage": {
+        "url": "/placeholders/clothing.svg",
+        "kind": "image",
+        "alt": "의류 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [
+        {
+          "url": "/uploads/7400789d-72f2-4d98-a80a-2e1d738447b7.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/bb5dbc9f-4dca-4e55-8f6d-86bddfd5fd6a.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/0789c1e8-3e75-458e-a6b5-cda9bf3442bd.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/56073b72-251e-4f40-9eb7-09bde6858c36.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/109382a4-8d2b-4e92-93bf-5ab2ea1f56b2.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/e1272cf7-c419-48bd-9297-f6a075f03e22.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/0febb2a7-1054-4f1d-8c36-d149c5085916.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "beforeAfter": [
+        {
+          "id": "75331a83-1d99-4958-9620-389756ec918d",
+          "before": {
+            "url": "/uploads/560e8d0a-80f2-4ca2-ae88-9d9696377c39.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/ad742acf-2f00-4d4f-b6f1-b3cea56793e5.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 0,
+          "category": "detail"
+        },
+        {
+          "id": "de27a56e-87b1-452f-ad26-880a38647ae8",
+          "before": {
+            "url": "/uploads/5ad2940b-8033-4784-bc39-8f35d29acb18.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/89a1375c-a17d-42b8-b0ad-f3fc4548de34.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 1,
+          "category": "detail"
+        },
+        {
+          "id": "b46b8017-12c2-4b47-b445-13d833f3f5b5",
+          "before": {
+            "url": "/uploads/6b582a79-a9b6-4a77-b0d2-ca10fbdaabc2.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/6c2bf48b-e0f9-4443-ab32-87ec2e7e6853.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 2,
+          "category": "detail"
+        },
+        {
+          "id": "250320e4-c4dd-4049-83a8-59c7747671a2",
+          "before": {
+            "url": "/uploads/6d650b1a-1c9b-437e-b9e1-2ef4243926e6.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/0d42364b-27a7-4d7b-8678-5c281c429f85.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 3,
+          "category": "detail"
+        },
+        {
+          "id": "04ae5c5e-7adf-4ab1-85fe-b1afd2a33cf5",
+          "before": {
+            "url": "/uploads/56627d69-7a60-4f4b-82e5-2bde2a13d94b.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/0d5f4c66-c160-45aa-ad21-e2a37660c352.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 4,
+          "category": "model"
+        },
+        {
+          "id": "54e5ebbd-3756-4b06-b3c5-3ca4a38a06a4",
+          "before": {
+            "url": "/uploads/c1f1f1a3-9fa1-4454-9719-41b5a93e01ce.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/b300509c-05ec-405b-af89-a37224abf550.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 5,
+          "category": "model"
+        },
+        {
+          "id": "fdf7a51b-9d26-4334-960a-e2c9789ec5f5",
+          "before": {
+            "url": "/uploads/e005cd49-7428-4101-8c79-2d6576d453b4.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/332ace65-e87a-405b-af62-13aad8cb0b36.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 6,
+          "category": "model"
+        }
+      ],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "f9f91455-299c-4dd8-9e67-848e40d2e662",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "온라인 판매용 의류 상세페이지에 활용되는\n디테일컷과 모델 착용컷을 촬영·보정한 프로젝트입니다.\n\n제품의 실제 색감과 소재를 정확하게 표현하고,\n착용 이미지로 상품의 특징과 실루엣을 자연스럽게 전달하는 데 집중했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 0,
+      "createdAt": "2024-08-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T07:12:50.178Z",
+      "contents": []
+    },
+    "after": {
+      "id": "proj-clothing",
+      "number": "01",
+      "title": "상세페이지 디테일컷 및 모델 촬영 · 보정",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "의류",
+      "purpose": "제품의 실제 색감과 디테일을 정확하게 표현하고, 모델 착용 이미지를 통해 온라인에서도 상품의 특징과 착용감을 직관적으로 전달할 수 있는 이미지 제작",
+      "role": "촬영 · 색보정 · 리터칭",
+      "tools": [
+        "dfdfdfdfdfdf"
+      ],
+      "description": "온라인 판매용 의류 상세페이지에 활용되는\n디테일컷과 모델 착용컷을 촬영·보정한 프로젝트입니다.\n\n제품의 실제 색감과 소재를 정확하게 표현하고,\n착용 이미지로 상품의 특징과 실루엣을 자연스럽게 전달하는 데 집중했습니다.",
+      "heroImage": {
+        "url": "/placeholders/clothing.svg",
+        "kind": "image",
+        "alt": "의류 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [
+        {
+          "url": "/uploads/7400789d-72f2-4d98-a80a-2e1d738447b7.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/bb5dbc9f-4dca-4e55-8f6d-86bddfd5fd6a.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/0789c1e8-3e75-458e-a6b5-cda9bf3442bd.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/56073b72-251e-4f40-9eb7-09bde6858c36.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/109382a4-8d2b-4e92-93bf-5ab2ea1f56b2.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/e1272cf7-c419-48bd-9297-f6a075f03e22.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/0febb2a7-1054-4f1d-8c36-d149c5085916.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "beforeAfter": [
+        {
+          "id": "75331a83-1d99-4958-9620-389756ec918d",
+          "before": {
+            "url": "/uploads/560e8d0a-80f2-4ca2-ae88-9d9696377c39.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/ad742acf-2f00-4d4f-b6f1-b3cea56793e5.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 0,
+          "category": "detail"
+        },
+        {
+          "id": "de27a56e-87b1-452f-ad26-880a38647ae8",
+          "before": {
+            "url": "/uploads/5ad2940b-8033-4784-bc39-8f35d29acb18.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/89a1375c-a17d-42b8-b0ad-f3fc4548de34.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 1,
+          "category": "detail"
+        },
+        {
+          "id": "b46b8017-12c2-4b47-b445-13d833f3f5b5",
+          "before": {
+            "url": "/uploads/6b582a79-a9b6-4a77-b0d2-ca10fbdaabc2.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/6c2bf48b-e0f9-4443-ab32-87ec2e7e6853.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 2,
+          "category": "detail"
+        },
+        {
+          "id": "250320e4-c4dd-4049-83a8-59c7747671a2",
+          "before": {
+            "url": "/uploads/6d650b1a-1c9b-437e-b9e1-2ef4243926e6.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/0d42364b-27a7-4d7b-8678-5c281c429f85.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 3,
+          "category": "detail"
+        },
+        {
+          "id": "04ae5c5e-7adf-4ab1-85fe-b1afd2a33cf5",
+          "before": {
+            "url": "/uploads/56627d69-7a60-4f4b-82e5-2bde2a13d94b.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/0d5f4c66-c160-45aa-ad21-e2a37660c352.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 4,
+          "category": "model"
+        },
+        {
+          "id": "54e5ebbd-3756-4b06-b3c5-3ca4a38a06a4",
+          "before": {
+            "url": "/uploads/c1f1f1a3-9fa1-4454-9719-41b5a93e01ce.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/b300509c-05ec-405b-af89-a37224abf550.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 5,
+          "category": "model"
+        },
+        {
+          "id": "fdf7a51b-9d26-4334-960a-e2c9789ec5f5",
+          "before": {
+            "url": "/uploads/e005cd49-7428-4101-8c79-2d6576d453b4.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/332ace65-e87a-405b-af62-13aad8cb0b36.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 6,
+          "category": "model"
+        }
+      ],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "f9f91455-299c-4dd8-9e67-848e40d2e662",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "온라인 판매용 의류 상세페이지에 활용되는 디테일컷과 모델 착용컷을 촬영·보정한 프로젝트입니다.\n\n제품의 실제 색감과 소재를 정확하게 표현하고, 착용 이미지로 상품의 특징과 실루엣을 자연스럽게 전달하는 데 중점을 두었습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 0,
+      "createdAt": "2024-08-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T07:13:29.792Z",
+      "contents": []
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-28T07:13:29.809Z"
+  },
+  {
+    "id": "6e6bcd9d-df7f-4937-a702-25133c5d4f03",
+    "entity": "projects:proj-clothing",
+    "field": "수정",
+    "before": {
+      "id": "proj-clothing",
+      "number": "01",
+      "title": "상세페이지 디테일컷 및 모델 촬영 · 보정",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "의류",
+      "purpose": "제품의 실제 색감과 디테일을 정확하게 표현하고, 모델 착용 이미지를 통해 온라인에서도 상품의 특징과 착용감을 직관적으로 전달할 수 있는 이미지 제작",
+      "role": "촬영 · 색보정 · 리터칭",
+      "tools": [
+        "dfdfdfdfdfdf"
+      ],
+      "description": "온라인 판매용 의류 상세페이지에 활용되는\n디테일컷과 모델 착용컷을 촬영·보정한 프로젝트입니다.\n\n제품의 실제 색감과 소재를 정확하게 표현하고,\n착용 이미지로 상품의 특징과 실루엣을 자연스럽게 전달하는 데 집중했습니다.",
+      "heroImage": {
+        "url": "/placeholders/clothing.svg",
+        "kind": "image",
+        "alt": "의류 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [
+        {
+          "url": "/uploads/7400789d-72f2-4d98-a80a-2e1d738447b7.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/bb5dbc9f-4dca-4e55-8f6d-86bddfd5fd6a.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/0789c1e8-3e75-458e-a6b5-cda9bf3442bd.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/56073b72-251e-4f40-9eb7-09bde6858c36.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/109382a4-8d2b-4e92-93bf-5ab2ea1f56b2.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/e1272cf7-c419-48bd-9297-f6a075f03e22.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/0febb2a7-1054-4f1d-8c36-d149c5085916.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "beforeAfter": [
+        {
+          "id": "75331a83-1d99-4958-9620-389756ec918d",
+          "before": {
+            "url": "/uploads/560e8d0a-80f2-4ca2-ae88-9d9696377c39.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/ad742acf-2f00-4d4f-b6f1-b3cea56793e5.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 0,
+          "category": "detail"
+        },
+        {
+          "id": "de27a56e-87b1-452f-ad26-880a38647ae8",
+          "before": {
+            "url": "/uploads/5ad2940b-8033-4784-bc39-8f35d29acb18.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/89a1375c-a17d-42b8-b0ad-f3fc4548de34.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 1,
+          "category": "detail"
+        },
+        {
+          "id": "b46b8017-12c2-4b47-b445-13d833f3f5b5",
+          "before": {
+            "url": "/uploads/6b582a79-a9b6-4a77-b0d2-ca10fbdaabc2.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/6c2bf48b-e0f9-4443-ab32-87ec2e7e6853.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 2,
+          "category": "detail"
+        },
+        {
+          "id": "250320e4-c4dd-4049-83a8-59c7747671a2",
+          "before": {
+            "url": "/uploads/6d650b1a-1c9b-437e-b9e1-2ef4243926e6.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/0d42364b-27a7-4d7b-8678-5c281c429f85.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 3,
+          "category": "detail"
+        },
+        {
+          "id": "04ae5c5e-7adf-4ab1-85fe-b1afd2a33cf5",
+          "before": {
+            "url": "/uploads/56627d69-7a60-4f4b-82e5-2bde2a13d94b.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/0d5f4c66-c160-45aa-ad21-e2a37660c352.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 4,
+          "category": "model"
+        },
+        {
+          "id": "54e5ebbd-3756-4b06-b3c5-3ca4a38a06a4",
+          "before": {
+            "url": "/uploads/c1f1f1a3-9fa1-4454-9719-41b5a93e01ce.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/b300509c-05ec-405b-af89-a37224abf550.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 5,
+          "category": "model"
+        },
+        {
+          "id": "fdf7a51b-9d26-4334-960a-e2c9789ec5f5",
+          "before": {
+            "url": "/uploads/e005cd49-7428-4101-8c79-2d6576d453b4.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/332ace65-e87a-405b-af62-13aad8cb0b36.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 6,
+          "category": "model"
+        }
+      ],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "f9f91455-299c-4dd8-9e67-848e40d2e662",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "온라인 판매용 의류 상세페이지에 활용되는 디테일컷과 모델 착용컷을 촬영하고 보정한 프로젝트입니다. \n제품의 색감과 소재를 실제와 가깝게 표현하고, 모델 착용 이미지를 통해 상품의 실루엣과 착용감을 자연스럽게 전달하는 데 중점을 두었습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 0,
+      "createdAt": "2024-08-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T07:12:28.926Z",
+      "contents": []
+    },
+    "after": {
+      "id": "proj-clothing",
+      "number": "01",
+      "title": "상세페이지 디테일컷 및 모델 촬영 · 보정",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "의류",
+      "purpose": "제품의 실제 색감과 디테일을 정확하게 표현하고, 모델 착용 이미지를 통해 온라인에서도 상품의 특징과 착용감을 직관적으로 전달할 수 있는 이미지 제작",
+      "role": "촬영 · 색보정 · 리터칭",
+      "tools": [
+        "dfdfdfdfdfdf"
+      ],
+      "description": "온라인 판매용 의류 상세페이지에 활용되는\n디테일컷과 모델 착용컷을 촬영·보정한 프로젝트입니다.\n\n제품의 실제 색감과 소재를 정확하게 표현하고,\n착용 이미지로 상품의 특징과 실루엣을 자연스럽게 전달하는 데 집중했습니다.",
+      "heroImage": {
+        "url": "/placeholders/clothing.svg",
+        "kind": "image",
+        "alt": "의류 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [
+        {
+          "url": "/uploads/7400789d-72f2-4d98-a80a-2e1d738447b7.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/bb5dbc9f-4dca-4e55-8f6d-86bddfd5fd6a.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/0789c1e8-3e75-458e-a6b5-cda9bf3442bd.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/56073b72-251e-4f40-9eb7-09bde6858c36.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/109382a4-8d2b-4e92-93bf-5ab2ea1f56b2.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/e1272cf7-c419-48bd-9297-f6a075f03e22.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/0febb2a7-1054-4f1d-8c36-d149c5085916.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "beforeAfter": [
+        {
+          "id": "75331a83-1d99-4958-9620-389756ec918d",
+          "before": {
+            "url": "/uploads/560e8d0a-80f2-4ca2-ae88-9d9696377c39.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/ad742acf-2f00-4d4f-b6f1-b3cea56793e5.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 0,
+          "category": "detail"
+        },
+        {
+          "id": "de27a56e-87b1-452f-ad26-880a38647ae8",
+          "before": {
+            "url": "/uploads/5ad2940b-8033-4784-bc39-8f35d29acb18.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/89a1375c-a17d-42b8-b0ad-f3fc4548de34.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 1,
+          "category": "detail"
+        },
+        {
+          "id": "b46b8017-12c2-4b47-b445-13d833f3f5b5",
+          "before": {
+            "url": "/uploads/6b582a79-a9b6-4a77-b0d2-ca10fbdaabc2.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/6c2bf48b-e0f9-4443-ab32-87ec2e7e6853.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 2,
+          "category": "detail"
+        },
+        {
+          "id": "250320e4-c4dd-4049-83a8-59c7747671a2",
+          "before": {
+            "url": "/uploads/6d650b1a-1c9b-437e-b9e1-2ef4243926e6.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/0d42364b-27a7-4d7b-8678-5c281c429f85.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 3,
+          "category": "detail"
+        },
+        {
+          "id": "04ae5c5e-7adf-4ab1-85fe-b1afd2a33cf5",
+          "before": {
+            "url": "/uploads/56627d69-7a60-4f4b-82e5-2bde2a13d94b.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/0d5f4c66-c160-45aa-ad21-e2a37660c352.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 4,
+          "category": "model"
+        },
+        {
+          "id": "54e5ebbd-3756-4b06-b3c5-3ca4a38a06a4",
+          "before": {
+            "url": "/uploads/c1f1f1a3-9fa1-4454-9719-41b5a93e01ce.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/b300509c-05ec-405b-af89-a37224abf550.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 5,
+          "category": "model"
+        },
+        {
+          "id": "fdf7a51b-9d26-4334-960a-e2c9789ec5f5",
+          "before": {
+            "url": "/uploads/e005cd49-7428-4101-8c79-2d6576d453b4.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/332ace65-e87a-405b-af62-13aad8cb0b36.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 6,
+          "category": "model"
+        }
+      ],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "f9f91455-299c-4dd8-9e67-848e40d2e662",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "온라인 판매용 의류 상세페이지에 활용되는\n디테일컷과 모델 착용컷을 촬영·보정한 프로젝트입니다.\n\n제품의 실제 색감과 소재를 정확하게 표현하고,\n착용 이미지로 상품의 특징과 실루엣을 자연스럽게 전달하는 데 집중했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 0,
+      "createdAt": "2024-08-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T07:12:50.178Z",
+      "contents": []
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-28T07:12:50.194Z"
+  },
+  {
+    "id": "9b6ef461-c480-4685-ab82-c339213c15f1",
+    "entity": "projects:proj-clothing",
+    "field": "수정",
+    "before": {
+      "id": "proj-clothing",
+      "number": "01",
+      "title": "상세페이지 디테일컷 및 모델 촬영 · 보정",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "의류",
+      "purpose": "제품의 실제 색감과 디테일을 정확하게 표현하고, 모델 착용 이미지를 통해 온라인에서도 상품의 특징과 착용감을 직관적으로 전달할 수 있는 이미지 제작",
+      "role": "촬영 · 색보정 · 리터칭",
+      "tools": [
+        "dfdfdfdfdfdf"
+      ],
+      "description": "온라인 판매용 의류 상세페이지에 활용되는 디테일컷과 모델 착용컷을 촬영하고 보정한 프로젝트입니다. \n제품의 색감과 소재를 실제와 가깝게 표현하고, 모델 착용 이미지를 통해 상품의 실루엣과 착용감을 자연스럽게 전달하는 데 중점을 두었습니다.",
+      "heroImage": {
+        "url": "/placeholders/clothing.svg",
+        "kind": "image",
+        "alt": "의류 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [
+        {
+          "url": "/uploads/7400789d-72f2-4d98-a80a-2e1d738447b7.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/bb5dbc9f-4dca-4e55-8f6d-86bddfd5fd6a.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/0789c1e8-3e75-458e-a6b5-cda9bf3442bd.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/56073b72-251e-4f40-9eb7-09bde6858c36.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/109382a4-8d2b-4e92-93bf-5ab2ea1f56b2.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/e1272cf7-c419-48bd-9297-f6a075f03e22.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/0febb2a7-1054-4f1d-8c36-d149c5085916.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "beforeAfter": [
+        {
+          "id": "75331a83-1d99-4958-9620-389756ec918d",
+          "before": {
+            "url": "/uploads/560e8d0a-80f2-4ca2-ae88-9d9696377c39.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/ad742acf-2f00-4d4f-b6f1-b3cea56793e5.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 0,
+          "category": "detail"
+        },
+        {
+          "id": "de27a56e-87b1-452f-ad26-880a38647ae8",
+          "before": {
+            "url": "/uploads/5ad2940b-8033-4784-bc39-8f35d29acb18.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/89a1375c-a17d-42b8-b0ad-f3fc4548de34.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 1,
+          "category": "detail"
+        },
+        {
+          "id": "b46b8017-12c2-4b47-b445-13d833f3f5b5",
+          "before": {
+            "url": "/uploads/6b582a79-a9b6-4a77-b0d2-ca10fbdaabc2.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/6c2bf48b-e0f9-4443-ab32-87ec2e7e6853.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 2,
+          "category": "detail"
+        },
+        {
+          "id": "250320e4-c4dd-4049-83a8-59c7747671a2",
+          "before": {
+            "url": "/uploads/6d650b1a-1c9b-437e-b9e1-2ef4243926e6.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/0d42364b-27a7-4d7b-8678-5c281c429f85.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 3,
+          "category": "detail"
+        },
+        {
+          "id": "04ae5c5e-7adf-4ab1-85fe-b1afd2a33cf5",
+          "before": {
+            "url": "/uploads/56627d69-7a60-4f4b-82e5-2bde2a13d94b.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/0d5f4c66-c160-45aa-ad21-e2a37660c352.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 4,
+          "category": "model"
+        },
+        {
+          "id": "54e5ebbd-3756-4b06-b3c5-3ca4a38a06a4",
+          "before": {
+            "url": "/uploads/c1f1f1a3-9fa1-4454-9719-41b5a93e01ce.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/b300509c-05ec-405b-af89-a37224abf550.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 5,
+          "category": "model"
+        },
+        {
+          "id": "fdf7a51b-9d26-4334-960a-e2c9789ec5f5",
+          "before": {
+            "url": "/uploads/e005cd49-7428-4101-8c79-2d6576d453b4.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/332ace65-e87a-405b-af62-13aad8cb0b36.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 6,
+          "category": "model"
+        }
+      ],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "f9f91455-299c-4dd8-9e67-848e40d2e662",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "온라인 판매용 의류 상세페이지에 활용되는 디테일컷과 모델 착용컷을 촬영하고 보정한 프로젝트입니다. \n제품의 색감과 소재를 실제와 가깝게 표현하고, 모델 착용 이미지를 통해 상품의 실루엣과 착용감을 자연스럽게 전달하는 데 중점을 두었습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 0,
+      "createdAt": "2024-08-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T07:09:42.339Z",
+      "contents": []
+    },
+    "after": {
+      "id": "proj-clothing",
+      "number": "01",
+      "title": "상세페이지 디테일컷 및 모델 촬영 · 보정",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "의류",
+      "purpose": "제품의 실제 색감과 디테일을 정확하게 표현하고, 모델 착용 이미지를 통해 온라인에서도 상품의 특징과 착용감을 직관적으로 전달할 수 있는 이미지 제작",
+      "role": "촬영 · 색보정 · 리터칭",
+      "tools": [
+        "dfdfdfdfdfdf"
+      ],
+      "description": "온라인 판매용 의류 상세페이지에 활용되는\n디테일컷과 모델 착용컷을 촬영·보정한 프로젝트입니다.\n\n제품의 실제 색감과 소재를 정확하게 표현하고,\n착용 이미지로 상품의 특징과 실루엣을 자연스럽게 전달하는 데 집중했습니다.",
+      "heroImage": {
+        "url": "/placeholders/clothing.svg",
+        "kind": "image",
+        "alt": "의류 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [
+        {
+          "url": "/uploads/7400789d-72f2-4d98-a80a-2e1d738447b7.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/bb5dbc9f-4dca-4e55-8f6d-86bddfd5fd6a.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/0789c1e8-3e75-458e-a6b5-cda9bf3442bd.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/56073b72-251e-4f40-9eb7-09bde6858c36.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/109382a4-8d2b-4e92-93bf-5ab2ea1f56b2.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/e1272cf7-c419-48bd-9297-f6a075f03e22.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/0febb2a7-1054-4f1d-8c36-d149c5085916.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "beforeAfter": [
+        {
+          "id": "75331a83-1d99-4958-9620-389756ec918d",
+          "before": {
+            "url": "/uploads/560e8d0a-80f2-4ca2-ae88-9d9696377c39.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/ad742acf-2f00-4d4f-b6f1-b3cea56793e5.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 0,
+          "category": "detail"
+        },
+        {
+          "id": "de27a56e-87b1-452f-ad26-880a38647ae8",
+          "before": {
+            "url": "/uploads/5ad2940b-8033-4784-bc39-8f35d29acb18.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/89a1375c-a17d-42b8-b0ad-f3fc4548de34.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 1,
+          "category": "detail"
+        },
+        {
+          "id": "b46b8017-12c2-4b47-b445-13d833f3f5b5",
+          "before": {
+            "url": "/uploads/6b582a79-a9b6-4a77-b0d2-ca10fbdaabc2.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/6c2bf48b-e0f9-4443-ab32-87ec2e7e6853.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 2,
+          "category": "detail"
+        },
+        {
+          "id": "250320e4-c4dd-4049-83a8-59c7747671a2",
+          "before": {
+            "url": "/uploads/6d650b1a-1c9b-437e-b9e1-2ef4243926e6.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/0d42364b-27a7-4d7b-8678-5c281c429f85.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 3,
+          "category": "detail"
+        },
+        {
+          "id": "04ae5c5e-7adf-4ab1-85fe-b1afd2a33cf5",
+          "before": {
+            "url": "/uploads/56627d69-7a60-4f4b-82e5-2bde2a13d94b.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/0d5f4c66-c160-45aa-ad21-e2a37660c352.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 4,
+          "category": "model"
+        },
+        {
+          "id": "54e5ebbd-3756-4b06-b3c5-3ca4a38a06a4",
+          "before": {
+            "url": "/uploads/c1f1f1a3-9fa1-4454-9719-41b5a93e01ce.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/b300509c-05ec-405b-af89-a37224abf550.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 5,
+          "category": "model"
+        },
+        {
+          "id": "fdf7a51b-9d26-4334-960a-e2c9789ec5f5",
+          "before": {
+            "url": "/uploads/e005cd49-7428-4101-8c79-2d6576d453b4.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/332ace65-e87a-405b-af62-13aad8cb0b36.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 6,
+          "category": "model"
+        }
+      ],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "f9f91455-299c-4dd8-9e67-848e40d2e662",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "온라인 판매용 의류 상세페이지에 활용되는 디테일컷과 모델 착용컷을 촬영하고 보정한 프로젝트입니다. \n제품의 색감과 소재를 실제와 가깝게 표현하고, 모델 착용 이미지를 통해 상품의 실루엣과 착용감을 자연스럽게 전달하는 데 중점을 두었습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 0,
+      "createdAt": "2024-08-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T07:12:28.926Z",
+      "contents": []
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-28T07:12:29.067Z"
+  },
+  {
+    "id": "fd6f31cf-b9f8-47f2-b1e4-ff23742a898b",
+    "entity": "projects:proj-clothing",
+    "field": "수정",
+    "before": {
+      "id": "proj-clothing",
+      "number": "01",
+      "title": "상세페이지 디테일컷 및 모델 촬영 · 보정",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "의류",
+      "purpose": "제품의 실제 색감과 디테일을 정확하게 표현하고, 모델 착용 이미지를 통해 온라인에서도 상품의 특징과 착용감을 직관적으로 전달할 수 있는 이미지 제작",
+      "role": "촬영 · 색보정 · 리터칭",
+      "tools": [
+        "dfdfdfdfdfdf"
+      ],
+      "description": "온라인 판매용 의류 상세페이지에 활용되는 디테일컷과 모델 착용컷을 촬영하고 보정한 프로젝트입니다. \n제품의 색감과 소재를 실제와 가깝게 표현하고, 모델 착용 이미지를 통해 상품의 실루엣과 착용감을 자연스럽게 전달하는 데 중점을 두었습니다.",
+      "heroImage": {
+        "url": "/placeholders/clothing.svg",
+        "kind": "image",
+        "alt": "의류 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [],
+      "beforeAfter": [
+        {
+          "id": "75331a83-1d99-4958-9620-389756ec918d",
+          "before": {
+            "url": "/uploads/560e8d0a-80f2-4ca2-ae88-9d9696377c39.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/ad742acf-2f00-4d4f-b6f1-b3cea56793e5.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 0,
+          "category": "detail"
+        },
+        {
+          "id": "de27a56e-87b1-452f-ad26-880a38647ae8",
+          "before": {
+            "url": "/uploads/5ad2940b-8033-4784-bc39-8f35d29acb18.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/89a1375c-a17d-42b8-b0ad-f3fc4548de34.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 1,
+          "category": "detail"
+        },
+        {
+          "id": "b46b8017-12c2-4b47-b445-13d833f3f5b5",
+          "before": {
+            "url": "/uploads/6b582a79-a9b6-4a77-b0d2-ca10fbdaabc2.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/6c2bf48b-e0f9-4443-ab32-87ec2e7e6853.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 2,
+          "category": "detail"
+        },
+        {
+          "id": "250320e4-c4dd-4049-83a8-59c7747671a2",
+          "before": {
+            "url": "/uploads/6d650b1a-1c9b-437e-b9e1-2ef4243926e6.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/0d42364b-27a7-4d7b-8678-5c281c429f85.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 3,
+          "category": "detail"
+        },
+        {
+          "id": "04ae5c5e-7adf-4ab1-85fe-b1afd2a33cf5",
+          "before": {
+            "url": "/uploads/56627d69-7a60-4f4b-82e5-2bde2a13d94b.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/0d5f4c66-c160-45aa-ad21-e2a37660c352.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 4,
+          "category": "model"
+        },
+        {
+          "id": "54e5ebbd-3756-4b06-b3c5-3ca4a38a06a4",
+          "before": {
+            "url": "/uploads/c1f1f1a3-9fa1-4454-9719-41b5a93e01ce.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/b300509c-05ec-405b-af89-a37224abf550.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 5,
+          "category": "model"
+        },
+        {
+          "id": "fdf7a51b-9d26-4334-960a-e2c9789ec5f5",
+          "before": {
+            "url": "/uploads/e005cd49-7428-4101-8c79-2d6576d453b4.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/332ace65-e87a-405b-af62-13aad8cb0b36.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 6,
+          "category": "model"
+        }
+      ],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "f9f91455-299c-4dd8-9e67-848e40d2e662",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "온라인 판매용 의류 상세페이지에 활용되는 디테일컷과 모델 착용컷을 촬영하고 보정한 프로젝트입니다. \n제품의 색감과 소재를 실제와 가깝게 표현하고, 모델 착용 이미지를 통해 상품의 실루엣과 착용감을 자연스럽게 전달하는 데 중점을 두었습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 0,
+      "createdAt": "2024-08-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T06:56:35.578Z",
+      "contents": []
+    },
+    "after": {
+      "id": "proj-clothing",
+      "number": "01",
+      "title": "상세페이지 디테일컷 및 모델 촬영 · 보정",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "의류",
+      "purpose": "제품의 실제 색감과 디테일을 정확하게 표현하고, 모델 착용 이미지를 통해 온라인에서도 상품의 특징과 착용감을 직관적으로 전달할 수 있는 이미지 제작",
+      "role": "촬영 · 색보정 · 리터칭",
+      "tools": [
+        "dfdfdfdfdfdf"
+      ],
+      "description": "온라인 판매용 의류 상세페이지에 활용되는 디테일컷과 모델 착용컷을 촬영하고 보정한 프로젝트입니다. \n제품의 색감과 소재를 실제와 가깝게 표현하고, 모델 착용 이미지를 통해 상품의 실루엣과 착용감을 자연스럽게 전달하는 데 중점을 두었습니다.",
+      "heroImage": {
+        "url": "/placeholders/clothing.svg",
+        "kind": "image",
+        "alt": "의류 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [
+        {
+          "url": "/uploads/7400789d-72f2-4d98-a80a-2e1d738447b7.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/bb5dbc9f-4dca-4e55-8f6d-86bddfd5fd6a.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/0789c1e8-3e75-458e-a6b5-cda9bf3442bd.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/56073b72-251e-4f40-9eb7-09bde6858c36.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/109382a4-8d2b-4e92-93bf-5ab2ea1f56b2.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/e1272cf7-c419-48bd-9297-f6a075f03e22.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/0febb2a7-1054-4f1d-8c36-d149c5085916.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "beforeAfter": [
+        {
+          "id": "75331a83-1d99-4958-9620-389756ec918d",
+          "before": {
+            "url": "/uploads/560e8d0a-80f2-4ca2-ae88-9d9696377c39.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/ad742acf-2f00-4d4f-b6f1-b3cea56793e5.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 0,
+          "category": "detail"
+        },
+        {
+          "id": "de27a56e-87b1-452f-ad26-880a38647ae8",
+          "before": {
+            "url": "/uploads/5ad2940b-8033-4784-bc39-8f35d29acb18.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/89a1375c-a17d-42b8-b0ad-f3fc4548de34.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 1,
+          "category": "detail"
+        },
+        {
+          "id": "b46b8017-12c2-4b47-b445-13d833f3f5b5",
+          "before": {
+            "url": "/uploads/6b582a79-a9b6-4a77-b0d2-ca10fbdaabc2.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/6c2bf48b-e0f9-4443-ab32-87ec2e7e6853.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 2,
+          "category": "detail"
+        },
+        {
+          "id": "250320e4-c4dd-4049-83a8-59c7747671a2",
+          "before": {
+            "url": "/uploads/6d650b1a-1c9b-437e-b9e1-2ef4243926e6.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/0d42364b-27a7-4d7b-8678-5c281c429f85.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 3,
+          "category": "detail"
+        },
+        {
+          "id": "04ae5c5e-7adf-4ab1-85fe-b1afd2a33cf5",
+          "before": {
+            "url": "/uploads/56627d69-7a60-4f4b-82e5-2bde2a13d94b.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/0d5f4c66-c160-45aa-ad21-e2a37660c352.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 4,
+          "category": "model"
+        },
+        {
+          "id": "54e5ebbd-3756-4b06-b3c5-3ca4a38a06a4",
+          "before": {
+            "url": "/uploads/c1f1f1a3-9fa1-4454-9719-41b5a93e01ce.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/b300509c-05ec-405b-af89-a37224abf550.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 5,
+          "category": "model"
+        },
+        {
+          "id": "fdf7a51b-9d26-4334-960a-e2c9789ec5f5",
+          "before": {
+            "url": "/uploads/e005cd49-7428-4101-8c79-2d6576d453b4.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "after": {
+            "url": "/uploads/332ace65-e87a-405b-af62-13aad8cb0b36.jpg",
+            "kind": "image",
+            "alt": ""
+          },
+          "caption": "",
+          "order": 6,
+          "category": "model"
+        }
+      ],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "f9f91455-299c-4dd8-9e67-848e40d2e662",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "온라인 판매용 의류 상세페이지에 활용되는 디테일컷과 모델 착용컷을 촬영하고 보정한 프로젝트입니다. \n제품의 색감과 소재를 실제와 가깝게 표현하고, 모델 착용 이미지를 통해 상품의 실루엣과 착용감을 자연스럽게 전달하는 데 중점을 두었습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 0,
+      "createdAt": "2024-08-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T07:09:42.339Z",
+      "contents": []
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-28T07:09:12.744Z"
+  },
+  {
     "id": "3caeaac0-c649-408f-bebf-29bf97f897b3",
     "entity": "settings",
     "field": "전체",

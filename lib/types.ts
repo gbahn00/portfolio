@@ -16,12 +16,33 @@ export interface MediaRef {
   poster?: string; // 영상 대표 이미지
 }
 
+// §133 — "전체 페이지 글자들의 폰트·자간·행간·줄바꿈을 설정 가능하게
+// 해달라"는 요청으로 추가. 제목용/본문용을 따로 둔다. 값을 비워두면
+// (undefined) globals.css에 원래 있던 클래스별 기본값이 그대로 유지되고,
+// 값을 넣으면 그 값이 해당 역할(제목 전체 또는 본문 전체)에 일괄
+// 적용된다. FontKey는 lib/fonts.ts의 FONTS에 등록된 키와 반드시 같아야
+// 한다(관리자 화면에서 그 목록 중에서만 고르게 되어 있어 항상 맞다).
+export type TypographyFontKey = "pretendard" | "suit" | "wantedSans" | "paperlogy";
+export type WordBreakMode = "keep-all" | "normal" | "break-all";
+
+export interface TypographySettings {
+  titleFont?: TypographyFontKey;
+  titleLetterSpacing?: number; // em 단위, 예: -0.05
+  titleLineHeight?: number; // 배수, 예: 1.1
+  titleWordBreak?: WordBreakMode;
+  bodyFont?: TypographyFontKey;
+  bodyLetterSpacing?: number;
+  bodyLineHeight?: number;
+  bodyWordBreak?: WordBreakMode;
+}
+
 export interface SiteSettings {
   siteTitle: string;
   accentColor: "orange" | "blue";
   reduceMotionRespect: boolean;
   sectionVisibility: Record<string, boolean>; // 화면 영역별 노출 여부
   sectionOrder: string[]; // 화면 영역 표시 순서
+  typography?: TypographySettings;
   updatedAt: string;
 }
 

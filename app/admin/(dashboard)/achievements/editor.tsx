@@ -80,7 +80,8 @@ export function AchievementsManager({ initial }: { initial: Achievement[] }) {
     <div>
       <h1 className="text-2xl font-bold mb-1">성과 관리</h1>
       <p className="text-sm text-neutral-500 mb-2">확인되지 않은 수치는 임의로 작성하지 않습니다. 값이 비어 있으면 공개 화면에 표시되지 않습니다.</p>
-      <p className="text-sm text-neutral-500 mb-8">실제 수치가 확인되면 값을 입력하고 &apos;공개 화면에 노출&apos;을 켜세요.</p>
+      <p className="text-sm text-neutral-500 mb-2">실제 수치가 확인되면 값을 입력하고 &apos;공개 화면에 노출&apos;을 켜세요.</p>
+      <p className="text-xs text-amber-500 mb-8">⚠️ 이 메뉴의 내용은 현재 공개 화면 어디에도 표시되지 않습니다(프로필의 &quot;핵심 수치&quot; 탭과는 다른 데이터입니다).</p>
 
       {sorted.map((item, idx) => (
         <div key={item.id} className="flex items-start gap-2">

@@ -83,7 +83,7 @@ export function FuturePlansManager({ initial }: { initial: FuturePlan[] }) {
   return (
     <div>
       <h1 className="text-2xl font-bold mb-1">향후 계획 관리</h1>
-      <p className="text-sm text-neutral-500 mb-8">특별진급 이후 실행 계획을 추가·수정·삭제합니다.</p>
+      <p className="text-sm text-neutral-500 mb-8">특별진급 이후 실행 계획을 추가·수정·삭제합니다. 공개 화면에는 순서상 위 3개까지만 카드로 보입니다.</p>
 
       {sorted.map((item, idx) => (
         <div key={item.id} className="flex items-start gap-2">

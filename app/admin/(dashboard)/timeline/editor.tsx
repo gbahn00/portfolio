@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { v4 as uuid } from "uuid";
 import { TimelineEntry, GrowthSection } from "@/lib/types";
-import { TextField, TextAreaField, SelectField } from "@/components/admin/fields";
+import { TextField, TextAreaField, SelectField, FieldGroup } from "@/components/admin/fields";
 import { TextListEditor } from "@/components/admin/ArrayEditor";
 import { MediaUpload } from "@/components/admin/MediaUpload";
 import { ConfirmButton } from "@/components/admin/ConfirmButton";
@@ -43,37 +43,42 @@ function EntryCard({ entry, onSaved, onDeleted }: { entry: TimelineEntry; onSave
       </button>
       {open && (
         <div className="border-t border-neutral-800 p-4">
-          <div className="grid grid-cols-2 gap-4">
-            <TextField label="연도" value={draft.year} onChange={(v) => set("year", v)} />
-            <SelectField
-              label="공개 상태" value={draft.status} onChange={(v) => set("status", v as TimelineEntry["status"])}
-              options={[
-                { value: "draft", label: "작성 중" }, { value: "review", label: "검토 중" },
-                { value: "published", label: "공개" }, { value: "hidden", label: "비공개" },
-              ]}
+          <FieldGroup title="텍스트">
+            <div className="grid grid-cols-2 gap-4">
+              <TextField label="연도" value={draft.year} onChange={(v) => set("year", v)} />
+              <SelectField
+                label="공개 상태" value={draft.status} onChange={(v) => set("status", v as TimelineEntry["status"])}
+                options={[
+                  { value: "draft", label: "작성 중" }, { value: "review", label: "검토 중" },
+                  { value: "published", label: "공개" }, { value: "hidden", label: "비공개" },
+                ]}
+              />
+            </div>
+            {/* §83 — 예전엔 한 줄짜리 input이라 줄바꿈을 입력할 수 없었다.
+                textarea로 바꿔 Enter로 원하는 위치에서 줄을 나눌 수 있다
+                (공개 화면에도 그대로 반영됨). */}
+            <TextAreaField
+              label="제목"
+              value={draft.title}
+              onChange={(v) => set("title", v)}
+              rows={2}
+              hint="Enter로 줄바꿈을 입력하면 공개 화면에도 그대로 반영됩니다."
             />
-          </div>
-          {/* §83 — 예전엔 한 줄짜리 input이라 줄바꿈을 입력할 수 없었다.
-              textarea로 바꿔 Enter로 원하는 위치에서 줄을 나눌 수 있다
-              (공개 화면에도 그대로 반영됨). */}
-          <TextAreaField
-            label="제목"
-            value={draft.title}
-            onChange={(v) => set("title", v)}
-            rows={2}
-            hint="Enter로 줄바꿈을 입력하면 공개 화면에도 그대로 반영됩니다."
-          />
-          <TextAreaField label="설명" value={draft.description} onChange={(v) => set("description", v)} rows={2} />
-          <TextListEditor label="주요 경험" items={draft.experiences} onChange={(v) => set("experiences", v as any)} />
-          <TextAreaField
-            label="전달 메시지"
-            value={draft.message}
-            onChange={(v) => set("message", v)}
-            rows={2}
-            hint="Enter로 줄바꿈을 입력하면 공개 화면에도 그대로 반영됩니다."
-          />
-          <MediaUpload label="대표 이미지" value={draft.heroImage} onChange={(m) => set("heroImage", m)} />
-          <MediaUpload label="대표 영상 (선택)" value={draft.heroVideo} onChange={(m) => set("heroVideo", m)} accept="video/*" />
+            <TextAreaField label="설명" value={draft.description} onChange={(v) => set("description", v)} rows={2} />
+            <TextListEditor label="주요 경험" items={draft.experiences} onChange={(v) => set("experiences", v as any)} />
+            <TextAreaField
+              label="전달 메시지"
+              value={draft.message}
+              onChange={(v) => set("message", v)}
+              rows={2}
+              hint="Enter로 줄바꿈을 입력하면 공개 화면에도 그대로 반영됩니다."
+            />
+          </FieldGroup>
+
+          <FieldGroup title="사진·영상">
+            <MediaUpload label="대표 이미지" value={draft.heroImage} onChange={(m) => set("heroImage", m)} />
+            <MediaUpload label="대표 영상 (선택)" value={draft.heroVideo} onChange={(m) => set("heroVideo", m)} accept="video/*" />
+          </FieldGroup>
 
           <div className="flex items-center justify-between mt-4">
             <ConfirmButton label="이 연도 삭제 (휴지통으로 이동)" onConfirm={async () => { await api(`/api/admin/list/timeline/${entry.id}`, { method: "DELETE" }); onDeleted(); }} />
