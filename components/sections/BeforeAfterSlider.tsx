@@ -60,13 +60,15 @@ import { refreshScrollTrigger } from "@/lib/gsap";
 // 모양이다 보니 가로로 넓은 사진은 폭 상한에 먼저 걸려 세로 여유 공간을
 // 다 못 쓰고 작게 나오는 문제가 그대로 남았다.
 //
-// §121 — "면적(체감 크기)을 맞춘다"는 관점으로 접근을 바꿨다. 사진이
-// 로드되면 원본 가로세로 비율을 읽어서, 항상 같은 목표 면적을 채우는
-// 폭·높이를 직접 계산한다(gW = √(면적×비율), gH = √(면적÷비율)) — 정사각
-// 박스 하나에 억지로 끼워 맞추는 대신, 어떤 비율이든 "대략 같은 크기로
-// 보이는" 사각형이 나온다. 다만 아주 극단적인 비율(파노라마처럼 매우
-// 넓거나 매우 좁고 긴 사진)에서 한쪽이 지나치게 커지지 않도록 최소/최대
-// 픽셀 값으로 한 번 더 안전하게 잘라준다.
+// §121 — "면적(체감 크기)을 맞춘다"는 관점으로 접근을 바꿨었는데("항상
+// 같은 목표 면적을 채우는 폭·높이 계산"), §127에서 "오른쪽 프로젝트
+// 개요~Tools를 다 작성했을 때의 세로 크기에 사진 세로를 맞춰달라(가로는
+// 그에 맞게 비율대로 조정돼도 된다)"는 요청을 다시 받아 기준을
+// 바꿨다 — 목표 면적이 아니라 "텍스트 칸의 실제 렌더링 높이"를 그대로
+// 사진 높이로 쓰고, 폭은 사진 원본 비율 그대로 계산한다(찌그러짐/크롭
+// 없음). 다만 사진이 아주 가로로 넓은 비율이면 폭이 텍스트 칸 옆
+// 공간을 벗어날 수 있어, 안전하게 폭 상한(MAX_W)을 두고 넘으면 그
+// 상한에 맞춰 높이도 비율대로 함께 줄어들게 한다.
 //
 // §123 — "처음 볼 땐 비율이 맞는데 새로고침하면 비율이 바뀐다"는 버그.
 // 이 페이지는 서버에서 미리 렌더링돼(img 태그가 이미 src까지 박힌 채로)
@@ -75,37 +77,21 @@ import { refreshScrollTrigger } from "@/lib/gsap";
 // onLoad 리스너를 붙인 "다음"에 로드가 끝나 정상적으로 onNaturalSize가
 // 불린다. 그런데 새로고침해서 사진이 브라우저 캐시에 이미 있으면, 이미지
 // 로드가 매우 빨리(때로는 하이드레이션보다도 먼저) 끝나버려 onLoad 이벤트
-// 자체를 놓친다 — 그러면 실제 비율 계산이 한 번도 안 일어나고 기본값
-// (360×480, 세로 사진 기준)이 그대로 남아 카페 프로젝트처럼 가로로 넓은
-// 사진에는 안 맞는 비율이 보였다. 마운트 시점에 img.complete를 직접
-// 확인해서, 이미 로드가 끝나 있으면 onLoad를 기다리지 않고 그 자리에서
-// 바로 계산하도록 보강했다.
+// 자체를 놓친다. 마운트 시점에 img.complete를 직접 확인해서, 이미 로드가
+// 끝나 있으면 onLoad를 기다리지 않고 그 자리에서 바로 계산하도록
+// 보강했다(이 보강은 계속 유효하다).
 // ============================================================================
 
-const TARGET_AREA = 420 * 480; // 기준 박스(px^2) — 이 넓이를 유지하도록 폭/높이를 계산한다
-const MIN_SIDE = 220;
-const MAX_W = 560;
-const MAX_H = 560;
+const DEFAULT_HEIGHT = 480; // 텍스트 칸 높이를 아직 측정하기 전(최초 렌더) 기준값
+const MAX_W = 640; // 사진이 가로로 아주 넓을 때 옆 텍스트 칸을 침범하지 않도록 하는 안전 상한
 
-function computeBoxSize(naturalWidth: number, naturalHeight: number) {
+function computeBoxFromHeight(naturalWidth: number, naturalHeight: number, targetHeight: number) {
   const ratio = naturalWidth / naturalHeight;
-  let w = Math.sqrt(TARGET_AREA * ratio);
-  let h = Math.sqrt(TARGET_AREA / ratio);
+  let h = targetHeight;
+  let w = h * ratio;
   if (w > MAX_W) {
-    h *= MAX_W / w;
     w = MAX_W;
-  }
-  if (h > MAX_H) {
-    w *= MAX_H / h;
-    h = MAX_H;
-  }
-  if (w < MIN_SIDE) {
-    h *= MIN_SIDE / w;
-    w = MIN_SIDE;
-  }
-  if (h < MIN_SIDE) {
-    w *= MIN_SIDE / h;
-    h = MIN_SIDE;
+    h = w / ratio;
   }
   return { w: Math.round(w), h: Math.round(h) };
 }
@@ -187,11 +173,11 @@ function CompareView({ pair, onNaturalSize }: { pair: BeforeAfterPair; onNatural
   );
 }
 
-export function BeforeAfterSlider({ pairs }: { pairs: BeforeAfterPair[] }) {
+export function BeforeAfterSlider({ pairs, targetHeightPx }: { pairs: BeforeAfterPair[]; targetHeightPx?: number }) {
   const sorted = [...pairs].sort((a, b) => a.order - b.order);
   const [index, setIndex] = useState(0);
-  // §121 — 사진이 로드되기 전(최초 렌더) 기준값. 로드되면 실제 비율로 갱신된다.
-  const [box, setBox] = useState({ w: 360, h: 480 });
+  // §127 — 사진의 실제 원본 가로세로 비율(로드되면 채워진다).
+  const [natural, setNatural] = useState<{ w: number; h: number } | null>(null);
 
   if (sorted.length === 0) return null;
   const current = sorted[Math.min(index, sorted.length - 1)];
@@ -201,8 +187,17 @@ export function BeforeAfterSlider({ pairs }: { pairs: BeforeAfterPair[] }) {
   }
 
   function handleNaturalSize(nw: number, nh: number) {
-    setBox(computeBoxSize(nw, nh));
+    setNatural({ w: nw, h: nh });
   }
+
+  // §127 — 목표 높이는 항상 부모(BeforeAfterWithText)가 실측해서 넘겨주는
+  // targetHeightPx를 그대로 쓴다. 사진 원본 비율(natural)을 아직 모르는
+  // 아주 짧은 순간(최초 렌더)에는 DEFAULT_HEIGHT 기준의 임시 박스를 쓰다가,
+  // 로드/캐시 확인이 끝나는 즉시 실제 비율로 갱신된다.
+  const effectiveHeight = targetHeightPx ?? DEFAULT_HEIGHT;
+  const box = natural
+    ? computeBoxFromHeight(natural.w, natural.h, effectiveHeight)
+    : { w: Math.round(effectiveHeight * 0.75), h: Math.round(effectiveHeight) };
 
   // §122 — "사진이 아주 작아졌다"는 버그. width를 `min(${box.w}px, 100%)`
   // 문자열로 줬는데, 이 박스의 조상이 flex 아이템(width: auto, 즉
