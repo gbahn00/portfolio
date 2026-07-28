@@ -179,16 +179,19 @@ export function BeforeAfterSlider({ pairs }: { pairs: BeforeAfterPair[] }) {
     setBox(computeBoxSize(nw, nh));
   }
 
-  const boxWidthStyle = `min(${box.w}px, 100%)`;
-
+  // §122 — "사진이 아주 작아졌다"는 버그. width를 `min(${box.w}px, 100%)`
+  // 문자열로 줬는데, 이 박스의 조상이 flex 아이템(width: auto, 즉
+  // shrink-to-fit)이라 브라우저가 "이 아이템이 원래 얼마나 넓어야
+  // 하는지" 먼저 계산해야 한다. 그 계산 도중(아직 실제 폭이 정해지지
+  // 않은 상태)에는 percentage 값(위 100%)의 기준이 되는 "부모 폭"이
+  // 아직 없어서(undefined) 100%가 0으로 취급되고, min(360px, 0) = 0이
+  // 돼버려 박스 전체가 거의 0 크기로 찌그러졌다. width와 max-width를
+  // min() 함수로 합치지 않고 별도 속성으로 나누면(width: 고정 px,
+  // max-width: 100%) 이 계산 단계에서도 width가 항상 명확한 값(px)으로
+  // 남아 shrink-to-fit 조상이 올바른 크기를 계산할 수 있다.
   return (
     <>
-      {/* §121 — 사진 칸 크기(box.w × box.h)는 이제 CSS max-w가 아니라
-          위에서 계산한 값(같은 목표 면적을 유지하도록 매 사진마다 다시
-          계산)을 인라인 스타일로 직접 준다. width는 화면이 좁으면
-          min(...)으로 한 번 더 줄어들고, aspect-ratio가 그 폭에 맞는
-          높이를 자동으로 유지해 어떤 화면에서도 비율이 깨지지 않는다. */}
-      <div style={{ width: boxWidthStyle }}>
+      <div style={{ width: `${box.w}px`, maxWidth: "100%" }}>
         {/* §107 — 이전/다음 버튼을 사진 좌우 중앙에 겹쳐 그리기 위한
             래퍼. CompareView 뒤(형제)에 버튼을 둬서 항상 사진 위에
             그려지도록 한다. */}
