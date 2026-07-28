@@ -111,8 +111,10 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
   // 보정 전/후가 없는 프로젝트는 예전과 같은 세로 1단 구조를 그대로 쓴다.
   // §109 — 상세 페이지 대표 화면(ProjectCover)을 제외한 나머지 구간은
   // 스크롤에 따라 나타났다 사라지는 모션(Reveal)을 전부 뺐다.
+  // §117 — 프로젝트 개요/제작 의도/기여도/Tools 사이 여백이 넓다는
+  // 피드백으로 space-y-16(4rem) → space-y-10(2.5rem)으로 줄였다.
   const sectionsAndTools = (
-    <div className="space-y-16">
+    <div className="space-y-10">
       {sections.map((s) => (
         <div key={s.key}>
           <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-korean">{s.title}</h2>
