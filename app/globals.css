@@ -432,11 +432,19 @@ video {
   color: var(--color-text-primary);
 }
 
-/* 화면 미리보기 전용 — 인쇄될 때는 아래 @media print 규칙이 이 여백/테두리를
-   없애고 실제 페이지 경계로 바꾼다. */
+/* §154 — "PDF는 A4 가로(Landscape)로, 웹 화면 한 장면과 비슷한 비율로"라는
+   요청. A4 가로는 297mm(폭) × 210mm(세로) — 세로 기준(297mm)으로 잡혀있던
+   값들을 가로 기준(210mm)으로 바꾸고, 화면 미리보기에서도 실제 페이지
+   폭(297mm)에 맞춰 가운데 정렬해서 인쇄했을 때와 최대한 비슷하게 보이도록
+   했다. 인쇄될 때는 아래 @media print 규칙이 이 여백/테두리를 없애고
+   실제 페이지 경계로 바꾼다. */
 .print-page {
-  padding: 16mm 14mm;
-  min-height: 297mm;
+  width: 297mm;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 12mm 16mm;
+  min-height: 210mm;
   box-sizing: border-box;
   border-bottom: 1px dashed var(--color-border);
   display: flex;
@@ -448,7 +456,7 @@ video {
 
 @media print {
   @page {
-    size: A4;
+    size: A4 landscape;
     margin: 0;
   }
   html,
@@ -469,8 +477,9 @@ video {
     display: none !important;
   }
   .print-page {
-    padding: 14mm;
-    min-height: 297mm;
+    width: 100%;
+    padding: 12mm 16mm;
+    min-height: 210mm;
     border-bottom: none;
     break-after: page;
     page-break-after: always;

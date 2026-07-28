@@ -1,5 +1,891 @@
 [
   {
+    "id": "e4b5bf87-567d-4cad-b176-37aea9645f9b",
+    "entity": "projects:proj-dental",
+    "field": "수정",
+    "before": {
+      "id": "proj-dental",
+      "number": "05",
+      "title": "치과 및 임플란트 광고 영상 제작",
+      "brand": "[자료 필요 - 병원명, 공개 가능 여부 확인 필요]",
+      "brandHidden": true,
+      "year": "2025",
+      "field": "치과 및 병원 광고",
+      "purpose": "임플란트 및 치과 시술을 알리는 Meta 광고 영상과 병원 사회관계망서비스 정보형 영상 제작",
+      "role": "기획 및 제작 [자료 필요 - 세부 역할 구분]",
+      "tools": [
+        "ㅁㅇㄹㄴㅁㅇㄹ",
+        "Premiere Pro",
+        "Photoshop",
+        "Illustrator"
+      ],
+      "description": "의료 광고 특성상 과장된 표현을 피하고 시술 정보를 정확히 전달하는 데 집중했으며, 광고 채널의 노출 방식에 맞춰 영상 길이와 자막 구성을 조정했다.",
+      "gallery": [],
+      "beforeAfter": [],
+      "metrics": [
+        {
+          "id": "m1",
+          "label": "광고 클릭률",
+          "value": "[자료 필요]"
+        },
+        {
+          "id": "m2",
+          "label": "광고 전환율",
+          "value": "[자료 필요]"
+        }
+      ],
+      "detailBlocks": [
+        {
+          "id": "b1",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "치과와 임플란트 홍보를 위해 Meta 광고 및 병원 SNS용 콘텐츠를 기획하고, \n콘티 작성부터 편집과 후반 작업까지 영상 제작 전반을 수행했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "d0b6f237-87fa-48b2-bb36-6a0b50414fc4",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "치료를 고민하는 환자가 어려운 의료 정보를 빠르게 이해하고, 병원의 전문성과 시술에 대한 신뢰를 느낄 수 있도록 핵심 메시지를 구성했습니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "668af89b-b6d3-4217-a1fc-41564b0bffca",
+          "key": "role",
+          "title": "기여도",
+          "body": "콘텐츠 기획 · 콘티 작성 · 컷편집 · 모션 그래픽 · 사운드",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": true,
+      "isDetailFeatured": true,
+      "publicOk": true,
+      "status": "draft",
+      "order": 4,
+      "createdAt": "2025-03-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T13:04:07.139Z",
+      "retouchHighlights": [],
+      "contents": [
+        {
+          "url": "/uploads/2a0c7807-4884-4abf-8501-9dc836e93cae.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/febaac5f-daea-4169-8925-80af93e5ee55.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/f31d75b8-6ddc-4892-ab94-a4a030af9786.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/a1155cc4-cef4-48d6-b9da-f72f3bdef910.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/09e9c528-50a0-46e5-83b3-e59d672751a5.mp4",
+          "kind": "video-file",
+          "alt": ""
+        }
+      ],
+      "beforeAfterFallbackMedia": [
+        {
+          "url": "/uploads/3813181c-2a14-4553-a6e6-ac07233cdaa1.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/b70ab276-ebf0-41b2-94c7-468df7c1673c.mp4",
+          "kind": "video-file",
+          "alt": ""
+        }
+      ],
+      "retouchMarkers": [],
+      "beforeAfterFallbackLayout": "half"
+    },
+    "after": {
+      "id": "proj-dental",
+      "number": "05",
+      "title": "치과 및 임플란트 광고 영상 제작",
+      "brand": "[자료 필요 - 병원명, 공개 가능 여부 확인 필요]",
+      "brandHidden": true,
+      "year": "2025",
+      "field": "치과 및 병원 광고",
+      "purpose": "임플란트 및 치과 시술을 알리는 Meta 광고 영상과 병원 사회관계망서비스 정보형 영상 제작",
+      "role": "기획 및 제작 [자료 필요 - 세부 역할 구분]",
+      "tools": [
+        "ㅁㅇㄹㄴㅁㅇㄹ",
+        "Premiere Pro",
+        "Photoshop",
+        "Illustrator"
+      ],
+      "description": "의료 광고 특성상 과장된 표현을 피하고 시술 정보를 정확히 전달하는 데 집중했으며, 광고 채널의 노출 방식에 맞춰 영상 길이와 자막 구성을 조정했다.",
+      "gallery": [],
+      "beforeAfter": [],
+      "metrics": [
+        {
+          "id": "m1",
+          "label": "광고 클릭률",
+          "value": "[자료 필요]"
+        },
+        {
+          "id": "m2",
+          "label": "광고 전환율",
+          "value": "[자료 필요]"
+        }
+      ],
+      "detailBlocks": [
+        {
+          "id": "b1",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "치과와 임플란트 홍보를 위해 Meta 광고 및 병원 SNS용 콘텐츠를 기획하고, \n콘티 작성부터 편집과 후반 작업까지 영상 제작 전반을 수행했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "d0b6f237-87fa-48b2-bb36-6a0b50414fc4",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "치료를 고민하는 환자가 어려운 의료 정보를 빠르게 이해하고, 병원의 전문성과 시술에 대한 신뢰를 느낄 수 있도록 핵심 메시지를 구성했습니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "668af89b-b6d3-4217-a1fc-41564b0bffca",
+          "key": "role",
+          "title": "기여도",
+          "body": "콘텐츠 기획 · 콘티 작성 · 컷편집 · 모션 그래픽 · 사운드",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": true,
+      "isDetailFeatured": true,
+      "publicOk": true,
+      "status": "draft",
+      "order": 4,
+      "createdAt": "2025-03-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T13:05:02.282Z",
+      "retouchHighlights": [],
+      "contents": [
+        {
+          "url": "/uploads/2a0c7807-4884-4abf-8501-9dc836e93cae.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/febaac5f-daea-4169-8925-80af93e5ee55.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/f31d75b8-6ddc-4892-ab94-a4a030af9786.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/a1155cc4-cef4-48d6-b9da-f72f3bdef910.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/09e9c528-50a0-46e5-83b3-e59d672751a5.mp4",
+          "kind": "video-file",
+          "alt": ""
+        }
+      ],
+      "beforeAfterFallbackMedia": [
+        {
+          "url": "/uploads/3813181c-2a14-4553-a6e6-ac07233cdaa1.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/b70ab276-ebf0-41b2-94c7-468df7c1673c.mp4",
+          "kind": "video-file",
+          "alt": ""
+        }
+      ],
+      "retouchMarkers": []
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-28T13:04:32.690Z"
+  },
+  {
+    "id": "ce26ba91-84c6-4e77-b713-5c7b3bfbe883",
+    "entity": "projects:proj-dental",
+    "field": "수정",
+    "before": {
+      "id": "proj-dental",
+      "number": "05",
+      "title": "치과 및 임플란트 광고 영상 제작",
+      "brand": "[자료 필요 - 병원명, 공개 가능 여부 확인 필요]",
+      "brandHidden": true,
+      "year": "2025",
+      "field": "치과 및 병원 광고",
+      "purpose": "임플란트 및 치과 시술을 알리는 Meta 광고 영상과 병원 사회관계망서비스 정보형 영상 제작",
+      "role": "기획 및 제작 [자료 필요 - 세부 역할 구분]",
+      "tools": [
+        "ㅁㅇㄹㄴㅁㅇㄹ",
+        "Premiere Pro",
+        "Photoshop",
+        "Illustrator"
+      ],
+      "description": "의료 광고 특성상 과장된 표현을 피하고 시술 정보를 정확히 전달하는 데 집중했으며, 광고 채널의 노출 방식에 맞춰 영상 길이와 자막 구성을 조정했다.",
+      "gallery": [],
+      "beforeAfter": [],
+      "metrics": [
+        {
+          "id": "m1",
+          "label": "광고 클릭률",
+          "value": "[자료 필요]"
+        },
+        {
+          "id": "m2",
+          "label": "광고 전환율",
+          "value": "[자료 필요]"
+        }
+      ],
+      "detailBlocks": [
+        {
+          "id": "b1",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "치과와 임플란트 홍보를 위해 Meta 광고 및 병원 SNS용 콘텐츠를 기획하고, \n콘티 작성부터 편집과 후반 작업까지 영상 제작 전반을 수행했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "d0b6f237-87fa-48b2-bb36-6a0b50414fc4",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "치료를 고민하는 환자가 어려운 의료 정보를 빠르게 이해하고, 병원의 전문성과 시술에 대한 신뢰를 느낄 수 있도록 핵심 메시지를 구성했습니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "668af89b-b6d3-4217-a1fc-41564b0bffca",
+          "key": "role",
+          "title": "기여도",
+          "body": "콘텐츠 기획 · 콘티 작성 · 컷편집 · 모션 그래픽 · 사운드",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": true,
+      "isDetailFeatured": true,
+      "publicOk": true,
+      "status": "draft",
+      "order": 4,
+      "createdAt": "2025-03-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T13:03:05.443Z",
+      "retouchHighlights": [],
+      "contents": [],
+      "beforeAfterFallbackMedia": [
+        {
+          "url": "/uploads/3813181c-2a14-4553-a6e6-ac07233cdaa1.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/b70ab276-ebf0-41b2-94c7-468df7c1673c.mp4",
+          "kind": "video-file",
+          "alt": ""
+        }
+      ],
+      "retouchMarkers": [],
+      "beforeAfterFallbackLayout": "half"
+    },
+    "after": {
+      "id": "proj-dental",
+      "number": "05",
+      "title": "치과 및 임플란트 광고 영상 제작",
+      "brand": "[자료 필요 - 병원명, 공개 가능 여부 확인 필요]",
+      "brandHidden": true,
+      "year": "2025",
+      "field": "치과 및 병원 광고",
+      "purpose": "임플란트 및 치과 시술을 알리는 Meta 광고 영상과 병원 사회관계망서비스 정보형 영상 제작",
+      "role": "기획 및 제작 [자료 필요 - 세부 역할 구분]",
+      "tools": [
+        "ㅁㅇㄹㄴㅁㅇㄹ",
+        "Premiere Pro",
+        "Photoshop",
+        "Illustrator"
+      ],
+      "description": "의료 광고 특성상 과장된 표현을 피하고 시술 정보를 정확히 전달하는 데 집중했으며, 광고 채널의 노출 방식에 맞춰 영상 길이와 자막 구성을 조정했다.",
+      "gallery": [],
+      "beforeAfter": [],
+      "metrics": [
+        {
+          "id": "m1",
+          "label": "광고 클릭률",
+          "value": "[자료 필요]"
+        },
+        {
+          "id": "m2",
+          "label": "광고 전환율",
+          "value": "[자료 필요]"
+        }
+      ],
+      "detailBlocks": [
+        {
+          "id": "b1",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "치과와 임플란트 홍보를 위해 Meta 광고 및 병원 SNS용 콘텐츠를 기획하고, \n콘티 작성부터 편집과 후반 작업까지 영상 제작 전반을 수행했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "d0b6f237-87fa-48b2-bb36-6a0b50414fc4",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "치료를 고민하는 환자가 어려운 의료 정보를 빠르게 이해하고, 병원의 전문성과 시술에 대한 신뢰를 느낄 수 있도록 핵심 메시지를 구성했습니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "668af89b-b6d3-4217-a1fc-41564b0bffca",
+          "key": "role",
+          "title": "기여도",
+          "body": "콘텐츠 기획 · 콘티 작성 · 컷편집 · 모션 그래픽 · 사운드",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": true,
+      "isDetailFeatured": true,
+      "publicOk": true,
+      "status": "draft",
+      "order": 4,
+      "createdAt": "2025-03-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T13:04:07.139Z",
+      "retouchHighlights": [],
+      "contents": [
+        {
+          "url": "/uploads/2a0c7807-4884-4abf-8501-9dc836e93cae.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/febaac5f-daea-4169-8925-80af93e5ee55.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/f31d75b8-6ddc-4892-ab94-a4a030af9786.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/a1155cc4-cef4-48d6-b9da-f72f3bdef910.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/09e9c528-50a0-46e5-83b3-e59d672751a5.mp4",
+          "kind": "video-file",
+          "alt": ""
+        }
+      ],
+      "beforeAfterFallbackMedia": [
+        {
+          "url": "/uploads/3813181c-2a14-4553-a6e6-ac07233cdaa1.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/b70ab276-ebf0-41b2-94c7-468df7c1673c.mp4",
+          "kind": "video-file",
+          "alt": ""
+        }
+      ],
+      "retouchMarkers": [],
+      "beforeAfterFallbackLayout": "half"
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-28T13:03:37.364Z"
+  },
+  {
+    "id": "1ba569b6-18f9-40df-8fb7-694ffdbbf392",
+    "entity": "projects:proj-dental",
+    "field": "수정",
+    "before": {
+      "id": "proj-dental",
+      "number": "05",
+      "title": "치과 및 임플란트 광고 영상 제작",
+      "brand": "[자료 필요 - 병원명, 공개 가능 여부 확인 필요]",
+      "brandHidden": true,
+      "year": "2025",
+      "field": "치과 및 병원 광고",
+      "purpose": "임플란트 및 치과 시술을 알리는 Meta 광고 영상과 병원 사회관계망서비스 정보형 영상 제작",
+      "role": "기획 및 제작 [자료 필요 - 세부 역할 구분]",
+      "tools": [
+        "ㅁㅇㄹㄴㅁㅇㄹ",
+        "Premiere Pro",
+        "Photoshop",
+        "Illustrator"
+      ],
+      "description": "의료 광고 특성상 과장된 표현을 피하고 시술 정보를 정확히 전달하는 데 집중했으며, 광고 채널의 노출 방식에 맞춰 영상 길이와 자막 구성을 조정했다.",
+      "gallery": [],
+      "beforeAfter": [],
+      "metrics": [
+        {
+          "id": "m1",
+          "label": "광고 클릭률",
+          "value": "[자료 필요]"
+        },
+        {
+          "id": "m2",
+          "label": "광고 전환율",
+          "value": "[자료 필요]"
+        }
+      ],
+      "detailBlocks": [
+        {
+          "id": "b1",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "치과와 임플란트 홍보를 위해 Meta 광고 및 병원 SNS용 콘텐츠를 기획하고, \n콘티 작성부터 편집과 후반 작업까지 영상 제작 전반을 수행했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "d0b6f237-87fa-48b2-bb36-6a0b50414fc4",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "치료를 고민하는 환자가 어려운 의료 정보를 빠르게 이해하고, 병원의 전문성과 시술에 대한 신뢰를 느낄 수 있도록 핵심 메시지를 구성했습니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "668af89b-b6d3-4217-a1fc-41564b0bffca",
+          "key": "role",
+          "title": "기여도",
+          "body": "콘텐츠 기획 · 콘티 작성 · 컷편집 · 모션 그래픽 · 사운드",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": true,
+      "isDetailFeatured": true,
+      "publicOk": true,
+      "status": "draft",
+      "order": 4,
+      "createdAt": "2025-03-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T13:01:30.065Z",
+      "retouchHighlights": [],
+      "contents": [],
+      "beforeAfterFallbackMedia": [
+        {
+          "url": "/uploads/34135843-8884-4eaa-bdf0-dbfab68c89a4.mp4",
+          "kind": "video-file",
+          "alt": ""
+        }
+      ],
+      "retouchMarkers": []
+    },
+    "after": {
+      "id": "proj-dental",
+      "number": "05",
+      "title": "치과 및 임플란트 광고 영상 제작",
+      "brand": "[자료 필요 - 병원명, 공개 가능 여부 확인 필요]",
+      "brandHidden": true,
+      "year": "2025",
+      "field": "치과 및 병원 광고",
+      "purpose": "임플란트 및 치과 시술을 알리는 Meta 광고 영상과 병원 사회관계망서비스 정보형 영상 제작",
+      "role": "기획 및 제작 [자료 필요 - 세부 역할 구분]",
+      "tools": [
+        "ㅁㅇㄹㄴㅁㅇㄹ",
+        "Premiere Pro",
+        "Photoshop",
+        "Illustrator"
+      ],
+      "description": "의료 광고 특성상 과장된 표현을 피하고 시술 정보를 정확히 전달하는 데 집중했으며, 광고 채널의 노출 방식에 맞춰 영상 길이와 자막 구성을 조정했다.",
+      "gallery": [],
+      "beforeAfter": [],
+      "metrics": [
+        {
+          "id": "m1",
+          "label": "광고 클릭률",
+          "value": "[자료 필요]"
+        },
+        {
+          "id": "m2",
+          "label": "광고 전환율",
+          "value": "[자료 필요]"
+        }
+      ],
+      "detailBlocks": [
+        {
+          "id": "b1",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "치과와 임플란트 홍보를 위해 Meta 광고 및 병원 SNS용 콘텐츠를 기획하고, \n콘티 작성부터 편집과 후반 작업까지 영상 제작 전반을 수행했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "d0b6f237-87fa-48b2-bb36-6a0b50414fc4",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "치료를 고민하는 환자가 어려운 의료 정보를 빠르게 이해하고, 병원의 전문성과 시술에 대한 신뢰를 느낄 수 있도록 핵심 메시지를 구성했습니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "668af89b-b6d3-4217-a1fc-41564b0bffca",
+          "key": "role",
+          "title": "기여도",
+          "body": "콘텐츠 기획 · 콘티 작성 · 컷편집 · 모션 그래픽 · 사운드",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": true,
+      "isDetailFeatured": true,
+      "publicOk": true,
+      "status": "draft",
+      "order": 4,
+      "createdAt": "2025-03-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T13:03:05.443Z",
+      "retouchHighlights": [],
+      "contents": [],
+      "beforeAfterFallbackMedia": [
+        {
+          "url": "/uploads/3813181c-2a14-4553-a6e6-ac07233cdaa1.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/b70ab276-ebf0-41b2-94c7-468df7c1673c.mp4",
+          "kind": "video-file",
+          "alt": ""
+        }
+      ],
+      "retouchMarkers": [],
+      "beforeAfterFallbackLayout": "half"
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-28T13:02:35.766Z"
+  },
+  {
+    "id": "a599765c-fe57-4107-a3f3-ab744bbcdb9f",
+    "entity": "projects:proj-dental",
+    "field": "수정",
+    "before": {
+      "id": "proj-dental",
+      "number": "05",
+      "title": "치과 및 임플란트 광고 영상 제작",
+      "brand": "[자료 필요 - 병원명, 공개 가능 여부 확인 필요]",
+      "brandHidden": true,
+      "year": "2025",
+      "field": "치과 및 병원 광고",
+      "purpose": "임플란트 및 치과 시술을 알리는 Meta 광고 영상과 병원 사회관계망서비스 정보형 영상 제작",
+      "role": "기획 및 제작 [자료 필요 - 세부 역할 구분]",
+      "tools": [
+        "ㅁㅇㄹㄴㅁㅇㄹ",
+        "Premiere Pro",
+        "Photoshop",
+        "Illustrator"
+      ],
+      "description": "의료 광고 특성상 과장된 표현을 피하고 시술 정보를 정확히 전달하는 데 집중했으며, 광고 채널의 노출 방식에 맞춰 영상 길이와 자막 구성을 조정했다.",
+      "gallery": [],
+      "beforeAfter": [],
+      "metrics": [
+        {
+          "id": "m1",
+          "label": "광고 클릭률",
+          "value": "[자료 필요]"
+        },
+        {
+          "id": "m2",
+          "label": "광고 전환율",
+          "value": "[자료 필요]"
+        }
+      ],
+      "detailBlocks": [
+        {
+          "id": "b1",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "치과와 임플란트 홍보를 위해 Meta 광고 및 병원 SNS용 콘텐츠를 기획하고, \n콘티 작성부터 편집과 후반 작업까지 영상 제작 전반을 수행했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "d0b6f237-87fa-48b2-bb36-6a0b50414fc4",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "치료를 고민하는 환자가 어려운 의료 정보를 빠르게 이해하고, 병원의 전문성과 시술에 대한 신뢰를 느낄 수 있도록 핵심 메시지를 구성했습니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "668af89b-b6d3-4217-a1fc-41564b0bffca",
+          "key": "role",
+          "title": "기여도",
+          "body": "콘텐츠 기획 · 콘티 작성 · 컷편집 · 모션 그래픽 · 사운드",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": true,
+      "isDetailFeatured": true,
+      "publicOk": true,
+      "status": "draft",
+      "order": 4,
+      "createdAt": "2025-03-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T11:55:41.719Z",
+      "retouchHighlights": [],
+      "contents": [
+        {
+          "url": "/uploads/3f88e7a5-7ab4-4c66-909b-b0c2b18bf390.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/207a6668-d58e-41fa-a56a-d5f438cb884b.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/3dd31483-5eb7-401a-80c0-14a4a4f96bcc.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/a37dd8b2-ed63-4df9-89c4-f5a196aa229e.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/6dcab55e-c1e9-4cf9-952a-6539539bc320.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/d6dda7a0-0601-4990-b73a-4b0540290be8.mp4",
+          "kind": "video-file",
+          "alt": ""
+        }
+      ],
+      "beforeAfterFallbackMedia": [
+        {
+          "url": "/uploads/34135843-8884-4eaa-bdf0-dbfab68c89a4.mp4",
+          "kind": "video-file",
+          "alt": ""
+        }
+      ],
+      "retouchMarkers": []
+    },
+    "after": {
+      "id": "proj-dental",
+      "number": "05",
+      "title": "치과 및 임플란트 광고 영상 제작",
+      "brand": "[자료 필요 - 병원명, 공개 가능 여부 확인 필요]",
+      "brandHidden": true,
+      "year": "2025",
+      "field": "치과 및 병원 광고",
+      "purpose": "임플란트 및 치과 시술을 알리는 Meta 광고 영상과 병원 사회관계망서비스 정보형 영상 제작",
+      "role": "기획 및 제작 [자료 필요 - 세부 역할 구분]",
+      "tools": [
+        "ㅁㅇㄹㄴㅁㅇㄹ",
+        "Premiere Pro",
+        "Photoshop",
+        "Illustrator"
+      ],
+      "description": "의료 광고 특성상 과장된 표현을 피하고 시술 정보를 정확히 전달하는 데 집중했으며, 광고 채널의 노출 방식에 맞춰 영상 길이와 자막 구성을 조정했다.",
+      "gallery": [],
+      "beforeAfter": [],
+      "metrics": [
+        {
+          "id": "m1",
+          "label": "광고 클릭률",
+          "value": "[자료 필요]"
+        },
+        {
+          "id": "m2",
+          "label": "광고 전환율",
+          "value": "[자료 필요]"
+        }
+      ],
+      "detailBlocks": [
+        {
+          "id": "b1",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "치과와 임플란트 홍보를 위해 Meta 광고 및 병원 SNS용 콘텐츠를 기획하고, \n콘티 작성부터 편집과 후반 작업까지 영상 제작 전반을 수행했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "d0b6f237-87fa-48b2-bb36-6a0b50414fc4",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "치료를 고민하는 환자가 어려운 의료 정보를 빠르게 이해하고, 병원의 전문성과 시술에 대한 신뢰를 느낄 수 있도록 핵심 메시지를 구성했습니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "668af89b-b6d3-4217-a1fc-41564b0bffca",
+          "key": "role",
+          "title": "기여도",
+          "body": "콘텐츠 기획 · 콘티 작성 · 컷편집 · 모션 그래픽 · 사운드",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": true,
+      "isDetailFeatured": true,
+      "publicOk": true,
+      "status": "draft",
+      "order": 4,
+      "createdAt": "2025-03-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T13:01:30.065Z",
+      "retouchHighlights": [],
+      "contents": [],
+      "beforeAfterFallbackMedia": [
+        {
+          "url": "/uploads/34135843-8884-4eaa-bdf0-dbfab68c89a4.mp4",
+          "kind": "video-file",
+          "alt": ""
+        }
+      ],
+      "retouchMarkers": []
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-28T13:01:00.518Z"
+  },
+  {
     "id": "e65e03df-11f3-4f3a-8043-cb875b8ac560",
     "entity": "projects:proj-portrait",
     "field": "수정",

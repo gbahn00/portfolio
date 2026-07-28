@@ -78,7 +78,7 @@ export function PrintProfile({
       {skills.length > 0 && (
         <div className="mb-10 print-avoid-break">
           <p className="font-en text-sm text-ink-muted mb-4 tracking-wide">Skills</p>
-          <div className="grid grid-cols-2 gap-x-8 gap-y-3">
+          <div className="grid grid-cols-3 gap-x-8 gap-y-3">
             {skills.map((s) => (
               <div key={s.id} className="flex items-center gap-3">
                 {TOOL_ICON_MAP[s.name] && (
