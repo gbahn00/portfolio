@@ -3,26 +3,33 @@ import { visibleSorted } from "@/lib/publish";
 import { getProjectPrintView, getPublicProjectsSorted } from "@/lib/print-content";
 import { PrintCover } from "./PrintCover";
 import { PrintProfile } from "./PrintProfile";
+import { PrintCompetencies } from "./PrintCompetencies";
 import { PrintGrowth } from "./PrintGrowth";
 import { PrintProjectsOverview } from "./PrintProjectsOverview";
-import { PrintProjectCard } from "./PrintProjectCard";
-import { PrintProjectDetail } from "./PrintProjectDetail";
+import { PrintProjectHero } from "./PrintProjectHero";
+import { PrintProject } from "./PrintProject";
 import { PrintFuturePlans } from "./PrintFuturePlans";
 import { PrintFaq } from "./PrintFaq";
 import { PrintClosing } from "./PrintClosing";
 
 // ============================================================================
-// §153 — Admin PDF Export. 스펙 3번의 페이지 순서를 그대로 구현한다:
-//   1. 메인 페이지 → 2. Profile → 3. 업무 성장 과정 → 4. 대표 프로젝트 →
-//   (5. 프로젝트 1 → 6. 프로젝트 1 상세 → 7. 프로젝트 2 → 8. 프로젝트 2 상세 → ...) →
-//   N. 특별진급 이후 실행 계획 → N+1. FAQ → N+2. 마지막 페이지
-// 각 섹션의 "무엇을 보여줄지" 판단(공개 여부·순서·상한 개수 등)은 웹
-// 홈페이지(app/page.tsx)·프로젝트 상세페이지(app/projects/[id]/page.tsx)와
-// 동일한 기준(visibleSorted, publicOk, lib/print-content.ts)을 그대로
-// 쓴다 — "웹과 PDF가 항상 같은 데이터를 쓴다"는 요청의 핵심.
+// §155/§156 — "PDF 출력 구조 전면 개선"에 이어 "PDF 가로형 출력·미디어
+// 배치 개선" 요청까지 반영한 최종 페이지 순서:
+//   1. 표지 → 2. Profile → 3. 업무 역량(별도 페이지) → 4. 업무 성장과정 →
+//   5. 대표 프로젝트 목차 →
+//   (프로젝트마다 2페이지: 6. 대표페이지[전체화면 이미지 + 공통 검정
+//   그라데이션 + 하단 텍스트] → 7. 상세페이지[좌 미디어 / 우 본문 2단 +
+//   Tools]) → 실행 계획 → FAQ → 마지막 페이지.
+// 이미지·텍스트가 전혀 없는(=아직 채워지지 않은) 프로젝트는 기본값대로
+// PDF에서 제외한다(§155-12). 대표 이미지 1~2장 또는 Before/After 1쌍만
+// 쓰고 전체 갤러리를 옮기지 않는 원칙(§155)은 그대로 유지한다.
 // ============================================================================
 export function PrintDocument({ content }: { content: SiteContent }) {
   const publicProjects = getPublicProjectsSorted(content);
+  const projectViews = publicProjects
+    .map((project) => ({ project, view: getProjectPrintView(project) }))
+    .filter((x) => x.view.hasUsableContent);
+
   const heroStackImages: MediaRef[] = [
     content.hero?.backgroundImage,
     ...publicProjects.slice(0, 2).map((p) => p.heroImage),
@@ -32,17 +39,14 @@ export function PrintDocument({ content }: { content: SiteContent }) {
   return (
     <div className="print-doc">
       <PrintCover hero={content.hero} fallbackImage={heroStackImages[0]} />
-      <PrintProfile
-        profile={content.profile}
-        philosophy={content.philosophy}
-        competencies={visibleSorted(content.competencies)}
-      />
+      <PrintProfile profile={content.profile} philosophy={content.philosophy} />
+      <PrintCompetencies competencies={visibleSorted(content.competencies)} />
       <PrintGrowth entries={visibleSorted(content.timeline)} title={content.growth?.title} />
-      <PrintProjectsOverview projects={publicProjects} />
-      {publicProjects.map((project, i) => (
+      <PrintProjectsOverview projects={projectViews.map((x) => x.project)} />
+      {projectViews.map(({ project, view }, i) => (
         <div key={project.id}>
-          <PrintProjectCard project={project} index={i} />
-          <PrintProjectDetail view={getProjectPrintView(project)} />
+          <PrintProjectHero project={project} view={view} index={i} />
+          <PrintProject project={project} view={view} index={i} />
         </div>
       ))}
       <PrintFuturePlans items={content.futurePlans} />

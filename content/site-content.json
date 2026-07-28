@@ -367,21 +367,17 @@
       "title": "상세페이지 디테일컷 및 모델 촬영 · 보정",
       "brand": "[자료 필요 - 브랜드명]",
       "brandHidden": true,
-      "year": "2024",
+      "year": "2024~2025",
       "field": "의류",
       "purpose": "제품의 색감과 디테일을 정확하게 전달하고, 구매 결정에 도움이 되는 이미지 제작",
       "role": "촬영과 보정 기준을 일관되게 적용해 상품의 완성도와 표현 품질을 높였습니다.",
       "tools": [
         "dfdfdfdfdfdf",
-        "CapCut",
-        "After Effects",
-        "Illustrator",
-        "Premiere Pro",
         "Photoshop"
       ],
       "description": "온라인 판매용 의류 상세페이지에 활용되는 제품 이미지와 모델 착용컷을 촬영·보정했습니다.",
       "heroImage": {
-        "url": "/placeholders/clothing.svg",
+        "url": "/uploads/50209c62-2d4e-4e9b-9e52-d4490eb10c8a.jpg",
         "kind": "image",
         "alt": "의류 촬영 대표 이미지 [자료 필요]"
       },
@@ -619,7 +615,7 @@
       "status": "draft",
       "order": 0,
       "createdAt": "2024-08-01T00:00:00.000Z",
-      "updatedAt": "2026-07-28T10:10:43.594Z",
+      "updatedAt": "2026-07-28T13:35:11.361Z",
       "contents": [],
       "beforeAfterFallbackMedia": [],
       "retouchMarkers": []
@@ -636,16 +632,13 @@
       "role": "촬영 · 색보정 · 리터칭 · 메뉴 콘텐츠 제작",
       "tools": [
         "ㅁㅇㄴㄹㅁㅇㄴㄹ",
-        "Photoshop",
-        "Premiere Pro",
-        "Illustrator",
-        "After Effects"
+        "Photoshop"
       ],
       "description": "음식의 맛을 시각적으로 전달하고, 브랜드가 가진 분위기와 감성을 함께 담아낼 수 있는 메뉴 콘텐츠를 제작했습니다.",
       "heroImage": {
-        "url": "/placeholders/cafe.svg",
+        "url": "/uploads/47c4de09-9278-42d8-8984-47225c94f89a.png",
         "kind": "image",
-        "alt": "카페 및 음식 촬영 대표 이미지 [자료 필요]"
+        "alt": ""
       },
       "gallery": [
         {
@@ -769,7 +762,7 @@
       "status": "draft",
       "order": 1,
       "createdAt": "2024-09-01T00:00:00.000Z",
-      "updatedAt": "2026-07-28T10:18:55.375Z",
+      "updatedAt": "2026-07-28T13:39:51.206Z",
       "contents": [],
       "beforeAfterFallbackMedia": [],
       "retouchMarkers": []
@@ -786,14 +779,13 @@
       "role": "촬영 보조 및 보정",
       "tools": [
         "[자료 필요] 사용 장비 및 보정 프로그램 목록",
-        "Premiere Pro",
         "Photoshop"
       ],
       "description": "카페 및 음식 브랜드, 병원, 회사 인테리어 촬영을 보조하고, 공간의 구조와 밝기, 전체 분위기가 왜곡되지 않도록 보정했습니다.",
       "heroImage": {
-        "url": "/placeholders/interior.svg",
+        "url": "/uploads/fdb803eb-8c1e-480e-9b7f-a876d6078e7b.jpg",
         "kind": "image",
-        "alt": "인테리어 촬영 대표 이미지 [자료 필요]"
+        "alt": ""
       },
       "gallery": [
         {
@@ -810,6 +802,16 @@
           "url": "/uploads/3752823f-2812-4027-813a-7e033c0159c3.jpg",
           "kind": "image",
           "alt": ""
+        },
+        {
+          "url": "/uploads/1dcf90e5-faa1-44a6-82a9-9c07aef3fafc.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/8242c4f7-a555-4f3a-9f4b-3c4dac4d5f21.jpg",
+          "kind": "image",
+          "alt": ""
         }
       ],
       "beforeAfter": [],
@@ -819,7 +821,7 @@
           "id": "a85507b7-2deb-4df7-af42-b844fa9c7975",
           "key": "overview",
           "title": "프로젝트 개요",
-          "body": "카페, 병원, 사무공간 등의 인테리어 홍보 촬영 현장에서 장비 세팅과 구도 설정을 지원하고, \n촬영 결과물의 색감과 세부 요소를 보정했습니다.",
+          "body": "카페, 병원 등의 인테리어 홍보 촬영 현장에서 장비 세팅과 구도 설정을 지원하고, \n촬영 결과물의 색감과 세부 요소를 보정했습니다.",
           "order": 0,
           "visible": true,
           "images": [],
@@ -861,7 +863,7 @@
       "status": "draft",
       "order": 2,
       "createdAt": "2024-09-15T00:00:00.000Z",
-      "updatedAt": "2026-07-28T11:11:45.493Z",
+      "updatedAt": "2026-07-28T13:46:42.190Z",
       "retouchHighlights": [
         {
           "id": "025c91c5-cd78-49eb-bfbd-d77e7051b1ad",
@@ -912,39 +914,44 @@
       "title": "인물 프로필 보정",
       "brand": "[자료 필요 - 브랜드명]",
       "brandHidden": true,
-      "year": "2024",
+      "year": "상시업무",
       "field": "인물 프로필",
       "purpose": "직원, 의료진과 트레이너의 프로필 사진 제작",
       "role": "촬영 보조 및 보정",
       "tools": [
         "[자료 필요] 사용 장비 및 보정 프로그램 목록",
         "Photoshop",
-        "Premiere Pro"
+        "생성형 AI"
       ],
       "description": "회사 직원, 병원 의사, 헬스장 트레이너의 프로필과 단체사진을 촬영 보조하고 보정했습니다.\n과도한 보정보다 대상자의 자연스러움과 직업적 신뢰감을 유지하는 데 집중했습니다.",
       "heroImage": {
-        "url": "/placeholders/portrait.svg",
+        "url": "/uploads/8c54c5c0-28e9-45ff-a7e9-d3f532cd28f2.png",
         "kind": "image",
-        "alt": "인물 프로필 촬영 대표 이미지 [자료 필요]"
+        "alt": ""
       },
       "gallery": [
         {
-          "url": "/uploads/cafb27ca-52b6-4690-be4e-1ee0f2a1c099.png",
+          "url": "/uploads/b7ba84b7-f327-4c41-b23d-21225d9bfccd.jpg",
           "kind": "image",
           "alt": ""
         },
         {
-          "url": "/uploads/c3ecd252-7005-4d5d-8f0e-a2ff32ca2607.png",
+          "url": "/uploads/69335174-dbfc-4f79-958c-8b4911577c09.jpg",
           "kind": "image",
           "alt": ""
         },
         {
-          "url": "/uploads/69270e0a-7a58-413a-b559-63bcb658d926.png",
+          "url": "/uploads/625f7c05-d5a5-47c1-a22f-623be77165c3.jpg",
           "kind": "image",
           "alt": ""
         },
         {
-          "url": "/uploads/0480d736-52c3-40e7-b6d7-4050d0762b2d.png",
+          "url": "/uploads/c820ed84-da54-49fb-b12f-b64bac7bd186.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/67b028bd-7706-48de-8fa6-db899bafc0a1.jpg",
           "kind": "image",
           "alt": ""
         }
@@ -1011,60 +1018,63 @@
       "status": "draft",
       "order": 3,
       "createdAt": "2024-10-01T00:00:00.000Z",
-      "updatedAt": "2026-07-28T12:40:10.064Z",
+      "updatedAt": "2026-07-28T14:03:18.942Z",
       "contents": [],
       "beforeAfterFallbackMedia": [
         {
-          "url": "/uploads/2efdbb3f-f732-4831-9e61-7f4893b7a1d2.png",
-          "kind": "image",
-          "alt": ""
-        },
-        {
-          "url": "/uploads/ebc29c56-1cc9-4941-9597-43efe309f599.png",
+          "url": "/uploads/d3ddeb59-933d-4953-9a08-3168148d8299.jpg",
           "kind": "image",
           "alt": ""
         }
       ],
       "retouchMarkers": [
         {
-          "id": "2c42fff8-f442-4374-93e0-47897412cac7",
+          "id": "02077667-8009-426f-b962-90a2afb24261",
           "mediaIndex": 0,
-          "x": 43.8,
-          "y": 47.1,
-          "label": "dfjlkdjflj",
+          "x": 58.9,
+          "y": 33.2,
+          "label": "얼굴 윤곽 보정",
           "order": 0
         },
         {
-          "id": "7973cf9e-f6b8-4dfa-95d5-56373cc26c4d",
+          "id": "fba7ca64-14ce-4659-bff9-12918e1ff4ae",
           "mediaIndex": 0,
-          "x": 58.7,
-          "y": 49.8,
-          "label": "sdlkfjsldfjkldsj",
+          "x": 58.5,
+          "y": 25.5,
+          "label": "눈매 교정",
           "order": 1
         },
         {
-          "id": "4df499c4-3f21-40ce-b74a-f99f9befaa92",
+          "id": "36302bbd-94cc-4eb3-af9a-b6897ef361a6",
           "mediaIndex": 0,
-          "x": 58,
-          "y": 63.9,
-          "label": "kfjlwejlkfjlds",
+          "x": 33,
+          "y": 42.5,
+          "label": "헤어 정돈",
           "order": 2
         },
         {
-          "id": "a231ac0a-499b-4980-b4ba-7230b885ed75",
+          "id": "239f8d46-2e31-4b07-ade3-d3ce0065d149",
           "mediaIndex": 0,
-          "x": 38.4,
-          "y": 59.3,
-          "label": "skldjfwfn;dnfkdn",
+          "x": 59.8,
+          "y": 12.4,
+          "label": "두상 보정",
           "order": 3
         },
         {
-          "id": "aba2b8a1-3899-487f-9b9c-f6704e87c382",
+          "id": "bf83d468-54b0-45af-940f-318c4fd2147e",
           "mediaIndex": 0,
-          "x": 31.9,
-          "y": 45.7,
-          "label": "sdfnlfnlwnflsdlfkdf",
+          "x": 43.8,
+          "y": 29.1,
+          "label": "피부 톤 보정",
           "order": 4
+        },
+        {
+          "id": "766e57a5-9f7d-44e4-83d2-5338b74d1bda",
+          "mediaIndex": 0,
+          "x": 80.8,
+          "y": 51.7,
+          "label": "체형 라인 보정",
+          "order": 5
         }
       ],
       "beforeAfterFallbackLayout": "half"
@@ -1274,15 +1284,9 @@
       "status": "draft",
       "order": 5,
       "createdAt": "2025-05-01T00:00:00.000Z",
-      "updatedAt": "2026-07-28T10:25:50.587Z",
+      "updatedAt": "2026-07-28T13:10:50.546Z",
       "contents": [],
-      "beforeAfterFallbackMedia": [
-        {
-          "url": "/uploads/b9d66daa-d6e2-47b1-94dd-db6227338773.mp4",
-          "kind": "video-file",
-          "alt": ""
-        }
-      ],
+      "beforeAfterFallbackMedia": [],
       "retouchMarkers": []
     },
     {
@@ -1302,8 +1306,8 @@
         "InVideo AI",
         "Kling AI",
         "Photoshop",
-        "Premiere Pro",
-        "Illustrator"
+        "생성형 AI",
+        "After Effects"
       ],
       "description": "실제 촬영이 어려운 장면을 생성형 인공지능으로 대체하되, 브랜드 톤과 어긋나지 않도록 여러 도구의 결과물을 비교하고 재생성하는 과정을 거쳤다.",
       "heroImage": {
@@ -1367,9 +1371,46 @@
       "status": "draft",
       "order": 6,
       "createdAt": "2026-02-01T00:00:00.000Z",
-      "updatedAt": "2026-07-28T11:17:02.088Z",
-      "contents": [],
-      "beforeAfterFallbackMedia": [],
+      "updatedAt": "2026-07-28T13:19:06.362Z",
+      "contents": [
+        {
+          "url": "/uploads/bf280e9d-8a37-48c4-8dbb-294ad6bff719.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/48dee52a-fb01-4c9e-8de1-c6793fa605e2.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/6603a982-f7a7-4a3c-b1d8-cccdcf015f7f.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/73c5755a-d4e5-41a0-a6eb-ec3e6d90c4ad.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/54e039b1-909c-40b6-9f90-63887d199554.mp4",
+          "kind": "video-file",
+          "alt": ""
+        }
+      ],
+      "beforeAfterFallbackMedia": [
+        {
+          "url": "/uploads/7f17502f-4f17-4f61-bb94-a055e5423afc.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/b8e74b3b-720f-4b60-8f44-96e0f160909c.mp4",
+          "kind": "video-file",
+          "alt": ""
+        }
+      ],
       "retouchMarkers": []
     },
     {
@@ -1384,10 +1425,7 @@
       "role": "설계 및 구축",
       "tools": [
         "Notion",
-        "Higgsfield AI",
-        "Photoshop",
-        "Premiere Pro",
-        "Illustrator"
+        "Higgsfield AI"
       ],
       "description": "팀에서 공동으로 사용하는 힉스필드 AI 계정의 크레딧 소모 현황을 실시간으로 추적할 수 있는 노션 데이터베이스를 설계하고 구축했습니다.",
       "heroImage": {
@@ -1395,7 +1433,23 @@
         "kind": "image",
         "alt": "노션 관리체계 대표 이미지 [자료 필요]"
       },
-      "gallery": [],
+      "gallery": [
+        {
+          "url": "/uploads/e2a49a83-64b2-4cea-b1d0-c1b9a9207270.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/de7c5c37-e060-4ea9-98f9-c74fcaecd075.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/a2c16bc8-6dab-436c-8594-bfa3405d5bfb.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
       "beforeAfter": [],
       "metrics": [
         {
@@ -1451,7 +1505,7 @@
       "status": "draft",
       "order": 7,
       "createdAt": "2026-03-01T00:00:00.000Z",
-      "updatedAt": "2026-07-28T11:16:43.789Z",
+      "updatedAt": "2026-07-28T13:23:17.619Z",
       "contents": [],
       "beforeAfterFallbackMedia": [],
       "retouchMarkers": []

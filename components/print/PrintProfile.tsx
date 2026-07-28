@@ -1,4 +1,4 @@
-import { Profile, PhilosophySection, Competency } from "@/lib/types";
+import { Profile, PhilosophySection } from "@/lib/types";
 import { optimizedImageSrc } from "@/lib/utils";
 import { TOOL_ICON_MAP, TOOL_ICON_ORDER } from "@/lib/tool-icons";
 import { PrintPage } from "./PrintPage";
@@ -8,14 +8,14 @@ import { PrintHeading } from "./PrintHeading";
 // 나뉘어 한 번에 하나씩만 보이지만, 인쇄물은 탭을 넘길 수 없으므로 세
 // 탭의 내용을 전부 세로로 이어서 보여준다(데이터는 동일, 화면 표시
 // 방식만 인쇄물에 맞게 바꿨다).
+// §155-5 — "업무 역량"은 별도 페이지(PrintCompetencies.tsx)로 분리했으므로
+// 이 페이지는 소개/핵심 수치/Skills까지만 담당한다.
 export function PrintProfile({
   profile,
   philosophy,
-  competencies,
 }: {
   profile: Profile;
   philosophy: PhilosophySection;
-  competencies: Competency[];
 }) {
   const paragraphs = [...philosophy.paragraphs].sort((a, b) => a.order - b.order);
   const keywords = [...philosophy.keywords].sort((a, b) => a.order - b.order);
@@ -27,7 +27,6 @@ export function PrintProfile({
       const bi = TOOL_ICON_ORDER.indexOf(b.name);
       return (ai === -1 ? 999 : ai) - (bi === -1 ? 999 : bi);
     });
-  const skillList = competencies.slice(0, 5);
 
   return (
     <PrintPage>
@@ -96,25 +95,6 @@ export function PrintProfile({
                       style={{ width: `${Math.max(0, Math.min(100, s.percentage))}%`, background: "var(--accent)" }}
                     />
                   </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-
-      {skillList.length > 0 && (
-        <div className="print-avoid-break">
-          <p className="font-en text-sm text-ink-muted mb-4 tracking-wide">업무 역량</p>
-          <div className="flex flex-col gap-4">
-            {skillList.map((c, i) => (
-              <div key={c.id} className="flex gap-4">
-                <span className="font-en text-sm tabular-nums shrink-0 mt-0.5" style={{ color: "var(--accent)" }}>
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <div className="min-w-0">
-                  <h3 className="text-base font-bold mb-1 text-korean whitespace-pre-line">{c.title}</h3>
-                  <p className="text-ink-secondary text-sm leading-relaxed text-korean whitespace-pre-line">{c.description}</p>
                 </div>
               </div>
             ))}

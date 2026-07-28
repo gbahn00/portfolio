@@ -19,3 +19,21 @@ export function supabaseBrowserClient(): SupabaseClient {
   cached = createClient(url, key);
   return cached;
 }
+
+// §156-27 — 대용량 영상을 재개형(TUS resumable) 업로드로 올릴 때 쓰는
+// 값들. Supabase 문서 권장대로 "direct storage hostname"
+// (project-id.storage.supabase.co)을 쓰면 project-id.supabase.co를 거칠 때
+// 보다 대용량 업로드 성능이 더 좋다.
+// https://supabase.com/docs/guides/storage/uploads/resumable-uploads
+export function supabaseResumableUploadEndpoint(): string {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  if (!url) throw new Error("NEXT_PUBLIC_SUPABASE_URL이 설정되지 않았습니다.");
+  const projectId = new URL(url).hostname.split(".")[0];
+  return `https://${projectId}.storage.supabase.co/storage/v1/upload/resumable`;
+}
+
+export function supabaseAnonKey(): string {
+  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  if (!key) throw new Error("NEXT_PUBLIC_SUPABASE_ANON_KEY가 설정되지 않았습니다.");
+  return key;
+}

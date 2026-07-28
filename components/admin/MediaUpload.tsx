@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import { MediaRef } from "@/lib/types";
+import { MEDIA_BUCKET } from "@/lib/media-constants";
 
 // §138 — "좌측 이미지 높이를 텍스트 칸에 맞추고 object-fit: cover를
 // 쓰되, 얼굴 등 주요 피사체가 잘리지 않도록 object-position을 조절할 수
@@ -20,17 +21,24 @@ export function MediaUpload({
 }: { label: string; value?: MediaRef; onChange: (m: MediaRef | undefined) => void; accept?: string; hint?: string; showFocus?: boolean }) {
   const inputRef = useRef<HTMLInputElement>(null);
   const [uploading, setUploading] = useState(false);
+  const [progress, setProgress] = useState<number | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const tusUploadRef = useRef<any>(null);
 
-  // §77 — 업로드 속도 개선. Supabase 모드에서는 브라우저가 Supabase
-  // Storage에 "직접" 업로드한다(서명된 업로드 URL 사용). 예전에는 파일
-  // 전체가 브라우저 → Vercel 서버리스 함수 → Supabase Storage 순으로 두 번
-  // 실려 나갔는데, 특히 용량이 큰 영상에서 이 중간 홉이 체감 지연의 큰
-  // 원인이었다. 로컬 개발(DATA_MODE=local)에서는 Supabase 자체가 없으므로
-  // /api/admin/upload/sign이 mode:"local"을 돌려주고, 그러면 예전 방식
-  // (파일을 서버로 보내 public/uploads에 저장) 그대로 동작한다.
+  // §77/§156-27 — 업로드 속도·안정성 개선. Supabase 모드에서는 브라우저가
+  // Storage에 "직접" 업로드한다. 처음엔 서명된 URL로 단일 PUT
+  // (uploadToSignedUrl)만 썼는데, 500MB~1GB가 넘는 영상에서는 한 번의 PUT
+  // 요청이 네트워크가 잠깐만 끊겨도 처음부터 다시 올려야 했다(§156 업로드
+  // 오류 로그의 원인 중 하나). 이제는 같은 서명 토큰(createSignedUploadUrl)을
+  // TUS 재개형(resumable) 업로드의 x-signature 헤더로 그대로 재사용해
+  // (Supabase 공식 "Presigned uploads" 방식), 6MB씩 나눠 올리고 중간에
+  // 끊기면 그 지점부터 이어서 올린다. 로컬 개발(DATA_MODE=local)에서는
+  // Supabase 자체가 없으므로 /api/admin/upload/sign이 mode:"local"을
+  // 돌려주고, 예전 방식(파일을 서버로 보내 public/uploads에 저장) 그대로
+  // 동작한다.
   async function handleFile(file: File) {
     setUploading(true);
+    setProgress(0);
     setError(null);
     try {
       const signRes = await fetch("/api/admin/upload/sign", {
@@ -42,13 +50,38 @@ export function MediaUpload({
       if (!signRes.ok) throw new Error(signData.error || "업로드 준비에 실패했습니다.");
 
       if (signData.mode === "supabase") {
-        const { supabaseBrowserClient } = await import("@/lib/data/supabase-browser");
-        const { MEDIA_BUCKET } = await import("@/lib/media-constants");
-        const sb = supabaseBrowserClient();
-        const { error: uploadError } = await sb.storage
-          .from(MEDIA_BUCKET)
-          .uploadToSignedUrl(signData.path, signData.token, file, { contentType: file.type });
-        if (uploadError) throw uploadError;
+        const tus = await import("tus-js-client");
+        const { supabaseResumableUploadEndpoint, supabaseAnonKey } = await import("@/lib/data/supabase-browser");
+
+        await new Promise<void>((resolve, reject) => {
+          const upload = new tus.Upload(file, {
+            endpoint: supabaseResumableUploadEndpoint(),
+            retryDelays: [0, 3000, 5000, 10000, 20000],
+            headers: {
+              "x-signature": signData.token,
+              apikey: supabaseAnonKey(),
+              "x-upsert": "true",
+            },
+            uploadDataDuringCreation: true,
+            removeFingerprintOnSuccess: true,
+            metadata: {
+              bucketName: MEDIA_BUCKET,
+              objectName: signData.path,
+              contentType: file.type,
+              cacheControl: "3600",
+            },
+            chunkSize: 6 * 1024 * 1024, // Supabase 요구사항: 현재는 6MB 고정
+            onError: (err) => reject(err),
+            onProgress: (sent, total) => setProgress(Math.round((sent / total) * 100)),
+            onSuccess: () => resolve(),
+          });
+          tusUploadRef.current = upload;
+          upload.findPreviousUploads().then((previous) => {
+            if (previous.length > 0) upload.resumeFromPreviousUpload(previous[0]);
+            upload.start();
+          });
+        });
+
         onChange({ url: signData.publicUrl, kind: signData.kind, alt: value?.alt || "" });
       } else {
         const form = new FormData();
@@ -62,7 +95,15 @@ export function MediaUpload({
       setError(e.message || "업로드에 실패했습니다.");
     } finally {
       setUploading(false);
+      setProgress(null);
+      tusUploadRef.current = null;
     }
+  }
+
+  function cancelUpload() {
+    tusUploadRef.current?.abort();
+    setUploading(false);
+    setProgress(null);
   }
 
   return (
@@ -99,8 +140,25 @@ export function MediaUpload({
             disabled={uploading}
             className="rounded-md border border-neutral-700 px-3 py-1.5 text-xs text-neutral-200 hover:border-orange-500 disabled:opacity-50"
           >
-            {uploading ? "업로드 중..." : "파일 선택 / 교체"}
+            {uploading ? (progress !== null ? `업로드 중... ${progress}%` : "업로드 중...") : "파일 선택 / 교체"}
           </button>
+          {uploading && (
+            <>
+              <div className="mt-2 h-1 w-48 overflow-hidden rounded-full bg-neutral-800">
+                <div
+                  className="h-full rounded-full bg-orange-500 transition-all"
+                  style={{ width: `${progress ?? 0}%` }}
+                />
+              </div>
+              <button
+                type="button"
+                onClick={cancelUpload}
+                className="mt-1.5 text-xs text-neutral-500 hover:text-red-400"
+              >
+                업로드 취소
+              </button>
+            </>
+          )}
           {value?.url && (
             <button
               type="button"

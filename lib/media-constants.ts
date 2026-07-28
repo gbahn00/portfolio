@@ -11,4 +11,8 @@ export const MEDIA_BUCKET = "portfolio-media";
 export const ALLOWED_IMAGE_TYPES = ["image/jpeg", "image/png", "image/webp", "image/avif", "image/svg+xml", "image/gif"];
 export const ALLOWED_VIDEO_TYPES = ["video/mp4", "video/webm", "video/quicktime"];
 export const MAX_IMAGE_BYTES = 20 * 1024 * 1024; // 20MB
-export const MAX_VIDEO_BYTES = 300 * 1024 * 1024; // 300MB
+// §156-28 — 실제 사용하는 영상 파일이 500MB~1GB를 넘는 경우가 있어
+// 300MB 상한을 2GB로 올렸다. Supabase 모드에서는 이제 재개형(TUS) 업로드로
+// 전환했기 때문에(§156-27, components/admin/MediaUpload.tsx) 큰 파일도
+// 네트워크 오류 시 처음부터 다시 올리지 않고 이어서 올릴 수 있다.
+export const MAX_VIDEO_BYTES = 2 * 1024 * 1024 * 1024; // 2GB

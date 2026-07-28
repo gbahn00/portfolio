@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Project } from "@/lib/types";
 import { Container } from "@/components/ui/Container";
 import { MediaFrame } from "@/components/ui/MediaFrame";
+import { GradientOverlay } from "@/components/ui/GradientOverlay";
 import { gsap, prefersReducedMotion, FAST_SCROLL_SAFE } from "@/lib/gsap";
 import { isPlaceholder } from "@/lib/utils";
 
@@ -62,12 +63,14 @@ export function ProjectCover({ project }: { project: Project }) {
 
   return (
     <section ref={sectionRef} className="relative h-[100svh] w-full overflow-hidden bg-bg">
-      {/* §32 — 사진/영상 색을 타지 않도록 아래쪽을 훨씬 진하게, 대신 위쪽은
-          거의 그대로 보이게 그라디언트를 다시 잡았다(제목을 아래로 옮기면서
-          그 자리의 대비를 확실히 확보하기 위함). */}
+      {/* §156 — 모든 프로젝트 대표화면이 공유하는 공통 검정 그라데이션
+          (components/ui/GradientOverlay.tsx). 예전엔 이 화면 전용으로
+          bg 색상(테마에 따라 달라질 수 있는 --color-bg-primary) 기반
+          그라데이션을 썼는데, "이미지·영상 원본 색과 무관하게 항상 같은
+          검정 그라데이션"으로 통일했다. */}
       <div ref={imgWrapRef} className="absolute inset-0">
         <MediaFrame media={project.heroImage} className="absolute inset-0 h-full w-full" priority />
-        <div className="absolute inset-0 bg-gradient-to-t from-bg/90 via-bg/25 to-transparent" />
+        <GradientOverlay />
       </div>
 
       {/* §32 — 제목이 화면 한가운데 떠 있어 부자연스럽다는 피드백에 따라,
