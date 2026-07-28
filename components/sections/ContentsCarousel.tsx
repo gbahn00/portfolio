@@ -77,11 +77,29 @@ export function ContentsCarousel({ items }: { items: MediaRef[] }) {
 
   const canDrag = minOffset < 0;
 
+  // §150 — "클릭해서 재생/일시정지"가 처음엔 아예 안 먹다가(§149), 이번엔
+  // 반대로 드래그하려고 누른 것도 재생으로 잡히는 문제가 있었다. 원인은
+  // 두 가지였다.
+  // 1) onPointerDown을 canDrag일 때만 붙였다(§149) — 그래서 canDrag가
+  //    false인 순간엔 dragStartXRef가 갱신되지 않고 이전 값(또는 0)에
+  //    머물러, 뗀 지점과의 거리(moved)가 실제 이동 거리와 무관하게
+  //    계산됐다. 이제 canDrag 여부와 상관없이 항상 시작 위치를 기록하고,
+  //    "실제로 트랙을 끄는(offset을 바꾸는) 동작"만 canDrag일 때로
+  //    제한한다.
+  // 2) setPointerCapture로 포인터를 이 컨테이너에 붙잡아두면, 그 뒤에
+  //    발생하는 pointerup의 e.target은 실제로 뗀 위치의 요소가 아니라
+  //    "캡처한 요소"(이 컨테이너 자신)로 강제로 바뀐다(Pointer Events
+  //    스펙의 target override) — 그래서 e.target.closest("video")가 항상
+  //    null이 되어 클릭이 씹혔다. document.elementFromPoint(x, y)는 캡처와
+  //    무관하게 그 좌표에 실제로 있는 요소를 그대로 찾아주므로 이 문제를
+  //    피해간다.
   function handlePointerDown(e: React.PointerEvent<HTMLDivElement>) {
-    setDragging(true);
     dragStartXRef.current = e.clientX;
     dragStartOffsetRef.current = offset;
-    e.currentTarget.setPointerCapture?.(e.pointerId);
+    if (canDrag) {
+      setDragging(true);
+      e.currentTarget.setPointerCapture?.(e.pointerId);
+    }
   }
 
   function handlePointerMove(e: React.PointerEvent<HTMLDivElement>) {
@@ -92,21 +110,19 @@ export function ContentsCarousel({ items }: { items: MediaRef[] }) {
     setOffset(next);
   }
 
-  // §149 — "Drag 배지가 떠 있을 때 영상 아무 곳이나 누르면 재생/일시정지"
-  // 요청. 이 컨테이너는 이미 드래그(팬) 제스처를 pointerdown~up으로
-  // 처리하고 있어서, 진짜로 끌지 않고 살짝 눌렀다 뗀 경우(=클릭/탭)만
-  // "재생 토글"로 취급해야 드래그 동작과 충돌하지 않는다. 포인터를 뗀
-  // 위치가 처음 누른 위치에서 6px 이상 움직이지 않았으면 클릭으로 본다.
-  // 네이티브 컨트롤 바(탐색바·음량·전체화면 버튼)를 누른 경우까지 이
-  // 토글이 가로채면 그 버튼들이 안 먹으므로, 영상 하단 컨트롤 바 높이만큼은
-  // 제외하고 그 위쪽(영상 화면 부분)을 눌렀을 때만 토글한다.
+  // 뗀 위치가 처음 누른 위치에서 6px 이상 움직이지 않았을 때만 "클릭"으로
+  // 보고 재생/일시정지를 토글한다(그 이상이면 드래그로 보고 아무 것도
+  // 하지 않는다). 네이티브 컨트롤 바(탐색바·음량·전체화면 버튼) 영역을
+  // 누른 경우까지 가로채면 그 버튼들이 안 먹으므로, 영상 하단 컨트롤 바
+  // 높이만큼은 제외하고 그 위쪽(영상 화면 부분)을 눌렀을 때만 토글한다.
   const CONTROL_BAR_H = 40;
 
   function handlePointerUp(e: React.PointerEvent<HTMLDivElement>) {
     const moved = Math.abs(e.clientX - dragStartXRef.current);
     setDragging(false);
-    if (!canHover || !canDrag || moved >= 6) return;
-    const video = (e.target as HTMLElement).closest("video") as HTMLVideoElement | null;
+    if (!canHover || moved >= 6) return;
+    const hit = document.elementFromPoint(e.clientX, e.clientY) as HTMLElement | null;
+    const video = hit?.closest("video") as HTMLVideoElement | null;
     if (!video) return;
     const rect = video.getBoundingClientRect();
     if (e.clientY > rect.bottom - CONTROL_BAR_H) return; // 컨트롤 바 영역은 그대로 둔다
@@ -124,7 +140,7 @@ export function ContentsCarousel({ items }: { items: MediaRef[] }) {
         ref={containerRef}
         className="relative w-full overflow-hidden touch-pan-y"
         style={{ cursor: canHover && canDrag ? "none" : undefined }}
-        onPointerDown={canDrag ? handlePointerDown : undefined}
+        onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
         onPointerUp={handlePointerUp}
         onPointerCancel={endDrag}
