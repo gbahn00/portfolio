@@ -23,9 +23,12 @@ import { useElementHeight, useElementWidth } from "@/lib/hooks/useElementHeight"
 // §135 — media가 단일 MediaRef에서 배열로 바뀌어 여러 장을 이전/다음
 // 버튼으로 넘겨볼 수 있게 됐다(RepresentativeMediaColumn 참고). 또한
 // "인물 프로필" 프로젝트처럼 사진이 좌측 절반, 텍스트가 우측 절반을
-// 정확히 채워야 하는 요청에 맞춰 layout="half" 옵션을 추가했다 — 이때는
-// 기존의 "원본 비율 유지 + 폭 계산" 대신 grid-cols-2로 정확히 50/50을
-// 나누고, 사진은 그 칸을 object-cover로 꽉 채운다(필요하면 잘림).
+// 정확히 채워야 하는 요청에 맞춰 layout="half" 옵션을 추가했다 — grid-
+// cols-2로 폭을 정확히 50/50으로 나누고, 사진 칸은 폭을 100% 채운 채
+// 원본 가로세로 비율대로 높이가 정해진다(§135-보정 — 처음엔 텍스트 칸
+// 높이에 맞춰 object-cover로 채워서 세로 사진이 잘렸는데, 폭만 고정하고
+// 높이는 비율대로 따라가게 바꿔 잘리지 않는다). 그래서 items-stretch가
+// 아니라 items-start로 두 칸을 각자의 자연스러운 높이로 위쪽 정렬한다.
 // layout을 지정하지 않으면(기본값 "auto") 기존 프로젝트들과 동일하게
 // 동작해 회귀가 없다.
 const GAP_PX = 48; // md:gap-12
@@ -48,14 +51,9 @@ export function RepresentativeMediaWithText({
 
   if (layout === "half") {
     return (
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-stretch">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
         <div className="w-full">
-          <RepresentativeMediaColumn
-            media={media}
-            targetHeightPx={textHeightPx}
-            fillWidth
-            retouchMarkers={retouchMarkers}
-          />
+          <RepresentativeMediaColumn media={media} fillWidth retouchMarkers={retouchMarkers} />
         </div>
         <div ref={textRef} className="min-w-0 w-full">
           {children}

@@ -21,10 +21,17 @@ import { refreshScrollTrigger } from "@/lib/gsap";
 // 유지, src만 교체) "화면이 새로고침되는 느낌"이 나지 않도록 했다.
 //
 // §135 — "인물 프로필" 프로젝트처럼 사진이 좌/우 정확히 50%를 채워야 하는
-// 레이아웃(RepresentativeMediaWithText의 layout="half")에서는 원본 비율을
-// 유지한 채 letterbox 없이 보여주는 기존 방식 대신, 주어진 폭을 100% 채우고
-// (object-cover로 필요하면 잘림) 높이만 텍스트 칸에 맞추는 fillWidth 모드를
-// 추가했다. 기존 프로젝트들(레이아웃 미지정)은 이전과 동일하게 동작한다.
+// 레이아웃(RepresentativeMediaWithText의 layout="half")에서는 폭을 100%
+// 채우는 fillWidth 모드를 추가했다.
+//
+// §135-보정 — 처음엔 fillWidth일 때 높이를 텍스트 칸 높이에 고정하고
+// object-cover로 채워서, 세로로 긴(인물) 사진을 첨부하면 위아래가
+// 잘려나오는 문제가 있었다("50/50은 잘 되는데 세로 사진이 잘린다"는
+// 피드백). 폭은 그대로 100%로 꽉 채우되, 높이는 사진 원본 가로세로
+// 비율대로 CSS aspect-ratio로 계산해(자바스크립트로 실제 폭을 잴 필요
+// 없이, 브라우저가 알아서 "폭 100% × 비율"로 높이를 정한다) 잘리지 않게
+// 했다. 즉 폭은 항상 정확히 절반, 높이는 사진마다(가로가 넓으면 낮게,
+// 세로로 길면 높게) 원본 비율 그대로 따라간다.
 //
 // §135 — 보정 위치 마커(RetouchMarker): 사진 위 특정 좌표(%)에 작은 점을
 // 찍어두고, 커서를 올리면(hover) 어떤 부분을 보정했는지 설명이 뜬다.
@@ -143,11 +150,15 @@ export function RepresentativeMediaColumn({
   const effectiveHeight = targetHeightPx ?? DEFAULT_HEIGHT;
   const effectiveMaxW = maxWidthPx ?? MAX_W;
   const box = fillWidth
-    ? { w: 0, h: Math.round(effectiveHeight) } // fillWidth 모드에서는 폭을 부모(100%)가 정하므로 w는 쓰지 않는다.
+    ? { w: 0, h: 0 } // fillWidth 모드에서는 CSS aspect-ratio가 크기를 정하므로 여기선 안 쓴다.
     : natural
       ? computeBoxFromHeight(natural.w, natural.h, effectiveHeight, effectiveMaxW)
       : { w: Math.round(Math.min(effectiveHeight * 0.75, effectiveMaxW)), h: Math.round(effectiveHeight) };
-  const ready = fillWidth ? targetHeightPx !== undefined : natural !== null && targetHeightPx !== undefined;
+  // §135-보정 — fillWidth 모드는 사진 원본 비율만 알면 되고(텍스트 칸
+  // 높이는 더 이상 필요 없음), 비율을 아직 모르는 아주 짧은 순간에는
+  // 감춰서 잘못된 비율(placeholder)이 보이지 않게 한다.
+  const ready = fillWidth ? natural !== null : natural !== null && targetHeightPx !== undefined;
+  const fillAspectRatio = natural ? `${natural.w} / ${natural.h}` : "4 / 5";
 
   const currentMarkers = (retouchMarkers ?? [])
     .filter((m) => m.mediaIndex === clampedIndex)
@@ -159,7 +170,7 @@ export function RepresentativeMediaColumn({
         className="relative overflow-hidden rounded-sm select-none bg-bg-soft"
         style={
           fillWidth
-            ? { height: `${box.h}px`, opacity: ready ? 1 : 0, transition: ready ? "opacity 200ms ease-out" : "none" }
+            ? { aspectRatio: fillAspectRatio, opacity: ready ? 1 : 0, transition: ready ? "opacity 200ms ease-out" : "none" }
             : { aspectRatio: `${box.w} / ${box.h}`, opacity: ready ? 1 : 0, transition: ready ? "opacity 200ms ease-out" : "none" }
         }
       >
@@ -167,7 +178,23 @@ export function RepresentativeMediaColumn({
         <MediaView item={current} onNaturalSize={(w, h) => setNatural({ w, h })} fillWidth={fillWidth} />
 
         {/* §135 — 보정 위치 마커. 퍼센트 좌표라 사진 표시 크기가 반응형으로
-            바뀌어도 항상 같은 상대 위치를 가리킨다. */}
+            바뀌어도 항상 같은 상대 위치를 가리킨다.
+            §135-보정 — "마커가 뭔지 궁금해도 눈에 잘 안 띈다"는 피드백으로
+            강조를 키웠다: 점 뒤에 계속 번져나가는 링(animate-ping)을 추가해
+            가만히 있어도 "여기 눌러볼 게 있다"는 게 시각적으로 드러나게
+            했고, 점 자체도 흰색 반투명 대신 강조색(accent)으로 확실히
+            보이게 바꿨다.
+            §135-보정2 — "반짝이는 게 오른쪽으로만 퍼진다"는 버그. Tailwind의
+            -translate-x-1/2/-translate-y-1/2(정중앙 배치용 transform)와
+            animate-ping의 keyframe(transform: scale(2))이 같은 transform
+            속성을 두고 충돌해서, 링이 중앙 기준으로 커지는 게 아니라
+            "옮겨진 위치 → scale(2)"로 보간되며 한쪽으로 쏠려 보인 것이었다.
+            transform 대신 margin으로 중앙 정렬해서(margin은 animate-ping과
+            겹치지 않는 별개 속성) 이제 순수하게 transform: scale()만
+            애니메이션되어 중앙에서 사방으로 고르게 퍼진다.
+            설명 말풍선 글자도 text-xs → text-base로 키우고, 긴 설명은
+            줄바꿈되도록(기존엔 한 줄 고정이라 길면 화면을 벗어날 수
+            있었다) 손봤다. */}
         {currentMarkers.map((m) => (
           <div
             key={m.id}
@@ -176,10 +203,26 @@ export function RepresentativeMediaColumn({
             onMouseEnter={() => setHoveredMarker(m.id)}
             onMouseLeave={() => setHoveredMarker((h) => (h === m.id ? null : h))}
           >
-            <span className="block h-4 w-4 rounded-full border-2 border-white bg-white/40 shadow-md animate-pulse cursor-help" style={{ boxShadow: "0 0 0 3px rgba(0,0,0,0.35)" }} />
+            <span
+              className="absolute rounded-full animate-ping"
+              style={{
+                left: "50%",
+                top: "50%",
+                width: "28px",
+                height: "28px",
+                marginLeft: "-14px",
+                marginTop: "-14px",
+                background: "var(--accent)",
+                opacity: 0.6,
+              }}
+            />
+            <span
+              className="relative block h-5 w-5 rounded-full border-2 border-white cursor-help transition-transform duration-200 hover:scale-125"
+              style={{ background: "var(--accent)", boxShadow: "0 0 0 3px rgba(0,0,0,0.45), 0 2px 6px rgba(0,0,0,0.4)" }}
+            />
             {hoveredMarker === m.id && m.label && (
               <div
-                className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 whitespace-nowrap rounded bg-black/85 px-2.5 py-1.5 text-xs text-white shadow-lg pointer-events-none"
+                className="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 w-max max-w-[260px] whitespace-normal text-center rounded-md bg-black/90 px-3.5 py-2.5 text-base font-medium leading-snug text-white shadow-lg pointer-events-none"
                 role="tooltip"
               >
                 {m.label}

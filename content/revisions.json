@@ -1,5 +1,1477 @@
 [
   {
+    "id": "723dacfb-e94d-42e6-a0a8-b0e9cf97359d",
+    "entity": "projects:proj-portrait",
+    "field": "수정",
+    "before": {
+      "id": "proj-portrait",
+      "number": "04",
+      "title": "인물 프로필 보정",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "인물 프로필",
+      "purpose": "직원, 의료진과 트레이너의 프로필 사진 제작",
+      "role": "촬영 보조 및 보정",
+      "tools": [
+        "[자료 필요] 사용 장비 및 보정 프로그램 목록"
+      ],
+      "description": "회사 직원, 병원 의사, 헬스장 트레이너의 프로필과 단체사진을 촬영 보조하고 보정했습니다.\n과도한 보정보다 대상자의 자연스러움과 직업적 신뢰감을 유지하는 데 집중했습니다.",
+      "heroImage": {
+        "url": "/placeholders/portrait.svg",
+        "kind": "image",
+        "alt": "인물 프로필 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [],
+      "beforeAfter": [],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "48432402-4ee5-4355-b2ab-55135bf57158",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "회사 직원, 의료진, 트레이너 등 직무별 프로필 촬영 현장에서 세팅과 포즈를 지원하고, \n대상자의 인상이 자연스럽게 드러나도록 보정했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "3041fb27-fc5f-4eb4-aed8-d6b38cd8a51f",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "홈페이지와 홍보물에서 활용되는 프로필 사진이 직무에 대한 신뢰감과 전문성을 전달할 수 있도록\n이미지를 제작했습니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "21e21939-38e9-4e2d-aead-a0cceae42b7d",
+          "key": "role",
+          "title": "기여도",
+          "body": "촬영 지원 · 현장 세팅 · 포즈 보조 · 색보정 · 리터칭",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 3,
+      "createdAt": "2024-10-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T09:22:06.624Z",
+      "contents": [],
+      "beforeAfterFallbackMedia": [
+        {
+          "url": "/uploads/2efdbb3f-f732-4831-9e61-7f4893b7a1d2.png",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/5d435708-84ce-4320-9df6-a91b0e83a8cb.png",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "retouchMarkers": [
+        {
+          "id": "2c42fff8-f442-4374-93e0-47897412cac7",
+          "mediaIndex": 0,
+          "x": 43.8,
+          "y": 47.1,
+          "label": "dfjlkdjflj",
+          "order": 0
+        },
+        {
+          "id": "7973cf9e-f6b8-4dfa-95d5-56373cc26c4d",
+          "mediaIndex": 0,
+          "x": 58.7,
+          "y": 49.8,
+          "label": "sdlkfjsldfjkldsj",
+          "order": 1
+        },
+        {
+          "id": "4df499c4-3f21-40ce-b74a-f99f9befaa92",
+          "mediaIndex": 0,
+          "x": 58,
+          "y": 63.9,
+          "label": "kfjlwejlkfjlds",
+          "order": 2
+        },
+        {
+          "id": "a231ac0a-499b-4980-b4ba-7230b885ed75",
+          "mediaIndex": 0,
+          "x": 38.4,
+          "y": 59.3,
+          "label": "skldjfwfn;dnfkdn",
+          "order": 3
+        },
+        {
+          "id": "aba2b8a1-3899-487f-9b9c-f6704e87c382",
+          "mediaIndex": 0,
+          "x": 31.9,
+          "y": 45.7,
+          "label": "sdfnlfnlwnflsdlfkdf",
+          "order": 4
+        }
+      ],
+      "beforeAfterFallbackLayout": "half"
+    },
+    "after": {
+      "id": "proj-portrait",
+      "number": "04",
+      "title": "인물 프로필 보정",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "인물 프로필",
+      "purpose": "직원, 의료진과 트레이너의 프로필 사진 제작",
+      "role": "촬영 보조 및 보정",
+      "tools": [
+        "[자료 필요] 사용 장비 및 보정 프로그램 목록"
+      ],
+      "description": "회사 직원, 병원 의사, 헬스장 트레이너의 프로필과 단체사진을 촬영 보조하고 보정했습니다.\n과도한 보정보다 대상자의 자연스러움과 직업적 신뢰감을 유지하는 데 집중했습니다.",
+      "heroImage": {
+        "url": "/placeholders/portrait.svg",
+        "kind": "image",
+        "alt": "인물 프로필 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [],
+      "beforeAfter": [],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "48432402-4ee5-4355-b2ab-55135bf57158",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "회사 직원, 의료진, 트레이너 등 직무별 프로필 촬영 현장에서 세팅과 포즈를 지원하고, \n대상자의 인상이 자연스럽게 드러나도록 보정했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "3041fb27-fc5f-4eb4-aed8-d6b38cd8a51f",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "홈페이지와 홍보물에서 활용되는 프로필 사진이 직무에 대한 신뢰감과 전문성을 전달할 수 있도록\n이미지를 제작했습니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "21e21939-38e9-4e2d-aead-a0cceae42b7d",
+          "key": "role",
+          "title": "기여도",
+          "body": "촬영 지원 · 현장 세팅 · 포즈 보조 · 색보정 · 리터칭",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 3,
+      "createdAt": "2024-10-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T09:22:27.708Z",
+      "contents": [],
+      "beforeAfterFallbackMedia": [
+        {
+          "url": "/uploads/2efdbb3f-f732-4831-9e61-7f4893b7a1d2.png",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/ebc29c56-1cc9-4941-9597-43efe309f599.png",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "retouchMarkers": [
+        {
+          "id": "2c42fff8-f442-4374-93e0-47897412cac7",
+          "mediaIndex": 0,
+          "x": 43.8,
+          "y": 47.1,
+          "label": "dfjlkdjflj",
+          "order": 0
+        },
+        {
+          "id": "7973cf9e-f6b8-4dfa-95d5-56373cc26c4d",
+          "mediaIndex": 0,
+          "x": 58.7,
+          "y": 49.8,
+          "label": "sdlkfjsldfjkldsj",
+          "order": 1
+        },
+        {
+          "id": "4df499c4-3f21-40ce-b74a-f99f9befaa92",
+          "mediaIndex": 0,
+          "x": 58,
+          "y": 63.9,
+          "label": "kfjlwejlkfjlds",
+          "order": 2
+        },
+        {
+          "id": "a231ac0a-499b-4980-b4ba-7230b885ed75",
+          "mediaIndex": 0,
+          "x": 38.4,
+          "y": 59.3,
+          "label": "skldjfwfn;dnfkdn",
+          "order": 3
+        },
+        {
+          "id": "aba2b8a1-3899-487f-9b9c-f6704e87c382",
+          "mediaIndex": 0,
+          "x": 31.9,
+          "y": 45.7,
+          "label": "sdfnlfnlwnflsdlfkdf",
+          "order": 4
+        }
+      ],
+      "beforeAfterFallbackLayout": "half"
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-28T09:22:27.726Z"
+  },
+  {
+    "id": "8c840819-96af-4912-b176-193d22bd154a",
+    "entity": "projects:proj-portrait",
+    "field": "수정",
+    "before": {
+      "id": "proj-portrait",
+      "number": "04",
+      "title": "인물 프로필 보정",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "인물 프로필",
+      "purpose": "직원, 의료진과 트레이너의 프로필 사진 제작",
+      "role": "촬영 보조 및 보정",
+      "tools": [
+        "[자료 필요] 사용 장비 및 보정 프로그램 목록"
+      ],
+      "description": "회사 직원, 병원 의사, 헬스장 트레이너의 프로필과 단체사진을 촬영 보조하고 보정했습니다.\n과도한 보정보다 대상자의 자연스러움과 직업적 신뢰감을 유지하는 데 집중했습니다.",
+      "heroImage": {
+        "url": "/placeholders/portrait.svg",
+        "kind": "image",
+        "alt": "인물 프로필 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [],
+      "beforeAfter": [],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "48432402-4ee5-4355-b2ab-55135bf57158",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "회사 직원, 의료진, 트레이너 등 직무별 프로필 촬영 현장에서 세팅과 포즈를 지원하고, \n대상자의 인상이 자연스럽게 드러나도록 보정했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "3041fb27-fc5f-4eb4-aed8-d6b38cd8a51f",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "홈페이지와 홍보물에서 활용되는 프로필 사진이 직무에 대한 신뢰감과 전문성을 전달할 수 있도록\n이미지를 제작했습니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "21e21939-38e9-4e2d-aead-a0cceae42b7d",
+          "key": "role",
+          "title": "기여도",
+          "body": "촬영 지원 · 현장 세팅 · 포즈 보조 · 색보정 · 리터칭",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 3,
+      "createdAt": "2024-10-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T09:20:41.323Z",
+      "contents": [],
+      "beforeAfterFallbackMedia": [
+        {
+          "url": "/uploads/2efdbb3f-f732-4831-9e61-7f4893b7a1d2.png",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "retouchMarkers": [
+        {
+          "id": "2c42fff8-f442-4374-93e0-47897412cac7",
+          "mediaIndex": 0,
+          "x": 43.8,
+          "y": 47.1,
+          "label": "dfjlkdjflj",
+          "order": 0
+        },
+        {
+          "id": "7973cf9e-f6b8-4dfa-95d5-56373cc26c4d",
+          "mediaIndex": 0,
+          "x": 58.7,
+          "y": 49.8,
+          "label": "sdlkfjsldfjkldsj",
+          "order": 1
+        },
+        {
+          "id": "4df499c4-3f21-40ce-b74a-f99f9befaa92",
+          "mediaIndex": 0,
+          "x": 58,
+          "y": 63.9,
+          "label": "kfjlwejlkfjlds",
+          "order": 2
+        },
+        {
+          "id": "a231ac0a-499b-4980-b4ba-7230b885ed75",
+          "mediaIndex": 0,
+          "x": 38.4,
+          "y": 59.3,
+          "label": "skldjfwfn;dnfkdn",
+          "order": 3
+        },
+        {
+          "id": "aba2b8a1-3899-487f-9b9c-f6704e87c382",
+          "mediaIndex": 0,
+          "x": 31.9,
+          "y": 45.7,
+          "label": "sdfnlfnlwnflsdlfkdf",
+          "order": 4
+        }
+      ],
+      "beforeAfterFallbackLayout": "half"
+    },
+    "after": {
+      "id": "proj-portrait",
+      "number": "04",
+      "title": "인물 프로필 보정",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "인물 프로필",
+      "purpose": "직원, 의료진과 트레이너의 프로필 사진 제작",
+      "role": "촬영 보조 및 보정",
+      "tools": [
+        "[자료 필요] 사용 장비 및 보정 프로그램 목록"
+      ],
+      "description": "회사 직원, 병원 의사, 헬스장 트레이너의 프로필과 단체사진을 촬영 보조하고 보정했습니다.\n과도한 보정보다 대상자의 자연스러움과 직업적 신뢰감을 유지하는 데 집중했습니다.",
+      "heroImage": {
+        "url": "/placeholders/portrait.svg",
+        "kind": "image",
+        "alt": "인물 프로필 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [],
+      "beforeAfter": [],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "48432402-4ee5-4355-b2ab-55135bf57158",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "회사 직원, 의료진, 트레이너 등 직무별 프로필 촬영 현장에서 세팅과 포즈를 지원하고, \n대상자의 인상이 자연스럽게 드러나도록 보정했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "3041fb27-fc5f-4eb4-aed8-d6b38cd8a51f",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "홈페이지와 홍보물에서 활용되는 프로필 사진이 직무에 대한 신뢰감과 전문성을 전달할 수 있도록\n이미지를 제작했습니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "21e21939-38e9-4e2d-aead-a0cceae42b7d",
+          "key": "role",
+          "title": "기여도",
+          "body": "촬영 지원 · 현장 세팅 · 포즈 보조 · 색보정 · 리터칭",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 3,
+      "createdAt": "2024-10-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T09:22:06.624Z",
+      "contents": [],
+      "beforeAfterFallbackMedia": [
+        {
+          "url": "/uploads/2efdbb3f-f732-4831-9e61-7f4893b7a1d2.png",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/5d435708-84ce-4320-9df6-a91b0e83a8cb.png",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "retouchMarkers": [
+        {
+          "id": "2c42fff8-f442-4374-93e0-47897412cac7",
+          "mediaIndex": 0,
+          "x": 43.8,
+          "y": 47.1,
+          "label": "dfjlkdjflj",
+          "order": 0
+        },
+        {
+          "id": "7973cf9e-f6b8-4dfa-95d5-56373cc26c4d",
+          "mediaIndex": 0,
+          "x": 58.7,
+          "y": 49.8,
+          "label": "sdlkfjsldfjkldsj",
+          "order": 1
+        },
+        {
+          "id": "4df499c4-3f21-40ce-b74a-f99f9befaa92",
+          "mediaIndex": 0,
+          "x": 58,
+          "y": 63.9,
+          "label": "kfjlwejlkfjlds",
+          "order": 2
+        },
+        {
+          "id": "a231ac0a-499b-4980-b4ba-7230b885ed75",
+          "mediaIndex": 0,
+          "x": 38.4,
+          "y": 59.3,
+          "label": "skldjfwfn;dnfkdn",
+          "order": 3
+        },
+        {
+          "id": "aba2b8a1-3899-487f-9b9c-f6704e87c382",
+          "mediaIndex": 0,
+          "x": 31.9,
+          "y": 45.7,
+          "label": "sdfnlfnlwnflsdlfkdf",
+          "order": 4
+        }
+      ],
+      "beforeAfterFallbackLayout": "half"
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-28T09:22:06.720Z"
+  },
+  {
+    "id": "0b3a7d0e-9bb7-4d92-b729-02b1fa49ac4a",
+    "entity": "projects:proj-portrait",
+    "field": "수정",
+    "before": {
+      "id": "proj-portrait",
+      "number": "04",
+      "title": "인물 프로필 보정",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "인물 프로필",
+      "purpose": "직원, 의료진과 트레이너의 프로필 사진 제작",
+      "role": "촬영 보조 및 보정",
+      "tools": [
+        "[자료 필요] 사용 장비 및 보정 프로그램 목록"
+      ],
+      "description": "회사 직원, 병원 의사, 헬스장 트레이너의 프로필과 단체사진을 촬영 보조하고 보정했습니다.\n과도한 보정보다 대상자의 자연스러움과 직업적 신뢰감을 유지하는 데 집중했습니다.",
+      "heroImage": {
+        "url": "/placeholders/portrait.svg",
+        "kind": "image",
+        "alt": "인물 프로필 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [],
+      "beforeAfter": [],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "48432402-4ee5-4355-b2ab-55135bf57158",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "회사 직원, 의료진, 트레이너 등 직무별 프로필 촬영 현장에서 세팅과 포즈를 지원하고, \n대상자의 인상이 자연스럽게 드러나도록 보정했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "3041fb27-fc5f-4eb4-aed8-d6b38cd8a51f",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "홈페이지와 홍보물에서 활용되는 프로필 사진이 직무에 대한 신뢰감과 전문성을 전달할 수 있도록\n이미지를 제작했습니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "21e21939-38e9-4e2d-aead-a0cceae42b7d",
+          "key": "role",
+          "title": "기여도",
+          "body": "촬영 지원 · 현장 세팅 · 포즈 보조 · 색보정 · 리터칭",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 3,
+      "createdAt": "2024-10-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T09:14:37.903Z",
+      "contents": [],
+      "beforeAfterFallbackMedia": [
+        {
+          "url": "/uploads/2efdbb3f-f732-4831-9e61-7f4893b7a1d2.png",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "retouchMarkers": [
+        {
+          "id": "2c42fff8-f442-4374-93e0-47897412cac7",
+          "mediaIndex": 0,
+          "x": 43.8,
+          "y": 47.1,
+          "label": "dfjlkdjflj",
+          "order": 0
+        },
+        {
+          "id": "7973cf9e-f6b8-4dfa-95d5-56373cc26c4d",
+          "mediaIndex": 0,
+          "x": 58.7,
+          "y": 49.8,
+          "label": "sdlkfjsldfjkldsj",
+          "order": 1
+        },
+        {
+          "id": "4df499c4-3f21-40ce-b74a-f99f9befaa92",
+          "mediaIndex": 0,
+          "x": 58,
+          "y": 63.9,
+          "label": "kfjlwejlkfjlds",
+          "order": 2
+        },
+        {
+          "id": "a231ac0a-499b-4980-b4ba-7230b885ed75",
+          "mediaIndex": 0,
+          "x": 38.4,
+          "y": 59.3,
+          "label": "skldjfwfn;dnfkdn",
+          "order": 3
+        },
+        {
+          "id": "aba2b8a1-3899-487f-9b9c-f6704e87c382",
+          "mediaIndex": 0,
+          "x": 31.9,
+          "y": 45.7,
+          "label": "sdfnlfnlwnflsdlfkdf",
+          "order": 4
+        }
+      ]
+    },
+    "after": {
+      "id": "proj-portrait",
+      "number": "04",
+      "title": "인물 프로필 보정",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "인물 프로필",
+      "purpose": "직원, 의료진과 트레이너의 프로필 사진 제작",
+      "role": "촬영 보조 및 보정",
+      "tools": [
+        "[자료 필요] 사용 장비 및 보정 프로그램 목록"
+      ],
+      "description": "회사 직원, 병원 의사, 헬스장 트레이너의 프로필과 단체사진을 촬영 보조하고 보정했습니다.\n과도한 보정보다 대상자의 자연스러움과 직업적 신뢰감을 유지하는 데 집중했습니다.",
+      "heroImage": {
+        "url": "/placeholders/portrait.svg",
+        "kind": "image",
+        "alt": "인물 프로필 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [],
+      "beforeAfter": [],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "48432402-4ee5-4355-b2ab-55135bf57158",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "회사 직원, 의료진, 트레이너 등 직무별 프로필 촬영 현장에서 세팅과 포즈를 지원하고, \n대상자의 인상이 자연스럽게 드러나도록 보정했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "3041fb27-fc5f-4eb4-aed8-d6b38cd8a51f",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "홈페이지와 홍보물에서 활용되는 프로필 사진이 직무에 대한 신뢰감과 전문성을 전달할 수 있도록\n이미지를 제작했습니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "21e21939-38e9-4e2d-aead-a0cceae42b7d",
+          "key": "role",
+          "title": "기여도",
+          "body": "촬영 지원 · 현장 세팅 · 포즈 보조 · 색보정 · 리터칭",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 3,
+      "createdAt": "2024-10-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T09:20:41.323Z",
+      "contents": [],
+      "beforeAfterFallbackMedia": [
+        {
+          "url": "/uploads/2efdbb3f-f732-4831-9e61-7f4893b7a1d2.png",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "retouchMarkers": [
+        {
+          "id": "2c42fff8-f442-4374-93e0-47897412cac7",
+          "mediaIndex": 0,
+          "x": 43.8,
+          "y": 47.1,
+          "label": "dfjlkdjflj",
+          "order": 0
+        },
+        {
+          "id": "7973cf9e-f6b8-4dfa-95d5-56373cc26c4d",
+          "mediaIndex": 0,
+          "x": 58.7,
+          "y": 49.8,
+          "label": "sdlkfjsldfjkldsj",
+          "order": 1
+        },
+        {
+          "id": "4df499c4-3f21-40ce-b74a-f99f9befaa92",
+          "mediaIndex": 0,
+          "x": 58,
+          "y": 63.9,
+          "label": "kfjlwejlkfjlds",
+          "order": 2
+        },
+        {
+          "id": "a231ac0a-499b-4980-b4ba-7230b885ed75",
+          "mediaIndex": 0,
+          "x": 38.4,
+          "y": 59.3,
+          "label": "skldjfwfn;dnfkdn",
+          "order": 3
+        },
+        {
+          "id": "aba2b8a1-3899-487f-9b9c-f6704e87c382",
+          "mediaIndex": 0,
+          "x": 31.9,
+          "y": 45.7,
+          "label": "sdfnlfnlwnflsdlfkdf",
+          "order": 4
+        }
+      ],
+      "beforeAfterFallbackLayout": "half"
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-28T09:20:41.626Z"
+  },
+  {
+    "id": "a8f9089b-a6b0-4d37-8950-f8547a4e12bc",
+    "entity": "projects:proj-portrait",
+    "field": "수정",
+    "before": {
+      "id": "proj-portrait",
+      "number": "04",
+      "title": "인물 프로필 보정",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "인물 프로필",
+      "purpose": "직원, 의료진과 트레이너의 프로필 사진 제작",
+      "role": "촬영 보조 및 보정",
+      "tools": [
+        "[자료 필요] 사용 장비 및 보정 프로그램 목록"
+      ],
+      "description": "회사 직원, 병원 의사, 헬스장 트레이너의 프로필과 단체사진을 촬영 보조하고 보정했습니다.\n과도한 보정보다 대상자의 자연스러움과 직업적 신뢰감을 유지하는 데 집중했습니다.",
+      "heroImage": {
+        "url": "/placeholders/portrait.svg",
+        "kind": "image",
+        "alt": "인물 프로필 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [],
+      "beforeAfter": [],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "48432402-4ee5-4355-b2ab-55135bf57158",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "회사 직원, 의료진, 트레이너 등 직무별 프로필 촬영 현장에서 세팅과 포즈를 지원하고, \n대상자의 인상이 자연스럽게 드러나도록 보정했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "3041fb27-fc5f-4eb4-aed8-d6b38cd8a51f",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "홈페이지와 홍보물에서 활용되는 프로필 사진이 직무에 대한 신뢰감과 전문성을 전달할 수 있도록\n이미지를 제작했습니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "21e21939-38e9-4e2d-aead-a0cceae42b7d",
+          "key": "role",
+          "title": "기여도",
+          "body": "촬영 지원 · 현장 세팅 · 포즈 보조 · 색보정 · 리터칭",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 3,
+      "createdAt": "2024-10-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T09:14:00.136Z",
+      "contents": [],
+      "beforeAfterFallbackMedia": [
+        {
+          "url": "/uploads/2efdbb3f-f732-4831-9e61-7f4893b7a1d2.png",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "retouchMarkers": [
+        {
+          "id": "2c42fff8-f442-4374-93e0-47897412cac7",
+          "mediaIndex": 0,
+          "x": 43.8,
+          "y": 47.1,
+          "label": "dfjlkdjflj",
+          "order": 0
+        },
+        {
+          "id": "7973cf9e-f6b8-4dfa-95d5-56373cc26c4d",
+          "mediaIndex": 0,
+          "x": 58.7,
+          "y": 49.8,
+          "label": "sdlkfjsldfjkldsj",
+          "order": 1
+        },
+        {
+          "id": "4df499c4-3f21-40ce-b74a-f99f9befaa92",
+          "mediaIndex": 0,
+          "x": 58,
+          "y": 63.9,
+          "label": "kfjlwejlkfjlds",
+          "order": 2
+        },
+        {
+          "id": "a231ac0a-499b-4980-b4ba-7230b885ed75",
+          "mediaIndex": 0,
+          "x": 38.4,
+          "y": 59.3,
+          "label": "skldjfwfn;dnfkdn",
+          "order": 3
+        },
+        {
+          "id": "aba2b8a1-3899-487f-9b9c-f6704e87c382",
+          "mediaIndex": 0,
+          "x": 31.9,
+          "y": 45.7,
+          "label": "sdfnlfnlwnflsdlfkdf",
+          "order": 4
+        }
+      ],
+      "beforeAfterFallbackLayout": "half"
+    },
+    "after": {
+      "id": "proj-portrait",
+      "number": "04",
+      "title": "인물 프로필 보정",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "인물 프로필",
+      "purpose": "직원, 의료진과 트레이너의 프로필 사진 제작",
+      "role": "촬영 보조 및 보정",
+      "tools": [
+        "[자료 필요] 사용 장비 및 보정 프로그램 목록"
+      ],
+      "description": "회사 직원, 병원 의사, 헬스장 트레이너의 프로필과 단체사진을 촬영 보조하고 보정했습니다.\n과도한 보정보다 대상자의 자연스러움과 직업적 신뢰감을 유지하는 데 집중했습니다.",
+      "heroImage": {
+        "url": "/placeholders/portrait.svg",
+        "kind": "image",
+        "alt": "인물 프로필 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [],
+      "beforeAfter": [],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "48432402-4ee5-4355-b2ab-55135bf57158",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "회사 직원, 의료진, 트레이너 등 직무별 프로필 촬영 현장에서 세팅과 포즈를 지원하고, \n대상자의 인상이 자연스럽게 드러나도록 보정했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "3041fb27-fc5f-4eb4-aed8-d6b38cd8a51f",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "홈페이지와 홍보물에서 활용되는 프로필 사진이 직무에 대한 신뢰감과 전문성을 전달할 수 있도록\n이미지를 제작했습니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "21e21939-38e9-4e2d-aead-a0cceae42b7d",
+          "key": "role",
+          "title": "기여도",
+          "body": "촬영 지원 · 현장 세팅 · 포즈 보조 · 색보정 · 리터칭",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 3,
+      "createdAt": "2024-10-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T09:14:37.903Z",
+      "contents": [],
+      "beforeAfterFallbackMedia": [
+        {
+          "url": "/uploads/2efdbb3f-f732-4831-9e61-7f4893b7a1d2.png",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "retouchMarkers": [
+        {
+          "id": "2c42fff8-f442-4374-93e0-47897412cac7",
+          "mediaIndex": 0,
+          "x": 43.8,
+          "y": 47.1,
+          "label": "dfjlkdjflj",
+          "order": 0
+        },
+        {
+          "id": "7973cf9e-f6b8-4dfa-95d5-56373cc26c4d",
+          "mediaIndex": 0,
+          "x": 58.7,
+          "y": 49.8,
+          "label": "sdlkfjsldfjkldsj",
+          "order": 1
+        },
+        {
+          "id": "4df499c4-3f21-40ce-b74a-f99f9befaa92",
+          "mediaIndex": 0,
+          "x": 58,
+          "y": 63.9,
+          "label": "kfjlwejlkfjlds",
+          "order": 2
+        },
+        {
+          "id": "a231ac0a-499b-4980-b4ba-7230b885ed75",
+          "mediaIndex": 0,
+          "x": 38.4,
+          "y": 59.3,
+          "label": "skldjfwfn;dnfkdn",
+          "order": 3
+        },
+        {
+          "id": "aba2b8a1-3899-487f-9b9c-f6704e87c382",
+          "mediaIndex": 0,
+          "x": 31.9,
+          "y": 45.7,
+          "label": "sdfnlfnlwnflsdlfkdf",
+          "order": 4
+        }
+      ]
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-28T09:14:37.923Z"
+  },
+  {
+    "id": "ebbd813f-c526-48e3-aef7-b0dbf2420dfc",
+    "entity": "projects:proj-portrait",
+    "field": "수정",
+    "before": {
+      "id": "proj-portrait",
+      "number": "04",
+      "title": "인물 프로필 보정",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "인물 프로필",
+      "purpose": "직원, 의료진과 트레이너의 프로필 사진 제작",
+      "role": "촬영 보조 및 보정",
+      "tools": [
+        "[자료 필요] 사용 장비 및 보정 프로그램 목록"
+      ],
+      "description": "회사 직원, 병원 의사, 헬스장 트레이너의 프로필과 단체사진을 촬영 보조하고 보정했습니다.\n과도한 보정보다 대상자의 자연스러움과 직업적 신뢰감을 유지하는 데 집중했습니다.",
+      "heroImage": {
+        "url": "/placeholders/portrait.svg",
+        "kind": "image",
+        "alt": "인물 프로필 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [],
+      "beforeAfter": [],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "48432402-4ee5-4355-b2ab-55135bf57158",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "회사 직원, 의료진, 트레이너 등 직무별 프로필 촬영 현장에서 세팅과 포즈를 지원하고, \n대상자의 인상이 자연스럽게 드러나도록 보정했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "3041fb27-fc5f-4eb4-aed8-d6b38cd8a51f",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "홈페이지와 홍보물에서 활용되는 프로필 사진이 직무에 대한 신뢰감과 전문성을 전달할 수 있도록\n이미지를 제작했습니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "21e21939-38e9-4e2d-aead-a0cceae42b7d",
+          "key": "role",
+          "title": "기여도",
+          "body": "촬영 지원 · 현장 세팅 · 포즈 보조 · 색보정 · 리터칭",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 3,
+      "createdAt": "2024-10-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T09:13:48.569Z",
+      "contents": [],
+      "beforeAfterFallbackMedia": [
+        {
+          "url": "/uploads/2efdbb3f-f732-4831-9e61-7f4893b7a1d2.png",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "retouchMarkers": [
+        {
+          "id": "2c42fff8-f442-4374-93e0-47897412cac7",
+          "mediaIndex": 0,
+          "x": 43.8,
+          "y": 47.1,
+          "label": "dfjlkdjflj",
+          "order": 0
+        },
+        {
+          "id": "7973cf9e-f6b8-4dfa-95d5-56373cc26c4d",
+          "mediaIndex": 0,
+          "x": 58.7,
+          "y": 49.8,
+          "label": "sdlkfjsldfjkldsj",
+          "order": 1
+        },
+        {
+          "id": "4df499c4-3f21-40ce-b74a-f99f9befaa92",
+          "mediaIndex": 0,
+          "x": 58,
+          "y": 63.9,
+          "label": "kfjlwejlkfjlds",
+          "order": 2
+        },
+        {
+          "id": "a231ac0a-499b-4980-b4ba-7230b885ed75",
+          "mediaIndex": 0,
+          "x": 38.4,
+          "y": 59.3,
+          "label": "skldjfwfn;dnfkdn",
+          "order": 3
+        },
+        {
+          "id": "aba2b8a1-3899-487f-9b9c-f6704e87c382",
+          "mediaIndex": 0,
+          "x": 31.9,
+          "y": 45.7,
+          "label": "sdfnlfnlwnflsdlfkdf",
+          "order": 4
+        }
+      ]
+    },
+    "after": {
+      "id": "proj-portrait",
+      "number": "04",
+      "title": "인물 프로필 보정",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "인물 프로필",
+      "purpose": "직원, 의료진과 트레이너의 프로필 사진 제작",
+      "role": "촬영 보조 및 보정",
+      "tools": [
+        "[자료 필요] 사용 장비 및 보정 프로그램 목록"
+      ],
+      "description": "회사 직원, 병원 의사, 헬스장 트레이너의 프로필과 단체사진을 촬영 보조하고 보정했습니다.\n과도한 보정보다 대상자의 자연스러움과 직업적 신뢰감을 유지하는 데 집중했습니다.",
+      "heroImage": {
+        "url": "/placeholders/portrait.svg",
+        "kind": "image",
+        "alt": "인물 프로필 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [],
+      "beforeAfter": [],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "48432402-4ee5-4355-b2ab-55135bf57158",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "회사 직원, 의료진, 트레이너 등 직무별 프로필 촬영 현장에서 세팅과 포즈를 지원하고, \n대상자의 인상이 자연스럽게 드러나도록 보정했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "3041fb27-fc5f-4eb4-aed8-d6b38cd8a51f",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "홈페이지와 홍보물에서 활용되는 프로필 사진이 직무에 대한 신뢰감과 전문성을 전달할 수 있도록\n이미지를 제작했습니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "21e21939-38e9-4e2d-aead-a0cceae42b7d",
+          "key": "role",
+          "title": "기여도",
+          "body": "촬영 지원 · 현장 세팅 · 포즈 보조 · 색보정 · 리터칭",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 3,
+      "createdAt": "2024-10-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T09:14:00.136Z",
+      "contents": [],
+      "beforeAfterFallbackMedia": [
+        {
+          "url": "/uploads/2efdbb3f-f732-4831-9e61-7f4893b7a1d2.png",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "retouchMarkers": [
+        {
+          "id": "2c42fff8-f442-4374-93e0-47897412cac7",
+          "mediaIndex": 0,
+          "x": 43.8,
+          "y": 47.1,
+          "label": "dfjlkdjflj",
+          "order": 0
+        },
+        {
+          "id": "7973cf9e-f6b8-4dfa-95d5-56373cc26c4d",
+          "mediaIndex": 0,
+          "x": 58.7,
+          "y": 49.8,
+          "label": "sdlkfjsldfjkldsj",
+          "order": 1
+        },
+        {
+          "id": "4df499c4-3f21-40ce-b74a-f99f9befaa92",
+          "mediaIndex": 0,
+          "x": 58,
+          "y": 63.9,
+          "label": "kfjlwejlkfjlds",
+          "order": 2
+        },
+        {
+          "id": "a231ac0a-499b-4980-b4ba-7230b885ed75",
+          "mediaIndex": 0,
+          "x": 38.4,
+          "y": 59.3,
+          "label": "skldjfwfn;dnfkdn",
+          "order": 3
+        },
+        {
+          "id": "aba2b8a1-3899-487f-9b9c-f6704e87c382",
+          "mediaIndex": 0,
+          "x": 31.9,
+          "y": 45.7,
+          "label": "sdfnlfnlwnflsdlfkdf",
+          "order": 4
+        }
+      ],
+      "beforeAfterFallbackLayout": "half"
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-28T09:14:00.155Z"
+  },
+  {
+    "id": "2cf97747-e8b4-4697-b7f8-bf794447b73d",
+    "entity": "projects:proj-portrait",
+    "field": "수정",
+    "before": {
+      "id": "proj-portrait",
+      "number": "04",
+      "title": "인물 프로필 보정",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "인물 프로필",
+      "purpose": "직원, 의료진과 트레이너의 프로필 사진 제작",
+      "role": "촬영 보조 및 보정",
+      "tools": [
+        "[자료 필요] 사용 장비 및 보정 프로그램 목록"
+      ],
+      "description": "회사 직원, 병원 의사, 헬스장 트레이너의 프로필과 단체사진을 촬영 보조하고 보정했습니다.\n과도한 보정보다 대상자의 자연스러움과 직업적 신뢰감을 유지하는 데 집중했습니다.",
+      "heroImage": {
+        "url": "/placeholders/portrait.svg",
+        "kind": "image",
+        "alt": "인물 프로필 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [],
+      "beforeAfter": [],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "48432402-4ee5-4355-b2ab-55135bf57158",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "회사 직원, 의료진, 트레이너 등 직무별 프로필 촬영 현장에서 세팅과 포즈를 지원하고, \n대상자의 인상이 자연스럽게 드러나도록 보정했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "3041fb27-fc5f-4eb4-aed8-d6b38cd8a51f",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "홈페이지와 홍보물에서 활용되는 프로필 사진이 직무에 대한 신뢰감과 전문성을 전달할 수 있도록\n이미지를 제작했습니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "21e21939-38e9-4e2d-aead-a0cceae42b7d",
+          "key": "role",
+          "title": "기여도",
+          "body": "촬영 지원 · 현장 세팅 · 포즈 보조 · 색보정 · 리터칭",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 3,
+      "createdAt": "2024-10-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T08:43:46.311Z",
+      "contents": [],
+      "beforeAfterFallbackMedia": {
+        "url": "/uploads/2efdbb3f-f732-4831-9e61-7f4893b7a1d2.png",
+        "kind": "image",
+        "alt": ""
+      }
+    },
+    "after": {
+      "id": "proj-portrait",
+      "number": "04",
+      "title": "인물 프로필 보정",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2024",
+      "field": "인물 프로필",
+      "purpose": "직원, 의료진과 트레이너의 프로필 사진 제작",
+      "role": "촬영 보조 및 보정",
+      "tools": [
+        "[자료 필요] 사용 장비 및 보정 프로그램 목록"
+      ],
+      "description": "회사 직원, 병원 의사, 헬스장 트레이너의 프로필과 단체사진을 촬영 보조하고 보정했습니다.\n과도한 보정보다 대상자의 자연스러움과 직업적 신뢰감을 유지하는 데 집중했습니다.",
+      "heroImage": {
+        "url": "/placeholders/portrait.svg",
+        "kind": "image",
+        "alt": "인물 프로필 촬영 대표 이미지 [자료 필요]"
+      },
+      "gallery": [],
+      "beforeAfter": [],
+      "metrics": [],
+      "detailBlocks": [
+        {
+          "id": "48432402-4ee5-4355-b2ab-55135bf57158",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "회사 직원, 의료진, 트레이너 등 직무별 프로필 촬영 현장에서 세팅과 포즈를 지원하고, \n대상자의 인상이 자연스럽게 드러나도록 보정했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "3041fb27-fc5f-4eb4-aed8-d6b38cd8a51f",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "홈페이지와 홍보물에서 활용되는 프로필 사진이 직무에 대한 신뢰감과 전문성을 전달할 수 있도록\n이미지를 제작했습니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "21e21939-38e9-4e2d-aead-a0cceae42b7d",
+          "key": "role",
+          "title": "기여도",
+          "body": "촬영 지원 · 현장 세팅 · 포즈 보조 · 색보정 · 리터칭",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": false,
+      "isDetailFeatured": false,
+      "publicOk": true,
+      "status": "draft",
+      "order": 3,
+      "createdAt": "2024-10-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T09:13:48.569Z",
+      "contents": [],
+      "beforeAfterFallbackMedia": [
+        {
+          "url": "/uploads/2efdbb3f-f732-4831-9e61-7f4893b7a1d2.png",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "retouchMarkers": [
+        {
+          "id": "2c42fff8-f442-4374-93e0-47897412cac7",
+          "mediaIndex": 0,
+          "x": 43.8,
+          "y": 47.1,
+          "label": "dfjlkdjflj",
+          "order": 0
+        },
+        {
+          "id": "7973cf9e-f6b8-4dfa-95d5-56373cc26c4d",
+          "mediaIndex": 0,
+          "x": 58.7,
+          "y": 49.8,
+          "label": "sdlkfjsldfjkldsj",
+          "order": 1
+        },
+        {
+          "id": "4df499c4-3f21-40ce-b74a-f99f9befaa92",
+          "mediaIndex": 0,
+          "x": 58,
+          "y": 63.9,
+          "label": "kfjlwejlkfjlds",
+          "order": 2
+        },
+        {
+          "id": "a231ac0a-499b-4980-b4ba-7230b885ed75",
+          "mediaIndex": 0,
+          "x": 38.4,
+          "y": 59.3,
+          "label": "skldjfwfn;dnfkdn",
+          "order": 3
+        },
+        {
+          "id": "aba2b8a1-3899-487f-9b9c-f6704e87c382",
+          "mediaIndex": 0,
+          "x": 31.9,
+          "y": 45.7,
+          "label": "sdfnlfnlwnflsdlfkdf",
+          "order": 4
+        }
+      ]
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-28T09:13:48.775Z"
+  },
+  {
     "id": "bfcff479-548d-416d-938f-f4c1c4cb1779",
     "entity": "projects:proj-lawyer-youtube",
     "field": "수정",

@@ -957,13 +957,63 @@
       "status": "draft",
       "order": 3,
       "createdAt": "2024-10-01T00:00:00.000Z",
-      "updatedAt": "2026-07-28T08:43:46.311Z",
+      "updatedAt": "2026-07-28T09:22:27.708Z",
       "contents": [],
-      "beforeAfterFallbackMedia": {
-        "url": "/uploads/2efdbb3f-f732-4831-9e61-7f4893b7a1d2.png",
-        "kind": "image",
-        "alt": ""
-      }
+      "beforeAfterFallbackMedia": [
+        {
+          "url": "/uploads/2efdbb3f-f732-4831-9e61-7f4893b7a1d2.png",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/ebc29c56-1cc9-4941-9597-43efe309f599.png",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "retouchMarkers": [
+        {
+          "id": "2c42fff8-f442-4374-93e0-47897412cac7",
+          "mediaIndex": 0,
+          "x": 43.8,
+          "y": 47.1,
+          "label": "dfjlkdjflj",
+          "order": 0
+        },
+        {
+          "id": "7973cf9e-f6b8-4dfa-95d5-56373cc26c4d",
+          "mediaIndex": 0,
+          "x": 58.7,
+          "y": 49.8,
+          "label": "sdlkfjsldfjkldsj",
+          "order": 1
+        },
+        {
+          "id": "4df499c4-3f21-40ce-b74a-f99f9befaa92",
+          "mediaIndex": 0,
+          "x": 58,
+          "y": 63.9,
+          "label": "kfjlwejlkfjlds",
+          "order": 2
+        },
+        {
+          "id": "a231ac0a-499b-4980-b4ba-7230b885ed75",
+          "mediaIndex": 0,
+          "x": 38.4,
+          "y": 59.3,
+          "label": "skldjfwfn;dnfkdn",
+          "order": 3
+        },
+        {
+          "id": "aba2b8a1-3899-487f-9b9c-f6704e87c382",
+          "mediaIndex": 0,
+          "x": 31.9,
+          "y": 45.7,
+          "label": "sdfnlfnlwnflsdlfkdf",
+          "order": 4
+        }
+      ],
+      "beforeAfterFallbackLayout": "half"
     },
     {
       "id": "proj-dental",
