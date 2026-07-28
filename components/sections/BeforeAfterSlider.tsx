@@ -52,6 +52,14 @@ import { refreshScrollTrigger } from "@/lib/gsap";
 // 자연스럽게 세로 크기가 정해짐) 보여주고, 텍스트 칸의 높이를 사진에
 // 맞추는 쪽은 components/sections/BeforeAfterWithText.tsx에서 사진 칸의
 // 실제 렌더링 높이를 측정해 텍스트 칸에 적용한다.
+//
+// §119 — 폭 하나만 고정(max-w)하고 높이는 원본 비율대로 자유롭게
+// 두었더니, 가로로 넓은 사진은 얇고 짧게, 세로로 긴(인물) 사진은 아주
+// 크게 나와 사진마다 "체감 크기"가 들쭉날쭉했다("어떤 건 작고 어떤 건
+// 평균 크기"). 사진을 자르거나 늘리지 않으면서(원본 비율 유지) 크기를
+// 고르게 맞추려면 폭과 높이를 동시에 상한선으로 잡아야 한다 — 가로 사진은
+// 폭 기준으로, 세로 사진은 높이 기준으로 알아서 줄어들어(object-fit:
+// contain과 같은 원리) 어떤 비율이든 같은 박스 안에 들어오게 된다.
 // ============================================================================
 
 function CompareView({ pair }: { pair: BeforeAfterPair }) {
@@ -63,14 +71,16 @@ function CompareView({ pair }: { pair: BeforeAfterPair }) {
 
   return (
     <div className="relative w-full overflow-hidden rounded-sm select-none bg-bg-soft">
-      {/* §115 — 첨부한 사진 원본 비율 그대로(w-full h-auto, 일반 흐름)
-          보여준다. */}
+      {/* §119 — width/height 둘 다 auto로 두고 max-width·max-height를
+          동시에 걸어, 사진 방향(가로/세로)에 상관없이 원본 비율 그대로
+          같은 박스 안에 들어오는 크기로 자동으로 줄어든다(자르거나
+          늘리지 않음). */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={optimizedImageSrc(pair.after.url, 1080)}
         alt={pair.after.alt || "보정 후"}
         onLoad={refreshScrollTrigger}
-        className="block w-full h-auto pointer-events-none"
+        className="block w-auto h-auto max-w-[min(420px,100%)] max-h-[480px] pointer-events-none"
         draggable={false}
       />
       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -128,15 +138,10 @@ export function BeforeAfterSlider({ pairs }: { pairs: BeforeAfterPair[] }) {
 
   return (
     <>
-      {/* §104 — 칸 폭을 그대로 채우면 너무 커 보여서 max-w로 한 단계
-          줄였다. §109 — 상세 페이지 대표 화면을 제외한 나머지는 등장/퇴장
-          모션을 빼기로 해서 <Reveal> 대신 그냥 렌더링한다. §116에서
-          max-w-xl(576px)까지 키웠는데, 세로로 긴(모델 촬영 등 인물 사진)
-          비율에서는 그만큼 세로도 같이 커져 "사진이 너무 크다"는 피드백을
-          받았다. §118 — 원본 비율은 그대로 유지하면서(찌그러짐 없음) 폭
-          상한을 다시 줄여(max-w-sm) 오른쪽 텍스트 칸과 한 화면에서
-          편하게 어울리는 크기로 맞췄다. */}
-      <div className="max-w-sm">
+      {/* §119 — 실제 크기 상한은 이제 CompareView 내부 img의
+          max-w/max-h가 정하므로, 바깥 래퍼는 그보다 살짝 넉넉한 값으로만
+          잡아 캡션/이전·다음 카운터가 사진 폭을 넘어서지 않게 한다. */}
+      <div className="max-w-[420px]">
         {/* §107 — 이전/다음 버튼을 사진 좌우 중앙에 겹쳐 그리기 위한
             래퍼. CompareView 뒤(형제)에 버튼을 둬서 항상 사진 위에
             그려지도록 한다. */}
