@@ -1,5 +1,503 @@
 [
   {
+    "id": "48edf4bd-271a-431d-8259-91775f60f22b",
+    "entity": "projects:proj-notion-credit",
+    "field": "수정",
+    "before": {
+      "id": "proj-notion-credit",
+      "number": "08",
+      "title": "Notion 기반 Higgsfield AI 크레딧 관리체계 구축",
+      "brand": "미디어팀 내부 운영체계",
+      "brandHidden": true,
+      "year": "2026",
+      "field": "생성형 인공지능 콘텐츠",
+      "purpose": "공용 인공지능 계정의 크레딧 사용 현황을 팀이 함께 확인할 수 있는 관리 데이터베이스 구축",
+      "role": "설계 및 구축",
+      "tools": [
+        "Notion",
+        "Higgsfield AI"
+      ],
+      "description": "팀에서 공동으로 사용하는 힉스필드 AI 계정의 크레딧 소모 현황을 실시간으로 추적할 수 있는 노션 데이터베이스를 설계하고 구축했습니다.",
+      "heroImage": {
+        "url": "/uploads/ac16f225-83da-4a1e-bf49-754a4dbbb329.png",
+        "kind": "image",
+        "alt": ""
+      },
+      "gallery": [
+        {
+          "url": "/uploads/e2a49a83-64b2-4cea-b1d0-c1b9a9207270.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/de7c5c37-e060-4ea9-98f9-c74fcaecd075.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/a2c16bc8-6dab-436c-8594-bfa3405d5bfb.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "beforeAfter": [],
+      "metrics": [
+        {
+          "id": "m1",
+          "label": "월별 크레딧 사용량",
+          "value": "[자료 필요]"
+        }
+      ],
+      "detailBlocks": [
+        {
+          "id": "b1",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "미디어팀이 사용하는 AI 서비스의 크레딧을 사용자·도구·사용 목적별로 관리할 수 있도록\nNotion 기반 운영체계를 구축했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "a1801b66-76bb-40ef-be5f-5c695a8e22c5",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "분산된 사용 정보를 하나의 데이터베이스로 통합하여 크레딧 사용 현황과 운영 상태를 효율적으로 관리하고,\n합리적인 AI 자원 운영이 가능하도록 설계했습니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "bb288ab0-9d61-4b0d-97f5-e7adc7275ac9",
+          "key": "role",
+          "title": "기여도",
+          "body": "운영 기획 · DB 설계 · 대시보드 구성 · 데이터 관리 · 운영체계 구축",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": true,
+      "isDetailFeatured": true,
+      "publicOk": true,
+      "status": "draft",
+      "order": 7,
+      "createdAt": "2026-03-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T14:43:53.985Z",
+      "contents": [],
+      "beforeAfterFallbackMedia": [],
+      "retouchMarkers": []
+    },
+    "after": {
+      "id": "proj-notion-credit",
+      "number": "08",
+      "title": "Notion 기반 Higgsfield AI 크레딧 관리체계 구축",
+      "brand": "미디어팀 내부 운영체계",
+      "brandHidden": true,
+      "year": "2026",
+      "field": "생성형 인공지능 콘텐츠",
+      "purpose": "공용 인공지능 계정의 크레딧 사용 현황을 팀이 함께 확인할 수 있는 관리 데이터베이스 구축",
+      "role": "설계 및 구축",
+      "tools": [
+        "Notion",
+        "Higgsfield AI"
+      ],
+      "description": "팀에서 공동으로 사용하는 힉스필드 AI 계정의 크레딧 소모 현황을 실시간으로 추적할 수 있는 노션 데이터베이스를 설계하고 구축했습니다.",
+      "heroImage": {
+        "url": "/uploads/ac16f225-83da-4a1e-bf49-754a4dbbb329.png",
+        "kind": "image",
+        "alt": ""
+      },
+      "gallery": [
+        {
+          "url": "/uploads/e2a49a83-64b2-4cea-b1d0-c1b9a9207270.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/de7c5c37-e060-4ea9-98f9-c74fcaecd075.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/a2c16bc8-6dab-436c-8594-bfa3405d5bfb.jpg",
+          "kind": "image",
+          "alt": ""
+        }
+      ],
+      "beforeAfter": [],
+      "metrics": [
+        {
+          "id": "m1",
+          "label": "월별 크레딧 사용량",
+          "value": "[자료 필요]"
+        }
+      ],
+      "detailBlocks": [
+        {
+          "id": "b1",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "미디어팀이 사용하는 AI 서비스의 크레딧을 사용자·도구·사용 목적별로 관리할 수 있도록\nNotion 기반 운영체계를 구축했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "a1801b66-76bb-40ef-be5f-5c695a8e22c5",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "분산된 사용 정보를 하나의 데이터베이스로 통합하여 크레딧 사용 현황과 운영 상태를 효율적으로 관리하고,\n합리적인 AI 자원 운영이 가능하도록 설계했습니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "bb288ab0-9d61-4b0d-97f5-e7adc7275ac9",
+          "key": "role",
+          "title": "기여도",
+          "body": "운영 기획 · DB 설계 · 대시보드 구성 · 데이터 관리 · 운영체계 구축",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": true,
+      "isDetailFeatured": true,
+      "publicOk": true,
+      "status": "draft",
+      "order": 7,
+      "createdAt": "2026-03-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T15:39:45.173Z",
+      "contents": [],
+      "beforeAfterFallbackMedia": [],
+      "retouchMarkers": [],
+      "contributionPercentage": 100
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-28T15:39:15.730Z"
+  },
+  {
+    "id": "7ff8376b-a190-40a5-a186-dad9f9b264db",
+    "entity": "closing",
+    "field": "전체",
+    "before": {
+      "message": "다음 역할을\n맡을 준비가 됐습니다.",
+      "name": "이지은",
+      "role": "크리에이티브",
+      "department": "미디어팀",
+      "badge": "2026년 특별진급 포트폴리오",
+      "backgroundImage": {
+        "url": "/uploads/ed1525bf-01e8-492f-94c5-8c27305e7adf.jpg",
+        "kind": "image",
+        "alt": "마무리 화면 배경 [자료 필요]"
+      },
+      "externalLinks": [],
+      "status": "draft",
+      "subline": "맡은 작업을 수행하는 데서 그치지 않고\n필요한 역할을 먼저 찾고,\n실제 결과와 업무 개선으로 연결하겠습니다."
+    },
+    "after": {
+      "message": "다음 역할을\n맡을 준비가 됐습니다.",
+      "name": "이지은",
+      "role": "크리에이티브",
+      "department": "미디어팀",
+      "badge": "2026년 특별진급 포트폴리오",
+      "backgroundImage": {
+        "url": "/uploads/00851cc0-4bd9-4924-93ef-142ee5eb3487.png",
+        "kind": "image",
+        "alt": "마무리 화면 배경 [자료 필요]"
+      },
+      "externalLinks": [],
+      "status": "draft",
+      "subline": "맡은 작업을 수행하는 데서 그치지 않고\n필요한 역할을 먼저 찾고,\n실제 결과와 업무 개선으로 연결하겠습니다."
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-28T15:38:40.930Z"
+  },
+  {
+    "id": "73c254e4-adc7-4d4e-a1bb-c7ebee6f4045",
+    "entity": "projects:proj-ai-brand-video",
+    "field": "수정",
+    "before": {
+      "id": "proj-ai-brand-video",
+      "number": "07",
+      "title": "생성형 인공지능 활용 브랜드 홍보 영상",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2026",
+      "field": "생성형 인공지능 콘텐츠",
+      "purpose": "촬영이 어렵거나 시간이 제한된 장면을 생성형 인공지능으로 보완해 브랜드 홍보 영상 완성",
+      "role": "기획 및 제작",
+      "tools": [
+        "Flow AI",
+        "Higgsfield AI",
+        "Sora AI",
+        "InVideo AI",
+        "Kling AI",
+        "Photoshop",
+        "생성형 AI",
+        "After Effects",
+        "Premiere Pro"
+      ],
+      "description": "실제 촬영이 어려운 장면을 생성형 인공지능으로 대체하되, 브랜드 톤과 어긋나지 않도록 여러 도구의 결과물을 비교하고 재생성하는 과정을 거쳤다.",
+      "heroImage": {
+        "url": "/uploads/2468157b-ba1e-403f-999b-7112043a61e0.jpg",
+        "kind": "image",
+        "alt": "생성형 인공지능 브랜드 영상 대표 이미지 [자료 필요]"
+      },
+      "gallery": [],
+      "beforeAfter": [],
+      "metrics": [
+        {
+          "id": "m1",
+          "label": "생성형 인공지능 영상 수",
+          "value": "[자료 필요]"
+        }
+      ],
+      "detailBlocks": [
+        {
+          "id": "b1",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "브랜드 홍보 및 광고 영상 제작 과정에서 생성형 AI 도구를 활용해 필요한 장면을 구현하고, \n결과물을 비교·선별한 뒤 편집해 최종 영상으로 완성했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "8e27df27-3efd-4aee-b712-4fe8aeb9443f",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "실제 촬영으로 구현하기 어렵거나 제작 부담이 큰 장면을 AI로 보완하여, \n제한된 조건에서도 브랜드의 메시지와 분위기를 효과적으로 표현했습니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "147392d8-de64-47d8-8c5f-add0dc48c7ff",
+          "key": "role",
+          "title": "기여도",
+          "body": "콘텐츠 기획 · 프롬프트 작성 · AI 영상 제작 · 컷편집 · 사운드",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": true,
+      "isDetailFeatured": true,
+      "publicOk": true,
+      "status": "draft",
+      "order": 6,
+      "createdAt": "2026-02-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T14:43:25.229Z",
+      "contents": [
+        {
+          "url": "/uploads/bf280e9d-8a37-48c4-8dbb-294ad6bff719.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/48dee52a-fb01-4c9e-8de1-c6793fa605e2.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/6603a982-f7a7-4a3c-b1d8-cccdcf015f7f.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/73c5755a-d4e5-41a0-a6eb-ec3e6d90c4ad.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/54e039b1-909c-40b6-9f90-63887d199554.mp4",
+          "kind": "video-file",
+          "alt": ""
+        }
+      ],
+      "beforeAfterFallbackMedia": [
+        {
+          "url": "/uploads/7f17502f-4f17-4f61-bb94-a055e5423afc.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/b8e74b3b-720f-4b60-8f44-96e0f160909c.mp4",
+          "kind": "video-file",
+          "alt": ""
+        }
+      ],
+      "retouchMarkers": [],
+      "contributionPercentage": 100
+    },
+    "after": {
+      "id": "proj-ai-brand-video",
+      "number": "07",
+      "title": "생성형 인공지능 활용 브랜드 홍보 영상",
+      "brand": "[자료 필요 - 브랜드명]",
+      "brandHidden": true,
+      "year": "2026",
+      "field": "생성형 인공지능 콘텐츠",
+      "purpose": "촬영이 어렵거나 시간이 제한된 장면을 생성형 인공지능으로 보완해 브랜드 홍보 영상 완성",
+      "role": "기획 및 제작",
+      "tools": [
+        "Flow AI",
+        "Higgsfield AI",
+        "Sora AI",
+        "InVideo AI",
+        "Kling AI",
+        "Photoshop",
+        "생성형 AI",
+        "After Effects",
+        "Premiere Pro"
+      ],
+      "description": "실제 촬영이 어려운 장면을 생성형 인공지능으로 대체하되, 브랜드 톤과 어긋나지 않도록 여러 도구의 결과물을 비교하고 재생성하는 과정을 거쳤다.",
+      "heroImage": {
+        "url": "/uploads/2468157b-ba1e-403f-999b-7112043a61e0.jpg",
+        "kind": "image",
+        "alt": "생성형 인공지능 브랜드 영상 대표 이미지 [자료 필요]"
+      },
+      "gallery": [],
+      "beforeAfter": [],
+      "metrics": [
+        {
+          "id": "m1",
+          "label": "생성형 인공지능 영상 수",
+          "value": "[자료 필요]"
+        }
+      ],
+      "detailBlocks": [
+        {
+          "id": "b1",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "브랜드 홍보 및 광고 영상 제작 과정에서 생성형 AI 도구를 활용해 필요한 장면을 구현하고, \n결과물을 비교·선별한 뒤 편집해 최종 영상으로 완성했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "8e27df27-3efd-4aee-b712-4fe8aeb9443f",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "실제 촬영으로 구현하기 어렵거나 제작 부담이 큰 장면을 AI로 보완하여, \n제한된 조건에서도 브랜드의 메시지와 분위기를 효과적으로 표현했습니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "147392d8-de64-47d8-8c5f-add0dc48c7ff",
+          "key": "role",
+          "title": "기여도",
+          "body": "콘텐츠 기획 · 프롬프트 작성 · AI 영상 제작 · 컷편집 · 사운드",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": true,
+      "isDetailFeatured": true,
+      "publicOk": true,
+      "status": "draft",
+      "order": 6,
+      "createdAt": "2026-02-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T15:38:52.979Z",
+      "contents": [
+        {
+          "url": "/uploads/bf280e9d-8a37-48c4-8dbb-294ad6bff719.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/48dee52a-fb01-4c9e-8de1-c6793fa605e2.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/6603a982-f7a7-4a3c-b1d8-cccdcf015f7f.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/73c5755a-d4e5-41a0-a6eb-ec3e6d90c4ad.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/a7092c6a-fd0d-4cb6-a057-66b218a0e7d8.mp4",
+          "kind": "video-file",
+          "alt": ""
+        }
+      ],
+      "beforeAfterFallbackMedia": [
+        {
+          "url": "/uploads/7f17502f-4f17-4f61-bb94-a055e5423afc.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/b8e74b3b-720f-4b60-8f44-96e0f160909c.mp4",
+          "kind": "video-file",
+          "alt": ""
+        }
+      ],
+      "retouchMarkers": [],
+      "contributionPercentage": 100
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-28T15:38:23.506Z"
+  },
+  {
     "id": "e21ac1b4-cbc5-45ca-825a-776d38ee9fd7",
     "entity": "closing",
     "field": "전체",

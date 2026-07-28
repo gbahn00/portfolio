@@ -1413,7 +1413,7 @@
       "status": "draft",
       "order": 6,
       "createdAt": "2026-02-01T00:00:00.000Z",
-      "updatedAt": "2026-07-28T14:43:25.229Z",
+      "updatedAt": "2026-07-28T15:38:52.979Z",
       "contents": [
         {
           "url": "/uploads/bf280e9d-8a37-48c4-8dbb-294ad6bff719.mp4",
@@ -1436,7 +1436,7 @@
           "alt": ""
         },
         {
-          "url": "/uploads/54e039b1-909c-40b6-9f90-63887d199554.mp4",
+          "url": "/uploads/a7092c6a-fd0d-4cb6-a057-66b218a0e7d8.mp4",
           "kind": "video-file",
           "alt": ""
         }
@@ -1548,10 +1548,11 @@
       "status": "draft",
       "order": 7,
       "createdAt": "2026-03-01T00:00:00.000Z",
-      "updatedAt": "2026-07-28T14:43:53.985Z",
+      "updatedAt": "2026-07-28T15:39:45.173Z",
       "contents": [],
       "beforeAfterFallbackMedia": [],
-      "retouchMarkers": []
+      "retouchMarkers": [],
+      "contributionPercentage": 100
     }
   ],
   "competencies": [
@@ -2130,7 +2131,7 @@
     "department": "미디어팀",
     "badge": "2026년 특별진급 포트폴리오",
     "backgroundImage": {
-      "url": "/uploads/ed1525bf-01e8-492f-94c5-8c27305e7adf.jpg",
+      "url": "/uploads/00851cc0-4bd9-4924-93ef-142ee5eb3487.png",
       "kind": "image",
       "alt": "마무리 화면 배경 [자료 필요]"
     },
