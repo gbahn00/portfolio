@@ -176,6 +176,7 @@ function CompareView({ pair, onNaturalSize }: { pair: BeforeAfterPair; onNatural
         className="absolute inset-0 h-full w-full object-cover pointer-events-none"
         style={{ objectPosition }}
         draggable={false}
+        decoding="async"
       />
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
@@ -184,6 +185,7 @@ function CompareView({ pair, onNaturalSize }: { pair: BeforeAfterPair; onNatural
         className="absolute inset-0 h-full w-full object-cover pointer-events-none"
         style={{ objectPosition, clipPath: `inset(0 ${100 - pos}% 0 0)` }}
         draggable={false}
+        decoding="async"
       />
 
       {/* 경계선 + 손잡이 */}

@@ -52,6 +52,27 @@ export function optimizedImageSrc(url?: string, width = 1200): string {
   return `/_next/image?url=${encodeURIComponent(src)}&w=${w}&q=82`;
 }
 
+// §148 — "화면 크기에 맞는 적절한 이미지 크기를 자동으로 제공, 불필요하게
+// 큰 이미지를 다운로드하지 않도록"라는 성능 최적화 요청. optimizedImageSrc()
+// 하나만 쓰면 <img src>는 항상 같은(가장 큰) 폭 하나만 받아오므로, 실제로는
+// 작게 표시되는 화면(예: 모바일)에서도 데스크톱용 큰 파일을 그대로
+// 내려받는다. 이 함수는 여러 폭의 후보를 만들어 <img srcSet>으로 넘기면,
+// 브라우저가 실제 표시 크기·화면 배율(DPR)에 맞는 가장 작은 후보를 알아서
+// 골라 받는다 — 화질/원본 비율은 그대로 유지된 채 전송량만 줄어든다.
+// next/image(MediaFrame)는 이미 내부적으로 이 일을 자동으로 해주므로 이
+// 함수는 쓰지 않는다 — raw <img> 태그를 쓰는 곳(히어로, 갤러리, 보정 전후,
+// 대표 이미지 등)에서만 사용한다.
+export function optimizedImageSrcSet(url?: string, widths: number[] = [640, 828, 1080, 1200, 1920]): string {
+  const src = mediaSrc(url);
+  if (src.endsWith(".svg") || /\.(mp4|webm|mov|m4v)(\?.*)?$/i.test(src) || /\.gif(\?.*)?$/i.test(src)) return "";
+  return widths
+    .map((w) => {
+      const snapped = NEXT_IMAGE_VALID_WIDTHS.reduce((best, cur) => (Math.abs(cur - w) < Math.abs(best - w) ? cur : best));
+      return `/_next/image?url=${encodeURIComponent(src)}&w=${snapped}&q=82 ${snapped}w`;
+    })
+    .join(", ");
+}
+
 // [자료 필요] 마커가 붙은 값은 아직 사용자가 확정하지 않은 자리표시자다.
 // 관리자 화면에서는 그대로 보여 다음 작업을 알 수 있게 하되, 공개 화면에는
 // 노출하지 않는다.

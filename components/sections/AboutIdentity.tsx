@@ -6,7 +6,7 @@ import { Container } from "@/components/ui/Container";
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/Reveal";
 import { MediaFrame } from "@/components/ui/MediaFrame";
 import { gsap, prefersReducedMotion, FAST_SCROLL_SAFE } from "@/lib/gsap";
-import { mediaSrc } from "@/lib/utils";
+import { optimizedImageSrc, optimizedImageSrcSet } from "@/lib/utils";
 
 // ============================================================
 // About Section (§11) — 섹션 전체를 Pin 처리한 뒤, 문장을 한 개씩
@@ -130,12 +130,19 @@ export function AboutIdentity({ profile, philosophy }: { profile: Profile; philo
             <div ref={photoWrapRef} className="relative w-full max-w-sm overflow-hidden rounded-sm justify-self-center md:justify-self-end">
               {profile.profilePhoto?.url && (
                 // eslint-disable-next-line @next/next/no-img-element
+                // §148 — 이 사진은 원본 파일(mediaSrc, 최적화 없음)을 그대로
+                // 내려받고 있었다. max-w-sm(384px) 안에서만 보이는 사진이라
+                // optimizedImageSrc로 바꿔 화질 저하 없이 용량만 줄인다.
                 <img
                   ref={imgRef}
-                  src={mediaSrc(profile.profilePhoto.url)}
+                  src={optimizedImageSrc(profile.profilePhoto.url, 768)}
+                  srcSet={optimizedImageSrcSet(profile.profilePhoto.url, [384, 640, 768, 1080])}
+                  sizes="(min-width: 768px) 384px, 90vw"
                   alt={profile.profilePhoto.alt || ""}
                   className="block w-full h-auto"
                   style={{ filter: "brightness(0.9) contrast(1.05)" }}
+                  loading="lazy"
+                  decoding="async"
                 />
               )}
             </div>

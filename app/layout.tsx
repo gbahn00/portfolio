@@ -6,9 +6,17 @@ import { DownloadGuard } from "@/components/motion/DownloadGuard";
 import { Header } from "@/components/motion/Header";
 import { getActiveFontConfig } from "@/lib/fonts";
 
+// §148 — "Lighthouse Best Practices/SEO 점수를 높여달라"는 요청.
+// metadataBase가 없으면 상대 경로 OG 이미지 등을 Next가 절대 URL로
+// 만들지 못해 경고가 뜬다. 실제 배포 도메인은 Vercel 환경변수
+// NEXT_PUBLIC_SITE_URL로 설정하면 되고, 아직 없으면 안전한 기본값으로
+// 대체한다(빌드가 깨지지 않게).
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
+
 export async function generateMetadata(): Promise<Metadata> {
   const content = await getContent();
   return {
+    metadataBase: new URL(SITE_URL),
     title: content.settings?.siteTitle || "영상 크리에이터 포트폴리오",
     description: content.profile?.introShort || "",
   };
@@ -51,6 +59,17 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     <html lang="ko" data-accent={accent} style={fontStyleVars as React.CSSProperties}>
       <head>
+        {/* §148 — 폰트 CSS를 cdn.jsdelivr.net에서 불러오는데, 브라우저가
+            <link rel="stylesheet">를 발견한 뒤에야 그 도메인에 연결(DNS
+            조회+TLS 핸드셰이크)을 시작한다. preconnect로 미리 연결을 열어
+            두면 실제 요청이 그만큼 더 빨리 끝난다 — 폰트가 적용되기까지의
+            지연(그리고 그동안의 텍스트 깜빡임/레이아웃 흔들림)이 줄어든다. */}
+        {cssUrls.length > 0 && (
+          <>
+            <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous" />
+            <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+          </>
+        )}
         {cssUrls.map((url) => (
           <link key={url} rel="stylesheet" href={url} />
         ))}

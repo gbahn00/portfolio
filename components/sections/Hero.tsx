@@ -2,7 +2,7 @@
 
 import { useLayoutEffect, useRef } from "react";
 import { HeroSection, MediaRef } from "@/lib/types";
-import { mediaSrc, optimizedImageSrc } from "@/lib/utils";
+import { mediaSrc, optimizedImageSrc, optimizedImageSrcSet } from "@/lib/utils";
 import { Container } from "@/components/ui/Container";
 import { MaskLines } from "@/components/motion/MaskLines";
 import { gsap, prefersReducedMotion } from "@/lib/gsap";
@@ -93,6 +93,9 @@ export function Hero({
       {/* 전체 화면 배경: 영상 우선, 없으면 이미지 */}
       <div ref={bgWrapRef} className="absolute inset-0">
         {video ? (
+          // §148 — 자동재생 배경 영상이라 화면에 나타나는 즉시 재생돼야
+          // 한다. preload="auto"로 명시해 브라우저가 처음부터 최대한
+          // 미리 받아두게 해서 "끊김 없이 빠르게 시작"하도록 한다.
           <video
             className="h-full w-full object-cover"
             style={{ filter: "brightness(0.9) contrast(1.05)" }}
@@ -102,14 +105,26 @@ export function Hero({
             muted
             loop
             playsInline
+            preload="auto"
           />
         ) : (
           // eslint-disable-next-line @next/next/no-img-element
+          // §148 — 이 사진은 접속 시 가장 먼저 보이는 요소(Lighthouse가
+          // 측정하는 LCP 후보)라, 브라우저가 늦게 발견해 다운로드를
+          // 미루지 않도록 fetchPriority="high" + loading="eager"로
+          // 명시적으로 우선순위를 준다. srcSet/sizes로 화면 크기에 맞는
+          // 더 작은 파일을 받을 수 있게 하면서도 화질 저하는 없다(브라우저가
+          // 표시 크기·화면 배율에 맞는 후보를 고른다).
           <img
             src={imageSrc}
+            srcSet={image ? optimizedImageSrcSet(image.url) : undefined}
+            sizes="100vw"
             alt={image?.alt || "대표 이미지 자리 표시자 [자료 필요]"}
             className="h-full w-full object-cover"
             style={{ filter: "brightness(0.9) contrast(1.05)" }}
+            fetchPriority="high"
+            loading="eager"
+            decoding="async"
           />
         )}
       </div>

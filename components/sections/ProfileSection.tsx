@@ -172,6 +172,8 @@ function NumbersPanel({ profile }: { profile: Profile }) {
                     alt={s.name}
                     title={s.name}
                     className="h-11 w-11 md:h-14 md:w-14 rounded-lg object-cover shrink-0"
+                    loading="lazy"
+                    decoding="async"
                   />
                 )}
                 <div className="min-w-0 max-w-[220px] md:max-w-[260px] flex-1">

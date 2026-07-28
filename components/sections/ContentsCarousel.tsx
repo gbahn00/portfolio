@@ -123,6 +123,10 @@ export function ContentsCarousel({ items }: { items: MediaRef[] }) {
               className="h-full flex-shrink-0 rounded-sm overflow-hidden bg-bg-soft"
               style={{ marginRight: i === items.length - 1 ? 0 : GAP_PX }}
             >
+              {/* §148 — 캐러셀 안의 모든 영상이 한 번에 DOM에 올라오는 데다
+                  w-auto라 가로세로 비율을 알아야 폭이 올바르게 정해진다.
+                  preload="metadata"로 본문 데이터는 미루면서도 비율 정보만
+                  가볍게 먼저 받아 레이아웃이 튀지 않게 한다. */}
               <video
                 src={mediaSrc(m.url)}
                 poster={m.poster}
@@ -132,6 +136,7 @@ export function ContentsCarousel({ items }: { items: MediaRef[] }) {
                 onContextMenu={(e) => e.preventDefault()}
                 onDragStart={(e) => e.preventDefault()}
                 playsInline
+                preload="metadata"
                 onLoadedMetadata={refreshScrollTrigger}
                 className="h-full w-auto pointer-events-auto"
               />

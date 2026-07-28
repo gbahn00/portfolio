@@ -72,6 +72,7 @@ function YearContent({ entry }: { entry: TimelineEntry }) {
             muted
             loop
             playsInline
+            preload="auto"
           />
         ) : (
           <MediaFrame media={entry.heroImage} className="h-full w-full" />

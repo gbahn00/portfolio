@@ -34,12 +34,19 @@ function FeaturedCard({ project, index }: { project: Project; index: number }) {
       <div ref={cardRef} className="absolute inset-0">
         <MediaFrame media={project.heroImage} className="h-full w-full" />
         {project.previewVideo && (
+          // §148 — 카드마다 미리보기 영상이 하나씩 있어 화면에 여러 개가
+          // 동시에 마운트된다. 크기는 object-cover로 부모를 꽉 채우는
+          // 방식이라 영상 비율을 몰라도 레이아웃이 틀어지지 않으므로,
+          // 커서를 올리기 전까지는 아무것도 받지 않아도 안전하다
+          // (handleEnter의 play() 호출 시점에 브라우저가 필요한 만큼
+          // 알아서 받기 시작한다).
           <video
             ref={videoRef}
             src={project.previewVideo.url}
             muted
             loop
             playsInline
+            preload="none"
             className="absolute inset-0 h-full w-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500"
           />
         )}

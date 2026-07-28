@@ -211,7 +211,7 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
             {toolsList.map((t) => (
               <div key={t} className="group relative">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={TOOL_ICON_MAP[t]} alt={t} className={toolIconClass} />
+                <img src={TOOL_ICON_MAP[t]} alt={t} className={toolIconClass} loading="lazy" decoding="async" />
                 <div
                   className="pointer-events-none absolute left-1/2 -translate-x-1/2 bottom-full mb-2 whitespace-nowrap rounded-md bg-black/90 px-2.5 py-1.5 text-xs text-white opacity-0 shadow-lg transition-opacity duration-150 group-hover:opacity-100"
                   role="tooltip"

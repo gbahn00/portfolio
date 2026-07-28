@@ -44,6 +44,10 @@ export function GalleryGrid({ items, className }: { items: MediaRef[]; className
       // ScrollTrigger가 예전(더 작은) 크기를 기준으로 남아 있으면 등장
       // 모션이 실제보다 일찍 사라지므로, 로드가 끝나는 시점마다 위치를
       // 다시 계산한다.
+      // §148 — 트랙이 항목을 두 번 이어붙이는 데다(doubled) w-auto라 폭이
+      // 영상 비율에 좌우돼서, 본문 데이터는 미루되(preload="metadata")
+      // 비율 정보는 먼저 받아 트랙 폭 계산(AutoScrollRow)이 틀어지지
+      // 않게 한다. 이미지는 화면에 실제 필요한 시점에 지연 로드한다.
       renderItem={(m) =>
         m.kind === "video-file" ? (
           // §99 — controlsList="nodownload"로 컨트롤 바의 다운로드
@@ -56,6 +60,7 @@ export function GalleryGrid({ items, className }: { items: MediaRef[]; className
             disablePictureInPicture
             onContextMenu={(e) => e.preventDefault()}
             playsInline
+            preload="metadata"
             onLoadedMetadata={refreshScrollTrigger}
             className="h-full w-auto rounded-sm bg-bg-soft"
           />
@@ -67,6 +72,8 @@ export function GalleryGrid({ items, className }: { items: MediaRef[]; className
             onLoad={refreshScrollTrigger}
             onContextMenu={(e) => e.preventDefault()}
             draggable={false}
+            loading="lazy"
+            decoding="async"
             className="h-full w-auto rounded-sm bg-bg-soft object-contain"
           />
         )

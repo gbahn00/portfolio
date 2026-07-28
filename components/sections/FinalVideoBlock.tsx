@@ -26,6 +26,11 @@ export function FinalVideoBlock({ video, posterFallback }: { video: MediaRef; po
           넉넉하게 잡아뒀다. */}
       {/* §99 — controlsList="nodownload"로 컨트롤 바의 다운로드 아이콘을
           숨긴다(완전 차단은 아니지만 가장 눈에 띄는 저장 경로를 없앤다). */}
+      {/* §148 — 클릭해야 재생되는 영상이라 본문(수십 MB) 전체를 미리 받을
+          필요는 없지만, 이 박스가 h-auto라 화면에 나타나는 즉시 영상의
+          가로세로 비율을 알아야 올바른 높이로 표시된다(모르면 브라우저
+          기본 비율로 잘못된 모양이 보였다가 나중에 튀어 보인다).
+          preload="metadata"로 그 정보만 가볍게 먼저 받는다. */}
       <video
         src={mediaSrc(video.url)}
         poster={video.poster || posterFallback}
@@ -34,6 +39,7 @@ export function FinalVideoBlock({ video, posterFallback }: { video: MediaRef; po
         disablePictureInPicture
         onContextMenu={(e) => e.preventDefault()}
         playsInline
+        preload="metadata"
         onLoadedMetadata={refreshScrollTrigger}
         className="w-full h-auto max-h-[75vh] mx-auto block rounded-sm bg-bg-soft"
       />

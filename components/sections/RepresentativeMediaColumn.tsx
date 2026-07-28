@@ -94,6 +94,10 @@ function MediaView({
   }
 
   return isVideo ? (
+    // §148 — 이 박스 크기는 영상의 실제 가로세로 비율(videoWidth/Height)을
+    // 재서(onNaturalSize) 계산하므로, 메타데이터 없이는 올바른 크기로
+    // 그릴 수 없다. preload="metadata"로 본문(수십 MB)은 미루면서도 비율
+    // 정보만 가볍게 먼저 받는다.
     <video
       ref={videoRef}
       src={mediaSrc(item.url)}
@@ -103,6 +107,7 @@ function MediaView({
       disablePictureInPicture
       onContextMenu={(e) => e.preventDefault()}
       playsInline
+      preload="metadata"
       onLoadedMetadata={handleVideoMeta}
       className="absolute inset-0 h-full w-full object-cover"
       style={{ objectPosition }}
@@ -120,6 +125,7 @@ function MediaView({
       className="absolute inset-0 h-full w-full object-cover pointer-events-none"
       style={{ objectPosition }}
       draggable={false}
+      decoding="async"
     />
   );
 }
