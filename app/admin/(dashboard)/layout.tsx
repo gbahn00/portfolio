@@ -51,6 +51,11 @@ const NAV_GROUPS: { title: string | null; items: { href: string; label: string }
   },
 ];
 
+// §153 — "PDF Export" 기능은 일반 방문자에게는 노출하지 않는 관리자 전용
+// 기능이라(스펙 1번), 사이드바 메뉴 목록과 분리된 별도 링크로 둔다.
+// 새 탭으로 열어서, 인쇄 미리보기/저장을 마친 뒤 관리자 화면으로 돌아와도
+// 원래 작업하던 화면이 그대로 남아있게 했다.
+
 export default function AdminDashboardLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen bg-neutral-950 text-neutral-100 flex">
@@ -82,6 +87,9 @@ export default function AdminDashboardLayout({ children }: { children: React.Rea
         <div className="px-5 py-4 border-t border-neutral-800">
           <Link href="/" target="_blank" className="block text-xs text-neutral-500 hover:text-neutral-300 mb-3">
             공개 화면 보기 ↗
+          </Link>
+          <Link href="/admin/print" target="_blank" className="block text-xs text-neutral-500 hover:text-neutral-300 mb-3">
+            PDF Export ↗
           </Link>
           <LogoutButton />
         </div>

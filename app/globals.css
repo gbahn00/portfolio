@@ -419,3 +419,72 @@ video {
   background-size: 250% 100%;
   animation: media-skeleton-shimmer 2.4s ease-in-out infinite;
 }
+
+/* ============================================================================
+   §153 — Admin PDF Export(app/admin/print). 관리자가 "인쇄 → PDF로 저장"으로
+   내보내는 전용 문서 화면 전체를 .print-doc으로 감싼다. 화면 미리보기에서는
+   각 .print-page를 실제 인쇄 페이지처럼 낱장으로 나눠 보여주고(위아래 여백 +
+   은은한 테두리로 "이게 한 페이지" 감을 준다), 실제 인쇄/PDF 저장 시에는
+   그 낱장 구분을 실제 페이지 나눔(page-break)으로 그대로 이어간다.
+   ========================================================================= */
+.print-doc {
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+}
+
+/* 화면 미리보기 전용 — 인쇄될 때는 아래 @media print 규칙이 이 여백/테두리를
+   없애고 실제 페이지 경계로 바꾼다. */
+.print-page {
+  padding: 16mm 14mm;
+  min-height: 297mm;
+  box-sizing: border-box;
+  border-bottom: 1px dashed var(--color-border);
+  display: flex;
+  flex-direction: column;
+}
+.print-page + .print-page {
+  margin-top: 2px;
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+  html,
+  body {
+    background: var(--color-bg-primary) !important;
+  }
+  /* 배경색·강조색을 그대로 인쇄/PDF에 남긴다 — 안 켜두면 브라우저가
+     인쇄 시 배경색을 기본적으로 지운다("웹과 동일한 분위기 유지" 요청). */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+  [data-site-header] {
+    display: none !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-page {
+    padding: 14mm;
+    min-height: 297mm;
+    border-bottom: none;
+    break-after: page;
+    page-break-after: always;
+  }
+  .print-page:last-child {
+    break-after: auto;
+    page-break-after: auto;
+  }
+  .print-avoid-break {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .print-doc img,
+  .print-doc video {
+    max-width: 100%;
+  }
+}
