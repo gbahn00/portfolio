@@ -7,7 +7,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { MediaFrame } from "@/components/ui/MediaFrame";
 import { gsap, prefersReducedMotion } from "@/lib/gsap";
 import { registerSubSteps } from "@/lib/fullpage";
-import { mediaSrc } from "@/lib/utils";
+import { optimizedImageSrc } from "@/lib/utils";
 
 // ============================================================================
 // 인터랙션 수정 요청서 §5-23 (누적) — "02.프로필" 섹션.
@@ -347,7 +347,7 @@ export function ProfileSection({
               {profile.profilePhoto?.url && (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
-                  src={mediaSrc(profile.profilePhoto.url)}
+                  src={optimizedImageSrc(profile.profilePhoto.url, 1080)}
                   alt={profile.profilePhoto.alt || ""}
                   className="max-w-full max-h-full w-auto h-auto object-contain"
                   style={{ filter: "brightness(0.9) contrast(1.05)" }}

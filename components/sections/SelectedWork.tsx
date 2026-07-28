@@ -5,7 +5,7 @@ import Link from "next/link";
 import { MediaRef, Project } from "@/lib/types";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/motion/Reveal";
-import { isPlaceholder, mediaSrc } from "@/lib/utils";
+import { isPlaceholder, mediaSrc, optimizedImageSrc } from "@/lib/utils";
 
 // ============================================================================
 // 전체 구조 개편 명세서 §4 — "04.대표 프로젝트"
@@ -47,7 +47,6 @@ function pickPreviewMedia(project: Project): MediaRef | undefined {
 
 function PreviewMedia({ media }: { media?: MediaRef }) {
   if (!media) return null;
-  const src = mediaSrc(media.url);
   const style: React.CSSProperties = {
     display: "block",
     width: "auto",
@@ -56,10 +55,13 @@ function PreviewMedia({ media }: { media?: MediaRef }) {
     maxHeight: PREVIEW_MAX_H,
   };
   if (media.kind === "video-file") {
-    return <video src={src} poster={media.poster} muted playsInline style={style} />;
+    return <video src={mediaSrc(media.url)} poster={media.poster} muted playsInline style={style} />;
   }
+  // §102 — 260x180 안에서만 보이는 아주 작은 미리보기라 384px 폭이면
+  // 레티나 화면에서도 충분히 선명하다. 원본을 그대로 내려받던 것에
+  // 비하면 용량이 크게 줄어든다.
   // eslint-disable-next-line @next/next/no-img-element
-  return <img src={src} alt={media.alt || ""} style={style} />;
+  return <img src={optimizedImageSrc(media.url, 384)} alt={media.alt || ""} style={style} />;
 }
 
 // §47 — 목록을 "1~4번은 Design, 5~8번은 Content" 두 칼럼으로 나눠달라는

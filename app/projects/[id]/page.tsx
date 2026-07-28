@@ -8,7 +8,7 @@ import { ProjectCover } from "@/components/sections/ProjectCover";
 import { ProjectNav } from "@/components/sections/ProjectNav";
 import { BeforeAfterSlider } from "@/components/sections/BeforeAfterSlider";
 import { FinalVideoBlock } from "@/components/sections/FinalVideoBlock";
-import { isPlaceholder, mediaSrc, stripPlaceholder } from "@/lib/utils";
+import { isPlaceholder, optimizedImageSrc, stripPlaceholder } from "@/lib/utils";
 import { Project } from "@/lib/types";
 
 export const dynamic = "force-dynamic";
@@ -134,7 +134,7 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
         <Container className={mediaTopPad("video")}>
           <FinalVideoBlock
             video={project.finalVideo}
-            posterFallback={project.heroImage ? mediaSrc(project.heroImage.url) : undefined}
+            posterFallback={project.heroImage ? optimizedImageSrc(project.heroImage.url, 1200) : undefined}
           />
         </Container>
       )}

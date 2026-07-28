@@ -7,7 +7,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { MediaFrame } from "@/components/ui/MediaFrame";
 import { gsap, prefersReducedMotion } from "@/lib/gsap";
 import { registerSubSteps } from "@/lib/fullpage";
-import { mediaSrc } from "@/lib/utils";
+import { mediaSrc, optimizedImageSrc } from "@/lib/utils";
 
 // ============================================================================
 // 전체 구조 개편 명세서 §3 — "03.업무 성장과정"
@@ -65,7 +65,7 @@ function YearContent({ entry }: { entry: TimelineEntry }) {
           <video
             key={entry.id}
             src={mediaSrc(entry.heroVideo.url)}
-            poster={entry.heroVideo.poster || (entry.heroImage?.url ? mediaSrc(entry.heroImage.url) : undefined)}
+            poster={entry.heroVideo.poster || (entry.heroImage?.url ? optimizedImageSrc(entry.heroImage.url, 960) : undefined)}
             className="h-full w-full object-cover"
             style={{ filter: "brightness(0.9) contrast(1.05)" }}
             autoPlay
@@ -105,7 +105,7 @@ export function Timeline({ entries, title }: { entries: TimelineEntry[]; title?:
       const url = entry.heroVideo?.poster || entry.heroImage?.url;
       if (!url || url.endsWith(".svg")) return;
       const img = new window.Image();
-      img.src = mediaSrc(url);
+      img.src = optimizedImageSrc(url, 960);
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sorted.length]);

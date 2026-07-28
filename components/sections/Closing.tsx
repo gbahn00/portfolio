@@ -6,7 +6,7 @@ import { Container } from "@/components/ui/Container";
 import { MaskLines } from "@/components/motion/MaskLines";
 import { ScrollTopButton } from "@/components/motion/ScrollTopButton";
 import Link from "next/link";
-import { mediaSrc } from "@/lib/utils";
+import { optimizedImageSrc } from "@/lib/utils";
 import { gsap, prefersReducedMotion, ENTER_ONLY_TOGGLE } from "@/lib/gsap";
 
 // ============================================================================
@@ -23,7 +23,7 @@ import { gsap, prefersReducedMotion, ENTER_ONLY_TOGGLE } from "@/lib/gsap";
 // (앞선 라운드에서 사용자가 명시적으로 제외를 재확인함).
 // ============================================================================
 export function Closing({ data }: { data: ClosingSection }) {
-  const bg = data.backgroundImage ? mediaSrc(data.backgroundImage.url) : "/placeholders/closing-bg.svg";
+  const bg = data.backgroundImage ? optimizedImageSrc(data.backgroundImage.url, 1920) : "/placeholders/closing-bg.svg";
   const sectionRef = useRef<HTMLElement>(null);
   const bgRef = useRef<HTMLDivElement>(null);
   const messageRef = useRef<HTMLDivElement>(null);

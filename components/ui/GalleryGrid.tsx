@@ -8,7 +8,7 @@
 // 이 파일도 "use client"로 바꿔 같은 클라이언트 경계 안에서 함수를 바로
 // 전달할 수 있게 했다.
 import { MediaRef } from "@/lib/types";
-import { mediaSrc } from "@/lib/utils";
+import { mediaSrc, optimizedImageSrc } from "@/lib/utils";
 import { SlideCarousel } from "@/components/ui/SlideCarousel";
 import { refreshScrollTrigger } from "@/lib/gsap";
 
@@ -58,7 +58,7 @@ export function GalleryGrid({ items, className }: { items: MediaRef[]; className
         ) : (
           // eslint-disable-next-line @next/next/no-img-element
           <img
-            src={mediaSrc(m.url)}
+            src={optimizedImageSrc(m.url, 960)}
             alt={m.alt || ""}
             onLoad={refreshScrollTrigger}
             onContextMenu={(e) => e.preventDefault()}

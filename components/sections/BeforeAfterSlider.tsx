@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { BeforeAfterPair } from "@/lib/types";
-import { mediaSrc } from "@/lib/utils";
+import { optimizedImageSrc } from "@/lib/utils";
 import { Reveal } from "@/components/motion/Reveal";
 import { SlideCarousel } from "@/components/ui/SlideCarousel";
 import { refreshScrollTrigger } from "@/lib/gsap";
@@ -37,7 +37,7 @@ function SliderItem({ pair }: { pair: BeforeAfterPair }) {
             않는다. */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={mediaSrc(pair.after.url)}
+          src={optimizedImageSrc(pair.after.url, 960)}
           alt={pair.after.alt || "보정 후"}
           onLoad={refreshScrollTrigger}
           className="block h-full w-auto pointer-events-none"
@@ -45,7 +45,7 @@ function SliderItem({ pair }: { pair: BeforeAfterPair }) {
         />
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={mediaSrc(pair.before.url)}
+          src={optimizedImageSrc(pair.before.url, 960)}
           alt={pair.before.alt || "보정 전"}
           className="absolute inset-0 h-full w-full object-cover pointer-events-none"
           style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}

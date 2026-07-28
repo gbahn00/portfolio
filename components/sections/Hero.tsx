@@ -2,7 +2,7 @@
 
 import { useLayoutEffect, useRef } from "react";
 import { HeroSection, MediaRef } from "@/lib/types";
-import { mediaSrc } from "@/lib/utils";
+import { mediaSrc, optimizedImageSrc } from "@/lib/utils";
 import { Container } from "@/components/ui/Container";
 import { MaskLines } from "@/components/motion/MaskLines";
 import { gsap, prefersReducedMotion } from "@/lib/gsap";
@@ -40,7 +40,7 @@ export function Hero({
   const fallbackImage = stackImages.filter(Boolean)[0];
   const video = hero.backgroundVideo && isVideoKind(hero.backgroundVideo.kind) ? hero.backgroundVideo : undefined;
   const image = !video ? hero.backgroundImage || fallbackImage : undefined;
-  const imageSrc = image ? mediaSrc(image.url) : !video ? "/placeholders/hero-bg.svg" : undefined;
+  const imageSrc = image ? optimizedImageSrc(image.url, 1920) : !video ? "/placeholders/hero-bg.svg" : undefined;
 
   useLayoutEffect(() => {
     const section = sectionRef.current;
