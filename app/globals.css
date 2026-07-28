@@ -394,3 +394,28 @@ video {
     transform: translateX(-50%);
   }
 }
+
+/* §152 — "이미지/영상이 준비되기 전 빈 화면 대신 Skeleton을 보여달라,
+   과도한 로딩 애니메이션은 쓰지 않는다"는 요청. 사진 원본 비율을 미리
+   재기 전까지(주요 미디어 박스가 opacity:0인 동안) 단색 배경 대신 아주
+   느리고 은은하게 움직이는 결(그라데이션)을 보여준다 — 스피너나 통통
+   튀는 모션 없이, "곧 뭔가 채워질 자리"라는 느낌만 준다. */
+@keyframes media-skeleton-shimmer {
+  0% {
+    background-position: -120% 0;
+  }
+  100% {
+    background-position: 120% 0;
+  }
+}
+
+.media-skeleton {
+  background-image: linear-gradient(
+    100deg,
+    var(--color-bg-secondary) 40%,
+    color-mix(in srgb, var(--color-bg-secondary) 60%, white) 50%,
+    var(--color-bg-secondary) 60%
+  );
+  background-size: 250% 100%;
+  animation: media-skeleton-shimmer 2.4s ease-in-out infinite;
+}

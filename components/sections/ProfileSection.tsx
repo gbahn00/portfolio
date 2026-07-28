@@ -7,7 +7,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { MediaFrame } from "@/components/ui/MediaFrame";
 import { gsap, prefersReducedMotion } from "@/lib/gsap";
 import { registerSubSteps } from "@/lib/fullpage";
-import { optimizedImageSrc } from "@/lib/utils";
+import { optimizedImageSrc, optimizedImageSrcSet } from "@/lib/utils";
 import { useElementSize, useElementHeight } from "@/lib/hooks/useElementHeight";
 import { TOOL_ICON_MAP, TOOL_ICON_ORDER } from "@/lib/tool-icons";
 
@@ -297,24 +297,28 @@ function ProfilePhoto({
     // 직접 지정하도록 바꿨다. 목표 높이가 프레임의 CSS 상한보다 커야 하는
     // 경우(예: 업무 역량 탭 5개 항목이 프레임보다 큰 화면)에도 사진이 그
     // 높이만큼 정확히 나오고, 부모 쪽에 overflow:hidden이 없어 잘리지 않는다.
+    // §152 — 박스는 항상 보이고, 자연 크기를 재기 전까지는 빈 화면 대신
+    // 스켈레톤 결을 배경으로 보여준다. 사진 자체만 따로 페이드인한다.
     <div
-      className="relative mx-auto md:mx-0 overflow-hidden rounded-sm flex items-center justify-center"
+      className={`relative mx-auto md:mx-0 overflow-hidden rounded-sm flex items-center justify-center ${ready ? "" : "media-skeleton"}`}
       style={{
         width: `${Math.round(boxW)}px`,
         height: `${Math.round(effectiveHeight)}px`,
         maxWidth: "100%",
-        opacity: ready ? 1 : 0,
-        transition: ready ? "opacity 200ms ease-out" : "none",
       }}
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         ref={imgRef}
         src={optimizedImageSrc(photo.url, 1080)}
+        srcSet={optimizedImageSrcSet(photo.url, [640, 828, 1080])}
+        sizes="(min-width: 768px) 480px, 90vw"
         alt={photo.alt || ""}
         onLoad={handleLoad}
         className="h-full w-full object-contain"
-        style={{ filter: "brightness(0.9) contrast(1.05)" }}
+        style={{ filter: "brightness(0.9) contrast(1.05)", opacity: ready ? 1 : 0, transition: "opacity 200ms ease-out" }}
+        loading="eager"
+        decoding="async"
       />
     </div>
   );

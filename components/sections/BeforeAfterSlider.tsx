@@ -139,7 +139,15 @@ function computeBoxFromHeight(naturalWidth: number, naturalHeight: number, targe
 // 없어 문제가 없었다 — 그래서 프로젝트 1만 유독 어긋나 보였다. 캡션을
 // 박스 바깥의 별도 자리가 아니라, BEFORE/AFTER 라벨처럼 박스 안
 // 오버레이로 옮겨서 박스 바깥에 추가 높이가 전혀 생기지 않게 했다.
-function CompareView({ pair, onNaturalSize }: { pair: BeforeAfterPair; onNaturalSize: (w: number, h: number) => void }) {
+function CompareView({
+  pair,
+  onNaturalSize,
+  ready,
+}: {
+  pair: BeforeAfterPair;
+  onNaturalSize: (w: number, h: number) => void;
+  ready: boolean;
+}) {
   const [pos, setPos] = useState(50);
   const afterImgRef = useRef<HTMLImageElement>(null);
   const objectPosition = `${pair.after.focusX ?? 50}% ${pair.after.focusY ?? 50}%`;
@@ -168,13 +176,15 @@ function CompareView({ pair, onNaturalSize }: { pair: BeforeAfterPair; onNatural
   return (
     <>
       {/* eslint-disable-next-line @next/next/no-img-element */}
+      {/* §152 — opacity를 박스가 아니라 이 이미지 두 장 자체에 줘서,
+          로딩 중에는 박스의 스켈레톤 배경이 그대로 보이게 했다. */}
       <img
         ref={afterImgRef}
         src={optimizedImageSrc(pair.after.url, 1920)}
         alt={pair.after.alt || "보정 후"}
         onLoad={handleAfterLoad}
         className="absolute inset-0 h-full w-full object-cover pointer-events-none"
-        style={{ objectPosition }}
+        style={{ objectPosition, opacity: ready ? 1 : 0, transition: "opacity 200ms ease-out" }}
         draggable={false}
         decoding="async"
       />
@@ -183,7 +193,12 @@ function CompareView({ pair, onNaturalSize }: { pair: BeforeAfterPair; onNatural
         src={optimizedImageSrc(pair.before.url, 1920)}
         alt={pair.before.alt || "보정 전"}
         className="absolute inset-0 h-full w-full object-cover pointer-events-none"
-        style={{ objectPosition, clipPath: `inset(0 ${100 - pos}% 0 0)` }}
+        style={{
+          objectPosition,
+          clipPath: `inset(0 ${100 - pos}% 0 0)`,
+          opacity: ready ? 1 : 0,
+          transition: "opacity 200ms ease-out",
+        }}
         draggable={false}
         decoding="async"
       />
@@ -289,17 +304,16 @@ export function BeforeAfterSlider({
         {/* §107 — 이전/다음 버튼을 사진 좌우 중앙에 겹쳐 그리기 위한
             래퍼. CompareView 뒤(형제)에 버튼을 둬서 항상 사진 위에
             그려지도록 한다. */}
+        {/* §152 — 박스는 항상 보이고, 준비 전에는 스켈레톤 결을 배경으로
+            보여준다(빈 화면 대신). 실제 사진은 CompareView 안에서 각자
+            페이드인한다. */}
         <div
-          className="relative overflow-hidden rounded-sm select-none bg-bg-soft"
-          style={{
-            aspectRatio: `${box.w} / ${box.h}`,
-            opacity: ready ? 1 : 0,
-            transition: ready ? "opacity 200ms ease-out" : "none",
-          }}
+          className={`relative overflow-hidden rounded-sm select-none ${ready ? "bg-bg-soft" : "media-skeleton"}`}
+          style={{ aspectRatio: `${box.w} / ${box.h}` }}
         >
           {/* §108 — key를 주지 않아 같은 DOM을 유지한 채 사진(src)만
               바뀐다("화면이 새로고침되는 느낌" 방지). */}
-          <CompareView pair={current} onNaturalSize={handleNaturalSize} />
+          <CompareView pair={current} onNaturalSize={handleNaturalSize} ready={ready} />
 
           {sorted.length > 1 && (
             <>

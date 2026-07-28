@@ -59,10 +59,12 @@ function MediaView({
   item,
   objectPosition,
   onNaturalSize,
+  ready,
 }: {
   item: MediaRef;
   objectPosition: string;
   onNaturalSize: (w: number, h: number) => void;
+  ready: boolean;
 }) {
   const isVideo = item.kind === "video-file";
   const imgRef = useRef<HTMLImageElement>(null);
@@ -110,20 +112,24 @@ function MediaView({
       preload="metadata"
       onLoadedMetadata={handleVideoMeta}
       className="absolute inset-0 h-full w-full object-cover"
-      style={{ objectPosition }}
+      style={{ objectPosition, opacity: ready ? 1 : 0, transition: "opacity 200ms ease-out" }}
     />
   ) : (
     // eslint-disable-next-line @next/next/no-img-element
     // §142 — "원본 해상도를 최대한 유지, 흐릿하게 보이지 않도록"라는
     // 요청으로 최적화 요청 폭을 1080 → 1920으로 올렸다(레티나 화면에서도
     // 이 박스가 가질 수 있는 최대 CSS 폭 대비 넉넉한 여유를 둔다).
+    // §152 — opacity를 박스 전체가 아니라 이 이미지 자체에 줘서, 로딩
+    // 중에는 박스의 스켈레톤(결) 배경이 그대로 보이다가 이미지만 살짝
+    // 나타나도록 바꿨다(예전엔 박스째 투명해져 그 뒤 페이지 배경이 그대로
+    // 비쳤다).
     <img
       ref={imgRef}
       src={optimizedImageSrc(item.url, 1920)}
       alt={item.alt || ""}
       onLoad={handleImgLoad}
       className="absolute inset-0 h-full w-full object-cover pointer-events-none"
-      style={{ objectPosition }}
+      style={{ objectPosition, opacity: ready ? 1 : 0, transition: "opacity 200ms ease-out" }}
       draggable={false}
       decoding="async"
     />
@@ -176,17 +182,18 @@ export function RepresentativeMediaColumn({
 
   return (
     <div style={{ width: `${box.w}px`, maxWidth: "100%" }} className="mx-auto md:mx-0">
+      {/* §152 — 박스 자체는 항상 보이게 두고(더 이상 opacity로 통째로
+          숨기지 않는다), 준비되기 전까지는 은은한 스켈레톤 결을 배경으로
+          보여준다 — 빈 화면 대신 "곧 채워질 자리"라는 느낌을 준다. 실제
+          이미지/영상은 MediaView 안에서 자기 자신의 opacity로 따로
+          페이드인한다. */}
       <div
-        className="relative overflow-hidden rounded-sm select-none bg-bg-soft"
-        style={{
-          height: `${box.h}px`,
-          opacity: ready ? 1 : 0,
-          transition: ready ? "opacity 200ms ease-out" : "none",
-        }}
+        className={`relative overflow-hidden rounded-sm select-none ${ready ? "bg-bg-soft" : "media-skeleton"}`}
+        style={{ height: `${box.h}px` }}
       >
         {/* §108과 동일 취지 — 항목이 바뀌어도 같은 DOM 트리를 최대한
             유지한다(이미지/영상 종류가 바뀌는 드문 경우만 예외). */}
-        <MediaView item={current} objectPosition={objectPosition} onNaturalSize={(w, h) => setNatural({ w, h })} />
+        <MediaView item={current} objectPosition={objectPosition} onNaturalSize={(w, h) => setNatural({ w, h })} ready={ready} />
 
         {/* §135 — 보정 위치 마커. 퍼센트 좌표라 사진 표시 크기가 반응형으로
             바뀌어도 항상 같은 상대 위치를 가리킨다. */}

@@ -41,6 +41,13 @@ export function Hero({
   const video = hero.backgroundVideo && isVideoKind(hero.backgroundVideo.kind) ? hero.backgroundVideo : undefined;
   const image = !video ? hero.backgroundImage || fallbackImage : undefined;
   const imageSrc = image ? optimizedImageSrc(image.url, 1920) : !video ? "/placeholders/hero-bg.svg" : undefined;
+  // §152 — "영상이 준비되기 전엔 고화질 Poster를 먼저 보여줘 검은
+  // 화면/빈 화면이 없도록 해달라"는 요청. 관리자가 이 영상에 poster를
+  // 따로 지정하지 않은 경우, 대표 이미지(backgroundImage/stackImages
+  // 첫 장)를 대신 poster로 써서 최소한 무언가는 즉시 보이게 한다.
+  const videoPosterFallback = hero.backgroundImage || fallbackImage;
+  const videoPoster =
+    video?.poster || (videoPosterFallback ? optimizedImageSrc(videoPosterFallback.url, 1920) : undefined);
 
   useLayoutEffect(() => {
     const section = sectionRef.current;
@@ -100,7 +107,7 @@ export function Hero({
             className="h-full w-full object-cover"
             style={{ filter: "brightness(0.9) contrast(1.05)" }}
             src={mediaSrc(video.url)}
-            poster={video.poster}
+            poster={videoPoster}
             autoPlay
             muted
             loop
