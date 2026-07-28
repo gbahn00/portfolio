@@ -48,28 +48,44 @@ import { useElementHeight } from "@/lib/hooks/useElementHeight";
 // §131 — 텍스트 높이를 재는 로직을 lib/hooks/useElementHeight.ts 공용
 // 훅으로 뺐다(보정 전후 사진이 없을 때 대표 이미지/영상으로 대체하는
 // RepresentativeMediaWithText.tsx에서도 똑같은 로직이 필요해졌다).
+//
+// §141 — "프로젝트 1(보정 전후)만 2~8과 레이아웃이 안 맞는다"는 요청의
+// 남은 원인 하나: 디테일컷/모델컷으로 나뉘는 경우(isSplit) "디테일컷"/
+// "모델컷" 제목(h3)이 사진 박스 위에 추가로 붙는데, 이 제목의 높이만큼
+// 왼쪽 칸 전체(제목+박스)가 오른쪽 텍스트 칸보다 길어져 하단이 어긋났다.
+// 제목 높이를 실측해서 텍스트 칸 높이에서 미리 빼고 그 나머지만 사진
+// 박스 목표 높이로 넘기면, "제목 높이 + 박스 높이"의 합이 다시 정확히
+// 텍스트 칸 높이와 같아진다.
 // ============================================================================
 
 const SPLIT_MAX_W = 380; // 사진 칸이 두 개(디테일컷/모델컷)일 때 각 칸의 폭 상한
 
 export function BeforeAfterWithText({ pairs, children }: { pairs: BeforeAfterPair[]; children: ReactNode }) {
   const { ref: textRef, height: textHeightPx } = useElementHeight<HTMLDivElement>();
+  // §141 — 디테일컷/모델컷 제목의 실제 렌더링 높이(두 제목은 같은
+  // 스타일이라 하나만 재면 된다).
+  const { ref: headingRef, height: headingHeightPx } = useElementHeight<HTMLHeadingElement>();
 
   const detailPairs = pairs.filter((p) => p.category === "detail");
   const modelPairs = pairs.filter((p) => p.category === "model");
   const isSplit = detailPairs.length > 0 && modelPairs.length > 0;
+
+  const splitPhotoTargetHeight =
+    isSplit && textHeightPx !== undefined && headingHeightPx !== undefined
+      ? Math.max(0, textHeightPx - headingHeightPx)
+      : undefined;
 
   return (
     <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-start">
       {isSplit ? (
         <>
           <div className="w-full md:w-auto md:flex-shrink-0">
-            <h3 className="text-sm font-medium text-ink-muted mb-2 text-korean">디테일컷</h3>
-            <BeforeAfterSlider pairs={detailPairs} targetHeightPx={textHeightPx} maxWidthPx={SPLIT_MAX_W} />
+            <h3 ref={headingRef} className="text-sm font-medium text-ink-muted mb-2 text-korean">디테일컷</h3>
+            <BeforeAfterSlider pairs={detailPairs} targetHeightPx={splitPhotoTargetHeight} maxWidthPx={SPLIT_MAX_W} />
           </div>
           <div className="w-full md:w-auto md:flex-shrink-0">
             <h3 className="text-sm font-medium text-ink-muted mb-2 text-korean">모델컷</h3>
-            <BeforeAfterSlider pairs={modelPairs} targetHeightPx={textHeightPx} maxWidthPx={SPLIT_MAX_W} />
+            <BeforeAfterSlider pairs={modelPairs} targetHeightPx={splitPhotoTargetHeight} maxWidthPx={SPLIT_MAX_W} />
           </div>
         </>
       ) : (

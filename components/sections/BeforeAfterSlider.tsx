@@ -117,6 +117,15 @@ function computeBoxFromHeight(naturalWidth: number, naturalHeight: number, targe
 // 옆 텍스트 칸을 침범할 만큼 크면(아주 넓은 파노라마 등)만 폭 상한으로
 // 잘라내고, 그 드문 경우에만 object-fit: cover + object-position
 // (MediaRef.focusX/focusY, "after" 사진 기준)으로 필요한 만큼만 자른다.
+// §141 — "프로젝트 1(보정 전후)만 2~8과 레이아웃이 안 맞는다"는 요청.
+// 원인은 사진 박스 자체는 텍스트 칸 높이에 정확히 맞지만, 그 아래
+// 항상 24px를 차지하던 캡션 자리(h-4 mt-2, 캡션이 없어도 빈 채로
+// 예약돼 있었다)가 오른쪽 텍스트 칸에는 없는 "여분의 높이"라서, 왼쪽
+// 칸 전체(박스+캡션 자리)가 오른쪽보다 그만큼 더 길어져 하단이 어긋난
+// 것이었다. RepresentativeMediaColumn(대체 이미지)에는 이런 캡션 자리가
+// 없어 문제가 없었다 — 그래서 프로젝트 1만 유독 어긋나 보였다. 캡션을
+// 박스 바깥의 별도 자리가 아니라, BEFORE/AFTER 라벨처럼 박스 안
+// 오버레이로 옮겨서 박스 바깥에 추가 높이가 전혀 생기지 않게 했다.
 function CompareView({ pair, onNaturalSize }: { pair: BeforeAfterPair; onNaturalSize: (w: number, h: number) => void }) {
   const [pos, setPos] = useState(50);
   const afterImgRef = useRef<HTMLImageElement>(null);
@@ -182,6 +191,13 @@ function CompareView({ pair, onNaturalSize }: { pair: BeforeAfterPair; onNatural
       <span className="absolute right-3 top-3 text-[11px] font-semibold tracking-wide text-white bg-black/55 rounded px-2 py-1 pointer-events-none">
         AFTER
       </span>
+
+      {/* §141 — 캡션을 박스 바깥 별도 자리 대신 하단 오버레이로. */}
+      {pair.caption && !pair.caption.startsWith("[") && (
+        <p className="absolute left-3 bottom-3 right-3 text-xs text-white bg-black/55 rounded px-2 py-1 text-korean line-clamp-1 pointer-events-none">
+          {pair.caption}
+        </p>
+      )}
 
       {/* 실제 드래그를 담당하는 투명 슬라이더 (마우스/터치 공용) */}
       <input
@@ -289,12 +305,6 @@ export function BeforeAfterSlider({
                 ›
               </button>
             </>
-          )}
-        </div>
-
-        <div className="h-4 mt-2">
-          {current.caption && !current.caption.startsWith("[") && (
-            <p className="text-xs text-ink-muted text-korean line-clamp-1">{current.caption}</p>
           )}
         </div>
 
