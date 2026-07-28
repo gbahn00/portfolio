@@ -510,14 +510,28 @@
         }
       ],
       "metrics": [],
-      "detailBlocks": [],
+      "detailBlocks": [
+        {
+          "id": "f9f91455-299c-4dd8-9e67-848e40d2e662",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "온라인 판매용 의류 상세페이지에 활용되는 디테일컷과 모델 착용컷을 촬영하고 보정한 프로젝트입니다. \n제품의 색감과 소재를 실제와 가깝게 표현하고, 모델 착용 이미지를 통해 상품의 실루엣과 착용감을 자연스럽게 전달하는 데 중점을 두었습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
       "isFeatured": false,
       "isDetailFeatured": false,
       "publicOk": true,
       "status": "draft",
       "order": 0,
       "createdAt": "2024-08-01T00:00:00.000Z",
-      "updatedAt": "2026-07-28T05:29:47.138Z"
+      "updatedAt": "2026-07-28T05:36:12.720Z"
     },
     {
       "id": "proj-cafe",

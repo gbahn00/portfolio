@@ -39,8 +39,10 @@ const NEXT_IMAGE_VALID_WIDTHS = [16, 32, 48, 64, 96, 128, 256, 384, 640, 750, 82
 export function optimizedImageSrc(url?: string, width = 1200): string {
   const src = mediaSrc(url);
   // 로컬 정적 파일(placeholder svg 등)이나 영상 파일은 최적화 대상이
-  // 아니므로 그대로 반환한다.
-  if (src.endsWith(".svg") || /\.(mp4|webm|mov|m4v)(\?.*)?$/i.test(src)) return src;
+  // 아니므로 그대로 반환한다. §120 — gif도 제외한다. Next.js 이미지
+  // 최적화를 거치면 움직이는 gif가 첫 프레임만 남은 정지 이미지로
+  // 바뀌어버리기 때문이다.
+  if (src.endsWith(".svg") || /\.(mp4|webm|mov|m4v)(\?.*)?$/i.test(src) || /\.gif(\?.*)?$/i.test(src)) return src;
   const w = NEXT_IMAGE_VALID_WIDTHS.reduce((best, cur) =>
     Math.abs(cur - width) < Math.abs(best - width) ? cur : best
   );

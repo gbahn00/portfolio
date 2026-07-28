@@ -34,7 +34,7 @@ export async function POST(req: NextRequest) {
 
   if (!isImage && !isVideo) {
     return NextResponse.json(
-      { error: "지원하지 않는 파일 형식입니다. (JPG, PNG, WebP, AVIF, MP4, WebM, MOV만 가능)" },
+      { error: "지원하지 않는 파일 형식입니다. (JPG, PNG, WebP, AVIF, GIF, MP4, WebM, MOV만 가능)" },
       { status: 400 }
     );
   }

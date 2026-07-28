@@ -55,32 +55,69 @@ import { refreshScrollTrigger } from "@/lib/gsap";
 //
 // §119 — 폭 하나만 고정(max-w)하고 높이는 원본 비율대로 자유롭게
 // 두었더니, 가로로 넓은 사진은 얇고 짧게, 세로로 긴(인물) 사진은 아주
-// 크게 나와 사진마다 "체감 크기"가 들쭉날쭉했다("어떤 건 작고 어떤 건
-// 평균 크기"). 사진을 자르거나 늘리지 않으면서(원본 비율 유지) 크기를
-// 고르게 맞추려면 폭과 높이를 동시에 상한선으로 잡아야 한다 — 가로 사진은
-// 폭 기준으로, 세로 사진은 높이 기준으로 알아서 줄어들어(object-fit:
-// contain과 같은 원리) 어떤 비율이든 같은 박스 안에 들어오게 된다.
+// 크게 나와 사진마다 "체감 크기"가 들쭉날쭉했다. 그래서 폭·높이를 동시에
+// 상한으로 걸어봤는데(예: 최대 420×480), 상한 박스 자체가 세로로 긴
+// 모양이다 보니 가로로 넓은 사진은 폭 상한에 먼저 걸려 세로 여유 공간을
+// 다 못 쓰고 작게 나오는 문제가 그대로 남았다.
+//
+// §121 — "면적(체감 크기)을 맞춘다"는 관점으로 접근을 바꿨다. 사진이
+// 로드되면 원본 가로세로 비율을 읽어서, 항상 같은 목표 면적을 채우는
+// 폭·높이를 직접 계산한다(gW = √(면적×비율), gH = √(면적÷비율)) — 정사각
+// 박스 하나에 억지로 끼워 맞추는 대신, 어떤 비율이든 "대략 같은 크기로
+// 보이는" 사각형이 나온다. 다만 아주 극단적인 비율(파노라마처럼 매우
+// 넓거나 매우 좁고 긴 사진)에서 한쪽이 지나치게 커지지 않도록 최소/최대
+// 픽셀 값으로 한 번 더 안전하게 잘라준다.
 // ============================================================================
 
-function CompareView({ pair }: { pair: BeforeAfterPair }) {
+const TARGET_AREA = 420 * 480; // 기준 박스(px^2) — 이 넓이를 유지하도록 폭/높이를 계산한다
+const MIN_SIDE = 220;
+const MAX_W = 560;
+const MAX_H = 560;
+
+function computeBoxSize(naturalWidth: number, naturalHeight: number) {
+  const ratio = naturalWidth / naturalHeight;
+  let w = Math.sqrt(TARGET_AREA * ratio);
+  let h = Math.sqrt(TARGET_AREA / ratio);
+  if (w > MAX_W) {
+    h *= MAX_W / w;
+    w = MAX_W;
+  }
+  if (h > MAX_H) {
+    w *= MAX_H / h;
+    h = MAX_H;
+  }
+  if (w < MIN_SIDE) {
+    h *= MIN_SIDE / w;
+    w = MIN_SIDE;
+  }
+  if (h < MIN_SIDE) {
+    w *= MIN_SIDE / h;
+    h = MIN_SIDE;
+  }
+  return { w: Math.round(w), h: Math.round(h) };
+}
+
+function CompareView({ pair, onNaturalSize }: { pair: BeforeAfterPair; onNaturalSize: (w: number, h: number) => void }) {
   const [pos, setPos] = useState(50);
 
   useEffect(() => {
     setPos(50);
   }, [pair.id]);
 
+  function handleAfterLoad(e: React.SyntheticEvent<HTMLImageElement>) {
+    refreshScrollTrigger();
+    const img = e.currentTarget;
+    if (img.naturalWidth && img.naturalHeight) onNaturalSize(img.naturalWidth, img.naturalHeight);
+  }
+
   return (
-    <div className="relative w-full overflow-hidden rounded-sm select-none bg-bg-soft">
-      {/* §119 — width/height 둘 다 auto로 두고 max-width·max-height를
-          동시에 걸어, 사진 방향(가로/세로)에 상관없이 원본 비율 그대로
-          같은 박스 안에 들어오는 크기로 자동으로 줄어든다(자르거나
-          늘리지 않음). */}
+    <>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={optimizedImageSrc(pair.after.url, 1080)}
         alt={pair.after.alt || "보정 후"}
-        onLoad={refreshScrollTrigger}
-        className="block w-auto h-auto max-w-[min(420px,100%)] max-h-[480px] pointer-events-none"
+        onLoad={handleAfterLoad}
+        className="absolute inset-0 h-full w-full object-cover pointer-events-none"
         draggable={false}
       />
       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -121,13 +158,15 @@ function CompareView({ pair }: { pair: BeforeAfterPair }) {
         aria-label="보정 전/후 비교 슬라이더"
         className="absolute inset-0 h-full w-full cursor-ew-resize opacity-0"
       />
-    </div>
+    </>
   );
 }
 
 export function BeforeAfterSlider({ pairs }: { pairs: BeforeAfterPair[] }) {
   const sorted = [...pairs].sort((a, b) => a.order - b.order);
   const [index, setIndex] = useState(0);
+  // §121 — 사진이 로드되기 전(최초 렌더) 기준값. 로드되면 실제 비율로 갱신된다.
+  const [box, setBox] = useState({ w: 360, h: 480 });
 
   if (sorted.length === 0) return null;
   const current = sorted[Math.min(index, sorted.length - 1)];
@@ -136,19 +175,30 @@ export function BeforeAfterSlider({ pairs }: { pairs: BeforeAfterPair[] }) {
     setIndex((i) => (i + dir + sorted.length) % sorted.length);
   }
 
+  function handleNaturalSize(nw: number, nh: number) {
+    setBox(computeBoxSize(nw, nh));
+  }
+
+  const boxWidthStyle = `min(${box.w}px, 100%)`;
+
   return (
     <>
-      {/* §119 — 실제 크기 상한은 이제 CompareView 내부 img의
-          max-w/max-h가 정하므로, 바깥 래퍼는 그보다 살짝 넉넉한 값으로만
-          잡아 캡션/이전·다음 카운터가 사진 폭을 넘어서지 않게 한다. */}
-      <div className="max-w-[420px]">
+      {/* §121 — 사진 칸 크기(box.w × box.h)는 이제 CSS max-w가 아니라
+          위에서 계산한 값(같은 목표 면적을 유지하도록 매 사진마다 다시
+          계산)을 인라인 스타일로 직접 준다. width는 화면이 좁으면
+          min(...)으로 한 번 더 줄어들고, aspect-ratio가 그 폭에 맞는
+          높이를 자동으로 유지해 어떤 화면에서도 비율이 깨지지 않는다. */}
+      <div style={{ width: boxWidthStyle }}>
         {/* §107 — 이전/다음 버튼을 사진 좌우 중앙에 겹쳐 그리기 위한
             래퍼. CompareView 뒤(형제)에 버튼을 둬서 항상 사진 위에
             그려지도록 한다. */}
-        <div className="relative">
+        <div
+          className="relative overflow-hidden rounded-sm select-none bg-bg-soft"
+          style={{ aspectRatio: `${box.w} / ${box.h}` }}
+        >
           {/* §108 — key를 주지 않아 같은 DOM을 유지한 채 사진(src)만
               바뀐다("화면이 새로고침되는 느낌" 방지). */}
-          <CompareView pair={current} />
+          <CompareView pair={current} onNaturalSize={handleNaturalSize} />
 
           {sorted.length > 1 && (
             <>
