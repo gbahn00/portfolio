@@ -1,5 +1,198 @@
 [
   {
+    "id": "37fdd0d9-49fc-4b51-9ca8-36b1c164bb50",
+    "entity": "projects:proj-lawyer-youtube",
+    "field": "수정",
+    "before": {
+      "id": "proj-lawyer-youtube",
+      "number": "06",
+      "title": "변호사 유튜브 채널 콘텐츠 \n기획 및 제작",
+      "brand": "[자료 필요 - 채널명, 공개 가능 여부 확인 필요]",
+      "brandHidden": true,
+      "year": "2025",
+      "field": "유튜브",
+      "purpose": "법률 정보를 대중이 이해하기 쉬운 형태로 전달하는 유튜브 채널 콘텐츠 제작",
+      "role": "기획 및 제작",
+      "tools": [
+        "[자료 필요] 편집 프로그램 및 장비 목록"
+      ],
+      "description": "법률 콘텐츠는 정보의 정확성과 전문성을 유지해야 하지만, 전문 용어와 긴 설명이 많아 일반 시청자가 어렵게 느낄 수 있어 시청자가 실제로 궁금해하는 내용을 중심으로 정보를 다시 구성했습니다.",
+      "heroImage": {
+        "url": "/placeholders/youtube.svg",
+        "kind": "image",
+        "alt": "변호사 유튜브 대표 이미지 [자료 필요]"
+      },
+      "gallery": [],
+      "beforeAfter": [],
+      "metrics": [
+        {
+          "id": "m1",
+          "label": "콘텐츠 조회수",
+          "value": "[자료 필요]"
+        },
+        {
+          "id": "m2",
+          "label": "영상 시청 유지율",
+          "value": "[자료 필요]"
+        }
+      ],
+      "detailBlocks": [
+        {
+          "id": "b1",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "변호사 유튜브 채널 운영을 위해 시청자가 궁금해할 법률 주제를 기획하고, \n촬영 지원부터 컷편집, 자막 구성과 최종 검수까지 참여했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "1bc3a7f6-5951-4e9b-b968-47aa01ca60f5",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "전문 용어가 많은 법률 정보를 실제 시청자의 질문과 사례를 중심으로 풀어내어, \n핵심 내용을 쉽고 명확하게 이해할 수 있도록 제작했습니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "3cacb903-2ae0-4a7f-a89e-8ff1d0a9cf07",
+          "key": "role",
+          "title": "기여도",
+          "body": "콘텐츠 기획 · 촬영 지원 · 컷편집 · 자막 디자인 · 사운드",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": true,
+      "isDetailFeatured": true,
+      "publicOk": true,
+      "status": "draft",
+      "order": 5,
+      "createdAt": "2025-05-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T09:43:48.971Z",
+      "contents": [],
+      "beforeAfterFallbackMedia": [
+        {
+          "url": "/uploads/b9d66daa-d6e2-47b1-94dd-db6227338773.mp4",
+          "kind": "video-file",
+          "alt": ""
+        }
+      ],
+      "retouchMarkers": []
+    },
+    "after": {
+      "id": "proj-lawyer-youtube",
+      "number": "06",
+      "title": "변호사 유튜브 채널 콘텐츠 \n기획 및 제작",
+      "brand": "[자료 필요 - 채널명, 공개 가능 여부 확인 필요]",
+      "brandHidden": true,
+      "year": "2025",
+      "field": "유튜브",
+      "purpose": "법률 정보를 대중이 이해하기 쉬운 형태로 전달하는 유튜브 채널 콘텐츠 제작",
+      "role": "기획 및 제작",
+      "tools": [
+        "[자료 필요] 편집 프로그램 및 장비 목록",
+        "After Effects",
+        "Illustrator",
+        "Premiere Pro",
+        "Photoshop"
+      ],
+      "description": "법률 콘텐츠는 정보의 정확성과 전문성을 유지해야 하지만, 전문 용어와 긴 설명이 많아 일반 시청자가 어렵게 느낄 수 있어 시청자가 실제로 궁금해하는 내용을 중심으로 정보를 다시 구성했습니다.",
+      "heroImage": {
+        "url": "/placeholders/youtube.svg",
+        "kind": "image",
+        "alt": "변호사 유튜브 대표 이미지 [자료 필요]"
+      },
+      "gallery": [],
+      "beforeAfter": [],
+      "metrics": [
+        {
+          "id": "m1",
+          "label": "콘텐츠 조회수",
+          "value": "[자료 필요]"
+        },
+        {
+          "id": "m2",
+          "label": "영상 시청 유지율",
+          "value": "[자료 필요]"
+        }
+      ],
+      "detailBlocks": [
+        {
+          "id": "b1",
+          "key": "overview",
+          "title": "프로젝트 개요",
+          "body": "변호사 유튜브 채널 운영을 위해 시청자가 궁금해할 법률 주제를 기획하고, \n촬영 지원부터 컷편집, 자막 구성과 최종 검수까지 참여했습니다.",
+          "order": 0,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "1bc3a7f6-5951-4e9b-b968-47aa01ca60f5",
+          "key": "purpose",
+          "title": "제작 의도",
+          "body": "전문 용어가 많은 법률 정보를 실제 시청자의 질문과 사례를 중심으로 풀어내어, \n핵심 내용을 쉽고 명확하게 이해할 수 있도록 제작했습니다.",
+          "order": 1,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        },
+        {
+          "id": "3cacb903-2ae0-4a7f-a89e-8ff1d0a9cf07",
+          "key": "role",
+          "title": "기여도",
+          "body": "콘텐츠 기획 · 촬영 지원 · 컷편집 · 자막 디자인 · 사운드",
+          "order": 2,
+          "visible": true,
+          "images": [],
+          "videos": [],
+          "compareImages": [],
+          "links": [],
+          "metrics": []
+        }
+      ],
+      "isFeatured": true,
+      "isDetailFeatured": true,
+      "publicOk": true,
+      "status": "draft",
+      "order": 5,
+      "createdAt": "2025-05-01T00:00:00.000Z",
+      "updatedAt": "2026-07-28T10:25:50.587Z",
+      "contents": [],
+      "beforeAfterFallbackMedia": [
+        {
+          "url": "/uploads/b9d66daa-d6e2-47b1-94dd-db6227338773.mp4",
+          "kind": "video-file",
+          "alt": ""
+        }
+      ],
+      "retouchMarkers": []
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-28T10:25:50.750Z"
+  },
+  {
     "id": "999f5791-88e3-43e9-b48b-f652e86c69f2",
     "entity": "projects:proj-cafe",
     "field": "수정",

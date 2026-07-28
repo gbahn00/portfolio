@@ -321,7 +321,7 @@ export function ProjectEditor({ initial }: { initial: Project }) {
               />
               <div className="grid grid-cols-2 gap-3 mb-2">
                 <MediaUpload label="보정 전" value={pair.before} onChange={(m) => m && updateBeforeAfter(pair.id, { before: m })} />
-                <MediaUpload label="보정 후" value={pair.after} onChange={(m) => m && updateBeforeAfter(pair.id, { after: m })} />
+                <MediaUpload label="보정 후" value={pair.after} onChange={(m) => m && updateBeforeAfter(pair.id, { after: m })} showFocus />
               </div>
               <div className="flex gap-2 items-center">
                 <input
@@ -346,7 +346,7 @@ export function ProjectEditor({ initial }: { initial: Project }) {
 
       <FieldGroup
         title="보정 전후 없을 때 대체 이미지·영상 (선택)"
-        hint='위 "보정 전·후 비교"가 하나도 없는 프로젝트는 상세 페이지의 그 자리가 텍스트만으로 채워지는데, 여기에 이미지·영상을 등록하면 그 자리에 대신 나타납니다(왼쪽 사진/영상 + 오른쪽 프로젝트 개요~Tools). 여러 장 등록하면 보정 전·후 비교와 같은 방식으로 화살표(‹ ›)를 눌러 이전/다음 사진을 볼 수 있습니다. 비워두면 위쪽 "대표 이미지"를 자동으로 대신 씁니다. 보정 전·후 비교가 하나라도 있으면 이 항목은 쓰이지 않습니다. 사진 영역의 높이는 항상 오른쪽 텍스트 칸 높이에 정확히 맞춰지고(위아래 정렬이 항상 일치), 사진은 원본 비율 그대로(잘리거나 늘어나지 않고) 그 영역 안에 표시되며 남는 공간은 여백으로 남습니다.'
+        hint='위 "보정 전·후 비교"가 하나도 없는 프로젝트는 상세 페이지의 그 자리가 텍스트만으로 채워지는데, 여기에 이미지·영상을 등록하면 그 자리에 대신 나타납니다(왼쪽 사진/영상 + 오른쪽 프로젝트 개요~Tools). 여러 장 등록하면 보정 전·후 비교와 같은 방식으로 화살표(‹ ›)를 눌러 이전/다음 사진을 볼 수 있습니다. 비워두면 위쪽 "대표 이미지"를 자동으로 대신 씁니다. 보정 전·후 비교가 하나라도 있으면 이 항목은 쓰이지 않습니다. 사진 영역의 높이는 항상 오른쪽 텍스트 칸 높이에 정확히 맞춰지고, 폭은 원본 비율 그대로 자연스럽게 정해집니다(여백·크롭 없음). 다만 사진이 아주 가로로 넓어 옆 텍스트 칸을 침범할 정도면 그때만 살짝 잘리는데, 이런 경우 아래 "피사체 위치"에서 남길 쪽을 지정할 수 있습니다.'
       >
         <div className="grid grid-cols-3 gap-3 mb-2">
           {fallbackMediaList.map((item, idx) => (
@@ -356,6 +356,7 @@ export function ProjectEditor({ initial }: { initial: Project }) {
               value={item}
               accept="image/*,video/*"
               onChange={(m) => updateFallbackMedia(idx, m)}
+              showFocus
             />
           ))}
         </div>

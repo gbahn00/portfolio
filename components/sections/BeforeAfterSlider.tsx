@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { BeforeAfterPair } from "@/lib/types";
 import { optimizedImageSrc } from "@/lib/utils";
 import { refreshScrollTrigger } from "@/lib/gsap";
@@ -104,41 +104,63 @@ import { refreshScrollTrigger } from "@/lib/gsap";
 const DEFAULT_HEIGHT = 480; // 텍스트 칸 높이를 아직 측정하기 전(최초 렌더) 기준값
 const MAX_W = 640; // 사진이 가로로 아주 넓을 때 옆 텍스트 칸을 침범하지 않도록 하는 안전 상한(단일 슬라이더 기본값)
 
-// §139 — "좌측 미디어(상세 이미지·영상·보정 전후 사진) 모두 동일한
-// 정렬 기준을 적용, 컨테이너 높이는 미디어와 무관하게 항상 텍스트
-// 칸에 고정, 원본 비율 유지, 크롭·늘어남 없이"라는 요청으로
-// RepresentativeMediaColumn(§138)과 같은 방식으로 바꿨다. 예전엔
-// computeBoxFromHeight로 "사진 원본 비율에 맞춰 폭을 계산"해서 폭이
-// 사진마다 달라졌는데(그 자체는 크롭이 없었지만, 폭이 텍스트 칸 상한을
-// 넘는 극단적인 가로 사진에서는 높이가 줄어들어 정렬이 깨지는 예외가
-// 있었다), 이제는 컨테이너 크기(가로 effectiveMaxW × 세로
-// effectiveHeight) 자체를 사진과 무관하게 고정하고, 그 안에서
-// object-contain으로 원본 비율 그대로(잘리지 않고 늘어나지 않고)
-// 보여준다 — 어떤 비율의 사진이 와도 컨테이너 높이가 예외 없이 항상
-// 텍스트 칸과 같다.
-function CompareView({ pair }: { pair: BeforeAfterPair }) {
+function computeBoxFromHeight(naturalWidth: number, naturalHeight: number, targetHeight: number, maxWidth: number) {
+  const ratio = naturalWidth / naturalHeight;
+  const idealW = targetHeight * ratio;
+  const w = Math.min(idealW, maxWidth);
+  return { w: Math.round(w), h: Math.round(targetHeight) };
+}
+
+// §140 — RepresentativeMediaColumn과 같은 최종 규칙을 쓴다: 높이는 항상
+// 텍스트 칸 높이로 고정하고, 폭은 사진 원본 비율 × 높이로 계산해서
+// 사진마다 자연스러운 폭이 나오게 한다(여백도 크롭도 없음). 계산된 폭이
+// 옆 텍스트 칸을 침범할 만큼 크면(아주 넓은 파노라마 등)만 폭 상한으로
+// 잘라내고, 그 드문 경우에만 object-fit: cover + object-position
+// (MediaRef.focusX/focusY, "after" 사진 기준)으로 필요한 만큼만 자른다.
+function CompareView({ pair, onNaturalSize }: { pair: BeforeAfterPair; onNaturalSize: (w: number, h: number) => void }) {
   const [pos, setPos] = useState(50);
+  const afterImgRef = useRef<HTMLImageElement>(null);
+  const objectPosition = `${pair.after.focusX ?? 50}% ${pair.after.focusY ?? 50}%`;
 
   useEffect(() => {
     setPos(50);
   }, [pair.id]);
 
+  // §123/§128 — 마운트/사진 교체 시점에 이미지가 이미 로드 완료(캐시 등)
+  // 상태면 onLoad 이벤트가 아예 안 오므로, complete 여부를 직접 확인해
+  // 보정한다.
+  useLayoutEffect(() => {
+    const img = afterImgRef.current;
+    if (img && img.complete && img.naturalWidth && img.naturalHeight) {
+      onNaturalSize(img.naturalWidth, img.naturalHeight);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pair.id]);
+
+  function handleAfterLoad(e: React.SyntheticEvent<HTMLImageElement>) {
+    refreshScrollTrigger();
+    const img = e.currentTarget;
+    if (img.naturalWidth && img.naturalHeight) onNaturalSize(img.naturalWidth, img.naturalHeight);
+  }
+
   return (
     <>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
+        ref={afterImgRef}
         src={optimizedImageSrc(pair.after.url, 1080)}
         alt={pair.after.alt || "보정 후"}
-        onLoad={refreshScrollTrigger}
-        className="absolute inset-0 h-full w-full object-contain pointer-events-none"
+        onLoad={handleAfterLoad}
+        className="absolute inset-0 h-full w-full object-cover pointer-events-none"
+        style={{ objectPosition }}
         draggable={false}
       />
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={optimizedImageSrc(pair.before.url, 1080)}
         alt={pair.before.alt || "보정 전"}
-        className="absolute inset-0 h-full w-full object-contain pointer-events-none"
-        style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}
+        className="absolute inset-0 h-full w-full object-cover pointer-events-none"
+        style={{ objectPosition, clipPath: `inset(0 ${100 - pos}% 0 0)` }}
         draggable={false}
       />
 
@@ -190,6 +212,8 @@ export function BeforeAfterSlider({
 }) {
   const sorted = [...pairs].sort((a, b) => a.order - b.order);
   const [index, setIndex] = useState(0);
+  // §127/§140 — 사진의 실제 원본 가로세로 비율(로드되면 채워진다).
+  const [natural, setNatural] = useState<{ w: number; h: number } | null>(null);
 
   if (sorted.length === 0) return null;
   const current = sorted[Math.min(index, sorted.length - 1)];
@@ -198,19 +222,25 @@ export function BeforeAfterSlider({
     setIndex((i) => (i + dir + sorted.length) % sorted.length);
   }
 
-  // §139 — 목표 높이는 항상 부모(BeforeAfterWithText)가 실측해서 넘겨주는
-  // targetHeightPx를 그대로 쓰고, 폭은 레이아웃이 정한 상한(effectiveMaxW)
-  // 그대로 쓴다 — 사진 원본 비율과 무관하게 컨테이너 크기 자체를
-  // 고정한다(그 안에서 object-contain으로 원본 비율을 유지해 보여준다).
+  function handleNaturalSize(nw: number, nh: number) {
+    setNatural({ w: nw, h: nh });
+  }
+
+  // §140 — 목표 높이는 항상 부모(BeforeAfterWithText)가 실측해서 넘겨주는
+  // targetHeightPx를 그대로 쓴다. 폭은 사진 원본 비율(natural) × 높이로
+  // 계산해서 사진마다 자연스러운 폭이 나오게 하되, 옆 텍스트 칸을
+  // 침범하지 않도록 effectiveMaxW를 상한으로 둔다.
   const effectiveHeight = Math.round(targetHeightPx ?? DEFAULT_HEIGHT);
   const effectiveMaxW = maxWidthPx ?? MAX_W;
-  const box = { w: effectiveMaxW, h: effectiveHeight };
+  const box = natural
+    ? computeBoxFromHeight(natural.w, natural.h, effectiveHeight, effectiveMaxW)
+    : { w: Math.round(Math.min(effectiveHeight * 0.75, effectiveMaxW)), h: effectiveHeight };
 
-  // §128 — 텍스트 높이(targetHeightPx)가 확정되기 전까지는 아직 "짐작
-  // 박스" 크기라는 뜻이므로, 이 순간에는 사진 내용을 감춘다(레이아웃
-  // 공간만 차지, 눈에는 안 보임). 값이 준비되면(ready) 바로 그 최종
-  // 크기로만 나타난다.
-  const ready = targetHeightPx !== undefined;
+  // §128 — 텍스트 높이(targetHeightPx)와 사진 원본 비율(natural)이 둘 다
+  // 확정되기 전까지는 아직 "짐작 박스" 크기라는 뜻이므로, 이 순간에는
+  // 사진 내용을 감춘다(레이아웃 공간만 차지, 눈에는 안 보임). 두 값이
+  // 다 준비되면(ready) 바로 그 최종 크기로만 나타난다.
+  const ready = natural !== null && targetHeightPx !== undefined;
 
   // §122 — "사진이 아주 작아졌다"는 버그. width를 `min(${box.w}px, 100%)`
   // 문자열로 줬는데, 이 박스의 조상이 flex 아이템(width: auto, 즉
@@ -238,7 +268,7 @@ export function BeforeAfterSlider({
         >
           {/* §108 — key를 주지 않아 같은 DOM을 유지한 채 사진(src)만
               바뀐다("화면이 새로고침되는 느낌" 방지). */}
-          <CompareView pair={current} />
+          <CompareView pair={current} onNaturalSize={handleNaturalSize} />
 
           {sorted.length > 1 && (
             <>

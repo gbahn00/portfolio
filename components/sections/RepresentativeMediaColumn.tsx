@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import { MediaRef, RetouchMarker } from "@/lib/types";
 import { mediaSrc, optimizedImageSrc } from "@/lib/utils";
 import { refreshScrollTrigger } from "@/lib/gsap";
@@ -12,21 +12,26 @@ import { refreshScrollTrigger } from "@/lib/gsap";
 // §135 — "여러 장 첨부 + 보정 전후와 같은 화살표 이전/다음 방식"으로
 // 요청이 바뀌면서, media를 단일 MediaRef가 아니라 배열로 받아
 // BeforeAfterSlider.tsx(§103~129)와 같은 인덱스 기반 이전/다음 버튼
-// 캐러셀로 확장했다. §108과 동일하게 DOM에 key를 주지 않아(같은 요소
-// 유지, src만 교체) "화면이 새로고침되는 느낌"이 나지 않도록 했다.
+// 캐러셀로 확장했다.
 //
-// §138 — "좌측 이미지와 우측 상세 콘텐츠의 시작·끝이 항상 같은 높이로
-// 정렬돼야 한다"는 요청으로, 컨테이너 크기(높이=텍스트 칸 높이, 폭=
-// 레이아웃이 정한 값)를 사진 자신의 원본 비율과 무관하게 고정했다.
-// 처음엔 object-cover(+ focusX/focusY로 크롭 위치 조절)로 채웠는데,
-// §139 — "미디어 원본 비율은 유지하고 세로가 잘리거나 가로로 과도하게
-// 늘어나서는 안 되며, 그러면서도 컨테이너 높이는 미디어와 무관하게
-// 항상 고정이어야 한다"는 더 구체적인 요청으로 object-contain으로
-// 바꿨다. 컨테이너 자체는 (크롭 없이, 늘어남 없이) 항상 텍스트 칸과
-// 같은 높이를 유지하고, 그 안에서 사진/영상은 원본 비율 그대로 최대한
-// 크게 표시되며 남는 여백(letterbox)이 생길 수 있다 — "컨테이너 크기는
-// 미디어가 아니라 텍스트 높이가 기준"이라는 요청에 가장 정확히 맞는
-// 조합이다(크롭 0, 늘어남 0, 높이 불변 0예외).
+// §140 — 높이/폭/크롭 방식을 최종적으로 다음과 같이 정리했다(§138의
+// "높이·폭 모두 고정 + cover/크롭" → §139의 "높이·폭 모두 고정 +
+// contain/여백"을 거쳐, "여백도 크롭도 최소화하면서 높이는 항상
+// 맞춰달라"는 요청에 맞춰 재조정):
+//   - 높이는 항상 텍스트 칸 높이(targetHeightPx)로 고정 — 예외 없음.
+//   - 폭은 "사진 원본 비율 × 고정 높이"로 계산해서, 정상적인 비율의
+//     사진/영상이라면 컨테이너가 사진 모양 그대로(크롭도 여백도 없이)
+//     맞춰진다. 계산된 폭이 주어진 상한(maxWidthPx — auto 레이아웃은
+//     옆 텍스트 칸을 침범하지 않는 값, half 레이아웃은 실제 칸 폭)보다
+//     작으면 그 폭 그대로 쓰고 가운데 정렬한다(§135-보정에서 겪었던
+//     "half인데 강제로 폭을 채워 세로 사진이 잘리는" 문제 재발 방지).
+//   - 계산된 폭이 상한을 넘을 때만(아주 넓은 파노라마 등) 상한으로
+//     잘라내고, 그 드문 경우에만 object-fit: cover +
+//     object-position(MediaRef.focusX/focusY)으로 "필요한 만큼만" 잘라
+//     보여준다. 상한에 걸리지 않는 대부분의 경우엔 컨테이너 비율 자체가
+//     사진 비율과 똑같아서 cover가 크롭 없이 꽉 채우는 것과 동일하다.
+//   - 영상도 이미지와 동일한 규칙(원본 비율 → 폭 계산)을 적용하기 위해
+//     자연 크기(videoWidth/videoHeight)를 로드 시점에 재서 사용한다.
 //
 // §135 — 보정 위치 마커(RetouchMarker): 사진 위 특정 좌표(%)에 작은 점을
 // 찍어두고, 커서를 올리면(hover) 어떤 부분을 보정했는지 설명이 뜬다.
@@ -35,11 +40,54 @@ import { refreshScrollTrigger } from "@/lib/gsap";
 const DEFAULT_HEIGHT = 480;
 const MAX_W = 640;
 
-function MediaView({ item }: { item: MediaRef }) {
+function computeBoxFromHeight(naturalWidth: number, naturalHeight: number, targetHeight: number, maxWidth: number) {
+  const ratio = naturalWidth / naturalHeight;
+  const idealW = targetHeight * ratio;
+  const w = Math.min(idealW, maxWidth);
+  return { w: Math.round(w), h: Math.round(targetHeight) };
+}
+
+function MediaView({
+  item,
+  objectPosition,
+  onNaturalSize,
+}: {
+  item: MediaRef;
+  objectPosition: string;
+  onNaturalSize: (w: number, h: number) => void;
+}) {
   const isVideo = item.kind === "video-file";
+  const imgRef = useRef<HTMLImageElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  // §123/§128과 동일 — 이미 로드/디코딩이 끝나 있는 경우(캐시된 이미지,
+  // 메타데이터가 이미 파악된 영상)를 대비해 마운트/항목 교체 시점에
+  // 동기적으로(useLayoutEffect) 먼저 확인한다.
+  useLayoutEffect(() => {
+    if (isVideo) {
+      const v = videoRef.current;
+      if (v && v.videoWidth && v.videoHeight) onNaturalSize(v.videoWidth, v.videoHeight);
+    } else {
+      const img = imgRef.current;
+      if (img && img.complete && img.naturalWidth && img.naturalHeight) onNaturalSize(img.naturalWidth, img.naturalHeight);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [item.url]);
+
+  function handleImgLoad(e: React.SyntheticEvent<HTMLImageElement>) {
+    refreshScrollTrigger();
+    const img = e.currentTarget;
+    if (img.naturalWidth && img.naturalHeight) onNaturalSize(img.naturalWidth, img.naturalHeight);
+  }
+  function handleVideoMeta(e: React.SyntheticEvent<HTMLVideoElement>) {
+    refreshScrollTrigger();
+    const v = e.currentTarget;
+    if (v.videoWidth && v.videoHeight) onNaturalSize(v.videoWidth, v.videoHeight);
+  }
 
   return isVideo ? (
     <video
+      ref={videoRef}
       src={mediaSrc(item.url)}
       poster={item.poster}
       controls
@@ -47,16 +95,19 @@ function MediaView({ item }: { item: MediaRef }) {
       disablePictureInPicture
       onContextMenu={(e) => e.preventDefault()}
       playsInline
-      onLoadedMetadata={refreshScrollTrigger}
-      className="absolute inset-0 h-full w-full object-contain"
+      onLoadedMetadata={handleVideoMeta}
+      className="absolute inset-0 h-full w-full object-cover"
+      style={{ objectPosition }}
     />
   ) : (
     // eslint-disable-next-line @next/next/no-img-element
     <img
+      ref={imgRef}
       src={optimizedImageSrc(item.url, 1080)}
       alt={item.alt || ""}
-      onLoad={refreshScrollTrigger}
-      className="absolute inset-0 h-full w-full object-contain pointer-events-none"
+      onLoad={handleImgLoad}
+      className="absolute inset-0 h-full w-full object-cover pointer-events-none"
+      style={{ objectPosition }}
       draggable={false}
     />
   );
@@ -66,19 +117,20 @@ export function RepresentativeMediaColumn({
   media,
   targetHeightPx,
   maxWidthPx,
-  fillWidth,
   retouchMarkers,
 }: {
   media: MediaRef[];
   targetHeightPx?: number;
+  // §140 — 컨테이너 폭의 상한. auto 레이아웃(RepresentativeMediaWithText)은
+  // 옆 텍스트 칸을 침범하지 않는 값을, half 레이아웃은 실제 칸(50%) 폭을
+  // 측정해 넘겨준다. 사진 비율이 이 상한보다 좁은 폭이면 그 좁은 폭
+  // 그대로 쓰고(강제로 채우지 않음, 가운데 정렬), 넘을 때만 이 상한으로 잘린다.
   maxWidthPx?: number;
-  // §135 — half 레이아웃에서 주어진 폭(부모가 이미 50%로 나눠준 칸)을
-  // 그대로 채운다(100%). auto 레이아웃에서는 maxWidthPx(또는 기본 MAX_W)를 쓴다.
-  fillWidth?: boolean;
   retouchMarkers?: RetouchMarker[];
 }) {
   const sorted = media.filter((m) => m?.url);
   const [index, setIndex] = useState(0);
+  const [natural, setNatural] = useState<{ w: number; h: number } | null>(null);
   const [hoveredMarker, setHoveredMarker] = useState<string | null>(null);
 
   if (sorted.length === 0) return null;
@@ -89,30 +141,35 @@ export function RepresentativeMediaColumn({
     setIndex((i) => (Math.min(i, sorted.length - 1) + dir + sorted.length) % sorted.length);
   }
 
-  // §138 — 높이는 항상 텍스트 칸의 실제 렌더링 높이(targetHeightPx)를
-  // 그대로 쓴다. 값이 아직 없는 아주 짧은 최초 렌더 순간에는
-  // DEFAULT_HEIGHT로 자리만 잡고, 실제로 보이진 않는다(ready 참고).
+  // §140 — 높이는 항상 텍스트 칸의 실제 렌더링 높이(targetHeightPx)로
+  // 고정한다. 폭은 사진 원본 비율(natural) × 높이로 계산해서, 사진마다
+  // 자연스러운 폭이 나오게 한다(값이 아직 없는 최초 렌더 순간에는
+  // DEFAULT_HEIGHT/추정 폭으로 자리만 잡고 실제로 보이진 않는다 — ready 참고).
   const effectiveHeight = Math.round(targetHeightPx ?? DEFAULT_HEIGHT);
   const effectiveMaxW = maxWidthPx ?? MAX_W;
-  const ready = targetHeightPx !== undefined;
+  const box = natural
+    ? computeBoxFromHeight(natural.w, natural.h, effectiveHeight, effectiveMaxW)
+    : { w: Math.round(Math.min(effectiveHeight * 0.75, effectiveMaxW)), h: effectiveHeight };
+  const ready = natural !== null && targetHeightPx !== undefined;
+  const objectPosition = `${current.focusX ?? 50}% ${current.focusY ?? 50}%`;
 
   const currentMarkers = (retouchMarkers ?? [])
     .filter((m) => m.mediaIndex === clampedIndex)
     .sort((a, b) => a.order - b.order);
 
   return (
-    <div style={fillWidth ? { width: "100%" } : { width: `${effectiveMaxW}px`, maxWidth: "100%" }}>
+    <div style={{ width: `${box.w}px`, maxWidth: "100%" }} className="mx-auto md:mx-0">
       <div
         className="relative overflow-hidden rounded-sm select-none bg-bg-soft"
         style={{
-          height: `${effectiveHeight}px`,
+          height: `${box.h}px`,
           opacity: ready ? 1 : 0,
           transition: ready ? "opacity 200ms ease-out" : "none",
         }}
       >
         {/* §108과 동일 취지 — 항목이 바뀌어도 같은 DOM 트리를 최대한
             유지한다(이미지/영상 종류가 바뀌는 드문 경우만 예외). */}
-        <MediaView item={current} />
+        <MediaView item={current} objectPosition={objectPosition} onNaturalSize={(w, h) => setNatural({ w, h })} />
 
         {/* §135 — 보정 위치 마커. 퍼센트 좌표라 사진 표시 크기가 반응형으로
             바뀌어도 항상 같은 상대 위치를 가리킨다. */}

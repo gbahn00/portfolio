@@ -1157,7 +1157,11 @@
       "purpose": "법률 정보를 대중이 이해하기 쉬운 형태로 전달하는 유튜브 채널 콘텐츠 제작",
       "role": "기획 및 제작",
       "tools": [
-        "[자료 필요] 편집 프로그램 및 장비 목록"
+        "[자료 필요] 편집 프로그램 및 장비 목록",
+        "After Effects",
+        "Illustrator",
+        "Premiere Pro",
+        "Photoshop"
       ],
       "description": "법률 콘텐츠는 정보의 정확성과 전문성을 유지해야 하지만, 전문 용어와 긴 설명이 많아 일반 시청자가 어렵게 느낄 수 있어 시청자가 실제로 궁금해하는 내용을 중심으로 정보를 다시 구성했습니다.",
       "heroImage": {
@@ -1226,7 +1230,7 @@
       "status": "draft",
       "order": 5,
       "createdAt": "2025-05-01T00:00:00.000Z",
-      "updatedAt": "2026-07-28T09:43:48.971Z",
+      "updatedAt": "2026-07-28T10:25:50.587Z",
       "contents": [],
       "beforeAfterFallbackMedia": [
         {
