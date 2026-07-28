@@ -3,7 +3,7 @@
 import { ReactNode } from "react";
 import { BeforeAfterPair } from "@/lib/types";
 import { BeforeAfterSlider } from "@/components/sections/BeforeAfterSlider";
-import { useElementHeight } from "@/lib/hooks/useElementHeight";
+import { useElementHeight, useElementWidth } from "@/lib/hooks/useElementHeight";
 
 // ============================================================================
 // §112~115 — 사진 높이를 텍스트에 맞추거나(§111) 반대로 텍스트를 사진
@@ -56,15 +56,32 @@ import { useElementHeight } from "@/lib/hooks/useElementHeight";
 // 제목 높이를 실측해서 텍스트 칸 높이에서 미리 빼고 그 나머지만 사진
 // 박스 목표 높이로 넘기면, "제목 높이 + 박스 높이"의 합이 다시 정확히
 // 텍스트 칸 높이와 같아진다.
+//
+// §143 — "보정 전후 사진의 가로가 잘려 보인다, 원본 비율 그대로 적용해
+// 달라"는 요청. 원인은 이 컴포넌트가 실제 줄 폭을 재지 않고 항상 고정
+// 상한(MAX_W=640, split일 땐 SPLIT_MAX_W=380)만 BeforeAfterSlider에
+// 넘겼던 것이다 — 텍스트 칸이 조금만 길어도(예: 500px) 웬만한 가로
+// 사진(3:2 비율이면 500×1.5=750px 필요)은 이미 이 상한을 넘어서고,
+// BeforeAfterSlider는 그 상한 안에서 object-cover로 가로를 크롭해
+// 채웠다. RepresentativeMediaWithText(대체 이미지)처럼 이 줄의 실제
+// 렌더링 폭을 useElementWidth로 재서, 거기서 텍스트 최소 폭만 남기고
+// 나머지를 전부 사진 폭 상한으로 넘긴다 — 화면이 넓을수록 사진도 더
+// 크게 쓸 수 있는 상한을 받아서 크롭될 일이 훨씬 줄어든다. 그래도
+// 상한을 넘는 극단적으로 넓은 사진은 BeforeAfterSlider 쪽에서 크롭
+// 대신 높이를 줄이는 방식으로 바뀌었다(§143, 그쪽 주석 참고) — 이제
+// 어떤 경우에도 가로가 잘리는 일은 없다.
 // ============================================================================
 
-const SPLIT_MAX_W = 380; // 사진 칸이 두 개(디테일컷/모델컷)일 때 각 칸의 폭 상한
+const GAP_PX = 48; // md:gap-12
+const MIN_TEXT_W = 320; // 텍스트 칸에 항상 남겨두는 최소 폭
 
 export function BeforeAfterWithText({ pairs, children }: { pairs: BeforeAfterPair[]; children: ReactNode }) {
   const { ref: textRef, height: textHeightPx } = useElementHeight<HTMLDivElement>();
   // §141 — 디테일컷/모델컷 제목의 실제 렌더링 높이(두 제목은 같은
   // 스타일이라 하나만 재면 된다).
   const { ref: headingRef, height: headingHeightPx } = useElementHeight<HTMLHeadingElement>();
+  // §143 — 줄(사진+텍스트) 전체의 실제 렌더링 폭.
+  const { ref: rowRef, width: rowWidth } = useElementWidth<HTMLDivElement>();
 
   const detailPairs = pairs.filter((p) => p.category === "detail");
   const modelPairs = pairs.filter((p) => p.category === "model");
@@ -75,22 +92,28 @@ export function BeforeAfterWithText({ pairs, children }: { pairs: BeforeAfterPai
       ? Math.max(0, textHeightPx - headingHeightPx)
       : undefined;
 
+  // §143 — 사진 칸이 하나면 줄 폭에서 gap 1개 + 텍스트 최소 폭을 뺀
+  // 나머지 전부를, 두 개(디테일컷/모델컷)면 gap 2개 + 텍스트 최소 폭을
+  // 뺀 나머지를 반으로 나눠 각 칸의 상한으로 쓴다.
+  const singleMaxWidthPx = rowWidth ? Math.max(240, rowWidth - GAP_PX - MIN_TEXT_W) : undefined;
+  const splitMaxWidthPx = rowWidth ? Math.max(200, (rowWidth - GAP_PX * 2 - MIN_TEXT_W) / 2) : undefined;
+
   return (
-    <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-start">
+    <div ref={rowRef} className="flex flex-col md:flex-row gap-8 md:gap-12 items-start">
       {isSplit ? (
         <>
           <div className="w-full md:w-auto md:flex-shrink-0">
             <h3 ref={headingRef} className="text-sm font-medium text-ink-muted mb-2 text-korean">디테일컷</h3>
-            <BeforeAfterSlider pairs={detailPairs} targetHeightPx={splitPhotoTargetHeight} maxWidthPx={SPLIT_MAX_W} />
+            <BeforeAfterSlider pairs={detailPairs} targetHeightPx={splitPhotoTargetHeight} maxWidthPx={splitMaxWidthPx} />
           </div>
           <div className="w-full md:w-auto md:flex-shrink-0">
             <h3 className="text-sm font-medium text-ink-muted mb-2 text-korean">모델컷</h3>
-            <BeforeAfterSlider pairs={modelPairs} targetHeightPx={splitPhotoTargetHeight} maxWidthPx={SPLIT_MAX_W} />
+            <BeforeAfterSlider pairs={modelPairs} targetHeightPx={splitPhotoTargetHeight} maxWidthPx={splitMaxWidthPx} />
           </div>
         </>
       ) : (
         <div className="w-full md:w-auto md:flex-shrink-0">
-          <BeforeAfterSlider pairs={pairs} targetHeightPx={textHeightPx} />
+          <BeforeAfterSlider pairs={pairs} targetHeightPx={textHeightPx} maxWidthPx={singleMaxWidthPx} />
         </div>
       )}
       <div ref={textRef} className="flex-1 min-w-0 w-full">

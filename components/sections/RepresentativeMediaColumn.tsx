@@ -40,11 +40,19 @@ import { refreshScrollTrigger } from "@/lib/gsap";
 const DEFAULT_HEIGHT = 480;
 const MAX_W = 640;
 
+// §143 — "원본 비율 그대로, 가로가 잘리면 안 된다"는 요청으로
+// BeforeAfterSlider와 동일하게 바꿨다: 폭이 상한을 넘으면 높이도 같은
+// 비율로 함께 줄여서 박스 비율이 항상 사진 원본 비율과 정확히 같도록
+// 한다 — object-cover가 크롭할 게 없어 어떤 경우에도 잘리지 않는다.
 function computeBoxFromHeight(naturalWidth: number, naturalHeight: number, targetHeight: number, maxWidth: number) {
   const ratio = naturalWidth / naturalHeight;
-  const idealW = targetHeight * ratio;
-  const w = Math.min(idealW, maxWidth);
-  return { w: Math.round(w), h: Math.round(targetHeight) };
+  let w = targetHeight * ratio;
+  let h = targetHeight;
+  if (w > maxWidth) {
+    w = maxWidth;
+    h = w / ratio;
+  }
+  return { w: Math.round(w), h: Math.round(h) };
 }
 
 function MediaView({

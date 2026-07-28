@@ -104,11 +104,24 @@ import { refreshScrollTrigger } from "@/lib/gsap";
 const DEFAULT_HEIGHT = 480; // 텍스트 칸 높이를 아직 측정하기 전(최초 렌더) 기준값
 const MAX_W = 640; // 사진이 가로로 아주 넓을 때 옆 텍스트 칸을 침범하지 않도록 하는 안전 상한(단일 슬라이더 기본값)
 
+// §143 — "원본 비율 그대로, 가로가 잘리면 안 된다"는 요청으로 상한 초과
+// 시의 동작을 바꿨다. 예전엔 폭만 상한으로 자르고 높이는 그대로 둬서
+// (박스 비율 ≠ 사진 비율이 되어) object-cover가 가로를 크롭했다. 이제는
+// 폭이 상한을 넘으면 높이도 같은 비율로 함께 줄여서, 박스 비율이 항상
+// 사진 원본 비율과 정확히 같도록 만든다 — 그러면 object-cover가 크롭할
+// 게 없어(박스가 곧 사진 모양 그대로) 어떤 경우에도 잘리지 않는다.
+// BeforeAfterWithText가 이제 실제 줄 폭을 재서 넉넉한 상한을 주기 때문에
+// (§143) 높이가 줄어드는 경우 자체가 아주 드물어졌지만, 그 드문 경우에도
+// 크롭 대신 높이 축소를 택해 "원본 비율 유지"를 항상 보장한다.
 function computeBoxFromHeight(naturalWidth: number, naturalHeight: number, targetHeight: number, maxWidth: number) {
   const ratio = naturalWidth / naturalHeight;
-  const idealW = targetHeight * ratio;
-  const w = Math.min(idealW, maxWidth);
-  return { w: Math.round(w), h: Math.round(targetHeight) };
+  let w = targetHeight * ratio;
+  let h = targetHeight;
+  if (w > maxWidth) {
+    w = maxWidth;
+    h = w / ratio;
+  }
+  return { w: Math.round(w), h: Math.round(h) };
 }
 
 // §140 — RepresentativeMediaColumn과 같은 최종 규칙을 쓴다: 높이는 항상
