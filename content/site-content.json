@@ -414,6 +414,36 @@
           "url": "/uploads/820b846d-4277-407e-9410-195f48c21472.jpg",
           "kind": "image",
           "alt": ""
+        },
+        {
+          "url": "/uploads/f03d37b5-299b-4a1c-a693-f1abbeba5dde.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/6e7056c4-1dc9-4b94-aed0-af54dbf35c6f.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/241411c4-6016-44a9-be06-47b577b9f62a.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/bfa22c88-7254-4806-bfcf-f1debed7b2f8.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/8b0d8da9-29a9-48e8-b9de-5ad0af5ca1ff.jpg",
+          "kind": "image",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/2e0e32a7-21b9-4282-be4a-5dc9ee2e4599.jpg",
+          "kind": "image",
+          "alt": ""
         }
       ],
       "beforeAfter": [
@@ -448,51 +478,6 @@
           "order": 1
         },
         {
-          "id": "f8abfd28-b9c9-4565-bcd3-66d6a894807e",
-          "before": {
-            "url": "/uploads/3a07bb4b-d9a3-4560-b38a-dd7ab5cef6a0.jpg",
-            "kind": "image",
-            "alt": ""
-          },
-          "after": {
-            "url": "/uploads/b22bc817-8e49-4410-a10c-d2a57384a22e.jpg",
-            "kind": "image",
-            "alt": ""
-          },
-          "caption": "",
-          "order": 2
-        },
-        {
-          "id": "6c76cf0f-6804-4c24-82ef-7e5330847840",
-          "before": {
-            "url": "/uploads/17f266d4-c19d-4436-9180-f7753d228997.jpg",
-            "kind": "image",
-            "alt": ""
-          },
-          "after": {
-            "url": "/uploads/a0caa908-cdde-4364-9212-b7d3c9e5ebbc.jpg",
-            "kind": "image",
-            "alt": ""
-          },
-          "caption": "",
-          "order": 3
-        },
-        {
-          "id": "38ffbc85-9c75-4497-8fb1-768ce5b44f79",
-          "before": {
-            "url": "/uploads/b01a9f32-5489-4b45-8bbc-0b77f2e5c134.jpg",
-            "kind": "image",
-            "alt": ""
-          },
-          "after": {
-            "url": "/uploads/9756217f-6292-49d2-97e0-844f79c7ba35.jpg",
-            "kind": "image",
-            "alt": ""
-          },
-          "caption": "",
-          "order": 4
-        },
-        {
           "id": "ab85be1c-920e-4f60-bb7f-ee28afa45e25",
           "before": {
             "url": "/uploads/226bc039-2259-4bba-b5c8-6f99fb332a30.jpg",
@@ -505,7 +490,7 @@
             "alt": ""
           },
           "caption": "",
-          "order": 5
+          "order": 2
         },
         {
           "id": "822619b0-a0f4-4021-aaff-4d66c92ddf80",
@@ -520,7 +505,7 @@
             "alt": ""
           },
           "caption": "",
-          "order": 6,
+          "order": 3,
           "category": "model"
         }
       ],
@@ -532,7 +517,7 @@
       "status": "draft",
       "order": 0,
       "createdAt": "2024-08-01T00:00:00.000Z",
-      "updatedAt": "2026-07-28T04:25:34.041Z"
+      "updatedAt": "2026-07-28T04:29:47.464Z"
     },
     {
       "id": "proj-cafe",

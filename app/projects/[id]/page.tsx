@@ -153,10 +153,12 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
 
   // 보정 전/후 다음으로 실제 처음 나오는 미디어(영상/갤러리)만 대표
   // 화면과 이어지는 넉넉한 여백(pt-24/pt-32)을 쓰고, 그다음부터는 좀 더
-  // 좁은 여백(pt-16/pt-20)을 쓴다.
+  // 좁은 여백을 쓴다. §106 — "보정 전후 사진과 상세 이미지 사이 공간이
+  // 너무 넓다"는 피드백으로, 보정 전/후 섹션의 하단 여백(아래)과 다음
+  // 미디어 섹션의 상단 여백(pt-16/20 → pt-10/12)을 함께 줄였다.
   const firstMedia = hasBeforeAfter ? "beforeAfter" : hasFinalVideo ? "video" : hasGallery ? "gallery" : null;
   function mediaTopPad(kind: "video" | "gallery") {
-    return firstMedia === kind ? "pt-24 md:pt-32" : "pt-16 md:pt-20";
+    return firstMedia === kind ? "pt-24 md:pt-32" : "pt-10 md:pt-12";
   }
 
   return (
@@ -166,16 +168,23 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
       {/* §103 — 보정 전/후 사진(왼쪽, 한 장씩 이전/다음) + 프로젝트 개요/
           제작 의도/기여도/Tools(오른쪽)를 나란히 배치한다. */}
       {hasBeforeAfter && (
-        <Container className="pt-24 md:pt-32 pb-16 md:pb-20">
-          {/* §104 — 제목을 grid 바깥(위)에 둬서, 아래 2단 grid의 왼쪽
-              (사진)과 오른쪽(프로젝트 개요 등) 칸이 같은 지점(사진 윗변)
-              에서 나란히 시작하도록 했다. */}
+        <Container className="pt-24 md:pt-32 pb-8 md:pb-10">
+          {/* §104 — 제목을 flex 바깥(위)에 둬서, 아래 왼쪽(사진)과
+              오른쪽(프로젝트 개요 등) 칸이 같은 지점(사진 윗변)에서
+              나란히 시작하도록 했다. */}
           <Reveal>
             <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-korean">보정 전·후</h2>
           </Reveal>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start">
-            <BeforeAfterSlider pairs={validBeforeAfter} />
-            {sectionsAndTools}
+          {/* §106 — grid 2단(50/50)으로 나누면 사진이 max-w-md로 줄어든
+              뒤에도 칸 자체는 50% 폭을 그대로 차지해, 사진 오른쪽과 텍스트
+              칸 사이에 큰 빈 공간이 남았다. flex로 바꿔 사진은 실제
+              폭(max-w-md)만큼만 차지하고, 텍스트가 바로 그 옆에 붙도록
+              했다. */}
+          <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-start">
+            <div className="w-full md:w-auto md:flex-shrink-0">
+              <BeforeAfterSlider pairs={validBeforeAfter} />
+            </div>
+            <div className="flex-1 min-w-0">{sectionsAndTools}</div>
           </div>
         </Container>
       )}

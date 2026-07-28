@@ -9,7 +9,7 @@
 // 전달할 수 있게 했다.
 import { MediaRef } from "@/lib/types";
 import { mediaSrc, optimizedImageSrc } from "@/lib/utils";
-import { SlideCarousel } from "@/components/ui/SlideCarousel";
+import { AutoScrollRow } from "@/components/ui/AutoScrollRow";
 import { refreshScrollTrigger } from "@/lib/gsap";
 
 // ============================================================================
@@ -29,11 +29,15 @@ import { refreshScrollTrigger } from "@/lib/gsap";
 // 스크롤만 SlideCarousel에서 얹었다. columns는 더 이상 쓰지 않는다 —
 // 여러 장이 동시에 보이는지 여부는 화면 폭과 각 사진의 원본 비율에 따라
 // 자연스럽게 정해진다.
+//
+// §105 — 화살표로 직접 넘기는 SlideCarousel 대신, 1번부터 끝 번호까지
+// 계속 왼쪽으로 흘러가며 반복되는 자동 슬라이드(AutoScrollRow)로 교체했다.
 // ============================================================================
 export function GalleryGrid({ items, className }: { items: MediaRef[]; className?: string }) {
   return (
-    <SlideCarousel
+    <AutoScrollRow
       items={items}
+      keyFn={(m) => m.url}
       className={className}
       // §88 — 이 이미지/영상들은 높이만 고정되고 폭은 원본 비율대로
       // 로드된 뒤에야 정확한 폭이 정해진다. 로드가 끝난 뒤에도

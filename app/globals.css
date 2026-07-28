@@ -346,3 +346,16 @@ video {
   pointer-events: none;
   filter: none;
 }
+
+/* §105 — 상세 이미지 목록이 1~끝 번호까지 계속 왼쪽으로 이동을 반복하는
+   자동 슬라이드(마퀴). components/ui/AutoScrollRow.tsx에서 트랙을 통째로
+   두 번 이어붙인 뒤 정확히 절반(-50%)만큼 옮기면, 두 번째 사본이 첫
+   번째와 완전히 같은 자리에 놓여 이음매 없이 반복된다. */
+@keyframes auto-scroll-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}

@@ -29,6 +29,12 @@ import { refreshScrollTrigger } from "@/lib/gsap";
 // 개요 등)의 시작 위치가 "제목 아래"가 아니라 "사진 자체의 윗변"에
 // 맞아야 한다는 요청과 어긋나기 때문에, 두 칸 모두 같은 지점(사진 윗변)
 // 에서 시작하도록 제목을 grid 바깥으로 분리했다.
+//
+// §107 — 이전/다음 버튼을 사진 아래 텍스트 링크("‹ 이전"/"다음 ›")에서
+// 사진 자체의 좌측 중앙/우측 중앙에 겹치는 원형 아이콘(‹ / ›)으로
+// 옮겼다. 버튼을 CompareView보다 DOM상 뒤(형제 요소)에 둬서, 같은
+// 스태킹 컨텍스트 안에서 항상 위에 그려지도록 했다 — 그래야 사진 전체를
+// 덮는 투명 드래그용 range input보다 버튼 클릭이 우선 인식된다.
 // ============================================================================
 
 function CompareView({ pair }: { pair: BeforeAfterPair }) {
@@ -104,39 +110,50 @@ export function BeforeAfterSlider({ pairs }: { pairs: BeforeAfterPair[] }) {
       {/* §104 — 칸 폭을 그대로 채우면 너무 커 보여서 max-w로 한 단계
           줄였다. */}
       <div className="max-w-md">
-      {/* key로 pair.id를 줘서 사진이 바뀔 때마다 요소를 새로 그린다 —
-          이전 사진이 화면에 남아있다가 다음 사진으로 바뀌는 문제(§101)와
-          같은 이유. */}
-      <CompareView key={current.id} pair={current} />
-      <div className="h-4 mt-2">
-        {current.caption && !current.caption.startsWith("[") && (
-          <p className="text-xs text-ink-muted text-korean line-clamp-1">{current.caption}</p>
-        )}
-      </div>
+        {/* §107 — 이전/다음 버튼을 사진 좌우 중앙에 겹쳐 그리기 위한
+            래퍼. CompareView 뒤(형제)에 버튼을 둬서 항상 사진 위에
+            그려지도록 한다. */}
+        <div className="relative">
+          {/* key로 pair.id를 줘서 사진이 바뀔 때마다 요소를 새로 그린다 —
+              이전 사진이 화면에 남아있다가 다음 사진으로 바뀌는
+              문제(§101)와 같은 이유. */}
+          <CompareView key={current.id} pair={current} />
 
-      {sorted.length > 1 && (
-        <div className="mt-4 flex items-center justify-between">
-          <button
-            type="button"
-            onClick={() => go(-1)}
-            aria-label="이전 사진"
-            className="flex items-center gap-1.5 text-sm text-ink-secondary hover:text-ink transition-colors duration-300"
-          >
-            ‹ 이전
-          </button>
-          <span className="font-en text-xs text-ink-muted tabular-nums">
-            {index + 1} / {sorted.length}
-          </span>
-          <button
-            type="button"
-            onClick={() => go(1)}
-            aria-label="다음 사진"
-            className="flex items-center gap-1.5 text-sm text-ink-secondary hover:text-ink transition-colors duration-300"
-          >
-            다음 ›
-          </button>
+          {sorted.length > 1 && (
+            <>
+              <button
+                type="button"
+                onClick={() => go(-1)}
+                aria-label="이전 사진"
+                className="absolute left-2 top-1/2 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full bg-black/55 text-white text-lg leading-none hover:bg-black/75 transition-colors duration-300"
+              >
+                ‹
+              </button>
+              <button
+                type="button"
+                onClick={() => go(1)}
+                aria-label="다음 사진"
+                className="absolute right-2 top-1/2 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full bg-black/55 text-white text-lg leading-none hover:bg-black/75 transition-colors duration-300"
+              >
+                ›
+              </button>
+            </>
+          )}
         </div>
-      )}
+
+        <div className="h-4 mt-2">
+          {current.caption && !current.caption.startsWith("[") && (
+            <p className="text-xs text-ink-muted text-korean line-clamp-1">{current.caption}</p>
+          )}
+        </div>
+
+        {sorted.length > 1 && (
+          <div className="mt-1 text-center">
+            <span className="font-en text-xs text-ink-muted tabular-nums">
+              {index + 1} / {sorted.length}
+            </span>
+          </div>
+        )}
       </div>
     </Reveal>
   );
