@@ -72,10 +72,7 @@ export function Header() {
   // 클릭이 필요한 건 nav 링크뿐이므로, pointer-events-auto를 nav에만 주고
   // 나머지 영역은 클릭이 그대로 통과하도록 한다.
   return (
-    // §153 — data-site-header: Admin PDF Export 인쇄 페이지(app/admin/print)의
-    // @media print 규칙이 이 헤더를 확실히 숨기기 위한 훅. 클래스 조합만으로
-    // 고르면 나중에 스타일이 바뀔 때 같이 깨질 수 있어 별도 속성으로 뒀다.
-    <div ref={wrapRef} data-site-header className="fixed top-0 left-0 right-0 z-50 pointer-events-none">
+    <div ref={wrapRef} className="fixed top-0 left-0 right-0 z-50 pointer-events-none">
       <div className="page-container flex items-center justify-end py-6 md:py-8 min-h-[72px]">
         <nav ref={menuRef} className="flex items-center gap-5 md:gap-8 pointer-events-auto">
           {NAV_ITEMS.map((item) => (

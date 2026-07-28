@@ -1,5 +1,42 @@
 [
   {
+    "id": "e21ac1b4-cbc5-45ca-825a-776d38ee9fd7",
+    "entity": "closing",
+    "field": "전체",
+    "before": {
+      "message": "다음 역할을\n맡을 준비가 됐습니다.",
+      "name": "이지은",
+      "role": "영상 크리에이터",
+      "department": "미디어팀",
+      "badge": "2026년 특별진급 포트폴리오",
+      "backgroundImage": {
+        "url": "/uploads/ed1525bf-01e8-492f-94c5-8c27305e7adf.jpg",
+        "kind": "image",
+        "alt": "마무리 화면 배경 [자료 필요]"
+      },
+      "externalLinks": [],
+      "status": "draft",
+      "subline": "맡은 작업을 수행하는 데서 그치지 않고\n필요한 역할을 먼저 찾고,\n실제 결과와 업무 개선으로 연결하겠습니다."
+    },
+    "after": {
+      "message": "다음 역할을\n맡을 준비가 됐습니다.",
+      "name": "이지은",
+      "role": "크리에이티브",
+      "department": "미디어팀",
+      "badge": "2026년 특별진급 포트폴리오",
+      "backgroundImage": {
+        "url": "/uploads/ed1525bf-01e8-492f-94c5-8c27305e7adf.jpg",
+        "kind": "image",
+        "alt": "마무리 화면 배경 [자료 필요]"
+      },
+      "externalLinks": [],
+      "status": "draft",
+      "subline": "맡은 작업을 수행하는 데서 그치지 않고\n필요한 역할을 먼저 찾고,\n실제 결과와 업무 개선으로 연결하겠습니다."
+    },
+    "editor": "admin",
+    "editedAt": "2026-07-28T15:32:42.346Z"
+  },
+  {
     "id": "ad06e03e-eaeb-4190-b3ae-fc04407ab529",
     "entity": "projects:proj-lawyer-youtube",
     "field": "수정",

@@ -88,9 +88,6 @@ export default function AdminDashboardLayout({ children }: { children: React.Rea
           <Link href="/" target="_blank" className="block text-xs text-neutral-500 hover:text-neutral-300 mb-3">
             공개 화면 보기 ↗
           </Link>
-          <Link href="/admin/print" target="_blank" className="block text-xs text-neutral-500 hover:text-neutral-300 mb-3">
-            PDF Export ↗
-          </Link>
           <LogoutButton />
         </div>
       </aside>
