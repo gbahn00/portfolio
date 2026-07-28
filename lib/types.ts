@@ -169,6 +169,12 @@ export interface Project {
   // 영역 자체가 보이지 않는다.
   contents: MediaRef[];
   beforeAfter: BeforeAfterPair[];
+  // §131 — 보정 전후 비교쌍(beforeAfter)이 하나도 없는 프로젝트는 상세
+  // 페이지의 그 자리가 텍스트만으로 채워지는데, 대신 넣고 싶은 대표
+  // 이미지·영상을 여기에 직접 지정할 수 있다(이미지/영상 모두 가능).
+  // 비워두면 heroImage(대표 이미지)로 자동 대체된다. 보정 전후 비교쌍이
+  // 하나라도 있으면 이 필드는 무시된다(그쪽이 우선).
+  beforeAfterFallbackMedia?: MediaRef;
   metrics: { id: string; label: string; value: string; unit?: string }[];
   detailBlocks: ProjectDetailBlock[];
   isFeatured: boolean; // 대표 작업 여부

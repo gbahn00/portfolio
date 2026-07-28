@@ -6,6 +6,7 @@ import { GalleryGrid } from "@/components/ui/GalleryGrid";
 import { ProjectCover } from "@/components/sections/ProjectCover";
 import { ProjectNav } from "@/components/sections/ProjectNav";
 import { BeforeAfterWithText } from "@/components/sections/BeforeAfterWithText";
+import { RepresentativeMediaWithText } from "@/components/sections/RepresentativeMediaWithText";
 import { FinalVideoBlock } from "@/components/sections/FinalVideoBlock";
 import { ContentsCarousel } from "@/components/sections/ContentsCarousel";
 import { isPlaceholder, optimizedImageSrc, stripPlaceholder } from "@/lib/utils";
@@ -100,6 +101,16 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
   // 슬라이더로 보여줄 수 없으므로 개수에서 제외한다.
   const validBeforeAfter = (project.beforeAfter ?? []).filter((p) => p.before?.url && p.after?.url);
   const hasBeforeAfter = validBeforeAfter.length > 0;
+  // §131 — 보정 전후 비교쌍이 하나도 없으면, 그 자리에 관리자가 따로
+  // 지정한 대체 이미지/영상(beforeAfterFallbackMedia)을 쓰고, 그것도
+  // 없으면 대표 이미지(heroImage)로 자동 대체한다.
+  const fallbackMedia = !hasBeforeAfter
+    ? project.beforeAfterFallbackMedia?.url
+      ? project.beforeAfterFallbackMedia
+      : project.heroImage?.url
+        ? project.heroImage
+        : undefined
+    : undefined;
   const hasFinalVideo = Boolean(project.finalVideo?.url && !isPlaceholder(project.finalVideo.url));
   const hasGallery = project.gallery?.length > 0;
   // §124 — "상세 이미지"와 별도인 영상 전용 Contents 영역.
@@ -193,10 +204,19 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
         </Container>
       )}
 
-      {/* §110 — 보정 전/후 사진이 없는 프로젝트는 오른쪽에 있던 텍스트
-          (프로젝트 개요/제작 의도/기여도/Tools)를 대표 화면 바로 아래
-          첫 번째 자리에 그대로 쓴다. */}
-      {!hasBeforeAfter && (
+      {/* §131 — 보정 전후 비교쌍이 없는 프로젝트는 그 자리에 대체 이미지/
+          영상(없으면 대표 이미지)을 왼쪽에 두고, 오른쪽엔 그대로 프로젝트
+          개요/제작 의도/기여도/Tools를 배치한다. */}
+      {!hasBeforeAfter && fallbackMedia && (
+        <Container className={`pt-24 md:pt-32 ${hasMediaBelow ? "pb-8 md:pb-10" : "pb-24 md:pb-32"}`}>
+          <RepresentativeMediaWithText media={fallbackMedia}>{sectionsAndTools}</RepresentativeMediaWithText>
+        </Container>
+      )}
+
+      {/* §110 — 보정 전/후 사진도, 대체할 이미지/영상도 없는 프로젝트는
+          오른쪽에 있던 텍스트(프로젝트 개요/제작 의도/기여도/Tools)를
+          대표 화면 바로 아래 첫 번째 자리에 그대로 쓴다. */}
+      {!hasBeforeAfter && !fallbackMedia && (
         <Container className={`pt-24 md:pt-32 ${hasMediaBelow ? "pb-8 md:pb-10" : "pb-24 md:pb-32"}`}>
           <div className="max-w-3xl">{sectionsAndTools}</div>
         </Container>

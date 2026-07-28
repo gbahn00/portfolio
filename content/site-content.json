@@ -683,7 +683,7 @@
       "purpose": "임플란트 및 치과 시술을 알리는 Meta 광고 영상과 병원 사회관계망서비스 정보형 영상 제작",
       "role": "기획 및 제작 [자료 필요 - 세부 역할 구분]",
       "tools": [
-        "[자료 필요] 사용 장비 및 편집 프로그램 목록"
+        "ㅁㅇㄹㄴㅁㅇㄹ"
       ],
       "description": "의료 광고 특성상 과장된 표현을 피하고 시술 정보를 정확히 전달하는 데 집중했으며, 광고 채널의 노출 방식에 맞춰 영상 길이와 자막 구성을 조정했다.",
       "gallery": [],
@@ -838,9 +838,14 @@
       "status": "draft",
       "order": 4,
       "createdAt": "2025-03-01T00:00:00.000Z",
-      "updatedAt": "2026-07-28T06:05:50.198Z",
+      "updatedAt": "2026-07-28T06:42:10.639Z",
       "retouchHighlights": [],
-      "contents": []
+      "contents": [],
+      "beforeAfterFallbackMedia": {
+        "url": "/uploads/2ed559be-76b6-4524-866e-7bd3583e7fc8.png",
+        "kind": "image",
+        "alt": ""
+      }
     },
     {
       "id": "proj-lawyer-youtube",

@@ -283,6 +283,19 @@ export function ProjectEditor({ initial }: { initial: Project }) {
       </div>
 
       <div className="mb-5">
+        <span className="block text-sm font-medium text-neutral-300 mb-1.5">보정 전후 없을 때 대체 이미지·영상 (선택)</span>
+        <p className="text-xs text-neutral-500 mb-2">
+          위 "보정 전·후 비교"가 하나도 없는 프로젝트는 상세 페이지의 그 자리가 텍스트만으로 채워지는데, 여기에 이미지 또는 영상을 등록하면 그 자리에 대신 나타납니다(왼쪽 사진/영상 + 오른쪽 프로젝트 개요~Tools). 비워두면 위쪽 "대표 이미지"를 자동으로 대신 씁니다. 보정 전·후 비교가 하나라도 있으면 이 항목은 쓰이지 않습니다.
+        </p>
+        <MediaUpload
+          label="대체 이미지·영상"
+          value={data.beforeAfterFallbackMedia}
+          onChange={(m) => set("beforeAfterFallbackMedia", m)}
+          accept="image/*,video/*"
+        />
+      </div>
+
+      <div className="mb-5">
         <span className="block text-sm font-medium text-neutral-300 mb-1.5">성과 수치</span>
         {data.metrics.map((m) => (
           <div key={m.id} className="flex gap-2 mb-2">

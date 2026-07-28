@@ -1,8 +1,9 @@
 "use client";
 
-import { ReactNode, useLayoutEffect, useRef, useState } from "react";
+import { ReactNode } from "react";
 import { BeforeAfterPair } from "@/lib/types";
 import { BeforeAfterSlider } from "@/components/sections/BeforeAfterSlider";
+import { useElementHeight } from "@/lib/hooks/useElementHeight";
 
 // ============================================================================
 // §112~115 — 사진 높이를 텍스트에 맞추거나(§111) 반대로 텍스트를 사진
@@ -43,28 +44,16 @@ import { BeforeAfterSlider } from "@/components/sections/BeforeAfterSlider";
 // 단일 슬라이더 하나로 보여준다 — 다른 프로젝트들의 화면은 그대로다.
 // 사진 칸이 두 개가 되면 각각의 폭 상한(MAX_W)을 줄여서(SPLIT_MAX_W)
 // 텍스트 칸을 밀어내지 않게 한다.
+//
+// §131 — 텍스트 높이를 재는 로직을 lib/hooks/useElementHeight.ts 공용
+// 훅으로 뺐다(보정 전후 사진이 없을 때 대표 이미지/영상으로 대체하는
+// RepresentativeMediaWithText.tsx에서도 똑같은 로직이 필요해졌다).
 // ============================================================================
 
 const SPLIT_MAX_W = 380; // 사진 칸이 두 개(디테일컷/모델컷)일 때 각 칸의 폭 상한
 
 export function BeforeAfterWithText({ pairs, children }: { pairs: BeforeAfterPair[]; children: ReactNode }) {
-  const textRef = useRef<HTMLDivElement>(null);
-  const [textHeightPx, setTextHeightPx] = useState<number | undefined>(undefined);
-
-  useLayoutEffect(() => {
-    const el = textRef.current;
-    if (!el) return;
-    // §128 — 마운트 시점에 먼저 동기적으로 한 번 재서, 화면에 그려지기
-    // 전에(useLayoutEffect는 paint 이전에 실행) 정확한 높이가 반영되게
-    // 한다. 이후 변화는 ResizeObserver가 이어서 잡는다.
-    setTextHeightPx(el.getBoundingClientRect().height);
-    const ro = new ResizeObserver((entries) => {
-      const entry = entries[0];
-      if (entry) setTextHeightPx(entry.contentRect.height);
-    });
-    ro.observe(el);
-    return () => ro.disconnect();
-  }, []);
+  const { ref: textRef, height: textHeightPx } = useElementHeight<HTMLDivElement>();
 
   const detailPairs = pairs.filter((p) => p.category === "detail");
   const modelPairs = pairs.filter((p) => p.category === "model");
