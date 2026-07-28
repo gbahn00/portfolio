@@ -92,6 +92,28 @@ export function ContentsCarousel({ items }: { items: MediaRef[] }) {
     setOffset(next);
   }
 
+  // §149 — "Drag 배지가 떠 있을 때 영상 아무 곳이나 누르면 재생/일시정지"
+  // 요청. 이 컨테이너는 이미 드래그(팬) 제스처를 pointerdown~up으로
+  // 처리하고 있어서, 진짜로 끌지 않고 살짝 눌렀다 뗀 경우(=클릭/탭)만
+  // "재생 토글"로 취급해야 드래그 동작과 충돌하지 않는다. 포인터를 뗀
+  // 위치가 처음 누른 위치에서 6px 이상 움직이지 않았으면 클릭으로 본다.
+  // 네이티브 컨트롤 바(탐색바·음량·전체화면 버튼)를 누른 경우까지 이
+  // 토글이 가로채면 그 버튼들이 안 먹으므로, 영상 하단 컨트롤 바 높이만큼은
+  // 제외하고 그 위쪽(영상 화면 부분)을 눌렀을 때만 토글한다.
+  const CONTROL_BAR_H = 40;
+
+  function handlePointerUp(e: React.PointerEvent<HTMLDivElement>) {
+    const moved = Math.abs(e.clientX - dragStartXRef.current);
+    setDragging(false);
+    if (!canHover || !canDrag || moved >= 6) return;
+    const video = (e.target as HTMLElement).closest("video") as HTMLVideoElement | null;
+    if (!video) return;
+    const rect = video.getBoundingClientRect();
+    if (e.clientY > rect.bottom - CONTROL_BAR_H) return; // 컨트롤 바 영역은 그대로 둔다
+    if (video.paused) video.play().catch(() => {});
+    else video.pause();
+  }
+
   function endDrag() {
     setDragging(false);
   }
@@ -104,7 +126,7 @@ export function ContentsCarousel({ items }: { items: MediaRef[] }) {
         style={{ cursor: canHover && canDrag ? "none" : undefined }}
         onPointerDown={canDrag ? handlePointerDown : undefined}
         onPointerMove={handlePointerMove}
-        onPointerUp={endDrag}
+        onPointerUp={handlePointerUp}
         onPointerCancel={endDrag}
         onMouseEnter={(e) => canHover && canDrag && setHoverPos({ x: e.clientX, y: e.clientY })}
         onMouseLeave={() => setHoverPos(null)}
@@ -148,7 +170,7 @@ export function ContentsCarousel({ items }: { items: MediaRef[] }) {
             globals.css의 .accent-bg(사이트 강조색 --accent)를 쓴다. */}
         {canHover && canDrag && hoverPos && (
           <div
-            className="accent-bg pointer-events-none fixed z-50 flex h-16 w-16 items-center justify-center rounded-full text-[11px] font-semibold tracking-wide text-white shadow-lg"
+            className="accent-bg pointer-events-none fixed z-50 flex h-16 w-16 items-center justify-center rounded-full text-sm font-semibold tracking-wide text-white shadow-lg"
             style={{ left: hoverPos.x, top: hoverPos.y, transform: "translate(-50%, -50%)" }}
           >
             Drag

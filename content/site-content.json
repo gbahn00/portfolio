@@ -1147,9 +1147,40 @@
       "status": "draft",
       "order": 4,
       "createdAt": "2025-03-01T00:00:00.000Z",
-      "updatedAt": "2026-07-28T11:18:01.923Z",
+      "updatedAt": "2026-07-28T11:55:41.719Z",
       "retouchHighlights": [],
-      "contents": [],
+      "contents": [
+        {
+          "url": "/uploads/3f88e7a5-7ab4-4c66-909b-b0c2b18bf390.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/207a6668-d58e-41fa-a56a-d5f438cb884b.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/3dd31483-5eb7-401a-80c0-14a4a4f96bcc.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/a37dd8b2-ed63-4df9-89c4-f5a196aa229e.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/6dcab55e-c1e9-4cf9-952a-6539539bc320.mp4",
+          "kind": "video-file",
+          "alt": ""
+        },
+        {
+          "url": "/uploads/d6dda7a0-0601-4990-b73a-4b0540290be8.mp4",
+          "kind": "video-file",
+          "alt": ""
+        }
+      ],
       "beforeAfterFallbackMedia": [
         {
           "url": "/uploads/34135843-8884-4eaa-bdf0-dbfab68c89a4.mp4",
